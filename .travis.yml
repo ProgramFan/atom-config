@@ -1,7 +1,7 @@
 script: "./build-packages.sh"
 git:
   depth: 10
-sudo: false
+sudo: required
 os:
 - linux
 env:
