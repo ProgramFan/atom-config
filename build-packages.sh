@@ -57,10 +57,6 @@ echo "Using Atom version:"
 echo "Using APM version:"
 "$APM_SCRIPT_PATH" -v
 
-echo "Downloading package dependencies..."
-"$APM_SCRIPT_PATH" clean
-"$APM_SCRIPT_PATH" install
-
 INSTALL_PACKAGES="${APM_INSTALL_PACKAGES:=none}"
 
 if [ "$INSTALL_PACKAGES" != "none" ]; then
