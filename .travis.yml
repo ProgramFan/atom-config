@@ -28,8 +28,8 @@ addons:
     - git
     - fakeroot
     - libzmq3-dev
-    - gcc-5.1
-    - g++-5.1
+    - gcc-4.8
+    - g++-4.8
 
 install: 
-  - export CXX="g++-5.1" CC="gcc-5.1"
+  - export CXX="g++-4.8" CC="gcc-4.8"
