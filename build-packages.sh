@@ -57,7 +57,7 @@ echo "Using Atom version:"
 echo "Using APM version:"
 "$APM_SCRIPT_PATH" -v
 
-INSTALL_PACKAGES="${APM_INSTALL_PACKAGES:=none}"
+INSTALL_PACKAGES="$(cat ./atom-package-list.txt)"
 
 if [ "$INSTALL_PACKAGES" != "none" ]; then
   echo "Installing atom package dependencies..."
@@ -76,9 +76,9 @@ echo "Update packages in Programfan/atom-config"
 cd atom-config
 git config user.email "zyangmath@gmail.com"
 git config user.name "Yang Zhang"
-git add -A .
-git commit -a -m "Update packages on $(date +\"%Y-%m-%d %H:%M:%S\")"
-git push origin release:release
+git add -A . >/dev/null 2>&1
+git commit -a -m "Update packages on $(date \"+%Y-%m-%d %H:%M:%S\")"
+git push origin release:release >/dev/null 2>&1
 
 echo "Done."
 
