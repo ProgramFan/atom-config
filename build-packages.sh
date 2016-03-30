@@ -66,16 +66,20 @@ if [ "$INSTALL_PACKAGES" != "none" ]; then
   done
 fi
 
+echo "Cloning Programfan/atom-config"
 url=https://${GH_TOKEN}@github.com/Programfan/atom-config.git
 git clone ${url} -b release atom-config
 rm -rf atom-config/packages
 cp -rf ${HOME}/.atom/packages atom-config
 
+echo "Update packages in Programfan/atom-config"
 cd atom-config
 git config user.email "zyangmath@gmail.com"
 git config user.name "Yang Zhang"
 git add -A .
-git commit -a -m "Update packages on $(date +%Y-%m-%d)"
+git commit -a -m "Update packages on $(date +\"%Y-%m-%d %H:%M:%S\")"
 git push origin release:release
+
+echo "Done."
 
 exit
