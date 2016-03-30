@@ -71,14 +71,15 @@ url=https://${GH_TOKEN}@github.com/Programfan/atom-config.git
 git clone ${url} -b release atom-config
 rm -rf atom-config/packages
 cp -rf ${HOME}/.atom/packages atom-config
+echo "$(date +%Y-%m-%d@%H:%M:%S)" > atom-config/VERSION
 
 echo "Update packages in Programfan/atom-config"
 cd atom-config
 git config user.email "zyangmath@gmail.com"
 git config user.name "Yang Zhang"
-git add -A . >/dev/null 2>&1
+git add -A . >/dev/null 2&>1
 git commit -a -m "Update packages on $(date \"+%Y-%m-%d@%H:%M:%S\")"
-git push origin release:release >/dev/null 2>&1
+git push origin release:release >/dev/null 2&>1
 
 echo "Done."
 
