@@ -16,4 +16,4 @@ addons:
     - build-essential
     - git
     - fakeroot
-    - libzmq-dev
+    - libzmq3-dev
