@@ -90,8 +90,9 @@ if [ "$INSTALL_PACKAGES" != "none" ]; then
 fi
 
 echo "Cloning Programfan/atom-config"
+branch=release-${TRAVIS_OS_NAME}
 url=https://${GH_TOKEN}@github.com/Programfan/atom-config.git
-git clone ${url} -b release atom-config
+git clone ${url} -b $branch atom-config
 rm -rf atom-config/packages
 cp -rf ${HOME}/.atom/packages atom-config
 echo "$(date +%Y-%m-%d@%H:%M:%S)" > atom-config/VERSION
@@ -102,7 +103,7 @@ git config user.email "zyangmath@gmail.com"
 git config user.name "Yang Zhang"
 git add -A . &>/dev/null
 git commit -m "Update packages $(date +%Y-%m-%d@%H:%M:%S)" &>/dev/null
-git push origin release:release &>/dev/null
+git push origin $branch:$branch &>/dev/null
 
 echo "Done."
 
