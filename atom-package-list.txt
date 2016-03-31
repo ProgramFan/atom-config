@@ -10,7 +10,6 @@ autocomplete-paths
 build
 build-make
 clipboard-plus
-editor-stats
 ex-mode
 expose
 file-icons
@@ -23,7 +22,6 @@ language-cmake
 language-dot
 language-latex
 language-markdown
-language-pfm
 language-x86asm
 linter
 linter-alex
@@ -44,6 +42,5 @@ remote-edit
 sort-lines
 tidy-markdown
 tool-bar
-visual-bell
 wordcount
 you-complete-me
