@@ -9,6 +9,29 @@ fi
 # enable error reporting to the console
 set -e
 
+# check if we need package rebuild/update
+VERSION_CHANGED=0
+if [ $(git diff --name-only HEAD^ | grep "VERSION" | wc -l) -ne 1 ]; then
+  VERSION_CHANGED=1
+  echo "VERSION changed, need package update."
+fi
+LIST_CHANGED=0
+if [ $(git diff --name-only HEAD^ | grep "atom-package-list.txt" | wc -l) -ne 1 ]; then
+  LIST_CHANGED=1
+  echo "atom-package-list.txt changed, need package update."
+fi
+NEED_PACKAGE_UPDATE=0
+if [ $(($VERSION_CHANGED + $LIST_CHANGED)) -ge 1 ]; then
+  NEED_PACKAGE_UPDATE=1
+  echo "Package update scheduled."
+fi
+
+# only update config if not package update is needed
+if [ $NEED_PACKAGE_UPDATE -eq 0 ]; then
+  echo "No package update is needed, exit"
+  exit
+fi
+
 # download atom binary and export paths
 echo "Downloading latest Atom release..."
 ATOM_CHANNEL="${ATOM_CHANNEL:=stable}"
