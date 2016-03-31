@@ -78,7 +78,7 @@ cd atom-config
 git config user.email "zyangmath@gmail.com"
 git config user.name "Yang Zhang"
 git add -A . &>/dev/null
-git commit -a -m "Update packages $(date \"+%Y-%m-%d@%H:%M:%S\")"
+git commit -m "Update packages $(date \"+%Y-%m-%d@%H:%M:%S\")" &>/dev/null
 git push origin release:release &>/dev/null
 
 echo "Done."
