@@ -9,6 +9,7 @@ branches:
 
 os:
 - osx
+- linux
 
 env:
   global:
