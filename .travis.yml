@@ -7,10 +7,8 @@ branches:
   only:
   - master
 
-sudo: required
-
 os:
-- linux
+- osx
 
 env:
   global:
@@ -29,6 +27,10 @@ addons:
     - libzmq3-dev
     - gcc-4.8
     - g++-4.8
+
+before_install:
+  - if [ $TRAVIS_OS_NAME == "osx" ]; then brew update; fi
+  - if [ $TRAVIS_OS_NAME == "osx" ]; then brew install zeromq; fi
 
 install: 
   - export CXX="g++-4.8" CC="gcc-4.8"
