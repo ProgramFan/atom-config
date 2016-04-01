@@ -1,0 +1,61 @@
+{
+  "name": "you-complete-me",
+  "main": "./lib/ycm",
+  "version": "0.7.4",
+  "description": "YouCompleteMe for Atom Editor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qusic/atom-youcompleteme.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.177.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "provide"
+      }
+    },
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readme": "# Atom YouCompleteMe package\n\n[YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for Atom\n\n## Previews\n\n![](https://cloud.githubusercontent.com/assets/2141853/7626423/79024212-fa3b-11e4-941e-e014a8e5b0df.gif)\n![](https://cloud.githubusercontent.com/assets/2141853/7626422/7901f352-fa3b-11e4-8007-82ab514fb8e9.gif)\n\n## Features\n\n* Semantic code completion using [autocomplete+](https://github.com/atom-community/autocomplete-plus)\n* Diagnostic display using [linter](https://github.com/atom-community/linter)\n* Commands and context menus to query the type of variables or methods\n* Commands and context menus to go to declaration or definition\n\n## Keymaps\n\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>t</kbd> Get Type\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>p</kbd> Get Parent\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>g</kbd> Go To\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>i</kbd> Go To Imprecise\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>c</kbd> Go To Declaration\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>d</kbd> Go To Definition\n\n## Usage\n\n* Install the package\n* Configure the path to your python executable and ycmd installation\n<br>Make sure you are using python2 instead of python3\n<br>For detailed instructions and troubleshooting on building ycmd, see [ycmd's README](https://github.com/Valloric/ycmd#building).\n* By default this package is enabled for C/C++/Objective-C/Objective-C++ only. You can enable it for other filetypes that YouCompleteMe supports.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/Qusic/atom-youcompleteme/issues"
+  },
+  "homepage": "https://github.com/Qusic/atom-youcompleteme#readme",
+  "_id": "you-complete-me@0.7.4",
+  "_shasum": "58eb0460a332db535c2f37e116a2384c9a53f146",
+  "_resolved": "file:../d-11631-1953-rujjct/package.tgz",
+  "_from": "../d-11631-1953-rujjct/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "coffeelint.json",
+        "package.json"
+      ],
+      ".coffee": [
+        "lib/config.coffee",
+        "lib/debug.coffee",
+        "lib/event.coffee",
+        "lib/get-completions.coffee",
+        "lib/get-issues.coffee",
+        "lib/handler.coffee",
+        "lib/menu.coffee",
+        "lib/provider.coffee",
+        "lib/utility.coffee",
+        "lib/ycm.coffee"
+      ]
+    },
+    "folders": []
+  }
+}
