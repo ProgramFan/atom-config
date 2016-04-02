@@ -45,8 +45,8 @@
   "homepage": "https://github.com/AtomBuild/atom-build-make#readme",
   "_id": "build-make@0.8.0",
   "_shasum": "7e452112d508922b1a518768f9840ec9a6808284",
-  "_resolved": "file:../d-11631-1329-12z5epk/package.tgz",
-  "_from": "../d-11631-1329-12z5epk/package.tgz",
+  "_resolved": "file:../d-11632-1359-1vhofzg/package.tgz",
+  "_from": "../d-11632-1359-1vhofzg/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

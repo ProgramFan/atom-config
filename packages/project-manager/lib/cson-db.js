@@ -86,14 +86,12 @@ export default class CSONDB {
     if (!props._id) {
       return false;
     }
+    const id = props._id;
+    delete props._id;
 
     this.readFile(projects => {
-      for (const key in projects) {
-        if (key === props._id) {
-          projects[key] = props;
-        }
-        this.writeFile(projects);
-      }
+      projects[id] = props;
+      this.writeFile(projects);
     });
   }
 
@@ -202,6 +200,7 @@ export default class CSONDB {
         callback(projects);
         return projects;
       } catch (error) {
+        console.log(error);
         const message = `Failed to load ${path.basename(this.file())}`;
         const detail = error.location != null ? error.stack : error.message;
         this.notifyFailure(message, detail);
@@ -214,7 +213,12 @@ export default class CSONDB {
   }
 
   writeFile(projects, callback) {
-    CSON.writeFileSync(this.file(), projects);
+    try {
+      CSON.writeFileSync(this.file(), projects);
+    } catch(e) {
+      console.log(e);
+    }
+
     if (callback) {
       callback();
     }
