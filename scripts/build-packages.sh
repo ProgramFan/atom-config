@@ -95,7 +95,7 @@ url=https://${GH_TOKEN}@github.com/Programfan/atom-config.git
 git clone ${url} -b $branch atom-config
 rm -rf atom-config/*
 cp -rf ${HOME}/.atom/packages atom-config
-cp -rf ./config atom-config
+cp -rf ./config/* atom-config
 cp -f README.md atom-config
 cp -f packages/VERSION atom-config
 
