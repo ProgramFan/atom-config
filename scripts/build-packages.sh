@@ -11,12 +11,12 @@ set -e
 
 # check if we need package rebuild/update
 VERSION_CHANGED=0
-if [ $(git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "VERSION" | wc -l) -eq 1 ]; then
+if [ $(git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "VERSION" | wc -l) -ge 1 ]; then
   VERSION_CHANGED=1
   echo "VERSION changed, need package update."
 fi
 LIST_CHANGED=0
-if [ $(git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "atom-package-list.txt" | wc -l) -eq 1 ]; then
+if [ $(git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "atom-package-list.txt" | wc -l) -ge 1 ]; then
   LIST_CHANGED=1
   echo "atom-package-list.txt changed, need package update."
 fi
