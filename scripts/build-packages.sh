@@ -80,7 +80,7 @@ echo "Using Atom version:"
 echo "Using APM version:"
 "$APM_SCRIPT_PATH" -v
 
-INSTALL_PACKAGES="$(cat ./atom-package-list.txt)"
+INSTALL_PACKAGES="$(cat ./packages/atom-package-list.txt)"
 
 if [ "$INSTALL_PACKAGES" != "none" ]; then
   echo "Installing atom package dependencies..."
@@ -93,9 +93,11 @@ echo "Cloning Programfan/atom-config"
 branch=release-${TRAVIS_OS_NAME}
 url=https://${GH_TOKEN}@github.com/Programfan/atom-config.git
 git clone ${url} -b $branch atom-config
-rm -rf atom-config/packages
+rm -rf atom-config/*
 cp -rf ${HOME}/.atom/packages atom-config
-echo "$(date +%Y-%m-%d@%H:%M:%S)" > atom-config/VERSION
+cp -rf ./config atom-config
+cp -f README.md atom-config
+cp -f packages/VERSION atom-config
 
 echo "Update packages in Programfan/atom-config"
 cd atom-config

@@ -1,4 +1,4 @@
-script: "./build-packages.sh"
+script: "./scripts/build-packages.sh"
 
 git:
   depth: 10
