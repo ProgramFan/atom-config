@@ -1,0 +1,173 @@
+"*":
+  Hydrogen:
+    kernelspec: "{\"kernelspecs\":{\"root\":{\"resource_dir\":\"/Users/zyang/Library/Jupyter/kernels/root\",\"spec\":{\"language\":\"c++\",\"display_name\":\"ROOT Prompt\",\"env\":{},\"argv\":[\"python\",\"-m\",\"IPython.kernel\",\"-f\",\"{connection_file}\",\"-c\",\"import ROOT;ROOT.toCpp();\"]}},\"cling\":{\"resource_dir\":\"/usr/local/share/jupyter/kernels/cling\",\"spec\":{\"language\":\"\",\"display_name\":\"C++\",\"env\":{},\"argv\":[\"jupyter-cling-kernel\",\"-f\",\"{connection_file}\"]}},\"python2\":{\"resource_dir\":\"/usr/local/lib/python2.7/site-packages/ipykernel/resources\",\"spec\":{\"language\":\"python\",\"display_name\":\"Python 2\",\"env\":{},\"argv\":[\"/usr/local/opt/python/bin/python2.7\",\"-m\",\"ipykernel\",\"-f\",\"{connection_file}\"]}}}}"
+  Termrk:
+    fontFamily: "PowerlineSymbols, Dejavu Sans Mono, Source Han Sans CN, monospace"
+    fontSize: "20px"
+    restartShell: false
+  Zen:
+    width: 82
+  "asciidoc-preview": {}
+  "atom-beautify":
+    apex: {}
+    arduino: {}
+    c:
+      default_beautifier: "clang-format"
+    cfml: {}
+    coffeescript: {}
+    cpp:
+      default_beautifier: "clang-format"
+    cs: {}
+    css: {}
+    d: {}
+    ejs: {}
+    erb: {}
+    fortran: {}
+    general:
+      _analyticsUserId: "fbb0f21f-58ae-4d05-b3cc-14e75cf82b3a"
+      analytics: false
+    gherkin: {}
+    handlebars: {}
+    html: {}
+    jade: {}
+    java: {}
+    js: {}
+    json: {}
+    jsx: {}
+    latex: {}
+    less: {}
+    markdown:
+      commonmark: true
+    marko: {}
+    mustache: {}
+    objectivec: {}
+    pawn: {}
+    perl: {}
+    php: {}
+    python:
+      default_beautifier: "yapf"
+    riot: {}
+    ruby: {}
+    rust: {}
+    sass: {}
+    scss: {}
+    spacebars: {}
+    sql: {}
+    svg: {}
+    swig: {}
+    tss: {}
+    twig: {}
+    typescript: {}
+    vala: {}
+    visualforce: {}
+    xml: {}
+    xtemplate: {}
+  "atom-ctags":
+    cmd: "/usr/bin/ctags"
+    cmdArgs: "-R"
+  "atom-markdown-katex": {}
+  "autocomplete-plus":
+    backspaceTriggersAutocomplete: true
+    defaultProvider: "Symbol"
+    includeCompletionsFromAllBuffers: true
+    suggestionListFollows: "Cursor"
+  "autohide-tree-view":
+    showOn: "hover"
+  build:
+    saveOnBuild: true
+  "build-tools": {}
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "travis-ci-status"
+      "pandoc"
+      "markmon-preview"
+      "japanese-wrap"
+      "autocomplete"
+      "language-gfm"
+      "markdown-preview"
+      "vim-mode"
+    ]
+  editor:
+    confirmCheckoutHeadRevision: false
+    invisibles: {}
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    zoomFontWhenCtrlScrolling: true
+  "exception-reporting":
+    userId: "44f359c8-e4f1-4ec0-87d3-800f548e2bd5"
+  "file-icons":
+    onChanges: true
+  "flex-tool-bar":
+    toolBarConfigurationFilePath: "/Users/zyang/.atom/flex-tool-bar.cson"
+    useBrowserPlusWhenItIsActive: true
+  "formatter-clang-format": {}
+  "git-plus": {}
+  "git-projects":
+    rootPath: "/home/zyang/Workspace;/home/zyang/Documents"
+  "imdone-atom": {}
+  "isotope-ui": {}
+  linter:
+    gutterPosition: "Left"
+    ignoreMatchedFiles: "/**/*.{md,mkd,markdown,pdc,css,js,asciidoc,adoc}"
+    lintOnChange: false
+    lintOnEditorFocus: false
+  "linter-pep8":
+    maxLineLength: 80
+  "markdown-preview": {}
+  "markdown-preview-plus":
+    breakOnSingleNewline: true
+    enableLatexRenderingByDefault: true
+  "markdown-table-formatter":
+    autoSelectEntireDocument: false
+    keepFirstAndLastPipes: false
+  "markdown-themeable-pdf": {}
+  "markdown-writer":
+    siteEngine: "jekyll"
+  metrics:
+    userId: "aa14859581083c1df87fffcefaf0d92f44e7ddc3"
+  minimap:
+    charHeight: 4
+    charWidth: 2
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "minimap-autohide": true
+  "pdf-view": {}
+  "preview-inline": {}
+  "project-manager": {}
+  "release-notes":
+    viewedVersion: "0.95.0-f86280a"
+  "spell-check": {}
+  term2:
+    fontFamily: "PowerlineSymbols, Dejavu Sans Mono, Source Han Sans CN"
+    fontSize: "16"
+    openPanesInSameSplit: true
+  term3:
+    cursorBlink: false
+    fontFamily: "Monaco for Powerline, Monospace"
+    fontSize: "14"
+  "tool-bar": {}
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  "vim-mode":
+    startInInsertMode: true
+    wrapLeftRightMotion: true
+  welcome:
+    showOnStartup: false
+  wordcount:
+    extensions: [
+      "md"
+      "markdown"
+      "txt"
+      "adoc"
+    ]
+  "you-complete-me":
+    globalExtraConfig: "/Users/zyang/.config/ycm/ycm_extra_conf.py"
+    legacyYcmdPath: "/Users/zyang/.config/vim/bundle/YouCompleteMe/third_party/ycmd"
+    legacyYcmdUse: true
+    ycmdPath: "/Users/zyang/.config/vim/bundle/YouCompleteMe/third_party/ycmd"
