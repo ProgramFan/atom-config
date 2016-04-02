@@ -180,7 +180,7 @@ describe('BuildView', () => {
       expect(workspaceElement.querySelector('.build')).not.toExist();
 
       fs.writeFileSync(directory + '.atom-build.json', JSON.stringify({
-        cmd: `echo a && echo b && echo c && echo d && echo e && echo f && echo g && echo h && exit 1`
+        cmd: 'echo a && echo b && echo c && echo d && echo e && echo f && echo g && echo h && exit 1'
       }));
 
       waitsForPromise(() => specHelpers.refreshAwaitTargets());
@@ -194,6 +194,58 @@ describe('BuildView', () => {
 
       runs(() => {
         expect(workspaceElement.querySelector('.terminal').terminal.ydisp).toBeGreaterThan(0);
+      });
+    });
+  });
+
+  describe('when hidePanelHeading is set', () => {
+    beforeEach(() => {
+      atom.config.set('build.hidePanelHeading', true);
+    });
+
+    afterEach(() => {
+      atom.config.set('build.hidePanelHeading', false);
+    });
+
+    it('should not show the panel heading', () => {
+      expect(workspaceElement.querySelector('.build')).not.toExist();
+
+      fs.writeFileSync(directory + '.atom-build.json', JSON.stringify({
+        cmd: 'echo hello && exit 1'
+      }));
+
+      waitsForPromise(() => specHelpers.refreshAwaitTargets());
+
+      runs(() => atom.commands.dispatch(workspaceElement, 'build:trigger'));
+
+      waitsFor(() => {
+        return workspaceElement.querySelector('.build');
+      });
+
+      runs(() => {
+        expect(workspaceElement.querySelector('.build .heading')).toBeHidden();
+      });
+    });
+
+    it('should show the heading when hidden is disabled', () => {
+      expect(workspaceElement.querySelector('.build')).not.toExist();
+
+      fs.writeFileSync(directory + '.atom-build.json', JSON.stringify({
+        cmd: 'echo hello && exit 1'
+      }));
+
+      waitsForPromise(() => specHelpers.refreshAwaitTargets());
+
+      runs(() => atom.commands.dispatch(workspaceElement, 'build:trigger'));
+
+      waitsFor(() => {
+        return workspaceElement.querySelector('.build');
+      });
+
+      runs(() => {
+        expect(workspaceElement.querySelector('.build .heading')).toBeHidden();
+        atom.config.set('build.hidePanelHeading', false);
+        expect(workspaceElement.querySelector('.build .heading')).toBeVisible();
       });
     });
   });

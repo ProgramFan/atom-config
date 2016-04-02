@@ -213,6 +213,7 @@ export default {
   startNewBuild(source, atomCommandName) {
     const BuildError = require('./build-error');
     const p = require('./utils').activePath();
+    let buildTitle = '';
     this.linter && this.linter.deleteMessages();
 
     Promise.resolve(this.targets[p]).then(targets => {
@@ -231,11 +232,11 @@ export default {
         throw new BuildError('Invalid build file.', 'No executable command specified.');
       }
 
-      return Promise.resolve().then(() => {
-        if (target.preBuild && typeof target.preBuild === 'function') {
-          return target.preBuild();
-        }
-      }).then(() => target);
+      this.statusBarView && this.statusBarView.buildStarted();
+      this.buildView.buildStarted();
+      this.buildView.setHeading('Running preBuild...');
+
+      return Promise.resolve(target.preBuild ? target.preBuild() : null).then(() => target);
     }).then(target => {
       const replace = require('./utils').replace;
       const env = Object.assign({}, process.env, target.env);
@@ -250,10 +251,14 @@ export default {
       const shCmd = isWin ? 'cmd' : '/bin/sh';
       const shCmdArg = isWin ? '/C' : '-c';
 
+      // Store this as we need to re-set it after postBuild
+      buildTitle = [ (target.sh ? `${shCmd} ${shCmdArg} ${exec}` : exec ), ...args, '\n'].join(' ');
+
+      this.buildView.setHeading(buildTitle);
       if (target.sh) {
         this.child = require('child_process').spawn(
           shCmd,
-          [ shCmdArg, [ require('path').normalize(exec) ].concat(args).join(' ')],
+          [ shCmdArg, [ exec ].concat(args).join(' ')],
           { cwd: cwd, env: env }
         );
       } else {
@@ -268,8 +273,8 @@ export default {
       let stderr = '';
       this.child.stdout.setEncoding('utf8');
       this.child.stderr.setEncoding('utf8');
-      this.child.stdout.on('data', d => stdout += d);
-      this.child.stderr.on('data', d => stderr += d);
+      this.child.stdout.on('data', d => (stdout += d));
+      this.child.stderr.on('data', d => (stderr += d));
       this.child.stdout.pipe(this.buildView.terminal);
       this.child.stderr.pipe(this.buildView.terminal);
 
@@ -287,6 +292,7 @@ export default {
       });
 
       this.child.on('close', (exitCode) => {
+        this.child = null;
         this.errorMatcher.set(target.errorMatch, cwd, stdout + stderr);
 
         let success = (0 === exitCode);
@@ -294,41 +300,40 @@ export default {
           success = success && !this.errorMatcher.hasMatch();
         }
 
+        const path = require('path');
         this.linter && this.linter.setMessages(this.errorMatcher.getMatches().map(match => ({
           type: 'Error',
           text: match.message || 'Error from build',
-          filePath: match.file,
-          range: [[match.line - 1, match.col - 1], [match.line - 1, match.col - 1]]
+          filePath: path.isAbsolute(match.file) ? match.file : path.join(cwd, match.file),
+          range: [
+            [ (match.line || 1) - 1, (match.col || 1) - 1 ],
+            [ (match.line_end || match.line || 1) - 1, (match.col_end || match.col || 1) - 1 ]
+          ]
         })));
-
-        this.buildView.buildFinished(success);
-        this.statusBarView && this.statusBarView.setBuildSuccess(success);
 
         if (atom.config.get('build.beepWhenDone')) {
           atom.beep();
         }
 
-        if (success) {
-          require('./google-analytics').sendEvent('build', 'succeeded');
-          this.finishedTimer = setTimeout(() => {
-            this.buildView.detach();
-          }, 1200);
-        } else {
-          if (atom.config.get('build.scrollOnError')) {
-            this.errorMatcher.matchFirst();
+        this.buildView.setHeading('Running postBuild...');
+        return Promise.resolve(target.postBuild ? target.postBuild(success) : null).then(() => {
+          this.buildView.setHeading(buildTitle);
+
+          this.buildView.buildFinished(success);
+          this.statusBarView && this.statusBarView.setBuildSuccess(success);
+          if (success) {
+            require('./google-analytics').sendEvent('build', 'succeeded');
+            this.finishedTimer = setTimeout(() => {
+              this.buildView.detach();
+            }, 1200);
+          } else {
+            if (atom.config.get('build.scrollOnError')) {
+              this.errorMatcher.matchFirst();
+            }
+            require('./google-analytics').sendEvent('build', 'failed');
           }
-          require('./google-analytics').sendEvent('build', 'failed');
-        }
-        this.child = null;
-
-        if (target.postBuild && typeof target.postBuild === 'function') {
-          return target.postBuild(success);
-        }
+        });
       });
-
-      this.statusBarView && this.statusBarView.buildStarted();
-      this.buildView.buildStarted();
-      this.buildView.setHeading([ (target.sh ? `${shCmd} ${shCmdArg} ${exec}` : exec ), ...args, '\n'].join(' '));
     }).catch((err) => {
       if (err instanceof BuildError) {
         if (source === 'save') {
@@ -377,7 +382,8 @@ export default {
     };
 
     if (0 === modifiedTextEditors.length || atom.config.get('build.saveOnBuild')) {
-      return saveAndContinue(true);
+      saveAndContinue(true);
+      return;
     }
 
     if (this.saveConfirmView) {
