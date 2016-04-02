@@ -39,8 +39,8 @@
   "homepage": "https://github.com/AtomLinter/linter-pep8#readme",
   "_id": "linter-pep8@1.2.1",
   "_shasum": "8fb4fe272f5c0a10db98829fc1fe95431c7e267b",
-  "_resolved": "file:../d-11632-1585-qvakes/package.tgz",
-  "_from": "../d-11632-1585-qvakes/package.tgz",
+  "_resolved": "file:../d-11632-1587-c7fiw4/package.tgz",
+  "_from": "../d-11632-1587-c7fiw4/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

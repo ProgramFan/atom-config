@@ -1,0 +1,166 @@
+[
+  {
+    type: "button",
+    icon: "file-o",
+    iconset: "fa",
+    callback: "application:new-file",
+    tooltip: "New File"
+  }
+  {
+    type: "button",
+    icon: "folder-open-o",
+    iconset: "fa",
+    callback: "application:open-folder",
+    tooltip: "Open Folder ..."
+  }
+  {
+    type: "button",
+    icon: "bookmark-o",
+    iconset: "fa",
+    callback: "project-manager:list-projects",
+    tooltip: "List Projects"
+  }
+  {
+    type: "button",
+    icon: "save",
+    iconset: "fa",
+    callback: "core:save",
+    tooltip: "Save File"
+  }
+  {
+    type: "spacer"
+  }
+  {
+    type: "button",
+    icon: "sitemap",
+    iconset: "fa",
+    callback: "tree-view:toggle",
+    tooltip: "Toggle Tree View"
+  }
+  {
+    type: "button",
+    icon: "navicon",
+    iconset: "fa",
+    callback: "command-palette:toggle",
+    tooltip: "Toggle Command Palette"
+  }
+  {
+    type: "button",
+    icon: "terminal",
+    iconset: "fa",
+    callback: "termrk:toggle",
+    tooltip: "Toggle Terminal (Termrk)"
+  }
+  {
+    type: "button",
+    icon: "map-o",
+    iconset: "fa",
+    callback: "minimap:toggle",
+    tooltip: "Toggle Minimap"
+  }
+  {
+    type: "button",
+    icon: "arrows-alt",
+    iconset: "fa",
+    callback: "window:toggle-fullscreen",
+    tooltip: "Toggle Fullscreen"
+  }
+  {
+    type: "spacer"
+  }
+  {
+    type: "button",
+    icon: "git",
+    iconset: "fa",
+    callback: "git-time-machine:toggle",
+    tooltip: "Toggle Git Time Machine"
+  }
+  {
+    type: "button",
+    icon: "plus-square",
+    iconset: "fa",
+    callback: "git-plus:add",
+    tooltip: "Git Plus: Add"
+  }
+  {
+    type: "button",
+    icon: "check-square",
+    iconset: "fa",
+    callback: "git-plus:commit",
+    tooltip: "Git Plus: Commit"
+  }
+  {
+    type: "spacer"
+  }
+  {
+    type: "button",
+    icon: "search",
+    iconset: "fa",
+    callback: "find-and-replace:toggle",
+    tooltip: "Find & Replace"
+  }
+  {
+    type: "button",
+    icon: "plus-circle",
+    iconset: "fa",
+    callback: "spell-check:correct-misspelling",
+    tooltip: "Correct Spelling"
+  }
+  {
+    type: "spacer"
+  }
+  {
+    type: "button",
+    icon: "refresh",
+    iconset: "fa",
+    callback: "window:reload",
+    tooltip: "Reload Window"
+  }
+  {
+    type: "button",
+    icon: "question",
+    iconset: "fa",
+    callback: "window:toggle-dev-tools",
+    tooltip: "Toggle Dev Tools"
+  }
+  {
+    type: "spacer",
+    show: "asciidoc"
+  }
+  {
+    type: "button",
+    icon: "font",
+    iconset: "fa",
+    callback: "asciidoc-preview:toggle",
+    tooltip: "Toggle Asciidoc Preview",
+    show: "asciidoc"
+  }
+  {
+    type: "spacer",
+    show: "markdown"
+  }
+  {
+    type: "button",
+    icon: "markdown",
+    callback: "markdown-preview-plus:toggle",
+    tooltip: "Toggle Markdown Preview",
+    show: "markdown"
+  }
+  {
+    type: "spacer"
+  }
+  {
+    type: "button"
+    icon: "wrench"
+    iconset: "fa"
+    callback: "flex-tool-bar:edit-config-file"
+    tooltip: "Edit Tool Bar"
+  }
+  {
+    type: "button",
+    icon: "gear",
+    iconset: "fa",
+    callback: "settings-view:open",
+    tooltip: "Open Settings"
+  }
+]

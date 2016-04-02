@@ -197,8 +197,8 @@
   "homepage": "https://github.com/Glavin001/atom-beautify#readme",
   "_id": "atom-beautify@0.29.0",
   "_shasum": "4c8980b605a33e23b207483ed34446c7df529ff7",
-  "_resolved": "file:../d-11632-1288-j6wly2/package.tgz",
-  "_from": "../d-11632-1288-j6wly2/package.tgz",
+  "_resolved": "file:../d-11632-1290-4fy769/package.tgz",
+  "_from": "../d-11632-1290-4fy769/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
