@@ -1,0 +1,112 @@
+diff --git a/language-asciidoc/grammars/asciidoc.cson b/language-asciidoc/grammars/asciidoc.cson
+index e7c5939..2494f40 100644
+--- a/language-asciidoc/grammars/asciidoc.cson
++++ b/language-asciidoc/grammars/asciidoc.cson
+@@ -48,7 +48,7 @@
+   # ========================
+   #
+   {
+-    'begin': '^\\.(\\w[\\w ]*\\w)'
++    'begin': '^\\.([^\\.\\s].*)'
+     'end': '$'
+     'captures':
+       '1': 'name': 'markup.heading.blocktitle.asciidoc'
+@@ -392,8 +392,9 @@
+       # Examples
+       #
+       #   http://www.docbook.org/[DocBook.org]
++      #   cite:[AsciidoctorWeb]
+       {
+-        'match': '(?<=^|\\s)([^:]+:)([^:].*?)(\\[)([^\\]]*?)(\\])'
++        'match': '(?<=^|\\s)(\\w+:)([^:]*?)(\\[)([^\\]]*?)(\\])'
+         'name': 'markup.macro.inline.asciidoc'
+         'captures':
+           '1': 'name': 'support.constant.asciidoc'
+@@ -420,7 +421,7 @@
+       #
+       #   image::tiger.png[Tyger tyger]
+       {
+-        'match': '(?<=^|\\s)([^\:]+\:{2})(.+?)(\\[)([^\\]]*?)(\\])'
++        'match': '(?<=^|\\s)(\\w+\:{2})([^\:]*?)(\\[)([^\\]]*?)(\\])'
+         'name': 'markup.macro.block.asciidoc'
+         'captures':
+           '1': 'name': 'support.constant.asciidoc'
+diff --git a/language-asciidoc/snippets/language-asciidoc.cson b/language-asciidoc/snippets/language-asciidoc.cson
+index 764c924..64aa820 100644
+--- a/language-asciidoc/snippets/language-asciidoc.cson
++++ b/language-asciidoc/snippets/language-asciidoc.cson
+@@ -1,40 +1,43 @@
+ '.source.asciidoc':
+   'Comment Block':
+     'prefix': 'bl//'
+-    'body': '////////////////////////////////////////////////////////////////////////////\n$1\n////////////////////////////////////////////////////////////////////////////\n$0'
++    'body': '////\n$1\n////\n$0'
+   'Example Block':
+     'prefix': 'bl=='
+-    'body': '============================================================================\n$1\n============================================================================\n$0'
++    'body': '====\n$1\n====\n$0'
++  'Author Block':
++    'prefix': 'author'
++    'body': '${1:Author Name} <${2:mail@address.com}>\nv1.0, `date`, ${3:Version Comment}\n\n$0'
+   'Heading 0 (one-liner)':
+     'prefix': 'h0'
+-    'body': '= $1 =\n${2:Author Name} <${3:mail@address.com}>\nv1.0, `date`\n\n$0'
++    'body': '= $1\n\n$0'
+   'Heading 1 (one-liner)':
+     'prefix': 'h1'
+-    'body': '== $1 ==\n\n$0'
++    'body': '== $1\n\n$0'
+   'Heading 2 (one-liner)':
+     'prefix': 'h2'
+-    'body': '=== $1 ===\n\n$0'
++    'body': '=== $1\n\n$0'
+   'Heading 3 (one-liner)':
+     'prefix': 'h3'
+-    'body': '==== $1 ====\n\n$0'
++    'body': '==== $1\n\n$0'
+   'Heading 4 (one-liner)':
+     'prefix': 'h4'
+-    'body': '===== $1 =====\n\n$0'
++    'body': '===== $1\n\n$0'
+   'Listing Block':
+     'prefix': 'bl--'
+     'body': '[source,$1]\n----\n$2\n----\n$0'
+   'Literal Block':
+     'prefix': 'bl..'
+-    'body': '............................................................................\n$1\n............................................................................\n$0'
++    'body': '....\n$1\n....\n$0'
+   'Passthrough Block':
+     'prefix': 'bl++'
+-    'body': '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n$1\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n$0'
++    'body': '++++\n$1\n++++\n$0'
+   'Quote Block':
+     'prefix': 'bl__'
+-    'body': '____________________________________________________________________________\n$1\n____________________________________________________________________________\n$0'
++    'body': '____\n$1\n____\n$0'
+   'Sidebar Block':
+     'prefix': 'bl**'
+-    'body': '****************************************************************************\n$1\n****************************************************************************\n$0'
++    'body': '****\n$1\n****\n$0'
+   'Table':
+     'prefix': '|='
+     'body': '.${1:Legend}\n[width="${2:100%}",cols="$3",options="$4"]\n|===\n|$5\n|==='
+diff --git a/language-asciidoc/styles/asciidoc.atom-text-editor.less b/language-asciidoc/styles/asciidoc.atom-text-editor.less
+index 6c31d1b..f3e89a5 100644
+--- a/language-asciidoc/styles/asciidoc.atom-text-editor.less
++++ b/language-asciidoc/styles/asciidoc.atom-text-editor.less
+@@ -61,5 +61,15 @@ atom-text-editor, :host {
+     .quote {
+       color: mix(blue, @syntax-text-color, 20%);
+     }
++
++    .markup.macro.inline,
++    .markup.macro.block {
++        color: mix(green, @syntax-text-color, 20%);
++    }
++
++    .markup.macro.block {
++        font-weight: bold;
++    }
++
+   }
+ }
