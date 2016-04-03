@@ -43,8 +43,8 @@
   "homepage": "https://github.com/suda/tool-bar#readme",
   "_id": "tool-bar@0.4.0",
   "_shasum": "b352ea7b75dc952ef1b786c3d3a80c89ed2b264c",
-  "_resolved": "file:../d-11633-1711-hbul00/package.tgz",
-  "_from": "../d-11633-1711-hbul00/package.tgz",
+  "_resolved": "file:../d-11633-1709-14cr4un/package.tgz",
+  "_from": "../d-11633-1709-14cr4un/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

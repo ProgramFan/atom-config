@@ -41,8 +41,8 @@
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-preview#readme",
   "_id": "asciidoc-preview@0.6.0",
   "_shasum": "86a7f538731eca460a198a421e72e3764e93dee4",
-  "_resolved": "file:../d-11633-1061-1iomsiz/package.tgz",
-  "_from": "../d-11633-1061-1iomsiz/package.tgz",
+  "_resolved": "file:../d-11633-1059-19yj48y/package.tgz",
+  "_from": "../d-11633-1059-19yj48y/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

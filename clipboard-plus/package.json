@@ -36,8 +36,8 @@
   "homepage": "https://github.com/aki77/atom-clipboard-plus#readme",
   "_id": "clipboard-plus@0.5.1",
   "_shasum": "2955d3721cd92588669fa98fdf78eb331312cf36",
-  "_resolved": "file:../d-11633-1163-1t4ep6f/package.tgz",
-  "_from": "../d-11633-1163-1t4ep6f/package.tgz",
+  "_resolved": "file:../d-11633-1161-yzx2v6/package.tgz",
+  "_from": "../d-11633-1161-yzx2v6/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

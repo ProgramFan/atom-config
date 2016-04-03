@@ -33,8 +33,8 @@
   "homepage": "https://github.com/atom-community/autocomplete-paths#readme",
   "_id": "autocomplete-paths@1.0.2",
   "_shasum": "2c81b5f1926470824472829bae61d21df9f10743",
-  "_resolved": "file:../d-11633-1117-etgbgx/package.tgz",
-  "_from": "../d-11633-1117-etgbgx/package.tgz",
+  "_resolved": "file:../d-11633-1115-1h0fo7l/package.tgz",
+  "_from": "../d-11633-1115-1h0fo7l/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
