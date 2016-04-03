@@ -65,8 +65,8 @@
   "homepage": "https://github.com/noseglid/atom-build#readme",
   "_id": "build@0.59.0",
   "_shasum": "6631950fa00ca6dc31b1aa6d9945124f3cdfcbf5",
-  "_resolved": "file:../d-11633-6680-huffaq/package.tgz",
-  "_from": "../d-11633-6680-huffaq/package.tgz",
+  "_resolved": "file:../d-11633-6674-19pfyjk/package.tgz",
+  "_from": "../d-11633-6674-19pfyjk/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

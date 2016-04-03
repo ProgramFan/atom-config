@@ -31,8 +31,8 @@
   "homepage": "https://github.com/atom-minimap/minimap-highlight-selected#readme",
   "_id": "minimap-highlight-selected@4.4.0",
   "_shasum": "431224ac6cbe9db91f34c713f1c4bedd424fdfe6",
-  "_resolved": "file:../d-11633-7587-m04c7y/package.tgz",
-  "_from": "../d-11633-7587-m04c7y/package.tgz",
+  "_resolved": "file:../d-11633-7581-1bcs912/package.tgz",
+  "_from": "../d-11633-7581-1bcs912/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
