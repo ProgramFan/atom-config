@@ -1,5 +1,7 @@
 # Prebuilt Atom Packages
 
+[![Build Status](https://travis-ci.org/ProgramFan/atom-config.svg?branch=master)](https://travis-ci.org/ProgramFan/atom-config)
+
 This repository contains TravisCI configuration and scripts to package atom
 packages. Prebuilt packages are stored in `release-$TRAVIS_OS_NAME` branch.
 Both OSX and Linux packages are packed.
