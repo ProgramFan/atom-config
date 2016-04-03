@@ -80,33 +80,32 @@ echo "Using Atom version:"
 echo "Using APM version:"
 "$APM_SCRIPT_PATH" -v
 
-INSTALL_PACKAGES="$(cat ./packages/atom-package-list.txt)"
+INSTALL_PACKAGES="$(cat ./atom-package-list.txt)"
 
 if [ "$INSTALL_PACKAGES" != "none" ]; then
-  echo "Installing atom package dependencies..."
+  echo "Installing atom packages ..."
   for pack in $INSTALL_PACKAGES ; do
     "$APM_SCRIPT_PATH" install $pack
   done
 fi
 
-echo "Cloning Programfan/atom-config"
+echo "Uploading packages ..."
+echo "  Cloning remote repository ..."
 branch=release-${TRAVIS_OS_NAME}
 url=https://${GH_TOKEN}@github.com/Programfan/atom-config.git
-git clone ${url} -b $branch atom-config
-rm -rf atom-config/*
-cp -rf ${HOME}/.atom/packages atom-config
-cp -rf ./config/* atom-config
-cp -f README.md atom-config
-cp -f packages/VERSION atom-config
-
-echo "Update packages in Programfan/atom-config"
-cd atom-config
+git clone ${url} -b $branch atom-packages
+echo "  Preparing package files ..."
+rm -rf atom-packages/*
+cp -rf ${HOME}/.atom/packages/* atom-packages
+echo "$(date +%Y-%m-%d@%H:%M:%S)" > atom-packages/VERSION
+cd atom-packages
 git config user.email "zyangmath@gmail.com"
 git config user.name "Yang Zhang"
+echo "  Adding files to local git repository ..."
 git add -A . &>/dev/null
 git commit -m "Update packages $(date +%Y-%m-%d@%H:%M:%S)" &>/dev/null
+echo "  Pushing to remote repository ..."
 git push origin $branch:$branch &>/dev/null
-
 echo "Done."
 
 exit
