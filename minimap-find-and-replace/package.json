@@ -35,8 +35,8 @@
   "homepage": "https://github.com/atom-minimap/minimap-find-and-replace#readme",
   "_id": "minimap-find-and-replace@4.5.0",
   "_shasum": "693c7483630ddb5cff31d8f6e0dc066ebc4590f0",
-  "_resolved": "file:../d-11633-7521-1qd7wpa/package.tgz",
-  "_from": "../d-11633-7521-1qd7wpa/package.tgz",
+  "_resolved": "file:../d-11636-7530-18ecpju/package.tgz",
+  "_from": "../d-11636-7530-18ecpju/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

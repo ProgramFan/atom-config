@@ -32,8 +32,8 @@
   "homepage": "https://github.com/mrodalgaard/atom-expose#readme",
   "_id": "expose@0.11.1",
   "_shasum": "c677896049b7731ee080cc8a2799effd2eb7836e",
-  "_resolved": "file:../d-11633-6811-1mhxh3w/package.tgz",
-  "_from": "../d-11633-6811-1mhxh3w/package.tgz",
+  "_resolved": "file:../d-11636-6821-1ke448a/package.tgz",
+  "_from": "../d-11636-6821-1ke448a/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

@@ -30,8 +30,8 @@
   "homepage": "https://github.com/AtomLinter/linter-shellcheck#readme",
   "_id": "linter-shellcheck@1.1.0",
   "_shasum": "1b3074bd15b30ea44634c443ee69b98cb5b00e21",
-  "_resolved": "file:../d-11633-7323-1g8pm3q/package.tgz",
-  "_from": "../d-11633-7323-1g8pm3q/package.tgz",
+  "_resolved": "file:../d-11636-7332-grw4pr/package.tgz",
+  "_from": "../d-11636-7332-grw4pr/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

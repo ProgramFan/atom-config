@@ -28,14 +28,14 @@
   "homepage": "https://github.com/mark-hahn/markdown-scroll-sync#readme",
   "_id": "markdown-scroll-sync@2.1.2",
   "_shasum": "e486b624cafab3c14c3df70f8038d22c95bd7fd1",
-  "_resolved": "file:../d-11633-7383-v5oozm/package.tgz",
-  "_from": "../d-11633-7383-v5oozm/package.tgz",
+  "_resolved": "file:../d-11636-7392-xl7y6a/package.tgz",
+  "_from": "../d-11636-7392-xl7y6a/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "jquery",
-        "version": "2.2.2",
+        "version": "2.2.3",
         "path": "node_modules/sub-atom/node_modules/jquery/dist/jquery.js"
       }
     ],
