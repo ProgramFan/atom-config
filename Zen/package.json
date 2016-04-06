@@ -33,14 +33,14 @@
   "homepage": "https://github.com/defunkt/zen#readme",
   "_id": "Zen@0.16.4",
   "_shasum": "8e4faa886b1afd8f9c5d87d12f1a579b630b6fad",
-  "_resolved": "file:../d-11633-1047-akbqck/package.tgz",
-  "_from": "../d-11633-1047-akbqck/package.tgz",
+  "_resolved": "file:../d-11636-1289-m357g2/package.tgz",
+  "_from": "../d-11636-1289-m357g2/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "jquery",
-        "version": "2.2.2",
+        "version": "2.2.3",
         "path": "node_modules/jquery/dist/jquery.js"
       }
     ],

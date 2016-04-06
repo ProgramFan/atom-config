@@ -80,8 +80,8 @@
   "homepage": "https://github.com/wooorm/atom-linter-alex#readme",
   "_id": "linter-alex@2.0.0",
   "_shasum": "7bcded60f814e381c7bdaed1bb42becae3f26086",
-  "_resolved": "file:../d-11633-1350-1wac77f/package.tgz",
-  "_from": "../d-11633-1350-1wac77f/package.tgz",
+  "_resolved": "file:../d-11636-1598-18jfcc5/package.tgz",
+  "_from": "../d-11636-1598-18jfcc5/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -567,7 +567,7 @@
       },
       {
         "name": "is-posix-bracket",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/expand-brackets/node_modules/is-posix-bracket/index.js"
       },
       {
@@ -1332,7 +1332,7 @@
       },
       {
         "name": "is-posix-bracket",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "path": "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/node_modules/expand-brackets/node_modules/is-posix-bracket/index.js"
       },
       {
@@ -1612,7 +1612,7 @@
       },
       {
         "name": "is-posix-bracket",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "path": "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/node_modules/expand-brackets/node_modules/is-posix-bracket/index.js"
       },
       {
@@ -1957,28 +1957,23 @@
       },
       {
         "name": "package-json",
-        "version": "2.3.1",
+        "version": "2.3.2",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/index.js"
       },
       {
         "name": "got",
-        "version": "5.5.0",
+        "version": "5.5.1",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/index.js"
       },
       {
         "name": "create-error-class",
-        "version": "2.0.1",
+        "version": "3.0.2",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/index.js"
       },
       {
         "name": "capture-stack-trace",
         "version": "1.0.0",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/node_modules/capture-stack-trace/index.js"
-      },
-      {
-        "name": "inherits",
-        "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/node_modules/inherits/inherits.js"
       },
       {
         "name": "duplexer2",
@@ -2132,7 +2127,7 @@
       },
       {
         "name": "registry-url",
-        "version": "3.0.3",
+        "version": "3.1.0",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/registry-url/index.js"
       },
       {
@@ -2721,7 +2716,6 @@
         "node_modules/alex/node_modules/update-notifier/node_modules/configstore/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/is-npm/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/node_modules/capture-stack-trace/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/node_modules/inherits/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/duplexer2/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/is-plain-obj/package.json",
@@ -3375,9 +3369,6 @@
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/node_modules/capture-stack-trace/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/node_modules/inherits/inherits.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/node_modules/inherits/inherits_browser.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class/node_modules/inherits/test.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/duplexer2/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/is-plain-obj/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/is-redirect/index.js",
@@ -5252,7 +5243,7 @@
           "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got"
         ],
         "dependencies": {
-          "create-error-class": "^2.0.0",
+          "create-error-class": "^3.0.1",
           "duplexer2": "^0.1.4",
           "is-plain-obj": "^1.0.0",
           "is-redirect": "^1.0.0",
@@ -5275,8 +5266,7 @@
           "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/create-error-class"
         ],
         "dependencies": {
-          "capture-stack-trace": "^1.0.0",
-          "inherits": "^2.0.1"
+          "capture-stack-trace": "^1.0.0"
         }
       },
       {
