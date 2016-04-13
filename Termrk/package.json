@@ -43,14 +43,14 @@
   "homepage": "https://github.com/romgrk/termrk#readme",
   "_id": "Termrk@0.2.4",
   "_shasum": "56c64b4922f68dc2f3aaab04c83d41877544d214",
-  "_resolved": "file:../d-11636-929-piba12/package.tgz",
-  "_from": "../d-11636-929-piba12/package.tgz",
+  "_resolved": "file:../d-116313-959-o3ukuv/package.tgz",
+  "_from": "../d-116313-959-o3ukuv/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "fs-plus",
-        "version": "2.8.1",
+        "version": "2.8.2",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {

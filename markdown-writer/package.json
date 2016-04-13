@@ -84,8 +84,8 @@
   "homepage": "https://github.com/zhuochun/md-writer#readme",
   "_id": "markdown-writer@2.3.2",
   "_shasum": "5dd8aec274573e9caf79e95bf11ddf66cffac2a0",
-  "_resolved": "file:../d-11636-1685-1v7olga/package.tgz",
-  "_from": "../d-11636-1685-1v7olga/package.tgz",
+  "_resolved": "file:../d-116313-1691-1vdwvf5/package.tgz",
+  "_from": "../d-116313-1691-1vdwvf5/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -176,7 +176,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.1",
+        "version": "2.8.2",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {

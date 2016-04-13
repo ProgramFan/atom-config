@@ -1,6 +1,5 @@
 {CompositeDisposable} = require 'atom'
 
-fs = require 'fs'
 _ = require 'lodash'
 
 
@@ -146,7 +145,7 @@ module.exports = Hydrogen =
 
         marker = @editor.markBufferPosition {
             row: row
-            column: 0
+            column: lineLength
         }, {
             invalidate: 'touch'
         }
@@ -156,8 +155,6 @@ module.exports = Hydrogen =
         element = view.getElement()
 
         lineHeight = @editor.getLineHeightInPixels()
-        topOffset = lineHeight
-        element.setAttribute('style', "top: -#{topOffset}px;")
         view.spinner.setAttribute('style',
                 "width: #{lineHeight + 2}px; height: #{lineHeight - 4}px;")
         view.statusContainer.setAttribute('style', "height: #{lineHeight}px")
@@ -177,6 +174,12 @@ module.exports = Hydrogen =
                 view.destroy()
                 marker.destroy()
                 delete @markerBubbleMap[marker.id]
+            else
+                if not element.classList.contains('multiline')
+                    lineLength = marker.getStartBufferPosition()['column']
+                    element.setAttribute('style',
+                            "margin-left: #{lineLength + 1}ch;
+                            margin-top: -#{lineHeight}px")
 
         return view
 

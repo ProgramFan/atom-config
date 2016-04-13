@@ -41,8 +41,8 @@
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-preview#readme",
   "_id": "asciidoc-preview@0.6.0",
   "_shasum": "86a7f538731eca460a198a421e72e3764e93dee4",
-  "_resolved": "file:../d-11636-1301-1l0vns9/package.tgz",
-  "_from": "../d-11636-1301-1l0vns9/package.tgz",
+  "_resolved": "file:../d-116313-1315-1vo9f8k/package.tgz",
+  "_from": "../d-116313-1315-1vo9f8k/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -203,7 +203,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "1.1.13",
+        "version": "1.1.14",
         "path": "node_modules/cheerio/node_modules/htmlparser2/node_modules/readable-stream/readable.js"
       },
       {
@@ -233,7 +233,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.1",
+        "version": "2.8.2",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {

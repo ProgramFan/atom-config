@@ -36,8 +36,8 @@
   "homepage": "https://github.com/cakebake/markdown-themeable-pdf#readme",
   "_id": "markdown-themeable-pdf@1.0.1",
   "_shasum": "9e6ebc93adadf6b29d1b48b6746cfdfaf5b3129e",
-  "_resolved": "file:../d-11636-1671-torkeg/package.tgz",
-  "_from": "../d-11636-1671-torkeg/package.tgz",
+  "_resolved": "file:../d-116313-1678-1crcrzx/package.tgz",
+  "_from": "../d-116313-1678-1crcrzx/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -118,7 +118,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "1.1.13",
+        "version": "1.1.14",
         "path": "node_modules/cheerio/node_modules/htmlparser2/node_modules/readable-stream/readable.js"
       },
       {
@@ -248,7 +248,7 @@
       },
       {
         "name": "request",
-        "version": "2.70.0",
+        "version": "2.71.0",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/index.js"
       },
       {
@@ -438,7 +438,7 @@
       },
       {
         "name": "pinkie-promise",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/har-validator/node_modules/pinkie-promise/index.js"
       },
       {
@@ -628,7 +628,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.8.2",
+        "version": "4.11.0",
         "path": "node_modules/cheerio/node_modules/lodash/lodash.js"
       },
       {
@@ -813,12 +813,12 @@
       },
       {
         "name": "is-stream",
-        "version": "1.0.1",
+        "version": "1.1.0",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/hasha/node_modules/is-stream/index.js"
       },
       {
         "name": "pinkie-promise",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/hasha/node_modules/pinkie-promise/index.js"
       },
       {
@@ -1008,7 +1008,7 @@
       },
       {
         "name": "pinkie-promise",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/har-validator/node_modules/pinkie-promise/index.js"
       },
       {
@@ -2218,10 +2218,6 @@
         "node_modules/cheerio/node_modules/lodash/_baseAggregator.js",
         "node_modules/cheerio/node_modules/lodash/_baseAssign.js",
         "node_modules/cheerio/node_modules/lodash/_baseAt.js",
-        "node_modules/cheerio/node_modules/lodash/_baseCastArrayLikeObject.js",
-        "node_modules/cheerio/node_modules/lodash/_baseCastFunction.js",
-        "node_modules/cheerio/node_modules/lodash/_baseCastKey.js",
-        "node_modules/cheerio/node_modules/lodash/_baseCastPath.js",
         "node_modules/cheerio/node_modules/lodash/_baseClamp.js",
         "node_modules/cheerio/node_modules/lodash/_baseClone.js",
         "node_modules/cheerio/node_modules/lodash/_baseConforms.js",
@@ -2265,6 +2261,7 @@
         "node_modules/cheerio/node_modules/lodash/_baseMean.js",
         "node_modules/cheerio/node_modules/lodash/_baseMerge.js",
         "node_modules/cheerio/node_modules/lodash/_baseMergeDeep.js",
+        "node_modules/cheerio/node_modules/lodash/_baseNth.js",
         "node_modules/cheerio/node_modules/lodash/_baseOrderBy.js",
         "node_modules/cheerio/node_modules/lodash/_basePick.js",
         "node_modules/cheerio/node_modules/lodash/_basePickBy.js",
@@ -2299,6 +2296,10 @@
         "node_modules/cheerio/node_modules/lodash/_baseZipObject.js",
         "node_modules/cheerio/node_modules/lodash/_cacheHas.js",
         "node_modules/cheerio/node_modules/lodash/_cachePush.js",
+        "node_modules/cheerio/node_modules/lodash/_castArrayLikeObject.js",
+        "node_modules/cheerio/node_modules/lodash/_castFunction.js",
+        "node_modules/cheerio/node_modules/lodash/_castPath.js",
+        "node_modules/cheerio/node_modules/lodash/_castSlice.js",
         "node_modules/cheerio/node_modules/lodash/_charsEndIndex.js",
         "node_modules/cheerio/node_modules/lodash/_charsStartIndex.js",
         "node_modules/cheerio/node_modules/lodash/_checkGlobal.js",
@@ -2316,7 +2317,6 @@
         "node_modules/cheerio/node_modules/lodash/_composeArgsRight.js",
         "node_modules/cheerio/node_modules/lodash/_copyArray.js",
         "node_modules/cheerio/node_modules/lodash/_copyObject.js",
-        "node_modules/cheerio/node_modules/lodash/_copyObjectWith.js",
         "node_modules/cheerio/node_modules/lodash/_copySymbols.js",
         "node_modules/cheerio/node_modules/lodash/_countHolders.js",
         "node_modules/cheerio/node_modules/lodash/_createAggregator.js",
@@ -2369,6 +2369,8 @@
         "node_modules/cheerio/node_modules/lodash/_initCloneArray.js",
         "node_modules/cheerio/node_modules/lodash/_initCloneByTag.js",
         "node_modules/cheerio/node_modules/lodash/_initCloneObject.js",
+        "node_modules/cheerio/node_modules/lodash/_isFlattenable.js",
+        "node_modules/cheerio/node_modules/lodash/_isFlattenableIteratee.js",
         "node_modules/cheerio/node_modules/lodash/_isHostObject.js",
         "node_modules/cheerio/node_modules/lodash/_isIndex.js",
         "node_modules/cheerio/node_modules/lodash/_isIterateeCall.js",
@@ -2395,6 +2397,7 @@
         "node_modules/cheerio/node_modules/lodash/_parent.js",
         "node_modules/cheerio/node_modules/lodash/_reEscape.js",
         "node_modules/cheerio/node_modules/lodash/_reEvaluate.js",
+        "node_modules/cheerio/node_modules/lodash/_reHasComplexSymbol.js",
         "node_modules/cheerio/node_modules/lodash/_reInterpolate.js",
         "node_modules/cheerio/node_modules/lodash/_realNames.js",
         "node_modules/cheerio/node_modules/lodash/_reorder.js",
@@ -2410,6 +2413,7 @@
         "node_modules/cheerio/node_modules/lodash/_stringSize.js",
         "node_modules/cheerio/node_modules/lodash/_stringToArray.js",
         "node_modules/cheerio/node_modules/lodash/_stringToPath.js",
+        "node_modules/cheerio/node_modules/lodash/_toKey.js",
         "node_modules/cheerio/node_modules/lodash/_toSource.js",
         "node_modules/cheerio/node_modules/lodash/_unescapeHtmlChar.js",
         "node_modules/cheerio/node_modules/lodash/_wrapperClone.js",
@@ -2693,7 +2697,6 @@
         "node_modules/cheerio/node_modules/lodash/fp/lte.js",
         "node_modules/cheerio/node_modules/lodash/fp/map.js",
         "node_modules/cheerio/node_modules/lodash/fp/mapKeys.js",
-        "node_modules/cheerio/node_modules/lodash/fp/mapObj.js",
         "node_modules/cheerio/node_modules/lodash/fp/mapValues.js",
         "node_modules/cheerio/node_modules/lodash/fp/matches.js",
         "node_modules/cheerio/node_modules/lodash/fp/matchesProperty.js",
@@ -2716,6 +2719,7 @@
         "node_modules/cheerio/node_modules/lodash/fp/next.js",
         "node_modules/cheerio/node_modules/lodash/fp/noop.js",
         "node_modules/cheerio/node_modules/lodash/fp/now.js",
+        "node_modules/cheerio/node_modules/lodash/fp/nth.js",
         "node_modules/cheerio/node_modules/lodash/fp/nthArg.js",
         "node_modules/cheerio/node_modules/lodash/fp/number.js",
         "node_modules/cheerio/node_modules/lodash/fp/object.js",
@@ -2741,6 +2745,7 @@
         "node_modules/cheerio/node_modules/lodash/fp/path.js",
         "node_modules/cheerio/node_modules/lodash/fp/pathEq.js",
         "node_modules/cheerio/node_modules/lodash/fp/pathOr.js",
+        "node_modules/cheerio/node_modules/lodash/fp/paths.js",
         "node_modules/cheerio/node_modules/lodash/fp/pick.js",
         "node_modules/cheerio/node_modules/lodash/fp/pickAll.js",
         "node_modules/cheerio/node_modules/lodash/fp/pickBy.js",
@@ -2748,10 +2753,11 @@
         "node_modules/cheerio/node_modules/lodash/fp/placeholder.js",
         "node_modules/cheerio/node_modules/lodash/fp/plant.js",
         "node_modules/cheerio/node_modules/lodash/fp/prop.js",
-        "node_modules/cheerio/node_modules/lodash/fp/propOf.js",
+        "node_modules/cheerio/node_modules/lodash/fp/propEq.js",
         "node_modules/cheerio/node_modules/lodash/fp/propOr.js",
         "node_modules/cheerio/node_modules/lodash/fp/property.js",
         "node_modules/cheerio/node_modules/lodash/fp/propertyOf.js",
+        "node_modules/cheerio/node_modules/lodash/fp/props.js",
         "node_modules/cheerio/node_modules/lodash/fp/pull.js",
         "node_modules/cheerio/node_modules/lodash/fp/pullAll.js",
         "node_modules/cheerio/node_modules/lodash/fp/pullAllBy.js",
@@ -2974,6 +2980,7 @@
         "node_modules/cheerio/node_modules/lodash/next.js",
         "node_modules/cheerio/node_modules/lodash/noop.js",
         "node_modules/cheerio/node_modules/lodash/now.js",
+        "node_modules/cheerio/node_modules/lodash/nth.js",
         "node_modules/cheerio/node_modules/lodash/nthArg.js",
         "node_modules/cheerio/node_modules/lodash/number.js",
         "node_modules/cheerio/node_modules/lodash/object.js",

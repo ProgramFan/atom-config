@@ -18,8 +18,8 @@
   "homepage": "https://github.com/asciidoctor/atom-language-asciidoc#readme",
   "_id": "language-asciidoc@0.12.0",
   "_shasum": "1cc1d7ecda4b2bd145c84f4412963f40f2226521",
-  "_resolved": "file:../d-11636-1514-rs9t6x/package.tgz",
-  "_from": "../d-11636-1514-rs9t6x/package.tgz",
+  "_resolved": "file:../d-116313-1521-1apwu4e/package.tgz",
+  "_from": "../d-116313-1521-1apwu4e/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

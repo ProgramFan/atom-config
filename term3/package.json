@@ -51,8 +51,8 @@
   "homepage": "https://github.com/Floobits/atom-term3#readme",
   "_id": "term3@0.21.4",
   "_shasum": "a61f6113f33cf92ff093d156778aa999724d9da2",
-  "_resolved": "file:../d-11636-1147-1fxy0n2/package.tgz",
-  "_from": "../d-11636-1147-1fxy0n2/package.tgz",
+  "_resolved": "file:../d-116313-1180-g1e6ry/package.tgz",
+  "_from": "../d-116313-1180-g1e6ry/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -233,7 +233,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.1",
+        "version": "2.8.2",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {
@@ -494,7 +494,7 @@
         "lib/term-view.coffee"
       ],
       ".js": [
-        "lib/build/.module-cache/36e73e1708ae31c7e5564149e4a82b586d01d7b1.js",
+        "lib/build/.module-cache/3ee737bdd4d48d8ede6a9393490ea37053a57c1e.js",
         "lib/build/list-view.js",
         "lib/terminal-model.js",
         "node_modules/atom-space-pen-views/lib/main.js",
@@ -2161,7 +2161,7 @@
         "node_modules/reactionary-atom-fork/lib/reactionary.js"
       ],
       ".json": [
-        "lib/build/.module-cache/manifest/36e73e1708ae31c7e5564149e4a82b586d01d7b1.json",
+        "lib/build/.module-cache/manifest/3ee737bdd4d48d8ede6a9393490ea37053a57c1e.json",
         "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/package.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/api.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/d/package.json",
