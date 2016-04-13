@@ -1,7 +1,7 @@
 {
   "name": "Hydrogen",
   "main": "./lib/main",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "Run code and get results inline using Jupyter kernels like IPython, IJulia, and iTorch",
   "author": {
     "name": "Will Whitney",
@@ -43,7 +43,8 @@
     "jmp": "0.4.x",
     "lodash": "^3.8.0",
     "transformime": "^2.2.0",
-    "transformime-jupyter-transformers": "^0.4.1",
+    "transformime-jupyter-transformers": "^0.5.0",
+    "transformime-marked": "0.0.1",
     "uuid": "^2.0.1"
   },
   "consumedServices": {
@@ -66,8 +67,8 @@
     "url": "https://github.com/nteract/hydrogen/issues"
   },
   "homepage": "https://github.com/nteract/hydrogen#readme",
-  "_id": "Hydrogen@0.8.3",
-  "_shasum": "dee191c25f5a659c4ca1c43c590401de18a66422",
-  "_resolved": "file:../d-11636-6252-u8evmx/package.tgz",
-  "_from": "../d-11636-6252-u8evmx/package.tgz"
+  "_id": "Hydrogen@0.8.4",
+  "_shasum": "10b2e2b2d19fb1dc88f6274bc51bf1f6269dc1e5",
+  "_resolved": "file:../d-116313-6246-1fli24t/package.tgz",
+  "_from": "../d-116313-6246-1fli24t/package.tgz"
 }

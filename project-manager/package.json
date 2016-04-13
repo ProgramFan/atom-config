@@ -71,8 +71,8 @@
   "homepage": "https://github.com/danielbrodin/atom-project-manager#readme",
   "_id": "project-manager@2.9.7",
   "_shasum": "c63269dedd748866a63958f5d78a41e51d7a932f",
-  "_resolved": "file:../d-11636-7651-ndw8qg/package.tgz",
-  "_from": "../d-11636-7651-ndw8qg/package.tgz",
+  "_resolved": "file:../d-116313-7649-11t24ok/package.tgz",
+  "_from": "../d-116313-7649-11t24ok/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -253,7 +253,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.1",
+        "version": "2.8.2",
         "path": "node_modules/season/node_modules/fs-plus/lib/fs-plus.js"
       },
       {

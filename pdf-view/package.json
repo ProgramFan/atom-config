@@ -30,8 +30,8 @@
   "homepage": "https://github.com/izuzak/atom-pdf-view#readme",
   "_id": "pdf-view@0.50.0",
   "_shasum": "91d5f954e37dafbad927812c342c539ddea2c188",
-  "_resolved": "file:../d-11636-7620-lmukky/package.tgz",
-  "_from": "../d-11636-7620-lmukky/package.tgz",
+  "_resolved": "file:../d-116313-7618-11sf1j7/package.tgz",
+  "_from": "../d-116313-7618-11sf1j7/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -112,7 +112,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.1",
+        "version": "2.8.2",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {

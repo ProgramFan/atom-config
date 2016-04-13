@@ -1,6 +1,4 @@
 child_process = require 'child_process'
-crypto = require 'crypto'
-fs = require 'fs'
 path = require 'path'
 
 _ = require 'lodash'
@@ -362,6 +360,9 @@ class Kernel
 
             else if not (imageMimes.length is 0)
                 mime = imageMimes[0]
+
+            else if data.hasOwnProperty 'text/markdown'
+                mime = 'text/markdown'
 
             else if data.hasOwnProperty 'text/plain'
                 mime = 'text/plain'

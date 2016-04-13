@@ -1,5 +1,4 @@
 {CompositeDisposable} = require 'atom'
-_ = require 'lodash'
 
 module.exports =
 class ResultView
@@ -141,6 +140,10 @@ class ResultView
             if mimeType is 'image/svg+xml'
                 container.classList.add('svg')
 
+            if mimeType is 'text/markdown'
+                @element.classList.add 'markdown'
+                @element.classList.remove 'rich'
+
             if @errorContainer.getElementsByTagName('span').length is 0
                 @errorContainer.classList.add('plain-error')
             else
@@ -216,30 +219,16 @@ class ResultView
 
 transformime = require 'transformime'
 transformimeJupyter = require 'transformime-jupyter-transformers'
-
-SVGTransform = (mimetype, value, document) ->
-    container = document.createElement 'div'
-    container.innerHTML = value
-
-    svgElement = (container.getElementsByTagName 'svg')[0]
-    unless svgElement?
-        throw new Error 'SVGTransform: Error: Failed to create an <svg> element'
-
-    return svgElement
-
-SVGTransform.mimetype = 'image/svg+xml'
+MarkdownTransform = require 'transformime-marked'
 
 transformimeJupyter.consoleTextTransform.mimetype = [
     'jupyter/console-text', 'text/plain'
 ]
 
 transform = transformime.createTransform [
-    transformimeJupyter.PDFTransform,
     transformime.ImageTransformer,
-    SVGTransform,
+    transformimeJupyter.SVGTransform,
     transformimeJupyter.consoleTextTransform,
-    transformimeJupyter.LaTeXTransform,
-    transformimeJupyter.markdownTransform,
+    MarkdownTransform,
     transformime.HTMLTransformer,
-    transformimeJupyter.ScriptTransform
 ]

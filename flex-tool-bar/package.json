@@ -46,8 +46,8 @@
   "homepage": "https://github.com/cakecatz/flex-toolbar#readme",
   "_id": "flex-tool-bar@0.9.0",
   "_shasum": "389bfe59958649cfe30d73ee3ea35b06035778d0",
-  "_resolved": "file:../d-11636-6881-1ds4m1s/package.tgz",
-  "_from": "../d-11636-6881-1ds4m1s/package.tgz",
+  "_resolved": "file:../d-116313-6878-zz8zgx/package.tgz",
+  "_from": "../d-116313-6878-zz8zgx/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -128,7 +128,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.1",
+        "version": "2.8.2",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {
@@ -248,12 +248,12 @@
       },
       {
         "name": "cross-spawn",
-        "version": "2.1.5",
+        "version": "2.2.3",
         "path": "node_modules/tree-match-sync/node_modules/cross-spawn/index.js"
       },
       {
         "name": "cross-spawn-async",
-        "version": "2.1.9",
+        "version": "2.2.2",
         "path": "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/index.js"
       },
       {
@@ -1526,7 +1526,7 @@
           "node_modules/tree-match-sync/node_modules/cross-spawn"
         ],
         "dependencies": {
-          "cross-spawn-async": "^2.0.0",
+          "cross-spawn-async": "^2.2.2",
           "spawn-sync": "^1.0.15"
         }
       },
