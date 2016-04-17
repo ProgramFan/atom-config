@@ -50,8 +50,8 @@
   "homepage": "https://github.com/slang800/atom-tidy-markdown#readme",
   "_id": "tidy-markdown@3.0.0",
   "_shasum": "b0dd08541dc17c1e9a1a49dd5a45a08e31a8a036",
-  "_resolved": "file:../d-116313-1945-erwlk7/package.tgz",
-  "_from": "../d-116313-1945-erwlk7/package.tgz",
+  "_resolved": "file:../d-116317-1941-1yf4897/package.tgz",
+  "_from": "../d-116317-1941-1yf4897/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -87,7 +87,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.5.5",
+        "version": "3.6.0",
         "path": "node_modules/tidy-markdown/node_modules/js-yaml/index.js"
       },
       {
@@ -97,7 +97,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.11.0",
+        "version": "4.11.1",
         "path": "node_modules/tidy-markdown/node_modules/lodash/lodash.js"
       },
       {
@@ -809,6 +809,7 @@
         "node_modules/tidy-markdown/node_modules/lodash/fp/pipe.js",
         "node_modules/tidy-markdown/node_modules/lodash/fp/placeholder.js",
         "node_modules/tidy-markdown/node_modules/lodash/fp/plant.js",
+        "node_modules/tidy-markdown/node_modules/lodash/fp/pluck.js",
         "node_modules/tidy-markdown/node_modules/lodash/fp/prop.js",
         "node_modules/tidy-markdown/node_modules/lodash/fp/propEq.js",
         "node_modules/tidy-markdown/node_modules/lodash/fp/propOr.js",
@@ -1279,7 +1280,7 @@
           "node_modules/tidy-markdown/node_modules/js-yaml/lib"
         ],
         "dependencies": {
-          "argparse": "^1.0.2",
+          "argparse": "^1.0.7",
           "esprima": "^2.6.0"
         }
       }

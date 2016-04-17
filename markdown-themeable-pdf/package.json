@@ -36,8 +36,8 @@
   "homepage": "https://github.com/cakebake/markdown-themeable-pdf#readme",
   "_id": "markdown-themeable-pdf@1.0.1",
   "_shasum": "9e6ebc93adadf6b29d1b48b6746cfdfaf5b3129e",
-  "_resolved": "file:../d-116313-1678-1crcrzx/package.tgz",
-  "_from": "../d-116313-1678-1crcrzx/package.tgz",
+  "_resolved": "file:../d-116317-1674-160h3gz/package.tgz",
+  "_from": "../d-116317-1674-160h3gz/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -248,7 +248,7 @@
       },
       {
         "name": "request",
-        "version": "2.71.0",
+        "version": "2.72.0",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/index.js"
       },
       {
@@ -628,7 +628,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.11.0",
+        "version": "4.11.1",
         "path": "node_modules/cheerio/node_modules/lodash/lodash.js"
       },
       {
@@ -738,13 +738,13 @@
       },
       {
         "name": "jsonfile",
-        "version": "2.2.3",
+        "version": "2.3.0",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/jsonfile/index.js"
       },
       {
         "name": "klaw",
-        "version": "1.1.3",
-        "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/klaw/index.js"
+        "version": "1.2.0",
+        "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/klaw/src/index.js"
       },
       {
         "name": "path-is-absolute",
@@ -2752,6 +2752,7 @@
         "node_modules/cheerio/node_modules/lodash/fp/pipe.js",
         "node_modules/cheerio/node_modules/lodash/fp/placeholder.js",
         "node_modules/cheerio/node_modules/lodash/fp/plant.js",
+        "node_modules/cheerio/node_modules/lodash/fp/pluck.js",
         "node_modules/cheerio/node_modules/lodash/fp/prop.js",
         "node_modules/cheerio/node_modules/lodash/fp/propEq.js",
         "node_modules/cheerio/node_modules/lodash/fp/propOr.js",
@@ -3395,8 +3396,8 @@
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/graceful-fs/legacy-streams.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/graceful-fs/polyfills.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/jsonfile/index.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/klaw/assign.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/klaw/index.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/klaw/src/assign.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/klaw/src/index.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/path-is-absolute/index.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/bin.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/common.js",

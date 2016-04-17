@@ -58,8 +58,8 @@
   "readmeFilename": "README.md",
   "_id": "remote-edit@1.8.24",
   "_shasum": "ecc641b6b4bbd1614535a9028ee9e0c751652557",
-  "_resolved": "file:../d-116313-1775-12upbz0/package.tgz",
-  "_from": "../d-116313-1775-12upbz0/package.tgz",
+  "_resolved": "file:../d-116317-1771-ms5eug/package.tgz",
+  "_from": "../d-116317-1771-ms5eug/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
