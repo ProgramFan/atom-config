@@ -52,8 +52,8 @@
   "homepage": "https://github.com/imdone/imdone-atom#readme",
   "_id": "imdone-atom@1.3.29",
   "_shasum": "b76aebf2c1ac8c5b33cafe8fa16166a1bb961f5c",
-  "_resolved": "file:../d-116313-6985-19pej03/package.tgz",
-  "_from": "../d-116313-6985-19pej03/package.tgz",
+  "_resolved": "file:../d-116317-6973-1obyxnq/package.tgz",
+  "_from": "../d-116317-6973-1obyxnq/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -724,7 +724,7 @@
       },
       {
         "name": "unreachable-branch-transform",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/index.js"
       },
       {
@@ -734,18 +734,18 @@
       },
       {
         "name": "recast",
-        "version": "0.10.43",
+        "version": "0.11.5",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/main.js"
       },
       {
         "name": "ast-types",
-        "version": "0.8.15",
+        "version": "0.8.16",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/main.js"
       },
       {
-        "name": "esprima-fb",
-        "version": "15001.1001.0-dev-harmony-fb",
-        "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/esprima.js"
+        "name": "esprima",
+        "version": "2.7.2",
+        "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/esprima.js"
       },
       {
         "name": "private",
@@ -824,7 +824,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.11.0",
+        "version": "4.11.1",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -1724,7 +1724,8 @@
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/es6.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/es7.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/esprima.js",
-        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/fb-harmony.js",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/flow.js",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/jsx.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/mozilla.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/equiv.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/node-path.js",
@@ -1734,9 +1735,9 @@
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/shared.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/types.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/main.js",
-        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/bin/esparse.js",
-        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/bin/esvalidate.js",
-        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/esprima.js",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/bin/esparse.js",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/esprima.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/private/private.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/dist/source-map.debug.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/dist/source-map.js",
@@ -2364,6 +2365,7 @@
         "node_modules/lodash/fp/pipe.js",
         "node_modules/lodash/fp/placeholder.js",
         "node_modules/lodash/fp/plant.js",
+        "node_modules/lodash/fp/pluck.js",
         "node_modules/lodash/fp/prop.js",
         "node_modules/lodash/fp/propEq.js",
         "node_modules/lodash/fp/propOr.js",
@@ -3220,7 +3222,7 @@
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/string_decoder/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/esmangle-evaluator/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/package.json",
-        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/package.json",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/private/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/package.json",
@@ -4085,7 +4087,7 @@
         ],
         "dependencies": {
           "esmangle-evaluator": "^1.0.0",
-          "recast": "^0.10.1"
+          "recast": "^0.11.4"
         }
       },
       {
@@ -4094,10 +4096,10 @@
           "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast"
         ],
         "dependencies": {
-          "esprima-fb": "~15001.1001.0-dev-harmony-fb",
-          "source-map": "~0.5.0",
+          "ast-types": "0.8.16",
+          "esprima": "~2.7.1",
           "private": "~0.1.5",
-          "ast-types": "0.8.15"
+          "source-map": "~0.5.0"
         }
       },
       {

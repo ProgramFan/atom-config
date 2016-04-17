@@ -1,7 +1,7 @@
 {
   "name": "atom-beautify",
   "main": "./src/beautify",
-  "version": "0.29.2",
+  "version": "0.29.4",
   "private": true,
   "description": "Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, and SQL in Atom",
   "repository": {
@@ -88,7 +88,6 @@
     "coffee-fmt": "0.11.0",
     "coffee-formatter": "^0.1.2",
     "coffee-script": "^1.10.0",
-    "cross-spawn": "^2.0.0",
     "csscomb": "^3.1.7",
     "diff": "^2.1.0",
     "editorconfig": "^0.12.2",
@@ -115,7 +114,11 @@
     "underscore-plus": "^1.6.6",
     "which": "^1.1.1",
     "winston": "^1.0.0",
-    "yaml-front-matter": "^3.2.3"
+    "yaml-front-matter": "^3.2.3",
+    "cross-spawn": "^2.0.0"
+  },
+  "optionalDependencies": {
+    "cross-spawn": "^2.0.0"
   },
   "activationCommands": {
     "atom-workspace": [
@@ -195,10 +198,10 @@
   "readme": "# [atom-beautify](https://github.com/Glavin001/atom-beautify)\n\n[![Build Status](https://travis-ci.org/Glavin001/atom-beautify.svg?branch=master)](https://travis-ci.org/Glavin001/atom-beautify)\n[![Build status](https://ci.appveyor.com/api/projects/status/himnq7tjxl2fdc8u?svg=true)](https://ci.appveyor.com/project/Glavin001/atom-beautify)\n[![Gitter chat](https://img.shields.io/badge/gitter-Glavin001%2Fatom--beautify-1dce73.svg)](https://gitter.im/Glavin001/atom-beautify)\n[![Paypal Donations](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X2RK5DKN6YXPJ&lc=CA&item_name=Atom%2dBeautify&item_number=atom%2dbeautify&currency_code=CAD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted)\n\n[![Throughput Graph](https://graphs.waffle.io/Glavin001/atom-beautify/throughput.svg)](https://waffle.io/Glavin001/atom-beautify/metrics)\n\n> [Beautify](https://github.com/beautify-web/js-beautify)\nHTML (including [Handlebars](http://handlebarsjs.com/)),\nCSS (including [Sass](http://sass-lang.com/) and [Less](http://lesscss.org/)),\nJavaScript, and much more in Atom.\n\nAtom Package: https://atom.io/packages/atom-beautify\n\n```bash\napm install atom-beautify\n```\n\nOr Settings/Preferences ➔ Packages ➔ Search for `atom-beautify`\n\n## Language Support\n\n- [x] JavaScript and JSON\n- [x] HTML, including\n  - [x] [Handlebars](http://handlebarsjs.com/)\n  - [x] [Mustache](http://mustache.github.io)\n  - [x] [Embedded Ruby (ERB)](https://github.com/Glavin001/atom-beautify/issues/80)\n    - Requires [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier)\n  - [x] XML\n  - [x] SVG\n  - [x] [Marko](https://github.com/marko-js/marko)\n    - Requires [language-marko](https://github.com/marko-js/atom-language-marko)\n- [x] CSS, including\n  - [Sass](http://sass-lang.com/)\n  - [Less](http://lesscss.org/)\n- [x] [SQL](https://github.com/Glavin001/atom-beautify/pull/67)\n  - Requires [python-sqlparse](https://github.com/andialbrecht/sqlparse)\n- [x] [Markdown](https://github.com/Glavin001/atom-beautify/issues/292)\n- [x] [Perl](https://github.com/Glavin001/atom-beautify/issues/33)\n  - Requires [perltidy](http://perltidy.sourceforge.net/)\n- [x] [PHP](https://github.com/Glavin001/atom-beautify/issues/26)  \n  - Requires [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) to be already installed.\n- [x] [Python](https://github.com/Glavin001/atom-beautify/issues/24)\n  - Requires [autopep8](https://github.com/hhatto/autopep8) or [YAPF](https://github.com/google/yapf) to be already installed.\n  - Beautifies to [PEP 8](https://www.python.org/dev/peps/pep-0008/).\n- [x] [Ruby](https://github.com/Glavin001/atom-beautify/issues/25)\n  - Requires [Ruby Beautify](https://github.com/erniebrodeur/ruby-beautify)\n- [x] [CoffeeScript](https://github.com/Glavin001/atom-beautify/issues/31)\n- [x] [Golang](https://github.com/Glavin001/atom-beautify/issues/176)\n- [x] [Java](https://github.com/Glavin001/atom-beautify/issues/45)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C++](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [C#](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Objective-C](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [D](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/) or [dfmt](https://github.com/Hackerpilot/dfmt)\n- [x] [Fortran](https://github.com/Glavin001/atom-beautify/issues/300)\n  - Requires [GNU Emacs](http://www.gnu.org/software/emacs/)\n- [x] [Pawn](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [Vala](https://github.com/Glavin001/atom-beautify/issues/57)\n  - Requires [Uncrustify](http://sourceforge.net/projects/uncrustify/)\n- [x] [TypeScript](https://github.com/Glavin001/atom-beautify/issues/49)\n- [x] [Haskell](https://github.com/Glavin001/atom-beautify/issues/628)\n  - Requires [stylish-haskell](https://github.com/jaspervdj/stylish-haskell)\n- [x] [Elm](https://github.com/Glavin001/atom-beautify/pull/700)\n  - Requires [Elm-Format](https://github.com/avh4/elm-format)\n- [x] [Erlang](https://github.com/Glavin001/atom-beautify/pull/683)\n  - Requires erlang syntax_tools to be installed\n\n## Usage\n\nOpen the [Command Palette](https://github.com/atom/command-palette), and type `Beautify`.\n\nIt will only beautify selected text if a selection is found -- if not, the whole file will be beautified.\n\n### Shortcut\n\nYou can also type <kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>B</kbd> as a shortcut or click `Packages > Beautify` in the menu.\n\n#### Custom Keyboard Shortcuts\n\nSee [Keymaps In-Depth](https://atom.io/docs/latest/behind-atom-keymaps-in-depth) for more details.\n\nFor example:\n\n```coffeescript\n'.editor':\n  'ctrl-alt-b': 'atom-beautify:beautify-editor'\n```\n\n## Configuration\n\nEdit your `.jsbeautifyrc` file in any of the following locations:\n\n- Atom Package Settings  \n  `Atom` ➔ `Preferences` ➔ Search for `atom-beautify`\n- Same directory as current file\n- Project root  \n`atom-beautify` will recursively look up from the current file's directory to find `.jsbeautifyrc`.\n- Your user's home directory\n\n**Note**: *Comments are supported in `.jsbeautifyrc` thanks to [strip-json-comments](https://github.com/sindresorhus/strip-json-comments).*\n\nSee examples of both ways inside [`examples/`](https://github.com/donaldpipowitch/atom-beautify/tree/master/examples)\n\nSee [all supported options in the documentation at  `docs/options.md`](https://github.com/Glavin001/atom-beautify/blob/master/docs/options.md).\n\n### Simple\n\nSee [examples/simple-jsbeautifyrc/.jsbeautifyrc](https://github.com/donaldpipowitch/atom-beautify/blob/master/examples/simple-jsbeautifyrc/.jsbeautifyrc).\n\n```json\n{\n  \"indent_size\": 2,\n  \"indent_char\": \" \",\n  \"other\": \" \",\n  \"indent_level\": 0,\n  \"indent_with_tabs\": false,\n  \"preserve_newlines\": true,\n  \"max_preserve_newlines\": 2,\n  \"jslint_happy\": true,\n  \"indent_handlebars\": true\n}\n```\n\n### Nested\n\nSee [examples/nested-jsbeautifyrc/.jsbeautifyrc](https://github.com/donaldpipowitch/atom-beautify/blob/master/examples/nested-jsbeautifyrc/.jsbeautifyrc).\n\n```json\n{\n  \"html\": {\n    \"brace_style\": \"collapse\",\n    \"indent_char\": \" \",\n    \"indent_scripts\": \"normal\",\n    \"indent_size\": 6,\n    \"max_preserve_newlines\": 1,\n    \"preserve_newlines\": true,\n    \"unformatted\": [\"a\", \"sub\", \"sup\", \"b\", \"i\", \"u\"],\n    \"wrap_line_length\": 0\n  },\n  \"css\": {\n    \"indent_char\": \" \",\n    \"indent_size\": 4\n  },\n  \"js\": {\n    \"indent_size\": 2,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false,\n    \"preserve_newlines\": true,\n    \"max_preserve_newlines\": 2,\n    \"jslint_happy\": true\n  },\n  \"sql\": {\n    \"indent_size\": 4,\n    \"indent_char\": \" \",\n    \"indent_level\": 0,\n    \"indent_with_tabs\": false\n  }\n}\n```\n\n## Contributing\n\n[See all contributors on GitHub](https://github.com/donaldpipowitch/atom-beautify/graphs/contributors).\n\nPlease update the [CHANGELOG.md](https://github.com/donaldpipowitch/atom-beautify/blob/master/CHANGELOG.md),\nadd yourself as a contributor to the [package.json](https://github.com/donaldpipowitch/atom-beautify/blob/master/package.json),\nand submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests/).\n\n## License\n\n[MIT](https://github.com/donaldpipowitch/atom-beautify/blob/master/LICENSE.md) © [Glavin Wiechert](https://github.com/Glavin001)\n",
   "readmeFilename": "README.md",
   "homepage": "https://github.com/Glavin001/atom-beautify#readme",
-  "_id": "atom-beautify@0.29.2",
-  "_shasum": "e1aab45c15fabca851712c3ab45b2490ae2de965",
-  "_resolved": "file:../d-116313-6540-1a1lpgl/package.tgz",
-  "_from": "../d-116313-6540-1a1lpgl/package.tgz",
+  "_id": "atom-beautify@0.29.4",
+  "_shasum": "8217f6ebfb64a95facd7dd48b31d39e2a300b292",
+  "_resolved": "file:../d-116317-6529-7yjgo4/package.tgz",
+  "_from": "../d-116317-6529-7yjgo4/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -524,7 +527,7 @@
       },
       {
         "name": "unreachable-branch-transform",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/index.js"
       },
       {
@@ -534,18 +537,18 @@
       },
       {
         "name": "recast",
-        "version": "0.10.43",
+        "version": "0.11.5",
         "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/main.js"
       },
       {
         "name": "ast-types",
-        "version": "0.8.15",
+        "version": "0.8.16",
         "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/main.js"
       },
       {
-        "name": "esprima-fb",
-        "version": "15001.1001.0-dev-harmony-fb",
-        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/esprima.js"
+        "name": "esprima",
+        "version": "2.7.2",
+        "path": "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/esprima.js"
       },
       {
         "name": "private",
@@ -1079,7 +1082,7 @@
       },
       {
         "name": "immutable",
-        "version": "3.7.6",
+        "version": "3.8.0",
         "path": "node_modules/coffee-fmt/node_modules/immutable/dist/immutable.js"
       },
       {
@@ -2564,7 +2567,7 @@
       },
       {
         "name": "unreachable-branch-transform",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "path": "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/index.js"
       },
       {
@@ -2574,18 +2577,13 @@
       },
       {
         "name": "recast",
-        "version": "0.10.43",
+        "version": "0.11.5",
         "path": "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/main.js"
       },
       {
         "name": "ast-types",
-        "version": "0.8.15",
+        "version": "0.8.16",
         "path": "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/main.js"
-      },
-      {
-        "name": "esprima-fb",
-        "version": "15001.1001.0-dev-harmony-fb",
-        "path": "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/esprima.js"
       },
       {
         "name": "private",
@@ -2929,7 +2927,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.11.0",
+        "version": "4.11.1",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -3349,7 +3347,7 @@
       },
       {
         "name": "unreachable-branch-transform",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "path": "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/index.js"
       },
       {
@@ -3359,18 +3357,18 @@
       },
       {
         "name": "recast",
-        "version": "0.10.43",
+        "version": "0.11.5",
         "path": "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/main.js"
       },
       {
         "name": "ast-types",
-        "version": "0.8.15",
+        "version": "0.8.16",
         "path": "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/main.js"
       },
       {
-        "name": "esprima-fb",
-        "version": "15001.1001.0-dev-harmony-fb",
-        "path": "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/esprima.js"
+        "name": "esprima",
+        "version": "2.7.2",
+        "path": "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/esprima.js"
       },
       {
         "name": "private",
@@ -3999,7 +3997,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.5.5",
+        "version": "3.6.0",
         "path": "node_modules/tidy-markdown/node_modules/js-yaml/index.js"
       },
       {
@@ -4124,7 +4122,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.5.5",
+        "version": "3.6.0",
         "path": "node_modules/yaml-front-matter/node_modules/js-yaml/index.js"
       },
       {
@@ -4229,7 +4227,7 @@
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/string_decoder/package.json",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/esmangle-evaluator/package.json",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/package.json",
-        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/package.json",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/package.json",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/private/package.json",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/package.json",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/package.json",
@@ -4726,7 +4724,6 @@
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/string_decoder/package.json",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/esmangle-evaluator/package.json",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/package.json",
-        "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/package.json",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/private/package.json",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/package.json",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/package.json",
@@ -4935,7 +4932,7 @@
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/string_decoder/package.json",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/esmangle-evaluator/package.json",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/package.json",
-        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/package.json",
+        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/package.json",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/private/package.json",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/package.json",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/package.json",
@@ -5346,7 +5343,8 @@
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/es6.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/es7.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/esprima.js",
-        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/fb-harmony.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/flow.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/jsx.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/mozilla.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/equiv.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/node-path.js",
@@ -5356,9 +5354,9 @@
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/shared.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/types.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/main.js",
-        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/bin/esparse.js",
-        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/bin/esvalidate.js",
-        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/esprima.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/bin/esparse.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/esprima.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/private/private.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/dist/source-map.debug.js",
         "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/dist/source-map.js",
@@ -10326,7 +10324,8 @@
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/es6.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/es7.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/esprima.js",
-        "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/fb-harmony.js",
+        "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/flow.js",
+        "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/jsx.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/mozilla.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/equiv.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/node-path.js",
@@ -10336,9 +10335,6 @@
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/shared.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/types.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/main.js",
-        "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/bin/esparse.js",
-        "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/bin/esvalidate.js",
-        "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/esprima.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/private/private.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/dist/source-map.debug.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/dist/source-map.js",
@@ -11608,6 +11604,7 @@
         "node_modules/lodash/fp/pipe.js",
         "node_modules/lodash/fp/placeholder.js",
         "node_modules/lodash/fp/plant.js",
+        "node_modules/lodash/fp/pluck.js",
         "node_modules/lodash/fp/prop.js",
         "node_modules/lodash/fp/propEq.js",
         "node_modules/lodash/fp/propOr.js",
@@ -12194,7 +12191,8 @@
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/es6.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/es7.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/esprima.js",
-        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/fb-harmony.js",
+        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/flow.js",
+        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/jsx.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/def/mozilla.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/equiv.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/node-path.js",
@@ -12204,9 +12202,9 @@
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/shared.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/lib/types.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/ast-types/main.js",
-        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/bin/esparse.js",
-        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/bin/esvalidate.js",
-        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima-fb/esprima.js",
+        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/bin/esparse.js",
+        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/bin/esvalidate.js",
+        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/esprima/esprima.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/private/private.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/dist/source-map.debug.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/dist/source-map.js",
@@ -13378,7 +13376,6 @@
           "coffee-fmt": "0.11.0",
           "coffee-formatter": "^0.1.2",
           "coffee-script": "^1.10.0",
-          "cross-spawn": "^2.0.0",
           "csscomb": "^3.1.7",
           "diff": "^2.1.0",
           "editorconfig": "^0.12.2",
@@ -13405,7 +13402,8 @@
           "underscore-plus": "^1.6.6",
           "which": "^1.1.1",
           "winston": "^1.0.0",
-          "yaml-front-matter": "^3.2.3"
+          "yaml-front-matter": "^3.2.3",
+          "cross-spawn": "^2.0.0"
         }
       },
       {
@@ -13660,7 +13658,7 @@
         ],
         "dependencies": {
           "esmangle-evaluator": "^1.0.0",
-          "recast": "^0.10.1"
+          "recast": "^0.11.4"
         }
       },
       {
@@ -13669,10 +13667,10 @@
           "node_modules/analytics-node/node_modules/superagent-proxy/node_modules/proxy-agent/node_modules/pac-proxy-agent/node_modules/get-uri/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast"
         ],
         "dependencies": {
-          "esprima-fb": "~15001.1001.0-dev-harmony-fb",
-          "source-map": "~0.5.0",
+          "ast-types": "0.8.16",
+          "esprima": "~2.7.1",
           "private": "~0.1.5",
-          "ast-types": "0.8.15"
+          "source-map": "~0.5.0"
         }
       },
       {
@@ -16226,7 +16224,7 @@
         ],
         "dependencies": {
           "esmangle-evaluator": "^1.0.0",
-          "recast": "^0.10.1"
+          "recast": "^0.11.4"
         }
       },
       {
@@ -16235,10 +16233,10 @@
           "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast"
         ],
         "dependencies": {
-          "esprima-fb": "~15001.1001.0-dev-harmony-fb",
-          "source-map": "~0.5.0",
+          "ast-types": "0.8.16",
+          "esprima": "~2.7.1",
           "private": "~0.1.5",
-          "ast-types": "0.8.15"
+          "source-map": "~0.5.0"
         }
       },
       {
@@ -16906,7 +16904,7 @@
         ],
         "dependencies": {
           "esmangle-evaluator": "^1.0.0",
-          "recast": "^0.10.1"
+          "recast": "^0.11.4"
         }
       },
       {
@@ -16915,10 +16913,10 @@
           "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast"
         ],
         "dependencies": {
-          "esprima-fb": "~15001.1001.0-dev-harmony-fb",
-          "source-map": "~0.5.0",
+          "ast-types": "0.8.16",
+          "esprima": "~2.7.1",
           "private": "~0.1.5",
-          "ast-types": "0.8.15"
+          "source-map": "~0.5.0"
         }
       },
       {
@@ -17631,7 +17629,7 @@
           "node_modules/tidy-markdown/node_modules/js-yaml/lib"
         ],
         "dependencies": {
-          "argparse": "^1.0.2",
+          "argparse": "^1.0.7",
           "esprima": "^2.6.0"
         }
       },
@@ -17735,7 +17733,7 @@
           "node_modules/yaml-front-matter/node_modules/js-yaml/lib"
         ],
         "dependencies": {
-          "argparse": "^1.0.2",
+          "argparse": "^1.0.7",
           "esprima": "^2.6.0"
         }
       },
