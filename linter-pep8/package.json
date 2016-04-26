@@ -39,8 +39,8 @@
   "homepage": "https://github.com/AtomLinter/linter-pep8#readme",
   "_id": "linter-pep8@1.2.1",
   "_shasum": "8fb4fe272f5c0a10db98829fc1fe95431c7e267b",
-  "_resolved": "file:../d-116317-7281-nknjnd/package.tgz",
-  "_from": "../d-116317-7281-nknjnd/package.tgz",
+  "_resolved": "file:../d-116326-7274-8awc58/package.tgz",
+  "_from": "../d-116326-7274-8awc58/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -56,13 +56,18 @@
       },
       {
         "name": "sb-exec",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "path": "node_modules/atom-linter/node_modules/sb-exec/lib/index.js"
       },
       {
         "name": "consistent-env",
         "version": "1.1.2",
         "path": "node_modules/atom-linter/node_modules/sb-exec/node_modules/consistent-env/lib/index.js"
+      },
+      {
+        "name": "extify",
+        "version": "1.0.0",
+        "path": "node_modules/atom-linter/node_modules/sb-exec/node_modules/extify/lib/index.js"
       },
       {
         "name": "sb-npm-path",
@@ -119,6 +124,8 @@
         "node_modules/atom-linter/node_modules/sb-exec/lib/types.js",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/consistent-env/lib/helpers.js",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/consistent-env/lib/index.js",
+        "node_modules/atom-linter/node_modules/sb-exec/node_modules/extify/lib/helpers.js",
+        "node_modules/atom-linter/node_modules/sb-exec/node_modules/extify/lib/index.js",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/sb-npm-path/lib/helpers.js",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/sb-npm-path/lib/index.js",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/lib/index.js",
@@ -136,6 +143,8 @@
         "node_modules/atom-linter/node_modules/named-js-regexp/package.json",
         "node_modules/atom-linter/node_modules/sb-exec/.eslintrc.json",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/consistent-env/package.json",
+        "node_modules/atom-linter/node_modules/sb-exec/node_modules/extify/.eslintrc.json",
+        "node_modules/atom-linter/node_modules/sb-exec/node_modules/extify/package.json",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/sb-npm-path/.eslintrc.json",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/.eslintrc.json",
         "node_modules/atom-linter/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/package.json",
@@ -181,6 +190,7 @@
         ],
         "dependencies": {
           "consistent-env": "^1.0.1",
+          "extify": "^1.0.0",
           "sb-npm-path": "^1.0.0"
         }
       },

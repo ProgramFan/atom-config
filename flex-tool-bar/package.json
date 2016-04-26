@@ -46,8 +46,8 @@
   "homepage": "https://github.com/cakecatz/flex-toolbar#readme",
   "_id": "flex-tool-bar@0.10.0",
   "_shasum": "d6527e39a0b7702e8d9c17b51cb62d16ee65d5b6",
-  "_resolved": "file:../d-116317-6860-e0lzz3/package.tgz",
-  "_from": "../d-116317-6860-e0lzz3/package.tgz",
+  "_resolved": "file:../d-116326-6859-13uobes/package.tgz",
+  "_from": "../d-116326-6859-13uobes/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -83,7 +83,7 @@
       },
       {
         "name": "micromatch",
-        "version": "2.3.7",
+        "version": "2.3.8",
         "path": "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/index.js"
       },
       {
@@ -103,7 +103,7 @@
       },
       {
         "name": "braces",
-        "version": "1.8.3",
+        "version": "1.8.4",
         "path": "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/index.js"
       },
       {
@@ -123,12 +123,12 @@
       },
       {
         "name": "isobject",
-        "version": "2.0.0",
+        "version": "2.1.0",
         "path": "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/index.js"
       },
       {
         "name": "isarray",
-        "version": "0.0.1",
+        "version": "1.0.0",
         "path": "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/index.js"
       },
       {
@@ -418,7 +418,7 @@
       },
       {
         "name": "source-map",
-        "version": "0.5.3",
+        "version": "0.5.5",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/unreachable-branch-transform/node_modules/recast/node_modules/source-map/source-map.js"
       },
       {
@@ -756,8 +756,8 @@
         "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/index.js",
         "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number/index.js",
         "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/index.js",
-        "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/build/build.js",
         "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/index.js",
+        "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/test.js",
         "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/index.js",
         "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/repeat-string/index.js",
         "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/preserve/index.js",
@@ -1872,7 +1872,7 @@
           "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject"
         ],
         "dependencies": {
-          "isarray": "0.0.1"
+          "isarray": "1.0.0"
         }
       },
       {

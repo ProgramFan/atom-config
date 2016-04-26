@@ -50,8 +50,8 @@
   "homepage": "https://github.com/slang800/atom-tidy-markdown#readme",
   "_id": "tidy-markdown@3.0.0",
   "_shasum": "b0dd08541dc17c1e9a1a49dd5a45a08e31a8a036",
-  "_resolved": "file:../d-116317-7733-1ah7edm/package.tgz",
-  "_from": "../d-116317-7733-1ah7edm/package.tgz",
+  "_resolved": "file:../d-116326-7733-zbkulf/package.tgz",
+  "_from": "../d-116326-7733-zbkulf/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
