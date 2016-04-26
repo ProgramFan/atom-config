@@ -1,7 +1,7 @@
 {
   "name": "Termrk",
   "main": "./lib/termrk",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Terminal panel inside Atom",
   "activationCommands": {
     "atom-workspace": [
@@ -32,7 +32,7 @@
     "pty.js": "0.3.0",
     "season": "^5.3.0",
     "space-pen": "^5.1.1",
-    "term.js": "0.0.4",
+    "term.js": "0.0.7",
     "underscore-plus": "^1.6.6"
   },
   "readme": "# Termrk\n> Sliding terminal panel for Atom.\n\nThere are various implementations of terminals for Atom; each with their own\nvision/perspective.  The main focus of this one is to have a slick, quickly\naccessible terminal panel: handy when you need it; out-of-the way when you\ndon't.\nIt slides in and out with a single keystroke, mapped to `alt-space` by\ndefault. Efficient and simple.\n\n<!--FIXME TOC doesnt seem to work on atom.io ¡gfm! -->\n1. [Overview](#overview)\n2. [Keybindings](#--keybindings)\n3. [Commands](#commands)\n4. [User-commands](#user-commands)\n5. [Styling](#styling)\n6. [Credits](#credits)\n7. [License](#license)\n\n## Overview\n\n![Termrk Screenshot](https://github.com/romgrk/termrk/blob/master/static/out.gif?raw=true)\n\n<small>Termrk existing.</small>\n\n**Currently implemented:**\n - multiple terminal sessions\n - user defined commands (→ user defined *atom-commands*)\n - running current file in terminal \n   (supports `.js`, `.node`, `.coffee`, `.py` and shebang-notation―`#!`)\n - inserting selection to/from the buffer\n - inserting current file/directory path\n - color/font styling\n\n*If some feature that you'd like to see isn't implemented, don't hesitate to create a request.*\n\n#### Demo: running *vim* inside *termrk* inside *atom*\n\n![vim demo](https://github.com/romgrk/termrk/blob/master/static/out.gif?raw=true)\n\n## ⌨  Keybindings\n\nDesigned around the `alt-space` keystroke really. It is often unmapped,  and\nvery easy to access.\n\n**→ workspace**\n\n - `alt-space`:      toggle terminal panel\n - `ctrl-alt-space`: create terminal in current file's dir\n - `ctrl-alt-shift-space`: insert current selection in active terminal\n\n**→ inside terminal**\n\n - `ctrl-escape`:    close current terminal\n - `ctrl-space`:     create terminal\n - `ctrl-tab`:       activate next terminal\n - `ctrl-shift-tab`: activate previous terminal\n\n\n**Note**: if a `keystroke` is catched by an atom-command but you need it inside terminal, add the following code to you `keymap.cson`.\n\n```coffee\n'.termrk':\n  'KEYSTROKE_TO_CATCH': 'native!'\n```\n\n## Commands\n\n| Name                                 | Action                                      | Scope            | Keybinding              |\n| ----                                 | ----                                        | ----             | ----                    |\n| `termrk:toggle`                      | Toggle termrk panel                         | `atom-workspace` | `alt-space`             |\n| `termrk:hide`                        | Hide termrk panel                           | `atom-workspace` |                         |\n| `termrk:show`                        | Show termrk panel                           | `atom-workspace` |                         |\n| `termrk:toggle-focus`                | Toggle focus of termrk panel                | `atom-workspace` |                         |\n| `termrk:focus`                       | Focus termrk panel                          | `atom-workspace` |                         |\n| `termrk:blur`                        | Blur termrk panel                           | `atom-workspace` |                         |\n| `termrk:create-terminal`             | Creates new session                         | `atom-workspace` | `ctrl-space`            |\n| `termrk:create-terminal-current-dir` | Creates session in current file's directory | `atom-workspace` | `ctrl-alt-space`        |\n| `termrk:close-terminal`              | Close active terminal session               | `.termrk`        | `ctrl-escape`           |\n| `termrk:insert-selection`            | Inserts current selection in terminal       | `atom-workspace` | `ctrl-alt-sphift-space` |\n| `termrk:insert-filename`             | Insert current file's path in terminal      | `.termrk`        | `% f`                   |\n| `termrk:run-current-file`            | Runs current file in terminal               | `atom-workspace` |                         |\n| `termrk:create-terminal`             | Creates a terminal-session                  | `atom-workspace` |                         |\n| `termrk:activate-next-terminal`      | Cycles forward terminal-sessions            | `atom-workspace` |                         |\n| `termrk:activate-previous-terminal`  | Cycles backward terminal-sessions           | `atom-workspace` |                         |\n\n## User-commands\n\nUser commands are defined in the file `$ATOM_HOME/userCommands.cson`.\n(file path can be configured *via* Atom Settings)\n\nCommands have this format:\n```coffee\n'echofile':\n  command: 'echo The current file is $FILE'\n```\nThe previous command description would be mapped to `'termrk:command-echofile'`,\nand calling that command would run `'echo The current file is $FILE'` in \nterminal.\n\nOther examples:\n```coffee\n'shellreplace':\n  'command': 'gnome-shell --replace --display :0'\n\n'coffeerun':\n  'command': 'coffee $FILE'\n\n'npmyes':\n  'command': 'cd $DIR && npm init --yes'\n\n# ...\n```\n\nDefined variables:\n\n| Name       | Value                                           |\n| ----       | -----                                           |\n| `$FILE`    | `atom.workspace.getActiveTextEditor().getURI()` |\n| `$DIR`     | `path.dirname $FILE`                            |\n| `$PROJECT` | `atom.project.getPaths()[0]`                    |\n\nThe variables aren´t really defined in the environment — using plain `String.replace`.\n\n## Styling\n(through less/css)\n\nExample for black text on white bg, and blue cursor-bg.\n\n```css\n.termrk .terminal {\n    color: black;\n    background-color: blue;\n}\n\n.termrk .terminal-cursor {\n    color: black;\n    background-color: white;\n}\n```\n\n## Credits\n\nTermrk is a terminal implementation based on [term.js][term] and [pty.js][pty] \nmodules by Christopher Jeffrey.\n\nAtom is a text-editor developped by github etc. etc....\n\n## License\n\n> Same as JSON\n\n\n--------------------------------------------------------\n\n[term]: https://github.com/chjj/term.js\n[pty]:  https://github.com/chjj/pty.js\n\n<!-- lang: coffee -->\n",
@@ -41,10 +41,10 @@
     "url": "https://github.com/romgrk/termrk/issues"
   },
   "homepage": "https://github.com/romgrk/termrk#readme",
-  "_id": "Termrk@0.2.4",
-  "_shasum": "56c64b4922f68dc2f3aaab04c83d41877544d214",
-  "_resolved": "file:../d-116317-948-y80bn0/package.tgz",
-  "_from": "../d-116317-948-y80bn0/package.tgz",
+  "_id": "Termrk@0.2.5",
+  "_shasum": "3b3d6204e0b1e9f14bf2e95ad18a86635bf2786a",
+  "_resolved": "file:../d-116326-961-1ixfmp9/package.tgz",
+  "_from": "../d-116326-961-1ixfmp9/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -195,7 +195,7 @@
       },
       {
         "name": "term.js",
-        "version": "0.0.4",
+        "version": "0.0.7",
         "path": "node_modules/term.js/index.js"
       },
       {
@@ -992,7 +992,7 @@
           "pty.js": "0.3.0",
           "season": "^5.3.0",
           "space-pen": "^5.1.1",
-          "term.js": "0.0.4",
+          "term.js": "0.0.7",
           "underscore-plus": "^1.6.6"
         }
       },
