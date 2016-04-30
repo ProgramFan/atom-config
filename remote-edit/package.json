@@ -58,8 +58,8 @@
   "readmeFilename": "README.md",
   "_id": "remote-edit@1.8.24",
   "_shasum": "ecc641b6b4bbd1614535a9028ee9e0c751652557",
-  "_resolved": "file:../d-116326-1792-bp74ln/package.tgz",
-  "_from": "../d-116326-1792-bp74ln/package.tgz",
+  "_resolved": "file:../d-116330-1775-nm7r46/package.tgz",
+  "_from": "../d-116330-1775-nm7r46/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -205,12 +205,12 @@
       },
       {
         "name": "keytar",
-        "version": "3.0.0",
+        "version": "3.0.2",
         "path": "node_modules/keytar/lib/keytar.js"
       },
       {
         "name": "nan",
-        "version": "2.2.1",
+        "version": "2.3.2",
         "path": "node_modules/keytar/node_modules/nan/include_dirs.js"
       },
       {
@@ -2151,7 +2151,7 @@
           "node_modules/keytar"
         ],
         "dependencies": {
-          "nan": "^2.0.0"
+          "nan": "2.3.2"
         }
       },
       {
