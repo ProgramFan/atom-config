@@ -123,7 +123,7 @@ class TargetManager extends EventEmitter {
       });
     });
 
-    Promise.all(pathPromises).then(entries => {
+    return Promise.all(pathPromises).then(entries => {
       this.fillTargets(require('./utils').activePath());
       this.emit('refresh-complete');
 
@@ -167,7 +167,15 @@ class TargetManager extends EventEmitter {
     if (atom.config.get('build.refreshOnShowTargetList')) {
       this.refreshTargets();
     }
+
     const path = require('./utils').activePath();
+    if (!path) {
+      atom.notifications.addWarning('Unable to build.', {
+        detail: 'Open file is not part of any open project in Atom'
+      });
+      return;
+    }
+
     const TargetsView = require('./targets-view');
     this.targetsView = new TargetsView();
 
@@ -193,6 +201,9 @@ class TargetManager extends EventEmitter {
       return [];
     }
 
+    if (pathTarget.targets.length === 0) {
+      return this.refreshTargets([ pathTarget.path ]).then(() => pathTarget.targets);
+    }
     return pathTarget.targets;
   }
 

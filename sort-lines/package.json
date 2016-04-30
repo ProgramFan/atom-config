@@ -29,8 +29,8 @@
   "homepage": "https://github.com/atom/sort-lines#readme",
   "_id": "sort-lines@0.14.0",
   "_shasum": "ca019973a26ce699408c3cca7284655e6baa4915",
-  "_resolved": "file:../d-116326-7703-1g68vuh/package.tgz",
-  "_from": "../d-116326-7703-1g68vuh/package.tgz",
+  "_resolved": "file:../d-116330-7689-aq6enn/package.tgz",
+  "_from": "../d-116330-7689-aq6enn/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

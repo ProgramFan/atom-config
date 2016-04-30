@@ -1,7 +1,7 @@
 {
   "name": "build",
   "main": "./lib/build",
-  "version": "0.60.0",
+  "version": "0.61.0",
   "description": "Build your current project, directly from Atom",
   "repository": {
     "type": "git",
@@ -63,10 +63,10 @@
     "url": "https://github.com/noseglid/atom-build/issues"
   },
   "homepage": "https://github.com/noseglid/atom-build#readme",
-  "_id": "build@0.60.0",
-  "_shasum": "2512da07aa1757134f110aecb7ea4733ec81687e",
-  "_resolved": "file:../d-116326-6669-1tagvr9/package.tgz",
-  "_from": "../d-116326-6669-1tagvr9/package.tgz",
+  "_id": "build@0.61.0",
+  "_shasum": "85ca2ff68b548da766cc6600f63c4498d23e0eb2",
+  "_resolved": "file:../d-116330-6655-10gmtqz/package.tgz",
+  "_from": "../d-116330-6655-10gmtqz/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

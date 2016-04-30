@@ -2,6 +2,7 @@
 
 import fs from 'fs-extra';
 import temp from 'temp';
+import path from 'path';
 import specHelpers from 'atom-build-spec-helpers';
 import os from 'os';
 
@@ -17,6 +18,7 @@ describe('Target', () => {
     atom.config.set('build.panelVisibility', 'Toggle');
     atom.config.set('build.saveOnBuild', false);
     atom.config.set('build.notificationOnRefresh', true);
+    atom.config.set('build.refreshOnShowTargetList', true);
 
     jasmine.unspy(window, 'setTimeout');
     jasmine.unspy(window, 'clearTimeout');
@@ -50,11 +52,8 @@ describe('Target', () => {
     it('should list those targets in a SelectListView (from .atom-build.json)', () => {
       waitsForPromise(() => {
         const file = __dirname + '/fixture/.atom-build.targets.json';
-        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json')
-          .then(() => specHelpers.refreshAwaitTargets());
+        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json');
       });
-
-      waitsForPromise(() => specHelpers.refreshAwaitTargets());
 
       runs(() => {
         atom.commands.dispatch(workspaceElement, 'build:select-active-target');
@@ -73,8 +72,7 @@ describe('Target', () => {
     it('should mark the first target as active', () => {
       waitsForPromise(() => {
         const file = __dirname + '/fixture/.atom-build.targets.json';
-        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json')
-          .then(() => specHelpers.refreshAwaitTargets());
+        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json');
       });
 
       runs(() => {
@@ -95,8 +93,7 @@ describe('Target', () => {
     it('should run the selected build', () => {
       waitsForPromise(() => {
         const file = __dirname + '/fixture/.atom-build.targets.json';
-        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json')
-          .then(() => specHelpers.refreshAwaitTargets());
+        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json');
       });
 
       runs(() => {
@@ -124,8 +121,7 @@ describe('Target', () => {
     it('should run the default target if no selection has been made', () => {
       waitsForPromise(() => {
         const file = __dirname + '/fixture/.atom-build.targets.json';
-        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json')
-          .then(() => specHelpers.refreshAwaitTargets());
+        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json');
       });
 
       runs(() => {
@@ -145,8 +141,7 @@ describe('Target', () => {
     it('run the selected target if selection has changed, and subsequent build should run that target', () => {
       waitsForPromise(() => {
         const file = __dirname + '/fixture/.atom-build.targets.json';
-        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json')
-          .then(() => specHelpers.refreshAwaitTargets());
+        return specHelpers.vouch(fs.copy, file, directory + '/.atom-build.json');
       });
 
       runs(() => {
@@ -194,6 +189,17 @@ describe('Target', () => {
 
       runs(() => {
         expect(workspaceElement.querySelector('.terminal').terminal.getContent()).toMatch(/customized/);
+      });
+    });
+
+    it('should show a warning if current file is not part of an open Atom project', () => {
+      waitsForPromise(() => atom.workspace.open(path.join('..', 'randomFile')));
+      waitsForPromise(() => specHelpers.refreshAwaitTargets());
+      runs(() => atom.commands.dispatch(workspaceElement, 'build:select-active-target'));
+      waitsFor(() => atom.notifications.getNotifications().find(n => n.message === 'Unable to build.'));
+      runs(() => {
+        const not = atom.notifications.getNotifications().find(n => n.message === 'Unable to build.');
+        expect(not.type).toBe('warning');
       });
     });
   });

@@ -35,8 +35,8 @@
   "homepage": "https://github.com/apcshields/autocomplete-bibtex#readme",
   "_id": "autocomplete-bibtex@0.6.2",
   "_shasum": "4107d8679d88d004d675a0a7bf5b44eabcc1ac8c",
-  "_resolved": "file:../d-116326-6597-1h83jdt/package.tgz",
-  "_from": "../d-116326-6597-1h83jdt/package.tgz",
+  "_resolved": "file:../d-116330-6583-q7ox5y/package.tgz",
+  "_from": "../d-116330-6583-q7ox5y/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

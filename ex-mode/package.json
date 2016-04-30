@@ -47,8 +47,8 @@
   "homepage": "https://github.com/lloeki/ex-mode#readme",
   "_id": "ex-mode@0.8.0",
   "_shasum": "bc82de3d741c715bf8958704cc5606369743134f",
-  "_resolved": "file:../d-116326-6769-i7xkut/package.tgz",
-  "_from": "../d-116326-6769-i7xkut/package.tgz",
+  "_resolved": "file:../d-116330-6748-ek6c05/package.tgz",
+  "_from": "../d-116330-6748-ek6c05/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
