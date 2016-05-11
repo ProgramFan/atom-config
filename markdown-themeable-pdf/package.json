@@ -36,8 +36,8 @@
   "homepage": "https://github.com/cakebake/markdown-themeable-pdf#readme",
   "_id": "markdown-themeable-pdf@1.0.1",
   "_shasum": "9e6ebc93adadf6b29d1b48b6746cfdfaf5b3129e",
-  "_resolved": "file:../d-116330-7387-axkc54/package.tgz",
-  "_from": "../d-116330-7387-axkc54/package.tgz",
+  "_resolved": "file:../d-116411-7413-1xfnk0f/package.tgz",
+  "_from": "../d-116411-7413-1xfnk0f/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -258,23 +258,8 @@
       },
       {
         "name": "aws4",
-        "version": "1.3.2",
+        "version": "1.4.1",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/aws4.js"
-      },
-      {
-        "name": "lru-cache",
-        "version": "4.0.1",
-        "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/lib/lru-cache.js"
-      },
-      {
-        "name": "pseudomap",
-        "version": "1.0.2",
-        "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/node_modules/pseudomap/map.js"
-      },
-      {
-        "name": "yallist",
-        "version": "2.0.0",
-        "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/node_modules/yallist/yallist.js"
       },
       {
         "name": "bl",
@@ -303,7 +288,7 @@
       },
       {
         "name": "process-nextick-args",
-        "version": "1.0.6",
+        "version": "1.0.7",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/bl/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
       },
       {
@@ -563,12 +548,12 @@
       },
       {
         "name": "mime-types",
-        "version": "2.1.10",
+        "version": "2.1.11",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/mime-types/index.js"
       },
       {
         "name": "mime-db",
-        "version": "1.22.0",
+        "version": "1.23.0",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/mime-types/node_modules/mime-db/index.js"
       },
       {
@@ -578,7 +563,7 @@
       },
       {
         "name": "oauth-sign",
-        "version": "0.8.1",
+        "version": "0.8.2",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/oauth-sign/index.js"
       },
       {
@@ -593,7 +578,7 @@
       },
       {
         "name": "tunnel-agent",
-        "version": "0.4.2",
+        "version": "0.4.3",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/tunnel-agent/index.js"
       },
       {
@@ -633,7 +618,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.11.1",
+        "version": "4.12.0",
         "path": "node_modules/cheerio/node_modules/lodash/lodash.js"
       },
       {
@@ -683,7 +668,7 @@
       },
       {
         "name": "process-nextick-args",
-        "version": "1.0.6",
+        "version": "1.0.7",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/extract-zip/node_modules/concat-stream/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
       },
       {
@@ -738,7 +723,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.3",
+        "version": "4.1.4",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -788,12 +773,12 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.3",
+        "version": "1.1.4",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
         "name": "balanced-match",
-        "version": "0.3.0",
+        "version": "0.4.1",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js"
       },
       {
@@ -878,7 +863,7 @@
       },
       {
         "name": "process-nextick-args",
-        "version": "1.0.6",
+        "version": "1.0.7",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/bl/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
       },
       {
@@ -1138,12 +1123,12 @@
       },
       {
         "name": "mime-types",
-        "version": "2.1.10",
+        "version": "2.1.11",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/mime-types/index.js"
       },
       {
         "name": "mime-db",
-        "version": "1.22.0",
+        "version": "1.23.0",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/mime-types/node_modules/mime-db/index.js"
       },
       {
@@ -1153,7 +1138,7 @@
       },
       {
         "name": "oauth-sign",
-        "version": "0.8.1",
+        "version": "0.8.2",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/oauth-sign/index.js"
       },
       {
@@ -1173,7 +1158,7 @@
       },
       {
         "name": "tunnel-agent",
-        "version": "0.4.2",
+        "version": "0.4.3",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/tunnel-agent/index.js"
       },
       {
@@ -1188,7 +1173,7 @@
       },
       {
         "name": "which",
-        "version": "1.2.4",
+        "version": "1.2.8",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/which/which.js"
       },
       {
@@ -2003,10 +1988,7 @@
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/lib/tunnel.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws-sign2/index.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/aws4.js",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/lib/lru-cache.js",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/node_modules/pseudomap/map.js",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/node_modules/pseudomap/pseudomap.js",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/node_modules/yallist/yallist.js",
+        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/lru.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/bl/bl.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/bl/node_modules/readable-stream/duplex.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/bl/node_modules/readable-stream/lib/_stream_duplex.js",
@@ -2162,7 +2144,6 @@
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/node-uuid/benchmark/benchmark.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/node-uuid/uuid.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/oauth-sign/index.js",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/oauth-sign/test.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/qs/dist/qs.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/qs/lib/index.js",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/qs/lib/parse.js",
@@ -2191,6 +2172,7 @@
         "node_modules/cheerio/node_modules/lodash/_DataView.js",
         "node_modules/cheerio/node_modules/lodash/_Hash.js",
         "node_modules/cheerio/node_modules/lodash/_LazyWrapper.js",
+        "node_modules/cheerio/node_modules/lodash/_ListCache.js",
         "node_modules/cheerio/node_modules/lodash/_LodashWrapper.js",
         "node_modules/cheerio/node_modules/lodash/_Map.js",
         "node_modules/cheerio/node_modules/lodash/_MapCache.js",
@@ -2206,7 +2188,6 @@
         "node_modules/cheerio/node_modules/lodash/_addSetEntry.js",
         "node_modules/cheerio/node_modules/lodash/_apply.js",
         "node_modules/cheerio/node_modules/lodash/_arrayAggregator.js",
-        "node_modules/cheerio/node_modules/lodash/_arrayConcat.js",
         "node_modules/cheerio/node_modules/lodash/_arrayEach.js",
         "node_modules/cheerio/node_modules/lodash/_arrayEachRight.js",
         "node_modules/cheerio/node_modules/lodash/_arrayEvery.js",
@@ -2221,11 +2202,7 @@
         "node_modules/cheerio/node_modules/lodash/_assignInDefaults.js",
         "node_modules/cheerio/node_modules/lodash/_assignMergeValue.js",
         "node_modules/cheerio/node_modules/lodash/_assignValue.js",
-        "node_modules/cheerio/node_modules/lodash/_assocDelete.js",
-        "node_modules/cheerio/node_modules/lodash/_assocGet.js",
-        "node_modules/cheerio/node_modules/lodash/_assocHas.js",
         "node_modules/cheerio/node_modules/lodash/_assocIndexOf.js",
-        "node_modules/cheerio/node_modules/lodash/_assocSet.js",
         "node_modules/cheerio/node_modules/lodash/_baseAggregator.js",
         "node_modules/cheerio/node_modules/lodash/_baseAssign.js",
         "node_modules/cheerio/node_modules/lodash/_baseAt.js",
@@ -2251,6 +2228,7 @@
         "node_modules/cheerio/node_modules/lodash/_baseFunctions.js",
         "node_modules/cheerio/node_modules/lodash/_baseGet.js",
         "node_modules/cheerio/node_modules/lodash/_baseGetAllKeys.js",
+        "node_modules/cheerio/node_modules/lodash/_baseGt.js",
         "node_modules/cheerio/node_modules/lodash/_baseHas.js",
         "node_modules/cheerio/node_modules/lodash/_baseHasIn.js",
         "node_modules/cheerio/node_modules/lodash/_baseInRange.js",
@@ -2266,6 +2244,7 @@
         "node_modules/cheerio/node_modules/lodash/_baseKeys.js",
         "node_modules/cheerio/node_modules/lodash/_baseKeysIn.js",
         "node_modules/cheerio/node_modules/lodash/_baseLodash.js",
+        "node_modules/cheerio/node_modules/lodash/_baseLt.js",
         "node_modules/cheerio/node_modules/lodash/_baseMap.js",
         "node_modules/cheerio/node_modules/lodash/_baseMatches.js",
         "node_modules/cheerio/node_modules/lodash/_baseMatchesProperty.js",
@@ -2292,10 +2271,11 @@
         "node_modules/cheerio/node_modules/lodash/_baseSortedIndex.js",
         "node_modules/cheerio/node_modules/lodash/_baseSortedIndexBy.js",
         "node_modules/cheerio/node_modules/lodash/_baseSortedUniq.js",
-        "node_modules/cheerio/node_modules/lodash/_baseSortedUniqBy.js",
         "node_modules/cheerio/node_modules/lodash/_baseSum.js",
         "node_modules/cheerio/node_modules/lodash/_baseTimes.js",
+        "node_modules/cheerio/node_modules/lodash/_baseToNumber.js",
         "node_modules/cheerio/node_modules/lodash/_baseToPairs.js",
+        "node_modules/cheerio/node_modules/lodash/_baseToString.js",
         "node_modules/cheerio/node_modules/lodash/_baseUnary.js",
         "node_modules/cheerio/node_modules/lodash/_baseUniq.js",
         "node_modules/cheerio/node_modules/lodash/_baseUnset.js",
@@ -2306,7 +2286,6 @@
         "node_modules/cheerio/node_modules/lodash/_baseXor.js",
         "node_modules/cheerio/node_modules/lodash/_baseZipObject.js",
         "node_modules/cheerio/node_modules/lodash/_cacheHas.js",
-        "node_modules/cheerio/node_modules/lodash/_cachePush.js",
         "node_modules/cheerio/node_modules/lodash/_castArrayLikeObject.js",
         "node_modules/cheerio/node_modules/lodash/_castFunction.js",
         "node_modules/cheerio/node_modules/lodash/_castPath.js",
@@ -2348,8 +2327,10 @@
         "node_modules/cheerio/node_modules/lodash/_createPartialWrapper.js",
         "node_modules/cheerio/node_modules/lodash/_createRange.js",
         "node_modules/cheerio/node_modules/lodash/_createRecurryWrapper.js",
+        "node_modules/cheerio/node_modules/lodash/_createRelationalOperation.js",
         "node_modules/cheerio/node_modules/lodash/_createRound.js",
         "node_modules/cheerio/node_modules/lodash/_createSet.js",
+        "node_modules/cheerio/node_modules/lodash/_createToPairs.js",
         "node_modules/cheerio/node_modules/lodash/_createWrapper.js",
         "node_modules/cheerio/node_modules/lodash/_deburrLetter.js",
         "node_modules/cheerio/node_modules/lodash/_equalArrays.js",
@@ -2361,16 +2342,18 @@
         "node_modules/cheerio/node_modules/lodash/_getAllKeysIn.js",
         "node_modules/cheerio/node_modules/lodash/_getData.js",
         "node_modules/cheerio/node_modules/lodash/_getFuncName.js",
+        "node_modules/cheerio/node_modules/lodash/_getHolder.js",
         "node_modules/cheerio/node_modules/lodash/_getLength.js",
+        "node_modules/cheerio/node_modules/lodash/_getMapData.js",
         "node_modules/cheerio/node_modules/lodash/_getMatchData.js",
         "node_modules/cheerio/node_modules/lodash/_getNative.js",
-        "node_modules/cheerio/node_modules/lodash/_getPlaceholder.js",
         "node_modules/cheerio/node_modules/lodash/_getPrototype.js",
         "node_modules/cheerio/node_modules/lodash/_getSymbols.js",
         "node_modules/cheerio/node_modules/lodash/_getSymbolsIn.js",
         "node_modules/cheerio/node_modules/lodash/_getTag.js",
         "node_modules/cheerio/node_modules/lodash/_getView.js",
         "node_modules/cheerio/node_modules/lodash/_hasPath.js",
+        "node_modules/cheerio/node_modules/lodash/_hashClear.js",
         "node_modules/cheerio/node_modules/lodash/_hashDelete.js",
         "node_modules/cheerio/node_modules/lodash/_hashGet.js",
         "node_modules/cheerio/node_modules/lodash/_hashHas.js",
@@ -2394,11 +2377,16 @@
         "node_modules/cheerio/node_modules/lodash/_lazyClone.js",
         "node_modules/cheerio/node_modules/lodash/_lazyReverse.js",
         "node_modules/cheerio/node_modules/lodash/_lazyValue.js",
-        "node_modules/cheerio/node_modules/lodash/_mapClear.js",
-        "node_modules/cheerio/node_modules/lodash/_mapDelete.js",
-        "node_modules/cheerio/node_modules/lodash/_mapGet.js",
-        "node_modules/cheerio/node_modules/lodash/_mapHas.js",
-        "node_modules/cheerio/node_modules/lodash/_mapSet.js",
+        "node_modules/cheerio/node_modules/lodash/_listCacheClear.js",
+        "node_modules/cheerio/node_modules/lodash/_listCacheDelete.js",
+        "node_modules/cheerio/node_modules/lodash/_listCacheGet.js",
+        "node_modules/cheerio/node_modules/lodash/_listCacheHas.js",
+        "node_modules/cheerio/node_modules/lodash/_listCacheSet.js",
+        "node_modules/cheerio/node_modules/lodash/_mapCacheClear.js",
+        "node_modules/cheerio/node_modules/lodash/_mapCacheDelete.js",
+        "node_modules/cheerio/node_modules/lodash/_mapCacheGet.js",
+        "node_modules/cheerio/node_modules/lodash/_mapCacheHas.js",
+        "node_modules/cheerio/node_modules/lodash/_mapCacheSet.js",
         "node_modules/cheerio/node_modules/lodash/_mapToArray.js",
         "node_modules/cheerio/node_modules/lodash/_matchesStrictComparable.js",
         "node_modules/cheerio/node_modules/lodash/_mergeData.js",
@@ -2414,8 +2402,11 @@
         "node_modules/cheerio/node_modules/lodash/_reorder.js",
         "node_modules/cheerio/node_modules/lodash/_replaceHolders.js",
         "node_modules/cheerio/node_modules/lodash/_root.js",
+        "node_modules/cheerio/node_modules/lodash/_setCacheAdd.js",
+        "node_modules/cheerio/node_modules/lodash/_setCacheHas.js",
         "node_modules/cheerio/node_modules/lodash/_setData.js",
         "node_modules/cheerio/node_modules/lodash/_setToArray.js",
+        "node_modules/cheerio/node_modules/lodash/_setToPairs.js",
         "node_modules/cheerio/node_modules/lodash/_stackClear.js",
         "node_modules/cheerio/node_modules/lodash/_stackDelete.js",
         "node_modules/cheerio/node_modules/lodash/_stackGet.js",
@@ -2500,6 +2491,7 @@
         "node_modules/cheerio/node_modules/lodash/findLast.js",
         "node_modules/cheerio/node_modules/lodash/findLastIndex.js",
         "node_modules/cheerio/node_modules/lodash/findLastKey.js",
+        "node_modules/cheerio/node_modules/lodash/first.js",
         "node_modules/cheerio/node_modules/lodash/flatMap.js",
         "node_modules/cheerio/node_modules/lodash/flatMapDeep.js",
         "node_modules/cheerio/node_modules/lodash/flatMapDepth.js",
@@ -2830,6 +2822,7 @@
         "node_modules/cheerio/node_modules/lodash/fp/thru.js",
         "node_modules/cheerio/node_modules/lodash/fp/times.js",
         "node_modules/cheerio/node_modules/lodash/fp/toArray.js",
+        "node_modules/cheerio/node_modules/lodash/fp/toFinite.js",
         "node_modules/cheerio/node_modules/lodash/fp/toInteger.js",
         "node_modules/cheerio/node_modules/lodash/fp/toIterator.js",
         "node_modules/cheerio/node_modules/lodash/fp/toJSON.js",
@@ -3074,6 +3067,7 @@
         "node_modules/cheerio/node_modules/lodash/thru.js",
         "node_modules/cheerio/node_modules/lodash/times.js",
         "node_modules/cheerio/node_modules/lodash/toArray.js",
+        "node_modules/cheerio/node_modules/lodash/toFinite.js",
         "node_modules/cheerio/node_modules/lodash/toInteger.js",
         "node_modules/cheerio/node_modules/lodash/toIterator.js",
         "node_modules/cheerio/node_modules/lodash/toJSON.js",
@@ -3422,7 +3416,6 @@
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/minimatch.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/example.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/example.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js",
@@ -3604,7 +3597,6 @@
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/node-uuid/benchmark/benchmark.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/node-uuid/uuid.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/oauth-sign/index.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/oauth-sign/test.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/qs/dist/qs.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/qs/lib/index.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/qs/lib/parse.js",
@@ -3813,9 +3805,6 @@
         "node_modules/cheerio/node_modules/jsdom/node_modules/nwmatcher/package.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/parse5/package.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws-sign2/package.json",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/node_modules/pseudomap/package.json",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/node_modules/yallist/package.json",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/package.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/package.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/bl/node_modules/readable-stream/node_modules/core-util-is/package.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/bl/node_modules/readable-stream/node_modules/inherits/package.json",
@@ -4361,24 +4350,6 @@
       },
       {
         "paths": [
-          "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4"
-        ],
-        "dependencies": {
-          "lru-cache": "^4.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache/lib",
-          "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/aws4/node_modules/lru-cache"
-        ],
-        "dependencies": {
-          "pseudomap": "^1.0.1",
-          "yallist": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
           "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/bl",
           "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/bl/test"
         ],
@@ -4636,7 +4607,7 @@
           "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/mime-types"
         ],
         "dependencies": {
-          "mime-db": "~1.22.0"
+          "mime-db": "~1.23.0"
         }
       },
       {
@@ -4807,7 +4778,7 @@
           "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion"
         ],
         "dependencies": {
-          "balanced-match": "^0.3.0",
+          "balanced-match": "^0.4.1",
           "concat-map": "0.0.1"
         }
       },
@@ -5123,7 +5094,7 @@
           "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/mime-types"
         ],
         "dependencies": {
-          "mime-db": "~1.22.0"
+          "mime-db": "~1.23.0"
         }
       },
       {
@@ -5137,8 +5108,7 @@
       },
       {
         "paths": [
-          "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/which",
-          "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/which/test"
+          "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/which"
         ],
         "dependencies": {
           "is-absolute": "^0.1.7",

@@ -1,6 +1,6 @@
 {
   "name": "language-asciidoc",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Syntax highlighting and snippets for AsciiDoc (with Asciidoctor flavor).",
   "repository": {
     "type": "git",
@@ -23,10 +23,10 @@
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },
   "homepage": "https://github.com/asciidoctor/atom-language-asciidoc#readme",
-  "_id": "language-asciidoc@1.0.0",
-  "_shasum": "336d6e717eb8c92495373c893348d894981bc065",
-  "_resolved": "file:../d-116330-6982-1wjh84t/package.tgz",
-  "_from": "../d-116330-6982-1wjh84t/package.tgz",
+  "_id": "language-asciidoc@1.1.0",
+  "_shasum": "c7957f6285a29b8257daa700b865e525b2257f97",
+  "_resolved": "file:../d-116411-7005-eqbusb/package.tgz",
+  "_from": "../d-116411-7005-eqbusb/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -168,7 +168,10 @@
         "paths": [
           "",
           "lib",
-          "spec"
+          "spec",
+          "spec/blocks",
+          "spec/inlines",
+          "spec/partials"
         ],
         "dependencies": {
           "season": "^5.3"

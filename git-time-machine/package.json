@@ -1,7 +1,7 @@
 {
   "name": "git-time-machine",
   "main": "./lib/git-time-machine",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Visually interact with git commit history for a file",
   "keywords": [
     "git",
@@ -26,22 +26,22 @@
     "atom-space-pen-views": "^2.0.3",
     "bumble-strings": "^0.4.1",
     "d3": "^3.5.6",
+    "git-log-utils": "0.2.2",
     "moment": "^2.10.6",
-    "underscore-plus": "1.x",
-    "split-diff": "git+https://github.com/mupchrch/split-diff.git#v0.6.3",
-    "git-log-utils": "0.2.2"
+    "split-diff": "git+https://github.com/mupchrch/split-diff.git#v0.7.5",
+    "underscore-plus": "1.x"
   },
   "devDependencies": {},
-  "readme": "# git-time-machine package\n\ngit-time-machine is a package for [Atom](https://atom.io/) that allows you to travel back in time!  It shows visual plot of commits to the current file over time and you can click on it on the timeplot or hover over the plot and see all of the commits for a time range.\n\n![Gratuitous animated screenshot](https://raw.githubusercontent.com/littlebee/git-time-machine/master/resources/timemachine.gif)\n",
+  "readme": "# git-time-machine package\n\ngit-time-machine is a package for [Atom](https://atom.io/) that allows you to travel back in time!  It shows visual plot of commits to the current file over time and you can click on it on the timeplot or hover over the plot and see all of the commits for a time range.\n\n![Gratuitous animated screenshot](https://raw.githubusercontent.com/littlebee/git-time-machine/master/resources/timemachine.gif)\n\nTo open the timeplot, just use the keyboard shortcut <kbd>alt</kbd>+<kbd>t</kbd>.\n\n\n## Troubleshooting\n\nUnfortunately, git-time-machine, like the other Atom `git log` services,  needs to shell out to the command line git executable and parse it's stdout.  We are working on getting this information another way, but that may take some time.  As you might imagine, this is problematic.\n\nSome things to check:\n- git command line utility needs to be in your path\n- can you install and use git-log Atom package?\n- it's been brought to my attention that some versions of git command line utilities (speculation: the version of git installed by github windows client) is not fully compatible with the official git client and doesn't support the pretty format needed to get the data to render the timeplot.  \n\nRecommend installing the official Git client from here: https://git-scm.com/downloads and make sure it's binary is the one in your path.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/littlebee/git-time-machine/issues"
   },
   "homepage": "https://github.com/littlebee/git-time-machine#readme",
-  "_id": "git-time-machine@1.5.1",
-  "_shasum": "f0de1c805415d95bdabbdea0f5197b027582a46c",
-  "_resolved": "file:../d-116330-6406-vejk4u/package.tgz",
-  "_from": "../d-116330-6406-vejk4u/package.tgz",
+  "_id": "git-time-machine@1.5.2",
+  "_shasum": "1a19439e3e961d23eee009c963c27265a49759c1",
+  "_resolved": "file:../d-116411-6424-13i5ddy/package.tgz",
+  "_from": "../d-116411-6424-13i5ddy/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -132,7 +132,7 @@
       },
       {
         "name": "d3",
-        "version": "3.5.16",
+        "version": "3.5.17",
         "path": "node_modules/d3/d3.js"
       },
       {
@@ -177,6 +177,7 @@
         "node_modules/git-log-utils/Gruntfile.coffee",
         "node_modules/git-log-utils/bin/gitLogJson.coffee",
         "node_modules/split-diff/lib/config-schema.coffee",
+        "node_modules/split-diff/lib/loading-view.coffee",
         "node_modules/split-diff/lib/split-diff.coffee"
       ],
       ".js": [
@@ -1332,7 +1333,8 @@
         "node_modules/moment/src/locale/zh-tw.js",
         "node_modules/moment/src/moment.js",
         "node_modules/split-diff/lib/build-lines.js",
-        "node_modules/split-diff/lib/split-diff-compute.js",
+        "node_modules/split-diff/lib/compute-diff.js",
+        "node_modules/split-diff/lib/compute-word-diff.js",
         "node_modules/split-diff/lib/sync-scroll.js",
         "node_modules/split-diff/node_modules/diff/dist/diff.js",
         "node_modules/split-diff/node_modules/diff/dist/diff.min.js",
@@ -1403,9 +1405,9 @@
           "atom-space-pen-views": "^2.0.3",
           "bumble-strings": "^0.4.1",
           "d3": "^3.5.6",
+          "git-log-utils": "0.2.2",
           "moment": "^2.10.6",
-          "underscore-plus": "1.x",
-          "git-log-utils": "0.2.2"
+          "underscore-plus": "1.x"
         }
       },
       {
