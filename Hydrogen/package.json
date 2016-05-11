@@ -69,8 +69,8 @@
   "homepage": "https://github.com/nteract/hydrogen#readme",
   "_id": "Hydrogen@0.9.0",
   "_shasum": "94a3bf2183f48a1e2f39929cd9ee305394c1c2c7",
-  "_resolved": "file:../d-116330-1075-1r1oi85/package.tgz",
-  "_from": "../d-116330-1075-1r1oi85/package.tgz",
+  "_resolved": "file:../d-116411-1099-1y8f4j0/package.tgz",
+  "_from": "../d-116411-1099-1y8f4j0/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -246,7 +246,7 @@
       },
       {
         "name": "zmq",
-        "version": "2.15.0",
+        "version": "2.15.1",
         "path": "node_modules/jmp/node_modules/zmq/index.js"
       },
       {
@@ -256,7 +256,7 @@
       },
       {
         "name": "nan",
-        "version": "2.2.1",
+        "version": "2.3.3",
         "path": "node_modules/jmp/node_modules/zmq/node_modules/nan/include_dirs.js"
       },
       {
@@ -2755,7 +2755,7 @@
           "node_modules/jmp/node_modules/zmq/test"
         ],
         "dependencies": {
-          "nan": "~2.2.0",
+          "nan": "~2.3.0",
           "bindings": "~1.2.1"
         }
       },
