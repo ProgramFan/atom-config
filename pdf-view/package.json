@@ -30,8 +30,8 @@
   "homepage": "https://github.com/izuzak/atom-pdf-view#readme",
   "_id": "pdf-view@0.50.0",
   "_shasum": "91d5f954e37dafbad927812c342c539ddea2c188",
-  "_resolved": "file:../d-116411-1793-1r1bumw/package.tgz",
-  "_from": "../d-116411-1793-1r1bumw/package.tgz",
+  "_resolved": "file:../d-116415-1810-1srq6c1/package.tgz",
+  "_from": "../d-116415-1810-1srq6c1/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

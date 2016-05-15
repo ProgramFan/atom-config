@@ -32,8 +32,8 @@
   "homepage": "https://github.com/jumpkick/graphviz-preview#readme",
   "_id": "graphviz-preview@1.0.0",
   "_shasum": "afc3ad3bdfbd2b7a6e56e3552306a10cc8bfe409",
-  "_resolved": "file:../d-116411-1537-1mtxx8p/package.tgz",
-  "_from": "../d-116411-1537-1mtxx8p/package.tgz",
+  "_resolved": "file:../d-116415-1552-ldx3j7/package.tgz",
+  "_from": "../d-116415-1552-ldx3j7/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

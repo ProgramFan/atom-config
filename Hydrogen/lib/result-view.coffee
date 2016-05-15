@@ -148,6 +148,9 @@ class ResultView
                 @element.classList.add 'markdown'
                 @element.classList.remove 'rich'
 
+            if mimeType is 'text/latex'
+                @element.classList.add 'latex'
+
             if @errorContainer.getElementsByTagName('span').length is 0
                 @errorContainer.classList.add('plain-error')
             else
@@ -216,25 +219,11 @@ class ResultView
         if @marker?
             @marker.destroy()
         @element.innerHTML = ''
-        @element.remove()
 
     getElement: ->
         @element
 
 transformime = require 'transformime'
-transformimeJupyter = require 'transformime-jupyter-transformers'
 MarkdownTransform = require 'transformime-marked'
 
-transformimeJupyter.consoleTextTransform.mimetype = [
-    'jupyter/console-text', 'text/plain'
-]
-
-transform = transformime.createTransform [
-    transformime.ImageTransformer,
-    transformimeJupyter.SVGTransform,
-    transformimeJupyter.consoleTextTransform,
-    MarkdownTransform,
-    transformimeJupyter.PDFTransform,
-    transformimeJupyter.LaTeXTransform,
-    transformime.HTMLTransformer,
-]
+transform = transformime.createTransform([MarkdownTransform])

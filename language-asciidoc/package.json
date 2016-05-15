@@ -1,6 +1,6 @@
 {
   "name": "language-asciidoc",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Syntax highlighting and snippets for AsciiDoc (with Asciidoctor flavor).",
   "repository": {
     "type": "git",
@@ -17,16 +17,16 @@
     "coffeelint": "^1.15.0"
   },
   "main": "lib/main.coffee",
-  "readme": "# AsciiDoc Package for Atom [![Build Status](https://travis-ci.org/asciidoctor/atom-language-asciidoc.svg?branch=master)](https://travis-ci.org/asciidoctor/atom-language-asciidoc)\n\nAdds syntax highlighting and snippets to AsciiDoc files. Supports [Asciidoctor](http://asciidoctor.org/)-specific features.\n\n![](https://raw.github.com/wiki/asciidoctor/atom-language-asciidoc/writers-guide-screenshot.png)\n\n## Contributing\n\nIn the spirit of free software, _everyone_ is encouraged to help improve this project.\n\nTo contribute code, simply fork the project on GitHub, hack away and send a pull request with your proposed changes. We have a [dedicated guide](https://github.com/asciidoctor/atom-language-asciidoc/blob/master/CONTRIBUTING.adoc) to get you started.\n\nFeel free to use the [issue tracker](https://github.com/asciidoctor/atom-language-asciidoc/issues) to provide feedback or suggestions in other ways.",
+  "readme": "# AsciiDoc Language Package for Atom\n\n[![Atom Package](https://img.shields.io/apm/v/language-asciidoc.svg)](https://atom.io/packages/language-asciidoc)\n[![Atom Package Downloads](https://img.shields.io/apm/dm/language-asciidoc.svg)](https://atom.io/packages/language-asciidoc)\n[![Build Status (Linux)](https://travis-ci.org/asciidoctor/atom-language-asciidoc.svg?branch=master)](https://travis-ci.org/asciidoctor/atom-language-asciidoc)\n[![Build Status (Windows)](https://ci.appveyor.com/api/projects/status/midrj94vvwvynqay?svg=true)](https://ci.appveyor.com/project/asciidoctor/atom-language-asciidoc)\n[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/asciidoctor/atom-language-asciidoc/blob/master/LICENSE.md)\n\nAdds syntax highlighting and snippets to AsciiDoc files. Supports [Asciidoctor](http://asciidoctor.org/)-specific features.\n\n![](https://raw.github.com/wiki/asciidoctor/atom-language-asciidoc/writers-guide-screenshot.png)\n\n## File extension support\n\nThe default file extensions for AsciiDoc files are _ad_, _asc_, _adoc_, _asciidoc_, and _asciidoc.txt_\nChanging the file extension to _asciidoc.txt_ is a recommended solution to remain compatibile with _.txt_ based tooling, whilst having a distinct filename related to the AsciiDoc language.\nTo add a different file extension, such at _.txt_, customize your Atom configuration:\n\nOpen the Atom configuration:\n* Menu > _Edit_ > _Config.._\n* 'Application: open your config' via the Command Palette\n* Edit `~/.atom/config.cson`\n\nAdd a custom file type support:\n```coffee\n  core:\n    ...\n    customFileTypes:\n      \"source.asciidoc\": [\n          \"foo\" # all files with `.foo` extension (ex: `documentation.foo`)\n          \"foobar.txt\" # all files with `.foobar.txt` extension  (ex `documentation.foobar.txt`)\n      ]\n    ...\n```\n\nThen save the configuration file and restart Atom or press `ctrl+alt+r` to refresh the UI.  You should now see the new file type recognized by the atom-language-asciidoc package.\n\n## Contributing\n\nIn the spirit of free software, _everyone_ is encouraged to help improve this project.\n\nTo contribute code, simply fork the project on GitHub, hack away and send a pull request with your proposed changes. We have a [dedicated guide](https://github.com/asciidoctor/atom-language-asciidoc/blob/master/CONTRIBUTING.adoc) to get you started.\n\nFeel free to use the [issue tracker](https://github.com/asciidoctor/atom-language-asciidoc/issues) to provide feedback or suggestions in other ways.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },
   "homepage": "https://github.com/asciidoctor/atom-language-asciidoc#readme",
-  "_id": "language-asciidoc@1.1.0",
-  "_shasum": "c7957f6285a29b8257daa700b865e525b2257f97",
-  "_resolved": "file:../d-116411-1562-sew2hy/package.tgz",
-  "_from": "../d-116411-1562-sew2hy/package.tgz",
+  "_id": "language-asciidoc@1.2.0",
+  "_shasum": "9ccc4f36a1b037f4d20c7a9dcc255e2196aa80e5",
+  "_resolved": "file:../d-116415-1578-ivs01l/package.tgz",
+  "_from": "../d-116415-1578-ivs01l/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -168,8 +168,8 @@
         "paths": [
           "",
           "lib",
-          "spec",
           "spec/blocks",
+          "spec",
           "spec/inlines",
           "spec/partials"
         ],

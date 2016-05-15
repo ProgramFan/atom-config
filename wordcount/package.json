@@ -41,8 +41,8 @@
   "homepage": "https://github.com/nesQuick/atom-wordcount#readme",
   "_id": "wordcount@2.6.0",
   "_shasum": "87bccb8559a2249ad2c093d9f5b0e261f7d1b1ed",
-  "_resolved": "file:../d-116411-2018-19ter7j/package.tgz",
-  "_from": "../d-116411-2018-19ter7j/package.tgz",
+  "_resolved": "file:../d-116415-2035-us8z8n/package.tgz",
+  "_from": "../d-116415-2035-us8z8n/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

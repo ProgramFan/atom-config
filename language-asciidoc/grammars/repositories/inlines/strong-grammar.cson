@@ -2,27 +2,31 @@ key: 'strong'
 
 patterns: [
 
-  # Matches bold unconstrained phrases
+  # Matches strong unconstrained phrases
   #
   # Examples
   #
-  #   b**old** phrase
+  #   s**trong** phrase
   #
-  name: 'markup.bold.unconstrained.asciidoc'
-  match: '\\\\?(?:\\[([^\\]]+?)\])?(\\*\\*)(.+?)(\\*\\*)'
+  name: 'markup.strong.unconstrained.asciidoc'
+  match: '(?<!\\\\\\\\)(\\[.+?\\])?((\\*\\*)(.+?)(\\*\\*))'
   captures:
-    2: name: 'support.constant.asciidoc'
-    4: name: 'support.constant.asciidoc'
+    1: name: 'markup.meta.attribute-list.asciidoc'
+    2: name: 'markup.bold.asciidoc'
+    3: name: 'punctuation.definition.asciidoc'
+    5: name: 'punctuation.definition.asciidoc'
 ,
   # Matches strong constrained phrases
   #
   # Examples
   #
-  #   *bold phrase*
+  #   *strong phrase*
   #
-  name: 'markup.bold.constrained.asciidoc'
-  match: '(?<=^|[^\\p{Word};:}])(?:\\[([^\\]]+?)\\])?(\\*)(\\S|\\S.*?\\S)(\\*)(?!\\p{Word})'
+  name: 'markup.strong.constrained.asciidoc'
+  match: '(?<![\\\\;:\\p{Word}\\*])(\\[.+?\\])?((\\*)(\\S|\\S.*?\\S)(\\*)(?!\\p{Word}))'
   captures:
-    2: name: 'support.constant.asciidoc'
-    4: name: 'support.constant.asciidoc'
+    1: name: 'markup.meta.attribute-list.asciidoc'
+    2: name: 'markup.bold.asciidoc'
+    3: name: 'punctuation.definition.asciidoc'
+    5: name: 'punctuation.definition.asciidoc'
 ]

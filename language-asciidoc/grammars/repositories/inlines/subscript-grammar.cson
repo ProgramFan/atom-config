@@ -7,9 +7,11 @@ patterns: [
   #
   #   ~subscript~
   #
-  name: 'markup.sub.asciidoc'
-  match: '\\\\?(?:\\[([^\\]]+?)\\])?(~)(\\S+?)(~)'
+  name: 'markup.subscript.asciidoc'
+  match: '(?<!\\\\)(\\[.+?\\])?((~)(\\S+?)(~))'
   captures:
-    2: name: 'constant.sub.asciidoc'
-    4: name: 'constant.sub.asciidoc'
+    1: name: 'markup.meta.sub.attribute-list.asciidoc'
+    2: name: 'markup.sub.subscript.asciidoc'
+    3: name: 'punctuation.definition.asciidoc'
+    5: name: 'punctuation.definition.asciidoc'
 ]
