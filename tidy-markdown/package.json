@@ -50,8 +50,8 @@
   "homepage": "https://github.com/slang800/atom-tidy-markdown#readme",
   "_id": "tidy-markdown@3.0.0",
   "_shasum": "b0dd08541dc17c1e9a1a49dd5a45a08e31a8a036",
-  "_resolved": "file:../d-116411-7752-18b51pf/package.tgz",
-  "_from": "../d-116411-7752-18b51pf/package.tgz",
+  "_resolved": "file:../d-116415-7728-hwt7ck/package.tgz",
+  "_from": "../d-116415-7728-hwt7ck/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -87,7 +87,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.6.0",
+        "version": "3.6.1",
         "path": "node_modules/tidy-markdown/node_modules/js-yaml/index.js"
       },
       {

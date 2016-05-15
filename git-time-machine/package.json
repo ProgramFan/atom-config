@@ -40,8 +40,8 @@
   "homepage": "https://github.com/littlebee/git-time-machine#readme",
   "_id": "git-time-machine@1.5.2",
   "_shasum": "1a19439e3e961d23eee009c963c27265a49759c1",
-  "_resolved": "file:../d-116411-6424-13i5ddy/package.tgz",
-  "_from": "../d-116411-6424-13i5ddy/package.tgz",
+  "_resolved": "file:../d-116415-6419-bhle7s/package.tgz",
+  "_from": "../d-116415-6419-bhle7s/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

@@ -8,23 +8,33 @@ maxTokensPerLine: 100
 patterns: [
   include: '#comment'
 ,
-  include: '#horizontal-rule'
-,
-  include: '#list'
-,
   include: '#callout-list-item'
 ,
   include: '#titles'
 ,
-  include: '#various'
+  include: '#attribute-entry'
+,
+  include: '#block-title'
+,
+  include: '#explicit-paragraph'
+,
+  include: '#section'
 ,
   include: '#blocks'
 ,
+  include: '#horizontal-rule'
+,
+  include: '#list'
+,
   include: '#inlines'
+,
+  include: '#line-break'
 ]
 repository:
   blocks:
     patterns: [
+      include: '#front-matter-block'
+    ,
       include: '#admonition-block'
     ,
       include: '#quote-block'
@@ -40,6 +50,8 @@ repository:
       include: '#literal-block'
     ,
       include: '#passthrough-block'
+    ,
+      include: '#open-block'
     ]
   'code-blocks':
     patterns: [
@@ -51,7 +63,7 @@ repository:
     patterns: [
       include: '#strong'
     ,
-      include: '#monospaced'
+      include: '#monospace'
     ,
       include: '#emphasis'
     ,

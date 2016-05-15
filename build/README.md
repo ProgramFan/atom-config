@@ -32,13 +32,28 @@ Automatically build your project inside your new favorite editor, Atom.
 
 (You can also use keyboard shortcuts to go to errors if you don't like Atom Linter, or want to keep package dependencies to a minimum).
 
+### Quick start
+
+Create a file called `.atom-build.yml` (note the inital dot):
+```yml
+cmd: echo Hello world
+```
+
+Save it, and press <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>B</kbd> (OS X) / <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>B</kbd> (Linux/Windows)
+and you should se the output of `echo Hello world`, which should be `Hello world` if all is correct.
+
 ## Build providers
+
+Instead of specifying commands manually, you can use a build provider. They often include functionality such as parsing
+targets (for instance all tasks from `gulpfile.js` or `Makefile`).
+
 **[Full list of build providers](https://atombuild.github.io)**
 
 <a name="build-command"></a>
 ### Specify a custom build command
 
-If no build tool is enough to suit your needs, you can create a custom build command.
+If no build provider is enough to suit your needs, you can configure the custom build command extensively.
+
 Supported formats and the name of the configuration file is
 
   * JSON: `.atom-build.json`
@@ -47,33 +62,32 @@ Supported formats and the name of the configuration file is
   * JS: `.atom-build.js`
 
 Pick your favorite format, save that file in your project root, and specify exactly
-how your project is built (example in `json`)
+how your project is built (example in `yml`)
 
-```json
-{
-  "cmd": "<command to execute>",
-  "name": "<name of target>",
-  "args": [ "<argument1>", "<argument2>", ... ],
-  "sh": true,
-  "cwd": "<current working directory for `cmd`>",
-  "env": {
-    "VARIABLE1": "VALUE1",
-    "VARIABLE2": "VALUE2",
-    ...
-  },
-  "errorMatch": [
-    "^regexp1$",
-    "^regexp2$"
-  ],
-  "keymap": "<keymap string>",
-  "atomCommandName": "namespace:command",
-  "targets": {
-    "<name of target>": {
-      "cmd": "<command to execute>",
-      ... (all previous options are viable here except `targets`)
-    }
-  }
-}
+```yml
+cmd: "<command to execute>"
+name: "<name of target>"
+args:
+  - <argument1>
+  - <argument2>
+sh: true,
+cwd: <current working directory for `cmd`>
+env:
+  VARIABLE1: "VALUE1"
+  VARIABLE2: "VALUE2"
+errorMatch:
+  - ^regexp1$
+  - ^regexp2$
+warningMatch:
+  - ^regexp1$
+  - ^regexp2$
+keymap: <keymap string>
+atomCommandName: namespace:command
+targets:
+  extraTargetName:
+      cmd: "<command to execute>"
+      args:
+      # (any previous options are viable here except `targets` itself)
 ```
 
 Note that if `sh` is false `cmd` must only be the executable - no arguments here.  If the
@@ -83,6 +97,8 @@ systems).
 
 If `sh` is true, it will use a shell (e.g. `/bin/sh -c`) on unix/linux, and command (`cmd /S /C`)
 on windows.
+
+#### Programmatic Build commands (Javascript)
 
 Using a JavaScript (JS) file gives you the additional benefit of being able to specify `preBuild` and `postBuild` and being able to run arbitrary match functions instead of regex-matching. The
 javascript function needs to return an array of matches. The fields of the matches must be the same
@@ -99,27 +115,85 @@ module.exports = {
   postBuild: function () {
     console.log('This is run **after** the build command');
   },
-  errorMatch: [
-    // normal regexes and functions may be mixed in this array
-    'this is a regex',
-    function (terminal_output) {
-      // this is the array of matches that we create
-      var matches = [];
-      terminal_output.split(/\n/).forEach(function (line, line_number, terminal_output) {
-        // all lines starting with a slash
-        if line[0] == '/' {
-          this.push({
-            file: 'x.txt',
-            line: line_number.toString(),
-            message: line
-          });
-        }
-      }.bind(matches));
-      return matches;
-    }
-  ]
+  functionMatch: function (terminal_output) {
+    // this is the array of matches that we create
+    var matches = [];
+    terminal_output.split(/\n/).forEach(function (line, line_number, terminal_output) {
+      // all lines starting with a slash
+      if line[0] == '/' {
+        this.push({
+          file: 'x.txt',
+          line: line_number.toString(),
+          message: line
+        });
+      }
+    }.bind(matches));
+    return matches;
+  }
 };
 ```
+
+A major advantage of the `functionMatch` method is that you can keep state while
+parsing the output. For example, if you have a `Makefile` output like this:
+
+```terminal
+make[1]: Entering directory 'foo'
+make[2]: Entering directory 'foo/src'
+testmake.c: In function 'main':
+testmake.c:3:5: error: unknown type name 'error'
+```
+
+then you can't use a regex to match the filename, because the regex doesn't have
+the information about the directory changes. The following `functionMatch` can
+handle this case. Explanations are in the comments:
+
+```js
+module.exports = {
+  cmd: 'make',
+  name: 'Makefile',
+  sh: true,
+  functionMatch: function (output) {
+    const enterDir = /^make\[\d+\]: Entering directory '([^']+)'$/;
+    const error = /^([^:]+):(\d+):(\d+): error: (.+)$/;
+    // this is the list of error matches that atom-build will process
+    const array = [];
+    // stores the current directory
+    var dir = null;
+    // iterate over the output by lines
+    output.split(/\r?\n/).forEach(line => {
+      // update the current directory on lines with `Entering directory`
+      const dir_match = enterDir.exec(line);
+      if (dir_match) {
+        dir = dir_match[1];
+      } else {
+        // process possible error messages
+        const error_match = error.exec(line);
+        if (error_match) {
+          // map the regex match to the error object that atom-build expects
+          array.push({
+            file: dir ? dir + '/' + error_match[1] : error_match[1],
+            line: error_match[2],
+            col: error_match[3],
+            message: error_match[4]
+          });
+        }
+      }
+    });
+    return array;
+  }
+};
+```
+
+Another feature of `functionMatch` is that you can attach informational messages
+to the error messages:
+
+![pic of traces and custom error types](https://cloud.githubusercontent.com/assets/332036/15097688/ddfc170c-1523-11e6-8394-d24a79d125ea.png)
+
+You can add these additional messages by setting the trace field of the error
+object. It needs to be an array of objects with the same fields as the error.
+Instead of adding squiggly lines at the location given by the `file`, `line` and
+`col` fields, a link is added to the popup message, so you can conveniently jump
+to the location given in the trace.
 
 <a name="custom-build-config"></a>
 #### Configuration options
@@ -132,7 +206,9 @@ Option            | Required       | Description
 `sh`              | *[optional]*   | If `true`, the combined command and arguments will be passed to `/bin/sh`. Default `true`.
 `cwd`             | *[optional]*   | The working directory for the command. E.g. what `.` resolves to.
 `env`             | *[optional]*   | An object of environment variables and their values to set
-`errorMatch`      | *[optional]*   | A (list of) regular expressions to match output to a file, row and col. See [Error matching](#error-match) for details. (**JS only**: pass a function instead of regex to execute your own matching code)
+`errorMatch`      | *[optional]*   | A (list of) regular expressions to match output to a file, row and col. See [Error matching](#error-match) for details.
+`warningMatch`    | *[optional]*   | Like `errorMatch`, but is reported as just a warning
+`functionMatch`   | *[optional]*   | A (list of) javascript functions that return a list of match objects
 `keymap`          | *[optional]*   | A keymap string as defined by [`Atom`](https://atom.io/docs/latest/behind-atom-keymaps-in-depth). Pressing this key combination will trigger the target. Examples: `ctrl-alt-k` or `cmd-U`.
 `atomCommandName` | *[optional]*   | Command name to register which should be on the form of `namespace:command`. Read more about [Atom CommandRegistry](https://atom.io/docs/api/v1.4.1/CommandRegistry). The command will be available in the command palette and can be trigger from there. If this is returned by a build provider, the command can programatically be triggered by [dispatching](https://atom.io/docs/api/v1.4.1/CommandRegistry#instance-dispatch).
 `targets`         | *[optional]*   | Additional targets which can be used to build variations of your project.
@@ -187,8 +263,6 @@ The following named groups can be matched from the output:
   * `line_end` - *[optional]* the line the error ends on. `(?<line_end> RE)`.
   * `col_end` - *[optional]* the column the error ends on. `(?<col_end> RE)`.
   * `message` - *[optional]* Catch the humanized error message. `(?<message> RE)`.
-
-Backslashes must be escaped, thus the double `\\` everywhere.
 
 The `file` should be relative the `cwd` specified. If no `cwd` has been specified, then
 the `file` should be relative the project root (e.g. the top most directory shown in the

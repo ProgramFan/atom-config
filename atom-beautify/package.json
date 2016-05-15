@@ -209,8 +209,8 @@
   "homepage": "https://github.com/Glavin001/atom-beautify#readme",
   "_id": "atom-beautify@0.29.7",
   "_shasum": "127ed44242dff935f411424d02274af0f718651a",
-  "_resolved": "file:../d-116411-6540-18kpb8q/package.tgz",
-  "_from": "../d-116411-6540-18kpb8q/package.tgz",
+  "_resolved": "file:../d-116415-6535-1fi3bei/package.tgz",
+  "_from": "../d-116415-6535-1fi3bei/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -1536,7 +1536,7 @@
       },
       {
         "name": "loose-envify",
-        "version": "1.1.0",
+        "version": "1.2.0",
         "path": "node_modules/jscs/node_modules/cst/node_modules/babel-types/node_modules/babel-traverse/node_modules/invariant/node_modules/loose-envify/index.js"
       },
       {
@@ -3101,7 +3101,7 @@
       },
       {
         "name": "tidy-markdown",
-        "version": "2.0.1",
+        "version": "2.0.2",
         "path": "node_modules/tidy-markdown/lib/index.js"
       },
       {
@@ -3136,7 +3136,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.6.0",
+        "version": "3.6.1",
         "path": "node_modules/tidy-markdown/node_modules/js-yaml/index.js"
       },
       {
@@ -3166,7 +3166,7 @@
       },
       {
         "name": "typescript-formatter",
-        "version": "2.1.0",
+        "version": "2.2.0",
         "path": "node_modules/typescript-formatter/index.js"
       },
       {
@@ -3316,7 +3316,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.6.0",
+        "version": "3.6.1",
         "path": "node_modules/yaml-front-matter/node_modules/js-yaml/index.js"
       },
       {
@@ -7974,6 +7974,7 @@
         "node_modules/jscs/node_modules/cst/node_modules/babel-types/node_modules/babel-traverse/node_modules/globals/index.js",
         "node_modules/jscs/node_modules/cst/node_modules/babel-types/node_modules/babel-traverse/node_modules/invariant/browser.js",
         "node_modules/jscs/node_modules/cst/node_modules/babel-types/node_modules/babel-traverse/node_modules/invariant/invariant.js",
+        "node_modules/jscs/node_modules/cst/node_modules/babel-types/node_modules/babel-traverse/node_modules/invariant/node_modules/loose-envify/cli.js",
         "node_modules/jscs/node_modules/cst/node_modules/babel-types/node_modules/babel-traverse/node_modules/invariant/node_modules/loose-envify/custom.js",
         "node_modules/jscs/node_modules/cst/node_modules/babel-types/node_modules/babel-traverse/node_modules/invariant/node_modules/loose-envify/index.js",
         "node_modules/jscs/node_modules/cst/node_modules/babel-types/node_modules/babel-traverse/node_modules/invariant/node_modules/loose-envify/loose-envify.js",
@@ -10717,6 +10718,7 @@
         "node_modules/tidy-markdown/lib/converters.js",
         "node_modules/tidy-markdown/lib/index.js",
         "node_modules/tidy-markdown/lib/tables.js",
+        "node_modules/tidy-markdown/lib/tree-adapter.js",
         "node_modules/tidy-markdown/lib/utils.js",
         "node_modules/tidy-markdown/node_modules/argparse/index.js",
         "node_modules/tidy-markdown/node_modules/argparse/lib/action/append/constant.js",
@@ -14251,9 +14253,9 @@
           "node_modules/typescript-formatter/lib/provider"
         ],
         "dependencies": {
-          "commandpost": "1.0.0",
-          "editorconfig": "0.13.2",
-          "glob-expand": "0.1.0"
+          "commandpost": "^1.0.0",
+          "editorconfig": "^0.13.2",
+          "glob-expand": "^0.1.0"
         }
       },
       {

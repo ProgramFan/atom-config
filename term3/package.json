@@ -51,8 +51,8 @@
   "homepage": "https://github.com/Floobits/atom-term3#readme",
   "_id": "term3@0.22.0",
   "_shasum": "a2216b24acb40a755d2132b41ae356c0cd50fb7b",
-  "_resolved": "file:../d-116411-6337-t8ef5u/package.tgz",
-  "_from": "../d-116411-6337-t8ef5u/package.tgz",
+  "_resolved": "file:../d-116415-6332-rbvies/package.tgz",
+  "_from": "../d-116415-6332-rbvies/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -494,7 +494,7 @@
         "lib/term-view.coffee"
       ],
       ".js": [
-        "lib/build/.module-cache/7aa4e32b55da681f7a4fe195f9346ca6f88d0571.js",
+        "lib/build/.module-cache/2730f38c31704eaad05c18ea5b8efdd9c39f4130.js",
         "lib/build/list-view.js",
         "lib/terminal-model.js",
         "node_modules/atom-space-pen-views/lib/main.js",
@@ -2161,7 +2161,7 @@
         "node_modules/reactionary-atom-fork/lib/reactionary.js"
       ],
       ".json": [
-        "lib/build/.module-cache/manifest/7aa4e32b55da681f7a4fe195f9346ca6f88d0571.json",
+        "lib/build/.module-cache/manifest/2730f38c31704eaad05c18ea5b8efdd9c39f4130.json",
         "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/package.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/api.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/d/package.json",

@@ -2,10 +2,10 @@
 
 @syntax-text-color-unobtrusive: fadeout(@syntax-text-color, 50%);
 
-atom-text-editor, :host {
+atom-text-editor::shadow, :host {
   .asciidoc {
 
-    .markup{
+    .markup {
 
       &.bold {
         font-weight: bold;
@@ -13,10 +13,6 @@ atom-text-editor, :host {
 
       &.italic {
         font-style: italic;
-      }
-
-      &.url {
-        color: mix(red, @syntax-text-color, 20%);
       }
 
       &.htmlentity {
@@ -38,6 +34,12 @@ atom-text-editor, :host {
       &.admonition,
       &.explicit,
       &.heading,
+      &.heading-0,
+      &.heading-1,
+      &.heading-2,
+      &.heading-3,
+      &.heading-4,
+      &.heading-5,
       &.section {
         font-weight: bold;
 
@@ -53,7 +55,10 @@ atom-text-editor, :host {
       }
 
       &.heading.blocktitle,
-      &.substitution {
+      &.substitution{
+        color: @syntax-text-color-unobtrusive;
+      }
+      &.meta.attribute-list {
         color: @syntax-text-color-unobtrusive;
       }
       &.todo.box,
@@ -70,17 +75,26 @@ atom-text-editor, :host {
           font-weight: bold;
       }
 
+      &.footnote {
+          color: @syntax-color-function;
+      }
+
       &.super {
-        vertical-align: super;
-        font-size: @font-size * .8;
         color: mix(green, @syntax-text-color, 50%);
       }
 
       &.sub {
-        vertical-align: sub;
-        font-size: @font-size * .8;
         color: mix(green, @syntax-text-color, 50%);
       }
+    }
+
+    .super {
+      vertical-align: text-top;
+      font-size: @font-size * .7;
+    }
+    .sub {
+      vertical-align: text-bottom;
+      font-size: @font-size * .7;
     }
 
     .block,

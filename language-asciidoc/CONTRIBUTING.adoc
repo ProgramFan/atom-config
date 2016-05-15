@@ -77,7 +77,7 @@ sh build-package.sh
 
 .Testing syntax
 * http://flight-manual.atom.io/hacking-atom/sections/writing-specs[Atom specs]
-* http://jasmine.github.io/edge/introduction.html[Jasmine]
+* http://jasmine.github.io/1.3/introduction.html[Jasmine 1.3]
 
 == Grammar
 
@@ -94,10 +94,19 @@ The file link:grammars/language-asciidoc.cson[grammars/language-asciidoc.cson] i
 atom -d .
 ----
 
-* Open the command dialog with press keys: `Ctrl+Shift-P`
-* In the command dialog, find and choose the item named `Asciidoc Grammar: Compile grammar and reload`
-** Tips: write only `AG` for a quick access to the item.
+* Open the Command Palette with press keys: `Ctrl+Shift-P`
+* In the Command Palette, find and choose the item named `Asciidoc Grammar: Compile grammar and reload`
+** Tips: write only `agc` for a quick access to the item.
 * The grammar file is re-generated automatically.
+
+==== Live Reload
+
+* For automaticaly reload the grammar when a `.cson` file is saved:
+** In the package settings, checked: `[Only on Developer Mode] Grammars live reload`
+** To quickly toggle Live Reload:
+*** Open the Command Palette with press keys: `Ctrl+Shift-P`
+*** In the Command Palette, find and choose the item named `Asciidoc Grammar: Toggle Live Reload`
+**** Tips: write only `agt` for a quick access to the item.
 
 === Language definition
 
@@ -110,6 +119,25 @@ The regexps are based on the https://github.com/kkos/oniguruma[Oniguruma] regexp
 .TextMate oriented language resources
 * http://www.apeth.com/nonblog/stories/textmatebundle.html[Practical TextMate guide]
 * http://manual.macromates.com/en/language_grammars.html[TextMate language grammars manual]
+
+==== Naming conventions
+
+We're trying as much as possible to adhere to the naming guidelines described in the http://manual.macromates.com/en/language_grammars.html#naming_conventions[Naming Conventions] section of the TextMate language manual.
+Since the grammar framework was designed with computer programming languages in mind, it's not always clear what name to select.
+We must find the most logical way to map to the existing names, then try to stick to it.
+
+Here are (some of) the patterns we're currently using:
+
+* `markup.heading` - encloses a section title
+* `markup.bold` - encloses strong text
+* `markup.italic` - encloses emphasized text
+* `markup.raw` - encloses monospaced text
+* `markup.link` - encloses a raw URL or target of a link macro
+* `comment.line` - encloses a line comment
+* `comment.block` - encloses a block comment
+* `entity.name.function` - encloses the macro name
+* `string.unquoted` - nested content (such as inside a macro or attribute value)
+* ...
 
 === Regexp handling
 
@@ -126,6 +154,14 @@ Generally it can be said that POSIX-style regex elements are preferred (e.g., `+
 * http://www.regular-expressions.info/ruby.html[Ruby regexp introduction]
 * http://www.regular-expressions.info/refflavors.html[Regexp reference index] (select Ruby in the table header dropdown)
 
+=== Regex inspiration from upstream
+
+The https://github.com/asciidoctor/asciidoctor[upstream Asciidoctor project], written in Ruby, contains all regexes to support the full Asciidoctor ecosystem. Checking out the https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor.rb[upstream code] can thus be a great source for regex inspiration. There are however a few things to keep in mind when looking at the regular expressions in Asciidoctor core (`asciidoctor.rb`):
+
+. The regular expressions in core are written for the http://ruby-doc.org/core-1.8.7/Regexp.html[Ruby 1.8 regexp engine], so they are more primitive than what https://github.com/kkos/oniguruma[Oniguruma] supports. Most notably, the Ruby 1.8 regexp engine doesn't support http://www.regular-expressions.info/lookaround.html#lookbehind[look-behind matches] (We're going to start using the Oniguruma engine in Asciidoctor 1.6).
+. The regular expressions in core often capture groups in order to populate the https://en.wikipedia.org/wiki/Abstract_syntax_treed[AST] node, or to perform more fine-grained parsing. The grammar doesn't need to capture a group unless that span of text is needed for highlighting.
+. The grammar should skip matching escaped syntax. Core captures it only because the regexp engine doesn't support look-behind matches.
+
 === Code language support
 
 AsciiDoc offers the ability to include source code blocks, in a variety of languages.
@@ -140,6 +176,13 @@ You can check the available source languages available in your Atom editor, to s
 
 .Example language query
 image::https://cloud.githubusercontent.com/assets/5674651/14895946/a40b08aa-0d7b-11e6-9bff-458a3d42087c.png[screenshot of a code support query]
+
+
+== Compatibility mode not supported
+As the AsciiDoc syntax has changed quite a bit since the original Python implementation, Asciidoctor offers a legacy mode called `compat-mode`. This mode can be set using the `:compat-mode:` attribute. This can be done in the document iteself, or when generating the final result using `asciidoctor -a compat-mode`, or it's shorter equivalent `asciidoc`.
+
+As the compatibility mode is a legacy syntax the project wants to move away from, the mode can be triggered from outside the source itself, and changing grammar on the fly introduces complexity, *compatibility mode is currently not supported by this highlighter*.
+
 
 == Styling
 
