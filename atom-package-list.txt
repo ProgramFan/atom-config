@@ -3,8 +3,10 @@ Hydrogen
 term3
 git-time-machine
 Zen
-autocomplete-asciidoc
+language-asciidoc
 asciidoc-preview
+asciidoc-image-helper
+autocomplete-asciidoc
 atom-beautify
 autocomplete-bibtex
 autocomplete-paths
@@ -18,7 +20,6 @@ flex-tool-bar
 git-plus
 graphviz-preview
 imdone-atom
-language-asciidoc
 language-cmake
 language-dot
 language-latex
@@ -33,6 +34,7 @@ markdown-preview-plus
 markdown-scroll-sync
 markdown-themeable-pdf
 markdown-writer
+markdown-image-helper
 minimap
 minimap-find-and-replace
 minimap-git-diff
