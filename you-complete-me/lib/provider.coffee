@@ -1,9 +1,7 @@
 utility = require './utility'
 getCompletions = require './get-completions'
 getIssues = require './get-issues'
-
-enabledForScope = (scopeDescriptor) ->
-
+command = require './command'
 
 module.exports =
   selector: '*'
@@ -16,13 +14,15 @@ module.exports =
   lintOnFly: true
 
   getSuggestions: (context) ->
-    return [] unless utility.isEnabledForScope context.scopeDescriptor
-    getCompletions(context).catch (error) ->
-      console.error '[YCM-ERROR]', error
-      return []
+    return [] unless utility.isEnabledForScope context.editor.getRootScopeDescriptor()
+    getCompletions(context).catch utility.notifyError []
 
   lint: (editor) ->
     return [] unless utility.isEnabledForScope editor.getRootScopeDescriptor()
-    getIssues(editor).catch (error) ->
-      console.error '[YCM-ERROR]', error
-      return []
+    return [] unless atom.config.get 'you-complete-me.linterEnabled'
+    getIssues(editor).catch utility.notifyError []
+
+  getSuggestionForWord: (editor, text, range) ->
+    return null unless utility.isEnabledForScope editor.getRootScopeDescriptor()
+    callback = -> command.run 'GoTo', range.start
+    {range, callback}

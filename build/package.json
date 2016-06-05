@@ -1,7 +1,7 @@
 {
   "name": "build",
   "main": "./lib/build",
-  "version": "0.63.0",
+  "version": "0.64.0",
   "description": "Build your current project, directly from Atom",
   "repository": {
     "type": "git",
@@ -9,15 +9,15 @@
   },
   "license": "MIT",
   "engines": {
-    "atom": ">=0.50.0"
+    "atom": ">=1.0.0"
   },
   "dependencies": {
+    "atom-package-deps": "^4.0.1",
     "atom-space-pen-views": "^2.0.3",
     "cross-spawn-async": "^2.1.8",
     "cson-parser": "^1.3.0",
     "getmac": "^1.0.7",
     "js-yaml": "^3.4.6",
-    "node-uuid": "^1.4.3",
     "term.js": "https://github.com/jeremyramin/term.js/tarball/de1635fc2695e7d8165012d3b1d007d7ce60eea2",
     "tree-kill": "^1.0.0",
     "xregexp": "^3.1.0"
@@ -25,11 +25,14 @@
   "devDependencies": {
     "atom-build-spec-helpers": "^0.4.0",
     "babel-eslint": "^6.0.0",
-    "eslint": "^2.5.3",
+    "eslint": "^2.10.1",
     "eslint-config-atom-build": "^3.0.0",
     "fs-extra": "^0.26.7",
     "temp": "^0.8.1"
   },
+  "package-deps": [
+    "busy"
+  ],
   "consumedServices": {
     "builder": {
       "versions": {
@@ -39,6 +42,11 @@
     "status-bar": {
       "versions": {
         "^1.0.0": "consumeStatusBar"
+      }
+    },
+    "busy": {
+      "versions": {
+        "^1.0.0": "consumeBusy"
       }
     },
     "linter-indie": {
@@ -63,13 +71,28 @@
     "url": "https://github.com/noseglid/atom-build/issues"
   },
   "homepage": "https://github.com/noseglid/atom-build#readme",
-  "_id": "build@0.63.0",
-  "_shasum": "6abb52af9668850aefc6f7543e2e1981d08f82d1",
-  "_resolved": "file:../d-116415-1451-cjnr0e/package.tgz",
-  "_from": "../d-116415-1451-cjnr0e/package.tgz",
+  "_id": "build@0.64.0",
+  "_shasum": "140ce45f323561b3ec1e770ef9010fec7dde1a41",
+  "_resolved": "file:../d-11655-1524-yyh1fl/package.tgz",
+  "_from": "../d-11655-1524-yyh1fl/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
+      {
+        "name": "atom-package-deps",
+        "version": "4.0.1",
+        "path": "node_modules/atom-package-deps/lib/index.js"
+      },
+      {
+        "name": "atom-package-path",
+        "version": "1.1.0",
+        "path": "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js"
+      },
+      {
+        "name": "sb-callsite",
+        "version": "1.1.2",
+        "path": "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js"
+      },
       {
         "name": "atom-space-pen-views",
         "version": "2.2.0",
@@ -157,7 +180,7 @@
       },
       {
         "name": "cross-spawn-async",
-        "version": "2.2.2",
+        "version": "2.2.4",
         "path": "node_modules/cross-spawn-async/index.js"
       },
       {
@@ -177,18 +200,8 @@
       },
       {
         "name": "which",
-        "version": "1.2.8",
+        "version": "1.2.10",
         "path": "node_modules/cross-spawn-async/node_modules/which/which.js"
-      },
-      {
-        "name": "is-absolute",
-        "version": "0.1.7",
-        "path": "node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/index.js"
-      },
-      {
-        "name": "is-relative",
-        "version": "0.1.3",
-        "path": "node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/node_modules/is-relative/index.js"
       },
       {
         "name": "isexe",
@@ -212,28 +225,23 @@
       },
       {
         "name": "extract-opts",
-        "version": "3.2.0",
-        "path": "node_modules/getmac/node_modules/extract-opts/esnextguardian.js"
+        "version": "3.3.1",
+        "path": "node_modules/getmac/node_modules/extract-opts/index.js"
       },
       {
         "name": "eachr",
-        "version": "3.1.1",
-        "path": "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/esnextguardian.js"
+        "version": "3.2.0",
+        "path": "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/index.js"
       },
       {
-        "name": "esnextguardian",
-        "version": "1.2.1",
-        "path": "node_modules/getmac/node_modules/extract-opts/node_modules/esnextguardian/lib/index.js"
+        "name": "editions",
+        "version": "1.1.1",
+        "path": "node_modules/getmac/node_modules/extract-opts/node_modules/editions/es2015/index.js"
       },
       {
         "name": "typechecker",
         "version": "4.3.0",
         "path": "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/index.js"
-      },
-      {
-        "name": "editions",
-        "version": "1.1.1",
-        "path": "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/es2015/index.js"
       },
       {
         "name": "js-yaml",
@@ -254,11 +262,6 @@
         "name": "esprima",
         "version": "2.7.2",
         "path": "node_modules/js-yaml/node_modules/esprima/esprima.js"
-      },
-      {
-        "name": "node-uuid",
-        "version": "1.4.7",
-        "path": "node_modules/node-uuid/uuid.js"
       },
       {
         "name": "term.js",
@@ -291,6 +294,11 @@
         "lib/target-manager.js",
         "lib/targets-view.js",
         "lib/utils.js",
+        "node_modules/atom-package-deps/lib/helpers.js",
+        "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/view.js",
+        "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",
         "node_modules/atom-space-pen-views/lib/main.js",
         "node_modules/atom-space-pen-views/lib/scroll-view.js",
         "node_modules/atom-space-pen-views/lib/select-list-view.js",
@@ -824,13 +832,10 @@
         "node_modules/cross-spawn-async/lib/enoent.js",
         "node_modules/cross-spawn-async/lib/parse.js",
         "node_modules/cross-spawn-async/lib/resolveCommand.js",
-        "node_modules/cross-spawn-async/lib/util/mixIn.js",
         "node_modules/cross-spawn-async/node_modules/lru-cache/lib/lru-cache.js",
         "node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/pseudomap/map.js",
         "node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/pseudomap/pseudomap.js",
         "node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/yallist/yallist.js",
-        "node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/index.js",
-        "node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/node_modules/is-relative/index.js",
         "node_modules/cross-spawn-async/node_modules/which/node_modules/isexe/access.js",
         "node_modules/cross-spawn-async/node_modules/which/node_modules/isexe/index.js",
         "node_modules/cross-spawn-async/node_modules/which/node_modules/isexe/mode.js",
@@ -858,27 +863,22 @@
         "node_modules/cson-parser/node_modules/coffee-script/register.js",
         "node_modules/cson-parser/node_modules/coffee-script/repl.js",
         "node_modules/getmac/es5/lib/getmac.js",
-        "node_modules/getmac/node_modules/extract-opts/.eslintrc.js",
-        "node_modules/getmac/node_modules/extract-opts/es5/lib/index.js",
-        "node_modules/getmac/node_modules/extract-opts/esnext/lib/index.js",
-        "node_modules/getmac/node_modules/extract-opts/esnextguardian.js",
-        "node_modules/getmac/node_modules/extract-opts/example.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/.eslintrc.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/es5/lib/eachr.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/esnext/lib/eachr.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/esnextguardian.js",
+        "node_modules/getmac/node_modules/extract-opts/es2015/index.js",
+        "node_modules/getmac/node_modules/extract-opts/index.js",
+        "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/es2015/index.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/example.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/esnextguardian/.eslintrc.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/esnextguardian/lib/index.js",
+        "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/index.js",
+        "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/source/index.js",
+        "node_modules/getmac/node_modules/extract-opts/node_modules/editions/docs/assets/anchor.js",
+        "node_modules/getmac/node_modules/extract-opts/node_modules/editions/docs/assets/site.js",
+        "node_modules/getmac/node_modules/extract-opts/node_modules/editions/es2015/index.js",
+        "node_modules/getmac/node_modules/extract-opts/node_modules/editions/source/index.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/docs/assets/anchor.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/docs/assets/site.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/es2015/index.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/index.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/docs/assets/anchor.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/docs/assets/site.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/es2015/index.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/source/index.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/source/index.js",
+        "node_modules/getmac/node_modules/extract-opts/source/index.js",
         "node_modules/js-yaml/bin/js-yaml.js",
         "node_modules/js-yaml/dist/js-yaml.js",
         "node_modules/js-yaml/dist/js-yaml.min.js",
@@ -943,8 +943,6 @@
         "node_modules/js-yaml/node_modules/esprima/bin/esparse.js",
         "node_modules/js-yaml/node_modules/esprima/bin/esvalidate.js",
         "node_modules/js-yaml/node_modules/esprima/esprima.js",
-        "node_modules/node-uuid/benchmark/benchmark.js",
-        "node_modules/node-uuid/uuid.js",
         "node_modules/term.js/example/index.js",
         "node_modules/term.js/index.js",
         "node_modules/term.js/lib/index.js",
@@ -962,6 +960,9 @@
         "node_modules/xregexp/src/xregexp.js"
       ],
       ".json": [
+        "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/package.json",
+        "node_modules/atom-package-deps/node_modules/atom-package-path/package.json",
+        "node_modules/atom-package-deps/package.json",
         "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/package.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/api.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/d/package.json",
@@ -984,8 +985,6 @@
         "node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/pseudomap/package.json",
         "node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/yallist/package.json",
         "node_modules/cross-spawn-async/node_modules/lru-cache/package.json",
-        "node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/node_modules/is-relative/package.json",
-        "node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/package.json",
         "node_modules/cross-spawn-async/node_modules/which/node_modules/isexe/package.json",
         "node_modules/cross-spawn-async/node_modules/which/package.json",
         "node_modules/cross-spawn-async/package.json",
@@ -993,8 +992,7 @@
         "node_modules/cson-parser/node_modules/coffee-script/package.json",
         "node_modules/cson-parser/package.json",
         "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/package.json",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/esnextguardian/package.json",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/package.json",
+        "node_modules/getmac/node_modules/extract-opts/node_modules/editions/package.json",
         "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/package.json",
         "node_modules/getmac/node_modules/extract-opts/package.json",
         "node_modules/getmac/package.json",
@@ -1003,9 +1001,6 @@
         "node_modules/js-yaml/node_modules/argparse/package.json",
         "node_modules/js-yaml/node_modules/esprima/package.json",
         "node_modules/js-yaml/package.json",
-        "node_modules/node-uuid/bower.json",
-        "node_modules/node-uuid/component.json",
-        "node_modules/node-uuid/package.json",
         "node_modules/term.js/package.json",
         "node_modules/tree-kill/package.json",
         "node_modules/xregexp/package.json",
@@ -1025,14 +1020,33 @@
           "spec/fixture/atom-build-spec-linter"
         ],
         "dependencies": {
+          "atom-package-deps": "^4.0.1",
           "atom-space-pen-views": "^2.0.3",
           "cross-spawn-async": "^2.1.8",
           "cson-parser": "^1.3.0",
           "getmac": "^1.0.7",
           "js-yaml": "^3.4.6",
-          "node-uuid": "^1.4.3",
           "tree-kill": "^1.0.0",
           "xregexp": "^3.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps/lib",
+          "node_modules/atom-package-deps"
+        ],
+        "dependencies": {
+          "atom-package-path": "^1.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps/node_modules/atom-package-path/lib",
+          "node_modules/atom-package-deps/node_modules/atom-package-path",
+          "node_modules/atom-package-deps/node_modules/atom-package-path/spec"
+        ],
+        "dependencies": {
+          "sb-callsite": "^1.1.2"
         }
       },
       {
@@ -1326,12 +1340,11 @@
       {
         "paths": [
           "node_modules/cross-spawn-async",
-          "node_modules/cross-spawn-async/lib",
-          "node_modules/cross-spawn-async/lib/util"
+          "node_modules/cross-spawn-async/lib"
         ],
         "dependencies": {
           "lru-cache": "^4.0.0",
-          "which": "^1.2.4"
+          "which": "^1.2.8"
         }
       },
       {
@@ -1349,16 +1362,7 @@
           "node_modules/cross-spawn-async/node_modules/which"
         ],
         "dependencies": {
-          "is-absolute": "^0.1.7",
           "isexe": "^1.1.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute"
-        ],
-        "dependencies": {
-          "is-relative": "^0.1.0"
         }
       },
       {
@@ -1381,25 +1385,25 @@
       },
       {
         "paths": [
+          "node_modules/getmac/node_modules/extract-opts/es2015",
           "node_modules/getmac/node_modules/extract-opts",
-          "node_modules/getmac/node_modules/extract-opts/es5/lib",
-          "node_modules/getmac/node_modules/extract-opts/esnext/lib"
+          "node_modules/getmac/node_modules/extract-opts/source"
         ],
         "dependencies": {
-          "eachr": "^3.1.0",
-          "esnextguardian": "^1.2.0",
-          "typechecker": "^4.0.1"
+          "eachr": "^3.2.0",
+          "editions": "^1.1.1",
+          "typechecker": "^4.3.0"
         }
       },
       {
         "paths": [
+          "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/es2015",
           "node_modules/getmac/node_modules/extract-opts/node_modules/eachr",
-          "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/es5/lib",
-          "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/esnext/lib"
+          "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/source"
         ],
         "dependencies": {
-          "esnextguardian": "^1.1.0",
-          "typechecker": "^4.0.0"
+          "editions": "^1.1.1",
+          "typechecker": "^4.3.0"
         }
       },
       {

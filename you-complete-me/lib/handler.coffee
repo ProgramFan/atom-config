@@ -9,13 +9,13 @@ url = require 'url'
 {BufferedProcess} = require 'atom'
 
 utility = require './utility'
-debug = require './debug'
 
+workingDirectory = null
 ycmdProcess = null
 port = null
 hmacSecret = null
 
-launch = ->
+launch = (exit) ->
   findUnusedPort = new Promise (fulfill, reject) ->
     net.createServer()
       .listen 0, ->
@@ -58,7 +58,8 @@ launch = ->
         reject error
 
   startServer = (optionsFile) -> new Promise (fulfill, reject) ->
-    ycmdProcess = new BufferedProcess
+    workingDirectory = utility.getWorkingDirectory()
+    process = new BufferedProcess
       command: atom.config.get 'you-complete-me.pythonExecutable'
       args: [
         path.resolve atom.config.get('you-complete-me.ycmdPath'), 'ycmd'
@@ -66,28 +67,36 @@ launch = ->
         "--options_file=#{optionsFile}"
         '--idle_suicide_seconds=600'
       ]
-      options: {}
-      stdout: (output) -> debug.log 'CONSOLE', output
-      stderr: (output) -> debug.log 'CONSOLE', output
-      exit: (status) -> ycmdProcess = null
-    setTimeout(fulfill, 1000)
+      options: cwd: workingDirectory
+      stdout: (output) -> utility.debugLog 'CONSOLE', output
+      stderr: (output) -> utility.debugLog 'CONSOLE', output
+      exit: (code) ->
+        exit()
+        switch code
+          when 3 then reject new Error 'Unexpected error while loading the YCM core library.'
+          when 4 then reject new Error 'YCM core library not detected; you need to compile YCM before using it. Follow the instructions in the documentation.'
+          when 5 then reject new Error 'YCM core library compiled for Python 3 but loaded in Python 2. Set the Python Executable config to a Python 3 interpreter path.'
+          when 6 then reject new Error 'YCM core library compiled for Python 2 but loaded in Python 3. Set the Python Executable config to a Python 2 interpreter path.'
+          when 7 then reject new Error 'YCM core library too old; PLEASE RECOMPILE by running the install.py script. See the documentation for more details.'
+    setTimeout (-> fulfill process), 1000
 
   Promise.all [findUnusedPort, generateRandomSecret, readDefaultOptions]
     .then processData
     .then startServer
 
 prepare = ->
-  if ycmdProcess?.killed is false
-    Promise.resolve()
-  else
-    launch()
+  Promise.resolve()
+    .then -> reset() if workingDirectory isnt utility.getWorkingDirectory()
+    .then -> ycmdProcess ?= launch -> ycmdProcess = null
 
 reset = ->
-  ycmdProcess?.kill()
-  ycmdProcess = null
-  port = null
-  hmacSecret = null
-  Promise.resolve()
+  realReset = (process) ->
+    process?.kill?()
+    ycmdProcess = null
+    port = null
+    hmacSecret = null
+  Promise.resolve ycmdProcess
+    .then realReset, realReset
 
 request = (method, endpoint, parameters = null) -> prepare().then ->
   generateHmac = (data, encoding) ->
@@ -117,7 +126,7 @@ request = (method, endpoint, parameters = null) -> prepare().then ->
 
   handleException = (response) ->
     notifyException = ->
-      atom.notifications.addError "[YCM] #{response.exception.TYPE} #{response.message}", detail: if atom.inDevMode() then "#{response.traceback}" else null
+      atom.notifications.addWarning "[YCM] #{response.exception.TYPE}", detail: "#{response.message}\n#{response.traceback}"
 
     confirmExtraConfig = ->
       filepath = response.exception.extra_conf_file
@@ -126,8 +135,8 @@ request = (method, endpoint, parameters = null) -> prepare().then ->
         message: '[YCM] Unknown Extra Config'
         detailedMessage: message
         buttons:
-          Load: -> request 'POST', 'load_extra_conf_file', {filepath}
-          Ignore: -> request 'POST', 'ignore_extra_conf_file', {filepath}
+          Load: -> request('POST', 'load_extra_conf_file', {filepath}).catch utility.notifyError()
+          Ignore: -> request('POST', 'ignore_extra_conf_file', {filepath}).catch utility.notifyError()
 
     shouldIgnore = ->
       response.message is 'File already being parsed.'
@@ -135,7 +144,7 @@ request = (method, endpoint, parameters = null) -> prepare().then ->
     if response?.exception?
       switch response.exception.TYPE
         when 'UnknownExtraConf' then confirmExtraConfig()
-        else notifyException() unless shouldIgnore
+        else notifyException() unless shouldIgnore()
 
   Promise.resolve()
     .then ->
@@ -164,8 +173,8 @@ request = (method, endpoint, parameters = null) -> prepare().then ->
         responseMessage.on 'end', ->
           if verifyMessage responseMessage, responsePayload
             responseObject = try JSON.parse responsePayload catch error then responsePayload
-            debug.log 'REQUEST', method, endpoint, parameters
-            debug.log 'RESPONSE', responseObject
+            utility.debugLog 'REQUEST', method, endpoint, parameters
+            utility.debugLog 'RESPONSE', responseObject
             handleException responseObject
             fulfill responseObject
           else
@@ -173,29 +182,6 @@ request = (method, endpoint, parameters = null) -> prepare().then ->
       requestHandler.on 'error', (error) -> reject error
       requestHandler.write requestPayload if isPost
       requestHandler.end()
-
-# API Endpoints:
-#
-# GET /ready
-# GET /healthy
-#
-# POST /semantic_completion_available
-# POST /completions
-# POST /detailed_diagnostic
-# POST /event_notification
-#
-# POST /defined_subcommands
-# POST /run_completer_command
-#
-# GET /user_options
-# POST /user_options
-# POST /load_extra_conf_file
-# POST /ignore_extra_conf_file
-#
-# POST /debug_info
-#
-# Only available on Qusic's ycmd fork:
-# POST /atom_completions
 
 module.exports =
   prepare: prepare

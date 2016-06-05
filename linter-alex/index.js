@@ -6,7 +6,7 @@
  * @fileoverview Linter.
  */
 
-/* global atom */
+/* global atom Promise */
 /* eslint-env node */
 
 'use strict';
@@ -39,7 +39,7 @@ function activate() {
  * @return {LinterConfiguration} - Configuration.
  */
 function linter() {
-    var CODE_EXPRESSION = /`([^`]+)`/g;
+    var CODE_EXPRESSION = /[“`]([^`]+)[`”]/g;
 
     /**
      * Transform a (stringified) vfile range to a linter
@@ -80,11 +80,11 @@ function linter() {
      */
     function transform(message) {
         return {
-          'type': 'Error',
-          'html': toHTML(message.reason),
-          'filePath': this.getPath(),
-          'range': toRange(message.location)
-      };
+            'type': 'Error',
+            'html': toHTML(message.reason),
+            'filePath': this.getPath(),
+            'range': toRange(message.location)
+        };
     }
 
     /**

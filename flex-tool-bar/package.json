@@ -46,8 +46,8 @@
   "homepage": "https://github.com/cakecatz/flex-toolbar#readme",
   "_id": "flex-tool-bar@0.10.0",
   "_shasum": "d6527e39a0b7702e8d9c17b51cb62d16ee65d5b6",
-  "_resolved": "file:../d-116415-1523-3aavq0/package.tgz",
-  "_from": "../d-116415-1523-3aavq0/package.tgz",
+  "_resolved": "file:../d-11655-1598-xntwi4/package.tgz",
+  "_from": "../d-11655-1598-xntwi4/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -68,7 +68,7 @@
       },
       {
         "name": "chokidar",
-        "version": "1.5.0",
+        "version": "1.5.1",
         "path": "node_modules/chokidar/index.js"
       },
       {
@@ -103,7 +103,7 @@
       },
       {
         "name": "braces",
-        "version": "1.8.4",
+        "version": "1.8.5",
         "path": "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/index.js"
       },
       {
@@ -263,7 +263,7 @@
       },
       {
         "name": "binary-extensions",
-        "version": "1.4.0",
+        "version": "1.4.1",
         "path": "node_modules/chokidar/node_modules/is-binary-path/node_modules/binary-extensions/binary-extensions.json"
       },
       {
@@ -313,8 +313,13 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.1.2",
+        "version": "2.1.4",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/readable.js"
+      },
+      {
+        "name": "buffer-shims",
+        "version": "1.0.0",
+        "path": "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js"
       },
       {
         "name": "core-util-is",
@@ -358,28 +363,23 @@
       },
       {
         "name": "extract-opts",
-        "version": "3.2.0",
-        "path": "node_modules/cson/node_modules/extract-opts/esnextguardian.js"
+        "version": "3.3.1",
+        "path": "node_modules/cson/node_modules/extract-opts/index.js"
       },
       {
         "name": "eachr",
-        "version": "3.1.1",
-        "path": "node_modules/cson/node_modules/extract-opts/node_modules/eachr/esnextguardian.js"
+        "version": "3.2.0",
+        "path": "node_modules/cson/node_modules/extract-opts/node_modules/eachr/index.js"
       },
       {
-        "name": "esnextguardian",
-        "version": "1.2.1",
-        "path": "node_modules/cson/node_modules/extract-opts/node_modules/esnextguardian/lib/index.js"
+        "name": "editions",
+        "version": "1.1.1",
+        "path": "node_modules/cson/node_modules/extract-opts/node_modules/editions/es2015/index.js"
       },
       {
         "name": "typechecker",
         "version": "4.3.0",
         "path": "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/index.js"
-      },
-      {
-        "name": "editions",
-        "version": "1.1.1",
-        "path": "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/es2015/index.js"
       },
       {
         "name": "requirefresh",
@@ -393,13 +393,13 @@
       },
       {
         "name": "safefs",
-        "version": "4.0.1",
-        "path": "node_modules/cson/node_modules/safefs/esnextguardian.js"
+        "version": "4.1.0",
+        "path": "node_modules/cson/node_modules/safefs/index.js"
       },
       {
-        "name": "esnextguardian",
-        "version": "1.2.1",
-        "path": "node_modules/cson/node_modules/safefs/node_modules/esnextguardian/lib/index.js"
+        "name": "editions",
+        "version": "1.1.1",
+        "path": "node_modules/cson/node_modules/safefs/node_modules/editions/es2015/index.js"
       },
       {
         "name": "graceful-fs",
@@ -408,7 +408,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.2",
+        "version": "2.9.1",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {
@@ -528,7 +528,7 @@
       },
       {
         "name": "cross-spawn-async",
-        "version": "2.2.2",
+        "version": "2.2.4",
         "path": "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/index.js"
       },
       {
@@ -548,18 +548,8 @@
       },
       {
         "name": "which",
-        "version": "1.2.8",
+        "version": "1.2.10",
         "path": "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/which.js"
-      },
-      {
-        "name": "is-absolute",
-        "version": "0.1.7",
-        "path": "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/index.js"
-      },
-      {
-        "name": "is-relative",
-        "version": "0.1.3",
-        "path": "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/node_modules/is-relative/index.js"
       },
       {
         "name": "isexe",
@@ -733,6 +723,7 @@
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_readable.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/test.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/index.js",
@@ -771,27 +762,22 @@
         "node_modules/cson/node_modules/cson-parser/lib/cson-parser.js",
         "node_modules/cson/node_modules/cson-parser/lib/parse.js",
         "node_modules/cson/node_modules/cson-parser/lib/stringify.js",
-        "node_modules/cson/node_modules/extract-opts/.eslintrc.js",
-        "node_modules/cson/node_modules/extract-opts/es5/lib/index.js",
-        "node_modules/cson/node_modules/extract-opts/esnext/lib/index.js",
-        "node_modules/cson/node_modules/extract-opts/esnextguardian.js",
-        "node_modules/cson/node_modules/extract-opts/example.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/eachr/.eslintrc.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/eachr/es5/lib/eachr.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/eachr/esnext/lib/eachr.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/eachr/esnextguardian.js",
+        "node_modules/cson/node_modules/extract-opts/es2015/index.js",
+        "node_modules/cson/node_modules/extract-opts/index.js",
+        "node_modules/cson/node_modules/extract-opts/node_modules/eachr/es2015/index.js",
         "node_modules/cson/node_modules/extract-opts/node_modules/eachr/example.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/esnextguardian/.eslintrc.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/esnextguardian/lib/index.js",
+        "node_modules/cson/node_modules/extract-opts/node_modules/eachr/index.js",
+        "node_modules/cson/node_modules/extract-opts/node_modules/eachr/source/index.js",
+        "node_modules/cson/node_modules/extract-opts/node_modules/editions/docs/assets/anchor.js",
+        "node_modules/cson/node_modules/extract-opts/node_modules/editions/docs/assets/site.js",
+        "node_modules/cson/node_modules/extract-opts/node_modules/editions/es2015/index.js",
+        "node_modules/cson/node_modules/extract-opts/node_modules/editions/source/index.js",
         "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/docs/assets/anchor.js",
         "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/docs/assets/site.js",
         "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/es2015/index.js",
         "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/index.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/docs/assets/anchor.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/docs/assets/site.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/es2015/index.js",
-        "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/source/index.js",
         "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/source/index.js",
+        "node_modules/cson/node_modules/extract-opts/source/index.js",
         "node_modules/cson/node_modules/requirefresh/es2015/index.js",
         "node_modules/cson/node_modules/requirefresh/index.js",
         "node_modules/cson/node_modules/requirefresh/node_modules/editions/docs/assets/anchor.js",
@@ -799,16 +785,17 @@
         "node_modules/cson/node_modules/requirefresh/node_modules/editions/es2015/index.js",
         "node_modules/cson/node_modules/requirefresh/node_modules/editions/source/index.js",
         "node_modules/cson/node_modules/requirefresh/source/index.js",
-        "node_modules/cson/node_modules/safefs/.eslintrc.js",
-        "node_modules/cson/node_modules/safefs/es5/lib/safefs.js",
-        "node_modules/cson/node_modules/safefs/esnext/lib/safefs.js",
-        "node_modules/cson/node_modules/safefs/esnextguardian.js",
-        "node_modules/cson/node_modules/safefs/node_modules/esnextguardian/.eslintrc.js",
-        "node_modules/cson/node_modules/safefs/node_modules/esnextguardian/lib/index.js",
+        "node_modules/cson/node_modules/safefs/es2015/index.js",
+        "node_modules/cson/node_modules/safefs/index.js",
+        "node_modules/cson/node_modules/safefs/node_modules/editions/docs/assets/anchor.js",
+        "node_modules/cson/node_modules/safefs/node_modules/editions/docs/assets/site.js",
+        "node_modules/cson/node_modules/safefs/node_modules/editions/es2015/index.js",
+        "node_modules/cson/node_modules/safefs/node_modules/editions/source/index.js",
         "node_modules/cson/node_modules/safefs/node_modules/graceful-fs/fs.js",
         "node_modules/cson/node_modules/safefs/node_modules/graceful-fs/graceful-fs.js",
         "node_modules/cson/node_modules/safefs/node_modules/graceful-fs/legacy-streams.js",
         "node_modules/cson/node_modules/safefs/node_modules/graceful-fs/polyfills.js",
+        "node_modules/cson/node_modules/safefs/source/index.js",
         "node_modules/cson/out/bin/cson-cli.js",
         "node_modules/cson/out/lib/cson.js",
         "node_modules/fs-plus/lib/fs-plus.js",
@@ -1350,13 +1337,10 @@
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/lib/enoent.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/lib/parse.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/lib/resolveCommand.js",
-        "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/lib/util/mixIn.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/lru-cache/lib/lru-cache.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/pseudomap/map.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/pseudomap/pseudomap.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/yallist/yallist.js",
-        "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/index.js",
-        "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/node_modules/is-relative/index.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/isexe/access.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/isexe/index.js",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/isexe/mode.js",
@@ -1457,6 +1441,7 @@
         "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/package.json",
         "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/package.json",
         "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/package.json",
+        "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/package.json",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/package.json",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/component.json",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/package.json",
@@ -1470,13 +1455,12 @@
         "node_modules/cson/node_modules/coffee-script/package.json",
         "node_modules/cson/node_modules/cson-parser/package.json",
         "node_modules/cson/node_modules/extract-opts/node_modules/eachr/package.json",
-        "node_modules/cson/node_modules/extract-opts/node_modules/esnextguardian/package.json",
-        "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/node_modules/editions/package.json",
+        "node_modules/cson/node_modules/extract-opts/node_modules/editions/package.json",
         "node_modules/cson/node_modules/extract-opts/node_modules/typechecker/package.json",
         "node_modules/cson/node_modules/extract-opts/package.json",
         "node_modules/cson/node_modules/requirefresh/node_modules/editions/package.json",
         "node_modules/cson/node_modules/requirefresh/package.json",
-        "node_modules/cson/node_modules/safefs/node_modules/esnextguardian/package.json",
+        "node_modules/cson/node_modules/safefs/node_modules/editions/package.json",
         "node_modules/cson/node_modules/safefs/node_modules/graceful-fs/package.json",
         "node_modules/cson/node_modules/safefs/package.json",
         "node_modules/cson/package.json",
@@ -1508,8 +1492,6 @@
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/pseudomap/package.json",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/lru-cache/node_modules/yallist/package.json",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/lru-cache/package.json",
-        "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/node_modules/is-relative/package.json",
-        "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute/package.json",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/isexe/package.json",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/package.json",
         "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/package.json",
@@ -1819,6 +1801,7 @@
           "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib"
         ],
         "dependencies": {
+          "buffer-shims": "^1.0.0",
           "core-util-is": "~1.0.0",
           "inherits": "~2.0.1",
           "isarray": "~1.0.0",
@@ -1853,25 +1836,25 @@
       },
       {
         "paths": [
+          "node_modules/cson/node_modules/extract-opts/es2015",
           "node_modules/cson/node_modules/extract-opts",
-          "node_modules/cson/node_modules/extract-opts/es5/lib",
-          "node_modules/cson/node_modules/extract-opts/esnext/lib"
+          "node_modules/cson/node_modules/extract-opts/source"
         ],
         "dependencies": {
-          "eachr": "^3.1.0",
-          "esnextguardian": "^1.2.0",
-          "typechecker": "^4.0.1"
+          "eachr": "^3.2.0",
+          "editions": "^1.1.1",
+          "typechecker": "^4.3.0"
         }
       },
       {
         "paths": [
+          "node_modules/cson/node_modules/extract-opts/node_modules/eachr/es2015",
           "node_modules/cson/node_modules/extract-opts/node_modules/eachr",
-          "node_modules/cson/node_modules/extract-opts/node_modules/eachr/es5/lib",
-          "node_modules/cson/node_modules/extract-opts/node_modules/eachr/esnext/lib"
+          "node_modules/cson/node_modules/extract-opts/node_modules/eachr/source"
         ],
         "dependencies": {
-          "esnextguardian": "^1.1.0",
-          "typechecker": "^4.0.0"
+          "editions": "^1.1.1",
+          "typechecker": "^4.3.0"
         }
       },
       {
@@ -1897,13 +1880,13 @@
       },
       {
         "paths": [
+          "node_modules/cson/node_modules/safefs/es2015",
           "node_modules/cson/node_modules/safefs",
-          "node_modules/cson/node_modules/safefs/es5/lib",
-          "node_modules/cson/node_modules/safefs/esnext/lib"
+          "node_modules/cson/node_modules/safefs/source"
         ],
         "dependencies": {
-          "esnextguardian": "^1.2.0",
-          "graceful-fs": "^4.1.2"
+          "editions": "^1.1.1",
+          "graceful-fs": "^4.1.4"
         }
       },
       {
@@ -2227,12 +2210,11 @@
       {
         "paths": [
           "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async",
-          "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/lib",
-          "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/lib/util"
+          "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/lib"
         ],
         "dependencies": {
           "lru-cache": "^4.0.0",
-          "which": "^1.2.4"
+          "which": "^1.2.8"
         }
       },
       {
@@ -2250,16 +2232,7 @@
           "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which"
         ],
         "dependencies": {
-          "is-absolute": "^0.1.7",
           "isexe": "^1.1.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/tree-match-sync/node_modules/cross-spawn/node_modules/cross-spawn-async/node_modules/which/node_modules/is-absolute"
-        ],
-        "dependencies": {
-          "is-relative": "^0.1.0"
         }
       },
       {

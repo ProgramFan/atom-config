@@ -2,18 +2,16 @@ provider = require './provider'
 handler = require './handler'
 config = require './config'
 event = require './event'
-menu = require './menu'
+command = require './command'
 
 activate = ->
   event.register()
-  menu.register()
-  return
+  command.register()
 
 deactivate = ->
   event.deregister()
-  menu.deregister()
+  command.deregister()
   handler.reset()
-  return
 
 module.exports =
   config: config
@@ -21,3 +19,4 @@ module.exports =
   deactivate: deactivate
   provide: -> provider
   provideLinter: -> provider
+  provideHyperclick: -> provider

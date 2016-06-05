@@ -47,8 +47,8 @@
   "homepage": "https://github.com/lloeki/ex-mode#readme",
   "_id": "ex-mode@0.8.0",
   "_shasum": "bc82de3d741c715bf8958704cc5606369743134f",
-  "_resolved": "file:../d-116415-1487-e2y5va/package.tgz",
-  "_from": "../d-116415-1487-e2y5va/package.tgz",
+  "_resolved": "file:../d-11655-1561-uf8mb2/package.tgz",
+  "_from": "../d-11655-1561-uf8mb2/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -124,7 +124,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.2",
+        "version": "2.9.1",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {

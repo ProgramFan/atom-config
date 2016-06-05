@@ -50,8 +50,8 @@
   "homepage": "https://github.com/Galadirith/markdown-preview-plus#readme",
   "_id": "markdown-preview-plus@2.4.0",
   "_shasum": "9505eec2b075159212a3870bf735ce2dfcd04b8f",
-  "_resolved": "file:../d-116415-1713-155k0it/package.tgz",
-  "_from": "../d-116415-1713-155k0it/package.tgz",
+  "_resolved": "file:../d-11655-1774-qjvcru/package.tgz",
+  "_from": "../d-11655-1774-qjvcru/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -172,7 +172,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.2",
+        "version": "2.9.1",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {
@@ -292,7 +292,7 @@
       },
       {
         "name": "linkify-it",
-        "version": "1.2.1",
+        "version": "1.2.4",
         "path": "node_modules/markdown-it/node_modules/linkify-it/index.js"
       },
       {
@@ -302,7 +302,7 @@
       },
       {
         "name": "uc.micro",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "path": "node_modules/markdown-it/node_modules/uc.micro/index.js"
       },
       {
@@ -2451,7 +2451,7 @@
           "node_modules/markdown-it/node_modules/linkify-it/lib"
         ],
         "dependencies": {
-          "uc.micro": "^1.0.0"
+          "uc.micro": "^1.0.1"
         }
       },
       {

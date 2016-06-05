@@ -68,8 +68,8 @@
   "homepage": "https://github.com/nteract/hydrogen#readme",
   "_id": "Hydrogen@0.9.1",
   "_shasum": "0d187bc7d945a897987755fcb1ea3a1bfb2d448f",
-  "_resolved": "file:../d-116415-1135-17sgq6i/package.tgz",
-  "_from": "../d-116415-1135-17sgq6i/package.tgz",
+  "_resolved": "file:../d-11655-1179-4p0q9h/package.tgz",
+  "_from": "../d-11655-1179-4p0q9h/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -245,7 +245,7 @@
       },
       {
         "name": "zmq",
-        "version": "2.15.1",
+        "version": "2.15.3",
         "path": "node_modules/jmp/node_modules/zmq/index.js"
       },
       {
@@ -255,7 +255,7 @@
       },
       {
         "name": "nan",
-        "version": "2.3.3",
+        "version": "2.3.5",
         "path": "node_modules/jmp/node_modules/zmq/node_modules/nan/include_dirs.js"
       },
       {
@@ -270,8 +270,8 @@
       },
       {
         "name": "anser",
-        "version": "1.0.2",
-        "path": "node_modules/transformime/node_modules/anser/dist/index.js"
+        "version": "1.1.0",
+        "path": "node_modules/transformime/node_modules/anser/lib/index.js"
       },
       {
         "name": "commonmark",
@@ -1763,7 +1763,6 @@
         "node_modules/transformime/lib/svg.transform.js",
         "node_modules/transformime/lib/text.transform.js",
         "node_modules/transformime/lib/transformime.js",
-        "node_modules/transformime/node_modules/anser/dist/index.js",
         "node_modules/transformime/node_modules/anser/lib/index.js",
         "node_modules/transformime/node_modules/commonmark/dist/commonmark.js",
         "node_modules/transformime/node_modules/commonmark/dist/commonmark.min.js",
