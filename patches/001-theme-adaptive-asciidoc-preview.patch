@@ -1,0 +1,21 @@
+diff --git a/styles/asciidoc-preview.less b/styles/asciidoc-preview.less
+index 3443749..04b7aaf 100644
+--- a/styles/asciidoc-preview.less
++++ b/styles/asciidoc-preview.less
+@@ -14,14 +14,14 @@
+   font-family: @asciidoc-preview-font-family;
+   font-size: 16px;
+   line-height: 1.6;
+-  background-color: #fff;
++  background-color: @syntax-background-color;
+   overflow: scroll;
+   box-sizing: border-box;
+   padding: 20px;
+   color: rgba(0,0,0,.8);
+ 
+   :not(.atom-text-editor) > code {
+-    color: #333;
++    color: @syntax-text-color;
+   }
+ }
+ 
