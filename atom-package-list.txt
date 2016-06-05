@@ -3,6 +3,7 @@ Hydrogen
 term3
 git-time-machine
 Zen
+autocomplete-asciidoc
 asciidoc-preview
 atom-beautify
 autocomplete-bibtex
