@@ -52,8 +52,8 @@
   "homepage": "https://github.com/imdone/imdone-atom#readme",
   "_id": "imdone-atom@1.3.29",
   "_shasum": "b76aebf2c1ac8c5b33cafe8fa16166a1bb961f5c",
-  "_resolved": "file:../d-116415-6962-1y4u6ph/package.tgz",
-  "_from": "../d-116415-6962-1y4u6ph/package.tgz",
+  "_resolved": "file:../d-11655-7037-1epk7a5/package.tgz",
+  "_from": "../d-11655-7037-1epk7a5/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -389,7 +389,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.8.2",
+        "version": "2.9.1",
         "path": "node_modules/fs-plus/lib/fs-plus.js"
       },
       {
@@ -459,7 +459,7 @@
       },
       {
         "name": "braces",
-        "version": "1.8.4",
+        "version": "1.8.5",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/index.js"
       },
       {
@@ -619,7 +619,7 @@
       },
       {
         "name": "binary-extensions",
-        "version": "1.4.0",
+        "version": "1.4.1",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/is-binary-path/node_modules/binary-extensions/binary-extensions.json"
       },
       {
@@ -649,8 +649,13 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.1.2",
+        "version": "2.1.4",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/readable.js"
+      },
+      {
+        "name": "buffer-shims",
+        "version": "1.0.0",
+        "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js"
       },
       {
         "name": "core-util-is",
@@ -739,7 +744,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.12.0",
+        "version": "4.13.1",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -1556,6 +1561,7 @@
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_readable.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/test.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/index.js",
@@ -1647,8 +1653,8 @@
         "node_modules/lodash/_baseExtremum.js",
         "node_modules/lodash/_baseFill.js",
         "node_modules/lodash/_baseFilter.js",
-        "node_modules/lodash/_baseFind.js",
         "node_modules/lodash/_baseFindIndex.js",
+        "node_modules/lodash/_baseFindKey.js",
         "node_modules/lodash/_baseFlatten.js",
         "node_modules/lodash/_baseFor.js",
         "node_modules/lodash/_baseForOwn.js",
@@ -1669,6 +1675,7 @@
         "node_modules/lodash/_baseIsEqual.js",
         "node_modules/lodash/_baseIsEqualDeep.js",
         "node_modules/lodash/_baseIsMatch.js",
+        "node_modules/lodash/_baseIsNative.js",
         "node_modules/lodash/_baseIteratee.js",
         "node_modules/lodash/_baseKeys.js",
         "node_modules/lodash/_baseKeysIn.js",
@@ -1737,6 +1744,7 @@
         "node_modules/lodash/_copyArray.js",
         "node_modules/lodash/_copyObject.js",
         "node_modules/lodash/_copySymbols.js",
+        "node_modules/lodash/_coreJsData.js",
         "node_modules/lodash/_countHolders.js",
         "node_modules/lodash/_createAggregator.js",
         "node_modules/lodash/_createAssigner.js",
@@ -1747,6 +1755,7 @@
         "node_modules/lodash/_createCompounder.js",
         "node_modules/lodash/_createCtorWrapper.js",
         "node_modules/lodash/_createCurryWrapper.js",
+        "node_modules/lodash/_createFind.js",
         "node_modules/lodash/_createFlow.js",
         "node_modules/lodash/_createHybridWrapper.js",
         "node_modules/lodash/_createInverter.js",
@@ -1780,6 +1789,7 @@
         "node_modules/lodash/_getSymbols.js",
         "node_modules/lodash/_getSymbolsIn.js",
         "node_modules/lodash/_getTag.js",
+        "node_modules/lodash/_getValue.js",
         "node_modules/lodash/_getView.js",
         "node_modules/lodash/_hasPath.js",
         "node_modules/lodash/_hashClear.js",
@@ -1800,6 +1810,8 @@
         "node_modules/lodash/_isKey.js",
         "node_modules/lodash/_isKeyable.js",
         "node_modules/lodash/_isLaziable.js",
+        "node_modules/lodash/_isMaskable.js",
+        "node_modules/lodash/_isMasked.js",
         "node_modules/lodash/_isPrototype.js",
         "node_modules/lodash/_isStrictComparable.js",
         "node_modules/lodash/_iteratorToArray.js",
@@ -2025,10 +2037,14 @@
         "node_modules/lodash/fp/fill.js",
         "node_modules/lodash/fp/filter.js",
         "node_modules/lodash/fp/find.js",
+        "node_modules/lodash/fp/findFrom.js",
         "node_modules/lodash/fp/findIndex.js",
+        "node_modules/lodash/fp/findIndexFrom.js",
         "node_modules/lodash/fp/findKey.js",
         "node_modules/lodash/fp/findLast.js",
+        "node_modules/lodash/fp/findLastFrom.js",
         "node_modules/lodash/fp/findLastIndex.js",
+        "node_modules/lodash/fp/findLastIndexFrom.js",
         "node_modules/lodash/fp/findLastKey.js",
         "node_modules/lodash/fp/first.js",
         "node_modules/lodash/fp/flatMap.js",
@@ -2063,7 +2079,9 @@
         "node_modules/lodash/fp/identity.js",
         "node_modules/lodash/fp/inRange.js",
         "node_modules/lodash/fp/includes.js",
+        "node_modules/lodash/fp/includesFrom.js",
         "node_modules/lodash/fp/indexOf.js",
+        "node_modules/lodash/fp/indexOfFrom.js",
         "node_modules/lodash/fp/init.js",
         "node_modules/lodash/fp/initial.js",
         "node_modules/lodash/fp/intersection.js",
@@ -2123,6 +2141,7 @@
         "node_modules/lodash/fp/lang.js",
         "node_modules/lodash/fp/last.js",
         "node_modules/lodash/fp/lastIndexOf.js",
+        "node_modules/lodash/fp/lastIndexOfFrom.js",
         "node_modules/lodash/fp/lowerCase.js",
         "node_modules/lodash/fp/lowerFirst.js",
         "node_modules/lodash/fp/lt.js",
@@ -2236,6 +2255,11 @@
         "node_modules/lodash/fp/startCase.js",
         "node_modules/lodash/fp/startsWith.js",
         "node_modules/lodash/fp/string.js",
+        "node_modules/lodash/fp/stubArray.js",
+        "node_modules/lodash/fp/stubFalse.js",
+        "node_modules/lodash/fp/stubObject.js",
+        "node_modules/lodash/fp/stubString.js",
+        "node_modules/lodash/fp/stubTrue.js",
         "node_modules/lodash/fp/subtract.js",
         "node_modules/lodash/fp/sum.js",
         "node_modules/lodash/fp/sumBy.js",
@@ -2481,6 +2505,11 @@
         "node_modules/lodash/startCase.js",
         "node_modules/lodash/startsWith.js",
         "node_modules/lodash/string.js",
+        "node_modules/lodash/stubArray.js",
+        "node_modules/lodash/stubFalse.js",
+        "node_modules/lodash/stubObject.js",
+        "node_modules/lodash/stubString.js",
+        "node_modules/lodash/stubTrue.js",
         "node_modules/lodash/subtract.js",
         "node_modules/lodash/sum.js",
         "node_modules/lodash/sumBy.js",
@@ -3030,6 +3059,7 @@
         "node_modules/imdone-core/node_modules/chokidar/node_modules/path-is-absolute/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/examples/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/package.json",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/package.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/component.json",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/package.json",
@@ -3835,6 +3865,7 @@
           "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib"
         ],
         "dependencies": {
+          "buffer-shims": "^1.0.0",
           "core-util-is": "~1.0.0",
           "inherits": "~2.0.1",
           "isarray": "~1.0.0",

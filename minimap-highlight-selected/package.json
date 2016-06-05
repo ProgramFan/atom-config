@@ -31,8 +31,8 @@
   "homepage": "https://github.com/atom-minimap/minimap-highlight-selected#readme",
   "_id": "minimap-highlight-selected@4.4.0",
   "_shasum": "431224ac6cbe9db91f34c713f1c4bedd424fdfe6",
-  "_resolved": "file:../d-116415-7558-13o6rym/package.tgz",
-  "_from": "../d-116415-7558-13o6rym/package.tgz",
+  "_resolved": "file:../d-11655-7633-wawpu2/package.tgz",
+  "_from": "../d-11655-7633-wawpu2/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -98,8 +98,13 @@
       },
       {
         "name": "grim",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "path": "node_modules/atom-utils/node_modules/grim/lib/grim.js"
+      },
+      {
+        "name": "event-kit",
+        "version": "2.0.0",
+        "path": "node_modules/atom-utils/node_modules/grim/node_modules/event-kit/lib/event-kit.js"
       },
       {
         "name": "mixto",
@@ -572,6 +577,10 @@
         "node_modules/atom-utils/node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
         "node_modules/atom-utils/node_modules/grim/lib/deprecation.js",
         "node_modules/atom-utils/node_modules/grim/lib/grim.js",
+        "node_modules/atom-utils/node_modules/grim/node_modules/event-kit/lib/composite-disposable.js",
+        "node_modules/atom-utils/node_modules/grim/node_modules/event-kit/lib/disposable.js",
+        "node_modules/atom-utils/node_modules/grim/node_modules/event-kit/lib/emitter.js",
+        "node_modules/atom-utils/node_modules/grim/node_modules/event-kit/lib/event-kit.js",
         "node_modules/atom-utils/node_modules/mixto/lib/mixin.js",
         "node_modules/event-kit/lib/composite-disposable.js",
         "node_modules/event-kit/lib/disposable.js",
@@ -594,6 +603,8 @@
         "node_modules/atom-utils/node_modules/event-kit/node_modules/grim/node_modules/emissary/package.json",
         "node_modules/atom-utils/node_modules/event-kit/node_modules/grim/package.json",
         "node_modules/atom-utils/node_modules/event-kit/package.json",
+        "node_modules/atom-utils/node_modules/grim/node_modules/event-kit/api.json",
+        "node_modules/atom-utils/node_modules/grim/node_modules/event-kit/package.json",
         "node_modules/atom-utils/node_modules/grim/package.json",
         "node_modules/atom-utils/node_modules/mixto/package.json",
         "node_modules/atom-utils/package.json",
@@ -903,7 +914,7 @@
           "node_modules/atom-utils/node_modules/grim"
         ],
         "dependencies": {
-          "event-kit": "^1.4.1"
+          "event-kit": "^2.0.0"
         }
       },
       {

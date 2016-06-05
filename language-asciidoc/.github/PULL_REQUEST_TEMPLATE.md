@@ -1,5 +1,3 @@
-# Pull Request
-
 ## Preamble
 
 The file `/grammars/language-asciidoc` is generated, please don't modify manually this file.
@@ -23,7 +21,9 @@ Your description.
 
 ## Syntax example
 
+```adoc
 Your syntax example.
+```
 
 ## Screenshots
 

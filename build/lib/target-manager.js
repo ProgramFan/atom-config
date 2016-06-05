@@ -23,6 +23,10 @@ class TargetManager extends EventEmitter {
     atom.commands.add('atom-workspace', 'build:select-active-target', () => this.selectActiveTarget());
   }
 
+  setBusyRegistry(registry) {
+    this.busyRegistry = registry;
+  }
+
   _defaultPathTarget(path) {
     const CompositeDisposable = require('atom').CompositeDisposable;
     return {
@@ -50,6 +54,7 @@ class TargetManager extends EventEmitter {
   refreshTargets(refreshPaths) {
     refreshPaths = refreshPaths || atom.project.getPaths();
 
+    this.busyRegistry && this.busyRegistry.begin('build.refresh-targets', `Refreshing targets for ${refreshPaths.join(',')}`);
     const pathPromises = refreshPaths.map((path) => {
       const pathTarget = this.pathTargets.find(pt => pt.path === path);
       pathTarget.loading = true;
@@ -126,6 +131,7 @@ class TargetManager extends EventEmitter {
     return Promise.all(pathPromises).then(entries => {
       this.fillTargets(require('./utils').activePath());
       this.emit('refresh-complete');
+      this.busyRegistry && this.busyRegistry.end('build.refresh-targets');
 
       if (entries.length === 0) {
         return;
@@ -159,8 +165,9 @@ class TargetManager extends EventEmitter {
     const activeTarget = this.getActiveTarget(path);
     activeTarget && this.targetsView.setActiveTarget(activeTarget.name);
 
-    const targetNames = this.getTargets(path).map(t => t.name);
-    this.targetsView && this.targetsView.setItems(targetNames);
+    this.getTargets(path)
+      .then(targets => targets.map(t => t.name))
+      .then(targetNames => this.targetsView && this.targetsView.setItems(targetNames));
   }
 
   selectActiveTarget() {
@@ -198,13 +205,13 @@ class TargetManager extends EventEmitter {
   getTargets(path) {
     const pathTarget = this.pathTargets.find(pt => pt.path === path);
     if (!pathTarget) {
-      return [];
+      return Promise.resolve([]);
     }
 
     if (pathTarget.targets.length === 0) {
       return this.refreshTargets([ pathTarget.path ]).then(() => pathTarget.targets);
     }
-    return pathTarget.targets;
+    return Promise.resolve(pathTarget.targets);
   }
 
   getActiveTarget(path) {
