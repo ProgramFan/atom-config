@@ -5,65 +5,56 @@ fs = require 'fs-plus'
 cheerio = require 'cheerio'
 # No direct dependence with Highlight because it requires a compilation. See #63 and #150 and atom/highlights#36.
 Highlights = require path.join atom.packages.resolvePackagePath('markdown-preview'), '..', 'highlights'
-{scopeForFenceName} = require './extension-helper'
+{scopeForFenceName} = require './highlights-helper'
+
+{makeAttributes} = require './attributes-builder'
 
 highlighter = null
 {resourcePath} = atom.getLoadSettings()
 packagePath = path.dirname(__dirname)
 
-exports.toHtml = (text='', filePath, callback) ->
-  return unless atom.config.get('asciidoc-preview.defaultAttributes')?
-  attributes =
-    defaultAttributes: atom.config.get('asciidoc-preview.defaultAttributes')
-    numbered: sectionNumbering()
-    skipfrontmatter: if atom.config.get('asciidoc-preview.frontMatter') then '' else 'skip-front-matter'
-    showtitle: if atom.config.get('asciidoc-preview.showTitle') then 'showtitle' else 'showtitle!'
-    compatmode: if atom.config.get('asciidoc-preview.compatMode') then 'compat-mode=@' else ''
-    forceExperimental: if atom.config.get('asciidoc-preview.forceExperimental') then 'experimental' else ''
-    toctype: calculateTocType()
-    safemode: atom.config.get('asciidoc-preview.safeMode') or 'safe'
-    doctype: atom.config.get('asciidoc-preview.docType') or 'article'
-    opalPwd: window.location.href
+exports.toHtml = (text='', filePath) ->
+  render text, filePath
+    .then (html) ->
+      sanitize html
+    .then (html) ->
+      resolveImagePaths html, filePath
+    .then (html) ->
+      tokenizeCodeBlocks html
 
-  taskPath = require.resolve('./worker')
+exports.toRawHtml = (text='', filePath) ->
+  render text, filePath
 
-  Task.once taskPath, text, attributes, filePath, (html) ->
-    html = sanitize(html)
-    html = resolveImagePaths(html, filePath)
-    html = tokenizeCodeBlocks(html)
-    callback(html)
+render = (text='', filePath) ->
+  return Promise.resolve() unless atom.config.get('asciidoc-preview.defaultAttributes')?
 
-exports.toText = (text='', filePath, callback) ->
-  exports.toHtml text, filePath, (error, html) ->
-    if error
-      callback(error)
-    else
-      string = $(document.createElement('div')).append(html)[0].innerHTML
-      callback(null, string)
+  new Promise (resolve, reject) ->
+    attributes = makeAttributes filePath
 
-calculateTocType = ->
-  tocType = atom.config.get 'asciidoc-preview.tocType'
-  if tocType is 'none'
-    return ''
-  # NOTE: 'auto' (blank option in asciidoctor) is currently not supported but
-  # this section is left as a reminder of the expected behaviour
-  else if tocType is 'auto'
-    return 'toc! toc2!'
-  else
-    return "toc=#{tocType} toc2!"
+    taskPath = require.resolve('./worker')
+    task = Task.once taskPath, text, attributes
 
-sectionNumbering = ->
-  numberedOption = atom.config.get('asciidoc-preview.sectionNumbering')
-  if numberedOption is 'always-enabled'
-    'sectnums'
-  else if numberedOption is 'always-disabled'
-    'sectnums!'
-  else if numberedOption is 'enabled-by-default'
-    'sectnums=@'
-  else
-    ''
+    task.on 'asciidoctor-render:success', ({html}) ->
+      console.warn "Rendering is empty: #{filePath}" if not html
+      resolve html or ''
+
+    task.on 'asciidoctor-render:error', ({code, errno, syscall, stack}) ->
+      resolve """
+        <div>
+          <h1>Asciidoctor.js error</h1>
+          <h2>Rendering error</h2>
+          <div>
+            <p><b>Please verify your document syntax.</b></p>
+            <p>Details: #{stack.split('\n')[0]}</p>
+            <p>[code: #{code}, errno: #{errno}, syscall: #{syscall}]<p>
+            <div>#{stack}</div>
+          </div>
+        </div>
+        """
 
 sanitize = (html) ->
+  return html unless html
+
   o = cheerio.load(html)
   o('script').remove()
   attributesToRemove = [
@@ -94,18 +85,20 @@ sanitize = (html) ->
   o.html()
 
 resolveImagePaths = (html, filePath) ->
+  return html unless html
+
   [rootDirectory] = atom.project.relativizePath(filePath)
   o = cheerio.load(html)
   for imgElement in o('img')
     img = o(imgElement)
     if src = img.attr('src')
-      continue if src.match(/^(https?|atom):\/\//)
-      continue if src.startsWith(process.resourcesPath)
-      continue if src.startsWith(resourcePath)
-      continue if src.startsWith(packagePath)
+      continue if src.match /^(https?|atom):\/\//
+      continue if src.startsWith process.resourcesPath
+      continue if src.startsWith resourcePath
+      continue if src.startsWith packagePath
 
       if src[0] is '/'
-        unless fs.isFileSync(src)
+        unless fs.isFileSync src
           if rootDirectory
             img.attr('src', path.join(rootDirectory, src.substring(1)))
       else
@@ -116,8 +109,8 @@ resolveImagePaths = (html, filePath) ->
 tokenizeCodeBlocks = (html, defaultLanguage='text') ->
   html = $(html)
 
-  if fontFamily = atom.config.get('editor.fontFamily')
-    $(html).find('code').css('font-family', fontFamily)
+  if fontFamily = atom.config.get 'editor.fontFamily'
+    html.find('code').css 'font-family', fontFamily
 
   for preElement in $.merge(html.filter('pre'), html.find('pre'))
     codeBlock = $(preElement.firstChild)

@@ -73,8 +73,8 @@
   "homepage": "https://github.com/noseglid/atom-build#readme",
   "_id": "build@0.64.0",
   "_shasum": "140ce45f323561b3ec1e770ef9010fec7dde1a41",
-  "_resolved": "file:../d-11655-6743-84fj37/package.tgz",
-  "_from": "../d-11655-6743-84fj37/package.tgz",
+  "_resolved": "file:../d-116516-6725-13gaom4/package.tgz",
+  "_from": "../d-116516-6725-13gaom4/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -235,7 +235,7 @@
       },
       {
         "name": "editions",
-        "version": "1.1.1",
+        "version": "1.1.2",
         "path": "node_modules/getmac/node_modules/extract-opts/node_modules/editions/es2015/index.js"
       },
       {
@@ -869,8 +869,6 @@
         "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/example.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/index.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/eachr/source/index.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/editions/docs/assets/anchor.js",
-        "node_modules/getmac/node_modules/extract-opts/node_modules/editions/docs/assets/site.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/editions/es2015/index.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/editions/source/index.js",
         "node_modules/getmac/node_modules/extract-opts/node_modules/typechecker/docs/assets/anchor.js",

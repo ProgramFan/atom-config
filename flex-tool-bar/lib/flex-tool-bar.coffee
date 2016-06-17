@@ -108,8 +108,16 @@ module.exports =
 
   registerEvent: ->
     @subscriptions.add atom.workspace.onDidChangeActivePaneItem (item) =>
-      @switchProject() if @storeProject()
-      @reloadToolbar() if @storeGrammar()
+
+      if @didChangeGrammar()
+        @storeGrammar()
+        @reloadToolbar()
+        return
+
+      if @storeProject()
+        @switchProject()
+        return
+
 
   registerWatch: ->
     if atom.config.get('flex-tool-bar.reloadToolBarWhenEditConfigFile')
@@ -144,13 +152,22 @@ module.exports =
   reloadToolbar: (withNotification=false) ->
     return unless @toolBar?
     try
+      @fixToolBarHeight()
       toolBarButtons = @loadConfig()
       @removeButtons()
       @addButtons toolBarButtons
       atom.notifications.addSuccess 'The tool-bar was successfully updated.' if withNotification
+      @unfixToolBarHeight()
     catch error
+      @unfixToolBarHeight()
       atom.notifications.addError 'Your `toolbar.json` is **not valid JSON**!'
       console.error error
+
+  fixToolBarHeight: ->
+    @toolBar.toolBar.element.style.height = "#{@toolBar.toolBar.element.offsetHeight}px"
+
+  unfixToolBarHeight: ->
+    @toolBar.toolBar.element.style.height = null
 
   addButtons: (toolBarButtons) ->
     if toolBarButtons?
@@ -269,11 +286,11 @@ module.exports =
 
   storeGrammar: ->
     editor = atom.workspace.getActiveTextEditor()
-    if editor and editor.getGrammar().name.toLowerCase() isnt @currentGrammar
-      @currentGrammar = editor.getGrammar().name.toLowerCase()
-      return true
-    else
-      return false
+    @currentGrammar = editor?.getGrammar()?.name.toLowerCase()
+
+  didChangeGrammar: ->
+    editor = atom.workspace.getActiveTextEditor()
+    editor and editor.getGrammar().name.toLowerCase() isnt @currentGrammar
 
   removeButtons: ->
     @toolBar.removeItems() if @toolBar?

@@ -47,8 +47,8 @@
   "homepage": "https://github.com/AtomLinter/linter-clang#readme",
   "_id": "linter-clang@3.4.4",
   "_shasum": "2207a6df4e398a3c7435b06e7428878ac0d91dfa",
-  "_resolved": "file:../d-11655-7284-ed7vah/package.tgz",
-  "_from": "../d-11655-7284-ed7vah/package.tgz",
+  "_resolved": "file:../d-116516-7267-1nnj8cf/package.tgz",
+  "_from": "../d-116516-7267-1nnj8cf/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -69,7 +69,7 @@
       },
       {
         "name": "consistent-env",
-        "version": "1.1.2",
+        "version": "1.2.0",
         "path": "node_modules/atom-linter/node_modules/sb-exec/node_modules/consistent-env/lib/index.js"
       },
       {

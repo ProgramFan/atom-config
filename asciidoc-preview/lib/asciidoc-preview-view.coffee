@@ -4,6 +4,7 @@ path = require 'path'
 fs = require 'fs-plus'
 _ = require 'underscore-plus'
 mustache = require 'mustache'
+opn = require 'opn'
 renderer = require './renderer'
 
 module.exports =
@@ -22,12 +23,12 @@ class AsciiDocPreviewView extends ScrollView
     @isAttached = true
 
     if @editorId?
-      @resolveEditor(@editorId)
+      @resolveEditor @editorId
     else if atom.workspace?
-      @subscribeToFilePath(@filePath)
+      @subscribeToFilePath @filePath
     else
       @disposables.add atom.packages.onDidActivateInitialPackages =>
-        @subscribeToFilePath(@filePath)
+        @subscribeToFilePath @filePath
 
   serialize: ->
     deserializer: 'AsciiDocPreviewView'
@@ -55,7 +56,7 @@ class AsciiDocPreviewView extends ScrollView
 
   resolveEditor: (editorId) ->
     resolve = =>
-      @editor = @editorForId(editorId)
+      @editor = @editorForId editorId
 
       if @editor?
         @emitter.emit 'did-change-title' if @editor?
@@ -69,7 +70,7 @@ class AsciiDocPreviewView extends ScrollView
     if atom.workspace?
       resolve()
     else
-      @disposables.add atom.packages.onDidActivateInitialPackages(resolve)
+      @disposables.add atom.packages.onDidActivateInitialPackages resolve
 
   editorForId: (editorId) ->
     for editor in atom.workspace.getTextEditors()
@@ -80,7 +81,7 @@ class AsciiDocPreviewView extends ScrollView
     @disposables.add atom.grammars.onDidAddGrammar => _.debounce((=> @renderAsciiDoc()), 250)
     @disposables.add atom.grammars.onDidUpdateGrammar _.debounce((=> @renderAsciiDoc()), 250)
 
-    atom.commands.add @element,
+    @disposables.add atom.commands.add @element,
       'core:move-up': =>
         @scrollUp()
       'core:move-down': =>
@@ -91,13 +92,13 @@ class AsciiDocPreviewView extends ScrollView
       'core:copy': (event) =>
         event.stopPropagation() if @copyToClipboard()
       'asciidoc-preview:zoom-in': =>
-        zoomLevel = parseFloat(@css('zoom')) or 1
-        @css('zoom', zoomLevel + .1)
+        zoomLevel = parseFloat(@css 'zoom') or 1
+        @css 'zoom', zoomLevel + .1
       'asciidoc-preview:zoom-out': =>
-        zoomLevel = parseFloat(@css('zoom')) or 1
-        @css('zoom', zoomLevel - .1)
+        zoomLevel = parseFloat(@css 'zoom') or 1
+        @css 'zoom', zoomLevel - .1
       'asciidoc-preview:reset-zoom': =>
-        @css('zoom', 1)
+        @css 'zoom', 1
 
     changeHandler = =>
       @renderAsciiDoc()
@@ -111,15 +112,13 @@ class AsciiDocPreviewView extends ScrollView
       changeHandler() if not saveOnly
 
     if @file?
-      @disposables.add @file.onDidChange(changeHandler)
+      @disposables.add @file.onDidChange changeHandler
     else if @editor?
-      @disposables.add @editor.getBuffer().onDidStopChanging ->
-        renderOnChange()
       @disposables.add @editor.onDidChangePath => @emitter.emit 'did-change-title'
-      @disposables.add @editor.getBuffer().onDidSave ->
-        renderOnChange()
-      @disposables.add @editor.getBuffer().onDidReload ->
-        renderOnChange()
+      buffer = @editor.getBuffer()
+      @disposables.add buffer.onDidStopChanging renderOnChange
+      @disposables.add buffer.onDidSave changeHandler
+      @disposables.add buffer.onDidReload renderOnChange
 
     @disposables.add atom.config.onDidChange 'asciidoc-preview.showTitle', changeHandler
     @disposables.add atom.config.onDidChange 'asciidoc-preview.compatMode', changeHandler
@@ -142,35 +141,21 @@ class AsciiDocPreviewView extends ScrollView
       Promise.resolve(null)
 
   renderAsciiDocText: (text) ->
-    renderer.toHtml text, @getPath(), (html) =>
-      @loading = false
-      @html(html)
-      @enableAnchorScroll html, (top) =>
-        @scrollTop top
+    renderer.toHtml text, @getPath()
+      .then (html) =>
+        @loading = false
+        @html(html)
+        @enableAnchorScroll html, (top) =>
+          @scrollTop top
 
-      @emitter.emit 'did-change-asciidoc'
-      @originalTrigger('asciidoc-preview:asciidoc-changed')
+        @emitter.emit 'did-change-asciidoc'
+        @originalTrigger('asciidoc-preview:asciidoc-changed')
 
   enableAnchorScroll: (html, callback) ->
-    document.querySelector('#asciidoc-linkUrl')?.remove()
-    statusBar = document.querySelector('status-bar')
-    divLink = document.createElement("div")
-    divLink.setAttribute 'id', 'asciidoc-linkUrl'
-    divLink.classList.add 'inline-block'
-
-    statusBar?.addRightTile(item: divLink, priority: 300)
-
     html = $(html)
     for linkElement in html.find('a')
       link = $(linkElement)
       if hrefLink = link.attr('href')
-        do(hrefLink) ->
-          link.on 'mouseover', (e) ->
-            # TODO Use constant
-            cropUrl = if (hrefLink.length > 100) then hrefLink.substr(0, 97).concat('...') else hrefLink
-            divLink.appendChild document.createTextNode(cropUrl)
-          link.on 'mouseleave', (e) ->
-            $(divLink).empty()
         continue if not hrefLink.match(/^#/)
         # Because jQuery uses CSS syntax for selecting elements, some characters are interpreted as CSS notation.
         # In order to tell jQuery to treat these characters literally rather than as CSS notation, they must be "escaped" by placing two backslashes in front of them.
@@ -185,7 +170,7 @@ class AsciiDocPreviewView extends ScrollView
 
   getTitle: ->
     if @file?
-      "#{path.basename(@getPath())} Preview"
+      "#{path.basename @getPath()} Preview"
     else if @editor?
       "#{@editor.getTitle()} Preview"
     else
@@ -206,13 +191,6 @@ class AsciiDocPreviewView extends ScrollView
     else if @editor?
       @editor.getPath()
 
-  showError: (result) ->
-    failureMessage = result?.message
-
-    @html $$$ ->
-      @h2 'Previewing AsciiDoc Failed'
-      @h3 failureMessage if failureMessage?
-
   showLoading: ->
     @loading = true
     if not @firstloadingdone?
@@ -230,7 +208,7 @@ class AsciiDocPreviewView extends ScrollView
     # Use default copy event handler if there is selected text inside this view
     return false if selectedText and selectedNode? and $.contains(@[0], selectedNode)
 
-    atom.clipboard.write(@[0].innerHTML)
+    atom.clipboard.write @[0].innerHTML
     true
 
   saveAs: ->
@@ -242,15 +220,30 @@ class AsciiDocPreviewView extends ScrollView
     else
       filePath = 'untitled.adoc.html'
       if projectPath = atom.project.getPaths()[0]
-        filePath = path.join(projectPath, filePath)
+        filePath = path.join projectPath, filePath
 
     if htmlFilePath = atom.showSaveDialogSync(filePath)
-      mustacheObject =
-        title: 'test'
-        content: @[0].innerHTML
+      packPath = atom.packages.resolvePackagePath 'asciidoc-preview'
+      templatePath = path.join packPath, 'templates', 'default.html'
 
-      templatePath = path.join atom.packages.resolvePackagePath('asciidoc-preview'), 'templates', 'default.html'
-      page = fs.readFileSync(templatePath, 'utf8')
-      htmlContent = mustache.to_html page, mustacheObject
-      fs.writeFileSync(htmlFilePath, htmlContent)
-      atom.workspace.open(htmlFilePath)
+      @getAsciiDocSource()
+        .then (source) =>
+          renderer.toRawHtml source, @getPath()
+        .then (html) ->
+          model =
+            content: html
+            style: fs.readFileSync path.join(packPath, 'node_modules/asciidoctor.js/dist/css/asciidoctor.css'), 'utf8'
+            title: $(@html).find('h1').text() or path.basename htmlFilePath, '.html'
+        .then (model) ->
+          template = fs.readFileSync templatePath, 'utf8'
+          mustache.to_html template, model
+        .then (htmlContent) ->
+          fs.writeFileSync htmlFilePath, htmlContent
+        .then ->
+          if atom.config.get 'asciidoc-preview.saveAsHtml.openInEditor'
+            atom.workspace.open htmlFilePath
+
+          if atom.config.get 'asciidoc-preview.saveAsHtml.openInBrowser'
+            opn(filePath).catch (error) ->
+              atom.notifications.addError error.toString(), detail: error?.stack or '', dismissable: true
+              console.error error
