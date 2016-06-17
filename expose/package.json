@@ -1,7 +1,7 @@
 {
   "name": "expose",
   "main": "./lib/expose",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "Quick tab overview of open files",
   "keywords": [
     "tab",
@@ -30,10 +30,10 @@
     "url": "https://github.com/mrodalgaard/atom-expose/issues"
   },
   "homepage": "https://github.com/mrodalgaard/atom-expose#readme",
-  "_id": "expose@0.12.0",
-  "_shasum": "bcb02f1028f17dff0c5b2bf3c57ecb5e5d092153",
-  "_resolved": "file:../d-11655-1573-1i7ifpv/package.tgz",
-  "_from": "../d-11655-1573-1i7ifpv/package.tgz",
+  "_id": "expose@0.12.1",
+  "_shasum": "fc3a2778d077edb5355f1762d684601e02bd6867",
+  "_resolved": "file:../d-116517-1573-1rqepos/package.tgz",
+  "_from": "../d-116517-1573-1rqepos/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

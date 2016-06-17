@@ -51,8 +51,8 @@
   "homepage": "https://github.com/Floobits/atom-term3#readme",
   "_id": "term3@0.22.0",
   "_shasum": "a2216b24acb40a755d2132b41ae356c0cd50fb7b",
-  "_resolved": "file:../d-11655-1292-8mbeed/package.tgz",
-  "_from": "../d-11655-1292-8mbeed/package.tgz",
+  "_resolved": "file:../d-116516-1291-vxnasq/package.tgz",
+  "_from": "../d-116516-1291-vxnasq/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -268,7 +268,7 @@
       },
       {
         "name": "101",
-        "version": "1.5.0",
+        "version": "1.6.0",
         "path": "node_modules/keypather/node_modules/101/index.js"
       },
       {
@@ -494,7 +494,7 @@
         "lib/term-view.coffee"
       ],
       ".js": [
-        "lib/build/.module-cache/dc61dedf34825bf690829c5e1a35b305365b37e9.js",
+        "lib/build/.module-cache/23deecebaa86f5808d8f1e9599ce2dd2fc01cc3e.js",
         "lib/build/list-view.js",
         "lib/terminal-model.js",
         "node_modules/atom-space-pen-views/lib/main.js",
@@ -1512,6 +1512,7 @@
         "node_modules/keypather/node_modules/101/find-index.js",
         "node_modules/keypather/node_modules/101/find.js",
         "node_modules/keypather/node_modules/101/flip.js",
+        "node_modules/keypather/node_modules/101/group-by.js",
         "node_modules/keypather/node_modules/101/has-keypaths.js",
         "node_modules/keypather/node_modules/101/has-properties.js",
         "node_modules/keypather/node_modules/101/includes.js",
@@ -1545,7 +1546,6 @@
         "node_modules/keypather/node_modules/101/pick.js",
         "node_modules/keypather/node_modules/101/pluck.js",
         "node_modules/keypather/node_modules/101/put.js",
-        "node_modules/keypather/node_modules/101/remove.js",
         "node_modules/keypather/node_modules/101/set.js",
         "node_modules/keypather/node_modules/101/values.js",
         "node_modules/keypather/node_modules/101/xor.js",
@@ -2161,7 +2161,7 @@
         "node_modules/reactionary-atom-fork/lib/reactionary.js"
       ],
       ".json": [
-        "lib/build/.module-cache/manifest/dc61dedf34825bf690829c5e1a35b305365b37e9.json",
+        "lib/build/.module-cache/manifest/23deecebaa86f5808d8f1e9599ce2dd2fc01cc3e.json",
         "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/package.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/api.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/d/package.json",

@@ -36,8 +36,8 @@
   "homepage": "https://github.com/cakebake/markdown-themeable-pdf#readme",
   "_id": "markdown-themeable-pdf@1.0.1",
   "_shasum": "9e6ebc93adadf6b29d1b48b6746cfdfaf5b3129e",
-  "_resolved": "file:../d-11655-1798-owqgid/package.tgz",
-  "_from": "../d-11655-1798-owqgid/package.tgz",
+  "_resolved": "file:../d-116517-1796-1scggyy/package.tgz",
+  "_from": "../d-116517-1796-1scggyy/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -238,7 +238,7 @@
       },
       {
         "name": "nwmatcher",
-        "version": "1.3.7",
+        "version": "1.3.8",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/nwmatcher/src/nwmatcher.js"
       },
       {
@@ -733,7 +733,7 @@
       },
       {
         "name": "klaw",
-        "version": "1.2.0",
+        "version": "1.3.0",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/klaw/src/index.js"
       },
       {
@@ -748,8 +748,13 @@
       },
       {
         "name": "glob",
-        "version": "7.0.3",
+        "version": "7.0.4",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/glob.js"
+      },
+      {
+        "name": "fs.realpath",
+        "version": "1.0.0",
+        "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/fs.realpath/index.js"
       },
       {
         "name": "inflight",
@@ -773,7 +778,7 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.4",
+        "version": "1.1.5",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
@@ -3423,13 +3428,14 @@
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/bin.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/common.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/glob.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/fs.realpath/index.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/fs.realpath/old.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/inflight/inflight.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/inflight/node_modules/wrappy/wrappy.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/inherits/inherits.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/inherits/inherits_browser.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/inherits/test.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/minimatch.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/example.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js",
@@ -3944,6 +3950,7 @@
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/jsonfile/package.json",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/klaw/package.json",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/path-is-absolute/package.json",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/fs.realpath/package.json",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/inflight/package.json",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob/node_modules/inherits/package.json",
@@ -4760,6 +4767,7 @@
           "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/node_modules/glob"
         ],
         "dependencies": {
+          "fs.realpath": "^1.0.0",
           "inflight": "^1.0.4",
           "inherits": "2",
           "minimatch": "2 || 3",

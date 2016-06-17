@@ -1,6 +1,6 @@
 {
   "name": "linter-alex",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Linter plugin using alex to catch insensitive, inconsiderate writing",
   "license": "MIT",
   "keywords": [
@@ -27,6 +27,17 @@
     "email": "tituswormer@gmail.com",
     "url": "http://wooorm.com"
   },
+  "contributors": [
+    {
+      "name": "Titus Wormer",
+      "email": "tituswormer@gmail.com",
+      "url": "http://wooorm.com"
+    },
+    {
+      "name": "Blake Embrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wooorm/atom-linter-alex.git"
@@ -63,7 +74,7 @@
     "remark": "^4.0.0",
     "remark-comment-config": "^3.0.0",
     "remark-github": "^4.0.1",
-    "remark-lint": "^3.0.0",
+    "remark-lint": "^4.0.0",
     "remark-validate-links": "^3.0.0"
   },
   "scripts": {
@@ -77,10 +88,10 @@
   "readme": "# atom-linter-alex\n\n[**Atom**][atom] [**linter**][linter] meets [**alex**][alex] to catch\ninsensitive, inconsiderate writing.\n\n![screencast][]\n\n## Installation\n\nWith [**apm**][apm]:\n\n```sh\napm install linter-alex\n```\n\n## Contributing\n\nIssues regarding **atom-linter-alex** should be opened in this\n[repository][linter-issues].\nPlease raise issues with **alex** on its [repository][alex-issues].\n\n## License\n\n[MIT][license] © [Titus Wormer][author]\n\n<!-- Definitions. -->\n\n[atom]: https://atom.io\n\n[linter]: https://github.com/AtomLinter/Linter\n\n[alex]: https://github.com/wooorm/alex\n\n[screencast]: https://rawgit.com/wooorm/atom-linter-alex/master/screencast.gif\n\n[apm]: https://github.com/atom/apm\n\n[license]: LICENSE\n\n[author]: http://wooorm.com\n\n[linter-issues]: https://github.com/wooorm/atom-linter-alex/issues\n\n[alex-issues]: https://github.com/wooorm/alex/issues\n",
   "readmeFilename": "readme.md",
   "homepage": "https://github.com/wooorm/atom-linter-alex#readme",
-  "_id": "linter-alex@3.0.0",
-  "_shasum": "b9e5fad38062f3e977ae892932df83971e4e6710",
-  "_resolved": "file:../d-11655-1725-7rjh4/package.tgz",
-  "_from": "../d-11655-1725-7rjh4/package.tgz",
+  "_id": "linter-alex@3.1.0",
+  "_shasum": "e03e1548df7b902e0f9fe50e346041c1c4987889",
+  "_resolved": "file:../d-116517-1723-1hz9r6a/package.tgz",
+  "_from": "../d-116517-1723-1hz9r6a/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -101,8 +112,13 @@
       },
       {
         "name": "glob",
-        "version": "7.0.3",
+        "version": "7.0.4",
         "path": "node_modules/alex/node_modules/glob/glob.js"
+      },
+      {
+        "name": "fs.realpath",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/glob/node_modules/fs.realpath/index.js"
       },
       {
         "name": "inflight",
@@ -141,12 +157,12 @@
       },
       {
         "name": "array-union",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "path": "node_modules/alex/node_modules/globby/node_modules/array-union/index.js"
       },
       {
         "name": "array-uniq",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "path": "node_modules/alex/node_modules/globby/node_modules/array-union/node_modules/array-uniq/index.js"
       },
       {
@@ -231,7 +247,7 @@
       },
       {
         "name": "loud-rejection",
-        "version": "1.4.1",
+        "version": "1.5.0",
         "path": "node_modules/alex/node_modules/meow/node_modules/loud-rejection/index.js"
       },
       {
@@ -246,7 +262,7 @@
       },
       {
         "name": "signal-exit",
-        "version": "2.1.2",
+        "version": "3.0.0",
         "path": "node_modules/alex/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/index.js"
       },
       {
@@ -521,7 +537,7 @@
       },
       {
         "name": "chokidar",
-        "version": "1.5.1",
+        "version": "1.5.2",
         "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/index.js"
       },
       {
@@ -746,7 +762,7 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.4",
+        "version": "1.1.5",
         "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
@@ -1071,13 +1087,18 @@
       },
       {
         "name": "remark-message-control",
-        "version": "2.0.0",
+        "version": "2.0.2",
         "path": "node_modules/alex/node_modules/remark-message-control/index.js"
       },
       {
         "name": "mdast-comment-marker",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "path": "node_modules/alex/node_modules/remark-message-control/node_modules/mdast-comment-marker/index.js"
+      },
+      {
+        "name": "trim",
+        "version": "0.0.1",
+        "path": "node_modules/alex/node_modules/remark-message-control/node_modules/trim/index.js"
       },
       {
         "name": "unist-util-visit",
@@ -1516,7 +1537,7 @@
       },
       {
         "name": "retext-profanities",
-        "version": "2.0.0",
+        "version": "2.1.0",
         "path": "node_modules/alex/node_modules/retext-profanities/index.js"
       },
       {
@@ -1811,7 +1832,7 @@
       },
       {
         "name": "ansi-align",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/index.js"
       },
       {
@@ -2326,7 +2347,7 @@
       },
       {
         "name": "irregular-plurals",
-        "version": "1.1.0",
+        "version": "1.2.0",
         "path": "node_modules/alex/node_modules/vfile-reporter/node_modules/plur/node_modules/irregular-plurals/irregular-plurals.json"
       },
       {
@@ -2401,7 +2422,7 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.4",
+        "version": "1.1.5",
         "path": "node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
@@ -2420,6 +2441,7 @@
         ".jscs.json",
         "node_modules/alex/node_modules/bail/package.json",
         "node_modules/alex/node_modules/get-stdin/package.json",
+        "node_modules/alex/node_modules/glob/node_modules/fs.realpath/package.json",
         "node_modules/alex/node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json",
         "node_modules/alex/node_modules/glob/node_modules/inflight/package.json",
         "node_modules/alex/node_modules/glob/node_modules/inherits/package.json",
@@ -2639,6 +2661,8 @@
         "node_modules/alex/node_modules/remark/node_modules/ware/package.json",
         "node_modules/alex/node_modules/remark/package.json",
         "node_modules/alex/node_modules/remark-message-control/node_modules/mdast-comment-marker/package.json",
+        "node_modules/alex/node_modules/remark-message-control/node_modules/trim/component.json",
+        "node_modules/alex/node_modules/remark-message-control/node_modules/trim/package.json",
         "node_modules/alex/node_modules/remark-message-control/node_modules/unist-util-visit/package.json",
         "node_modules/alex/node_modules/remark-message-control/node_modules/vfile-location/package.json",
         "node_modules/alex/node_modules/remark-message-control/package.json",
@@ -2932,6 +2956,8 @@
         "node_modules/alex/node_modules/get-stdin/index.js",
         "node_modules/alex/node_modules/glob/common.js",
         "node_modules/alex/node_modules/glob/glob.js",
+        "node_modules/alex/node_modules/glob/node_modules/fs.realpath/index.js",
+        "node_modules/alex/node_modules/glob/node_modules/fs.realpath/old.js",
         "node_modules/alex/node_modules/glob/node_modules/inflight/inflight.js",
         "node_modules/alex/node_modules/glob/node_modules/inflight/node_modules/wrappy/wrappy.js",
         "node_modules/alex/node_modules/glob/node_modules/inherits/inherits.js",
@@ -3133,7 +3159,6 @@
         "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/polyfills.js",
         "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/browser.js",
         "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/minimatch.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/example.js",
         "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/index.js",
         "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
         "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js",
@@ -3244,6 +3269,7 @@
         "node_modules/alex/node_modules/remark/node_modules/ware/node_modules/wrap-fn/node_modules/co/index.js",
         "node_modules/alex/node_modules/remark-message-control/index.js",
         "node_modules/alex/node_modules/remark-message-control/node_modules/mdast-comment-marker/index.js",
+        "node_modules/alex/node_modules/remark-message-control/node_modules/trim/index.js",
         "node_modules/alex/node_modules/remark-message-control/node_modules/unist-util-visit/index.js",
         "node_modules/alex/node_modules/remark-message-control/node_modules/vfile-location/index.js",
         "node_modules/alex/node_modules/remark-retext/index.js",
@@ -3619,7 +3645,6 @@
         "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",
         "node_modules/minimatch/minimatch.js",
-        "node_modules/minimatch/node_modules/brace-expansion/example.js",
         "node_modules/minimatch/node_modules/brace-expansion/index.js",
         "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
         "node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js",
@@ -3669,6 +3694,7 @@
           "node_modules/alex/node_modules/glob"
         ],
         "dependencies": {
+          "fs.realpath": "^1.0.0",
           "inflight": "^1.0.4",
           "inherits": "2",
           "minimatch": "2 || 3",
@@ -3783,7 +3809,7 @@
         ],
         "dependencies": {
           "currently-unhandled": "^0.4.1",
-          "signal-exit": "^2.1.2"
+          "signal-exit": "^3.0.0"
         }
       },
       {
@@ -4502,6 +4528,7 @@
         ],
         "dependencies": {
           "mdast-comment-marker": "^1.0.0",
+          "trim": "0.0.1",
           "unist-util-visit": "^1.0.0",
           "vfile-location": "^2.0.0"
         }

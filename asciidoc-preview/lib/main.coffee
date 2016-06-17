@@ -1,5 +1,8 @@
+{CompositeDisposable} = require 'atom'
 url = require 'url'
+path = require 'path'
 fs = require 'fs-plus'
+pdfconverter = require './pdf-converter'
 
 AsciiDocPreviewView = null
 renderer = null # Defer until used
@@ -10,17 +13,19 @@ isAsciiDocPreviewView = (object) ->
 
 module.exports =
 
+  subscriptions: null
+
   activate: ->
+    @subscriptions = new CompositeDisposable
+
     if parseFloat(atom.getVersion()) < 1.7
       atom.deserializers.add
         name: 'AsciiDocPreviewView'
         deserialize: module.exports.createAsciiDocPreviewView.bind(module.exports)
 
-    atom.commands.add 'atom-workspace',
+    @subscriptions.add atom.commands.add 'atom-workspace',
       'asciidoc-preview:toggle': =>
         @toggle()
-      'asciidoc-preview:copy-html': =>
-        @copyHtml()
       'asciidoc-preview:toggle-show-title': ->
         keyPath = 'asciidoc-preview.showTitle'
         atom.config.set(keyPath, not atom.config.get(keyPath))
@@ -49,12 +54,16 @@ module.exports =
         atom.config.set(keyPath, not atom.config.get(keyPath))
 
     previewFile = @previewFile.bind(this)
-    atom.commands.add '.tree-view .file .name[data-name$=\\.adoc]', 'asciidoc-preview:preview-file', previewFile
-    atom.commands.add '.tree-view .file .name[data-name$=\\.asciidoc]', 'asciidoc-preview:preview-file', previewFile
-    atom.commands.add '.tree-view .file .name[data-name$=\\.ad]', 'asciidoc-preview:preview-file', previewFile
-    atom.commands.add '.tree-view .file .name[data-name$=\\.asc]', 'asciidoc-preview:preview-file', previewFile
-    atom.commands.add '.tree-view .file .name[data-name$=\\.adoc\\.txt]', 'asciidoc-preview:preview-file', previewFile
-    atom.commands.add '.tree-view .file .name[data-name$=\\.txt]', 'asciidoc-preview:preview-file', previewFile
+    fileExtensions = [
+      'adoc'
+      'asciidoc'
+      'ad'
+      'asc'
+      'txt'
+    ]
+    for extension in fileExtensions
+      @subscriptions.add atom.commands.add ".tree-view .file .name[data-name$=\\.#{extension}]", 'asciidoc-preview:preview-file', previewFile
+      @subscriptions.add atom.commands.add ".tree-view .file .name[data-name$=\\.#{extension}]", 'asciidoc-preview:export-pdf', pdfconverter.convert
 
     atom.workspace.addOpener (uriToOpen) =>
       try
@@ -70,17 +79,17 @@ module.exports =
         return
 
       if host is 'editor'
-        @createAsciiDocPreviewView(editorId: pathname.substring(1))
+        @createAsciiDocPreviewView editorId: pathname.substring(1)
       else
-        @createAsciiDocPreviewView(filePath: pathname)
+        @createAsciiDocPreviewView filePath: pathname
 
   createAsciiDocPreviewView: (state) ->
     if state.editorId or fs.isFileSync(state.filePath)
       AsciiDocPreviewView ?= require './asciidoc-preview-view'
-      new AsciiDocPreviewView(state)
+      new AsciiDocPreviewView state
 
   toggle: ->
-    if isAsciiDocPreviewView(atom.workspace.getActivePaneItem())
+    if isAsciiDocPreviewView atom.workspace.getActivePaneItem()
       atom.workspace.destroyActivePaneItem()
       return
 
@@ -96,23 +105,23 @@ module.exports =
     "asciidoc-preview://editor/#{editor.id}"
 
   removePreviewForEditor: (editor) ->
-    uri = @uriForEditor(editor)
-    previewPane = atom.workspace.paneForURI(uri)
+    uri = @uriForEditor editor
+    previewPane = atom.workspace.paneForURI uri
     if previewPane?
-      previewPane.destroyItem(previewPane.itemForURI(uri))
+      previewPane.destroyItem previewPane.itemForURI(uri)
       true
     else
       false
 
   addPreviewForEditor: (editor) ->
-    uri = @uriForEditor(editor)
+    uri = @uriForEditor editor
     previousActivePane = atom.workspace.getActivePane()
     options =
       searchAllPanes: true
       split: atom.config.get 'asciidoc-preview.openInPane'
 
-    atom.workspace.open(uri, options).then (markdownPreviewView) ->
-      if isAsciiDocPreviewView(markdownPreviewView)
+    atom.workspace.open(uri, options).then (asciidocPreviewView) ->
+      if isAsciiDocPreviewView asciidocPreviewView
         previousActivePane.activate()
 
   previewFile: ({target}) ->
@@ -120,19 +129,10 @@ module.exports =
     return unless filePath
 
     for editor in atom.workspace.getTextEditors() when editor.getPath() is filePath
-      @addPreviewForEditor(editor)
+      @addPreviewForEditor editor
       return
 
     atom.workspace.open "asciidoc-preview://#{encodeURI(filePath)}", searchAllPanes: true
 
-  copyHtml: ->
-    editor = atom.workspace.getActiveTextEditor()
-    return unless editor?
-
-    renderer ?= require './renderer'
-    text = editor.getSelectedText() or editor.getText()
-    renderer.toText text, editor.getPath(), (error, html) ->
-      if error
-        console.warn 'Copying AsciiDoc as HTML failed', error
-      else
-        atom.clipboard.write(html)
+  deactivate: ->
+    @subscriptions.dispose()

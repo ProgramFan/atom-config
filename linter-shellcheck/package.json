@@ -30,8 +30,8 @@
   "homepage": "https://github.com/AtomLinter/linter-shellcheck#readme",
   "_id": "linter-shellcheck@1.2.0",
   "_shasum": "d7af73a17a21c991fea523166338a76518d18036",
-  "_resolved": "file:../d-11655-1762-df4w3u/package.tgz",
-  "_from": "../d-11655-1762-df4w3u/package.tgz",
+  "_resolved": "file:../d-116517-1760-11gqp7n/package.tgz",
+  "_from": "../d-116517-1760-11gqp7n/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -52,7 +52,7 @@
       },
       {
         "name": "consistent-env",
-        "version": "1.1.2",
+        "version": "1.2.0",
         "path": "node_modules/atom-linter/node_modules/sb-exec/node_modules/consistent-env/lib/index.js"
       },
       {
