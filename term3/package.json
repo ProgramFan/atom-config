@@ -1,7 +1,7 @@
 {
   "name": "term3",
   "main": "./index",
-  "version": "0.22.0",
+  "version": "0.22.1",
   "description": "A terminal emulator for Atom. You can run shell sessions, Vim, Emacs, htop, etc.",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "fs-plus": "^2.2.3",
     "keypather": "^1.3.2",
     "flukes": "0.1.x",
-    "ptyw.js": "0.3.x",
+    "ptyw.js": "0.4.x",
     "event-kit": "1.5.x",
     "react-atom-fork": "0.11.x",
     "react-tools": "0.11.x",
@@ -49,10 +49,10 @@
     "url": "https://github.com/Floobits/atom-term3/issues"
   },
   "homepage": "https://github.com/Floobits/atom-term3#readme",
-  "_id": "term3@0.22.0",
-  "_shasum": "a2216b24acb40a755d2132b41ae356c0cd50fb7b",
-  "_resolved": "file:../d-116516-6320-124kd3h/package.tgz",
-  "_from": "../d-116516-6320-124kd3h/package.tgz",
+  "_id": "term3@0.22.1",
+  "_shasum": "ff7baa13453403e6fc43afa5fb5db30a5d62d60d",
+  "_resolved": "file:../d-11663-6333-m9giox/package.tgz",
+  "_from": "../d-11663-6333-m9giox/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -93,7 +93,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.11",
+        "version": "0.10.12",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -103,7 +103,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.2",
+        "version": "3.1.0",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -183,7 +183,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.11",
+        "version": "0.10.12",
         "path": "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -193,7 +193,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.2",
+        "version": "3.1.0",
         "path": "node_modules/event-kit/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -288,7 +288,7 @@
       },
       {
         "name": "ptyw.js",
-        "version": "0.3.8",
+        "version": "0.4.0",
         "path": "node_modules/ptyw.js/index.js"
       },
       {
@@ -298,7 +298,7 @@
       },
       {
         "name": "nan",
-        "version": "2.3.2",
+        "version": "2.3.5",
         "path": "node_modules/ptyw.js/node_modules/nan/include_dirs.js"
       },
       {
@@ -494,7 +494,7 @@
         "lib/term-view.coffee"
       ],
       ".js": [
-        "lib/build/.module-cache/605194f0df617ad5fef4d012218005d7b7c8fe54.js",
+        "lib/build/.module-cache/33d9b456065e78b9fab68553e27d9754052a554c.js",
         "lib/build/list-view.js",
         "lib/terminal-model.js",
         "node_modules/atom-space-pen-views/lib/main.js",
@@ -2161,7 +2161,7 @@
         "node_modules/reactionary-atom-fork/lib/reactionary.js"
       ],
       ".json": [
-        "lib/build/.module-cache/manifest/605194f0df617ad5fef4d012218005d7b7c8fe54.json",
+        "lib/build/.module-cache/manifest/33d9b456065e78b9fab68553e27d9754052a554c.json",
         "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/package.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/api.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/d/package.json",
@@ -2283,7 +2283,7 @@
           "fs-plus": "^2.2.3",
           "keypather": "^1.3.2",
           "flukes": "0.1.x",
-          "ptyw.js": "0.3.x",
+          "ptyw.js": "0.4.x",
           "event-kit": "1.5.x",
           "react-atom-fork": "0.11.x",
           "react-tools": "0.11.x",
@@ -2510,7 +2510,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.2"
+          "es6-symbol": "~3.1"
         }
       },
       {
@@ -2533,7 +2533,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.10"
+          "es5-ext": "~0.10.11"
         }
       },
       {
@@ -2794,7 +2794,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.2"
+          "es6-symbol": "~3.1"
         }
       },
       {
@@ -2817,7 +2817,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.10"
+          "es5-ext": "~0.10.11"
         }
       },
       {
@@ -2920,7 +2920,7 @@
         ],
         "dependencies": {
           "extend": "~3.0.0",
-          "nan": "2.3.2"
+          "nan": "2.3.5"
         }
       },
       {

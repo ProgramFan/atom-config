@@ -1,7 +1,7 @@
 {
   "name": "asciidoc-preview",
   "main": "./lib/main",
-  "version": "2.4.2",
+  "version": "2.5.1",
   "description": "Show an HTML preview for the AsciiDoc content in the current editor",
   "repository": {
     "type": "git",
@@ -37,35 +37,21 @@
     "AsciiDocPreviewView": "createAsciiDocPreviewView"
   },
   "configSchema": {
-    "exportAsPdf": {
-      "title": "Export as PDF (experimental)",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "enabled": {
-          "title": "Use asciidoctor-pdf",
-          "description": "[asciidoctor-pdf](https://github.com/asciidoctor/asciidoctor-pdf) must be installed in your system.",
-          "type": "boolean",
-          "default": false
-        },
-        "openWithExternal": {
-          "title": "Automatically open the PDF after generation with the default PDF viewer.",
-          "type": "boolean",
-          "default": true
-        }
-      }
-    },
-    "compatMode": {
-      "title": "Compatibility mode (AsciiDoc Python)",
+    "renderOnSaveOnly": {
+      "title": "Render on save only",
       "type": "boolean",
       "default": false,
       "order": 1
     },
-    "forceExperimental": {
-      "title": "Always enable experimental extensions",
-      "description": "The features behind this attribute are subject to change and may even be removed in a future version.<br>Currently enables the UI macros (`button`, `menu` and `kbd`).",
-      "type": "boolean",
-      "default": false,
+    "openInPane": {
+      "type": "string",
+      "default": "right",
+      "enum": [
+        "left",
+        "right",
+        "up",
+        "down"
+      ],
       "order": 2
     },
     "showTitle": {
@@ -74,15 +60,15 @@
       "default": true,
       "order": 3
     },
-    "safeMode": {
-      "description": "Set safe mode 'level': `unsafe`, `safe`, `server` or `secure`.<br>Disables potentially dangerous macros in source files, such as `include::[]`.<br>Set safe mode level to `safe` to enable include macros, but restricts access to ancestor paths of source file.<br>http://asciidoctor.org/docs/user-manual/#running-asciidoctor-securely<br>",
+    "sectionNumbering": {
+      "description": "Auto-number section titles.<br>- Enabled by default (equivalent to `-a sectnums=@`)<br>- Always enabled (equivalent to `-a sectnums`)<br>- Always disabled (equivalent to `-a sectnums!`)<br>- Not specified<br>http://asciidoctor.org/docs/user-manual/#numbering",
       "type": "string",
-      "default": "safe",
+      "default": "enabled-by-default",
       "enum": [
-        "unsafe",
-        "safe",
-        "server",
-        "secure"
+        "enabled-by-default",
+        "always-enabled",
+        "always-disabled",
+        "not-specified"
       ],
       "order": 4
     },
@@ -105,38 +91,42 @@
       "default": false,
       "order": 6
     },
-    "sectionNumbering": {
-      "description": "Auto-number section titles.<br>- Enabled by default (equivalent to `-a sectnums=@`)<br>- Always enabled (equivalent to `-a sectnums`)<br>- Always disabled (equivalent to `-a sectnums!`)<br>- Not specified<br>http://asciidoctor.org/docs/user-manual/#numbering",
-      "type": "string",
-      "default": "enabled-by-default",
-      "enum": [
-        "enabled-by-default",
-        "always-enabled",
-        "always-disabled",
-        "not-specified"
-      ],
+    "forceExperimental": {
+      "title": "Always enable AsciiDoctor experimental extensions",
+      "description": "The features behind this attribute are subject to change and may even be removed in a future version of AsciiDoctor.<br>Currently enables the UI macros (`button`, `menu` and `kbd`).",
+      "type": "boolean",
+      "default": false,
       "order": 7
     },
-    "renderOnSaveOnly": {
+    "compatMode": {
+      "title": "Always enable compatibility mode (AsciiDoc Python)",
       "type": "boolean",
       "default": false,
       "order": 8
     },
-    "openInPane": {
+    "safeMode": {
+      "description": "Set safe mode 'level': `unsafe`, `safe`, `server` or `secure`.<br>Disables potentially dangerous macros in source files, such as `include::[]`.<br>Set safe mode level to `safe` to enable include macros, but restricts access to ancestor paths of source file.<br>http://asciidoctor.org/docs/user-manual/#running-asciidoctor-securely<br>",
       "type": "string",
-      "default": "right",
+      "default": "safe",
       "enum": [
-        "left",
-        "right",
-        "up",
-        "down"
+        "unsafe",
+        "safe",
+        "server",
+        "secure"
       ],
       "order": 9
+    },
+    "baseDir": {
+      "title": "Base directory",
+      "description": "The default value `{docdir}` make the base directory match the document directory.<br>Use the value `-` to use absolute path.<br>More informations: http://asciidoctor.org/docs/user-manual/#ruby-api-options",
+      "type": "string",
+      "default": "{docdir}",
+      "order": 10
     },
     "defaultAttributes": {
       "type": "string",
       "default": "platform=opal platform-opal env=browser env-browser source-highlighter=highlight.js data-uri!",
-      "order": 10
+      "order": 11
     },
     "grammars": {
       "type": "array",
@@ -145,7 +135,7 @@
         "text.plain",
         "text.plain.null-grammar"
       ],
-      "order": 11
+      "order": 12
     },
     "saveAsHtml": {
       "title": "Save as HTML",
@@ -163,7 +153,26 @@
           "default": true
         }
       },
-      "order": 12
+      "order": 13
+    },
+    "exportAsPdf": {
+      "title": "Export as PDF [experimental]",
+      "type": "object",
+      "collapsed": true,
+      "properties": {
+        "enabled": {
+          "title": "Use asciidoctor-pdf",
+          "description": "[asciidoctor-pdf](https://github.com/asciidoctor/asciidoctor-pdf) must be installed in your system.",
+          "type": "boolean",
+          "default": false
+        },
+        "openWithExternal": {
+          "title": "Automatically open the PDF after generation with the default PDF viewer.",
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "order": 14
     }
   },
   "readme": "# AsciiDoc Preview package\n\n[![Atom Package](https://img.shields.io/apm/v/asciidoc-preview.svg)](https://atom.io/packages/asciidoc-preview)\n[![Atom Package Downloads](https://img.shields.io/apm/dm/asciidoc-preview.svg)](https://atom.io/packages/asciidoc-preview)\n[![Build Status (Linux)](https://travis-ci.org/asciidoctor/atom-asciidoc-preview.svg?branch=master)](https://travis-ci.org/asciidoctor/atom-asciidoc-preview)\n[![Build Status (Windows)](https://ci.appveyor.com/api/projects/status/a7240elaip2dkd16?svg=true)](https://ci.appveyor.com/project/asciidoctor/atom-asciidoc-preview)\n[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/asciidoctor/atom-asciidoc-preview/blob/master/LICENSE.md)\n\nShows the rendered HTML of the AsciiDoc content in current editor using <kbd>ctrl-shift-a</kbd> or <kbd>cmd-shift-a</kbd>.\n\nIt can be activated from the editor using the <kbd>ctrl-shift-a</kbd> or <kbd>cmd-shift-a</kbd> key-binding and is currently enabled for `.adoc`, `.asciidoc`, `.ad`, `.asc`, `.adoc.txt`, `.txt` files.\n\n**Note:** since 1.0.0, the autocompletions have been migrated to a new package: [autocomplete-asciidoc](https://atom.io/packages/autocomplete-asciidoc)\n\nYou can install this module from the command-line by typing `apm install asciidoc-preview`.\n\nYou can toggle the preview pane, which appears to the right of the editor, using the key combination <kbd>ctrl-shift-a</kbd> or <kbd>cmd-shift-a</kbd>.\n\nMore options are accessible by right-clicking on the preview.\n\n![AsciiDoc Preview demo](https://cloud.githubusercontent.com/assets/5674651/15512720/96199b06-21e1-11e6-9eab-56826356a4e9.gif)\n\nThanks to @kevinsawicki! I just adapted [markdown-preview](https://github.com/atom/markdown-preview) and used [Asciidoctor.js](https://github.com/asciidoctor/asciidoctor.js).\n",
@@ -172,10 +181,10 @@
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-preview#readme",
-  "_id": "asciidoc-preview@2.4.2",
-  "_shasum": "64639e952e8a3abcd65ccb88bc7752618aa5c7ff",
-  "_resolved": "file:../d-116516-6518-d3br7j/package.tgz",
-  "_from": "../d-116516-6518-d3br7j/package.tgz",
+  "_id": "asciidoc-preview@2.5.1",
+  "_shasum": "9e65afeb3d6a4819c89fbae25e447007aaab8ee8",
+  "_resolved": "file:../d-11663-6531-e0834c/package.tgz",
+  "_from": "../d-11663-6531-e0834c/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -231,7 +240,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.11",
+        "version": "0.10.12",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -241,7 +250,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.2",
+        "version": "3.1.0",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -696,7 +705,7 @@
       },
       {
         "name": "jsprim",
-        "version": "1.2.2",
+        "version": "1.3.0",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/http-signature/node_modules/jsprim/lib/jsprim.js"
       },
       {
@@ -3803,7 +3812,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.2"
+          "es6-symbol": "~3.1"
         }
       },
       {
@@ -3826,7 +3835,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.10"
+          "es5-ext": "~0.10.11"
         }
       },
       {

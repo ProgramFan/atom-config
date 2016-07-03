@@ -46,8 +46,8 @@
   "homepage": "https://github.com/cakecatz/flex-toolbar#readme",
   "_id": "flex-tool-bar@0.10.2",
   "_shasum": "33f2f9c92f6bd1ee562361aebd93fd0d902340c6",
-  "_resolved": "file:../d-116516-6913-1p851zt/package.tgz",
-  "_from": "../d-116516-6913-1p851zt/package.tgz",
+  "_resolved": "file:../d-11663-6926-1e4g5dw/package.tgz",
+  "_from": "../d-11663-6926-1e4g5dw/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -68,7 +68,7 @@
       },
       {
         "name": "chokidar",
-        "version": "1.5.2",
+        "version": "1.6.0",
         "path": "node_modules/chokidar/index.js"
       },
       {
@@ -83,7 +83,7 @@
       },
       {
         "name": "micromatch",
-        "version": "2.3.8",
+        "version": "2.3.10",
         "path": "node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/index.js"
       },
       {
@@ -263,7 +263,7 @@
       },
       {
         "name": "binary-extensions",
-        "version": "1.4.1",
+        "version": "1.5.0",
         "path": "node_modules/chokidar/node_modules/is-binary-path/node_modules/binary-extensions/binary-extensions.json"
       },
       {
@@ -283,7 +283,7 @@
       },
       {
         "name": "readdirp",
-        "version": "2.0.0",
+        "version": "2.1.0",
         "path": "node_modules/chokidar/node_modules/readdirp/readdirp.js"
       },
       {
@@ -293,7 +293,7 @@
       },
       {
         "name": "minimatch",
-        "version": "2.0.10",
+        "version": "3.0.2",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/minimatch.js"
       },
       {
@@ -345,6 +345,11 @@
         "name": "util-deprecate",
         "version": "1.0.2",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/util-deprecate/node.js"
+      },
+      {
+        "name": "set-immediate-shim",
+        "version": "1.0.1",
+        "path": "node_modules/chokidar/node_modules/readdirp/node_modules/set-immediate-shim/index.js"
       },
       {
         "name": "cson",
@@ -468,7 +473,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.11",
+        "version": "0.10.12",
         "path": "node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -478,7 +483,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.2",
+        "version": "3.1.0",
         "path": "node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -618,7 +623,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.0",
+        "version": "3.0.2",
         "path": "node_modules/tree-match-sync/node_modules/minimatch/minimatch.js"
       },
       {
@@ -710,7 +715,6 @@
         "node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/graceful-fs.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/legacy-streams.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/polyfills.js",
-        "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/browser.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/minimatch.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/index.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
@@ -736,6 +740,7 @@
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/readable.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/transform.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/writable.js",
+        "node_modules/chokidar/node_modules/readdirp/node_modules/set-immediate-shim/index.js",
         "node_modules/chokidar/node_modules/readdirp/readdirp.js",
         "node_modules/chokidar/node_modules/readdirp/stream-api.js",
         "node_modules/cson/docs/assets/biscotto.js",
@@ -1441,6 +1446,7 @@
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/string_decoder/package.json",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/util-deprecate/package.json",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/package.json",
+        "node_modules/chokidar/node_modules/readdirp/node_modules/set-immediate-shim/package.json",
         "node_modules/chokidar/node_modules/readdirp/package.json",
         "node_modules/chokidar/package.json",
         "node_modules/cson/node_modules/coffee-script/bower.json",
@@ -1766,8 +1772,9 @@
         ],
         "dependencies": {
           "graceful-fs": "^4.1.2",
-          "minimatch": "^2.0.10",
-          "readable-stream": "^2.0.2"
+          "minimatch": "^3.0.2",
+          "readable-stream": "^2.0.2",
+          "set-immediate-shim": "^1.0.1"
         }
       },
       {
@@ -2112,7 +2119,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.2"
+          "es6-symbol": "~3.1"
         }
       },
       {
@@ -2135,7 +2142,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.10"
+          "es5-ext": "~0.10.11"
         }
       },
       {
