@@ -71,8 +71,8 @@
   "homepage": "https://github.com/danielbrodin/atom-project-manager#readme",
   "_id": "project-manager@2.9.7",
   "_shasum": "c63269dedd748866a63958f5d78a41e51d7a932f",
-  "_resolved": "file:../d-116517-1893-ldnbxi/package.tgz",
-  "_from": "../d-116517-1893-ldnbxi/package.tgz",
+  "_resolved": "file:../d-11663-1852-1coc9fc/package.tgz",
+  "_from": "../d-11663-1852-1coc9fc/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -113,7 +113,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.11",
+        "version": "0.10.12",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -123,7 +123,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.2",
+        "version": "3.1.0",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -1190,7 +1190,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.2"
+          "es6-symbol": "~3.1"
         }
       },
       {
@@ -1213,7 +1213,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.10"
+          "es5-ext": "~0.10.11"
         }
       },
       {

@@ -50,8 +50,8 @@
   "homepage": "https://github.com/Galadirith/markdown-preview-plus#readme",
   "_id": "markdown-preview-plus@2.4.0",
   "_shasum": "9505eec2b075159212a3870bf735ce2dfcd04b8f",
-  "_resolved": "file:../d-116517-1772-158248o/package.tgz",
-  "_from": "../d-116517-1772-158248o/package.tgz",
+  "_resolved": "file:../d-11663-1719-1ujqwqn/package.tgz",
+  "_from": "../d-11663-1719-1ujqwqn/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -212,7 +212,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.11",
+        "version": "0.10.12",
         "path": "node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -222,7 +222,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.2",
+        "version": "3.1.0",
         "path": "node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -302,7 +302,7 @@
       },
       {
         "name": "uc.micro",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "path": "node_modules/markdown-it/node_modules/uc.micro/index.js"
       },
       {
@@ -2326,7 +2326,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.2"
+          "es6-symbol": "~3.1"
         }
       },
       {
@@ -2349,7 +2349,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.10"
+          "es5-ext": "~0.10.11"
         }
       },
       {

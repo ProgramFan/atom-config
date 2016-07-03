@@ -1,6 +1,6 @@
 {
   "name": "linter-alex",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Linter plugin using alex to catch insensitive, inconsiderate writing",
   "license": "MIT",
   "keywords": [
@@ -71,11 +71,11 @@
     "eslint": "^2.0.0",
     "jscs": "^3.0.0",
     "jscs-jsdoc": "^2.0.0",
-    "remark": "^4.0.0",
-    "remark-comment-config": "^3.0.0",
-    "remark-github": "^4.0.1",
+    "remark-cli": "^1.0.0",
+    "remark-comment-config": "^4.0.0",
+    "remark-github": "^5.0.0",
     "remark-lint": "^4.0.0",
-    "remark-validate-links": "^3.0.0"
+    "remark-validate-links": "^4.0.0"
   },
   "scripts": {
     "lint-api": "eslint .",
@@ -88,16 +88,16 @@
   "readme": "# atom-linter-alex\n\n[**Atom**][atom] [**linter**][linter] meets [**alex**][alex] to catch\ninsensitive, inconsiderate writing.\n\n![screencast][]\n\n## Installation\n\nWith [**apm**][apm]:\n\n```sh\napm install linter-alex\n```\n\n## Contributing\n\nIssues regarding **atom-linter-alex** should be opened in this\n[repository][linter-issues].\nPlease raise issues with **alex** on its [repository][alex-issues].\n\n## License\n\n[MIT][license] © [Titus Wormer][author]\n\n<!-- Definitions. -->\n\n[atom]: https://atom.io\n\n[linter]: https://github.com/AtomLinter/Linter\n\n[alex]: https://github.com/wooorm/alex\n\n[screencast]: https://rawgit.com/wooorm/atom-linter-alex/master/screencast.gif\n\n[apm]: https://github.com/atom/apm\n\n[license]: LICENSE\n\n[author]: http://wooorm.com\n\n[linter-issues]: https://github.com/wooorm/atom-linter-alex/issues\n\n[alex-issues]: https://github.com/wooorm/alex/issues\n",
   "readmeFilename": "readme.md",
   "homepage": "https://github.com/wooorm/atom-linter-alex#readme",
-  "_id": "linter-alex@3.1.0",
-  "_shasum": "e03e1548df7b902e0f9fe50e346041c1c4987889",
-  "_resolved": "file:../d-116517-1723-1hz9r6a/package.tgz",
-  "_from": "../d-116517-1723-1hz9r6a/package.tgz",
+  "_id": "linter-alex@3.2.0",
+  "_shasum": "a858253e0107ba3be7b085c81bfbc45d3b0b5bf5",
+  "_resolved": "file:../d-11663-1671-wtefus/package.tgz",
+  "_from": "../d-11663-1671-wtefus/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "alex",
-        "version": "3.0.0",
+        "version": "3.1.0",
         "path": "node_modules/alex/index.js"
       },
       {
@@ -112,7 +112,7 @@
       },
       {
         "name": "glob",
-        "version": "7.0.4",
+        "version": "7.0.5",
         "path": "node_modules/alex/node_modules/glob/glob.js"
       },
       {
@@ -152,7 +152,7 @@
       },
       {
         "name": "globby",
-        "version": "4.1.0",
+        "version": "5.0.0",
         "path": "node_modules/alex/node_modules/globby/index.js"
       },
       {
@@ -169,41 +169,6 @@
         "name": "arrify",
         "version": "1.0.1",
         "path": "node_modules/alex/node_modules/globby/node_modules/arrify/index.js"
-      },
-      {
-        "name": "glob",
-        "version": "6.0.4",
-        "path": "node_modules/alex/node_modules/globby/node_modules/glob/glob.js"
-      },
-      {
-        "name": "inflight",
-        "version": "1.0.5",
-        "path": "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inflight/inflight.js"
-      },
-      {
-        "name": "wrappy",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inflight/node_modules/wrappy/wrappy.js"
-      },
-      {
-        "name": "inherits",
-        "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inherits/inherits.js"
-      },
-      {
-        "name": "once",
-        "version": "1.3.3",
-        "path": "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/once/once.js"
-      },
-      {
-        "name": "wrappy",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/once/node_modules/wrappy/wrappy.js"
-      },
-      {
-        "name": "path-is-absolute",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/path-is-absolute/index.js"
       },
       {
         "name": "object-assign",
@@ -297,7 +262,7 @@
       },
       {
         "name": "semver",
-        "version": "5.1.0",
+        "version": "5.2.0",
         "path": "node_modules/alex/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/semver.js"
       },
       {
@@ -481,611 +446,6 @@
         "path": "node_modules/alex/node_modules/meow/node_modules/trim-newlines/index.js"
       },
       {
-        "name": "remark",
-        "version": "4.2.2",
-        "path": "node_modules/alex/node_modules/remark/index.js"
-      },
-      {
-        "name": "camelcase",
-        "version": "2.1.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/camelcase/index.js"
-      },
-      {
-        "name": "ccount",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/ccount/index.js"
-      },
-      {
-        "name": "chalk",
-        "version": "1.1.3",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chalk/index.js"
-      },
-      {
-        "name": "ansi-styles",
-        "version": "2.2.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/ansi-styles/index.js"
-      },
-      {
-        "name": "escape-string-regexp",
-        "version": "1.0.5",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/escape-string-regexp/index.js"
-      },
-      {
-        "name": "has-ansi",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/has-ansi/index.js"
-      },
-      {
-        "name": "ansi-regex",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/index.js"
-      },
-      {
-        "name": "strip-ansi",
-        "version": "3.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/strip-ansi/index.js"
-      },
-      {
-        "name": "ansi-regex",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/index.js"
-      },
-      {
-        "name": "supports-color",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/supports-color/index.js"
-      },
-      {
-        "name": "chokidar",
-        "version": "1.5.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/index.js"
-      },
-      {
-        "name": "anymatch",
-        "version": "1.3.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/index.js"
-      },
-      {
-        "name": "arrify",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/arrify/index.js"
-      },
-      {
-        "name": "micromatch",
-        "version": "2.3.8",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/index.js"
-      },
-      {
-        "name": "arr-diff",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/index.js"
-      },
-      {
-        "name": "arr-flatten",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/arr-flatten/index.js"
-      },
-      {
-        "name": "array-unique",
-        "version": "0.2.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/array-unique/index.js"
-      },
-      {
-        "name": "braces",
-        "version": "1.8.5",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/index.js"
-      },
-      {
-        "name": "expand-range",
-        "version": "1.8.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/index.js"
-      },
-      {
-        "name": "fill-range",
-        "version": "2.2.3",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/index.js"
-      },
-      {
-        "name": "is-number",
-        "version": "2.1.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number/index.js"
-      },
-      {
-        "name": "isobject",
-        "version": "2.1.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/index.js"
-      },
-      {
-        "name": "isarray",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/index.js"
-      },
-      {
-        "name": "randomatic",
-        "version": "1.1.5",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/index.js"
-      },
-      {
-        "name": "preserve",
-        "version": "0.2.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/preserve/index.js"
-      },
-      {
-        "name": "repeat-element",
-        "version": "1.1.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/repeat-element/index.js"
-      },
-      {
-        "name": "expand-brackets",
-        "version": "0.1.5",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/expand-brackets/index.js"
-      },
-      {
-        "name": "is-posix-bracket",
-        "version": "0.1.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/expand-brackets/node_modules/is-posix-bracket/index.js"
-      },
-      {
-        "name": "extglob",
-        "version": "0.3.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/extglob/index.js"
-      },
-      {
-        "name": "filename-regex",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/filename-regex/index.js"
-      },
-      {
-        "name": "is-extglob",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/is-extglob/index.js"
-      },
-      {
-        "name": "kind-of",
-        "version": "3.0.3",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of/index.js"
-      },
-      {
-        "name": "is-buffer",
-        "version": "1.1.3",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of/node_modules/is-buffer/index.js"
-      },
-      {
-        "name": "normalize-path",
-        "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/normalize-path/index.js"
-      },
-      {
-        "name": "object.omit",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/index.js"
-      },
-      {
-        "name": "for-own",
-        "version": "0.1.4",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/for-own/index.js"
-      },
-      {
-        "name": "for-in",
-        "version": "0.1.5",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/for-own/node_modules/for-in/index.js"
-      },
-      {
-        "name": "is-extendable",
-        "version": "0.1.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/is-extendable/index.js"
-      },
-      {
-        "name": "parse-glob",
-        "version": "3.0.4",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/index.js"
-      },
-      {
-        "name": "glob-base",
-        "version": "0.3.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/node_modules/glob-base/index.js"
-      },
-      {
-        "name": "is-dotfile",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/node_modules/is-dotfile/index.js"
-      },
-      {
-        "name": "regex-cache",
-        "version": "0.4.3",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/index.js"
-      },
-      {
-        "name": "is-equal-shallow",
-        "version": "0.1.3",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/node_modules/is-equal-shallow/index.js"
-      },
-      {
-        "name": "is-primitive",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/node_modules/is-primitive/index.js"
-      },
-      {
-        "name": "async-each",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/async-each/index.js"
-      },
-      {
-        "name": "glob-parent",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/glob-parent/index.js"
-      },
-      {
-        "name": "inherits",
-        "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/inherits/inherits.js"
-      },
-      {
-        "name": "is-binary-path",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-binary-path/index.js"
-      },
-      {
-        "name": "binary-extensions",
-        "version": "1.4.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-binary-path/node_modules/binary-extensions/binary-extensions.json"
-      },
-      {
-        "name": "is-glob",
-        "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-glob/index.js"
-      },
-      {
-        "name": "is-extglob",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-glob/node_modules/is-extglob/index.js"
-      },
-      {
-        "name": "path-is-absolute",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/path-is-absolute/index.js"
-      },
-      {
-        "name": "readdirp",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/readdirp.js"
-      },
-      {
-        "name": "graceful-fs",
-        "version": "4.1.4",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/graceful-fs.js"
-      },
-      {
-        "name": "minimatch",
-        "version": "2.0.10",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/minimatch.js"
-      },
-      {
-        "name": "brace-expansion",
-        "version": "1.1.5",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/index.js"
-      },
-      {
-        "name": "balanced-match",
-        "version": "0.4.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js"
-      },
-      {
-        "name": "concat-map",
-        "version": "0.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js"
-      },
-      {
-        "name": "readable-stream",
-        "version": "2.1.4",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/readable.js"
-      },
-      {
-        "name": "buffer-shims",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js"
-      },
-      {
-        "name": "core-util-is",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js"
-      },
-      {
-        "name": "isarray",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/index.js"
-      },
-      {
-        "name": "process-nextick-args",
-        "version": "1.0.7",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
-      },
-      {
-        "name": "string_decoder",
-        "version": "0.10.31",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/string_decoder/index.js"
-      },
-      {
-        "name": "util-deprecate",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/util-deprecate/node.js"
-      },
-      {
-        "name": "collapse-white-space",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/collapse-white-space/index.js"
-      },
-      {
-        "name": "commander",
-        "version": "2.9.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/commander/index.js"
-      },
-      {
-        "name": "graceful-readlink",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/commander/node_modules/graceful-readlink/index.js"
-      },
-      {
-        "name": "concat-stream",
-        "version": "1.5.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/index.js"
-      },
-      {
-        "name": "inherits",
-        "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/inherits/inherits.js"
-      },
-      {
-        "name": "readable-stream",
-        "version": "2.0.6",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/readable.js"
-      },
-      {
-        "name": "core-util-is",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/lib/util.js"
-      },
-      {
-        "name": "isarray",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/index.js"
-      },
-      {
-        "name": "process-nextick-args",
-        "version": "1.0.7",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
-      },
-      {
-        "name": "string_decoder",
-        "version": "0.10.31",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/index.js"
-      },
-      {
-        "name": "util-deprecate",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/node.js"
-      },
-      {
-        "name": "typedarray",
-        "version": "0.0.6",
-        "path": "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/typedarray/index.js"
-      },
-      {
-        "name": "debug",
-        "version": "2.2.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/debug/node.js"
-      },
-      {
-        "name": "ms",
-        "version": "0.7.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/debug/node_modules/ms/index.js"
-      },
-      {
-        "name": "elegant-spinner",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/elegant-spinner/index.js"
-      },
-      {
-        "name": "extend",
-        "version": "3.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/extend/index.js"
-      },
-      {
-        "name": "log-update",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/log-update/index.js"
-      },
-      {
-        "name": "ansi-escapes",
-        "version": "1.4.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/ansi-escapes/index.js"
-      },
-      {
-        "name": "cli-cursor",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/index.js"
-      },
-      {
-        "name": "restore-cursor",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/index.js"
-      },
-      {
-        "name": "exit-hook",
-        "version": "1.1.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/node_modules/exit-hook/index.js"
-      },
-      {
-        "name": "onetime",
-        "version": "1.1.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/node_modules/onetime/index.js"
-      },
-      {
-        "name": "longest-streak",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/longest-streak/index.js"
-      },
-      {
-        "name": "markdown-table",
-        "version": "0.4.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/markdown-table/index.js"
-      },
-      {
-        "name": "npm-prefix",
-        "version": "1.2.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/index.js"
-      },
-      {
-        "name": "rc",
-        "version": "1.1.6",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/index.js"
-      },
-      {
-        "name": "deep-extend",
-        "version": "0.4.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/deep-extend/lib/deep-extend.js"
-      },
-      {
-        "name": "ini",
-        "version": "1.3.4",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/ini/ini.js"
-      },
-      {
-        "name": "minimist",
-        "version": "1.2.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/minimist/index.js"
-      },
-      {
-        "name": "strip-json-comments",
-        "version": "1.0.4",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/strip-json-comments/strip-json-comments.js"
-      },
-      {
-        "name": "shellsubstitute",
-        "version": "1.1.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/shellsubstitute/index.js"
-      },
-      {
-        "name": "untildify",
-        "version": "2.1.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/untildify/index.js"
-      },
-      {
-        "name": "os-homedir",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/untildify/node_modules/os-homedir/index.js"
-      },
-      {
-        "name": "parse-entities",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/parse-entities/index.js"
-      },
-      {
-        "name": "character-entities",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-entities/index.js"
-      },
-      {
-        "name": "character-entities-legacy",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-entities-legacy/index.js"
-      },
-      {
-        "name": "character-reference-invalid",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-reference-invalid/index.js"
-      },
-      {
-        "name": "repeat-string",
-        "version": "1.5.4",
-        "path": "node_modules/alex/node_modules/remark/node_modules/repeat-string/index.js"
-      },
-      {
-        "name": "stringify-entities",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/stringify-entities/index.js"
-      },
-      {
-        "name": "character-entities-html4",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/stringify-entities/node_modules/character-entities-html4/index.js"
-      },
-      {
-        "name": "trim",
-        "version": "0.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/trim/index.js"
-      },
-      {
-        "name": "trim-trailing-lines",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/trim-trailing-lines/index.js"
-      },
-      {
-        "name": "unified",
-        "version": "3.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/unified/index.js"
-      },
-      {
-        "name": "attach-ware",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/attach-ware/index.js"
-      },
-      {
-        "name": "unherit",
-        "version": "1.0.4",
-        "path": "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/index.js"
-      },
-      {
-        "name": "clone",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/clone/clone.js"
-      },
-      {
-        "name": "inherits",
-        "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits.js"
-      },
-      {
-        "name": "unist-util-remove-position",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/unist-util-remove-position/index.js"
-      },
-      {
-        "name": "unist-util-visit",
-        "version": "1.1.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/unist-util-remove-position/node_modules/unist-util-visit/index.js"
-      },
-      {
-        "name": "user-home",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/user-home/index.js"
-      },
-      {
-        "name": "os-homedir",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/remark/node_modules/user-home/node_modules/os-homedir/index.js"
-      },
-      {
-        "name": "vfile-location",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/vfile-location/index.js"
-      },
-      {
-        "name": "ware",
-        "version": "1.3.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/ware/lib/index.js"
-      },
-      {
-        "name": "wrap-fn",
-        "version": "0.1.5",
-        "path": "node_modules/alex/node_modules/remark/node_modules/ware/node_modules/wrap-fn/index.js"
-      },
-      {
-        "name": "co",
-        "version": "3.1.0",
-        "path": "node_modules/alex/node_modules/remark/node_modules/ware/node_modules/wrap-fn/node_modules/co/index.js"
-      },
-      {
         "name": "remark-message-control",
         "version": "2.0.2",
         "path": "node_modules/alex/node_modules/remark-message-control/index.js"
@@ -1111,29 +471,99 @@
         "path": "node_modules/alex/node_modules/remark-message-control/node_modules/vfile-location/index.js"
       },
       {
-        "name": "remark-retext",
-        "version": "1.1.0",
-        "path": "node_modules/alex/node_modules/remark-retext/index.js"
+        "name": "remark-parse",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/index.js"
       },
       {
-        "name": "mdast-util-to-nlcst",
+        "name": "collapse-white-space",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/collapse-white-space/index.js"
+      },
+      {
+        "name": "extend",
+        "version": "3.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/extend/index.js"
+      },
+      {
+        "name": "parse-entities",
+        "version": "1.0.2",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/index.js"
+      },
+      {
+        "name": "character-entities",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities/index.js"
+      },
+      {
+        "name": "character-entities-legacy",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities-legacy/index.js"
+      },
+      {
+        "name": "character-reference-invalid",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/index.js"
+      },
+      {
+        "name": "repeat-string",
+        "version": "1.5.4",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/repeat-string/index.js"
+      },
+      {
+        "name": "trim",
+        "version": "0.0.1",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/trim/index.js"
+      },
+      {
+        "name": "trim-trailing-lines",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/trim-trailing-lines/index.js"
+      },
+      {
+        "name": "unherit",
+        "version": "1.0.4",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/unherit/index.js"
+      },
+      {
+        "name": "clone",
+        "version": "1.0.2",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/clone/clone.js"
+      },
+      {
+        "name": "inherits",
         "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/index.js"
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/inherits.js"
       },
       {
-        "name": "nlcst-to-string",
-        "version": "1.1.0",
-        "path": "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/nlcst-to-string/index.js"
-      },
-      {
-        "name": "remark-range",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/remark-range/index.js"
+        "name": "unist-util-remove-position",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/index.js"
       },
       {
         "name": "unist-util-visit",
         "version": "1.1.0",
-        "path": "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/remark-range/node_modules/unist-util-visit/index.js"
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/node_modules/unist-util-visit/index.js"
+      },
+      {
+        "name": "vfile-location",
+        "version": "2.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/vfile-location/index.js"
+      },
+      {
+        "name": "remark-retext",
+        "version": "2.0.0",
+        "path": "node_modules/alex/node_modules/remark-retext/index.js"
+      },
+      {
+        "name": "mdast-util-to-nlcst",
+        "version": "3.0.0",
+        "path": "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/index.js"
+      },
+      {
+        "name": "nlcst-to-string",
+        "version": "2.0.0",
+        "path": "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/nlcst-to-string/index.js"
       },
       {
         "name": "repeat-string",
@@ -1141,109 +571,34 @@
         "path": "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/repeat-string/index.js"
       },
       {
-        "name": "unified-bridge",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/remark-retext/node_modules/unified-bridge/index.js"
-      },
-      {
-        "name": "retext",
+        "name": "vfile-location",
         "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/retext/index.js"
-      },
-      {
-        "name": "nlcst-to-string",
-        "version": "1.1.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/nlcst-to-string/index.js"
-      },
-      {
-        "name": "parse-latin",
-        "version": "3.0.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/parse-latin/index.js"
-      },
-      {
-        "name": "array-iterate",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/array-iterate/index.js"
-      },
-      {
-        "name": "unist-util-modify-children",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/unist-util-modify-children/index.js"
-      },
-      {
-        "name": "unist-util-visit-children",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/unist-util-visit-children/index.js"
-      },
-      {
-        "name": "unified",
-        "version": "3.0.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/index.js"
-      },
-      {
-        "name": "attach-ware",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/attach-ware/index.js"
-      },
-      {
-        "name": "extend",
-        "version": "3.0.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/extend/index.js"
-      },
-      {
-        "name": "unherit",
-        "version": "1.0.4",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/index.js"
-      },
-      {
-        "name": "clone",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/clone/clone.js"
-      },
-      {
-        "name": "inherits",
-        "version": "2.0.1",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits.js"
-      },
-      {
-        "name": "ware",
-        "version": "1.3.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/lib/index.js"
-      },
-      {
-        "name": "wrap-fn",
-        "version": "0.1.5",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/node_modules/wrap-fn/index.js"
-      },
-      {
-        "name": "co",
-        "version": "3.1.0",
-        "path": "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/node_modules/wrap-fn/node_modules/co/index.js"
+        "path": "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/vfile-location/index.js"
       },
       {
         "name": "retext-english",
-        "version": "1.0.1",
+        "version": "2.0.0",
         "path": "node_modules/alex/node_modules/retext-english/index.js"
       },
       {
         "name": "parse-english",
-        "version": "2.0.0",
+        "version": "3.0.0",
         "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/index.js"
       },
       {
-        "name": "array-iterate",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/array-iterate/index.js"
-      },
-      {
         "name": "nlcst-to-string",
-        "version": "1.1.0",
+        "version": "2.0.0",
         "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/nlcst-to-string/index.js"
       },
       {
         "name": "parse-latin",
-        "version": "2.0.0",
+        "version": "3.1.0",
         "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/index.js"
+      },
+      {
+        "name": "array-iterate",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/index.js"
       },
       {
         "name": "unist-util-modify-children",
@@ -1251,13 +606,33 @@
         "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/index.js"
       },
       {
+        "name": "array-iterate",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/index.js"
+      },
+      {
         "name": "unist-util-visit-children",
         "version": "1.0.0",
         "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-visit-children/index.js"
       },
       {
+        "name": "unherit",
+        "version": "1.0.4",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/unherit/index.js"
+      },
+      {
+        "name": "clone",
+        "version": "1.0.2",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/clone.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/inherits.js"
+      },
+      {
         "name": "retext-equality",
-        "version": "2.3.0",
+        "version": "2.3.2",
         "path": "node_modules/alex/node_modules/retext-equality/index.js"
       },
       {
@@ -1332,7 +707,7 @@
       },
       {
         "name": "micromatch",
-        "version": "2.3.8",
+        "version": "2.3.10",
         "path": "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/index.js"
       },
       {
@@ -1506,6 +881,11 @@
         "path": "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-normalize/index.js"
       },
       {
+        "name": "nlcst-to-string",
+        "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-normalize/node_modules/nlcst-to-string/index.js"
+      },
+      {
         "name": "nlcst-search",
         "version": "1.3.0",
         "path": "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-search/index.js"
@@ -1518,6 +898,11 @@
       {
         "name": "nlcst-to-string",
         "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-search/node_modules/nlcst-is-literal/node_modules/nlcst-to-string/index.js"
+      },
+      {
+        "name": "nlcst-to-string",
+        "version": "2.0.0",
         "path": "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-to-string/index.js"
       },
       {
@@ -1537,7 +922,7 @@
       },
       {
         "name": "retext-profanities",
-        "version": "2.1.0",
+        "version": "3.0.0",
         "path": "node_modules/alex/node_modules/retext-profanities/index.js"
       },
       {
@@ -1612,7 +997,7 @@
       },
       {
         "name": "micromatch",
-        "version": "2.3.8",
+        "version": "2.3.10",
         "path": "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/index.js"
       },
       {
@@ -1782,7 +1167,7 @@
       },
       {
         "name": "cuss",
-        "version": "1.1.0",
+        "version": "1.2.0",
         "path": "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/index.js"
       },
       {
@@ -1796,9 +1181,19 @@
         "path": "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/index.js"
       },
       {
+        "name": "nlcst-to-string",
+        "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/node_modules/nlcst-to-string/index.js"
+      },
+      {
         "name": "nlcst-normalize",
         "version": "2.0.0",
         "path": "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-normalize/index.js"
+      },
+      {
+        "name": "nlcst-to-string",
+        "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-normalize/node_modules/nlcst-to-string/index.js"
       },
       {
         "name": "unist-util-visit",
@@ -1807,7 +1202,7 @@
       },
       {
         "name": "nlcst-to-string",
-        "version": "1.1.0",
+        "version": "2.0.0",
         "path": "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-to-string/index.js"
       },
       {
@@ -1826,54 +1221,39 @@
         "path": "node_modules/alex/node_modules/to-vfile/index.js"
       },
       {
+        "name": "unified",
+        "version": "4.1.2",
+        "path": "node_modules/alex/node_modules/unified/index.js"
+      },
+      {
+        "name": "extend",
+        "version": "3.0.0",
+        "path": "node_modules/alex/node_modules/unified/node_modules/extend/index.js"
+      },
+      {
+        "name": "once",
+        "version": "1.3.3",
+        "path": "node_modules/alex/node_modules/unified/node_modules/once/once.js"
+      },
+      {
+        "name": "wrappy",
+        "version": "1.0.2",
+        "path": "node_modules/alex/node_modules/unified/node_modules/once/node_modules/wrappy/wrappy.js"
+      },
+      {
         "name": "update-notifier",
-        "version": "0.7.0",
+        "version": "1.0.2",
         "path": "node_modules/alex/node_modules/update-notifier/index.js"
+      },
+      {
+        "name": "boxen",
+        "version": "0.6.0",
+        "path": "node_modules/alex/node_modules/update-notifier/node_modules/boxen/index.js"
       },
       {
         "name": "ansi-align",
         "version": "1.1.0",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/index.js"
-      },
-      {
-        "name": "string-width",
-        "version": "1.0.1",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/index.js"
-      },
-      {
-        "name": "code-point-at",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/code-point-at/index.js"
-      },
-      {
-        "name": "number-is-nan",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/index.js"
-      },
-      {
-        "name": "is-fullwidth-code-point",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/is-fullwidth-code-point/index.js"
-      },
-      {
-        "name": "number-is-nan",
-        "version": "1.0.0",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/index.js"
-      },
-      {
-        "name": "strip-ansi",
-        "version": "3.0.1",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/strip-ansi/index.js"
-      },
-      {
-        "name": "ansi-regex",
-        "version": "2.0.0",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex/index.js"
-      },
-      {
-        "name": "boxen",
-        "version": "0.5.1",
-        "path": "node_modules/alex/node_modules/update-notifier/node_modules/boxen/index.js"
+        "path": "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/ansi-align/index.js"
       },
       {
         "name": "camelcase",
@@ -2107,7 +1487,7 @@
       },
       {
         "name": "is-retry-allowed",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/is-retry-allowed/index.js"
       },
       {
@@ -2252,8 +1632,13 @@
       },
       {
         "name": "semver",
-        "version": "5.1.0",
+        "version": "5.2.0",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/semver/semver.js"
+      },
+      {
+        "name": "lazy-req",
+        "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/update-notifier/node_modules/lazy-req/index.js"
       },
       {
         "name": "semver-diff",
@@ -2262,7 +1647,7 @@
       },
       {
         "name": "semver",
-        "version": "5.1.0",
+        "version": "5.2.0",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/semver-diff/node_modules/semver/semver.js"
       },
       {
@@ -2417,7 +1802,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.0",
+        "version": "3.0.2",
         "path": "node_modules/minimatch/minimatch.js"
       },
       {
@@ -2452,13 +1837,6 @@
         "node_modules/alex/node_modules/globby/node_modules/array-union/node_modules/array-uniq/package.json",
         "node_modules/alex/node_modules/globby/node_modules/array-union/package.json",
         "node_modules/alex/node_modules/globby/node_modules/arrify/package.json",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inflight/package.json",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inherits/package.json",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/once/node_modules/wrappy/package.json",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/once/package.json",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/path-is-absolute/package.json",
-        "node_modules/alex/node_modules/globby/node_modules/glob/package.json",
         "node_modules/alex/node_modules/globby/node_modules/object-assign/package.json",
         "node_modules/alex/node_modules/globby/node_modules/pify/package.json",
         "node_modules/alex/node_modules/globby/node_modules/pinkie-promise/node_modules/pinkie/package.json",
@@ -2521,181 +1899,51 @@
         "node_modules/alex/node_modules/meow/node_modules/redent/package.json",
         "node_modules/alex/node_modules/meow/node_modules/trim-newlines/package.json",
         "node_modules/alex/node_modules/meow/package.json",
-        "node_modules/alex/node_modules/remark/lib/block-elements.json",
-        "node_modules/alex/node_modules/remark/lib/escape.json",
-        "node_modules/alex/node_modules/remark/node_modules/camelcase/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/ccount/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/ansi-styles/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/escape-string-regexp/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/has-ansi/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/strip-ansi/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/supports-color/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/arrify/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/arr-flatten/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/array-unique/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/component.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/preserve/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/repeat-element/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/expand-brackets/node_modules/is-posix-bracket/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/expand-brackets/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/extglob/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/filename-regex/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/is-extglob/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of/node_modules/is-buffer/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/normalize-path/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/for-own/node_modules/for-in/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/for-own/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/is-extendable/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/node_modules/glob-base/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/node_modules/is-dotfile/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/node_modules/is-equal-shallow/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/node_modules/is-primitive/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/async-each/bower.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/async-each/component.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/async-each/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/glob-parent/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/inherits/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-binary-path/node_modules/binary-extensions/binary-extensions.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-binary-path/node_modules/binary-extensions/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-binary-path/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-glob/node_modules/is-extglob/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-glob/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/path-is-absolute/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/examples/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/component.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/process-nextick-args/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/string_decoder/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/util-deprecate/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/collapse-white-space/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/commander/node_modules/graceful-readlink/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/commander/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/inherits/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/component.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/process-nextick-args/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/typedarray/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/debug/bower.json",
-        "node_modules/alex/node_modules/remark/node_modules/debug/component.json",
-        "node_modules/alex/node_modules/remark/node_modules/debug/node_modules/ms/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/debug/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/elegant-spinner/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/extend/.jscs.json",
-        "node_modules/alex/node_modules/remark/node_modules/extend/component.json",
-        "node_modules/alex/node_modules/remark/node_modules/extend/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/ansi-escapes/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/node_modules/exit-hook/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/node_modules/onetime/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/longest-streak/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/markdown-table/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/deep-extend/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/ini/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/minimist/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/strip-json-comments/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/shellsubstitute/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/untildify/node_modules/os-homedir/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/untildify/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-entities/index.json",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-entities/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-entities-legacy/index.json",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-entities-legacy/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-reference-invalid/index.json",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-reference-invalid/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/repeat-string/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/stringify-entities/node_modules/character-entities-html4/index.json",
-        "node_modules/alex/node_modules/remark/node_modules/stringify-entities/node_modules/character-entities-html4/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/stringify-entities/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/trim/component.json",
-        "node_modules/alex/node_modules/remark/node_modules/trim/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/trim-trailing-lines/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/attach-ware/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/clone/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/unified/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/unist-util-remove-position/node_modules/unist-util-visit/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/unist-util-remove-position/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/user-home/node_modules/os-homedir/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/user-home/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/vfile-location/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/ware/node_modules/wrap-fn/node_modules/co/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/ware/node_modules/wrap-fn/package.json",
-        "node_modules/alex/node_modules/remark/node_modules/ware/package.json",
-        "node_modules/alex/node_modules/remark/package.json",
         "node_modules/alex/node_modules/remark-message-control/node_modules/mdast-comment-marker/package.json",
         "node_modules/alex/node_modules/remark-message-control/node_modules/trim/component.json",
         "node_modules/alex/node_modules/remark-message-control/node_modules/trim/package.json",
         "node_modules/alex/node_modules/remark-message-control/node_modules/unist-util-visit/package.json",
         "node_modules/alex/node_modules/remark-message-control/node_modules/vfile-location/package.json",
         "node_modules/alex/node_modules/remark-message-control/package.json",
+        "node_modules/alex/node_modules/remark-parse/lib/block-elements.json",
+        "node_modules/alex/node_modules/remark-parse/lib/escapes.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/collapse-white-space/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/extend/.jscs.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/extend/component.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/extend/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities/index.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities-legacy/index.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities-legacy/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/index.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/repeat-string/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/trim/component.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/trim/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/trim-trailing-lines/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/clone/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/node_modules/unist-util-visit/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/vfile-location/package.json",
+        "node_modules/alex/node_modules/remark-parse/package.json",
         "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/nlcst-to-string/package.json",
-        "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/remark-range/node_modules/unist-util-visit/package.json",
-        "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/remark-range/package.json",
         "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/repeat-string/package.json",
+        "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/vfile-location/package.json",
         "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/package.json",
-        "node_modules/alex/node_modules/remark-retext/node_modules/unified-bridge/package.json",
         "node_modules/alex/node_modules/remark-retext/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/nlcst-to-string/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/array-iterate/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/unist-util-modify-children/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/unist-util-visit-children/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/attach-ware/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/extend/.jscs.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/extend/component.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/extend/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/clone/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/inherits/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/node_modules/wrap-fn/node_modules/co/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/node_modules/wrap-fn/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/package.json",
-        "node_modules/alex/node_modules/retext/node_modules/unified/package.json",
-        "node_modules/alex/node_modules/retext/package.json",
-        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/array-iterate/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/nlcst-to-string/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-visit-children/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/package.json",
         "node_modules/alex/node_modules/retext-english/package.json",
         "node_modules/alex/node_modules/retext-equality/lib/patterns.json",
         "node_modules/alex/node_modules/retext-equality/node_modules/array-differ/package.json",
@@ -2747,7 +1995,9 @@
         "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/node_modules/filter-array/package.json",
         "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/node_modules/index-of/package.json",
         "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/package.json",
+        "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-normalize/node_modules/nlcst-to-string/package.json",
         "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-normalize/package.json",
+        "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-search/node_modules/nlcst-is-literal/node_modules/nlcst-to-string/package.json",
         "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-search/node_modules/nlcst-is-literal/package.json",
         "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-search/package.json",
         "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-to-string/package.json",
@@ -2807,7 +2057,9 @@
         "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/data/index.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/package.json",
+        "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/node_modules/nlcst-to-string/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/package.json",
+        "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-normalize/node_modules/nlcst-to-string/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-normalize/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/unist-util-visit/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/package.json",
@@ -2817,14 +2069,13 @@
         "node_modules/alex/node_modules/retext-profanities/node_modules/quotation/package.json",
         "node_modules/alex/node_modules/retext-profanities/package.json",
         "node_modules/alex/node_modules/to-vfile/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/code-point-at/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/is-fullwidth-code-point/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/strip-ansi/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/package.json",
+        "node_modules/alex/node_modules/unified/node_modules/extend/.jscs.json",
+        "node_modules/alex/node_modules/unified/node_modules/extend/component.json",
+        "node_modules/alex/node_modules/unified/node_modules/extend/package.json",
+        "node_modules/alex/node_modules/unified/node_modules/once/node_modules/wrappy/package.json",
+        "node_modules/alex/node_modules/unified/node_modules/once/package.json",
+        "node_modules/alex/node_modules/unified/package.json",
+        "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/ansi-align/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/camelcase/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/cli-boxes/boxes.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/cli-boxes/package.json",
@@ -2907,6 +2158,7 @@
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/semver/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/package.json",
+        "node_modules/alex/node_modules/update-notifier/node_modules/lazy-req/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/semver-diff/node_modules/semver/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/semver-diff/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/xdg-basedir/node_modules/os-homedir/package.json",
@@ -2971,17 +2223,6 @@
         "node_modules/alex/node_modules/globby/node_modules/array-union/index.js",
         "node_modules/alex/node_modules/globby/node_modules/array-union/node_modules/array-uniq/index.js",
         "node_modules/alex/node_modules/globby/node_modules/arrify/index.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/common.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/glob.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inflight/inflight.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inflight/node_modules/wrappy/wrappy.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inherits/inherits.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inherits/inherits_browser.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inherits/test.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/once/node_modules/wrappy/wrappy.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/once/once.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/path-is-absolute/index.js",
-        "node_modules/alex/node_modules/globby/node_modules/glob/sync.js",
         "node_modules/alex/node_modules/globby/node_modules/object-assign/index.js",
         "node_modules/alex/node_modules/globby/node_modules/pify/index.js",
         "node_modules/alex/node_modules/globby/node_modules/pinkie-promise/index.js",
@@ -3057,275 +2298,43 @@
         "node_modules/alex/node_modules/meow/node_modules/redent/node_modules/strip-indent/index.js",
         "node_modules/alex/node_modules/meow/node_modules/redent/node_modules/strip-indent/node_modules/get-stdin/index.js",
         "node_modules/alex/node_modules/meow/node_modules/trim-newlines/index.js",
-        "node_modules/alex/node_modules/remark/index.js",
-        "node_modules/alex/node_modules/remark/lib/cli/cli.js",
-        "node_modules/alex/node_modules/remark/lib/cli/configuration.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/configure.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/copy.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/file-system.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/index.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/parse.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/queue.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/read.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/stdout.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/stringify.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-pipeline/transform.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-set-pipeline/configure.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-set-pipeline/file-system.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-set-pipeline/index.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-set-pipeline/log.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-set-pipeline/stdin.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-set-pipeline/transform.js",
-        "node_modules/alex/node_modules/remark/lib/cli/file-set.js",
-        "node_modules/alex/node_modules/remark/lib/cli/finder.js",
-        "node_modules/alex/node_modules/remark/lib/cli/ignore.js",
-        "node_modules/alex/node_modules/remark/lib/cli/index.js",
-        "node_modules/alex/node_modules/remark/lib/cli/spinner.js",
-        "node_modules/alex/node_modules/remark/lib/cli/watch-output-cache.js",
-        "node_modules/alex/node_modules/remark/lib/defaults.js",
-        "node_modules/alex/node_modules/remark/lib/parse.js",
-        "node_modules/alex/node_modules/remark/lib/stringify.js",
-        "node_modules/alex/node_modules/remark/lib/utilities.js",
-        "node_modules/alex/node_modules/remark/node_modules/camelcase/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/ccount/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/ansi-styles/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/escape-string-regexp/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/has-ansi/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/strip-ansi/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/supports-color/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/lib/fsevents-handler.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/lib/nodefs-handler.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/arrify/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/lib/chars.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/lib/expand.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/lib/glob.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/lib/utils.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/arr-flatten/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/array-unique/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/preserve/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/preserve/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/repeat-element/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/expand-brackets/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/expand-brackets/node_modules/is-posix-bracket/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/extglob/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/filename-regex/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/is-extglob/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of/node_modules/is-buffer/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/normalize-path/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/for-own/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/for-own/node_modules/for-in/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/is-extendable/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/node_modules/glob-base/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/node_modules/is-dotfile/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/node_modules/is-equal-shallow/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/node_modules/is-primitive/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/async-each/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/async-each/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/glob-parent/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/glob-parent/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/inherits/inherits.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/inherits/inherits_browser.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/inherits/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-binary-path/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-glob/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-glob/node_modules/is-extglob/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/path-is-absolute/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/examples/callback-api.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/examples/grep.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/examples/stream-api-pipe.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/examples/stream-api.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/fs.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/graceful-fs.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/legacy-streams.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/polyfills.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/browser.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/minimatch.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/duplex.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_duplex.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_passthrough.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_readable.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_transform.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_writable.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/isarray/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/process-nextick-args/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/process-nextick-args/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/string_decoder/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/util-deprecate/browser.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/util-deprecate/node.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/passthrough.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/readable.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/transform.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/writable.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/readdirp.js",
-        "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/stream-api.js",
-        "node_modules/alex/node_modules/remark/node_modules/collapse-white-space/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/commander/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/commander/node_modules/graceful-readlink/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/inherits/inherits.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/inherits/inherits_browser.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/inherits/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/duplex.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_duplex.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_passthrough.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_readable.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_transform.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_writable.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/process-nextick-args/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/process-nextick-args/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/browser.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/node.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/passthrough.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/readable.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/transform.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/writable.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/typedarray/example/tarray.js",
-        "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/typedarray/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/debug/browser.js",
-        "node_modules/alex/node_modules/remark/node_modules/debug/debug.js",
-        "node_modules/alex/node_modules/remark/node_modules/debug/node.js",
-        "node_modules/alex/node_modules/remark/node_modules/debug/node_modules/ms/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/elegant-spinner/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/extend/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/ansi-escapes/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/node_modules/exit-hook/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor/node_modules/onetime/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/longest-streak/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/markdown-table/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/browser.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/lib/utils.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/deep-extend/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/deep-extend/lib/deep-extend.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/ini/ini.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/minimist/example/parse.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/minimist/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/strip-json-comments/cli.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/node_modules/strip-json-comments/strip-json-comments.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/shellsubstitute/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/untildify/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/untildify/node_modules/os-homedir/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-entities/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-entities-legacy/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/parse-entities/node_modules/character-reference-invalid/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/repeat-string/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/stringify-entities/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/stringify-entities/lib/expression.js",
-        "node_modules/alex/node_modules/remark/node_modules/stringify-entities/node_modules/character-entities-html4/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/trim/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/trim-trailing-lines/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/unified/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/attach-ware/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/clone/clone.js",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/clone/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits.js",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits_browser.js",
-        "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/test.js",
-        "node_modules/alex/node_modules/remark/node_modules/unist-util-remove-position/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/unist-util-remove-position/node_modules/unist-util-visit/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/user-home/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/user-home/node_modules/os-homedir/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/vfile-location/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/ware/lib/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/ware/node_modules/wrap-fn/index.js",
-        "node_modules/alex/node_modules/remark/node_modules/ware/node_modules/wrap-fn/node_modules/co/index.js",
         "node_modules/alex/node_modules/remark-message-control/index.js",
         "node_modules/alex/node_modules/remark-message-control/node_modules/mdast-comment-marker/index.js",
         "node_modules/alex/node_modules/remark-message-control/node_modules/trim/index.js",
         "node_modules/alex/node_modules/remark-message-control/node_modules/unist-util-visit/index.js",
         "node_modules/alex/node_modules/remark-message-control/node_modules/vfile-location/index.js",
+        "node_modules/alex/node_modules/remark-parse/index.js",
+        "node_modules/alex/node_modules/remark-parse/lib/defaults.js",
+        "node_modules/alex/node_modules/remark-parse/lib/parser.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/collapse-white-space/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/extend/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities-legacy/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/repeat-string/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/trim/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/trim-trailing-lines/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/clone/clone.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/clone/test.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/inherits.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/inherits_browser.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/test.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/node_modules/unist-util-visit/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/vfile-location/index.js",
         "node_modules/alex/node_modules/remark-retext/index.js",
         "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/index.js",
         "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/nlcst-to-string/index.js",
-        "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/remark-range/index.js",
-        "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/remark-range/node_modules/unist-util-visit/index.js",
         "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/repeat-string/index.js",
-        "node_modules/alex/node_modules/remark-retext/node_modules/unified-bridge/index.js",
-        "node_modules/alex/node_modules/retext/index.js",
-        "node_modules/alex/node_modules/retext/lib/compile.js",
-        "node_modules/alex/node_modules/retext/node_modules/nlcst-to-string/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/expressions.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/parser.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/break-implicit-sentences.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/make-final-white-space-siblings.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/make-initial-white-space-siblings.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-affix-exceptions.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-affix-symbol.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-final-word-symbol.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-initial-lower-case-letter-sentences.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-initial-word-symbol.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-initialisms.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-inner-word-slash.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-inner-word-symbol.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-non-word-sentences.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-prefix-exceptions.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-remaining-full-stops.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/merge-words.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/patch-position.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin/remove-empty-nodes.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/tokenizer.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/array-iterate/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/unist-util-modify-children/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/unist-util-visit-children/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/attach-ware/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/extend/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/clone/clone.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/clone/test.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits_browser.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit/node_modules/inherits/test.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/lib/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/node_modules/wrap-fn/index.js",
-        "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/node_modules/wrap-fn/node_modules/co/index.js",
+        "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/vfile-location/index.js",
         "node_modules/alex/node_modules/retext-english/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/index.js",
-        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/array-iterate/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/nlcst-to-string/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/expressions.js",
-        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/parse-latin.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/parser.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/break-implicit-sentences.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/make-final-white-space-siblings.js",
@@ -3336,6 +2345,7 @@
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/merge-initial-lower-case-letter-sentences.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/merge-initial-word-symbol.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/merge-initialisms.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/merge-inner-word-slash.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/merge-inner-word-symbol.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/merge-non-word-sentences.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/merge-prefix-exceptions.js",
@@ -3344,8 +2354,16 @@
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/patch-position.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/remove-empty-nodes.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/tokenizer.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/index.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-visit-children/index.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/index.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/clone.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/test.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/inherits.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/inherits_browser.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/test.js",
         "node_modules/alex/node_modules/retext-equality/index.js",
         "node_modules/alex/node_modules/retext-equality/lib/equality.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/array-differ/index.js",
@@ -3405,8 +2423,10 @@
         "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/node_modules/regex-cache/node_modules/is-primitive/index.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/node_modules/index-of/index.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-normalize/index.js",
+        "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-normalize/node_modules/nlcst-to-string/index.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-search/index.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-search/node_modules/nlcst-is-literal/index.js",
+        "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-search/node_modules/nlcst-is-literal/node_modules/nlcst-to-string/index.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/nlcst-to-string/index.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/object-keys/index.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/object-keys/isArguments.js",
@@ -3472,7 +2492,9 @@
         "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/index.js",
+        "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/node_modules/nlcst-to-string/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-normalize/index.js",
+        "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-normalize/node_modules/nlcst-to-string/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/unist-util-visit/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-to-string/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/object-keys/index.js",
@@ -3480,17 +2502,16 @@
         "node_modules/alex/node_modules/retext-profanities/node_modules/quotation/index.js",
         "node_modules/alex/node_modules/to-vfile/index.js",
         "node_modules/alex/node_modules/to-vfile/lib/to-vfile.js",
+        "node_modules/alex/node_modules/unified/index.js",
+        "node_modules/alex/node_modules/unified/lib/trough.js",
+        "node_modules/alex/node_modules/unified/lib/unified.js",
+        "node_modules/alex/node_modules/unified/node_modules/extend/index.js",
+        "node_modules/alex/node_modules/unified/node_modules/once/node_modules/wrappy/wrappy.js",
+        "node_modules/alex/node_modules/unified/node_modules/once/once.js",
         "node_modules/alex/node_modules/update-notifier/check.js",
         "node_modules/alex/node_modules/update-notifier/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/code-point-at/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/is-fullwidth-code-point/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/strip-ansi/index.js",
-        "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/index.js",
+        "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/ansi-align/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/camelcase/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/cli-boxes/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/filled-array/index.js",
@@ -3606,6 +2627,7 @@
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/rc/node_modules/strip-json-comments/strip-json-comments.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/registry-url/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/semver/semver.js",
+        "node_modules/alex/node_modules/update-notifier/node_modules/lazy-req/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/semver-diff/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/semver-diff/node_modules/semver/semver.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/xdg-basedir/index.js",
@@ -3670,18 +2692,18 @@
           "bail": "^1.0.0",
           "get-stdin": "^5.0.0",
           "glob": "^7.0.0",
-          "globby": "^4.0.0",
+          "globby": "^5.0.0",
           "meow": "^3.3.0",
           "minimatch": "^3.0.0",
-          "remark": "^4.0.0",
           "remark-message-control": "^2.0.0",
-          "remark-retext": "^1.1.0",
-          "retext": "^2.0.0",
-          "retext-english": "^1.0.0",
+          "remark-parse": "^1.0.0",
+          "remark-retext": "^2.0.0",
+          "retext-english": "^2.0.0",
           "retext-equality": "^2.3.0",
-          "retext-profanities": "^2.0.0",
+          "retext-profanities": "^3.0.0",
           "to-vfile": "^1.0.0",
-          "update-notifier": "^0.7.0",
+          "unified": "^4.1.2",
+          "update-notifier": "^1.0.0",
           "vfile": "^1.1.0",
           "vfile-find-down": "^1.0.0",
           "vfile-find-up": "^1.0.0",
@@ -3697,7 +2719,7 @@
           "fs.realpath": "^1.0.0",
           "inflight": "^1.0.4",
           "inherits": "2",
-          "minimatch": "2 || 3",
+          "minimatch": "^3.0.2",
           "once": "^1.3.0",
           "path-is-absolute": "^1.0.0"
         }
@@ -3726,7 +2748,7 @@
         "dependencies": {
           "array-union": "^1.0.1",
           "arrify": "^1.0.0",
-          "glob": "^6.0.1",
+          "glob": "^7.0.3",
           "object-assign": "^4.0.1",
           "pify": "^2.0.0",
           "pinkie-promise": "^2.0.0"
@@ -3738,35 +2760,6 @@
         ],
         "dependencies": {
           "array-uniq": "^1.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/globby/node_modules/glob"
-        ],
-        "dependencies": {
-          "inflight": "^1.0.4",
-          "inherits": "2",
-          "minimatch": "2 || 3",
-          "once": "^1.3.0",
-          "path-is-absolute": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/inflight"
-        ],
-        "dependencies": {
-          "once": "^1.3.0",
-          "wrappy": "1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/globby/node_modules/glob/node_modules/once"
-        ],
-        "dependencies": {
-          "wrappy": "1"
         }
       },
       {
@@ -4018,512 +3011,6 @@
       },
       {
         "paths": [
-          "node_modules/alex/node_modules/remark",
-          "node_modules/alex/node_modules/remark/lib",
-          "node_modules/alex/node_modules/remark/lib/cli",
-          "node_modules/alex/node_modules/remark/lib/cli/file-pipeline",
-          "node_modules/alex/node_modules/remark/lib/cli/file-set-pipeline"
-        ],
-        "dependencies": {
-          "camelcase": "^2.0.0",
-          "ccount": "^1.0.0",
-          "chalk": "^1.0.0",
-          "chokidar": "^1.0.5",
-          "collapse-white-space": "^1.0.0",
-          "commander": "^2.0.0",
-          "concat-stream": "^1.0.0",
-          "debug": "^2.0.0",
-          "elegant-spinner": "^1.0.0",
-          "extend": "^3.0.0",
-          "glob": "^7.0.0",
-          "globby": "^4.0.0",
-          "log-update": "^1.0.1",
-          "longest-streak": "^1.0.0",
-          "markdown-table": "^0.4.0",
-          "minimatch": "^3.0.0",
-          "npm-prefix": "^1.0.1",
-          "parse-entities": "^1.0.0",
-          "repeat-string": "^1.5.0",
-          "stringify-entities": "^1.0.0",
-          "to-vfile": "^1.0.0",
-          "trim": "^0.0.1",
-          "trim-trailing-lines": "^1.0.0",
-          "unified": "^3.0.0",
-          "unist-util-remove-position": "^1.0.0",
-          "user-home": "^2.0.0",
-          "vfile": "^1.1.0",
-          "vfile-find-down": "^1.0.0",
-          "vfile-find-up": "^1.0.0",
-          "vfile-location": "^2.0.0",
-          "vfile-reporter": "^1.5.0",
-          "ware": "^1.3.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chalk"
-        ],
-        "dependencies": {
-          "ansi-styles": "^2.2.1",
-          "escape-string-regexp": "^1.0.2",
-          "has-ansi": "^2.0.0",
-          "strip-ansi": "^3.0.0",
-          "supports-color": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/has-ansi"
-        ],
-        "dependencies": {
-          "ansi-regex": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chalk/node_modules/strip-ansi"
-        ],
-        "dependencies": {
-          "ansi-regex": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar",
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/lib"
-        ],
-        "dependencies": {
-          "anymatch": "^1.3.0",
-          "async-each": "^1.0.0",
-          "glob-parent": "^2.0.0",
-          "inherits": "^2.0.1",
-          "is-binary-path": "^1.0.0",
-          "is-glob": "^2.0.0",
-          "path-is-absolute": "^1.0.0",
-          "readdirp": "^2.0.0",
-          "fsevents": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch"
-        ],
-        "dependencies": {
-          "arrify": "^1.0.0",
-          "micromatch": "^2.1.5"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch",
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/lib"
-        ],
-        "dependencies": {
-          "arr-diff": "^2.0.0",
-          "array-unique": "^0.2.1",
-          "braces": "^1.8.2",
-          "expand-brackets": "^0.1.4",
-          "extglob": "^0.3.1",
-          "filename-regex": "^2.0.0",
-          "is-extglob": "^1.0.0",
-          "is-glob": "^2.0.1",
-          "kind-of": "^3.0.2",
-          "normalize-path": "^2.0.1",
-          "object.omit": "^2.0.0",
-          "parse-glob": "^3.0.4",
-          "regex-cache": "^0.4.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff"
-        ],
-        "dependencies": {
-          "arr-flatten": "^1.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces"
-        ],
-        "dependencies": {
-          "expand-range": "^1.8.1",
-          "preserve": "^0.2.0",
-          "repeat-element": "^1.1.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range"
-        ],
-        "dependencies": {
-          "fill-range": "^2.1.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range"
-        ],
-        "dependencies": {
-          "is-number": "^2.1.0",
-          "isobject": "^2.0.0",
-          "randomatic": "^1.1.3",
-          "repeat-element": "^1.1.2",
-          "repeat-string": "^1.5.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number"
-        ],
-        "dependencies": {
-          "kind-of": "^3.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject"
-        ],
-        "dependencies": {
-          "isarray": "1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic"
-        ],
-        "dependencies": {
-          "is-number": "^2.0.2",
-          "kind-of": "^3.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/expand-brackets"
-        ],
-        "dependencies": {
-          "is-posix-bracket": "^0.1.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/extglob"
-        ],
-        "dependencies": {
-          "is-extglob": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of"
-        ],
-        "dependencies": {
-          "is-buffer": "^1.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit"
-        ],
-        "dependencies": {
-          "for-own": "^0.1.3",
-          "is-extendable": "^0.1.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/object.omit/node_modules/for-own"
-        ],
-        "dependencies": {
-          "for-in": "^0.1.5"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob"
-        ],
-        "dependencies": {
-          "glob-base": "^0.3.0",
-          "is-dotfile": "^1.0.0",
-          "is-extglob": "^1.0.0",
-          "is-glob": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/parse-glob/node_modules/glob-base"
-        ],
-        "dependencies": {
-          "glob-parent": "^2.0.0",
-          "is-glob": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache"
-        ],
-        "dependencies": {
-          "is-equal-shallow": "^0.1.3",
-          "is-primitive": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/regex-cache/node_modules/is-equal-shallow"
-        ],
-        "dependencies": {
-          "is-primitive": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/glob-parent"
-        ],
-        "dependencies": {
-          "is-glob": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-binary-path"
-        ],
-        "dependencies": {
-          "binary-extensions": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/is-glob"
-        ],
-        "dependencies": {
-          "is-extglob": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/examples",
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp",
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/test"
-        ],
-        "dependencies": {
-          "graceful-fs": "^4.1.2",
-          "minimatch": "^2.0.10",
-          "readable-stream": "^2.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch"
-        ],
-        "dependencies": {
-          "brace-expansion": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion"
-        ],
-        "dependencies": {
-          "balanced-match": "^0.4.1",
-          "concat-map": "0.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream",
-          "node_modules/alex/node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib"
-        ],
-        "dependencies": {
-          "buffer-shims": "^1.0.0",
-          "core-util-is": "~1.0.0",
-          "inherits": "~2.0.1",
-          "isarray": "~1.0.0",
-          "process-nextick-args": "~1.0.6",
-          "string_decoder": "~0.10.x",
-          "util-deprecate": "~1.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/commander"
-        ],
-        "dependencies": {
-          "graceful-readlink": ">= 1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/concat-stream"
-        ],
-        "dependencies": {
-          "inherits": "~2.0.1",
-          "typedarray": "~0.0.5",
-          "readable-stream": "~2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream",
-          "node_modules/alex/node_modules/remark/node_modules/concat-stream/node_modules/readable-stream/lib"
-        ],
-        "dependencies": {
-          "core-util-is": "~1.0.0",
-          "inherits": "~2.0.1",
-          "isarray": "~1.0.0",
-          "process-nextick-args": "~1.0.6",
-          "string_decoder": "~0.10.x",
-          "util-deprecate": "~1.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/debug"
-        ],
-        "dependencies": {
-          "ms": "0.7.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/log-update"
-        ],
-        "dependencies": {
-          "ansi-escapes": "^1.0.0",
-          "cli-cursor": "^1.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor"
-        ],
-        "dependencies": {
-          "restore-cursor": "^1.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/log-update/node_modules/cli-cursor/node_modules/restore-cursor"
-        ],
-        "dependencies": {
-          "exit-hook": "^1.0.0",
-          "onetime": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/npm-prefix"
-        ],
-        "dependencies": {
-          "rc": "^1.1.0",
-          "shellsubstitute": "^1.1.0",
-          "untildify": "^2.1.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc",
-          "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/lib",
-          "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/rc/test"
-        ],
-        "dependencies": {
-          "deep-extend": "~0.4.0",
-          "ini": "~1.3.0",
-          "minimist": "^1.2.0",
-          "strip-json-comments": "~1.0.4"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/npm-prefix/node_modules/untildify"
-        ],
-        "dependencies": {
-          "os-homedir": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/parse-entities"
-        ],
-        "dependencies": {
-          "character-entities": "^1.0.0",
-          "character-entities-legacy": "^1.0.0",
-          "character-reference-invalid": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/stringify-entities",
-          "node_modules/alex/node_modules/remark/node_modules/stringify-entities/lib"
-        ],
-        "dependencies": {
-          "character-entities-html4": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/unified"
-        ],
-        "dependencies": {
-          "attach-ware": "^2.0.0",
-          "bail": "^1.0.0",
-          "extend": "^3.0.0",
-          "unherit": "^1.0.4",
-          "vfile": "^1.0.0",
-          "ware": "^1.3.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/attach-ware"
-        ],
-        "dependencies": {
-          "unherit": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/unified/node_modules/unherit"
-        ],
-        "dependencies": {
-          "clone": "^1.0.1",
-          "inherits": "^2.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/unist-util-remove-position"
-        ],
-        "dependencies": {
-          "unist-util-visit": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/user-home"
-        ],
-        "dependencies": {
-          "os-homedir": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/ware/lib",
-          "node_modules/alex/node_modules/remark/node_modules/ware"
-        ],
-        "dependencies": {
-          "wrap-fn": "^0.1.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark/node_modules/ware/node_modules/wrap-fn"
-        ],
-        "dependencies": {
-          "co": "3.1.0"
-        }
-      },
-      {
-        "paths": [
           "node_modules/alex/node_modules/remark-message-control"
         ],
         "dependencies": {
@@ -4535,87 +3022,34 @@
       },
       {
         "paths": [
-          "node_modules/alex/node_modules/remark-retext"
+          "node_modules/alex/node_modules/remark-parse",
+          "node_modules/alex/node_modules/remark-parse/lib"
         ],
         "dependencies": {
-          "mdast-util-to-nlcst": "^2.0.0",
-          "unified-bridge": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst"
-        ],
-        "dependencies": {
-          "nlcst-to-string": "^1.0.0",
-          "remark-range": "^2.0.0",
-          "repeat-string": "^1.5.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/node_modules/remark-range"
-        ],
-        "dependencies": {
-          "unist-util-visit": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/retext",
-          "node_modules/alex/node_modules/retext/lib"
-        ],
-        "dependencies": {
-          "nlcst-to-string": "^1.0.0",
-          "parse-latin": "^3.0.0",
-          "unified": "^3.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/retext/node_modules/parse-latin",
-          "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib",
-          "node_modules/alex/node_modules/retext/node_modules/parse-latin/lib/plugin"
-        ],
-        "dependencies": {
-          "array-iterate": "^1.0.0",
-          "nlcst-to-string": "^1.0.0",
-          "unist-util-modify-children": "^1.0.0",
-          "unist-util-visit-children": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/retext/node_modules/parse-latin/node_modules/unist-util-modify-children"
-        ],
-        "dependencies": {
-          "array-iterate": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/retext/node_modules/unified"
-        ],
-        "dependencies": {
-          "attach-ware": "^2.0.0",
-          "bail": "^1.0.0",
+          "collapse-white-space": "^1.0.0",
           "extend": "^3.0.0",
+          "parse-entities": "^1.0.2",
+          "repeat-string": "^1.5.4",
+          "trim": "0.0.1",
+          "trim-trailing-lines": "^1.0.0",
           "unherit": "^1.0.4",
-          "vfile": "^1.0.0",
-          "ware": "^1.3.0"
+          "unist-util-remove-position": "^1.0.0",
+          "vfile-location": "^2.0.0"
         }
       },
       {
         "paths": [
-          "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/attach-ware"
+          "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities"
         ],
         "dependencies": {
-          "unherit": "^1.0.0"
+          "character-entities": "^1.0.0",
+          "character-entities-legacy": "^1.0.0",
+          "character-reference-invalid": "^1.0.0"
         }
       },
       {
         "paths": [
-          "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/unherit"
+          "node_modules/alex/node_modules/remark-parse/node_modules/unherit"
         ],
         "dependencies": {
           "clone": "^1.0.1",
@@ -4624,19 +3058,28 @@
       },
       {
         "paths": [
-          "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/lib",
-          "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware"
+          "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position"
         ],
         "dependencies": {
-          "wrap-fn": "^0.1.0"
+          "unist-util-visit": "^1.0.0"
         }
       },
       {
         "paths": [
-          "node_modules/alex/node_modules/retext/node_modules/unified/node_modules/ware/node_modules/wrap-fn"
+          "node_modules/alex/node_modules/remark-retext"
         ],
         "dependencies": {
-          "co": "3.1.0"
+          "mdast-util-to-nlcst": "^3.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst"
+        ],
+        "dependencies": {
+          "nlcst-to-string": "^2.0.0",
+          "repeat-string": "^1.5.2",
+          "vfile-location": "^2.0.0"
         }
       },
       {
@@ -4644,7 +3087,8 @@
           "node_modules/alex/node_modules/retext-english"
         ],
         "dependencies": {
-          "parse-english": "^2.0.0"
+          "parse-english": "^3.0.0",
+          "unherit": "^1.0.4"
         }
       },
       {
@@ -4652,9 +3096,8 @@
           "node_modules/alex/node_modules/retext-english/node_modules/parse-english"
         ],
         "dependencies": {
-          "array-iterate": "^1.0.0",
-          "nlcst-to-string": "^1.0.0",
-          "parse-latin": "^2.0.0",
+          "nlcst-to-string": "^2.0.0",
+          "parse-latin": "^3.1.0",
           "unist-util-modify-children": "^1.0.0",
           "unist-util-visit-children": "^1.0.0"
         }
@@ -4667,7 +3110,7 @@
         ],
         "dependencies": {
           "array-iterate": "^1.0.0",
-          "nlcst-to-string": "^1.0.0",
+          "nlcst-to-string": "^2.0.0",
           "unist-util-modify-children": "^1.0.0",
           "unist-util-visit-children": "^1.0.0"
         }
@@ -4682,6 +3125,15 @@
       },
       {
         "paths": [
+          "node_modules/alex/node_modules/retext-english/node_modules/unherit"
+        ],
+        "dependencies": {
+          "clone": "^1.0.1",
+          "inherits": "^2.0.1"
+        }
+      },
+      {
+        "paths": [
           "node_modules/alex/node_modules/retext-equality",
           "node_modules/alex/node_modules/retext-equality/lib"
         ],
@@ -4690,7 +3142,7 @@
           "array-intersection": "^0.1.2",
           "nlcst-normalize": "^2.0.0",
           "nlcst-search": "^1.1.1",
-          "nlcst-to-string": "^1.0.0",
+          "nlcst-to-string": "^2.0.0",
           "object-keys": "^1.0.7",
           "quotation": "^1.0.1",
           "unist-util-visit": "^1.0.0"
@@ -4979,7 +3431,7 @@
           "array-intersection": "^0.1.2",
           "cuss": "^1.1.0",
           "nlcst-search": "^1.0.0",
-          "nlcst-to-string": "^1.1.0",
+          "nlcst-to-string": "^2.0.0",
           "object-keys": "^1.0.9",
           "quotation": "^1.0.0"
         }
@@ -5269,59 +3721,37 @@
       },
       {
         "paths": [
+          "node_modules/alex/node_modules/unified",
+          "node_modules/alex/node_modules/unified/lib"
+        ],
+        "dependencies": {
+          "bail": "^1.0.0",
+          "extend": "^3.0.0",
+          "once": "^1.3.3",
+          "vfile": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/unified/node_modules/once"
+        ],
+        "dependencies": {
+          "wrappy": "1"
+        }
+      },
+      {
+        "paths": [
           "node_modules/alex/node_modules/update-notifier"
         ],
         "dependencies": {
-          "ansi-align": "^1.0.0",
-          "boxen": "^0.5.1",
+          "boxen": "^0.6.0",
           "chalk": "^1.0.0",
           "configstore": "^2.0.0",
           "is-npm": "^1.0.0",
           "latest-version": "^2.0.0",
+          "lazy-req": "^1.1.0",
           "semver-diff": "^2.0.0",
           "xdg-basedir": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align"
-        ],
-        "dependencies": {
-          "string-width": "^1.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width"
-        ],
-        "dependencies": {
-          "code-point-at": "^1.0.0",
-          "is-fullwidth-code-point": "^1.0.0",
-          "strip-ansi": "^3.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/code-point-at"
-        ],
-        "dependencies": {
-          "number-is-nan": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/is-fullwidth-code-point"
-        ],
-        "dependencies": {
-          "number-is-nan": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/alex/node_modules/update-notifier/node_modules/ansi-align/node_modules/string-width/node_modules/strip-ansi"
-        ],
-        "dependencies": {
-          "ansi-regex": "^2.0.0"
         }
       },
       {
@@ -5329,6 +3759,7 @@
           "node_modules/alex/node_modules/update-notifier/node_modules/boxen"
         ],
         "dependencies": {
+          "ansi-align": "^1.1.0",
           "camelcase": "^2.1.0",
           "chalk": "^1.1.1",
           "cli-boxes": "^1.0.0",
@@ -5337,6 +3768,14 @@
           "repeating": "^2.0.0",
           "string-width": "^1.0.1",
           "widest-line": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/ansi-align"
+        ],
+        "dependencies": {
+          "string-width": "^1.0.1"
         }
       },
       {

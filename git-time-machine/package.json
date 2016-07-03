@@ -40,8 +40,8 @@
   "homepage": "https://github.com/littlebee/git-time-machine#readme",
   "_id": "git-time-machine@1.5.3",
   "_shasum": "6246a892bc6399a0f012c7ffb728273b0edaf79c",
-  "_resolved": "file:../d-116516-1393-1tse09x/package.tgz",
-  "_from": "../d-116516-1393-1tse09x/package.tgz",
+  "_resolved": "file:../d-11663-1340-pi8ta2/package.tgz",
+  "_from": "../d-11663-1340-pi8ta2/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -82,7 +82,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.11",
+        "version": "0.10.12",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -92,7 +92,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.2",
+        "version": "3.1.0",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -1630,7 +1630,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "~3.0.2"
+          "es6-symbol": "~3.1"
         }
       },
       {
@@ -1653,7 +1653,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.10"
+          "es5-ext": "~0.10.11"
         }
       },
       {
