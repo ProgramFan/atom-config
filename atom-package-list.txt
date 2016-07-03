@@ -35,6 +35,7 @@ markdown-scroll-sync
 markdown-themeable-pdf
 markdown-writer
 markdown-image-helper
+markdown-toc
 minimap
 minimap-find-and-replace
 minimap-git-diff
@@ -47,3 +48,4 @@ tidy-markdown
 tool-bar
 wordcount
 you-complete-me
+dash
