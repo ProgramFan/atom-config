@@ -68,8 +68,8 @@
   "homepage": "https://github.com/nteract/hydrogen#readme",
   "_id": "Hydrogen@0.10.0",
   "_shasum": "e13c9deb757aa5b52727be37046ccba3808391ee",
-  "_resolved": "file:../d-11663-1125-e2igh1/package.tgz",
-  "_from": "../d-11663-1125-e2igh1/package.tgz",
+  "_resolved": "file:../d-116617-1609-1xjk437/package.tgz",
+  "_from": "../d-116617-1609-1xjk437/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -195,7 +195,7 @@
       },
       {
         "name": "transformime",
-        "version": "3.0.0",
+        "version": "3.1.0",
         "path": "node_modules/transformime/lib/transformime.js"
       },
       {
@@ -205,7 +205,7 @@
       },
       {
         "name": "commonmark",
-        "version": "0.25.1",
+        "version": "0.26.0",
         "path": "node_modules/transformime/node_modules/commonmark/lib/index.js"
       },
       {
@@ -230,7 +230,7 @@
       },
       {
         "name": "mathjax-electron",
-        "version": "0.2.0",
+        "version": "1.0.0",
         "path": "node_modules/transformime/node_modules/mathjax-electron/lib/mathjax-electron.js"
       },
       {
@@ -1804,6 +1804,9 @@
         "node_modules/lodash/zipObjectDeep.js",
         "node_modules/lodash/zipWith.js",
         "node_modules/transformime/dist/transformime.js",
+        "node_modules/transformime/docs/scripts/linenumber.js",
+        "node_modules/transformime/docs/scripts/prettify/lang-css.js",
+        "node_modules/transformime/docs/scripts/prettify/prettify.js",
         "node_modules/transformime/lib/commonmark.transform.js",
         "node_modules/transformime/lib/html.transform.js",
         "node_modules/transformime/lib/image.transform.js",
@@ -1840,6 +1843,9 @@
         "node_modules/transformime/node_modules/commonmark/node_modules/minimist/index.js",
         "node_modules/transformime/node_modules/commonmark/node_modules/string.prototype.repeat/repeat.js",
         "node_modules/transformime/node_modules/mathjax-electron/dist/index.js",
+        "node_modules/transformime/node_modules/mathjax-electron/docs/scripts/linenumber.js",
+        "node_modules/transformime/node_modules/mathjax-electron/docs/scripts/prettify/lang-css.js",
+        "node_modules/transformime/node_modules/mathjax-electron/docs/scripts/prettify/prettify.js",
         "node_modules/transformime/node_modules/mathjax-electron/lib/mathjax-electron.js",
         "node_modules/transformime/node_modules/mathjax-electron/resources/MathJax/MathJax.js",
         "node_modules/transformime/node_modules/mathjax-electron/resources/MathJax/extensions/MathEvents.js",
@@ -1991,6 +1997,7 @@
         "node_modules/jmp/node_modules/zmq/package.json",
         "node_modules/jmp/package.json",
         "node_modules/lodash/package.json",
+        "node_modules/transformime/config.json",
         "node_modules/transformime/node_modules/anser/package.json",
         "node_modules/transformime/node_modules/commonmark/node_modules/entities/maps/decode.json",
         "node_modules/transformime/node_modules/commonmark/node_modules/entities/maps/entities.json",
@@ -2358,16 +2365,18 @@
       },
       {
         "paths": [
-          "node_modules/transformime/dist",
-          "node_modules/transformime/lib",
           "node_modules/transformime",
+          "node_modules/transformime/dist",
+          "node_modules/transformime/docs/scripts",
+          "node_modules/transformime/docs/scripts/prettify",
+          "node_modules/transformime/lib",
           "node_modules/transformime/src",
           "node_modules/transformime/test"
         ],
         "dependencies": {
-          "anser": "^1.0.2",
-          "commonmark": "^0.25.1",
-          "mathjax-electron": "^0.2.0"
+          "anser": "^1.1.0",
+          "commonmark": "^0.26.0",
+          "mathjax-electron": "^1.0.0"
         }
       },
       {

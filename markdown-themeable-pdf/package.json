@@ -1,7 +1,7 @@
 {
   "name": "markdown-themeable-pdf",
   "main": "./lib/markdown-themeable-pdf",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)",
   "keywords": [
     "markdown",
@@ -35,10 +35,10 @@
     "url": "https://github.com/cakebake/markdown-themeable-pdf/issues"
   },
   "homepage": "https://github.com/cakebake/markdown-themeable-pdf#readme",
-  "_id": "markdown-themeable-pdf@1.1.0",
-  "_shasum": "1a31cb3b407578a763ab16f7adad54f71fe551ad",
-  "_resolved": "file:../d-11663-1743-1t2t3an/package.tgz",
-  "_from": "../d-11663-1743-1t2t3an/package.tgz",
+  "_id": "markdown-themeable-pdf@1.1.1",
+  "_shasum": "0c75a3e15bc2bdf42b76a07b9a89d42902fb822a",
+  "_resolved": "file:../d-116617-2225-faa9fm/package.tgz",
+  "_from": "../d-116617-2225-faa9fm/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -249,7 +249,7 @@
       },
       {
         "name": "request",
-        "version": "2.72.0",
+        "version": "2.73.0",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/index.js"
       },
       {
@@ -569,7 +569,7 @@
       },
       {
         "name": "qs",
-        "version": "6.1.0",
+        "version": "6.2.0",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/qs/lib/index.js"
       },
       {
@@ -744,7 +744,7 @@
       },
       {
         "name": "rimraf",
-        "version": "2.5.2",
+        "version": "2.5.3",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf/rimraf.js"
       },
       {
@@ -3937,8 +3937,7 @@
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/node-uuid/component.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/node-uuid/package.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/oauth-sign/package.json",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/qs/bower.json",
-        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/qs/component.json",
+        "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/qs/.jscs.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/qs/package.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/stringstream/package.json",
         "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/tunnel-agent/package.json",
@@ -4380,7 +4379,7 @@
           "combined-stream": "~1.0.5",
           "extend": "~3.0.0",
           "forever-agent": "~0.6.1",
-          "form-data": "~1.0.0-rc3",
+          "form-data": "~1.0.0-rc4",
           "har-validator": "~2.0.6",
           "hawk": "~3.1.3",
           "http-signature": "~1.1.0",
@@ -4390,7 +4389,7 @@
           "mime-types": "~2.1.7",
           "node-uuid": "~1.4.7",
           "oauth-sign": "~0.8.1",
-          "qs": "~6.1.0",
+          "qs": "~6.2.0",
           "stringstream": "~0.0.4",
           "tough-cookie": "~2.2.0",
           "tunnel-agent": "~0.4.1"
@@ -4789,7 +4788,7 @@
           "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/rimraf"
         ],
         "dependencies": {
-          "glob": "^7.0.0"
+          "glob": "^7.0.5"
         }
       },
       {

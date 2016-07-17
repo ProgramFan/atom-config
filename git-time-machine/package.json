@@ -40,8 +40,8 @@
   "homepage": "https://github.com/littlebee/git-time-machine#readme",
   "_id": "git-time-machine@1.5.3",
   "_shasum": "6246a892bc6399a0f012c7ffb728273b0edaf79c",
-  "_resolved": "file:../d-11663-1340-pi8ta2/package.tgz",
-  "_from": "../d-11663-1340-pi8ta2/package.tgz",
+  "_resolved": "file:../d-116617-1824-u3ongk/package.tgz",
+  "_from": "../d-116617-1824-u3ongk/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -147,7 +147,7 @@
       },
       {
         "name": "moment",
-        "version": "2.13.0",
+        "version": "2.14.1",
         "path": "node_modules/moment/moment.js"
       },
       {
@@ -1054,6 +1054,7 @@
         "node_modules/moment/locale/en-ie.js",
         "node_modules/moment/locale/en-nz.js",
         "node_modules/moment/locale/eo.js",
+        "node_modules/moment/locale/es-do.js",
         "node_modules/moment/locale/es.js",
         "node_modules/moment/locale/et.js",
         "node_modules/moment/locale/eu.js",
@@ -1158,6 +1159,7 @@
         "node_modules/moment/src/lib/duration/iso-string.js",
         "node_modules/moment/src/lib/duration/prototype.js",
         "node_modules/moment/src/lib/format/format.js",
+        "node_modules/moment/src/lib/locale/base-config.js",
         "node_modules/moment/src/lib/locale/calendar.js",
         "node_modules/moment/src/lib/locale/constructor.js",
         "node_modules/moment/src/lib/locale/en.js",
@@ -1202,6 +1204,7 @@
         "node_modules/moment/src/lib/units/minute.js",
         "node_modules/moment/src/lib/units/month.js",
         "node_modules/moment/src/lib/units/offset.js",
+        "node_modules/moment/src/lib/units/priorities.js",
         "node_modules/moment/src/lib/units/quarter.js",
         "node_modules/moment/src/lib/units/second.js",
         "node_modules/moment/src/lib/units/timestamp.js",
@@ -1224,6 +1227,7 @@
         "node_modules/moment/src/lib/utils/is-array.js",
         "node_modules/moment/src/lib/utils/is-date.js",
         "node_modules/moment/src/lib/utils/is-function.js",
+        "node_modules/moment/src/lib/utils/is-object-empty.js",
         "node_modules/moment/src/lib/utils/is-object.js",
         "node_modules/moment/src/lib/utils/is-undefined.js",
         "node_modules/moment/src/lib/utils/keys.js",
@@ -1258,6 +1262,7 @@
         "node_modules/moment/src/locale/en-ie.js",
         "node_modules/moment/src/locale/en-nz.js",
         "node_modules/moment/src/locale/eo.js",
+        "node_modules/moment/src/locale/es-do.js",
         "node_modules/moment/src/locale/es.js",
         "node_modules/moment/src/locale/et.js",
         "node_modules/moment/src/locale/eu.js",

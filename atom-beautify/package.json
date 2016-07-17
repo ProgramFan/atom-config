@@ -215,8 +215,8 @@
   "homepage": "https://github.com/Glavin001/atom-beautify#readme",
   "_id": "atom-beautify@0.29.9",
   "_shasum": "5ddd8d6cb019bb4d89df2642db00a2923892d426",
-  "_resolved": "file:../d-11663-1421-1n347cj/package.tgz",
-  "_from": "../d-11663-1421-1n347cj/package.tgz",
+  "_resolved": "file:../d-116617-1905-bi608k/package.tgz",
+  "_from": "../d-116617-1905-bi608k/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -447,7 +447,7 @@
       },
       {
         "name": "uglify-js",
-        "version": "2.6.4",
+        "version": "2.7.0",
         "path": "node_modules/handlebars/node_modules/uglify-js/tools/node.js"
       },
       {
@@ -602,7 +602,7 @@
       },
       {
         "name": "jscs",
-        "version": "3.0.6",
+        "version": "3.0.7",
         "path": "node_modules/jscs/lib/checker.js"
       },
       {
@@ -667,7 +667,7 @@
       },
       {
         "name": "cst",
-        "version": "0.4.3",
+        "version": "0.4.6",
         "path": "node_modules/jscs/node_modules/cst/lib/index.js"
       },
       {
@@ -682,12 +682,12 @@
       },
       {
         "name": "babylon",
-        "version": "6.8.2",
+        "version": "6.8.4",
         "path": "node_modules/jscs/node_modules/cst/node_modules/babylon/lib/index.js"
       },
       {
         "name": "source-map-support",
-        "version": "0.4.1",
+        "version": "0.4.2",
         "path": "node_modules/jscs/node_modules/cst/node_modules/source-map-support/source-map-support.js"
       },
       {
@@ -832,7 +832,7 @@
       },
       {
         "name": "inherit",
-        "version": "2.2.3",
+        "version": "2.2.4",
         "path": "node_modules/jscs/node_modules/js-yaml/node_modules/inherit/index.js"
       },
       {
@@ -1032,7 +1032,7 @@
       },
       {
         "name": "rimraf",
-        "version": "2.5.2",
+        "version": "2.5.3",
         "path": "node_modules/jscs/node_modules/prompt/node_modules/utile/node_modules/rimraf/rimraf.js"
       },
       {
@@ -1147,7 +1147,7 @@
       },
       {
         "name": "to-single-quotes",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "path": "node_modules/jscs/node_modules/to-single-quotes/index.js"
       },
       {
@@ -1237,7 +1237,7 @@
       },
       {
         "name": "marko-prettyprint",
-        "version": "1.1.7",
+        "version": "1.1.8",
         "path": "node_modules/marko-prettyprint/src/index.js"
       },
       {
@@ -1247,7 +1247,7 @@
       },
       {
         "name": "marko",
-        "version": "3.7.1",
+        "version": "3.7.2",
         "path": "node_modules/marko-prettyprint/node_modules/marko/runtime/marko-runtime.js"
       },
       {
@@ -1322,7 +1322,7 @@
       },
       {
         "name": "property-handlers",
-        "version": "1.0.1",
+        "version": "1.1.0",
         "path": "node_modules/marko-prettyprint/node_modules/marko/node_modules/property-handlers/lib/index.js"
       },
       {
@@ -1412,7 +1412,7 @@
       },
       {
         "name": "node-dir",
-        "version": "0.1.14",
+        "version": "0.1.15",
         "path": "node_modules/node-dir/index.js"
       },
       {
@@ -1522,7 +1522,7 @@
       },
       {
         "name": "micromatch",
-        "version": "2.3.10",
+        "version": "2.3.11",
         "path": "node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/index.js"
       },
       {
@@ -2147,7 +2147,7 @@
       },
       {
         "name": "unist-util-remove-position",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "path": "node_modules/remark/node_modules/unist-util-remove-position/index.js"
       },
       {
@@ -2462,7 +2462,7 @@
       },
       {
         "name": "typescript-formatter",
-        "version": "2.2.1",
+        "version": "2.3.0",
         "path": "node_modules/typescript-formatter/index.js"
       },
       {
@@ -2547,7 +2547,7 @@
       },
       {
         "name": "request",
-        "version": "2.72.0",
+        "version": "2.73.0",
         "path": "node_modules/universal-analytics/node_modules/request/index.js"
       },
       {
@@ -2857,7 +2857,7 @@
       },
       {
         "name": "qs",
-        "version": "6.1.0",
+        "version": "6.2.0",
         "path": "node_modules/universal-analytics/node_modules/request/node_modules/qs/lib/index.js"
       },
       {
@@ -3238,7 +3238,6 @@
         "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-finder/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-loader/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/util/package.json",
-        "node_modules/marko-prettyprint/node_modules/marko/coverage/coverage.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/app-module-path/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/async-writer/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/browser-refresh-client/package.json",
@@ -3637,8 +3636,7 @@
         "node_modules/universal-analytics/node_modules/request/node_modules/mime-types/node_modules/mime-db/package.json",
         "node_modules/universal-analytics/node_modules/request/node_modules/mime-types/package.json",
         "node_modules/universal-analytics/node_modules/request/node_modules/oauth-sign/package.json",
-        "node_modules/universal-analytics/node_modules/request/node_modules/qs/bower.json",
-        "node_modules/universal-analytics/node_modules/request/node_modules/qs/component.json",
+        "node_modules/universal-analytics/node_modules/request/node_modules/qs/.jscs.json",
         "node_modules/universal-analytics/node_modules/request/node_modules/qs/package.json",
         "node_modules/universal-analytics/node_modules/request/node_modules/stringstream/package.json",
         "node_modules/universal-analytics/node_modules/request/node_modules/tough-cookie/package.json",
@@ -8520,6 +8518,7 @@
         "node_modules/marko-prettyprint/node_modules/marko/compiler/index.js",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-finder/index-browser.js",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-finder/index.js",
+        "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-loader/DependencyChain.js",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-loader/Taglib/Attribute.js",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-loader/Taglib/ImportedVariable.js",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-loader/Taglib/NestedVariable.js",
@@ -8562,8 +8561,6 @@
         "node_modules/marko-prettyprint/node_modules/marko/compiler/util/resolve.js",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/util/safeVarName.js",
         "node_modules/marko-prettyprint/node_modules/marko/compiler/util/tokenizer.js",
-        "node_modules/marko-prettyprint/node_modules/marko/coverage/lcov-report/prettify.js",
-        "node_modules/marko-prettyprint/node_modules/marko/coverage/lcov-report/sorter.js",
         "node_modules/marko-prettyprint/node_modules/marko/express.js",
         "node_modules/marko-prettyprint/node_modules/marko/hot-reload/index.js",
         "node_modules/marko-prettyprint/node_modules/marko/node-require-browser.js",
@@ -11057,7 +11054,7 @@
           "node_modules/jscs/node_modules/prompt/node_modules/utile/node_modules/rimraf"
         ],
         "dependencies": {
-          "glob": "^7.0.0"
+          "glob": "^7.0.5"
         }
       },
       {
@@ -11220,12 +11217,10 @@
           "node_modules/marko-prettyprint/node_modules/marko/compiler",
           "node_modules/marko-prettyprint/node_modules/marko/compiler/ast",
           "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-finder",
-          "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-loader/Taglib",
           "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-loader",
+          "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-loader/Taglib",
           "node_modules/marko-prettyprint/node_modules/marko/compiler/taglib-lookup",
           "node_modules/marko-prettyprint/node_modules/marko/compiler/util",
-          "node_modules/marko-prettyprint/node_modules/marko/coverage",
-          "node_modules/marko-prettyprint/node_modules/marko/coverage/lcov-report",
           "node_modules/marko-prettyprint/node_modules/marko",
           "node_modules/marko-prettyprint/node_modules/marko/hot-reload",
           "node_modules/marko-prettyprint/node_modules/marko/runtime",
@@ -11984,7 +11979,7 @@
           "node_modules/remark/node_modules/unist-util-remove-position"
         ],
         "dependencies": {
-          "unist-util-visit": "^1.0.0"
+          "unist-util-visit": "^1.1.0"
         }
       },
       {
@@ -12576,7 +12571,7 @@
           "combined-stream": "~1.0.5",
           "extend": "~3.0.0",
           "forever-agent": "~0.6.1",
-          "form-data": "~1.0.0-rc3",
+          "form-data": "~1.0.0-rc4",
           "har-validator": "~2.0.6",
           "hawk": "~3.1.3",
           "http-signature": "~1.1.0",
@@ -12586,7 +12581,7 @@
           "mime-types": "~2.1.7",
           "node-uuid": "~1.4.7",
           "oauth-sign": "~0.8.1",
-          "qs": "~6.1.0",
+          "qs": "~6.2.0",
           "stringstream": "~0.0.4",
           "tough-cookie": "~2.2.0",
           "tunnel-agent": "~0.4.1"

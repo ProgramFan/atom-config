@@ -47,8 +47,8 @@
   "homepage": "https://github.com/AtomLinter/linter-clang#readme",
   "_id": "linter-clang@3.4.4",
   "_shasum": "2207a6df4e398a3c7435b06e7428878ac0d91dfa",
-  "_resolved": "file:../d-11663-1683-1pcgbqu/package.tgz",
-  "_from": "../d-11663-1683-1pcgbqu/package.tgz",
+  "_resolved": "file:../d-116617-2165-1gh1luk/package.tgz",
+  "_from": "../d-116617-2165-1gh1luk/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -79,7 +79,7 @@
       },
       {
         "name": "sb-npm-path",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "path": "node_modules/atom-linter/node_modules/sb-exec/node_modules/sb-npm-path/lib/index.js"
       },
       {
