@@ -29,8 +29,8 @@ For all systems, you'll need
 
 - [Atom](https://atom.io/) `1.6.0+`
 - [ZeroMQ](http://zeromq.org/intro:get-the-software)
-- IPython notebook `pip install ipython[notebook]`
-- Python 2 (for builds - you can still run Python 3 code)
+- [Jupyter notebook](http://jupyter.org): `pip install jupyter`
+- Python 2 for builds (you can still run Python 3 code)
 
 Each operating system has their own instruction set. Please read on down to save yourself time.
 
@@ -40,32 +40,37 @@ Each operating system has their own instruction set. Please read on down to save
 
 - [`pkg-config`](https://www.freedesktop.org/wiki/Software/pkg-config/): `brew install pkg-config`
 - [ZeroMQ](http://zeromq.org/intro:get-the-software): `brew install zeromq`
-- [IPython (Jupyter)](http://ipython.org/install.html): needs to be installed and on your `$PATH`. `pip install "ipython[notebook]"`
+- [Jupyter notebook](http://jupyter.org): needs to be installed and on your `$PATH`. `pip install jupyter`
 
 #### Windows
 
 - You'll need a compiler! [Visual Studio 2013 Community Edition](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) is required to build zmq.node.
 - Python (tread on your own or install [Anaconda](https://www.continuum.io/downloads))
-- [IPython notebook](http://ipython.org/install.html) - If you installed Anaconda, you're already done
+- [Jupyter notebook](http://jupyter.org): if you installed Anaconda, you're already done
 
 After these are installed, you'll likely need to restart your machine (especially after Visual Studio).
 
 #### Linux
 
-For Debian/Ubuntu based variants, you'll need `libzmq3-dev` (preferred) or alternatively `libzmq-dev`.   
-For RedHat/CentOS/Fedora based variants, you'll need `zeromq` and `zeromq-devel`.
+For **Debian/Ubuntu** based variants, you'll need `libzmq3-dev` (preferred) or alternatively `libzmq-dev`.
 
-If you have Python and pip setup, install the notebook directly:
+For **RedHat/CentOS/Fedora/openSUSE** based variants, you'll need `zeromq` and `zeromq-devel`.
+
+For **Arch** Linux based variants, you'll need `zeromq` or `zeromq3` (which has to be built from the <abbr title="Arch User Repository">AUR</abbr>).
+
+For **Gentoo** Linux based variants, you'll need `net-libs/zeromq`.
+
+If you have Python and pip setup, install the notebook directly, via running (as root):
 
 ```
-pip install ipython[notebook]
+pip install jupyter
 ```
 
 ## Installation
 
-Assuming you followed the dependencies steps above, you can now `apm install hydrogen` (recommended) or search for "hydrogen" in the Install pane of the Atom settings. Note that installing from within Atom will only work if you start Atom from the command line! See [Jank](#Jank).
+Assuming you followed the dependencies steps above, you can now `apm install hydrogen` (recommended) or search for "hydrogen" in the Install pane of the Atom settings.
 
-If your default `python` is 3.x, you need to instead run `PYTHON=python2.7 apm install hydrogen`. You can still use 3.x versions of Python in Hydrogen, but it will only build with 2.x due to a [longstanding issue with `gyp`](https://bugs.chromium.org/p/gyp/issues/detail?id=36)
+If your default `python` is 3.x, you need to run instead `PYTHON=python2.7 apm install hydrogen` or change the default version for `apm` with `apm config set python $(which python2.7)` beforehand. You can still use 3.x versions of Python in Hydrogen, but it will only build with 2.x due to a [longstanding issue with `gyp`](https://bugs.chromium.org/p/gyp/issues/detail?id=36).
 
 
 ### Troubleshooting
@@ -85,14 +90,43 @@ Tested and works with:
 
 But it _should_ work with any [kernel](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages) — [post an issue](https://github.com/nteract/hydrogen/issues) if anything is broken!
 
-<img src="http://i.imgur.com/1cGSHzo.png" width=350>
-<img src="http://i.imgur.com/I5kO69B.png" width=350>
+<img src="https://cloud.githubusercontent.com/assets/13285808/16894731/e4e30a2c-4b5f-11e6-8cd8-bd0a6e8a1209.png" width=400>
+<img src="https://cloud.githubusercontent.com/assets/13285808/16894730/e4e0a606-4b5f-11e6-9154-ee00d57a9f13.png" width=400>
 
 Note that if you install a new kernel, you'll need to reload Atom (search in the Command Palette for "reload") for Hydrogen to find it. For performance reasons, Hydrogen only looks for available kernels when it first starts.
 
-## Usage
+#### Debian 8 and Ubuntu 16.04 LTS
 
-Make sure to start Atom from the command line (with `atom <directory or file>`) for this package to work! See [Jank](#Jank).
+Unfortunately, the versions of IPython provided in Debian's and Ubuntu's
+repositories are rather old and Hydrogen is unable to detect the kernel specs
+installed in your machine. To workaround this issue, Hydrogen provides the
+setting `KernelSpec`, where the user can declare the kernel specs manually.
+Below is an example for IPython 2 and 3:
+
+```json
+{
+  "kernelspecs": {
+    "python2": {
+      "spec": {
+        "display_name": "Python 2",
+        "language": "python",
+        "argv": ["python2.7", "-m", "ipykernel", "-f", "{connection_file}"],
+        "env": {}
+      }
+    },
+    "python3": {
+      "spec": {
+        "display_name": "Python 3",
+        "language": "python",
+        "argv": ["python3.4", "-m", "ipykernel", "-f", "{connection_file}"],
+        "env": {}
+      }
+    }
+  }
+}
+```
+
+## Usage
 
 ### Running code
 
@@ -149,18 +183,13 @@ Sometimes things go wrong. Maybe you've written an infinite loop, maybe the kern
 
 You can also access these commands by clicking on the kernel status in the status bar. It looks like this:
 
-<img src="http://i.imgur.com/oQB5mpB.png" width=300>
+<img src="https://cloud.githubusercontent.com/assets/13285808/16894732/e4e5b4de-4b5f-11e6-8b8e-facf17a7c6c4.png" width=300>
 
 Additionally, if you have two or more kernels for a particular language (grammar), you can select which kernel to use with the "Switch to <kernel>" option in the Kernel Commands menu. This change is automatically saved into the Hydrogen configuration's ```grammarToKernel``` map. For example, if Hydrogen is using the kernel for Python 2 by default, you could switch to Python 3. Then next time you open a `.py` file, Hydrogen will remember your selection and use Python 3.
 
 ## How it works
 
-Hydrogen implements the [messaging protocol](http://ipython.org/ipython-doc/stable/development/messaging.html) for [Jupyter](https://jupyter.org/). Jupyter (formerly IPython) uses ZeroMQ to connect a client (like Hydrogen) to a running kernel (like IJulia or iTorch). The client sends code to be executed to the kernel, which runs it and sends back results.
-
-
-## Jank
-
-- In order to have access to your `$PATH` to find where IPython and other binaries are, Atom has to be launched from the command line with `atom <location>`. If you launch Atom as an app, this package won't work.
+Hydrogen implements the [messaging protocol](http://jupyter-client.readthedocs.io/en/latest/messaging.html) for [Jupyter](https://jupyter.org/). Jupyter (formerly IPython) uses ZeroMQ to connect a client (like Hydrogen) to a running kernel (like IJulia or iTorch). The client sends code to be executed to the kernel, which runs it and sends back results.
 
 
 ## Custom kernel connection (inside Docker)

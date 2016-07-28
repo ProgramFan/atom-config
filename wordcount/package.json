@@ -1,7 +1,7 @@
 {
   "name": "wordcount",
   "main": "./lib/main",
-  "version": "2.6.0",
+  "version": "2.6.2",
   "description": "Counts the words (and characters) in your current document, as well as in your selection and displays it in the status bar.",
   "keywords": [
     "word count",
@@ -39,10 +39,10 @@
     "url": "https://github.com/nesQuick/atom-wordcount/issues"
   },
   "homepage": "https://github.com/nesQuick/atom-wordcount#readme",
-  "_id": "wordcount@2.6.0",
-  "_shasum": "87bccb8559a2249ad2c093d9f5b0e261f7d1b1ed",
-  "_resolved": "file:../d-116617-2547-5uogso/package.tgz",
-  "_from": "../d-116617-2547-5uogso/package.tgz",
+  "_id": "wordcount@2.6.2",
+  "_shasum": "8b81e9c289915c8d3fa13900c1c2d12c56a52e47",
+  "_resolved": "file:../d-116628-2540-yczad2/package.tgz",
+  "_from": "../d-116628-2540-yczad2/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -139,7 +139,6 @@
     ],
     "extensions": {
       ".coffee": [
-        "index.coffee",
         "lib/main.coffee",
         "lib/wordcount-view.coffee"
       ],
@@ -1119,8 +1118,8 @@
     "folders": [
       {
         "paths": [
-          "",
           "lib",
+          "",
           "spec"
         ],
         "dependencies": {
