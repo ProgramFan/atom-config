@@ -90,8 +90,8 @@
   "homepage": "https://github.com/wooorm/atom-linter-alex#readme",
   "_id": "linter-alex@3.2.0",
   "_shasum": "a858253e0107ba3be7b085c81bfbc45d3b0b5bf5",
-  "_resolved": "file:../d-116617-7250-1d1k5cc/package.tgz",
-  "_from": "../d-116617-7250-1d1k5cc/package.tgz",
+  "_resolved": "file:../d-116628-7253-1b15sak/package.tgz",
+  "_from": "../d-116628-7253-1b15sak/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -102,7 +102,7 @@
       },
       {
         "name": "bail",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "path": "node_modules/alex/node_modules/bail/index.js"
       },
       {
@@ -277,7 +277,7 @@
       },
       {
         "name": "spdx-license-ids",
-        "version": "1.2.1",
+        "version": "1.2.2",
         "path": "node_modules/alex/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/node_modules/spdx-license-ids/spdx-license-ids.json"
       },
       {
@@ -292,7 +292,7 @@
       },
       {
         "name": "spdx-license-ids",
-        "version": "1.2.1",
+        "version": "1.2.2",
         "path": "node_modules/alex/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/node_modules/spdx-license-ids/spdx-license-ids.json"
       },
       {
@@ -337,7 +337,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.4",
+        "version": "4.1.5",
         "path": "node_modules/alex/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -387,7 +387,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.4",
+        "version": "4.1.5",
         "path": "node_modules/alex/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/path-type/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -477,7 +477,7 @@
       },
       {
         "name": "collapse-white-space",
-        "version": "1.0.0",
+        "version": "1.0.2",
         "path": "node_modules/alex/node_modules/remark-parse/node_modules/collapse-white-space/index.js"
       },
       {
@@ -492,17 +492,17 @@
       },
       {
         "name": "character-entities",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities/index.js"
       },
       {
         "name": "character-entities-legacy",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities-legacy/index.js"
       },
       {
         "name": "character-reference-invalid",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/index.js"
       },
       {
@@ -1387,7 +1387,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.4",
+        "version": "4.1.5",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -1807,12 +1807,12 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.5",
+        "version": "1.1.6",
         "path": "node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
         "name": "balanced-match",
-        "version": "0.4.1",
+        "version": "0.4.2",
         "path": "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js"
       },
       {

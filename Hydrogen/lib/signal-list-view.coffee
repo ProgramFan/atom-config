@@ -1,12 +1,10 @@
 {SelectListView} = require 'atom-space-pen-views'
 _ = require 'lodash'
 
-KernelManager = require './kernel-manager'
-
 # View to display a list of grammars to apply to the current editor.
 module.exports =
 class SignalListView extends SelectListView
-    initialize: ->
+    initialize: (@kernelManager) ->
         super
 
         @basicCommands = [
@@ -38,36 +36,37 @@ class SignalListView extends SelectListView
     attach: ->
         # get language from editor
         @storeFocusedElement()
-        @panel ?= atom.workspace.addModalPanel item: @
+        @panel ?= atom.workspace.addModalPanel item: this
         @focusFilterEditor()
         grammar = @editor.getGrammar()
-        grammarLanguage = KernelManager.getGrammarLanguageFor grammar
+        language = @kernelManager.getLanguageFor grammar
 
         # disable all commands if no kernel is running
-        kernel = KernelManager.getRunningKernelFor grammarLanguage
+        kernel = @kernelManager.getRunningKernelFor language
         unless kernel?
             return @setItems []
 
         # add basic commands for the current grammar language
         basicCommands = @basicCommands.map (command) ->
+            name =
+                command.name + ' ' + kernel.kernelSpec.display_name + ' kernel'
             return {
-                name: _.capitalize grammarLanguage + ' kernel: ' + command.name
+                name: name
                 value: command.value
                 grammar: grammar
-                language: grammarLanguage
+                language: language
                 kernel: kernel
             }
 
         # add commands to switch to other kernels
-        kernelSpecs = KernelManager.getAllKernelSpecsFor grammarLanguage
+        kernelSpecs = @kernelManager.getAllKernelSpecsFor language
 
         switchCommands = kernelSpecs.map (spec) ->
-            spec.grammarLanguage = grammarLanguage
             return {
                 name: 'Switch to ' + spec.display_name
                 value: 'switch-kernel'
                 grammar: grammar
-                language: grammarLanguage
+                language: language
                 kernelSpec: spec
             }
 

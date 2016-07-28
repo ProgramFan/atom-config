@@ -46,8 +46,8 @@
   "homepage": "https://github.com/cakecatz/flex-toolbar#readme",
   "_id": "flex-tool-bar@0.10.2",
   "_shasum": "33f2f9c92f6bd1ee562361aebd93fd0d902340c6",
-  "_resolved": "file:../d-116617-6919-b6i5ti/package.tgz",
-  "_from": "../d-116617-6919-b6i5ti/package.tgz",
+  "_resolved": "file:../d-116628-6929-jx834q/package.tgz",
+  "_from": "../d-116628-6929-jx834q/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -288,7 +288,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.4",
+        "version": "4.1.5",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -298,12 +298,12 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.5",
+        "version": "1.1.6",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
         "name": "balanced-match",
-        "version": "0.4.1",
+        "version": "0.4.2",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js"
       },
       {
@@ -408,7 +408,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.4",
+        "version": "4.1.5",
         "path": "node_modules/cson/node_modules/safefs/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -628,12 +628,12 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.5",
+        "version": "1.1.6",
         "path": "node_modules/tree-match-sync/node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
         "name": "balanced-match",
-        "version": "0.4.1",
+        "version": "0.4.2",
         "path": "node_modules/tree-match-sync/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js"
       },
       {
