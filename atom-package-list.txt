@@ -48,7 +48,6 @@ flex-tool-bar
 tool-bar-markdown-writer
 sort-lines
 wordcount
-Termrk
 term3
 project-manager
 remote-edit
