@@ -275,8 +275,8 @@
   "homepage": "https://github.com/Glavin001/atom-beautify#readme",
   "_id": "atom-beautify@0.29.10",
   "_shasum": "acaf3c4761b37404c100fd7fa2216167d1475821",
-  "_resolved": "file:../d-116628-1902-784qng/package.tgz",
-  "_from": "../d-116628-1902-784qng/package.tgz",
+  "_resolved": "file:../d-11673-2059-w7c1ph/package.tgz",
+  "_from": "../d-11673-2059-w7c1ph/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -477,7 +477,7 @@
       },
       {
         "name": "github",
-        "version": "2.3.0",
+        "version": "2.4.0",
         "path": "node_modules/github/lib/index.js"
       },
       {
@@ -612,7 +612,7 @@
       },
       {
         "name": "kind-of",
-        "version": "3.0.3",
+        "version": "3.0.4",
         "path": "node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/cliui/node_modules/center-align/node_modules/align-text/node_modules/kind-of/index.js"
       },
       {
@@ -647,7 +647,7 @@
       },
       {
         "name": "kind-of",
-        "version": "3.0.3",
+        "version": "3.0.4",
         "path": "node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/cliui/node_modules/right-align/node_modules/align-text/node_modules/kind-of/index.js"
       },
       {
@@ -1347,7 +1347,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.0",
+        "version": "4.14.1",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -1722,7 +1722,7 @@
       },
       {
         "name": "kind-of",
-        "version": "3.0.3",
+        "version": "3.0.4",
         "path": "node_modules/remark/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of/index.js"
       },
       {
@@ -2172,7 +2172,7 @@
       },
       {
         "name": "parse-entities",
-        "version": "1.0.2",
+        "version": "1.1.0",
         "path": "node_modules/remark/node_modules/parse-entities/index.js"
       },
       {
@@ -2189,6 +2189,36 @@
         "name": "character-reference-invalid",
         "version": "1.0.1",
         "path": "node_modules/remark/node_modules/parse-entities/node_modules/character-reference-invalid/index.js"
+      },
+      {
+        "name": "has",
+        "version": "1.0.1",
+        "path": "node_modules/remark/node_modules/parse-entities/node_modules/has/src/index.js"
+      },
+      {
+        "name": "function-bind",
+        "version": "1.1.0",
+        "path": "node_modules/remark/node_modules/parse-entities/node_modules/has/node_modules/function-bind/index.js"
+      },
+      {
+        "name": "is-alphanumerical",
+        "version": "1.0.0",
+        "path": "node_modules/remark/node_modules/parse-entities/node_modules/is-alphanumerical/index.js"
+      },
+      {
+        "name": "is-alphabetical",
+        "version": "1.0.0",
+        "path": "node_modules/remark/node_modules/parse-entities/node_modules/is-alphanumerical/node_modules/is-alphabetical/index.js"
+      },
+      {
+        "name": "is-decimal",
+        "version": "1.0.0",
+        "path": "node_modules/remark/node_modules/parse-entities/node_modules/is-decimal/index.js"
+      },
+      {
+        "name": "is-hexadecimal",
+        "version": "1.0.0",
+        "path": "node_modules/remark/node_modules/parse-entities/node_modules/is-hexadecimal/index.js"
       },
       {
         "name": "repeat-string",
@@ -2897,7 +2927,7 @@
       },
       {
         "name": "sshpk",
-        "version": "1.9.0",
+        "version": "1.9.2",
         "path": "node_modules/universal-analytics/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/index.js"
       },
       {
@@ -3570,6 +3600,13 @@
         "node_modules/remark/node_modules/parse-entities/node_modules/character-entities-legacy/package.json",
         "node_modules/remark/node_modules/parse-entities/node_modules/character-reference-invalid/index.json",
         "node_modules/remark/node_modules/parse-entities/node_modules/character-reference-invalid/package.json",
+        "node_modules/remark/node_modules/parse-entities/node_modules/has/node_modules/function-bind/.jscs.json",
+        "node_modules/remark/node_modules/parse-entities/node_modules/has/node_modules/function-bind/package.json",
+        "node_modules/remark/node_modules/parse-entities/node_modules/has/package.json",
+        "node_modules/remark/node_modules/parse-entities/node_modules/is-alphanumerical/node_modules/is-alphabetical/package.json",
+        "node_modules/remark/node_modules/parse-entities/node_modules/is-alphanumerical/package.json",
+        "node_modules/remark/node_modules/parse-entities/node_modules/is-decimal/package.json",
+        "node_modules/remark/node_modules/parse-entities/node_modules/is-hexadecimal/package.json",
         "node_modules/remark/node_modules/parse-entities/package.json",
         "node_modules/remark/node_modules/repeat-string/package.json",
         "node_modules/remark/node_modules/stringify-entities/lib/dangerous.json",
@@ -4693,6 +4730,7 @@
         "node_modules/github/examples/listOrgs.js",
         "node_modules/github/examples/lockIssue.js",
         "node_modules/github/examples/paginationCustomHeaders.js",
+        "node_modules/github/examples/renderMarkdown.js",
         "node_modules/github/examples/searchIssues.js",
         "node_modules/github/examples/searchMostStarredRepos.js",
         "node_modules/github/examples/testPromise.js",
@@ -9284,6 +9322,13 @@
         "node_modules/remark/node_modules/parse-entities/node_modules/character-entities/index.js",
         "node_modules/remark/node_modules/parse-entities/node_modules/character-entities-legacy/index.js",
         "node_modules/remark/node_modules/parse-entities/node_modules/character-reference-invalid/index.js",
+        "node_modules/remark/node_modules/parse-entities/node_modules/has/node_modules/function-bind/implementation.js",
+        "node_modules/remark/node_modules/parse-entities/node_modules/has/node_modules/function-bind/index.js",
+        "node_modules/remark/node_modules/parse-entities/node_modules/has/src/index.js",
+        "node_modules/remark/node_modules/parse-entities/node_modules/is-alphanumerical/index.js",
+        "node_modules/remark/node_modules/parse-entities/node_modules/is-alphanumerical/node_modules/is-alphabetical/index.js",
+        "node_modules/remark/node_modules/parse-entities/node_modules/is-decimal/index.js",
+        "node_modules/remark/node_modules/parse-entities/node_modules/is-hexadecimal/index.js",
         "node_modules/remark/node_modules/repeat-string/index.js",
         "node_modules/remark/node_modules/stringify-entities/index.js",
         "node_modules/remark/node_modules/stringify-entities/node_modules/character-entities-html4/index.js",
@@ -13282,7 +13327,30 @@
         "dependencies": {
           "character-entities": "^1.0.0",
           "character-entities-legacy": "^1.0.0",
-          "character-reference-invalid": "^1.0.0"
+          "character-reference-invalid": "^1.0.0",
+          "has": "^1.0.1",
+          "is-alphanumerical": "^1.0.0",
+          "is-decimal": "^1.0.0",
+          "is-hexadecimal": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/remark/node_modules/parse-entities/node_modules/has",
+          "node_modules/remark/node_modules/parse-entities/node_modules/has/src",
+          "node_modules/remark/node_modules/parse-entities/node_modules/has/test"
+        ],
+        "dependencies": {
+          "function-bind": "^1.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/remark/node_modules/parse-entities/node_modules/is-alphanumerical"
+        ],
+        "dependencies": {
+          "is-alphabetical": "^1.0.0",
+          "is-decimal": "^1.0.0"
         }
       },
       {

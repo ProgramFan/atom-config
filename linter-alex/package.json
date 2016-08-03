@@ -90,8 +90,8 @@
   "homepage": "https://github.com/wooorm/atom-linter-alex#readme",
   "_id": "linter-alex@3.2.0",
   "_shasum": "a858253e0107ba3be7b085c81bfbc45d3b0b5bf5",
-  "_resolved": "file:../d-116628-2146-11kjzp6/package.tgz",
-  "_from": "../d-116628-2146-11kjzp6/package.tgz",
+  "_resolved": "file:../d-11673-1703-1bksnym/package.tgz",
+  "_from": "../d-11673-1703-1bksnym/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -487,7 +487,7 @@
       },
       {
         "name": "parse-entities",
-        "version": "1.0.2",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/index.js"
       },
       {
@@ -504,6 +504,36 @@
         "name": "character-reference-invalid",
         "version": "1.0.1",
         "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/index.js"
+      },
+      {
+        "name": "has",
+        "version": "1.0.1",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/src/index.js"
+      },
+      {
+        "name": "function-bind",
+        "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/node_modules/function-bind/index.js"
+      },
+      {
+        "name": "is-alphanumerical",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-alphanumerical/index.js"
+      },
+      {
+        "name": "is-alphabetical",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-alphanumerical/node_modules/is-alphabetical/index.js"
+      },
+      {
+        "name": "is-decimal",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-decimal/index.js"
+      },
+      {
+        "name": "is-hexadecimal",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-hexadecimal/index.js"
       },
       {
         "name": "repeat-string",
@@ -692,7 +722,7 @@
       },
       {
         "name": "kind-of",
-        "version": "3.0.3",
+        "version": "3.0.4",
         "path": "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/node_modules/filter-array/node_modules/arr-filter/node_modules/make-iterator/node_modules/kind-of/index.js"
       },
       {
@@ -802,7 +832,7 @@
       },
       {
         "name": "kind-of",
-        "version": "3.0.3",
+        "version": "3.0.4",
         "path": "node_modules/alex/node_modules/retext-equality/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/node_modules/kind-of/index.js"
       },
       {
@@ -982,7 +1012,7 @@
       },
       {
         "name": "kind-of",
-        "version": "3.0.3",
+        "version": "3.0.4",
         "path": "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/filter-array/node_modules/arr-filter/node_modules/make-iterator/node_modules/kind-of/index.js"
       },
       {
@@ -1092,7 +1122,7 @@
       },
       {
         "name": "kind-of",
-        "version": "3.0.3",
+        "version": "3.0.4",
         "path": "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/node_modules/kind-of/index.js"
       },
       {
@@ -1222,13 +1252,23 @@
       },
       {
         "name": "unified",
-        "version": "4.1.2",
+        "version": "4.2.1",
         "path": "node_modules/alex/node_modules/unified/index.js"
       },
       {
         "name": "extend",
         "version": "3.0.0",
         "path": "node_modules/alex/node_modules/unified/node_modules/extend/index.js"
+      },
+      {
+        "name": "has",
+        "version": "1.0.1",
+        "path": "node_modules/alex/node_modules/unified/node_modules/has/src/index.js"
+      },
+      {
+        "name": "function-bind",
+        "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/unified/node_modules/has/node_modules/function-bind/index.js"
       },
       {
         "name": "once",
@@ -1239,6 +1279,11 @@
         "name": "wrappy",
         "version": "1.0.2",
         "path": "node_modules/alex/node_modules/unified/node_modules/once/node_modules/wrappy/wrappy.js"
+      },
+      {
+        "name": "trough",
+        "version": "1.0.0",
+        "path": "node_modules/alex/node_modules/unified/node_modules/trough/index.js"
       },
       {
         "name": "update-notifier",
@@ -1917,6 +1962,13 @@
         "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities-legacy/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/index.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/node_modules/function-bind/.jscs.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/node_modules/function-bind/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-alphanumerical/node_modules/is-alphabetical/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-alphanumerical/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-decimal/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-hexadecimal/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/repeat-string/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/trim/component.json",
@@ -2072,8 +2124,12 @@
         "node_modules/alex/node_modules/unified/node_modules/extend/.jscs.json",
         "node_modules/alex/node_modules/unified/node_modules/extend/component.json",
         "node_modules/alex/node_modules/unified/node_modules/extend/package.json",
+        "node_modules/alex/node_modules/unified/node_modules/has/node_modules/function-bind/.jscs.json",
+        "node_modules/alex/node_modules/unified/node_modules/has/node_modules/function-bind/package.json",
+        "node_modules/alex/node_modules/unified/node_modules/has/package.json",
         "node_modules/alex/node_modules/unified/node_modules/once/node_modules/wrappy/package.json",
         "node_modules/alex/node_modules/unified/node_modules/once/package.json",
+        "node_modules/alex/node_modules/unified/node_modules/trough/package.json",
         "node_modules/alex/node_modules/unified/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/ansi-align/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/camelcase/package.json",
@@ -2312,6 +2368,13 @@
         "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-entities-legacy/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/character-reference-invalid/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/node_modules/function-bind/implementation.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/node_modules/function-bind/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/src/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-alphanumerical/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-alphanumerical/node_modules/is-alphabetical/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-decimal/index.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-hexadecimal/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/repeat-string/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/trim/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/trim-trailing-lines/index.js",
@@ -2503,11 +2566,13 @@
         "node_modules/alex/node_modules/to-vfile/index.js",
         "node_modules/alex/node_modules/to-vfile/lib/to-vfile.js",
         "node_modules/alex/node_modules/unified/index.js",
-        "node_modules/alex/node_modules/unified/lib/trough.js",
-        "node_modules/alex/node_modules/unified/lib/unified.js",
         "node_modules/alex/node_modules/unified/node_modules/extend/index.js",
+        "node_modules/alex/node_modules/unified/node_modules/has/node_modules/function-bind/implementation.js",
+        "node_modules/alex/node_modules/unified/node_modules/has/node_modules/function-bind/index.js",
+        "node_modules/alex/node_modules/unified/node_modules/has/src/index.js",
         "node_modules/alex/node_modules/unified/node_modules/once/node_modules/wrappy/wrappy.js",
         "node_modules/alex/node_modules/unified/node_modules/once/once.js",
+        "node_modules/alex/node_modules/unified/node_modules/trough/index.js",
         "node_modules/alex/node_modules/update-notifier/check.js",
         "node_modules/alex/node_modules/update-notifier/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/boxen/index.js",
@@ -3044,7 +3109,30 @@
         "dependencies": {
           "character-entities": "^1.0.0",
           "character-entities-legacy": "^1.0.0",
-          "character-reference-invalid": "^1.0.0"
+          "character-reference-invalid": "^1.0.0",
+          "has": "^1.0.1",
+          "is-alphanumerical": "^1.0.0",
+          "is-decimal": "^1.0.0",
+          "is-hexadecimal": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has",
+          "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/src",
+          "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/has/test"
+        ],
+        "dependencies": {
+          "function-bind": "^1.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/remark-parse/node_modules/parse-entities/node_modules/is-alphanumerical"
+        ],
+        "dependencies": {
+          "is-alphabetical": "^1.0.0",
+          "is-decimal": "^1.0.0"
         }
       },
       {
@@ -3721,14 +3809,25 @@
       },
       {
         "paths": [
-          "node_modules/alex/node_modules/unified",
-          "node_modules/alex/node_modules/unified/lib"
+          "node_modules/alex/node_modules/unified"
         ],
         "dependencies": {
           "bail": "^1.0.0",
           "extend": "^3.0.0",
+          "has": "^1.0.1",
           "once": "^1.3.3",
+          "trough": "^1.0.0",
           "vfile": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/unified/node_modules/has",
+          "node_modules/alex/node_modules/unified/node_modules/has/src",
+          "node_modules/alex/node_modules/unified/node_modules/has/test"
+        ],
+        "dependencies": {
+          "function-bind": "^1.0.2"
         }
       },
       {

@@ -1,0 +1,118 @@
+{
+  "name": "intentions",
+  "main": "./lib/index.js",
+  "version": "1.0.5",
+  "description": "Base package for showing intentions in Atom",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steelbrain/intentions.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "sb-event-kit": "^1.1.1",
+    "vanilla-jsx": "^3.0.2"
+  },
+  "consumedServices": {
+    "intentions:list": {
+      "versions": {
+        "^1.0.0": "consumeListIntentions"
+      }
+    },
+    "intentions:highlight": {
+      "versions": {
+        "^1.0.0": "consumeHighlightIntentions"
+      }
+    }
+  },
+  "readme": "Intentions\n=========\n\nIntentions is a base package that provides an easy-to-use API to show intentions based in Atom.\n\n#### Usage\n\nThe default keybinding on OSX to trigger list is `ctrl` + `enter`. If you want to trigger intentions highlights,\npress `alt`.\n\nThe default keybinding on Windows and Linux to trigger list is `alt` + `enter`. If you want to trigger intentions\nhighlights press `ctrl`.\n\n#### APIs\n\nIntentions provides two kinds of APIs, there's Intentions List API that allows you to add items\nto intentions list. Here is what it looks like,\n\n![Intentions List API](https://cloud.githubusercontent.com/assets/4278113/12488546/e73809ba-c08d-11e5-8038-dd222f3a815d.png)\n\nThe second type of API is highlight API. It allows packages to mark buffer ranges and do cool thing with them.\nIt can be jump-to-declaration click, show type on mouse move and show color as underline.\nHere is what it looks like\n\n![Intentions Highlight API](https://cloud.githubusercontent.com/assets/4278113/12878032/0f915ef2-ce3f-11e5-833e-be231abeda12.png)\n\nYou can find docs about both of these in [Intentions Wiki](https://github.com/steelbrain/intentions/wiki/Intentions-API)\n\n#### License\nThis package is licensed under the terms of MIT License, see the license file for more info.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/steelbrain/intentions/issues"
+  },
+  "homepage": "https://github.com/steelbrain/intentions#readme",
+  "_id": "intentions@1.0.5",
+  "_shasum": "252367466b710e0f6395856b0d20d6a7bc39eb01",
+  "_resolved": "file:../d-11673-1788-uga2mm/package.tgz",
+  "_from": "../d-11673-1788-uga2mm/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "sb-event-kit",
+        "version": "1.1.2",
+        "path": "node_modules/sb-event-kit/lib/main.js"
+      },
+      {
+        "name": "vanilla-jsx",
+        "version": "3.0.2",
+        "path": "node_modules/vanilla-jsx/lib/main.js"
+      },
+      {
+        "name": "escape-html",
+        "version": "1.0.3",
+        "path": "node_modules/vanilla-jsx/node_modules/escape-html/index.js"
+      }
+    ],
+    "extensions": {
+      ".js": [
+        "lib/commands.js",
+        "lib/elements/highlight.js",
+        "lib/elements/list.js",
+        "lib/helpers.js",
+        "lib/index.js",
+        "lib/main.js",
+        "lib/providers-highlight.js",
+        "lib/providers-list.js",
+        "lib/types.js",
+        "lib/validate.js",
+        "lib/view-list.js",
+        "node_modules/sb-event-kit/eventkit-bundle.min.js",
+        "node_modules/sb-event-kit/eventkit-library.min.js",
+        "node_modules/sb-event-kit/eventkit.js",
+        "node_modules/sb-event-kit/lib/composite-disposable.js",
+        "node_modules/sb-event-kit/lib/disposable.js",
+        "node_modules/sb-event-kit/lib/emitter.js",
+        "node_modules/sb-event-kit/lib/main.js",
+        "node_modules/vanilla-jsx/lib/main.js",
+        "node_modules/vanilla-jsx/node_modules/escape-html/index.js",
+        "node_modules/vanilla-jsx/src/main.js"
+      ],
+      ".json": [
+        "node_modules/sb-event-kit/package.json",
+        "node_modules/vanilla-jsx/node_modules/escape-html/package.json",
+        "node_modules/vanilla-jsx/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "keymaps",
+          "lib",
+          "lib/elements",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "sb-event-kit": "^1.1.1",
+          "vanilla-jsx": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/vanilla-jsx/lib",
+          "node_modules/vanilla-jsx",
+          "node_modules/vanilla-jsx/spec",
+          "node_modules/vanilla-jsx/src"
+        ],
+        "dependencies": {
+          "escape-html": "^1.0.3"
+        }
+      }
+    ]
+  }
+}

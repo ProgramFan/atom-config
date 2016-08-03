@@ -100,8 +100,8 @@
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-image-helper#readme",
   "_id": "asciidoc-image-helper@1.0.0",
   "_shasum": "d1117c4fb38405491709eb0dbe1c0045441e3458",
-  "_resolved": "file:../d-116628-1877-1mwl9cx/package.tgz",
-  "_from": "../d-116628-1877-1mwl9cx/package.tgz",
+  "_resolved": "file:../d-11673-1999-am7gn8/package.tgz",
+  "_from": "../d-11673-1999-am7gn8/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
