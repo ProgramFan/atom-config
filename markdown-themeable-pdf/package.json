@@ -1,7 +1,7 @@
 {
   "name": "markdown-themeable-pdf",
   "main": "./lib/markdown-themeable-pdf",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Themeable markdown converter (Print to PDF, HTML, JPEG or PNG)",
   "keywords": [
     "markdown",
@@ -35,10 +35,10 @@
     "url": "https://github.com/cakebake/markdown-themeable-pdf/issues"
   },
   "homepage": "https://github.com/cakebake/markdown-themeable-pdf#readme",
-  "_id": "markdown-themeable-pdf@1.1.1",
-  "_shasum": "0c75a3e15bc2bdf42b76a07b9a89d42902fb822a",
-  "_resolved": "file:../d-116628-7441-u1joyc/package.tgz",
-  "_from": "../d-116628-7441-u1joyc/package.tgz",
+  "_id": "markdown-themeable-pdf@1.2.0",
+  "_shasum": "7ef90bead8e514ce38d71182c98a5cbd26b7e4d3",
+  "_resolved": "file:../d-11673-6973-1s6tedt/package.tgz",
+  "_from": "../d-11673-6973-1s6tedt/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -489,7 +489,7 @@
       },
       {
         "name": "sshpk",
-        "version": "1.9.0",
+        "version": "1.9.2",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/index.js"
       },
       {
@@ -619,7 +619,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.0",
+        "version": "4.14.1",
         "path": "node_modules/cheerio/node_modules/lodash/lodash.js"
       },
       {
@@ -634,7 +634,7 @@
       },
       {
         "name": "phantomjs-prebuilt",
-        "version": "2.1.8",
+        "version": "2.1.9",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/lib/phantomjs.js"
       },
       {
@@ -724,7 +724,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.4",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -1074,7 +1074,7 @@
       },
       {
         "name": "sshpk",
-        "version": "1.9.0",
+        "version": "1.8.3",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/index.js"
       },
       {
@@ -1164,7 +1164,7 @@
       },
       {
         "name": "tough-cookie",
-        "version": "2.3.1",
+        "version": "2.3.0",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/tough-cookie/lib/cookie.js"
       },
       {
@@ -3636,22 +3636,17 @@
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/verror/examples/werror.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/verror/lib/verror.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/algs.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/certificate.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/dhe.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/ed-compat.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/errors.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/fingerprint.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/auto.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/openssh-cert.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/pem.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/pkcs1.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/pkcs8.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/rfc4253.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/ssh-private.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/ssh.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/x509-pem.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/formats/x509.js",
-        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/identity.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/index.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/key.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/private-key.js",

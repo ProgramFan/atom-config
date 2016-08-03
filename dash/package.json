@@ -1,7 +1,7 @@
 {
   "name": "dash",
   "main": "./lib/dash",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "private": true,
   "description": "Dash documentation integration with Atom",
   "repository": {
@@ -42,10 +42,10 @@
     "url": "https://github.com/blakeembrey/atom-dash/issues"
   },
   "homepage": "https://github.com/blakeembrey/atom-dash#readme",
-  "_id": "dash@1.6.1",
-  "_shasum": "cb9216d6df8d5dd57d3d24185a57a00f56aa7843",
-  "_resolved": "file:../d-116628-7965-v4lgp5/package.tgz",
-  "_from": "../d-116628-7965-v4lgp5/package.tgz",
+  "_id": "dash@1.6.2",
+  "_shasum": "94fffcf7806fdd8b73d432afac1a364cfc5130de",
+  "_resolved": "file:../d-11673-7971-144lp9f/package.tgz",
+  "_from": "../d-11673-7971-144lp9f/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

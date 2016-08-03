@@ -183,8 +183,8 @@
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-preview#readme",
   "_id": "asciidoc-preview@2.5.2",
   "_shasum": "dd678ae511299c1fd562c9d03f042a33b6c4fda0",
-  "_resolved": "file:../d-116628-6534-n49c7l/package.tgz",
-  "_from": "../d-116628-6534-n49c7l/package.tgz",
+  "_resolved": "file:../d-11673-7381-lczgs0/package.tgz",
+  "_from": "../d-11673-7381-lczgs0/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -725,7 +725,7 @@
       },
       {
         "name": "sshpk",
-        "version": "1.9.0",
+        "version": "1.9.2",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/index.js"
       },
       {
@@ -855,7 +855,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.0",
+        "version": "4.14.1",
         "path": "node_modules/cheerio/node_modules/lodash/lodash.js"
       },
       {

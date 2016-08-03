@@ -1,0 +1,111 @@
+{
+  "name": "autocomplete-cmake",
+  "main": "./lib/autocomplete-cmake",
+  "version": "0.3.1",
+  "description": "An Autocomplete Plus provider for CMake.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NealRame/autocomplete-cmake.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "fuzzaldrin": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.8.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+    },
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "rules": {
+      "camelcase": 0,
+      "curly": [
+        1,
+        "multi-line"
+      ],
+      "new-cap": [
+        1,
+        {
+          "newIsCap": true,
+          "capIsNew": false
+        }
+      ],
+      "quotes": [
+        1,
+        "single"
+      ],
+      "space-infix-ops": 0,
+      "strict": [
+        2,
+        "global"
+      ]
+    }
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "getProvider"
+      }
+    }
+  },
+  "readme": "# autocomplete-cmake package\n\nAn Autocomplete Plus provider for CMake.\n\n![Screencast](https://dl.dropboxusercontent.com/u/23161414/autocomplete-cmake-screencast.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/NealRame/autocomplete-cmake/issues"
+  },
+  "homepage": "https://github.com/NealRame/autocomplete-cmake#readme",
+  "_id": "autocomplete-cmake@0.3.1",
+  "_shasum": "2e4ac86b870796f919ad14821ba1efc209968943",
+  "_resolved": "file:../d-11673-6514-3ti9kw/package.tgz",
+  "_from": "../d-11673-6514-3ti9kw/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "fuzzaldrin",
+        "version": "2.1.0",
+        "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
+      }
+    ],
+    "extensions": {
+      ".js": [
+        "lib/autocomplete-cmake.js",
+        "lib/cmake-context.js",
+        "lib/commands.js",
+        "lib/constants.js",
+        "lib/functional.js",
+        "lib/provider.js",
+        "lib/variables.js",
+        "node_modules/fuzzaldrin/lib/filter.js",
+        "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
+        "node_modules/fuzzaldrin/lib/matcher.js",
+        "node_modules/fuzzaldrin/lib/scorer.js"
+      ],
+      ".json": [
+        "node_modules/fuzzaldrin/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          ""
+        ],
+        "dependencies": {
+          "fuzzaldrin": "^2.1.0"
+        }
+      }
+    ]
+  }
+}
