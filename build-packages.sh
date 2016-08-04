@@ -100,7 +100,7 @@ cp -rf ${HOME}/.atom/packages/* atom-packages
 echo "$(date +%Y-%m-%d@%H:%M:%S)" > atom-packages/VERSION
 cd atom-packages
 echo "  Applying patches ..."
-for p in ../patches/[0-9]*.patch; do
+for p in $(find ../patches -name '[0-9]*.patch'); do
   patch -p1 < $p
 done
 git config user.email "zyangmath@gmail.com"
