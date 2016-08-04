@@ -27,8 +27,8 @@
   "homepage": "https://github.com/AtomLinter/linter-scspell",
   "_id": "linter-scspell@2.0.1",
   "_shasum": "dce324dc1dd1057455d5f1192883c858ffa4efd7",
-  "_resolved": "file:../d-11674-6784-ywv9st/package.tgz",
-  "_from": "../d-11674-6784-ywv9st/package.tgz",
+  "_resolved": "file:../d-11674-6791-7zsmq1/package.tgz",
+  "_from": "../d-11674-6791-7zsmq1/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

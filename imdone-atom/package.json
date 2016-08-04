@@ -52,8 +52,8 @@
   "homepage": "https://github.com/imdone/imdone-atom#readme",
   "_id": "imdone-atom@1.3.29",
   "_shasum": "b76aebf2c1ac8c5b33cafe8fa16166a1bb961f5c",
-  "_resolved": "file:../d-11674-8144-kaq9hv/package.tgz",
-  "_from": "../d-11674-8144-kaq9hv/package.tgz",
+  "_resolved": "file:../d-11674-8154-6ppild/package.tgz",
+  "_from": "../d-11674-8154-6ppild/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
