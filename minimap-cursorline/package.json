@@ -31,8 +31,8 @@
   "homepage": "https://github.com/atom-minimap/minimap-cursorline#readme",
   "_id": "minimap-cursorline@0.2.0",
   "_shasum": "e453900a4e932f1aa23b34a850b19d8cca186207",
-  "_resolved": "file:../d-11674-7289-1tb5juu/package.tgz",
-  "_from": "../d-11674-7289-1tb5juu/package.tgz",
+  "_resolved": "file:../d-11674-7290-118fxxf/package.tgz",
+  "_from": "../d-11674-7290-118fxxf/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

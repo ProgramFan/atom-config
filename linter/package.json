@@ -53,8 +53,8 @@
   "homepage": "https://github.com/atom-community/linter#readme",
   "_id": "linter@1.11.14",
   "_shasum": "dcfaefff3c32869dfcf38be8ec64adae64bba672",
-  "_resolved": "file:../d-11674-6633-xhd82j/package.tgz",
-  "_from": "../d-11674-6633-xhd82j/package.tgz",
+  "_resolved": "file:../d-11674-6634-1do30ll/package.tgz",
+  "_from": "../d-11674-6634-1do30ll/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
