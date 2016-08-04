@@ -18,6 +18,7 @@ linter-alex
 linter-clang
 linter-pep8
 linter-shellcheck
+linter-scspell
 linter-spell
 linter-spell-latex
 linter-spell-html
