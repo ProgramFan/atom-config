@@ -46,7 +46,6 @@ busy
 atom-beautify
 tool-bar
 flex-tool-bar
-tool-bar-markdown-writer
 sort-lines
 wordcount
 term3
