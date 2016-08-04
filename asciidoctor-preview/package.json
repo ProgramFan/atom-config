@@ -29,8 +29,8 @@
   "homepage": "https://github.com/griffin-stewie/asciidoctor-preview#readme",
   "_id": "asciidoctor-preview@0.3.0",
   "_shasum": "b38b8e82af03e162121f3592a4b8fdaa342ff3da",
-  "_resolved": "file:../d-11674-7446-19y93uq/package.tgz",
-  "_from": "../d-11674-7446-19y93uq/package.tgz",
+  "_resolved": "file:../d-11674-7386-bq8y5o/package.tgz",
+  "_from": "../d-11674-7386-bq8y5o/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

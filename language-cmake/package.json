@@ -19,8 +19,8 @@
   "readme": "# language-cmake package\n\nSyntax highlighting for CMake in atom. Converted from the\n[Textmate bundle](https://github.com/textmate/cmake.tmbundle)\n",
   "_id": "language-cmake@0.2.0",
   "_shasum": "25c3516533a1d913aa6f36f324e37739c4da44ce",
-  "_resolved": "file:../d-11674-6169-kxcvk8/package.tgz",
-  "_from": "../d-11674-6169-kxcvk8/package.tgz",
+  "_resolved": "file:../d-11674-6170-1avgp1e/package.tgz",
+  "_from": "../d-11674-6170-1avgp1e/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],
