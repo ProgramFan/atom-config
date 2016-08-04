@@ -29,7 +29,6 @@ markdown-writer
 markdown-image-helper
 markdown-toc
 markdown-table-formatter
-table-editor
 minimap
 minimap-find-and-replace
 minimap-git-diff
@@ -51,7 +50,6 @@ sort-lines
 wordcount
 term3
 project-manager
-remote-edit
 pdf-view
 dash
 Zen
