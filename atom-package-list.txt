@@ -42,6 +42,7 @@ asciidoctor-preview
 build
 build-make
 build-cmake
+busy
 atom-beautify
 tool-bar
 flex-tool-bar
