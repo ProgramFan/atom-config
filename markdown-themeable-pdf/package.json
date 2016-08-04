@@ -37,8 +37,8 @@
   "homepage": "https://github.com/cakebake/markdown-themeable-pdf#readme",
   "_id": "markdown-themeable-pdf@1.2.0",
   "_shasum": "7ef90bead8e514ce38d71182c98a5cbd26b7e4d3",
-  "_resolved": "file:../d-11673-1825-1cjh3ya/package.tgz",
-  "_from": "../d-11673-1825-1cjh3ya/package.tgz",
+  "_resolved": "file:../d-11674-1822-p6hg6j/package.tgz",
+  "_from": "../d-11674-1822-p6hg6j/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -634,8 +634,13 @@
       },
       {
         "name": "phantomjs-prebuilt",
-        "version": "2.1.9",
+        "version": "2.1.10",
         "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/lib/phantomjs.js"
+      },
+      {
+        "name": "es6-promise",
+        "version": "3.2.1",
+        "path": "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/dist/es6-promise.js"
       },
       {
         "name": "extract-zip",
@@ -3420,6 +3425,20 @@
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/lib/phantom/examples/walk_through_frames.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/lib/phantomjs.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/lib/util.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/dist/es6-promise.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/dist/es6-promise.min.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/-internal.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/asap.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/enumerator.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/polyfill.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/promise/all.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/promise/race.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/promise/reject.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/promise/resolve.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/promise.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/then.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise/utils.js",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/lib/es6-promise.umd.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/extract-zip/cli.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/extract-zip/index.js",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/extract-zip/node_modules/concat-stream/index.js",
@@ -4008,6 +4027,7 @@
         "node_modules/cheerio/node_modules/lodash/package.json",
         "node_modules/cheerio/package.json",
         "node_modules/highlight.js/package.json",
+        "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/es6-promise/package.json",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/extract-zip/node_modules/concat-stream/node_modules/inherits/package.json",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/extract-zip/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/package.json",
         "node_modules/html-pdf/node_modules/phantomjs-prebuilt/node_modules/extract-zip/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/component.json",
@@ -4737,6 +4757,7 @@
           "node_modules/html-pdf/node_modules/phantomjs-prebuilt/test"
         ],
         "dependencies": {
+          "es6-promise": "^3.2.1",
           "extract-zip": "~1.5.0",
           "fs-extra": "~0.30.0",
           "hasha": "^2.2.0",

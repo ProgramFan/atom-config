@@ -27,8 +27,8 @@
   "homepage": "https://github.com/klorenz/atom-table-editor#readme",
   "_id": "table-editor@0.2.0",
   "_shasum": "87ad45ac04f257a1ef239827a895716bf2c601c3",
-  "_resolved": "file:../d-11673-1887-1cfh708/package.tgz",
-  "_from": "../d-11673-1887-1cfh708/package.tgz",
+  "_resolved": "file:../d-11674-1883-mvv8q3/package.tgz",
+  "_from": "../d-11674-1883-mvv8q3/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
