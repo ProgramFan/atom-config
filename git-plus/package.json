@@ -88,8 +88,8 @@
   "homepage": "https://github.com/akonwi/git-plus#readme",
   "_id": "git-plus@5.16.2",
   "_shasum": "e479b016f06d3ad326dc6311800f678211655147",
-  "_resolved": "file:../d-11674-2327-mi3426/package.tgz",
-  "_from": "../d-11674-2327-mi3426/package.tgz",
+  "_resolved": "file:../d-11674-2311-c563qg/package.tgz",
+  "_from": "../d-11674-2311-c563qg/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

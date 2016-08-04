@@ -183,8 +183,8 @@
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-preview#readme",
   "_id": "asciidoc-preview@2.5.2",
   "_shasum": "dd678ae511299c1fd562c9d03f042a33b6c4fda0",
-  "_resolved": "file:../d-11674-1970-1iln386/package.tgz",
-  "_from": "../d-11674-1970-1iln386/package.tgz",
+  "_resolved": "file:../d-11674-1965-16tn5om/package.tgz",
+  "_from": "../d-11674-1965-16tn5om/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
