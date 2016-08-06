@@ -77,8 +77,8 @@
   "homepage": "https://github.com/yitzchak/linter-spell-latex#readme",
   "_id": "linter-spell-latex@0.8.0",
   "_shasum": "a37328d22f69998630ed8f850f81d7028905c1a8",
-  "_resolved": "file:../d-11674-1770-1ct6on/package.tgz",
-  "_from": "../d-11674-1770-1ct6on/package.tgz",
+  "_resolved": "file:../d-11676-1774-1hlrfjp/package.tgz",
+  "_from": "../d-11676-1774-1hlrfjp/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

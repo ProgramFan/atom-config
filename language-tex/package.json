@@ -1,6 +1,6 @@
 {
   "name": "language-tex",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Yudai Nakata"
   },
@@ -27,10 +27,10 @@
     "url": "https://github.com/yudai-nkt/language-tex/issues"
   },
   "homepage": "https://github.com/yudai-nkt/language-tex#readme",
-  "_id": "language-tex@0.2.0",
-  "_shasum": "073f8a31e697f0de932a388e8ec227dbcdd0f893",
-  "_resolved": "file:../d-11674-1559-1nqs6bx/package.tgz",
-  "_from": "../d-11674-1559-1nqs6bx/package.tgz",
+  "_id": "language-tex@0.2.1",
+  "_shasum": "04a932fe1a644036a14a30573ff381138d6b2479",
+  "_resolved": "file:../d-11676-1563-1rao0cp/package.tgz",
+  "_from": "../d-11676-1563-1rao0cp/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

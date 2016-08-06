@@ -75,8 +75,8 @@
   "homepage": "https://github.com/nteract/hydrogen#readme",
   "_id": "Hydrogen@0.11.0",
   "_shasum": "34d1bd0e69075a29e9c41af6044449a702de9863",
-  "_resolved": "file:../d-11674-2348-uhrnto/package.tgz",
-  "_from": "../d-11674-2348-uhrnto/package.tgz",
+  "_resolved": "file:../d-11676-2352-cl68qq/package.tgz",
+  "_from": "../d-11676-2352-cl68qq/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
