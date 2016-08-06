@@ -34,8 +34,8 @@
   "homepage": "https://github.com/atom-minimap/minimap-git-diff#readme",
   "_id": "minimap-git-diff@4.3.1",
   "_shasum": "351b314abee91e17e3688479ada6b6fd49e94d89",
-  "_resolved": "file:../d-11674-7230-1b2fb9o/package.tgz",
-  "_from": "../d-11674-7230-1b2fb9o/package.tgz",
+  "_resolved": "file:../d-11676-7224-11wz0lq/package.tgz",
+  "_from": "../d-11676-7224-11wz0lq/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

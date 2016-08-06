@@ -37,17 +37,18 @@ Spell checking plain text, Markdown, or AsciiDoc documents is included in the
 package. To spell check other document types use a `linter-spell-grammar`
 provider:
 
-| Grammar                  | Spell Package                                                                               | Grammar Package                                                                                                                            | File Specific Language              |
-|--------------------------|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
-| AsciiDoc                 | Included in linter&#x2011;spell                                                             | [language&#x2011;asciidoc](http://atom.io/packages/language-asciidoc)                                                                      | `:lang:` attribute                  |
-| Git Commit Message       | Included in linter&#x2011;spell                                                             | [language&#x2011;git](http://atom.io/packages/language-git)                                                                                | None                                |
-| GitHub flavored Markdown | Included in linter&#x2011;spell                                                             | [language&#x2011;gfm](http://atom.io/packages/language-gfm)                                                                                | None                                |
-| HTML                     | [linter&#x2011;spell&#x2011;html](http://atom.io/packages/linter-spell-html)                | [language&#x2011;html](http://atom.io/packages/language-html)                                                                              | `lang` attribute                    |
-| Javascript               | [linter&#x2011;spell&#x2011;javascript](http://atom.io/packages/linter-spell-javascript)    | [language&#x2011;javascript](http://atom.io/packages/language-javascript)                                                                  | None                                |
-| LaTeX, TeX &amp; BibTeX  | [linter&#x2011;spell&#x2011;latex](http://atom.io/packages/linter-spell-latex)              | [language&#x2011;tex](http://atom.io/packages/language-tex) (preferred) or [language&#x2011;latex](http://atom.io/packages/language-latex) | `%!TeX spellcheck` magic comment    |
-| LaTeX                    | [linter&#x2011;spell&#x2011;latexsimple](https://atom.io/packages/linter-spell-latexsimple) | [language&#x2011;latexsimple](https://atom.io/packages/language-latexsimple)                                                               | None                                |
-| Markdown                 | Included in linter&#x2011;spell                                                             | [language&#x2011;markdown](http://atom.io/packages/language-markdown)                                                                      | None                                |
-| Plain Text               | Included in linter&#x2011;spell                                                             | [language&#x2011;text](http://atom.io/packages/language-text)                                                                              | None                                |
+| Grammar                  | Spell Package                                                                               | Grammar Package                                                                                                                              | File Specific Language              |
+|--------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| AsciiDoc                 | Included in linter&#x2011;spell                                                             | [language&#x2011;asciidoc](http://atom.io/packages/language-asciidoc)                                                                        | `:lang:` attribute                  |
+| Git Commit Message       | Included in linter&#x2011;spell                                                             | [language&#x2011;git](http://atom.io/packages/language-git)                                                                                  | None                                |
+| GitHub flavored Markdown | Included in linter&#x2011;spell                                                             | [language&#x2011;gfm](http://atom.io/packages/language-gfm)                                                                                  | None                                |
+| HTML                     | [linter&#x2011;spell&#x2011;html](http://atom.io/packages/linter-spell-html)                | [language&#x2011;html](http://atom.io/packages/language-html)                                                                                | `lang` attribute                    |
+| Javascript               | [linter&#x2011;spell&#x2011;javascript](http://atom.io/packages/linter-spell-javascript)    | [language&#x2011;javascript](http://atom.io/packages/language-javascript) or [language&#x2011;babel](http://atom.io/packages/language-babel) | None                                |
+| LaTeX, TeX &amp; BibTeX  | [linter&#x2011;spell&#x2011;latex](http://atom.io/packages/linter-spell-latex)              | [language&#x2011;tex](http://atom.io/packages/language-tex) (preferred) or [language&#x2011;latex](http://atom.io/packages/language-latex)   | `%!TeX spellcheck` magic comment    |
+| LaTeX                    | [linter&#x2011;spell&#x2011;latexsimple](https://atom.io/packages/linter-spell-latexsimple) | [language&#x2011;latexsimple](https://atom.io/packages/language-latexsimple)                                                                 | None                                |
+| Markdown                 | Included in linter&#x2011;spell                                                             | [language&#x2011;markdown](http://atom.io/packages/language-markdown)                                                                        | None                                |
+| Plain Text               | Included in linter&#x2011;spell                                                             | [language&#x2011;text](http://atom.io/packages/language-text)                                                                                | None                                |
+| Ruby                     | [linter&#x2011;spell&#x2011;ruby](http://atom.io/packages/linter-spell-ruby)                | [language&#x2011;ruby](http://atom.io/packages/language-ruby)                                                                                | None                                |
 
 ## Creating New Providers
 
@@ -73,7 +74,8 @@ provideGrammar () {
     findLanguageTags: textEditor => { return ['en-US'] },
     checkedScopes: {
       'source.gfm': true,
-      'markup.underline.link.gfm': false
+      'markup.code.c.gfm': false,
+      'markup.underline.link.gfm': () => atom.config.get('linter-spell.checkLinks')
     },
     filterRanges: (textEditor, ranges) => {
       return {
@@ -88,18 +90,20 @@ provideGrammar () {
 Multiple grammars can be provided by returning an array. `grammarScopes` is
 required, but all other properties and methods are optional.
 
-The `findLanguageTags` method should scan `textEditor` for a
-file specific override of the user's default language and return [RFC 5646](http://www.rfc-editor.org/rfc/rfc5646.txt)
-compliant language codes or `[]` if
-no language references were found. See
+The `findLanguageTags` method should scan `textEditor` for a file specific
+override of the user's default language and return [RFC
+5646](http://www.rfc-editor.org/rfc/rfc5646.txt) compliant language codes or `[]`
+if no language references were found. See
 [linter&#x2011;spell&#x2011;latex](http://atom.io/packages/linter-spell-latex)
 for an implementation using TeX magic comments.
 
-The `checkedScopes` list the grammar scopes that either checked or ignored.
-To explicitly check a scope use a value of `true`, while `false` will ignore
-that scope. If this property is not provided then all scopes in `grammarScopes`
-will be checked. When it is provided all scopes default to ignored unless
-specified with a `true` value.
+The `checkedScopes` list the grammar scopes that either checked or ignored. To
+explicitly check a scope use a value of `true`, while `false` will ignore that
+scope. To allow dynamic determination of scope spell checking a function may
+also be supplied. The function should take no arguments and return a truthy
+value. If this property is not provided then all scopes in `grammarScopes` will
+be checked. When it is provided all scopes default to ignored unless specified
+with a `true` value.
 
 The `filterRanges` method should check the `ranges` parameter for sub-ranges
 within each ranges which are valid to spell check. It should return a list

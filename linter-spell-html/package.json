@@ -65,8 +65,8 @@
   "homepage": "https://github.com/yitzchak/linter-spell-html#readme",
   "_id": "linter-spell-html@0.5.0",
   "_shasum": "7d19e05a3ca4e17376891fe98d9a2ddbd05b5bc7",
-  "_resolved": "file:../d-11674-6875-i4odxo/package.tgz",
-  "_from": "../d-11674-6875-i4odxo/package.tgz",
+  "_resolved": "file:../d-11676-6876-bn03jb/package.tgz",
+  "_from": "../d-11676-6876-bn03jb/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

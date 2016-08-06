@@ -1,0 +1,5 @@
+'.platform-darwin':
+  'cmd-shift-o': 'external-open:open-in-external-program'
+
+'.platform-win32, .platform-linux':
+  'ctrl-shift-o': 'external-open:open-in-external-program'
