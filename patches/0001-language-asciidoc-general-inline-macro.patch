@@ -1,0 +1,79 @@
+diff --git a/language-asciidoc/grammars/language-asciidoc.cson b/language-asciidoc/grammars/language-asciidoc.cson
+index cf1effa..db6e045 100644
+--- a/language-asciidoc/grammars/language-asciidoc.cson
++++ b/language-asciidoc/grammars/language-asciidoc.cson
+@@ -202,6 +202,9 @@ repository:
+       {
+         include: "#bibliography-anchor"
+       }
++      {
++        include: "#general-inline-macro"
++      }
+     ]
+   "attribute-entry":
+     patterns: [
+@@ -752,6 +755,25 @@ repository:
+             name: "punctuation.separator.asciidoc"
+       }
+     ]
++  "general-inline-macro":
++    patterns: [
++      {
++        name: "markup.other.inline.asciidoc"
++        match: "(?<!\\\\)(\\p{Word}+):([^\\s\\[]*)(?:\\[((?:\\\\\\]|[^\\]])*?)\\])"
++        captures:
++          "1":
++            name: "entity.name.function.asciidoc"
++          "2":
++            name: "markup.link.asciidoc"
++            patterns: [
++              {
++                include: "#attribute-reference"
++              }
++            ]
++          "3":
++            name: "string.unquoted.asciidoc"
++      }
++    ]
+   "image-macro":
+     patterns: [
+       {
+diff --git a/language-asciidoc/grammars/repositories/asciidoc-grammar.cson b/language-asciidoc/grammars/repositories/asciidoc-grammar.cson
+index 5309579..7787ebe 100644
+--- a/language-asciidoc/grammars/repositories/asciidoc-grammar.cson
++++ b/language-asciidoc/grammars/repositories/asciidoc-grammar.cson
+@@ -134,4 +134,6 @@ repository:
+       include: '#characters'
+     ,
+       include: '#bibliography-anchor'
++    ,
++      include: '#general-inline-macro'
+     ]
+diff --git a/language-asciidoc/grammars/repositories/inlines/general-inline-macro-grammar.cson b/language-asciidoc/grammars/repositories/inlines/general-inline-macro-grammar.cson
+new file mode 100644
+index 0000000..33972f7
+--- /dev/null
++++ b/language-asciidoc/grammars/repositories/inlines/general-inline-macro-grammar.cson
+@@ -0,0 +1,22 @@
++key: 'general-inline-macro'
++
++patterns: [
++
++  # Matches a general inline macro shall more specific match fail.
++  #
++  # Examples
++  #
++  #   cite:[Kale2015]
++  #   cite:Name[Kale2015]
++  #
++  name: 'markup.other.inline.asciidoc'
++  match: '(?<!\\\\)(\\p{Word}+):([^\\s\\[]*)(?:\\[((?:\\\\\\]|[^\\]])*?)\\])'
++  captures:
++    1: name: 'entity.name.function.asciidoc'
++    2:
++      name: 'markup.link.asciidoc'
++      patterns: [
++        include: '#attribute-reference'
++      ]
++    3: name: 'string.unquoted.asciidoc'
++]
