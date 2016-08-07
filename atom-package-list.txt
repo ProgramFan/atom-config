@@ -53,8 +53,6 @@ project-manager
 pdf-view
 dash
 Zen
-clipboard-plus
-expose
 file-icons
 git-plus
 graphviz-preview

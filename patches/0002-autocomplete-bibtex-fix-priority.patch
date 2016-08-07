@@ -1,0 +1,13 @@
+diff --git a/autocomplete-bibtex/lib/provider.coffee b/autocomplete-bibtex/lib/provider.coffee
+index 3255cd0..1c31207 100644
+--- a/autocomplete-bibtex/lib/provider.coffee
++++ b/autocomplete-bibtex/lib/provider.coffee
+@@ -49,7 +49,7 @@ class BibtexProvider
+       id: 'autocomplete-bibtex-bibtexprovider'
+       selector: atom.config.get "autocomplete-bibtex.scope"
+       blacklist: ''
+-      # inclusionPriority: 1 #FIXME hack to prevent default provider in MD file
++      inclusionPriority: 1 #FIXME hack to prevent default provider in MD file
+       # excludeLowerPriority: true
+       providerblacklist: '' # Give the user the option to configure this.
+       requestHandler: (options) =>
