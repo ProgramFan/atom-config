@@ -183,8 +183,8 @@
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-preview#readme",
   "_id": "asciidoc-preview@2.5.2",
   "_shasum": "dd678ae511299c1fd562c9d03f042a33b6c4fda0",
-  "_resolved": "file:../d-11676-7344-1puusg1/package.tgz",
-  "_from": "../d-11676-7344-1puusg1/package.tgz",
+  "_resolved": "file:../d-11677-7353-84fsus/package.tgz",
+  "_from": "../d-11677-7353-84fsus/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -410,7 +410,7 @@
       },
       {
         "name": "escodegen",
-        "version": "1.8.0",
+        "version": "1.8.1",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/escodegen/escodegen.js"
       },
       {

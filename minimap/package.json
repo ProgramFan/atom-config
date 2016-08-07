@@ -94,8 +94,8 @@
   "homepage": "https://github.com/atom-minimap/minimap#readme",
   "_id": "minimap@4.24.7",
   "_shasum": "29430c1bfec468bd8f7b3528ebf77a052d575ff8",
-  "_resolved": "file:../d-11676-7164-va07nn/package.tgz",
-  "_from": "../d-11676-7164-va07nn/package.tgz",
+  "_resolved": "file:../d-11677-7172-uk3h9g/package.tgz",
+  "_from": "../d-11677-7172-uk3h9g/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

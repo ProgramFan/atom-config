@@ -90,8 +90,8 @@
   "homepage": "https://github.com/wooorm/atom-linter-alex#readme",
   "_id": "linter-alex@3.2.0",
   "_shasum": "a858253e0107ba3be7b085c81bfbc45d3b0b5bf5",
-  "_resolved": "file:../d-11676-6658-10x5n17/package.tgz",
-  "_from": "../d-11676-6658-10x5n17/package.tgz",
+  "_resolved": "file:../d-11677-6666-1sgcy1d/package.tgz",
+  "_from": "../d-11677-6666-1sgcy1d/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
