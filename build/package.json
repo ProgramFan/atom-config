@@ -73,8 +73,8 @@
   "homepage": "https://github.com/noseglid/atom-build#readme",
   "_id": "build@0.65.0",
   "_shasum": "7cfe0d95d32fc6877a5cf63947875f8e169d4b4f",
-  "_resolved": "file:../d-11676-2006-vztcyk/package.tgz",
-  "_from": "../d-11676-2006-vztcyk/package.tgz",
+  "_resolved": "file:../d-11677-2009-f8hhpl/package.tgz",
+  "_from": "../d-11677-2009-f8hhpl/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

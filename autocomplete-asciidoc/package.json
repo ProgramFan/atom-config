@@ -38,8 +38,8 @@
   "homepage": "https://github.com/asciidoctor/atom-autocomplete-asciidoc#readme",
   "_id": "autocomplete-asciidoc@0.1.1",
   "_shasum": "9c601b019325b09cce7ffec374adfdbfb2f46e92",
-  "_resolved": "file:../d-11676-1678-fcnq0p/package.tgz",
-  "_from": "../d-11676-1678-fcnq0p/package.tgz",
+  "_resolved": "file:../d-11677-1678-1aoi2gd/package.tgz",
+  "_from": "../d-11677-1678-1aoi2gd/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

@@ -47,8 +47,8 @@
   "homepage": "https://github.com/AtomLinter/linter-clang#readme",
   "_id": "linter-clang@3.4.4",
   "_shasum": "2207a6df4e398a3c7435b06e7428878ac0d91dfa",
-  "_resolved": "file:../d-11676-1714-vn8h83/package.tgz",
-  "_from": "../d-11676-1714-vn8h83/package.tgz",
+  "_resolved": "file:../d-11677-1715-1js0ljj/package.tgz",
+  "_from": "../d-11677-1715-1js0ljj/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

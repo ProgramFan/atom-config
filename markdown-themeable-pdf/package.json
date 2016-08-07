@@ -37,8 +37,8 @@
   "homepage": "https://github.com/cakebake/markdown-themeable-pdf#readme",
   "_id": "markdown-themeable-pdf@1.2.0",
   "_shasum": "7ef90bead8e514ce38d71182c98a5cbd26b7e4d3",
-  "_resolved": "file:../d-11676-1834-7kfubq/package.tgz",
-  "_from": "../d-11676-1834-7kfubq/package.tgz",
+  "_resolved": "file:../d-11677-1836-rb74f7/package.tgz",
+  "_from": "../d-11677-1836-rb74f7/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -174,7 +174,7 @@
       },
       {
         "name": "escodegen",
-        "version": "1.8.0",
+        "version": "1.8.1",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/escodegen/escodegen.js"
       },
       {

@@ -37,8 +37,8 @@
   "homepage": "https://github.com/siegelaaron94/atom-build-cmake#readme",
   "_id": "build-cmake@0.6.3",
   "_shasum": "897bc134c67ede4726ba5fb38b3c37a1943202c1",
-  "_resolved": "file:../d-11676-2030-1diiv64/package.tgz",
-  "_from": "../d-11676-2030-1diiv64/package.tgz",
+  "_resolved": "file:../d-11677-2033-1p2zkls/package.tgz",
+  "_from": "../d-11677-2033-1p2zkls/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

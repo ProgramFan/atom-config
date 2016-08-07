@@ -29,8 +29,8 @@
   "homepage": "https://github.com/griffin-stewie/asciidoctor-preview#readme",
   "_id": "asciidoctor-preview@0.3.0",
   "_shasum": "b38b8e82af03e162121f3592a4b8fdaa342ff3da",
-  "_resolved": "file:../d-11676-1994-1um7hff/package.tgz",
-  "_from": "../d-11676-1994-1um7hff/package.tgz",
+  "_resolved": "file:../d-11677-1995-8n265r/package.tgz",
+  "_from": "../d-11677-1995-8n265r/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -241,7 +241,7 @@
       },
       {
         "name": "escodegen",
-        "version": "1.8.0",
+        "version": "1.8.1",
         "path": "node_modules/cheerio/node_modules/jsdom/node_modules/escodegen/escodegen.js"
       },
       {

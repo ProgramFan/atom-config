@@ -53,8 +53,8 @@
   "homepage": "https://github.com/atom-community/linter#readme",
   "_id": "linter@1.11.15",
   "_shasum": "f10b6ff20a91b6cc3bb058088b14785ce49e6b19",
-  "_resolved": "file:../d-11676-1690-1oh9tjl/package.tgz",
-  "_from": "../d-11676-1690-1oh9tjl/package.tgz",
+  "_resolved": "file:../d-11677-1690-19g0qla/package.tgz",
+  "_from": "../d-11677-1690-19g0qla/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

@@ -49,7 +49,7 @@ class BibtexProvider
       id: 'autocomplete-bibtex-bibtexprovider'
       selector: atom.config.get "autocomplete-bibtex.scope"
       blacklist: ''
-      # inclusionPriority: 1 #FIXME hack to prevent default provider in MD file
+      inclusionPriority: 1 #FIXME hack to prevent default provider in MD file
       # excludeLowerPriority: true
       providerblacklist: '' # Give the user the option to configure this.
       requestHandler: (options) =>
