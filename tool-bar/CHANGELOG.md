@@ -4,9 +4,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and
 tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
-## [vNext](https://github.com/suda/tool-bar/compare/v1.0.0...master) - Unreleased
+## [vNext](https://github.com/suda/tool-bar/compare/v1.0.1...master) - Unreleased
 
 *   ...
+
+## [vNext](https://github.com/suda/tool-bar/compare/v1.0.0...v1.0.1) - 2016-08-07
+
+*   :art: Full-width is the new standard for the status-bar This restores bottom
+    border for vertical tool-bars with the One theme. Closes [#157](https://github.com/suda/tool-bar/issues/157)
+*   :bug: Fixed wrong calculation for gutter shadow. Fixes [#156](https://github.com/suda/tool-bar/issues/156)
 
 ## [v1.0.0](https://github.com/suda/tool-bar/compare/v0.4.0...v1.0.0) - 2016-07-03
 

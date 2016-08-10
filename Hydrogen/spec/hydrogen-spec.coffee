@@ -1,16 +1,10 @@
 Config = require '../lib/config'
-ConfigManager = require '../lib/config-manager'
-portfinder = require '../lib/find-port'
 KernelManager = require '../lib/kernel-manager'
 
 path = require 'path'
 fs = require 'fs'
 
 describe 'Atom config', ->
-    it 'should set config value', ->
-        Config.setJson 'set', 'foo'
-        expect(JSON.parse atom.config.get 'Hydrogen.set').toEqual('foo')
-
     it 'should read config values', ->
         atom.config.set 'Hydrogen.read', JSON.stringify 'bar'
         expect(Config.getJson 'read').toEqual('bar')
@@ -18,49 +12,6 @@ describe 'Atom config', ->
     it 'should return {} for broken config', ->
         atom.config.set 'Hydrogen.broken', 'foo'
         expect(Config.getJson 'broken').toEqual({})
-
-describe 'Port config manager', ->
-    it 'should build port config', ->
-        ports = [60000...60004]
-        config = ConfigManager.buildConfiguration ports
-        expect(config.version).toEqual(5)
-        expect(config.key.length).toEqual(36)
-        expect(config.signature_scheme).toEqual('hmac-sha256')
-        expect(config.transport).toEqual('tcp')
-        expect(config.ip).toEqual('127.0.0.1')
-        expect(config.hb_port).toEqual(ports[0])
-        expect(config.control_port).toEqual(ports[1])
-        expect(config.shell_port).toEqual(ports[2])
-        expect(config.stdin_port).toEqual(ports[3])
-        expect(config.iopub_port).toEqual(ports[4])
-
-    it 'should write a port config file', ->
-        fileStoragePath = path.join(__dirname, '..', 'kernel-configs')
-        try
-            fileNumberBefore = fs.readdirSync(fileStoragePath).length
-        catch
-            fileNumberBefore = 0
-
-        ConfigManager.writeConfigFile ->
-            fileNumberAfter = fs.readdirSync(fileStoragePath).length
-            expect(fileNumberAfter).toEqual(fileNumberBefore + 1)
-
-describe 'Port finder', ->
-    it 'should find a free port', ->
-        portfinder.find (port) ->
-            expect(port).toMatch(/\d{1,}/)
-    it 'should find 3 free ports', ->
-        portfinder.findMany 3, (ports) ->
-            expect(ports.length).toEqual(3)
-            expect(ports[0]).toMatch(/\d{1,}/)
-            expect(ports[1]).toMatch(/\d{1,}/)
-            expect(ports[2]).toMatch(/\d{1,}/)
-    it 'should find 2 additional free ports', ->
-        portfinder.findManyHelper 2, [60000], (ports) ->
-            expect(ports.length).toEqual(3)
-            expect(ports[0]).toEqual(60000)
-            expect(ports[1]).toMatch(/\d{1,}/)
-            expect(ports[2]).toMatch(/\d{1,}/)
 
 describe 'Kernel manager', ->
     firstKernelSpecString = '''{
@@ -84,7 +35,6 @@ describe 'Kernel manager', ->
     secondKernelSpecString = '''{
         "kernelspecs": {
             "python2": {
-                "resource_dir": "/usr/local/lib/python2.7/site-packages/ipykernel/resources",
                 "spec": {
                     "language": "python",
                     "display_name": "Python 2",
@@ -108,74 +58,91 @@ describe 'Kernel manager', ->
     kernelSpecs.kernelspecs.python2 = secondKernelSpec.kernelspecs.python2
     kernelSpecsString = JSON.stringify kernelSpecs
 
+    kernelManager = null
+
     beforeEach ->
-        @kernelManager = new KernelManager()
+        kernelManager = new KernelManager()
         atom.config.set 'Hydrogen.kernelspec', ''
 
     describe 'getKernelSpecsFromSettings', ->
         it 'should parse kernelspecs from settings', ->
             atom.config.set 'Hydrogen.kernelspec', firstKernelSpecString
 
-            parsed = @kernelManager.getKernelSpecsFromSettings()
+            parsed = kernelManager.getKernelSpecsFromSettings()
 
             expect(parsed).toEqual(firstKernelSpec.kernelspecs)
 
         it 'should return {} if no kernelspec is set', ->
-            expect(@kernelManager.getKernelSpecsFromSettings()).toEqual({})
+            expect(kernelManager.getKernelSpecsFromSettings()).toEqual({})
 
         it 'should return {} if invalid kernelspec is set', ->
             atom.config.set 'Hydrogen.kernelspec', 'invalid'
-            expect(@kernelManager.getKernelSpecsFromSettings()).toEqual({})
+            expect(kernelManager.getKernelSpecsFromSettings()).toEqual({})
 
     describe 'mergeKernelSpecs', ->
         it 'should merge kernelspecs', ->
-            @kernelManager._kernelSpecs = firstKernelSpec.kernelspecs
-            @kernelManager.mergeKernelSpecs secondKernelSpec.kernelspecs
+            kernelManager._kernelSpecs = firstKernelSpec.kernelspecs
+            kernelManager.mergeKernelSpecs secondKernelSpec.kernelspecs
 
-            specs = @kernelManager._kernelSpecs
+            specs = kernelManager._kernelSpecs
             expect(specs).toEqual(kernelSpecs.kernelspecs)
 
     describe 'getAllKernelSpecs', ->
         it 'should return an array with specs', ->
-            @kernelManager._kernelSpecs = kernelSpecs.kernelspecs
-            specs = @kernelManager.getAllKernelSpecs()
-
-            expect(specs.length).toEqual(2)
-            expect(specs[0]).toEqual(kernelSpecs.kernelspecs.ijavascript.spec)
-            expect(specs[1]).toEqual(kernelSpecs.kernelspecs.python2.spec)
+            waitsForPromise -> new Promise (resolve, reject) ->
+                kernelManager._kernelSpecs = kernelSpecs.kernelspecs
+                kernelManager.getAllKernelSpecs (specs) ->
+                    expect(specs.length).toEqual(2)
+                    expect(specs[0]).toEqual(
+                        kernelSpecs.kernelspecs.ijavascript.spec
+                    )
+                    expect(specs[1]).toEqual(
+                        kernelSpecs.kernelspecs.python2.spec
+                    )
+                    resolve()
 
     describe 'getAllKernelSpecsFor', ->
         it 'should return an array with specs for given language', ->
-            @kernelManager._kernelSpecs = kernelSpecs.kernelspecs
-            allKernelSpecsForPython = @kernelManager.getAllKernelSpecsFor('python')
-
-            expect(allKernelSpecsForPython.length).toEqual(1)
-            expect(allKernelSpecsForPython[0]).toEqual(kernelSpecs.kernelspecs.python2.spec)
+            waitsForPromise -> new Promise (resolve, reject) ->
+                kernelManager._kernelSpecs = kernelSpecs.kernelspecs
+                kernelManager.getAllKernelSpecsFor 'python', (specs) ->
+                    expect(specs.length).toEqual(1)
+                    expect(specs[0]).toEqual(
+                        kernelSpecs.kernelspecs.python2.spec
+                    )
+                    resolve()
 
         it 'should return an empty array', ->
-            @kernelManager._kernelSpecs = kernelSpecs.kernelspecs
-            allKernelSpecsForJulia = @kernelManager.getAllKernelSpecsFor('julia')
-
-            expect(allKernelSpecsForJulia).toEqual([])
+            waitsForPromise -> new Promise (resolve, reject) ->
+                kernelManager._kernelSpecs = kernelSpecs.kernelspecs
+                kernelManager.getAllKernelSpecsFor 'julia', (specs) ->
+                    expect(specs).toEqual([])
+                    resolve()
 
     describe 'getKernelSpecFor', ->
         it 'should return spec for given language', ->
-            @kernelManager._kernelSpecs = kernelSpecs.kernelspecs
-            kernelSpecForPython = @kernelManager.getKernelSpecFor('python')
-
-            expect(kernelSpecForPython).toEqual(kernelSpecs.kernelspecs.python2.spec)
+            waitsForPromise -> new Promise (resolve, reject) ->
+                kernelManager._kernelSpecs = kernelSpecs.kernelspecs
+                kernelManager.getKernelSpecFor 'python', (kernelSpec) ->
+                    expect(kernelSpec).toEqual(
+                        kernelSpecs.kernelspecs.python2.spec
+                    )
+                    resolve()
 
         it 'should return undefined', ->
-            @kernelManager._kernelSpecs = kernelSpecs.kernelspecs
-            kernelSpecForJulia = @kernelManager.getKernelSpecFor('julia')
-
-            expect(kernelSpecForJulia).toBeUndefined()
+            waitsForPromise -> new Promise (resolve, reject) ->
+                kernelManager._kernelSpecs = kernelSpecs.kernelspecs
+                kernelManager.getKernelSpecFor 'julia', (kernelSpecForJulia) ->
+                    expect(kernelSpecForJulia).toBeUndefined()
+                    resolve()
 
     it 'should read lower case name from grammar', ->
         grammar = atom.grammars.getGrammars()[0]
-        expect(@kernelManager.getLanguageFor grammar).toEqual('null grammar')
+        expect(kernelManager.getLanguageFor grammar).toEqual('null grammar')
 
-    it 'should update kernelspecs', (done) ->
-        @kernelManager.getKernelSpecsFromJupyter (err, specs) ->
-            expect(specs).toEqual(jasmine.any(Object))
-            done
+    it 'should update kernelspecs', ->
+        waitsForPromise -> new Promise (resolve, reject) ->
+            kernelManager.getKernelSpecsFromJupyter (err, specs) ->
+                unless err
+                    expect(specs instanceof Object).toEqual(true)
+                resolve()

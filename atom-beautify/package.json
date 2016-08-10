@@ -275,8 +275,8 @@
   "homepage": "https://github.com/Glavin001/atom-beautify#readme",
   "_id": "atom-beautify@0.29.10",
   "_shasum": "acaf3c4761b37404c100fd7fa2216167d1475821",
-  "_resolved": "file:../d-11677-7570-1ef6ahp/package.tgz",
-  "_from": "../d-11677-7570-1ef6ahp/package.tgz",
+  "_resolved": "file:../d-116710-7467-w9k2gp/package.tgz",
+  "_from": "../d-116710-7467-w9k2gp/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -457,7 +457,7 @@
       },
       {
         "name": "event-kit",
-        "version": "2.0.0",
+        "version": "2.1.0",
         "path": "node_modules/event-kit/lib/event-kit.js"
       },
       {
@@ -477,7 +477,7 @@
       },
       {
         "name": "github",
-        "version": "2.4.0",
+        "version": "2.4.1",
         "path": "node_modules/github/lib/index.js"
       },
       {
@@ -1062,7 +1062,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/jscs/node_modules/minimatch/minimatch.js"
       },
       {
@@ -1337,7 +1337,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.1",
+        "version": "4.14.2",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -1502,7 +1502,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/marko-prettyprint/node_modules/minimatch/minimatch.js"
       },
       {
@@ -1527,7 +1527,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/node-dir/node_modules/minimatch/minimatch.js"
       },
       {
@@ -2112,7 +2112,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/remark/node_modules/minimatch/minimatch.js"
       },
       {
@@ -4740,6 +4740,7 @@
         "node_modules/github/examples/searchIssues.js",
         "node_modules/github/examples/searchMostStarredRepos.js",
         "node_modules/github/examples/testPromise.js",
+        "node_modules/github/examples/updateBranchProtection.js",
         "node_modules/github/lib/error.js",
         "node_modules/github/lib/generate.js",
         "node_modules/github/lib/index.js",
@@ -7801,7 +7802,6 @@
         "node_modules/lodash/_Map.js",
         "node_modules/lodash/_MapCache.js",
         "node_modules/lodash/_Promise.js",
-        "node_modules/lodash/_Reflect.js",
         "node_modules/lodash/_Set.js",
         "node_modules/lodash/_SetCache.js",
         "node_modules/lodash/_Stack.js",
@@ -7818,6 +7818,7 @@
         "node_modules/lodash/_arrayFilter.js",
         "node_modules/lodash/_arrayIncludes.js",
         "node_modules/lodash/_arrayIncludesWith.js",
+        "node_modules/lodash/_arrayLikeKeys.js",
         "node_modules/lodash/_arrayMap.js",
         "node_modules/lodash/_arrayPush.js",
         "node_modules/lodash/_arrayReduce.js",
@@ -7982,7 +7983,6 @@
         "node_modules/lodash/_getData.js",
         "node_modules/lodash/_getFuncName.js",
         "node_modules/lodash/_getHolder.js",
-        "node_modules/lodash/_getLength.js",
         "node_modules/lodash/_getMapData.js",
         "node_modules/lodash/_getMatchData.js",
         "node_modules/lodash/_getNative.js",
@@ -7999,7 +7999,6 @@
         "node_modules/lodash/_hashGet.js",
         "node_modules/lodash/_hashHas.js",
         "node_modules/lodash/_hashSet.js",
-        "node_modules/lodash/_indexKeys.js",
         "node_modules/lodash/_initCloneArray.js",
         "node_modules/lodash/_initCloneByTag.js",
         "node_modules/lodash/_initCloneObject.js",
@@ -8035,6 +8034,8 @@
         "node_modules/lodash/_mergeDefaults.js",
         "node_modules/lodash/_metaMap.js",
         "node_modules/lodash/_nativeCreate.js",
+        "node_modules/lodash/_nativeKeys.js",
+        "node_modules/lodash/_nativeKeysIn.js",
         "node_modules/lodash/_nodeUtil.js",
         "node_modules/lodash/_overArg.js",
         "node_modules/lodash/_parent.js",

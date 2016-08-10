@@ -90,8 +90,8 @@
   "homepage": "https://github.com/wooorm/atom-linter-alex#readme",
   "_id": "linter-alex@3.2.0",
   "_shasum": "a858253e0107ba3be7b085c81bfbc45d3b0b5bf5",
-  "_resolved": "file:../d-11677-6666-1sgcy1d/package.tgz",
-  "_from": "../d-11677-6666-1sgcy1d/package.tgz",
+  "_resolved": "file:../d-116710-6683-hhmq5x/package.tgz",
+  "_from": "../d-116710-6683-hhmq5x/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -472,7 +472,7 @@
       },
       {
         "name": "remark-parse",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/remark-parse/index.js"
       },
       {
@@ -627,8 +627,18 @@
       },
       {
         "name": "array-iterate",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/index.js"
+      },
+      {
+        "name": "has",
+        "version": "1.0.1",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/src/index.js"
+      },
+      {
+        "name": "function-bind",
+        "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/node_modules/function-bind/index.js"
       },
       {
         "name": "unist-util-modify-children",
@@ -637,8 +647,18 @@
       },
       {
         "name": "array-iterate",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/index.js"
+      },
+      {
+        "name": "has",
+        "version": "1.0.1",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/src/index.js"
+      },
+      {
+        "name": "function-bind",
+        "version": "1.1.0",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/node_modules/function-bind/index.js"
       },
       {
         "name": "unist-util-visit-children",
@@ -662,7 +682,7 @@
       },
       {
         "name": "retext-equality",
-        "version": "2.3.2",
+        "version": "2.3.3",
         "path": "node_modules/alex/node_modules/retext-equality/index.js"
       },
       {
@@ -1832,7 +1852,7 @@
       },
       {
         "name": "atom-package-deps",
-        "version": "4.0.1",
+        "version": "4.1.0",
         "path": "node_modules/atom-package-deps/lib/index.js"
       },
       {
@@ -1846,8 +1866,33 @@
         "path": "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js"
       },
       {
+        "name": "sb-exec",
+        "version": "2.0.5",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/lib/index.js"
+      },
+      {
+        "name": "consistent-env",
+        "version": "1.2.0",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/consistent-env/lib/index.js"
+      },
+      {
+        "name": "sb-npm-path",
+        "version": "1.0.1",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/lib/index.js"
+      },
+      {
+        "name": "sb-memoize",
+        "version": "1.0.2",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/lib/index.js"
+      },
+      {
+        "name": "sb-promisify",
+        "version": "1.3.0",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-promisify/lib/index.js"
+      },
+      {
         "name": "minimatch",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/minimatch/minimatch.js"
       },
       {
@@ -1987,8 +2032,14 @@
         "node_modules/alex/node_modules/remark-retext/node_modules/mdast-util-to-nlcst/package.json",
         "node_modules/alex/node_modules/remark-retext/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/nlcst-to-string/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/node_modules/function-bind/.jscs.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/node_modules/function-bind/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/node_modules/function-bind/.jscs.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/node_modules/function-bind/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-visit-children/package.json",
@@ -2247,8 +2298,17 @@
         "node_modules/alex/node_modules/vfile-reporter/package.json",
         "node_modules/alex/node_modules/vfile-sort/package.json",
         "node_modules/alex/package.json",
+        "node_modules/atom-package-deps/.eslintrc.json",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/package.json",
         "node_modules/atom-package-deps/node_modules/atom-package-path/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/consistent-env/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-promisify/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/package.json",
         "node_modules/atom-package-deps/package.json",
         "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json",
         "node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/package.json",
@@ -2418,8 +2478,14 @@
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/plugin/remove-empty-nodes.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/lib/tokenizer.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/index.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/node_modules/function-bind/implementation.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/node_modules/function-bind/index.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/src/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/index.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/node_modules/function-bind/implementation.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/node_modules/function-bind/index.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/src/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-visit-children/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/unherit/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/clone.js",
@@ -2726,11 +2792,23 @@
         "node_modules/alex/node_modules/vfile-reporter/node_modules/text-table/example/table.js",
         "node_modules/alex/node_modules/vfile-reporter/node_modules/text-table/index.js",
         "node_modules/alex/node_modules/vfile-sort/index.js",
+        "node_modules/atom-package-deps/decls/atom.js",
+        "node_modules/atom-package-deps/decls/jasmine.js",
+        "node_modules/atom-package-deps/decls/package-deps.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
         "node_modules/atom-package-deps/lib/view.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/helpers.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/types.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/consistent-env/lib/helpers.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/consistent-env/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/lib/helpers.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-promisify/lib/index.js",
         "node_modules/minimatch/minimatch.js",
         "node_modules/minimatch/node_modules/brace-expansion/index.js",
         "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
@@ -3205,10 +3283,46 @@
       },
       {
         "paths": [
+          "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate"
+        ],
+        "dependencies": {
+          "has": "^1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has",
+          "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/src",
+          "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/parse-latin/node_modules/array-iterate/node_modules/has/test"
+        ],
+        "dependencies": {
+          "function-bind": "^1.0.2"
+        }
+      },
+      {
+        "paths": [
           "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children"
         ],
         "dependencies": {
           "array-iterate": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate"
+        ],
+        "dependencies": {
+          "has": "^1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has",
+          "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/src",
+          "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/test"
+        ],
+        "dependencies": {
+          "function-bind": "^1.0.2"
         }
       },
       {
@@ -4282,11 +4396,13 @@
       },
       {
         "paths": [
-          "node_modules/atom-package-deps/lib",
-          "node_modules/atom-package-deps"
+          "node_modules/atom-package-deps",
+          "node_modules/atom-package-deps/decls",
+          "node_modules/atom-package-deps/lib"
         ],
         "dependencies": {
-          "atom-package-path": "^1.1.0"
+          "atom-package-path": "^1.1.0",
+          "sb-exec": "^2.0.5"
         }
       },
       {
@@ -4297,6 +4413,27 @@
         ],
         "dependencies": {
           "sb-callsite": "^1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps/node_modules/sb-exec",
+          "node_modules/atom-package-deps/node_modules/sb-exec/lib"
+        ],
+        "dependencies": {
+          "consistent-env": "^1.2.0",
+          "sb-npm-path": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path",
+          "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/lib",
+          "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/spec"
+        ],
+        "dependencies": {
+          "sb-memoize": "^1.0.1",
+          "sb-promisify": "^1.2.0"
         }
       },
       {

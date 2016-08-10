@@ -52,8 +52,8 @@
   "homepage": "https://github.com/imdone/imdone-atom#readme",
   "_id": "imdone-atom@1.3.29",
   "_shasum": "b76aebf2c1ac8c5b33cafe8fa16166a1bb961f5c",
-  "_resolved": "file:../d-11677-8056-1nipnsd/package.tgz",
-  "_from": "../d-11677-8056-1nipnsd/package.tgz",
+  "_resolved": "file:../d-116710-7923-1apsdg3/package.tgz",
+  "_from": "../d-116710-7923-1apsdg3/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -649,7 +649,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/minimatch/minimatch.js"
       },
       {
@@ -724,7 +724,7 @@
       },
       {
         "name": "isbinaryfile",
-        "version": "3.0.0",
+        "version": "3.0.1",
         "path": "node_modules/imdone-core/node_modules/isbinaryfile/index.js"
       },
       {
@@ -769,7 +769,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.1",
+        "version": "4.14.2",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -779,7 +779,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/minimatch/minimatch.js"
       },
       {
@@ -1613,7 +1613,6 @@
         "node_modules/imdone-core/node_modules/debug/node.js",
         "node_modules/imdone-core/node_modules/debug/node_modules/ms/index.js",
         "node_modules/imdone-core/node_modules/file-type/index.js",
-        "node_modules/imdone-core/node_modules/isbinaryfile/Gruntfile.js",
         "node_modules/imdone-core/node_modules/isbinaryfile/index.js",
         "node_modules/imdone-core/node_modules/lodash/dist/lodash.compat.js",
         "node_modules/imdone-core/node_modules/lodash/dist/lodash.compat.min.js",
@@ -1642,7 +1641,6 @@
         "node_modules/lodash/_Map.js",
         "node_modules/lodash/_MapCache.js",
         "node_modules/lodash/_Promise.js",
-        "node_modules/lodash/_Reflect.js",
         "node_modules/lodash/_Set.js",
         "node_modules/lodash/_SetCache.js",
         "node_modules/lodash/_Stack.js",
@@ -1659,6 +1657,7 @@
         "node_modules/lodash/_arrayFilter.js",
         "node_modules/lodash/_arrayIncludes.js",
         "node_modules/lodash/_arrayIncludesWith.js",
+        "node_modules/lodash/_arrayLikeKeys.js",
         "node_modules/lodash/_arrayMap.js",
         "node_modules/lodash/_arrayPush.js",
         "node_modules/lodash/_arrayReduce.js",
@@ -1823,7 +1822,6 @@
         "node_modules/lodash/_getData.js",
         "node_modules/lodash/_getFuncName.js",
         "node_modules/lodash/_getHolder.js",
-        "node_modules/lodash/_getLength.js",
         "node_modules/lodash/_getMapData.js",
         "node_modules/lodash/_getMatchData.js",
         "node_modules/lodash/_getNative.js",
@@ -1840,7 +1838,6 @@
         "node_modules/lodash/_hashGet.js",
         "node_modules/lodash/_hashHas.js",
         "node_modules/lodash/_hashSet.js",
-        "node_modules/lodash/_indexKeys.js",
         "node_modules/lodash/_initCloneArray.js",
         "node_modules/lodash/_initCloneByTag.js",
         "node_modules/lodash/_initCloneObject.js",
@@ -1876,6 +1873,8 @@
         "node_modules/lodash/_mergeDefaults.js",
         "node_modules/lodash/_metaMap.js",
         "node_modules/lodash/_nativeCreate.js",
+        "node_modules/lodash/_nativeKeys.js",
+        "node_modules/lodash/_nativeKeysIn.js",
         "node_modules/lodash/_nodeUtil.js",
         "node_modules/lodash/_overArg.js",
         "node_modules/lodash/_parent.js",

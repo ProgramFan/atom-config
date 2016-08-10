@@ -5,7 +5,8 @@ _ = require 'lodash'
 ResultView = require './result-view'
 SignalListView = require './signal-list-view'
 KernelPicker = require './kernel-picker'
-CellManager = require './cell-manager'
+WSKernelPicker = require './ws-kernel-picker'
+CodeManager = require './code-manager'
 
 Config = require './config'
 KernelManager = require './kernel-manager'
@@ -20,22 +21,28 @@ module.exports = Hydrogen =
     inspector: null
 
     editor: null
+    kernel: null
     markerBubbleMap: null
 
     statusBarElement: null
     statusBarTile: null
 
+    watchSidebar: null
+    watchSidebarIsVisible: false
+
     activate: (state) ->
         @kernelManager = new KernelManager()
         @inspector = new Inspector @kernelManager
+        @codeManager = new CodeManager()
 
-        @editor = atom.workspace.getActiveTextEditor()
         @markerBubbleMap = {}
 
         @statusBarElement = document.createElement('div')
         @statusBarElement.classList.add('hydrogen')
         @statusBarElement.classList.add('status-container')
         @statusBarElement.onclick = @showKernelCommands.bind this
+
+        @onEditorChanged atom.workspace.getActiveTextEditor()
 
         @subscriptions = new CompositeDisposable
 
@@ -47,10 +54,16 @@ module.exports = Hydrogen =
             'hydrogen:run-cell': => @runCell()
             'hydrogen:run-cell-and-move-down': => @runCell(true)
             'hydrogen:toggle-watches': => @toggleWatchSidebar()
-            'hydrogen:select-watch-kernel': => @showWatchKernelPicker()
             'hydrogen:select-kernel': => @showKernelPicker()
-            'hydrogen:add-watch': => @watchSidebar.addWatchFromEditor()
-            'hydrogen:remove-watch': => @watchSidebar.removeWatch()
+            'hydrogen:connect-to-remote-kernel': => @showWSKernelPicker()
+            'hydrogen:add-watch': =>
+                unless @watchSidebarIsVisible
+                    @toggleWatchSidebar()
+                @watchSidebar?.addWatchFromEditor()
+            'hydrogen:remove-watch': =>
+                unless @watchSidebarIsVisible
+                    @toggleWatchSidebar()
+                @watchSidebar?.removeWatch()
             'hydrogen:update-kernels': => @kernelManager.updateKernelSpecs()
             'hydrogen:toggle-inspector': => @inspector.toggle()
             'hydrogen:interrupt-kernel': =>
@@ -63,8 +76,7 @@ module.exports = Hydrogen =
 
         @subscriptions.add atom.workspace.observeActivePaneItem (item) =>
             if item and item is atom.workspace.getActiveTextEditor()
-                @editor = item
-                @setStatusBarElement()
+                @onEditorChanged item
 
 
     deactivate: ->
@@ -81,6 +93,69 @@ module.exports = Hydrogen =
     provide: ->
         if atom.config.get('Hydrogen.autocomplete') is true
             return AutocompleteProvider @kernelManager
+
+
+    onEditorChanged: (@editor) ->
+        if @editor
+            grammar = @editor.getGrammar()
+            language = @kernelManager.getLanguageFor grammar
+            kernel = @kernelManager.getRunningKernelFor language
+            @codeManager.editor = @editor
+
+        unless @kernel is kernel
+            @onKernelChanged kernel
+
+
+    onKernelChanged: (@kernel) ->
+        @setStatusBar()
+        @setWatchSidebar @kernel
+
+
+    setStatusBar: ->
+        unless @statusBarElement?
+            console.error 'setStatusBar: there is no status bar'
+            return
+
+        @clearStatusBar()
+
+        if @kernel?
+            @statusBarElement.appendChild @kernel.statusView.element
+
+
+    clearStatusBar: ->
+        unless @statusBarElement?
+            console.error 'clearStatusBar: there is no status bar'
+            return
+
+        while @statusBarElement.hasChildNodes()
+            @statusBarElement.removeChild @statusBarElement.lastChild
+
+
+    setWatchSidebar: (kernel) ->
+        console.log 'setWatchSidebar:', kernel
+
+        sidebar = kernel?.watchSidebar
+        if @watchSidebar is sidebar
+            return
+
+        if @watchSidebar?.visible
+            @watchSidebar.hide()
+
+        @watchSidebar = sidebar
+
+        if @watchSidebarIsVisible
+            @watchSidebar?.show()
+
+
+    toggleWatchSidebar: ->
+        if @watchSidebarIsVisible
+            console.log 'toggleWatchSidebar: hiding sidebar'
+            @watchSidebarIsVisible = false
+            @watchSidebar?.hide()
+        else
+            console.log 'toggleWatchSidebar: showing sidebar'
+            @watchSidebarIsVisible = true
+            @watchSidebar?.show()
 
 
     showKernelCommands: ->
@@ -101,49 +176,38 @@ module.exports = Hydrogen =
         unless kernel
             kernel = @kernelManager.getRunningKernelFor language
 
+        unless kernel
+            message = "No running kernel for language `#{language}` found"
+            atom.notifications.addError message
+            return
+
         if command is 'interrupt-kernel'
             kernel.interrupt()
 
         else if command is 'restart-kernel'
-            @kernelManager.destroyRunningKernel kernel
             @clearResultBubbles()
-            @kernelManager.startKernelFor grammar, =>
-                @setStatusBarElement()
+            @kernelManager.restartRunningKernelFor grammar, (kernel) =>
+                @onKernelChanged kernel
 
         else if command is 'switch-kernel'
-            kernel = @kernelManager.getRunningKernelFor language
-            if kernel
-                @kernelManager.destroyRunningKernel kernel
             @clearResultBubbles()
-            @kernelManager.setKernelMapping kernelSpec, grammar
-            @kernelManager.startKernel kernelSpec, grammar, =>
-                @setStatusBarElement()
-
-
-    getCurrentKernel: ->
-        grammar = @editor.getGrammar()
-        language = @kernelManager.getLanguageFor grammar
-        kernel = @kernelManager.getRunningKernelFor language
-
-        return {grammar, language, kernel}
+            @kernelManager.destroyRunningKernelFor grammar
+            @kernelManager.startKernel kernelSpec, grammar, (kernel) =>
+                @onKernelChanged kernel
 
 
     createResultBubble: (code, row) ->
-        {kernel, grammar} = @getCurrentKernel()
-
-        if kernel
-            @_createResultBubble kernel, code, row
+        if @kernel
+            @_createResultBubble @kernel, code, row
             return
 
-        @kernelManager.startKernelFor grammar, (kernel) =>
-            @setStatusBarElement()
+        @kernelManager.startKernelFor @editor.getGrammar(), (kernel) =>
+            @onKernelChanged kernel
             @_createResultBubble kernel, code, row
 
 
     _createResultBubble: (kernel, code, row) ->
-        unless @watchSidebar?
-            @setWatchSidebar kernel.watchSidebar
-        else if @watchSidebar.element.contains document.activeElement
+        if @watchSidebar.element.contains document.activeElement
             @watchSidebar.run()
             return
 
@@ -166,7 +230,7 @@ module.exports = Hydrogen =
 
         view = new ResultView(marker)
         view.spin(true)
-        element = view.getElement()
+        element = view.element
 
         lineHeight = @editor.getLineHeightInPixels()
         view.spinner.setAttribute('style',
@@ -204,236 +268,93 @@ module.exports = Hydrogen =
 
 
     clearBubblesOnRow: (row) ->
-        buffer = @editor.getBuffer()
-        _.forEach buffer.findMarkers({endRow: row}), (marker) =>
-            if @markerBubbleMap[marker.id]?
-                @markerBubbleMap[marker.id].destroy()
+        console.log 'clearBubblesOnRow:', row
+        _.forEach @markerBubbleMap, (bubble) =>
+            marker = bubble.marker
+            range = marker.getBufferRange()
+            if range.start.row <= row <= range.end.row
+                console.log 'clearBubblesOnRow:', row, bubble
+                bubble.destroy()
                 delete @markerBubbleMap[marker.id]
 
 
-    moveDown: (row) ->
-        lastRow = @editor.getLastBufferRow()
-
-        if row >= lastRow
-            @editor.moveToBottom()
-            @editor.insertNewline()
-            return
-
-        while row < lastRow
-            row++
-            break if not @blank(row)
-
-        @editor.setCursorBufferPosition
-            row: row
-            column: 0
-
     run: (moveDown = false) ->
-        codeBlock = @findCodeBlock()
+        codeBlock = @codeManager.findCodeBlock()
         unless codeBlock?
             return
 
         [code, row] = codeBlock
         if code? and row?
             if moveDown is true
-                @moveDown row
+                @codeManager.moveDown row
             @createResultBubble code, row
 
+
     runAll: ->
-        code = @editor.getText()
-        row = @escapeBlankRows 0, @editor.getLastBufferRow()
-        @createResultBubble code, row
+        if @kernel
+            @_runAll @kernel
+            return
+
+        @kernelManager.startKernelFor @editor.getGrammar(), (kernel) =>
+            @onKernelChanged kernel
+            @_runAll kernel
+
+
+    _runAll: (kernel) ->
+        breakpoints = @codeManager.getBreakpoints()
+        buffer = @editor.getBuffer()
+        for i in [1...breakpoints.length]
+            start = breakpoints[i - 1]
+            end = breakpoints[i]
+            code = buffer.getTextInRange [start, end]
+            endRow = @codeManager.escapeBlankRows start.row, end.row
+            @_createResultBubble kernel, code, endRow
 
 
     runAllAbove: ->
         cursor = @editor.getLastCursor()
-        row = @escapeBlankRows 0, cursor.getBufferRow()
-        code = @getRows(0, row)
+        row = @codeManager.escapeBlankRows 0, cursor.getBufferRow()
+        code = @codeManager.getRows(0, row)
 
         if code? and row?
             @createResultBubble code, row
 
+
     runCell: (moveDown = false) ->
-        [startRow, endRow] = CellManager.getCurrentCell()
-        endRow = @escapeBlankRows startRow, endRow
-        code = @getRows(startRow, endRow)
+        [start, end] = @codeManager.getCurrentCell()
+        buffer = @editor.getBuffer()
+        code = buffer.getTextInRange [start, end]
+        endRow = @codeManager.escapeBlankRows start.row, end.row
 
         if code?
             if moveDown is true
-                @moveDown endRow
+                @codeManager.moveDown endRow
             @createResultBubble code, endRow
 
-    escapeBlankRows: (startRow, endRow) ->
-        if endRow > startRow
-            for i in [startRow .. endRow - 1] when @blank(endRow)
-                endRow -= 1
-        return endRow
-
-    removeStatusBarElement: ->
-        unless @statusBarElement?
-            console.error 'removeStatusBarElement: there is no status bar'
-            return
-
-        while @statusBarElement.hasChildNodes()
-            @statusBarElement.removeChild @statusBarElement.lastChild
-
-    setStatusBarElement: ->
-        unless @statusBarElement?
-            console.error 'setStatusBarElement: there is no status bar'
-            return
-
-        @removeStatusBarElement()
-
-        {kernel} = @getCurrentKernel()
-
-        if kernel?
-            @statusBarElement.appendChild kernel.statusView.getElement()
-
-    hideWatchSidebar: ->
-        unless @watchSidebar?
-            console.log 'hideWatchSidebar: there is no sidebar'
-            return
-
-        @watchSidebar.hide()
-
-    showWatchSidebar: ->
-        unless @watchSidebar?
-            console.log 'showWatchSidebar: there is no sidebar'
-            return
-
-        @watchSidebar.show()
-
-    toggleWatchSidebar: ->
-        if @watchSidebar?.visible
-            console.log 'toggleWatchSidebar: hiding sidebar'
-            @watchSidebar.hide()
-        else
-            console.log 'toggleWatchSidebar: showing sidebar'
-            @watchSidebar.show()
-
-    setWatchSidebar: (sidebar) ->
-        console.log 'setting watch sidebar'
-        if @watchSidebar isnt sidebar and @watchSidebar?.visible
-            @watchSidebar.hide()
-            @watchSidebar = sidebar
-            @watchSidebar.show()
-        else
-            @watchSidebar = sidebar
 
     showKernelPicker: ->
         unless @kernelPicker?
-            @kernelPicker = new KernelPicker =>
+            @kernelPicker = new KernelPicker (callback) =>
                 grammar = @editor.getGrammar()
                 language = @kernelManager.getLanguageFor grammar
-                kernelSpecs = @kernelManager.getAllKernelSpecsFor language
-                return kernelSpecs
+                @kernelManager.getAllKernelSpecsFor language, (kernelSpecs) ->
+                    callback kernelSpecs
             @kernelPicker.onConfirmed = ({kernelSpec}) =>
                 @handleKernelCommand
                     command: 'switch-kernel'
                     kernelSpec: kernelSpec
-
         @kernelPicker.toggle()
 
-    showWatchKernelPicker: ->
-        unless @watchKernelPicker?
-            @watchKernelPicker = new KernelPicker =>
-                kernels = @kernelManager.getAllRunningKernels()
-                kernelSpecs = _.map kernels, 'kernelSpec'
-                return kernelSpecs
-            @watchKernelPicker.onConfirmed = (command) =>
-                kernelSpec = command.kernelSpec
-                kernels = _.filter @kernelManager.getAllRunningKernels(), (k) ->
-                    k.kernelSpec is kernelSpec
-                kernel = kernels[0]
-                if kernel
-                    @setWatchSidebar kernel.watchSidebar
-                    @watchSidebar.show()
-        @watchKernelPicker.toggle()
 
-    findCodeBlock: ->
-        buffer = @editor.getBuffer()
-        selectedText = @editor.getSelectedText()
+    showWSKernelPicker: ->
+        unless @wsKernelPicker?
+            @wsKernelPicker = new WSKernelPicker (kernel) =>
+                @clearResultBubbles()
 
-        if selectedText
-            selectedRange = @editor.getSelectedBufferRange()
-            endRow = selectedRange.end.row
-            if selectedRange.end.column is 0
-                endRow = endRow - 1
-            while @blank(endRow) and endRow > selectedRange.start.row
-                endRow = endRow - 1
-            return [selectedText, endRow]
+                grammar = @editor.getGrammar()
+                @kernelManager.destroyRunningKernelFor grammar
 
-        cursor = @editor.getLastCursor()
+                @kernelManager.setRunningKernel grammar, kernel
+                @onKernelChanged kernel
 
-        row = cursor.getBufferRow()
-        console.log 'findCodeBlock:', row
-
-        indentLevel = cursor.getIndentLevel()
-
-        foldable = @editor.isFoldableAtBufferRow(row)
-        foldRange = @editor.languageMode.rowRangeForCodeFoldAtBufferRow(row)
-        if not foldRange? or not foldRange[0]? or not foldRange[1]?
-            foldable = false
-
-        if foldable
-            return @getFoldContents(row)
-        else if @blank(row)
-            return @findPrecedingBlock(row, indentLevel)
-        else if @getRow(row).trim() is 'end'
-            return @findPrecedingBlock(row, indentLevel)
-        else
-            return [@getRow(row), row]
-
-    findPrecedingBlock: (row, indentLevel) ->
-        buffer = @editor.getBuffer()
-        previousRow = row - 1
-        while previousRow >= 0
-            previousIndentLevel = @editor.indentationForBufferRow previousRow
-            sameIndent = previousIndentLevel <= indentLevel
-            blank = @blank(previousRow)
-            isEnd = @getRow(previousRow).trim() is 'end'
-
-            if @blank(row)
-                row = previousRow
-            if sameIndent and not blank and not isEnd
-                return [@getRows(previousRow, row), row]
-            previousRow--
-        return null
-
-    blank: (row) ->
-        return @editor.getBuffer().isRowBlank(row) or
-               @editor.languageMode.isLineCommentedAtBufferRow(row)
-
-    getRow: (row) ->
-        buffer = @editor.getBuffer()
-        return buffer.getTextInRange
-            start:
-                row: row
-                column: 0
-            end:
-                row: row
-                column: 9999999
-
-    getRows: (startRow, endRow) ->
-        buffer = @editor.getBuffer()
-        return buffer.getTextInRange
-            start:
-                row: startRow
-                column: 0
-            end:
-                row: endRow
-                column: 9999999
-
-    getFoldRange: (editor, row) ->
-        range = editor.languageMode.rowRangeForCodeFoldAtBufferRow(row)
-        if @getRow(range[1] + 1).trim() is 'end'
-            range[1] = range[1] + 1
-        console.log 'getFoldRange:', range
-        return range
-
-    getFoldContents: (row) ->
-        buffer = @editor.getBuffer()
-        range = @getFoldRange(@editor, row)
-        return [
-                @getRows(range[0], range[1]),
-                range[1]
-            ]
+        @wsKernelPicker.toggle()

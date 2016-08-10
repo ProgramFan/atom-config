@@ -37,8 +37,8 @@
   "homepage": "https://github.com/siegelaaron94/atom-build-cmake#readme",
   "_id": "build-cmake@0.6.3",
   "_shasum": "897bc134c67ede4726ba5fb38b3c37a1943202c1",
-  "_resolved": "file:../d-11677-7510-mjhcn9/package.tgz",
-  "_from": "../d-11677-7510-mjhcn9/package.tgz",
+  "_resolved": "file:../d-116710-7407-urdefw/package.tgz",
+  "_from": "../d-116710-7407-urdefw/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -69,7 +69,7 @@
       },
       {
         "name": "minimatch",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/glob/node_modules/minimatch/minimatch.js"
       },
       {

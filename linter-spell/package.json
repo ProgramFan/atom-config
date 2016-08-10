@@ -121,8 +121,8 @@
   "homepage": "https://github.com/yitzchak/linter-spell#readme",
   "_id": "linter-spell@0.10.1",
   "_shasum": "30f9dd14f3f3a084e8ab2124dddd031606685149",
-  "_resolved": "file:../d-11677-6817-1lhuzv2/package.tgz",
-  "_from": "../d-11677-6817-1lhuzv2/package.tgz",
+  "_resolved": "file:../d-116710-6833-mqhjx0/package.tgz",
+  "_from": "../d-116710-6833-mqhjx0/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -173,7 +173,7 @@
       },
       {
         "name": "atom-package-deps",
-        "version": "4.0.1",
+        "version": "4.1.0",
         "path": "node_modules/atom-package-deps/lib/index.js"
       },
       {
@@ -185,6 +185,31 @@
         "name": "sb-callsite",
         "version": "1.1.2",
         "path": "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js"
+      },
+      {
+        "name": "sb-exec",
+        "version": "2.0.5",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/lib/index.js"
+      },
+      {
+        "name": "consistent-env",
+        "version": "1.2.0",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/consistent-env/lib/index.js"
+      },
+      {
+        "name": "sb-npm-path",
+        "version": "1.0.1",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/lib/index.js"
+      },
+      {
+        "name": "sb-memoize",
+        "version": "1.0.2",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/lib/index.js"
+      },
+      {
+        "name": "sb-promisify",
+        "version": "1.3.0",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-promisify/lib/index.js"
       },
       {
         "name": "atom-space-pen-views",
@@ -278,7 +303,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.1",
+        "version": "4.14.2",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -322,11 +347,23 @@
         "node_modules/atom-linter/node_modules/tmp/Gruntfile.js",
         "node_modules/atom-linter/node_modules/tmp/lib/tmp.js",
         "node_modules/atom-linter/node_modules/tmp/node_modules/os-tmpdir/index.js",
+        "node_modules/atom-package-deps/decls/atom.js",
+        "node_modules/atom-package-deps/decls/jasmine.js",
+        "node_modules/atom-package-deps/decls/package-deps.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
         "node_modules/atom-package-deps/lib/view.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/helpers.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/types.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/consistent-env/lib/helpers.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/consistent-env/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/lib/helpers.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-promisify/lib/index.js",
         "node_modules/atom-space-pen-views/lib/main.js",
         "node_modules/atom-space-pen-views/lib/scroll-view.js",
         "node_modules/atom-space-pen-views/lib/select-list-view.js",
@@ -867,7 +904,6 @@
         "node_modules/lodash/_Map.js",
         "node_modules/lodash/_MapCache.js",
         "node_modules/lodash/_Promise.js",
-        "node_modules/lodash/_Reflect.js",
         "node_modules/lodash/_Set.js",
         "node_modules/lodash/_SetCache.js",
         "node_modules/lodash/_Stack.js",
@@ -884,6 +920,7 @@
         "node_modules/lodash/_arrayFilter.js",
         "node_modules/lodash/_arrayIncludes.js",
         "node_modules/lodash/_arrayIncludesWith.js",
+        "node_modules/lodash/_arrayLikeKeys.js",
         "node_modules/lodash/_arrayMap.js",
         "node_modules/lodash/_arrayPush.js",
         "node_modules/lodash/_arrayReduce.js",
@@ -1048,7 +1085,6 @@
         "node_modules/lodash/_getData.js",
         "node_modules/lodash/_getFuncName.js",
         "node_modules/lodash/_getHolder.js",
-        "node_modules/lodash/_getLength.js",
         "node_modules/lodash/_getMapData.js",
         "node_modules/lodash/_getMatchData.js",
         "node_modules/lodash/_getNative.js",
@@ -1065,7 +1101,6 @@
         "node_modules/lodash/_hashGet.js",
         "node_modules/lodash/_hashHas.js",
         "node_modules/lodash/_hashSet.js",
-        "node_modules/lodash/_indexKeys.js",
         "node_modules/lodash/_initCloneArray.js",
         "node_modules/lodash/_initCloneByTag.js",
         "node_modules/lodash/_initCloneObject.js",
@@ -1101,6 +1136,8 @@
         "node_modules/lodash/_mergeDefaults.js",
         "node_modules/lodash/_metaMap.js",
         "node_modules/lodash/_nativeCreate.js",
+        "node_modules/lodash/_nativeKeys.js",
+        "node_modules/lodash/_nativeKeysIn.js",
         "node_modules/lodash/_nodeUtil.js",
         "node_modules/lodash/_overArg.js",
         "node_modules/lodash/_parent.js",
@@ -1895,8 +1932,17 @@
         "node_modules/atom-linter/node_modules/tmp/node_modules/os-tmpdir/package.json",
         "node_modules/atom-linter/node_modules/tmp/package.json",
         "node_modules/atom-linter/package.json",
+        "node_modules/atom-package-deps/.eslintrc.json",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/package.json",
         "node_modules/atom-package-deps/node_modules/atom-package-path/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/consistent-env/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-memoize/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/node_modules/sb-promisify/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/package.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/package.json",
         "node_modules/atom-package-deps/package.json",
         "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/package.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/api.json",
@@ -2006,11 +2052,13 @@
       },
       {
         "paths": [
-          "node_modules/atom-package-deps/lib",
-          "node_modules/atom-package-deps"
+          "node_modules/atom-package-deps",
+          "node_modules/atom-package-deps/decls",
+          "node_modules/atom-package-deps/lib"
         ],
         "dependencies": {
-          "atom-package-path": "^1.1.0"
+          "atom-package-path": "^1.1.0",
+          "sb-exec": "^2.0.5"
         }
       },
       {
@@ -2021,6 +2069,27 @@
         ],
         "dependencies": {
           "sb-callsite": "^1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps/node_modules/sb-exec",
+          "node_modules/atom-package-deps/node_modules/sb-exec/lib"
+        ],
+        "dependencies": {
+          "consistent-env": "^1.2.0",
+          "sb-npm-path": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path",
+          "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/lib",
+          "node_modules/atom-package-deps/node_modules/sb-exec/node_modules/sb-npm-path/spec"
+        ],
+        "dependencies": {
+          "sb-memoize": "^1.0.1",
+          "sb-promisify": "^1.2.0"
         }
       },
       {
