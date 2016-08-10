@@ -23,12 +23,8 @@ linter-spell
 linter-spell-latex
 linter-spell-html
 intentions
-markdown-preview-plus
-markdown-scroll-sync
-markdown-themeable-pdf
+markdown-preview-enhanced
 markdown-writer
-markdown-image-helper
-markdown-toc
 markdown-table-formatter
 minimap
 minimap-find-and-replace
@@ -50,7 +46,6 @@ sort-lines
 wordcount
 term3
 project-manager
-pdf-view
 dash
 Zen
 file-icons
@@ -61,3 +56,4 @@ Hydrogen
 git-time-machine
 open-no-binaries
 external-open
+atom-commander
