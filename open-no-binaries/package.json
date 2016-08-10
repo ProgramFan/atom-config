@@ -28,8 +28,8 @@
   "homepage": "https://github.com/mishak87/open-no-binaries#readme",
   "_id": "open-no-binaries@0.1.1",
   "_shasum": "ba1b52e6be5a2a8931451d592abd88a638ec5816",
-  "_resolved": "file:../d-11677-2467-7q6w26/package.tgz",
-  "_from": "../d-11677-2467-7q6w26/package.tgz",
+  "_resolved": "file:../d-116710-2401-1pasupg/package.tgz",
+  "_from": "../d-116710-2401-1pasupg/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -65,7 +65,7 @@
       },
       {
         "name": "isbinaryfile",
-        "version": "3.0.0",
+        "version": "3.0.1",
         "path": "node_modules/isbinaryfile/index.js"
       }
     ],
@@ -83,7 +83,6 @@
         "node_modules/fs-plus/node_modules/underscore-plus/lib/underscore-plus.js",
         "node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
         "node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/underscore.js",
-        "node_modules/isbinaryfile/Gruntfile.js",
         "node_modules/isbinaryfile/index.js"
       ],
       ".json": [

@@ -1,11 +1,13 @@
 _ = require 'lodash'
 child_process = require 'child_process'
+{launchSpec} = require 'spawnteract'
 fs = require 'fs'
 path = require 'path'
 
 Config = require './config'
-ConfigManager = require './config-manager'
-Kernel = require './kernel'
+WSKernel = require './ws-kernel'
+ZMQKernel = require './zmq-kernel'
+KernelPicker = require './kernel-picker'
 
 module.exports =
 class KernelManager
@@ -15,74 +17,123 @@ class KernelManager
 
 
     destroy: ->
-        _.forEach @_runningKernels, (kernel) => @destroyRunningKernel kernel
+        _.forEach @_runningKernels, (kernel) -> kernel.destroy()
+        @_runningKernels = {}
 
 
-    destroyRunningKernel: (kernel) ->
-        delete @_runningKernels[kernel.kernelSpec.language]
-        kernel.destroy()
+    setRunningKernelFor: (grammar, kernel) ->
+        language = @getLanguageFor grammar
+
+        kernel.kernelSpec.language = language
+
+        @_runningKernels[language] = kernel
+
+
+    destroyRunningKernelFor: (grammar) ->
+        language = @getLanguageFor grammar
+        kernel = @_runningKernels[language]
+        delete @_runningKernels[language]
+        kernel?.destroy()
+
+
+    restartRunningKernelFor: (grammar, onRestarted) ->
+        language = @getLanguageFor grammar
+        kernel = @_runningKernels[language]
+
+        if kernel instanceof WSKernel
+            kernel.restart().then -> onRestarted?(kernel)
+            return
+
+        if kernel instanceof ZMQKernel and kernel.kernelProcess
+            kernelSpec = kernel.kernelSpec
+            @destroyRunningKernelFor grammar
+            @startKernel kernelSpec, grammar, (kernel) -> onRestarted?(kernel)
+            return
+
+        console.log 'KernelManager: restartRunningKernelFor: ignored', kernel
+        atom.notifications.addWarning 'Cannot restart this kernel'
+        onRestarted?(kernel)
 
 
     startKernelFor: (grammar, onStarted) ->
-        if _.isEmpty @_kernelSpecs
-            @updateKernelSpecs =>
-                @_startKernelFor grammar, onStarted
-        else
-            @_startKernelFor grammar, onStarted
-
-
-    _startKernelFor: (grammar, onStarted) ->
-        language = @getLanguageFor grammar
-        kernelSpec = @getKernelSpecFor language
-
-        unless kernelSpec?
-            message = "No kernel for language `#{language}` found"
-            options =
-                detail: 'Check that the language for this file is set in Atom
-                         and that you have a Jupyter kernel installed for it.'
-            atom.notifications.addError message, options
+        try
+            rootDirectory = atom.project.rootDirectories[0].path or
+                path.dirname atom.workspace.getActiveTextEditor().getPath()
+            connectionFile = path.join(
+                rootDirectory, 'hydrogen', 'connection.json'
+            )
+            connectionString = fs.readFileSync connectionFile, 'utf8'
+            connection = JSON.parse connectionString
+            @startExistingKernel grammar, connection, connectionFile, onStarted
             return
 
-        console.log 'startKernelFor:', language
-        @startKernel kernelSpec, grammar, onStarted
+        catch e
+            unless e.code is 'ENOENT'
+                throw e
+
+        language = @getLanguageFor grammar
+        @getKernelSpecFor language, (kernelSpec) =>
+            unless kernelSpec?
+                message = "No kernel for language `#{language}` found"
+                detail = 'Check that the language for this file is set in Atom
+                         and that you have a Jupyter kernel installed for it.'
+                atom.notifications.addError message, detail: detail
+                return
+
+            @startKernel kernelSpec, grammar, onStarted
+
+
+    startExistingKernel: (grammar, connection, connectionFile, onStarted) ->
+        language = @getLanguageFor grammar
+
+        console.log 'KernelManager: startExistingKernel: Assuming', language
+
+        kernelSpec =
+            display_name: 'Existing Kernel'
+            language: language
+            argv: []
+            env: {}
+
+        kernel = new ZMQKernel kernelSpec, grammar, connection, connectionFile
+
+        @setRunningKernelFor grammar, kernel
+
+        @_executeStartupCode kernel
+
+        onStarted?(kernel)
 
 
     startKernel: (kernelSpec, grammar, onStarted) ->
         language = @getLanguageFor grammar
 
-        kernelSpec.language = language
+        console.log 'KernelManager: startKernelFor:', language
 
-        rootDirectory = atom.project.rootDirectories[0].path
-        connectionFile = path.join rootDirectory, 'hydrogen', 'connection.json'
-
-        finishKernelStartup = (kernel) =>
-            @_runningKernels[language] = kernel
-
-            startupCode = Config.getJson('startupCode')[kernelSpec.display_name]
-            if startupCode?
-                console.log 'executing startup code'
-                startupCode = startupCode + ' \n'
-                kernel.execute startupCode
-
-            onStarted?(kernel)
-
-        try
-            data = fs.readFileSync connectionFile, 'utf8'
-            config = JSON.parse data
-            console.log 'KernelManager: Using connection file: ', connectionFile
-            kernel = new Kernel(
-                kernelSpec, grammar, config, connectionFile, true
-            )
-            finishKernelStartup kernel
-
-        catch e
-            unless e.code is 'ENOENT'
-                throw e
-            ConfigManager.writeConfigFile (filepath, config) ->
-                kernel = new Kernel(
-                    kernelSpec, grammar, config, filepath, onlyConnect = false
+        projectPath = path.dirname(
+            atom.workspace.getActiveTextEditor().getPath()
+        )
+        spawnOptions =
+            cwd: projectPath
+        launchSpec(kernelSpec, spawnOptions).
+            then ({config, connectionFile, spawn}) =>
+                kernel = new ZMQKernel(
+                    kernelSpec, grammar,
+                    config, connectionFile,
+                    spawn
                 )
-                finishKernelStartup kernel
+                @setRunningKernelFor grammar, kernel
+
+                @_executeStartupCode kernel
+
+                onStarted?(kernel)
+
+
+    _executeStartupCode: (kernel) ->
+        displayName = kernel.kernelSpec.display_name
+        startupCode = Config.getJson('startupCode')[displayName]
+        if startupCode?
+            console.log 'KernelManager: Executing startup code:', startupCode
+            startupCode = startupCode + ' \n'
+            kernel.execute startupCode
 
 
     getAllRunningKernels: ->
@@ -97,32 +148,39 @@ class KernelManager
         return grammar?.name.toLowerCase()
 
 
-    getAllKernelSpecs: ->
-        return _.map @_kernelSpecs, 'spec'
+    getAllKernelSpecs: (callback) =>
+        if _.isEmpty @_kernelSpecs
+            @updateKernelSpecs =>
+                callback _.map @_kernelSpecs, 'spec'
+        else
+            callback _.map @_kernelSpecs, 'spec'
 
 
-    getAllKernelSpecsFor: (language) ->
-        unless language?
-            return []
+    getAllKernelSpecsFor: (language, callback) ->
+        if language?
+            @getAllKernelSpecs (kernelSpecs) =>
+                specs = kernelSpecs.filter (spec) =>
+                    @kernelSpecProvidesLanguage spec, language
 
-        kernelSpecs = @getAllKernelSpecs().filter (spec) =>
-            @kernelSpecProvidesLanguage spec, language
+                callback specs
+        else
+            callback []
 
-        return kernelSpecs
 
-
-    getKernelSpecFor: (language) ->
+    getKernelSpecFor: (language, callback) ->
         unless language?
             return null
 
-        kernelMapping = Config.getJson('kernelMappings')?[language]
-        if kernelMapping?
-            kernelSpecs = @getAllKernelSpecs().filter (spec) ->
-                return spec.display_name is kernelMapping
-        else
-            kernelSpecs = @getAllKernelSpecsFor language
-
-        return kernelSpecs[0]
+        @getAllKernelSpecsFor language, (kernelSpecs) =>
+            if kernelSpecs.length <= 1
+                callback kernelSpecs[0]
+            else
+                unless @kernelPicker?
+                    @kernelPicker = new KernelPicker (onUpdated) ->
+                        onUpdated kernelSpecs
+                    @kernelPicker.onConfirmed = ({kernelSpec}) ->
+                        callback kernelSpec
+                @kernelPicker.toggle()
 
 
     kernelSpecProvidesLanguage: (kernelSpec, language) ->
@@ -202,12 +260,3 @@ class KernelManager
                     console.log 'Could not parse kernelspecs:', err
 
             callback? err, kernelSpecs
-
-
-    setKernelMapping: (kernel, grammar) ->
-        language = @getLanguageFor grammar
-
-        mapping = {}
-        mapping[language] = kernel.display_name
-
-        Config.setJson 'kernelMappings', mapping, true

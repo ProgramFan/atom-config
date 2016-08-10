@@ -183,8 +183,8 @@
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-preview#readme",
   "_id": "asciidoc-preview@2.5.2",
   "_shasum": "dd678ae511299c1fd562c9d03f042a33b6c4fda0",
-  "_resolved": "file:../d-11677-1970-58e09t/package.tgz",
-  "_from": "../d-11677-1970-58e09t/package.tgz",
+  "_resolved": "file:../d-116710-1923-51gzo8/package.tgz",
+  "_from": "../d-116710-1923-51gzo8/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -855,7 +855,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.1",
+        "version": "4.14.2",
         "path": "node_modules/cheerio/node_modules/lodash/lodash.js"
       },
       {
@@ -2582,7 +2582,6 @@
         "node_modules/cheerio/node_modules/lodash/_Map.js",
         "node_modules/cheerio/node_modules/lodash/_MapCache.js",
         "node_modules/cheerio/node_modules/lodash/_Promise.js",
-        "node_modules/cheerio/node_modules/lodash/_Reflect.js",
         "node_modules/cheerio/node_modules/lodash/_Set.js",
         "node_modules/cheerio/node_modules/lodash/_SetCache.js",
         "node_modules/cheerio/node_modules/lodash/_Stack.js",
@@ -2599,6 +2598,7 @@
         "node_modules/cheerio/node_modules/lodash/_arrayFilter.js",
         "node_modules/cheerio/node_modules/lodash/_arrayIncludes.js",
         "node_modules/cheerio/node_modules/lodash/_arrayIncludesWith.js",
+        "node_modules/cheerio/node_modules/lodash/_arrayLikeKeys.js",
         "node_modules/cheerio/node_modules/lodash/_arrayMap.js",
         "node_modules/cheerio/node_modules/lodash/_arrayPush.js",
         "node_modules/cheerio/node_modules/lodash/_arrayReduce.js",
@@ -2763,7 +2763,6 @@
         "node_modules/cheerio/node_modules/lodash/_getData.js",
         "node_modules/cheerio/node_modules/lodash/_getFuncName.js",
         "node_modules/cheerio/node_modules/lodash/_getHolder.js",
-        "node_modules/cheerio/node_modules/lodash/_getLength.js",
         "node_modules/cheerio/node_modules/lodash/_getMapData.js",
         "node_modules/cheerio/node_modules/lodash/_getMatchData.js",
         "node_modules/cheerio/node_modules/lodash/_getNative.js",
@@ -2780,7 +2779,6 @@
         "node_modules/cheerio/node_modules/lodash/_hashGet.js",
         "node_modules/cheerio/node_modules/lodash/_hashHas.js",
         "node_modules/cheerio/node_modules/lodash/_hashSet.js",
-        "node_modules/cheerio/node_modules/lodash/_indexKeys.js",
         "node_modules/cheerio/node_modules/lodash/_initCloneArray.js",
         "node_modules/cheerio/node_modules/lodash/_initCloneByTag.js",
         "node_modules/cheerio/node_modules/lodash/_initCloneObject.js",
@@ -2816,6 +2814,8 @@
         "node_modules/cheerio/node_modules/lodash/_mergeDefaults.js",
         "node_modules/cheerio/node_modules/lodash/_metaMap.js",
         "node_modules/cheerio/node_modules/lodash/_nativeCreate.js",
+        "node_modules/cheerio/node_modules/lodash/_nativeKeys.js",
+        "node_modules/cheerio/node_modules/lodash/_nativeKeysIn.js",
         "node_modules/cheerio/node_modules/lodash/_nodeUtil.js",
         "node_modules/cheerio/node_modules/lodash/_overArg.js",
         "node_modules/cheerio/node_modules/lodash/_parent.js",
