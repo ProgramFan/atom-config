@@ -27,8 +27,8 @@
   "homepage": "https://github.com/AtomLinter/atom-minimap-linter#readme",
   "_id": "minimap-linter@1.1.1",
   "_shasum": "3eab7208a0872a287c545791bbedd0b0ca8a818f",
-  "_resolved": "file:../d-116710-7219-1o1ag4s/package.tgz",
-  "_from": "../d-116710-7219-1o1ag4s/package.tgz",
+  "_resolved": "file:../d-116720-7212-bjt10n/package.tgz",
+  "_from": "../d-116720-7212-bjt10n/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

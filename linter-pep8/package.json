@@ -39,8 +39,8 @@
   "homepage": "https://github.com/AtomLinter/linter-pep8#readme",
   "_id": "linter-pep8@1.3.0",
   "_shasum": "faa2d5e379b7423283e7608688419560c1fc0b00",
-  "_resolved": "file:../d-116710-6743-o5d8u6/package.tgz",
-  "_from": "../d-116710-6743-o5d8u6/package.tgz",
+  "_resolved": "file:../d-116720-6737-17u8uyb/package.tgz",
+  "_from": "../d-116720-6737-17u8uyb/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -96,7 +96,7 @@
       },
       {
         "name": "atom-package-deps",
-        "version": "4.1.0",
+        "version": "4.2.0",
         "path": "node_modules/atom-package-deps/lib/index.js"
       },
       {
@@ -163,6 +163,7 @@
         "node_modules/atom-package-deps/decls/package-deps.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/types.js",
         "node_modules/atom-package-deps/lib/view.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",

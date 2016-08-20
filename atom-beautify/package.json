@@ -275,8 +275,8 @@
   "homepage": "https://github.com/Glavin001/atom-beautify#readme",
   "_id": "atom-beautify@0.29.10",
   "_shasum": "acaf3c4761b37404c100fd7fa2216167d1475821",
-  "_resolved": "file:../d-116710-7467-w9k2gp/package.tgz",
-  "_from": "../d-116710-7467-w9k2gp/package.tgz",
+  "_resolved": "file:../d-116720-7460-1xvnmrh/package.tgz",
+  "_from": "../d-116720-7460-1xvnmrh/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -477,7 +477,7 @@
       },
       {
         "name": "github",
-        "version": "2.4.1",
+        "version": "2.5.1",
         "path": "node_modules/github/lib/index.js"
       },
       {
@@ -567,7 +567,7 @@
       },
       {
         "name": "uglify-js",
-        "version": "2.7.0",
+        "version": "2.7.3",
         "path": "node_modules/handlebars/node_modules/uglify-js/tools/node.js"
       },
       {
@@ -802,7 +802,7 @@
       },
       {
         "name": "babylon",
-        "version": "6.8.4",
+        "version": "6.9.0",
         "path": "node_modules/jscs/node_modules/cst/node_modules/babylon/lib/index.js"
       },
       {
@@ -967,7 +967,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.1.4",
+        "version": "2.1.5",
         "path": "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/readable.js"
       },
       {
@@ -1337,7 +1337,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.2",
+        "version": "4.15.0",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -1357,7 +1357,7 @@
       },
       {
         "name": "marko",
-        "version": "3.9.2",
+        "version": "3.9.4",
         "path": "node_modules/marko-prettyprint/node_modules/marko/runtime/marko-runtime.js"
       },
       {
@@ -1461,6 +1461,11 @@
         "path": "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/q/q.js"
       },
       {
+        "name": "raptor-util",
+        "version": "1.1.1",
+        "path": "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/raptor-util.js"
+      },
+      {
         "name": "raptor-regexp",
         "version": "1.0.1",
         "path": "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-regexp/lib/raptor-regexp.js"
@@ -1481,13 +1486,18 @@
         "path": "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-pubsub/lib/index.js"
       },
       {
+        "name": "raptor-util",
+        "version": "1.1.1",
+        "path": "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/raptor-util.js"
+      },
+      {
         "name": "raptor-strings",
         "version": "1.0.2",
         "path": "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-strings/lib/raptor-strings.js"
       },
       {
         "name": "raptor-util",
-        "version": "1.1.0",
+        "version": "2.0.0",
         "path": "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-util/raptor-util.js"
       },
       {
@@ -1522,7 +1532,7 @@
       },
       {
         "name": "node-dir",
-        "version": "0.1.15",
+        "version": "0.1.16",
         "path": "node_modules/node-dir/index.js"
       },
       {
@@ -1837,12 +1847,12 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.6",
         "path": "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/graceful-fs.js"
       },
       {
         "name": "readable-stream",
-        "version": "2.1.4",
+        "version": "2.1.5",
         "path": "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/readable.js"
       },
       {
@@ -2267,7 +2277,7 @@
       },
       {
         "name": "attach-ware",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "path": "node_modules/remark/node_modules/unified/node_modules/attach-ware/index.js"
       },
       {
@@ -2277,18 +2287,18 @@
       },
       {
         "name": "unherit",
-        "version": "1.0.4",
+        "version": "1.1.0",
         "path": "node_modules/remark/node_modules/unified/node_modules/unherit/index.js"
-      },
-      {
-        "name": "clone",
-        "version": "1.0.2",
-        "path": "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/clone/clone.js"
       },
       {
         "name": "inherits",
         "version": "2.0.1",
         "path": "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "xtend",
+        "version": "4.0.1",
+        "path": "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/xtend/immutable.js"
       },
       {
         "name": "unist-util-remove-position",
@@ -2352,7 +2362,7 @@
       },
       {
         "name": "string-width",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "path": "node_modules/remark/node_modules/vfile-reporter/node_modules/string-width/index.js"
       },
       {
@@ -2597,7 +2607,7 @@
       },
       {
         "name": "parse5",
-        "version": "2.1.5",
+        "version": "2.2.0",
         "path": "node_modules/tidy-markdown/node_modules/parse5/lib/index.js"
       },
       {
@@ -3426,6 +3436,7 @@
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-logging/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-polyfill/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/q/package.json",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/optimizer.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/util/package.json",
@@ -3433,6 +3444,7 @@
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-regexp/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-dom/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-pubsub/package.json",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-strings/StringBuilder/package.json",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-strings/package.json",
@@ -3627,8 +3639,8 @@
         "node_modules/remark/node_modules/trim-trailing-lines/package.json",
         "node_modules/remark/node_modules/unified/node_modules/attach-ware/package.json",
         "node_modules/remark/node_modules/unified/node_modules/bail/package.json",
-        "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/clone/package.json",
         "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/package.json",
+        "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/xtend/package.json",
         "node_modules/remark/node_modules/unified/node_modules/unherit/package.json",
         "node_modules/remark/node_modules/unified/package.json",
         "node_modules/remark/node_modules/unist-util-remove-position/node_modules/unist-util-visit/package.json",
@@ -7104,6 +7116,7 @@
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/lib/_stream_readable.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/lib/internal/streams/BufferList.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/buffer-shims/index.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
         "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/node_modules/core-util-is/test.js",
@@ -7824,6 +7837,9 @@
         "node_modules/lodash/_arrayReduce.js",
         "node_modules/lodash/_arrayReduceRight.js",
         "node_modules/lodash/_arraySome.js",
+        "node_modules/lodash/_asciiSize.js",
+        "node_modules/lodash/_asciiToArray.js",
+        "node_modules/lodash/_asciiWords.js",
         "node_modules/lodash/_assignInDefaults.js",
         "node_modules/lodash/_assignMergeValue.js",
         "node_modules/lodash/_assignValue.js",
@@ -7994,6 +8010,8 @@
         "node_modules/lodash/_getView.js",
         "node_modules/lodash/_getWrapDetails.js",
         "node_modules/lodash/_hasPath.js",
+        "node_modules/lodash/_hasUnicode.js",
+        "node_modules/lodash/_hasUnicodeWord.js",
         "node_modules/lodash/_hashClear.js",
         "node_modules/lodash/_hashDelete.js",
         "node_modules/lodash/_hashGet.js",
@@ -8041,7 +8059,6 @@
         "node_modules/lodash/_parent.js",
         "node_modules/lodash/_reEscape.js",
         "node_modules/lodash/_reEvaluate.js",
-        "node_modules/lodash/_reHasComplexSymbol.js",
         "node_modules/lodash/_reInterpolate.js",
         "node_modules/lodash/_realNames.js",
         "node_modules/lodash/_reorder.js",
@@ -8064,6 +8081,9 @@
         "node_modules/lodash/_toKey.js",
         "node_modules/lodash/_toSource.js",
         "node_modules/lodash/_unescapeHtmlChar.js",
+        "node_modules/lodash/_unicodeSize.js",
+        "node_modules/lodash/_unicodeToArray.js",
+        "node_modules/lodash/_unicodeWords.js",
         "node_modules/lodash/_updateWrapDetails.js",
         "node_modules/lodash/_wrapperClone.js",
         "node_modules/lodash/add.js",
@@ -8998,6 +9018,23 @@
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/lib/raptor-promises.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/q/q.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/q/queue.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/SubscriptionTracker.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/_inherit.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/arrayFromArguments.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/attr.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/attrs.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/createError.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/escapeXml.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/extend.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/forEach.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/forEachEntry.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/inherit.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/isObjectEmpty.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/makeClass.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/makeEnum.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/raptor-util.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/toArray.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/node_modules/raptor-util/tryRequire.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-promises/util/lib/raptor-promises-util.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-regexp/lib/raptor-regexp.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/lib/RenderResult-browser.js",
@@ -9008,6 +9045,23 @@
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-dom/ready.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-pubsub/lib/index.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-pubsub/lib/raptor-pubsub.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/SubscriptionTracker.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/_inherit.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/arrayFromArguments.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/attr.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/attrs.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/createError.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/escapeXml.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/extend.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/forEach.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/forEachEntry.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/inherit.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/isObjectEmpty.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/makeClass.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/makeEnum.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/raptor-util.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/toArray.js",
+        "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-renderer/node_modules/raptor-util/tryRequire.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-strings/lib/StringBuilder.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-strings/lib/raptor-strings.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/raptor-util/SubscriptionTracker.js",
@@ -9030,6 +9084,7 @@
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/resolve-from/index.js",
         "node_modules/marko-prettyprint/node_modules/marko/node_modules/try-require/index.js",
         "node_modules/marko-prettyprint/node_modules/marko/runtime/deprecateHyphens.js",
+        "node_modules/marko-prettyprint/node_modules/marko/runtime/forEachPropStatusVar.js",
         "node_modules/marko-prettyprint/node_modules/marko/runtime/helpers.js",
         "node_modules/marko-prettyprint/node_modules/marko/runtime/loader.js",
         "node_modules/marko-prettyprint/node_modules/marko/runtime/loader_browser.js",
@@ -9222,6 +9277,7 @@
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_readable.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/internal/streams/BufferList.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
         "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/test.js",
@@ -9354,11 +9410,12 @@
         "node_modules/remark/node_modules/unified/node_modules/attach-ware/index.js",
         "node_modules/remark/node_modules/unified/node_modules/bail/index.js",
         "node_modules/remark/node_modules/unified/node_modules/unherit/index.js",
-        "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/clone/clone.js",
-        "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/clone/test.js",
         "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits.js",
         "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/inherits_browser.js",
         "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/inherits/test.js",
+        "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/xtend/immutable.js",
+        "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/xtend/mutable.js",
+        "node_modules/remark/node_modules/unified/node_modules/unherit/node_modules/xtend/test.js",
         "node_modules/remark/node_modules/unist-util-remove-position/index.js",
         "node_modules/remark/node_modules/unist-util-remove-position/node_modules/unist-util-visit/index.js",
         "node_modules/remark/node_modules/user-home/index.js",
@@ -12346,7 +12403,8 @@
       {
         "paths": [
           "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream",
-          "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/lib"
+          "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/lib",
+          "node_modules/jscs/node_modules/jscs-jsdoc/node_modules/comment-parser/node_modules/readable-stream/lib/internal/streams"
         ],
         "dependencies": {
           "buffer-shims": "^1.0.0",
@@ -12667,7 +12725,7 @@
           "raptor-regexp": "^1.0.0",
           "raptor-renderer": "^1.4.4",
           "raptor-strings": "^1.0.0",
-          "raptor-util": "^1.0.0",
+          "raptor-util": "^2.0.0",
           "resolve-from": "^1.0.0",
           "strip-json-comments": "^2.0.1",
           "try-require": "^1.2.1"
@@ -13135,7 +13193,8 @@
       {
         "paths": [
           "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream",
-          "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib"
+          "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib",
+          "node_modules/remark/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/internal/streams"
         ],
         "dependencies": {
           "buffer-shims": "^1.0.0",
@@ -13427,8 +13486,8 @@
           "node_modules/remark/node_modules/unified/node_modules/unherit"
         ],
         "dependencies": {
-          "clone": "^1.0.1",
-          "inherits": "^2.0.1"
+          "inherits": "^2.0.1",
+          "xtend": "^4.0.1"
         }
       },
       {

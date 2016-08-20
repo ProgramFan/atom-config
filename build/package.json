@@ -73,14 +73,14 @@
   "homepage": "https://github.com/noseglid/atom-build#readme",
   "_id": "build@0.65.0",
   "_shasum": "7cfe0d95d32fc6877a5cf63947875f8e169d4b4f",
-  "_resolved": "file:../d-116710-7339-1ejoeem/package.tgz",
-  "_from": "../d-116710-7339-1ejoeem/package.tgz",
+  "_resolved": "file:../d-116720-7333-ksp7z7/package.tgz",
+  "_from": "../d-116720-7333-ksp7z7/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "atom-package-deps",
-        "version": "4.1.0",
+        "version": "4.2.0",
         "path": "node_modules/atom-package-deps/lib/index.js"
       },
       {
@@ -324,6 +324,7 @@
         "node_modules/atom-package-deps/decls/package-deps.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/types.js",
         "node_modules/atom-package-deps/lib/view.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",

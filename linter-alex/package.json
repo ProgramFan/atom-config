@@ -90,8 +90,8 @@
   "homepage": "https://github.com/wooorm/atom-linter-alex#readme",
   "_id": "linter-alex@3.2.0",
   "_shasum": "a858253e0107ba3be7b085c81bfbc45d3b0b5bf5",
-  "_resolved": "file:../d-116710-6683-hhmq5x/package.tgz",
-  "_from": "../d-116710-6683-hhmq5x/package.tgz",
+  "_resolved": "file:../d-116720-6676-12gk1pm/package.tgz",
+  "_from": "../d-116720-6676-12gk1pm/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -337,7 +337,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.6",
         "path": "node_modules/alex/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -387,7 +387,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.6",
         "path": "node_modules/alex/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/path-type/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -552,18 +552,18 @@
       },
       {
         "name": "unherit",
-        "version": "1.0.4",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/remark-parse/node_modules/unherit/index.js"
-      },
-      {
-        "name": "clone",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/clone/clone.js"
       },
       {
         "name": "inherits",
         "version": "2.0.1",
         "path": "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "xtend",
+        "version": "4.0.1",
+        "path": "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/xtend/immutable.js"
       },
       {
         "name": "unist-util-remove-position",
@@ -667,18 +667,18 @@
       },
       {
         "name": "unherit",
-        "version": "1.0.4",
+        "version": "1.1.0",
         "path": "node_modules/alex/node_modules/retext-english/node_modules/unherit/index.js"
-      },
-      {
-        "name": "clone",
-        "version": "1.0.2",
-        "path": "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/clone.js"
       },
       {
         "name": "inherits",
         "version": "2.0.1",
         "path": "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "xtend",
+        "version": "4.0.1",
+        "path": "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/xtend/immutable.js"
       },
       {
         "name": "retext-equality",
@@ -1217,8 +1217,8 @@
       },
       {
         "name": "cuss",
-        "version": "1.2.0",
-        "path": "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/index.js"
+        "version": "1.2.1",
+        "path": "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/index.json"
       },
       {
         "name": "nlcst-search",
@@ -1357,7 +1357,7 @@
       },
       {
         "name": "string-width",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/boxen/node_modules/string-width/index.js"
       },
       {
@@ -1452,7 +1452,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.6",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -1492,7 +1492,7 @@
       },
       {
         "name": "write-file-atomic",
-        "version": "1.1.4",
+        "version": "1.2.0",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic/index.js"
       },
       {
@@ -1607,7 +1607,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.1.4",
+        "version": "2.1.5",
         "path": "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/readable.js"
       },
       {
@@ -1807,7 +1807,7 @@
       },
       {
         "name": "string-width",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "path": "node_modules/alex/node_modules/vfile-reporter/node_modules/string-width/index.js"
       },
       {
@@ -1852,7 +1852,7 @@
       },
       {
         "name": "atom-package-deps",
-        "version": "4.1.0",
+        "version": "4.2.0",
         "path": "node_modules/atom-package-deps/lib/index.js"
       },
       {
@@ -2019,8 +2019,8 @@
         "node_modules/alex/node_modules/remark-parse/node_modules/trim/component.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/trim/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/trim-trailing-lines/package.json",
-        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/clone/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/package.json",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/xtend/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/unherit/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/node_modules/unist-util-visit/package.json",
         "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/package.json",
@@ -2044,8 +2044,8 @@
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-visit-children/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/package.json",
-        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/package.json",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/xtend/package.json",
         "node_modules/alex/node_modules/retext-english/node_modules/unherit/package.json",
         "node_modules/alex/node_modules/retext-english/package.json",
         "node_modules/alex/node_modules/retext-equality/lib/patterns.json",
@@ -2158,7 +2158,7 @@
         "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/filter-array/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/index-of/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/package.json",
-        "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/data/index.json",
+        "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/index.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/node_modules/nlcst-to-string/package.json",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/package.json",
@@ -2219,8 +2219,6 @@
         "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/osenv/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/uuid/benchmark/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/uuid/package.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic/.nyc_output/47248.json",
-        "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic/.nyc_output/47250.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic/node_modules/imurmurhash/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic/node_modules/slide/package.json",
         "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic/package.json",
@@ -2439,11 +2437,12 @@
         "node_modules/alex/node_modules/remark-parse/node_modules/trim/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/trim-trailing-lines/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/unherit/index.js",
-        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/clone/clone.js",
-        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/clone/test.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/inherits.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/inherits_browser.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/inherits/test.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/xtend/immutable.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/xtend/mutable.js",
+        "node_modules/alex/node_modules/remark-parse/node_modules/unherit/node_modules/xtend/test.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/unist-util-remove-position/node_modules/unist-util-visit/index.js",
         "node_modules/alex/node_modules/remark-parse/node_modules/vfile-location/index.js",
@@ -2488,11 +2487,12 @@
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-modify-children/node_modules/array-iterate/node_modules/has/src/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/parse-english/node_modules/unist-util-visit-children/index.js",
         "node_modules/alex/node_modules/retext-english/node_modules/unherit/index.js",
-        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/clone.js",
-        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/clone/test.js",
         "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/inherits.js",
         "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/inherits_browser.js",
         "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/inherits/test.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/xtend/immutable.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/xtend/mutable.js",
+        "node_modules/alex/node_modules/retext-english/node_modules/unherit/node_modules/xtend/test.js",
         "node_modules/alex/node_modules/retext-equality/index.js",
         "node_modules/alex/node_modules/retext-equality/lib/equality.js",
         "node_modules/alex/node_modules/retext-equality/node_modules/array-differ/index.js",
@@ -2618,7 +2618,6 @@
         "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/node_modules/regex-cache/node_modules/is-equal-shallow/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/filter-array/node_modules/micromatch/node_modules/regex-cache/node_modules/is-primitive/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/array-intersection/node_modules/index-of/index.js",
-        "node_modules/alex/node_modules/retext-profanities/node_modules/cuss/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/index.js",
         "node_modules/alex/node_modules/retext-profanities/node_modules/nlcst-search/node_modules/nlcst-is-literal/node_modules/nlcst-to-string/index.js",
@@ -2725,6 +2724,7 @@
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/lib/_stream_readable.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/lib/internal/streams/BufferList.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/node_modules/buffer-shims/index.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
         "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/node_modules/core-util-is/test.js",
@@ -2797,6 +2797,7 @@
         "node_modules/atom-package-deps/decls/package-deps.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/types.js",
         "node_modules/atom-package-deps/lib/view.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",
@@ -3218,8 +3219,8 @@
           "node_modules/alex/node_modules/remark-parse/node_modules/unherit"
         ],
         "dependencies": {
-          "clone": "^1.0.1",
-          "inherits": "^2.0.1"
+          "inherits": "^2.0.1",
+          "xtend": "^4.0.1"
         }
       },
       {
@@ -3330,8 +3331,8 @@
           "node_modules/alex/node_modules/retext-english/node_modules/unherit"
         ],
         "dependencies": {
-          "clone": "^1.0.1",
-          "inherits": "^2.0.1"
+          "inherits": "^2.0.1",
+          "xtend": "^4.0.1"
         }
       },
       {
@@ -4124,9 +4125,7 @@
       },
       {
         "paths": [
-          "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic/.nyc_output",
-          "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic",
-          "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic/test"
+          "node_modules/alex/node_modules/update-notifier/node_modules/configstore/node_modules/write-file-atomic"
         ],
         "dependencies": {
           "graceful-fs": "^4.1.2",
@@ -4229,7 +4228,8 @@
       {
         "paths": [
           "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream",
-          "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/lib"
+          "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/lib",
+          "node_modules/alex/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/readable-stream/lib/internal/streams"
         ],
         "dependencies": {
           "buffer-shims": "^1.0.0",

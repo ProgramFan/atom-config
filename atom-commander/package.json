@@ -57,8 +57,8 @@
   "homepage": "https://github.com/morassman/atom-commander#readme",
   "_id": "atom-commander@0.7.0",
   "_shasum": "1cf1b0d7e4e437ba7d4bcdafcd309f94561621c4",
-  "_resolved": "file:../d-116710-8141-269pjs/package.tgz",
-  "_from": "../d-116710-8141-269pjs/package.tgz",
+  "_resolved": "file:../d-116720-8134-11u3ujv/package.tgz",
+  "_from": "../d-116720-8134-11u3ujv/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -179,7 +179,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.6",
         "path": "node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js"
       },
       {
