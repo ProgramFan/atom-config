@@ -1,3 +1,12 @@
+#### 1.1.2
+
+- Handle double activations gracefully (Fixes #26)
+- Add specs for fixes in current and last release
+
+#### 1.1.1
+
+- Fix movement with navigation keys
+
 #### 1.1.0
 
 - Do not overwrite to `.class` on list intentions

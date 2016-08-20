@@ -52,8 +52,8 @@
   "homepage": "https://github.com/imdone/imdone-atom#readme",
   "_id": "imdone-atom@1.3.29",
   "_shasum": "b76aebf2c1ac8c5b33cafe8fa16166a1bb961f5c",
-  "_resolved": "file:../d-116710-2256-1g19pvm/package.tgz",
-  "_from": "../d-116710-2256-1g19pvm/package.tgz",
+  "_resolved": "file:../d-116720-2547-d1xeh4/package.tgz",
+  "_from": "../d-116720-2547-d1xeh4/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -644,7 +644,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.6",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -669,7 +669,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.1.4",
+        "version": "2.1.5",
         "path": "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/readable.js"
       },
       {
@@ -769,7 +769,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.2",
+        "version": "4.15.0",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -1591,6 +1591,7 @@
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_readable.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/internal/streams/BufferList.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
         "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/test.js",
@@ -1663,6 +1664,9 @@
         "node_modules/lodash/_arrayReduce.js",
         "node_modules/lodash/_arrayReduceRight.js",
         "node_modules/lodash/_arraySome.js",
+        "node_modules/lodash/_asciiSize.js",
+        "node_modules/lodash/_asciiToArray.js",
+        "node_modules/lodash/_asciiWords.js",
         "node_modules/lodash/_assignInDefaults.js",
         "node_modules/lodash/_assignMergeValue.js",
         "node_modules/lodash/_assignValue.js",
@@ -1833,6 +1837,8 @@
         "node_modules/lodash/_getView.js",
         "node_modules/lodash/_getWrapDetails.js",
         "node_modules/lodash/_hasPath.js",
+        "node_modules/lodash/_hasUnicode.js",
+        "node_modules/lodash/_hasUnicodeWord.js",
         "node_modules/lodash/_hashClear.js",
         "node_modules/lodash/_hashDelete.js",
         "node_modules/lodash/_hashGet.js",
@@ -1880,7 +1886,6 @@
         "node_modules/lodash/_parent.js",
         "node_modules/lodash/_reEscape.js",
         "node_modules/lodash/_reEvaluate.js",
-        "node_modules/lodash/_reHasComplexSymbol.js",
         "node_modules/lodash/_reInterpolate.js",
         "node_modules/lodash/_realNames.js",
         "node_modules/lodash/_reorder.js",
@@ -1903,6 +1908,9 @@
         "node_modules/lodash/_toKey.js",
         "node_modules/lodash/_toSource.js",
         "node_modules/lodash/_unescapeHtmlChar.js",
+        "node_modules/lodash/_unicodeSize.js",
+        "node_modules/lodash/_unicodeToArray.js",
+        "node_modules/lodash/_unicodeWords.js",
         "node_modules/lodash/_updateWrapDetails.js",
         "node_modules/lodash/_wrapperClone.js",
         "node_modules/lodash/add.js",
@@ -3960,7 +3968,8 @@
       {
         "paths": [
           "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream",
-          "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib"
+          "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib",
+          "node_modules/imdone-core/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/internal/streams"
         ],
         "dependencies": {
           "buffer-shims": "^1.0.0",

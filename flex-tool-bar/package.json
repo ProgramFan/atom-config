@@ -46,14 +46,14 @@
   "homepage": "https://github.com/cakecatz/flex-toolbar#readme",
   "_id": "flex-tool-bar@0.10.3",
   "_shasum": "feb897cb96380a17f59a63bf2c086dc7ee27d22f",
-  "_resolved": "file:../d-116710-2033-16edo3r/package.tgz",
-  "_from": "../d-116710-2033-16edo3r/package.tgz",
+  "_resolved": "file:../d-116720-2323-yy1p46/package.tgz",
+  "_from": "../d-116720-2323-yy1p46/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "atom-package-deps",
-        "version": "4.1.0",
+        "version": "4.2.0",
         "path": "node_modules/atom-package-deps/lib/index.js"
       },
       {
@@ -313,7 +313,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.6",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -338,7 +338,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.1.4",
+        "version": "2.1.5",
         "path": "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/readable.js"
       },
       {
@@ -433,7 +433,7 @@
       },
       {
         "name": "graceful-fs",
-        "version": "4.1.5",
+        "version": "4.1.6",
         "path": "node_modules/cson/node_modules/safefs/node_modules/graceful-fs/graceful-fs.js"
       },
       {
@@ -819,6 +819,7 @@
         "node_modules/atom-package-deps/decls/package-deps.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/types.js",
         "node_modules/atom-package-deps/lib/view.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",
@@ -904,6 +905,7 @@
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_readable.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/internal/streams/BufferList.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/buffer-shims/index.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
         "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/core-util-is/test.js",
@@ -1866,7 +1868,8 @@
       {
         "paths": [
           "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream",
-          "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib"
+          "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib",
+          "node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/lib/internal/streams"
         ],
         "dependencies": {
           "buffer-shims": "^1.0.0",

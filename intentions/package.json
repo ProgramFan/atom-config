@@ -1,7 +1,7 @@
 {
   "name": "intentions",
   "main": "./lib/index.js",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Base package for showing intentions in Atom",
   "keywords": [],
   "repository": {
@@ -43,10 +43,10 @@
     "url": "https://github.com/steelbrain/intentions/issues"
   },
   "homepage": "https://github.com/steelbrain/intentions#readme",
-  "_id": "intentions@1.1.0",
-  "_shasum": "c20d42e8c257c8c6e906402beace745e58f60431",
-  "_resolved": "file:../d-116710-1799-17zto54/package.tgz",
-  "_from": "../d-116710-1799-17zto54/package.tgz",
+  "_id": "intentions@1.1.2",
+  "_shasum": "ff78e073a6bf1069e184a4cc79e8306af30a1962",
+  "_resolved": "file:../d-116720-2090-ez8qyb/package.tgz",
+  "_from": "../d-116720-2090-ez8qyb/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

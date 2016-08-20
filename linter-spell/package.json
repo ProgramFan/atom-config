@@ -1,7 +1,7 @@
 {
   "name": "linter-spell",
   "main": "./lib/main",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "Multilingual grammar-specific spell checking using Ispell-interface such as Aspell or Hunspell.",
   "author": {
     "name": "Tarn Burton",
@@ -62,6 +62,13 @@
       "type": "string",
       "default": "",
       "order": 3
+    },
+    "checkForSpellCheck": {
+      "title": "Check for spell-check package",
+      "description": "Check for an active spell-check package and warn user about incompatibility.",
+      "type": "boolean",
+      "default": true,
+      "order": 4
     }
   },
   "standard": {
@@ -119,10 +126,10 @@
   "readme": "# linter-spell\n\n[![Travis&#x2011;CI Build Status](http://img.shields.io/travis/yitzchak/linter-spell/master.svg?label=Linux/OSX%20build)](http://travis-ci.org/yitzchak/linter-spell) [![AppVeyor Build Status](http://img.shields.io/appveyor/ci/yitzchak/linter-spell/master.svg?label=Windows%20build)](http://ci.appveyor.com/project/yitzchak/linter-spell) [![David](http://img.shields.io/david/yitzchak/linter-spell.svg)](http://david-dm.org/yitzchak/linter-spell)\n\nMultilingual grammar-specific spell checking for [Atom](http://atom.io) and\n[linter](http://atom.io/packages/linter) using Ispell compatible interface such\nas [GNU Aspell](http://aspell.net/) or [Hunspell](http://hunspell.github.io/).\n\n## Installing\n\nUse the Atom package manager and search for \"linter-spell\", or from a shell run\n\n```bash\napm install linter-spell\n```\n\n## Prerequisites\n\nThis package relies on a Ispell compatible package such as\n[GNU Aspell](http://aspell.net/) or [Hunspell](http://hunspell.github.io/).\n\n## Usage\n\nSpell checking is done upon document save with misspellings displayed by\n[linter](http://atom.io/packages/linter). Misspellings can be\ncorrected or added to personal dictionary using the\n[intentions](http://atom.io/packages/intentions) package via\n<kbd>ctrl</kbd>+<kbd>enter</kbd> on OSX and <kbd>alt</kbd>+<kbd>enter</kbd> on Linux and Windows.\n\nManual language selection can be done by clicking on the status bar language\nindicator or by using the default keybinding <kbd>alt</kbd>+<kbd>y</kbd> on Linux or\n<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>y</kbd> on other platforms.\n\n## Providers\n\nSpell checking plain text, Markdown, or AsciiDoc documents is included in the\npackage. To spell check other document types use a `linter-spell-grammar`\nprovider:\n\n| Grammar                  | Spell Package                                                                               | Grammar Package                                                                                                                              | File Specific Language              |\n|--------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|\n| AsciiDoc                 | Included in linter&#x2011;spell                                                             | [language&#x2011;asciidoc](http://atom.io/packages/language-asciidoc)                                                                        | `:lang:` attribute                  |\n| Git Commit Message       | Included in linter&#x2011;spell                                                             | [language&#x2011;git](http://atom.io/packages/language-git)                                                                                  | None                                |\n| GitHub flavored Markdown | Included in linter&#x2011;spell                                                             | [language&#x2011;gfm](http://atom.io/packages/language-gfm)                                                                                  | None                                |\n| HTML                     | [linter&#x2011;spell&#x2011;html](http://atom.io/packages/linter-spell-html)                | [language&#x2011;html](http://atom.io/packages/language-html)                                                                                | `lang` attribute                    |\n| Javascript               | [linter&#x2011;spell&#x2011;javascript](http://atom.io/packages/linter-spell-javascript)    | [language&#x2011;javascript](http://atom.io/packages/language-javascript) or [language&#x2011;babel](http://atom.io/packages/language-babel) | None                                |\n| LaTeX, TeX &amp; BibTeX  | [linter&#x2011;spell&#x2011;latex](http://atom.io/packages/linter-spell-latex)              | [language&#x2011;tex](http://atom.io/packages/language-tex) (preferred) or [language&#x2011;latex](http://atom.io/packages/language-latex)   | `%!TeX spellcheck` magic comment    |\n| LaTeX                    | [linter&#x2011;spell&#x2011;latexsimple](https://atom.io/packages/linter-spell-latexsimple) | [language&#x2011;latexsimple](https://atom.io/packages/language-latexsimple)                                                                 | None                                |\n| Markdown                 | Included in linter&#x2011;spell                                                             | [language&#x2011;markdown](http://atom.io/packages/language-markdown)                                                                        | None                                |\n| Plain Text               | Included in linter&#x2011;spell                                                             | [language&#x2011;text](http://atom.io/packages/language-text)                                                                                | None                                |\n| Ruby                     | [linter&#x2011;spell&#x2011;ruby](http://atom.io/packages/linter-spell-ruby)                | [language&#x2011;ruby](http://atom.io/packages/language-ruby)                                                                                | None                                |\n\n## Creating New Providers\n\nNew grammars can be added by implementing a `linter-spell-grammar` provider.\nThis can be done by adding the following to `package.json`\n\n```json\n\"providedServices\": {\n  \"linter-spell-grammar\": {\n    \"versions\": {\n      \"1.0.0\": \"provideGrammar\"\n    }\n  }\n}\n```\n\nThe provided service should be as follows\n\n```javascript\nprovideGrammar () {\n  return [{\n    grammarScopes: ['source.gfm'],\n    findLanguageTags: textEditor => { return ['en-US'] },\n    checkedScopes: {\n      'source.gfm': true,\n      'markup.code.c.gfm': false,\n      'markup.underline.link.gfm': () => atom.config.get('linter-spell.checkLinks')\n    },\n    filterRanges: (textEditor, ranges) => {\n      return {\n        ranges: ranges,\n        ignoredRanges: []\n      }\n    }\n  }]\n}\n```\n\nMultiple grammars can be provided by returning an array. `grammarScopes` is\nrequired, but all other properties and methods are optional.\n\nThe `findLanguageTags` method should scan `textEditor` for a file specific\noverride of the user's default language and return [RFC\n5646](http://www.rfc-editor.org/rfc/rfc5646.txt) compliant language codes or `[]`\nif no language references were found. See\n[linter&#x2011;spell&#x2011;latex](http://atom.io/packages/linter-spell-latex)\nfor an implementation using TeX magic comments.\n\nThe `checkedScopes` list the grammar scopes that either checked or ignored. To\nexplicitly check a scope use a value of `true`, while `false` will ignore that\nscope. To allow dynamic determination of scope spell checking a function may\nalso be supplied. The function should take no arguments and return a truthy\nvalue. If this property is not provided then all scopes in `grammarScopes` will\nbe checked. When it is provided all scopes default to ignored unless specified\nwith a `true` value.\n\nThe `filterRanges` method should check the `ranges` parameter for sub-ranges\nwithin each ranges which are valid to spell check. It should return a list\nof modified ranges in `ranges` and can also return `ignoredRanges` for\nranges that should not be checked. The interval difference between `ranges`\nand `ignoredRanges` will actually be checked.\n\n## Status\n\nPlease note that this package is in a **beta** state.\n",
   "readmeFilename": "README.md",
   "homepage": "https://github.com/yitzchak/linter-spell#readme",
-  "_id": "linter-spell@0.10.1",
-  "_shasum": "30f9dd14f3f3a084e8ab2124dddd031606685149",
-  "_resolved": "file:../d-116710-1763-qz3ga6/package.tgz",
-  "_from": "../d-116710-1763-qz3ga6/package.tgz",
+  "_id": "linter-spell@0.11.0",
+  "_shasum": "a246cb1d9032f4e803e6e0efd36c73f1ad73022b",
+  "_resolved": "file:../d-116720-2054-th3qat/package.tgz",
+  "_from": "../d-116720-2054-th3qat/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -173,7 +180,7 @@
       },
       {
         "name": "atom-package-deps",
-        "version": "4.1.0",
+        "version": "4.2.0",
         "path": "node_modules/atom-package-deps/lib/index.js"
       },
       {
@@ -303,7 +310,7 @@
       },
       {
         "name": "lodash",
-        "version": "4.14.2",
+        "version": "4.15.0",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -352,6 +359,7 @@
         "node_modules/atom-package-deps/decls/package-deps.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/types.js",
         "node_modules/atom-package-deps/lib/view.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/lib/index.js",
         "node_modules/atom-package-deps/node_modules/atom-package-path/node_modules/sb-callsite/lib/main.js",
@@ -926,6 +934,9 @@
         "node_modules/lodash/_arrayReduce.js",
         "node_modules/lodash/_arrayReduceRight.js",
         "node_modules/lodash/_arraySome.js",
+        "node_modules/lodash/_asciiSize.js",
+        "node_modules/lodash/_asciiToArray.js",
+        "node_modules/lodash/_asciiWords.js",
         "node_modules/lodash/_assignInDefaults.js",
         "node_modules/lodash/_assignMergeValue.js",
         "node_modules/lodash/_assignValue.js",
@@ -1096,6 +1107,8 @@
         "node_modules/lodash/_getView.js",
         "node_modules/lodash/_getWrapDetails.js",
         "node_modules/lodash/_hasPath.js",
+        "node_modules/lodash/_hasUnicode.js",
+        "node_modules/lodash/_hasUnicodeWord.js",
         "node_modules/lodash/_hashClear.js",
         "node_modules/lodash/_hashDelete.js",
         "node_modules/lodash/_hashGet.js",
@@ -1143,7 +1156,6 @@
         "node_modules/lodash/_parent.js",
         "node_modules/lodash/_reEscape.js",
         "node_modules/lodash/_reEvaluate.js",
-        "node_modules/lodash/_reHasComplexSymbol.js",
         "node_modules/lodash/_reInterpolate.js",
         "node_modules/lodash/_realNames.js",
         "node_modules/lodash/_reorder.js",
@@ -1166,6 +1178,9 @@
         "node_modules/lodash/_toKey.js",
         "node_modules/lodash/_toSource.js",
         "node_modules/lodash/_unescapeHtmlChar.js",
+        "node_modules/lodash/_unicodeSize.js",
+        "node_modules/lodash/_unicodeToArray.js",
+        "node_modules/lodash/_unicodeWords.js",
         "node_modules/lodash/_updateWrapDetails.js",
         "node_modules/lodash/_wrapperClone.js",
         "node_modules/lodash/add.js",

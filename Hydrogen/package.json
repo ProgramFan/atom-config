@@ -1,7 +1,7 @@
 {
   "name": "Hydrogen",
   "main": "./lib/main",
-  "version": "0.12.1",
+  "version": "0.12.4",
   "description": "Run code and get results inline using Jupyter kernels like IPython, IJulia, and iTorch",
   "author": {
     "name": "Will Whitney",
@@ -46,10 +46,10 @@
     "atom-space-pen-views": "^2.0.5",
     "escape-string-regexp": "^1.0.5",
     "jmp": "0.4.x",
-    "jupyter-js-services": "^0.16.3",
+    "jupyter-js-services": "^0.18.0",
     "lodash": "^4.14.0",
     "requirejs": "^2.2.0",
-    "spawnteract": "^2.1.0",
+    "spawnteract": "^2.1.1",
     "transformime": "^3.1.0",
     "transformime-marked": "0.0.1",
     "uuid": "^2.0.1",
@@ -79,10 +79,10 @@
     "url": "https://github.com/nteract/hydrogen/issues"
   },
   "homepage": "https://github.com/nteract/hydrogen#readme",
-  "_id": "Hydrogen@0.12.1",
-  "_shasum": "226261da98417460524d8d4e17c67d7fe45911e4",
-  "_resolved": "file:../d-116710-2269-ov5zaq/package.tgz",
-  "_from": "../d-116710-2269-ov5zaq/package.tgz",
+  "_id": "Hydrogen@0.12.4",
+  "_shasum": "733712a9bf1f62683c62b86ae13b377ad5f51ec8",
+  "_resolved": "file:../d-116720-2560-1ai1ggl/package.tgz",
+  "_from": "../d-116720-2560-1ai1ggl/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -208,7 +208,7 @@
       },
       {
         "name": "jupyter-js-services",
-        "version": "0.16.3",
+        "version": "0.18.0",
         "path": "node_modules/jupyter-js-services/lib/index.js"
       },
       {
@@ -222,18 +222,28 @@
         "path": "node_modules/jupyter-js-services/node_modules/path-posix/index.js"
       },
       {
-        "name": "phosphor-disposable",
-        "version": "1.0.5",
-        "path": "node_modules/jupyter-js-services/node_modules/phosphor-disposable/lib/index.js"
+        "name": "url",
+        "version": "0.11.0",
+        "path": "node_modules/jupyter-js-services/node_modules/url/url.js"
       },
       {
-        "name": "phosphor-signaling",
-        "version": "1.2.0",
-        "path": "node_modules/jupyter-js-services/node_modules/phosphor-signaling/lib/index.js"
+        "name": "punycode",
+        "version": "1.3.2",
+        "path": "node_modules/jupyter-js-services/node_modules/url/node_modules/punycode/punycode.js"
+      },
+      {
+        "name": "querystring",
+        "version": "0.2.0",
+        "path": "node_modules/jupyter-js-services/node_modules/url/node_modules/querystring/index.js"
+      },
+      {
+        "name": "url-join",
+        "version": "1.1.0",
+        "path": "node_modules/jupyter-js-services/node_modules/url-join/lib/url-join.js"
       },
       {
         "name": "lodash",
-        "version": "4.14.2",
+        "version": "4.15.0",
         "path": "node_modules/lodash/lodash.js"
       },
       {
@@ -243,7 +253,7 @@
       },
       {
         "name": "spawnteract",
-        "version": "2.1.0",
+        "version": "2.1.1",
         "path": "node_modules/spawnteract/index.js"
       },
       {
@@ -401,8 +411,12 @@
         "node_modules/jmp/package.json",
         "node_modules/jupyter-js-services/node_modules/minimist/package.json",
         "node_modules/jupyter-js-services/node_modules/path-posix/package.json",
-        "node_modules/jupyter-js-services/node_modules/phosphor-disposable/package.json",
-        "node_modules/jupyter-js-services/node_modules/phosphor-signaling/package.json",
+        "node_modules/jupyter-js-services/node_modules/phosphor/package.json",
+        "node_modules/jupyter-js-services/node_modules/url/node_modules/punycode/package.json",
+        "node_modules/jupyter-js-services/node_modules/url/node_modules/querystring/package.json",
+        "node_modules/jupyter-js-services/node_modules/url/package.json",
+        "node_modules/jupyter-js-services/node_modules/url-join/bower.json",
+        "node_modules/jupyter-js-services/node_modules/url-join/package.json",
         "node_modules/jupyter-js-services/package.json",
         "node_modules/lodash/package.json",
         "node_modules/requirejs/package.json",
@@ -1050,8 +1064,52 @@
         "node_modules/jupyter-js-services/node_modules/minimist/example/parse.js",
         "node_modules/jupyter-js-services/node_modules/minimist/index.js",
         "node_modules/jupyter-js-services/node_modules/path-posix/index.js",
-        "node_modules/jupyter-js-services/node_modules/phosphor-disposable/lib/index.js",
-        "node_modules/jupyter-js-services/node_modules/phosphor-signaling/lib/index.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/algorithm/iteration.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/algorithm/json.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/algorithm/mutation.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/algorithm/range.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/algorithm/searching.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/algorithm/sequence.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/algorithm/sorting.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/collections/deque.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/collections/queue.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/collections/stack.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/collections/vector.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/core/disposable.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/core/messaging.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/core/mimedata.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/core/properties.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/core/signaling.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/dom/cursor.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/dom/dragdrop.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/dom/platform.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/dom/query.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/dom/selector.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/dom/sizing.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/boxengine.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/boxpanel.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/commandpalette.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/commands.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/dockpanel.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/keyboard.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/keymap.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/menu.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/menubar.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/panel.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/splitpanel.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/stackedpanel.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/tabbar.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/tabpanel.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/title.js",
+        "node_modules/jupyter-js-services/node_modules/phosphor/lib/ui/widget.js",
+        "node_modules/jupyter-js-services/node_modules/url/node_modules/punycode/punycode.js",
+        "node_modules/jupyter-js-services/node_modules/url/node_modules/querystring/decode.js",
+        "node_modules/jupyter-js-services/node_modules/url/node_modules/querystring/encode.js",
+        "node_modules/jupyter-js-services/node_modules/url/node_modules/querystring/index.js",
+        "node_modules/jupyter-js-services/node_modules/url/test.js",
+        "node_modules/jupyter-js-services/node_modules/url/url.js",
+        "node_modules/jupyter-js-services/node_modules/url/util.js",
+        "node_modules/jupyter-js-services/node_modules/url-join/lib/url-join.js",
         "node_modules/lodash/_DataView.js",
         "node_modules/lodash/_Hash.js",
         "node_modules/lodash/_LazyWrapper.js",
@@ -1082,6 +1140,9 @@
         "node_modules/lodash/_arrayReduce.js",
         "node_modules/lodash/_arrayReduceRight.js",
         "node_modules/lodash/_arraySome.js",
+        "node_modules/lodash/_asciiSize.js",
+        "node_modules/lodash/_asciiToArray.js",
+        "node_modules/lodash/_asciiWords.js",
         "node_modules/lodash/_assignInDefaults.js",
         "node_modules/lodash/_assignMergeValue.js",
         "node_modules/lodash/_assignValue.js",
@@ -1252,6 +1313,8 @@
         "node_modules/lodash/_getView.js",
         "node_modules/lodash/_getWrapDetails.js",
         "node_modules/lodash/_hasPath.js",
+        "node_modules/lodash/_hasUnicode.js",
+        "node_modules/lodash/_hasUnicodeWord.js",
         "node_modules/lodash/_hashClear.js",
         "node_modules/lodash/_hashDelete.js",
         "node_modules/lodash/_hashGet.js",
@@ -1299,7 +1362,6 @@
         "node_modules/lodash/_parent.js",
         "node_modules/lodash/_reEscape.js",
         "node_modules/lodash/_reEvaluate.js",
-        "node_modules/lodash/_reHasComplexSymbol.js",
         "node_modules/lodash/_reInterpolate.js",
         "node_modules/lodash/_realNames.js",
         "node_modules/lodash/_reorder.js",
@@ -1322,6 +1384,9 @@
         "node_modules/lodash/_toKey.js",
         "node_modules/lodash/_toSource.js",
         "node_modules/lodash/_unescapeHtmlChar.js",
+        "node_modules/lodash/_unicodeSize.js",
+        "node_modules/lodash/_unicodeToArray.js",
+        "node_modules/lodash/_unicodeWords.js",
         "node_modules/lodash/_updateWrapDetails.js",
         "node_modules/lodash/_wrapperClone.js",
         "node_modules/lodash/add.js",
@@ -2285,10 +2350,10 @@
           "atom-space-pen-views": "^2.0.5",
           "escape-string-regexp": "^1.0.5",
           "jmp": "0.4.x",
-          "jupyter-js-services": "^0.16.3",
+          "jupyter-js-services": "^0.18.0",
           "lodash": "^4.14.0",
           "requirejs": "^2.2.0",
-          "spawnteract": "^2.1.0",
+          "spawnteract": "^2.1.1",
           "transformime": "^3.1.0",
           "transformime-marked": "0.0.1",
           "uuid": "^2.0.1",
@@ -2629,9 +2694,19 @@
         "dependencies": {
           "minimist": "^1.2.0",
           "path-posix": "^1.0.0",
-          "phosphor-disposable": "^1.0.5",
-          "phosphor-signaling": "^1.2.0",
-          "requirejs": "^2.2.0"
+          "phosphor": "^0.5.0",
+          "requirejs": "^2.2.0",
+          "url": "^0.11.0",
+          "url-join": "^1.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/jupyter-js-services/node_modules/url"
+        ],
+        "dependencies": {
+          "punycode": "1.3.2",
+          "querystring": "0.2.0"
         }
       },
       {

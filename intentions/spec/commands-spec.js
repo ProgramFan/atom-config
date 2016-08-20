@@ -56,7 +56,7 @@ describe('Commands', function() {
       expect(timesShow).toBe(1)
       expect(timesHide).toBe(1)
     })
-    it('ignores if already highlighted', async function() {
+    it('throws if already highlighted', async function() {
       let timesShow = 0
       let timesHide = 0
       commands.onHighlightsShow(function() {
@@ -67,8 +67,18 @@ describe('Commands', function() {
         timesHide++
       })
       await commands.processHighlightsShow()
-      await commands.processHighlightsShow()
-      await commands.processHighlightsShow()
+      try {
+        await commands.processHighlightsShow()
+        expect(false).toBe(true)
+      } catch (error) {
+        expect(error.message).toBe('Already active')
+      }
+      try {
+        await commands.processHighlightsShow()
+        expect(false).toBe(true)
+      } catch (error) {
+        expect(error.message).toBe('Already active')
+      }
       commands.processHighlightsHide()
       commands.processHighlightsHide()
       commands.processHighlightsHide()
@@ -121,6 +131,20 @@ describe('Commands', function() {
         commands.processHighlightsHide()
         expect(timesShow).toBe(1)
         expect(timesHide).toBe(1)
+      })
+      it('ignores more than one activation requests', async function() {
+        let timesShow = 0
+        commands.onHighlightsShow(function() {
+          timesShow++
+          return Promise.resolve(true)
+        })
+        atom.keymaps.dispatchCommandEvent('intentions:highlight', editorView, getKeyboardEvent('keypress'))
+        await wait(10)
+        atom.keymaps.dispatchCommandEvent('intentions:highlight', editorView, getKeyboardEvent('keypress'))
+        await wait(10)
+        atom.keymaps.dispatchCommandEvent('intentions:highlight', editorView, getKeyboardEvent('keypress'))
+        await wait(10)
+        expect(timesShow).toBe(1)
       })
       it('just activates if keyboard event is not keydown', async function() {
         let timesShow = 0
@@ -282,9 +306,24 @@ describe('Commands', function() {
         timesHide++
       })
       await commands.processListShow()
-      await commands.processListShow()
-      await commands.processListShow()
-      await commands.processListShow()
+      try {
+        await commands.processListShow()
+        expect(false).toBe(true)
+      } catch (error) {
+        expect(error.message).toBe('Already active')
+      }
+      try {
+        await commands.processListShow()
+        expect(false).toBe(true)
+      } catch (error) {
+        expect(error.message).toBe('Already active')
+      }
+      try {
+        await commands.processListShow()
+        expect(false).toBe(true)
+      } catch (error) {
+        expect(error.message).toBe('Already active')
+      }
       commands.processListHide()
       commands.processListHide()
       commands.processListHide()
@@ -399,6 +438,20 @@ describe('Commands', function() {
         commands.processListHide()
         expect(timesShow).toBe(1)
         expect(timesHide).toBe(1)
+      })
+      it('ignores more than one activation requests', async function() {
+        let timesShow = 0
+        commands.onListShow(function() {
+          timesShow++
+          return Promise.resolve(true)
+        })
+        atom.keymaps.dispatchCommandEvent('intentions:show', editorView, getKeyboardEvent('keypress'))
+        await wait(10)
+        atom.keymaps.dispatchCommandEvent('intentions:show', editorView, getKeyboardEvent('keypress'))
+        await wait(10)
+        atom.keymaps.dispatchCommandEvent('intentions:show', editorView, getKeyboardEvent('keypress'))
+        await wait(10)
+        expect(timesShow).toBe(1)
       })
       it('disposes itself on any commands other than known', async function() {
         let timesShow = 0
