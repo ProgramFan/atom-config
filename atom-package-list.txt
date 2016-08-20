@@ -57,3 +57,7 @@ git-time-machine
 open-no-binaries
 external-open
 atom-commander
+auto-detect-indentation
+file-watcher
+remote-sync
+run-command2
