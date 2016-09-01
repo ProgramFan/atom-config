@@ -11,7 +11,7 @@ WatchSidebar = require './watch-sidebar'
 
 module.exports =
 class Kernel
-    constructor: (@kernelSpec) ->
+    constructor: (@kernelSpec, @grammar) ->
         @watchCallbacks = []
 
         @watchSidebar = new WatchSidebar this
@@ -22,11 +22,16 @@ class Kernel
         @watchCallbacks.push(watchCallback)
 
 
+    _callWatchCallbacks: ->
+        @watchCallbacks.forEach (watchCallback) ->
+            watchCallback()
+
+
     interrupt: ->
         throw new Error 'Kernel: interrupt method not implemented'
 
 
-    shutdown: (restart) ->
+    shutdown: ->
         throw new Error 'Kernel: shutdown method not implemented'
 
 

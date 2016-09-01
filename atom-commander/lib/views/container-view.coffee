@@ -30,12 +30,29 @@ class ContainerView extends View
 
     @directoryEditor.addClass('directory-editor');
 
+    if @left
+      @username.addClass('left-username');
+    else
+      @username.addClass('right-username');
+
+    @username.hide();
+
     @directoryEditor.focusout =>
       @directoryEditorCancel();
 
     @disposables.add atom.commands.add @directoryEditor.element,
       'core:confirm': => @directoryEditorConfirm()
       'core:cancel': => @directoryEditorCancel()
+
+  @content: ->
+    @div {tabindex: -1}, =>
+      @div =>
+        @span '', {class: 'highlight-info username', outlet: 'username'}
+        @subview 'directoryEditor', new TextEditorView(mini: true)
+      @div {class: 'atom-commander-container-view'}, =>
+        @container();
+      @div {class: 'search-panel', outlet: 'searchPanel'}
+      @div "Loading...", {class: 'loading-panel', outlet: 'spinnerPanel'}
 
   isLeft: ->
     return @left;
@@ -64,14 +81,6 @@ class ContainerView extends View
 
   getLastLocalPath: ->
     return @lastLocalPath;
-
-  @content: ->
-    @div {tabindex: -1}, =>
-      @subview 'directoryEditor', new TextEditorView(mini: true)
-      @div {class: 'atom-commander-container-view'}, =>
-        @container();
-      @div {class: 'search-panel', outlet: 'searchPanel'}
-      @div "Loading...", {class: 'loading-panel', outlet: 'spinnerPanel'}
 
   initialize: (state) ->
     @searchPanel.hide();
@@ -438,8 +447,14 @@ class ContainerView extends View
 
     @getEntries(newDirectory, snapShot, callback);
 
-    if @directory.isLocal()
+    fileSystem = @directory.getFileSystem();
+    @username.text(fileSystem.getUsername());
+
+    if fileSystem.isLocal()
       @lastLocalPath = @directory.getPath();
+      @username.hide();
+    else
+      @username.show();
 
   resetItemViews: ->
     @clearItemViews();
@@ -453,6 +468,10 @@ class ContainerView extends View
       itemView = @createParentView(0, new DirectoryController(@directory.getParent()));
       @itemViews.push(itemView);
       @addItemView(itemView);
+
+  refreshItemViews: ->
+    for itemView in @itemViews
+      itemView.refresh();
 
   getEntries: (newDirectory, snapShot, callback) ->
     @showSpinner();
@@ -653,9 +672,14 @@ class ContainerView extends View
   isDateColumnVisible: ->
     return @getMainView().isDateColumnVisible();
 
+  isExtensionColumnVisible: ->
+    return @getMainView().isExtensionColumnVisible();
+
   setSizeColumnVisible: (visible) ->
 
   setDateColumnVisible: (visible) ->
+
+  setExtensionColumnVisible: (visible) ->
 
   deserialize: (path, state) ->
     if !state?

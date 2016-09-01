@@ -1,3 +1,9 @@
+## 1.3.30
+* replace `_.template` with `String.replace` for journal.  Fixes #53
+
+## 1.3.29
+* Add c++ extensions by @eistaa
+
 ## 1.3.28
 * Fix [Items disappear · Issue #79 · imdone/imdone-atom](https://github.com/imdone/imdone-atom/issues/79)
 * Make zap open visible tasks files

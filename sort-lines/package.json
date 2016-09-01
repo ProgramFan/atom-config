@@ -1,8 +1,41 @@
 {
-  "name": "sort-lines",
-  "main": "./lib/sort-lines",
-  "version": "0.14.0",
-  "description": "Sorts your lines. Never gets tired.",
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2802-yau2mp/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2802-yau2mp/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2802-yau2mp/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-2802-1hux3pt"
+    ]
+  ],
+  "_from": "../d-11681-2802-yau2mp/package.tgz",
+  "_id": "sort-lines@0.14.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/sort-lines",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2802-yau2mp/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2802-yau2mp/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2802-yau2mp/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11681-2802-yau2mp/package.tgz",
+  "_shasum": "ca019973a26ce699408c3cca7284655e6baa4915",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2802-yau2mp/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-2802-1hux3pt",
   "activationCommands": {
     "atom-text-editor": [
       "sort-lines:sort",
@@ -12,37 +45,25 @@
       "sort-lines:natural"
     ]
   },
+  "bugs": {
+    "url": "https://github.com/atom/sort-lines/issues"
+  },
+  "dependencies": {},
+  "description": "Sorts your lines. Never gets tired.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.4.0 <2.0.0"
+  },
+  "homepage": "https://github.com/atom/sort-lines#readme",
+  "license": "MIT",
+  "main": "./lib/sort-lines",
+  "name": "sort-lines",
+  "optionalDependencies": {},
+  "readme": "# Sort Lines Package [![Build Status](https://travis-ci.org/atom/sort-lines.svg?branch=master)](https://travis-ci.org/atom/sort-lines)\n\nSorts your lines in Atom, never gets tired.\n\n![sort-lines-demo](https://f.cloud.github.com/assets/2988/1796891/85e69ff2-6a93-11e3-89ac-31927f604592.gif)\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atom/sort-lines.git"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">=1.4.0 <2.0.0"
-  },
-  "dependencies": {},
-  "readme": "# Sort Lines Package [![Build Status](https://travis-ci.org/atom/sort-lines.svg?branch=master)](https://travis-ci.org/atom/sort-lines)\n\nSorts your lines in Atom, never gets tired.\n\n![sort-lines-demo](https://f.cloud.github.com/assets/2988/1796891/85e69ff2-6a93-11e3-89ac-31927f604592.gif)\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/atom/sort-lines/issues"
-  },
-  "homepage": "https://github.com/atom/sort-lines#readme",
-  "_id": "sort-lines@0.14.0",
-  "_shasum": "ca019973a26ce699408c3cca7284655e6baa4915",
-  "_resolved": "file:../d-116720-2340-1935kkp/package.tgz",
-  "_from": "../d-116720-2340-1935kkp/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".coffee": [
-        "lib/range-finder.coffee",
-        "lib/sort-lines.coffee"
-      ],
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.14.0"
 }

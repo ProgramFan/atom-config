@@ -1,15 +1,71 @@
 {
-  "name": "build-make",
-  "version": "0.10.0",
-  "description": "Runs GNU Make",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AtomBuild/atom-build-make.git"
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2398-u1k3hj/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2398-u1k3hj/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2398-u1k3hj/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-2398-7wkhej"
+    ]
+  ],
+  "_from": "../d-11681-2398-u1k3hj/package.tgz",
+  "_id": "build-make@0.11.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/build-make",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2398-u1k3hj/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2398-u1k3hj/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2398-u1k3hj/package.tgz",
+    "type": "local"
   },
-  "license": "MIT",
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11681-2398-u1k3hj/package.tgz",
+  "_shasum": "04c010ac562facd65a236f93329dfa0160ab6651",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2398-u1k3hj/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-2398-7wkhej",
+  "bugs": {
+    "url": "https://github.com/AtomBuild/atom-build-make/issues"
+  },
+  "dependencies": {
+    "voucher": "^0.1.2"
+  },
+  "description": "Runs GNU Make",
+  "devDependencies": {
+    "atom-build-spec-helpers": "^0.4.0",
+    "babel-eslint": "^4.1.5",
+    "eslint": "^1.10.1",
+    "eslint-config-atom-build": "^2.0.0",
+    "fs-extra": "^0.23.1",
+    "temp": "^0.8.3"
+  },
   "engines": {
     "atom": "^1.0.0"
   },
+  "homepage": "https://github.com/AtomBuild/atom-build-make#readme",
+  "keywords": [
+    "build",
+    "compile",
+    "make",
+    "productivity",
+    "gnu"
+  ],
+  "license": "MIT",
+  "main": "lib/make.js",
+  "name": "build-make",
+  "optionalDependencies": {},
   "providedServices": {
     "builder": {
       "description": "Runs GNU Make",
@@ -18,92 +74,11 @@
       }
     }
   },
-  "devDependencies": {
-    "temp": "^0.8.3",
-    "fs-extra": "^0.23.1",
-    "atom-build-spec-helpers": "^0.4.0",
-    "babel-eslint": "^4.1.5",
-    "eslint": "^1.10.1",
-    "eslint-config-atom-build": "^2.0.0"
-  },
-  "keywords": [
-    "build",
-    "compile",
-    "make",
-    "productivity",
-    "gnu"
-  ],
-  "main": "lib/make.js",
-  "dependencies": {
-    "voucher": "^0.1.2"
-  },
   "readme": "# GNU Make for Atom (via atom-build)\n[![Build Status](https://travis-ci.org/AtomBuild/atom-build-make.svg?branch=master)](https://travis-ci.org/AtomBuild/atom-build-make)\n[![Gitter chat](https://badges.gitter.im/noseglid/atom-build.svg)](https://gitter.im/noseglid/atom-build)\n\nUses the [atom-build](https://github.com/noseglid/atom-build) package to execute\nGNU make in the `Atom` editor.\n\nThis package requires [atom-build](https://github.com/noseglid/atom-build) to be installed.\n",
   "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/AtomBuild/atom-build-make/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomBuild/atom-build-make.git"
   },
-  "homepage": "https://github.com/AtomBuild/atom-build-make#readme",
-  "_id": "build-make@0.10.0",
-  "_shasum": "ea2cc8d580b9b73a99ead27c11938268eacb371c",
-  "_resolved": "file:../d-116720-2260-j3ee87/package.tgz",
-  "_from": "../d-116720-2260-j3ee87/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [
-      {
-        "name": "voucher",
-        "version": "0.1.2",
-        "path": "node_modules/voucher/index.js"
-      },
-      {
-        "name": "es6-promise",
-        "version": "1.0.0",
-        "path": "node_modules/voucher/node_modules/es6-promise/dist/commonjs/main.js"
-      }
-    ],
-    "extensions": {
-      ".js": [
-        "lib/make.js",
-        "node_modules/voucher/index.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/main.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/all.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/asap.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/config.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/polyfill.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/promise.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/race.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/reject.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/resolve.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/commonjs/promise/utils.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/promise-1.0.0.amd.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/promise-1.0.0.js",
-        "node_modules/voucher/node_modules/es6-promise/dist/promise-1.0.0.min.js"
-      ],
-      ".json": [
-        "node_modules/voucher/node_modules/es6-promise/package.json",
-        "node_modules/voucher/package.json",
-        "package.json"
-      ]
-    },
-    "folders": [
-      {
-        "paths": [
-          "lib",
-          "",
-          "spec"
-        ],
-        "dependencies": {
-          "voucher": "^0.1.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/voucher"
-        ],
-        "dependencies": {
-          "es6-promise": "^1.0.0"
-        }
-      }
-    ]
-  }
+  "version": "0.11.0"
 }

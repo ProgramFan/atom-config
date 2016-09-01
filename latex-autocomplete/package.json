@@ -1,23 +1,61 @@
 {
-  "name": "latex-autocomplete",
-  "main": "./lib/latexautocomplete.js",
-  "version": "0.5.3",
-  "description": "Autocompletion for LaTeX.",
-  "keywords": [
-    "LaTeX",
-    "autocompletion"
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2095-r9r4fw/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2095-r9r4fw/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2095-r9r4fw/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-2095-livtf4"
+    ]
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/evpok/latex-autocomplete.git"
+  "_from": "../d-11681-2095-r9r4fw/package.tgz",
+  "_id": "latex-autocomplete@0.5.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/latex-autocomplete",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2095-r9r4fw/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2095-r9r4fw/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2095-r9r4fw/package.tgz",
+    "type": "local"
   },
-  "license": "wtfpl",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11681-2095-r9r4fw/package.tgz",
+  "_shasum": "9059d55e2baed6dcec43d3abfd6488a9f8fcc384",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2095-r9r4fw/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-2095-livtf4",
+  "bugs": {
+    "url": "https://github.com/evpok/latex-autocomplete/issues"
   },
   "dependencies": {
     "escape-regexp": "^0.0.1"
   },
+  "description": "Autocompletion for LaTeX.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/evpok/latex-autocomplete#readme",
+  "keywords": [
+    "LaTeX",
+    "autocompletion"
+  ],
+  "license": "wtfpl",
+  "main": "./lib/latexautocomplete.js",
+  "name": "latex-autocomplete",
+  "optionalDependencies": {},
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
@@ -27,54 +65,9 @@
   },
   "readme": "# LaTeX-autocomplete\n\n[![Travis build status](https://travis-ci.org/Evpok/latex-autocomplete.svg?branch=master)](https://travis-ci.org/Evpok/latex-autocomplete)\n[![WTFPL badge](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/)\n\nLaTeX autocompletion for [atom](http://atom.io).\n\nDevelopment happens at https://github.com/Evpok/latex-autocomplete.\n\n![Screenshot](https://cdn.rawgit.com/Evpok/latex-autocomplete/master/doc/shot.gif)\n\n## Features\n  - Automatically closes environments in a sensible manner\n  - Provides autocompletion through [`autocomplete-plus`](https://atom.io/packages/autocomplete-plus)\n    - Currently only for `\\label`s\n\n## License\nWTFPL. See [LICENSE.md](https://cdn.rawgit.com/Evpok/latex-autocomplete/master/LICENSE.md)\n",
   "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/evpok/latex-autocomplete/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evpok/latex-autocomplete.git"
   },
-  "homepage": "https://github.com/evpok/latex-autocomplete#readme",
-  "_id": "latex-autocomplete@0.5.3",
-  "_shasum": "9059d55e2baed6dcec43d3abfd6488a9f8fcc384",
-  "_resolved": "file:../d-116720-1958-aa1dfw/package.tgz",
-  "_from": "../d-116720-1958-aa1dfw/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [
-      {
-        "name": "escape-regexp",
-        "version": "0.0.1",
-        "path": "node_modules/escape-regexp/index.js"
-      }
-    ],
-    "extensions": {
-      ".json": [
-        ".eslintrc.json",
-        "node_modules/escape-regexp/component.json",
-        "node_modules/escape-regexp/package.json",
-        "package.json"
-      ],
-      ".js": [
-        "lib/environment_autocompletion/env_completer.js",
-        "lib/environment_autocompletion/libenvcloser.js",
-        "lib/label_autocompletion/label_completer.js",
-        "lib/latexautocomplete.js",
-        "lib/utilities/donothing_completer.js",
-        "lib/utilities/latex_utilities.js",
-        "node_modules/escape-regexp/index.js"
-      ]
-    },
-    "folders": [
-      {
-        "paths": [
-          "",
-          "lib/environment_autocompletion",
-          "lib/label_autocompletion",
-          "lib",
-          "lib/utilities",
-          "spec"
-        ],
-        "dependencies": {
-          "escape-regexp": "^0.0.1"
-        }
-      }
-    ]
-  }
+  "version": "0.5.3"
 }

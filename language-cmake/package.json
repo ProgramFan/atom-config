@@ -1,34 +1,59 @@
 {
-  "name": "language-cmake",
-  "version": "0.2.0",
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-1894-1m2gke4/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-1894-1m2gke4/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-1894-1m2gke4/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-1894-1kmoi1w"
+    ]
+  ],
+  "_from": "../d-11681-1894-1m2gke4/package.tgz",
+  "_id": "language-cmake@0.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/language-cmake",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-1894-1m2gke4/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-1894-1m2gke4/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-1894-1m2gke4/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11681-1894-1m2gke4/package.tgz",
+  "_shasum": "25c3516533a1d913aa6f36f324e37739c4da44ce",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-1894-1m2gke4/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-1894-1kmoi1w",
+  "bugs": {
+    "url": "https://github.com/lucas-clemente/language-cmake/issues"
+  },
+  "dependencies": {},
   "description": "Syntax highlighting for CMake for Atom",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/lucas-clemente/language-cmake",
+  "license": "MIT",
+  "name": "language-cmake",
+  "optionalDependencies": {},
+  "readme": "# language-cmake package\n\nSyntax highlighting for CMake in atom. Converted from the\n[Textmate bundle](https://github.com/textmate/cmake.tmbundle)\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucas-clemente/language-cmake.git"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">0.50.0"
-  },
-  "dependencies": {},
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/lucas-clemente/language-cmake/issues"
-  },
-  "homepage": "https://github.com/lucas-clemente/language-cmake",
-  "readme": "# language-cmake package\n\nSyntax highlighting for CMake in atom. Converted from the\n[Textmate bundle](https://github.com/textmate/cmake.tmbundle)\n",
-  "_id": "language-cmake@0.2.0",
-  "_shasum": "25c3516533a1d913aa6f36f324e37739c4da44ce",
-  "_resolved": "file:../d-116720-1790-1t4qvlx/package.tgz",
-  "_from": "../d-116720-1790-1t4qvlx/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.2.0"
 }
