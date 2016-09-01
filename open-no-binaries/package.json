@@ -1,134 +1,68 @@
 {
-  "name": "open-no-binaries",
-  "main": "./lib/open-no-binaries",
-  "version": "0.1.1",
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-11681-8655-1bebhtm/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-11681-8655-1bebhtm/package.tgz",
+        "spec": "/tmp/d-11681-8655-1bebhtm/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-11681-8655-l4w1wx"
+    ]
+  ],
+  "_from": "../d-11681-8655-1bebhtm/package.tgz",
+  "_id": "open-no-binaries@0.1.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/open-no-binaries",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-11681-8655-1bebhtm/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-11681-8655-1bebhtm/package.tgz",
+    "spec": "/tmp/d-11681-8655-1bebhtm/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11681-8655-1bebhtm/package.tgz",
+  "_shasum": "ba1b52e6be5a2a8931451d592abd88a638ec5816",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-11681-8655-1bebhtm/package.tgz",
+  "_where": "/tmp/apm-install-dir-11681-8655-l4w1wx",
+  "bugs": {
+    "url": "https://github.com/mishak87/open-no-binaries/issues"
+  },
+  "dependencies": {
+    "fs-plus": "2.8.x",
+    "isbinaryfile": "3.x"
+  },
   "description": "Prevent opening binary files to prevent atom freezing",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/mishak87/open-no-binaries#readme",
   "keywords": [
     "binary",
     "prevent",
     "opening"
   ],
+  "license": "MIT",
+  "main": "./lib/open-no-binaries",
+  "name": "open-no-binaries",
+  "optionalDependencies": {},
+  "readme": "# open-no-binaries package\n\nPrevent opening binary files to prevent atom freezing.\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mishak87/open-no-binaries.git"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
-  },
-  "dependencies": {
-    "isbinaryfile": "3.x",
-    "fs-plus": "2.8.x"
-  },
-  "readme": "# open-no-binaries package\n\nPrevent opening binary files to prevent atom freezing.\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/mishak87/open-no-binaries/issues"
-  },
-  "homepage": "https://github.com/mishak87/open-no-binaries#readme",
-  "_id": "open-no-binaries@0.1.1",
-  "_shasum": "ba1b52e6be5a2a8931451d592abd88a638ec5816",
-  "_resolved": "file:../d-116720-8074-166tbuz/package.tgz",
-  "_from": "../d-116720-8074-166tbuz/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [
-      {
-        "name": "fs-plus",
-        "version": "2.8.2",
-        "path": "node_modules/fs-plus/lib/fs-plus.js"
-      },
-      {
-        "name": "async",
-        "version": "0.2.10",
-        "path": "node_modules/fs-plus/node_modules/async/lib/async.js"
-      },
-      {
-        "name": "mkdirp",
-        "version": "0.3.5",
-        "path": "node_modules/fs-plus/node_modules/mkdirp/index.js"
-      },
-      {
-        "name": "rimraf",
-        "version": "2.2.8",
-        "path": "node_modules/fs-plus/node_modules/rimraf/rimraf.js"
-      },
-      {
-        "name": "underscore-plus",
-        "version": "1.6.6",
-        "path": "node_modules/fs-plus/node_modules/underscore-plus/lib/underscore-plus.js"
-      },
-      {
-        "name": "underscore",
-        "version": "1.6.0",
-        "path": "node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/underscore.js"
-      },
-      {
-        "name": "isbinaryfile",
-        "version": "3.0.1",
-        "path": "node_modules/isbinaryfile/index.js"
-      }
-    ],
-    "extensions": {
-      ".coffee": [
-        "lib/open-no-binaries.coffee"
-      ],
-      ".js": [
-        "node_modules/fs-plus/lib/fs-plus.js",
-        "node_modules/fs-plus/node_modules/async/lib/async.js",
-        "node_modules/fs-plus/node_modules/mkdirp/examples/pow.js",
-        "node_modules/fs-plus/node_modules/mkdirp/index.js",
-        "node_modules/fs-plus/node_modules/rimraf/bin.js",
-        "node_modules/fs-plus/node_modules/rimraf/rimraf.js",
-        "node_modules/fs-plus/node_modules/underscore-plus/lib/underscore-plus.js",
-        "node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
-        "node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/underscore.js",
-        "node_modules/isbinaryfile/index.js"
-      ],
-      ".json": [
-        "node_modules/fs-plus/node_modules/async/component.json",
-        "node_modules/fs-plus/node_modules/async/package.json",
-        "node_modules/fs-plus/node_modules/mkdirp/package.json",
-        "node_modules/fs-plus/node_modules/rimraf/package.json",
-        "node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/package.json",
-        "node_modules/fs-plus/node_modules/underscore-plus/package.json",
-        "node_modules/fs-plus/package.json",
-        "node_modules/isbinaryfile/package.json",
-        "package.json"
-      ]
-    },
-    "folders": [
-      {
-        "paths": [
-          "lib",
-          ""
-        ],
-        "dependencies": {
-          "isbinaryfile": "3.x",
-          "fs-plus": "2.8.x"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/fs-plus/lib",
-          "node_modules/fs-plus"
-        ],
-        "dependencies": {
-          "underscore-plus": "1.x",
-          "mkdirp": "~0.3.5",
-          "rimraf": "~2.2.2",
-          "async": "~0.2.9"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/fs-plus/node_modules/underscore-plus/lib",
-          "node_modules/fs-plus/node_modules/underscore-plus"
-        ],
-        "dependencies": {
-          "underscore": "~1.6.0"
-        }
-      }
-    ]
-  }
+  "version": "0.1.1"
 }

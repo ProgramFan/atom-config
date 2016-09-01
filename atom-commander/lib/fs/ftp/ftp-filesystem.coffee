@@ -10,7 +10,7 @@ module.exports =
 class FTPFileSystem extends VFileSystem
 
   constructor: (@server, @config) ->
-    super();
+    super(@server.getMain());
     @client = null;
 
     if @config.password? and !@config.passwordDecrypted?
@@ -185,6 +185,9 @@ class FTPFileSystem extends VFileSystem
 
   getName: ->
     return @config.host;
+
+  getUsername: ->
+    return @config.user;
 
   getID: ->
     return @getLocalDirectoryName();

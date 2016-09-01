@@ -31,6 +31,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     @liveUpdate = true
     @scrollSync = true
+    @scrollDuration = null
 
     @mathRenderingOption = atom.config.get('markdown-preview-enhanced.mathRenderingOption')
     @mathRenderingOption = if @mathRenderingOption == 'None' then null else @mathRenderingOption
@@ -47,6 +48,9 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     # this variable will be got from 'viz.js'
     @Viz = null
+
+    # this variable will check if it is the first time to render MathJax for markdown.
+    @firstTimeRenderMathJax = true
 
     # presentation mode
     @presentationMode = false
@@ -138,6 +142,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @scrollMap = null
     @rootDirectoryPath = @editor.getDirectoryPath()
     @projectDirectoryPath = @getProjectDirectoryPath()
+    @firstTimeRenderMathJax = true
 
     if @disposables # remove all binded events
       @disposables.dispose()
@@ -181,13 +186,13 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
       lineNo = Math.floor((firstVisibleScreenRow + lastVisibleScreenRow) / 2)
 
-      if !@scrollMap
-        @scrollMap = @buildScrollMap(this)
+      @scrollMap ?= @buildScrollMap(this)
 
       # disable markdownHtmlView onscroll
       @previewScrollDelay = Date.now() + 500
 
-      @element.scrollTop = @scrollMap[lineNo] - editorHeight / 2
+      # @element.scrollTop = @scrollMap[lineNo] - editorHeight / 2
+      @scrollToPos(@scrollMap[lineNo]-editorHeight / 2)
 
     # match markdown preview to cursor position
     @disposables.add @editor.onDidChangeCursorPosition (event)=>
@@ -207,10 +212,10 @@ class MarkdownPreviewEnhancedView extends ScrollView
       if event.oldScreenPosition.row != event.newScreenPosition.row or event.oldScreenPosition.column == 0
         lineNo = event.newScreenPosition.row
         if lineNo == 0
-          @element.scrollTop = 0
+          @scrollToPos(0)
           return
         else if lineNo == @editor.getScreenLineCount() - 1 # last row
-          @element.scrollTop = @element.scrollHeight - 16
+          @scrollToPos(@element.scrollHeight - 16)
           return
 
         @scrollSyncToLineNo(lineNo)
@@ -225,8 +230,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
       top = @element.scrollTop + @element.offsetHeight / 2
 
       # try to find corresponding screen buffer row
-      if !@scrollMap
-        @scrollMap = @buildScrollMap(this)
+      @scrollMap ?= @buildScrollMap(this)
 
       i = 0
       j = @scrollMap.length - 1
@@ -249,11 +253,14 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
         count++
 
-      if (screenRow >= 0)
-        @editor.getElement().setScrollTop(screenRow * @editor.getLineHeightInPixels() - @element.offsetHeight / 2)
+      if screenRow == -1
+        screenRow = mid
 
-        # track currnet time to disable onDidChangeScrollTop
-        @editorScrollDelay = Date.now() + 500
+      @scrollToPos(screenRow * @editor.getLineHeightInPixels() - @element.offsetHeight / 2, @editor.getElement())
+      # @editor.getElement().setScrollTop
+
+      # track currnet time to disable onDidChangeScrollTop
+      @editorScrollDelay = Date.now() + 500
 
   initSettingsEvents: ->
     # settings changed
@@ -293,6 +300,14 @@ class MarkdownPreviewEnhancedView extends ScrollView
         @scrollSync = flag
         @scrollMap = null
 
+    # scroll duration
+    @disposables.add atom.config.observe 'markdown-preview-enhanced.scrollDuration', (duration)=>
+      duration = parseInt(duration) or 0
+      if duration < 0
+        @scrollDuration = 120
+      else
+        @scrollDuration = duration
+
     # math?
     @disposables.add atom.config.observe 'markdown-preview-enhanced.mathRenderingOption',
       (option) =>
@@ -305,7 +320,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
         @element.setAttribute 'data-mermaid-theme', theme
 
     # render front matter as table?
-    @disposables.add atom.config.observe 'markdown-preview-enhanced.renderFrontMatterAsTable', (theme) =>
+    @disposables.add atom.config.observe 'markdown-preview-enhanced.frontMatterRenderingOption', (theme) =>
       @renderMarkdown()
 
   scrollSyncForPresentation: (bufferLineNo)->
@@ -321,17 +336,66 @@ class MarkdownPreviewEnhancedView extends ScrollView
     # set slide to middle of preview
     @element.scrollTop = -@element.offsetHeight/2 + (slideElement.offsetTop + slideElement.offsetHeight/2)*parseFloat(slideElement.style.zoom)
 
+  # lineNo here is screen buffer row.
   scrollSyncToLineNo: (lineNo)->
-    if !@scrollMap
-      @scrollMap = @buildScrollMap(this)
+    @scrollMap ?= @buildScrollMap(this)
 
     editorElement = @editor.getElement()
 
     firstVisibleScreenRow = @editor.getFirstVisibleScreenRow()
     posRatio = (lineNo - firstVisibleScreenRow) / (editorElement.getHeight() / @editor.getLineHeightInPixels())
-    scrollTop = @scrollMap[lineNo] - (if posRatio > 1 then 1 else posRatio) * editorElement.getHeight()
 
-    @element.scrollTop = scrollTop
+    scrollTop = @scrollMap[lineNo] - (if posRatio > 1 then 1 else posRatio) * editorElement.getHeight()
+    scrollTop = 0 if scrollTop < 0
+
+    @scrollToPos scrollTop
+
+  # smooth scroll @element to scrollTop
+  # if editorElement is provided, then editorElement.setScrollTop(scrollTop)
+  scrollToPos: (scrollTop, editorElement=null)->
+    if @scrollTimeout
+      clearTimeout @scrollTimeout
+      @scrollTimeout = null
+
+    if not @editor or not @editor.alive or scrollTop < 0
+      return
+
+    delay = 10
+
+    helper = (duration=0)=>
+      @scrollTimeout = setTimeout =>
+        if duration <= 0
+          if editorElement
+            editorElement.setScrollTop scrollTop
+          else
+            @element.scrollTop = scrollTop
+          return
+
+        if editorElement
+          difference = scrollTop - editorElement.getScrollTop()
+        else
+          difference = scrollTop - @element.scrollTop
+
+        perTick = difference / duration * delay
+
+        if editorElement
+          # disable editor scroll
+          @editorScrollDelay = Date.now() + 500
+
+          s = editorElement.getScrollTop() + perTick
+          editorElement.setScrollTop s
+          return if s == scrollTop
+        else
+          # disable preview onscroll
+          @previewScrollDelay = Date.now() + 500
+
+          @element.scrollTop += perTick
+          return if @element.scrollTop == scrollTop
+
+        helper duration-delay
+      , delay
+
+    helper(@scrollDuration)
 
   formatStringBeforeParsing: (str)->
     @mainModule.hook.chain('on-will-parse-markdown', str)
@@ -521,15 +585,28 @@ class MarkdownPreviewEnhancedView extends ScrollView
     if typeof(MathJax) == 'undefined'
       return loadMathJax document, ()=> @renderMathJax()
 
-    els = @element.getElementsByClassName('mathjax-exps')
-    helper = (el, text)->
-      MathJax.Hub.Queue  ['Typeset', MathJax.Hub, el], ()->
-        if el?.children.length
-          el?.setAttribute 'data-original', text
+    if @firstTimeRenderMathJax
+      els = @element.getElementsByClassName('mathjax-exps')
+      for el in els
+        el.setAttribute 'data-original', el.innerText
 
-    for el in els
-      if !el.children.length
-        helper(el, el.innerText.trim())
+      MathJax.Hub.Queue ['Typeset', MathJax.Hub, @element], ()=>
+        for el in els
+          el.setAttribute 'data-processed', true
+        @firstTimeRenderMathJax = false
+    else
+      els = @element.getElementsByClassName('mathjax-exps')
+
+      helper = (el, text)->
+        MathJax.Hub.Queue  ['Typeset', MathJax.Hub, el], ()->
+          el?.setAttribute 'data-original', text
+          el?.setAttribute 'data-processed', true
+
+      for el in els
+        if el.hasAttribute('data-processed')
+          continue
+        else
+          helper(el, el.innerText)
 
   renderKaTeX: ()->
     return if @mathRenderingOption != 'KaTeX'
@@ -548,6 +625,24 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
         el.setAttribute('data-processed', 'true')
         el.setAttribute('data-original', dataOriginal)
+
+  ###
+  convert './a.txt' '/a.txt'
+  ###
+  resolveFilePath: (filePath, relative=false)->
+    if filePath.startsWith('./') or filePath.startsWith('/')
+      if relative
+        if filePath[0] == '.'
+          return filePath
+        else
+          return path.relative(@rootDirectoryPath, path.resolve(@projectDirectoryPath, '.'+filePath))
+      else
+        if filePath[0] == '.'
+          return 'file:///'+path.resolve(@rootDirectoryPath, filePath)
+        else
+          return 'file:///'+path.resolve(@projectDirectoryPath, '.'+filePath)
+    else
+      return filePath
 
   ## Utilities
   openInBrowser: (isForPresentationPrint=false)->
@@ -583,10 +678,11 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     exec "#{cmd} #{filePath}"
 
-  getHTMLContent: ({isForPrint, offline, isSavingToHTML})->
+  getHTMLContent: ({isForPrint, offline, isSavingToHTML, phantomjsType})->
     isForPrint ?= false
     offline ?= false
     isSavingToHTML ?= false
+    phantomjsType ?= false # pdf | png | jpeg | false
     return if not @editor
 
     useGitHubStyle = atom.config.get('markdown-preview-enhanced.useGitHubStyle')
@@ -621,7 +717,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
                       processEscapes: true}
           });
         </script>
-        <script type=\"text/javascript\" async src=\"#{path.resolve(__dirname, '../dependencies/mathjax/MathJax.js?config=TeX-AMS_CHTML')}\"></script>
+        <script type=\"text/javascript\" async src=\"file://#{path.resolve(__dirname, '../dependencies/mathjax/MathJax.js?config=TeX-AMS_CHTML')}\"></script>
         "
       else
         # inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -646,7 +742,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     # presentation
     if slideConfigs.length
-      htmlContent = @parseSlidesForExport(htmlContent, slideConfigs)
+      htmlContent = @parseSlidesForExport(htmlContent, slideConfigs, isSavingToHTML)
       if offline
         presentationScript = "<script src='#{path.resolve(__dirname, '../dependencies/reveal/js/reveal.js')}'></script>"
       else
@@ -671,8 +767,16 @@ class MarkdownPreviewEnhancedView extends ScrollView
       presentationStyle = ''
       presentationInitScript = ''
 
+    # phantomjs
+    phantomjsClass = ""
+    if phantomjsType
+      if phantomjsType == '.pdf'
+        phantomjsClass = 'phantomjs-pdf'
+      else if phantomjsType == '.png' or phantomjsType == '.jpeg'
+        phantomjsClass = 'phantomjs-image'
+
     title = @getFileName()
-    title = title.slice(0, title.length - 3) # remove '.md'
+    title = title.slice(0, title.length - path.extname(title).length) # remove '.md'
     htmlContent = "
   <!DOCTYPE html>
   <html>
@@ -692,7 +796,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
       #{presentationScript}
     </head>
-    <body class=\"markdown-preview-enhanced\"
+    <body class=\"markdown-preview-enhanced #{phantomjsClass}\"
         #{if useGitHubStyle then 'data-use-github-style' else ''}
         #{if useGitHubSyntaxTheme then 'data-use-github-syntax-theme' else ''}
         #{if @presentationMode then 'data-presentation-mode' else ''}>
@@ -711,7 +815,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     BrowserWindow = require('remote').require('browser-window')
     win = new BrowserWindow show: false
-    win.loadUrl htmlPath
+    win.loadURL htmlPath
 
     # get margins type
     marginsType = atom.config.get('markdown-preview-enhanced.marginsType')
@@ -820,8 +924,10 @@ module.exports = config || {}
       # if slide.length
       slideConfig = slideConfigs[offset]
       styleString = ''
+      videoString = ''
+      iframeString = ''
       if slideConfig['data-background-image']
-        styleString += "background-image: url('#{slideConfig['data-background-image']}');"
+        styleString += "background-image: url('#{@resolveFilePath(slideConfig['data-background-image'])}');"
 
         if slideConfig['data-background-size']
           styleString += "background-size: #{slideConfig['data-background-size']};"
@@ -846,9 +952,29 @@ module.exports = config || {}
       else if slideConfig['data-background-color']
         styleString += "background-color: #{slideConfig['data-background-color']} !important;"
 
+      else if slideConfig['data-background-video']
+        videoMuted = slideConfig['data-background-video-muted']
+        videoLoop = slideConfig['data-background-video-loop']
+
+        muted_ = if videoMuted then 'muted' else ''
+        loop_ = if videoLoop then 'loop' else ''
+
+        videoString = """
+        <video #{muted_} #{loop_} playsinline autoplay class=\"background-video\" src=\"#{@resolveFilePath(slideConfig['data-background-video'])}\">
+        </video>
+        """
+        #           <source src=\"#{slideConfig['data-background-video']}\">
+
+      else if slideConfig['data-background-iframe']
+        iframeString = """
+        <iframe class=\"background-iframe\" src=\"#{@resolveFilePath(slideConfig['data-background-iframe'])}\" frameborder="0" > </iframe>
+        <div class=\"background-iframe-overlay\"></div>
+        """
 
       output += """
         <div class='slide' data-offset='#{offset}' style="width: #{width}px; height: #{height}px; zoom: #{zoom}; #{styleString}">
+          #{videoString}
+          #{iframeString}
           <section>#{slide}</section>
         </div>
       """
@@ -860,7 +986,7 @@ module.exports = config || {}
     </div>
     """
 
-  parseSlidesForExport: (html, slideConfigs)->
+  parseSlidesForExport: (html, slideConfigs, isSavingToHTML)->
     slides = html.split '<div class="new-slide"></div>'
     slides = slides.slice(1)
     output = ''
@@ -870,19 +996,34 @@ module.exports = config || {}
       slideConfig = slideConfigs[offset]
       attrString = ''
       if slideConfig['data-background-image']
-        attrString += "data-background-image='#{slideConfig['data-background-image']}'"
+        attrString += " data-background-image='#{@resolveFilePath(slideConfig['data-background-image'], isSavingToHTML)}'"
 
       if slideConfig['data-background-size']
-        attrString += "data-background-size='#{slideConfig['data-background-size']}'"
+        attrString += " data-background-size='#{slideConfig['data-background-size']}'"
 
       if slideConfig['data-background-position']
-        attrString += "data-background-position='#{slideConfig['data-background-position']}'"
+        attrString += " data-background-position='#{slideConfig['data-background-position']}'"
 
       if slideConfig['data-background-repeat']
-        attrString += "data-background-repeat='#{slideConfig['data-background-repeat']}'"
+        attrString += " data-background-repeat='#{slideConfig['data-background-repeat']}'"
 
       if slideConfig['data-background-color']
-        attrString += "data-background-color='#{slideConfig['data-background-color']}'"
+        attrString += " data-background-color='#{slideConfig['data-background-color']}'"
+
+      if slideConfig['data-background-video']
+        attrString += " data-background-video='#{@resolveFilePath(slideConfig['data-background-video'], isSavingToHTML)}'"
+
+      if slideConfig['data-background-video-loop']
+        attrString += " data-background-video-loop"
+
+      if slideConfig['data-background-video-muted']
+        attrString += " data-background-video-muted"
+
+      if slideConfig['data-transition']
+        attrString += " data-transition='#{slideConfig['data-transition']}'"
+
+      if slideConfig['data-background-iframe']
+        attrString += " data-background-iframe='#{@resolveFilePath(slideConfig['data-background-iframe'], isSavingToHTML)}'"
 
       output += "<section #{attrString}>#{slide}</section>"
       offset += 1
@@ -947,19 +1088,13 @@ module.exports = config || {}
       @openInBrowser(true)
       return
 
-    mathRenderingOption = atom.config.get('markdown-preview-enhanced.mathRenderingOption') # only use katex to render math
-    if mathRenderingOption == 'MathJax'
-      atom.config.set('markdown-preview-enhanced.mathRenderingOption', 'KaTeX')
-
-    htmlContent = @getHTMLContent isForPrint: true, offline: true  # only use katex to render math
-
-    if mathRenderingOption == 'MathJax'
-      atom.config.set('markdown-preview-enhanced.mathRenderingOption', mathRenderingOption)
+    htmlContent = @getHTMLContent isForPrint: true, offline: true, phantomjsType: path.extname(dist)
 
     fileType = atom.config.get('markdown-preview-enhanced.phantomJSExportFileType')
     format = atom.config.get('markdown-preview-enhanced.exportPDFPageFormat')
     orientation = atom.config.get('markdown-preview-enhanced.orientation')
     margin = atom.config.get('markdown-preview-enhanced.phantomJSMargin').trim()
+
     if !margin.length
       margin = '1cm'
     else
@@ -977,7 +1112,7 @@ module.exports = config || {}
     config = @loadPhantomJSHeaderFooterConfig()
 
     pdf
-      .create htmlContent, Object.assign({type: fileType, format: format, orientation: orientation, border: margin, quality: '75', timeout: 60000}, config)
+      .create htmlContent, Object.assign({type: fileType, format: format, orientation: orientation, border: margin, quality: '75', timeout: 60000, script: path.join(__dirname, '../dependencies/phantomjs/pdf_a4_portrait.js')}, config)
       .toFile dist, (err, res)=>
         if err
           atom.notifications.addError err

@@ -11,7 +11,7 @@ module.exports =
 class SFTPFileSystem extends VFileSystem
 
   constructor: (@server, @config) ->
-    super();
+    super(@server.getMain());
     @session = null;
     @client = null;
 
@@ -152,6 +152,9 @@ class SFTPFileSystem extends VFileSystem
   getName: ->
     return @config.host;
 
+  getUsername: ->
+    return @config.username;
+
   getID: ->
     return @getLocalDirectoryName();
 
@@ -233,12 +236,10 @@ class SFTPFileSystem extends VFileSystem
         if err?
           return;
 
-        fullTarget = PathUtil.join(path, target);
-
         if stat.isFile()
-          result.setTargetFilePath(fullTarget);
+          result.setTargetFilePath(target);
         else if stat.isDirectory()
-          result.setTargetDirectoryPath(fullTarget);
+          result.setTargetDirectoryPath(PathUtil.join(path, target));
 
     return result;
 

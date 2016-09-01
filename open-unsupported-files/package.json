@@ -1,0 +1,69 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-11681-8694-1cteuwp/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-11681-8694-1cteuwp/package.tgz",
+        "spec": "/tmp/d-11681-8694-1cteuwp/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-11681-8694-jzlg8u"
+    ]
+  ],
+  "_from": "../d-11681-8694-1cteuwp/package.tgz",
+  "_id": "open-unsupported-files@1.0.19",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/open-unsupported-files",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-11681-8694-1cteuwp/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-11681-8694-1cteuwp/package.tgz",
+    "spec": "/tmp/d-11681-8694-1cteuwp/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11681-8694-1cteuwp/package.tgz",
+  "_shasum": "45281d6249d49533cf416ccd83547d0550e2ad34",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-11681-8694-1cteuwp/package.tgz",
+  "_where": "/tmp/apm-install-dir-11681-8694-jzlg8u",
+  "bugs": {
+    "url": "https://github.com/skandasoft/open-unsupported-files/issues"
+  },
+  "dependencies": {
+    "atom-utils": ">=0.6.3"
+  },
+  "description": "Open Unsupported File Format",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/skandasoft/open-unsupported-files#readme",
+  "keywords": [
+    "word document",
+    "excel",
+    "pdf",
+    "external program",
+    "open in"
+  ],
+  "license": "MIT",
+  "main": "./lib/open-unsupported-files",
+  "name": "open-unsupported-files",
+  "optionalDependencies": {},
+  "readme": "# open-unsupported-files\n------------------------\n\n\nOPEN UNSUPPORTED FORMATS IN THEIR DEFAULT EDITOR. FOR EG. WORD,EXCEL.\n\n\n##Config option\n----------------\n\nXLS,DOC,DOCX has been maintained by default. you could add other file extensions(comma separated).\n![open word document from atom ](https://github.com/skandasoft/open-unsupported-files/blob/master/open-word-doc.gif?raw=true)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skandasoft/open-unsupported-files.git"
+  },
+  "version": "1.0.19"
+}

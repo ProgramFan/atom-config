@@ -1,3 +1,21 @@
+## 0.8.3  
+* [x] add option to `hide` frontmatter.  
+* [x] change to `UIUC` license
+* [x] upgrade APIs to match newest `electron`  
+* [ ] solve lagging issue  
+* [ ] header/footer for presentation  
+* [x] smooth scroll sync
+
+## 0.8.2  
+* [x] fix issue [#106](https://github.com/shd101wyy/markdown-preview-enhanced/issues/106)
+* [x] add file extensions support [#102](https://github.com/shd101wyy/markdown-preview-enhanced/issues/104)
+* [x] fix issue [#107](https://github.com/shd101wyy/markdown-preview-enhanced/issues/107), now can use MathJax for phantomjs export
+* [x] add zoomFactor [#93](https://github.com/shd101wyy/markdown-preview-enhanced/issues/93)  
+* [ ] image drop to upload like github.  
+
+Known issues:  
+* `"` in MathJax are not escaped. `getAttribute('data-original')`
+
 ## 0.8.1
 * [x] refactor **parseMD** function. (it's too messy now)  
 * [x] for KaTeX rendering, save rendered results like MathJax.
@@ -9,7 +27,7 @@
 * [ ] fix [#93](https://github.com/shd101wyy/markdown-preview-enhanced/issues/93) specify image resolution when exporting png/jpeg using phantomjs
 * [x] support front matter [#100](https://github.com/shd101wyy/markdown-preview-enhanced/issues/100)
 * [ ] support hooks [#101](https://github.com/shd101wyy/markdown-preview-enhanced/issues/101)
-* [ ] **found [issue](https://github.com/marcbachmann/node-html-pdf/issues/156)**, I might implement phantomjs html2pdf by myself in the future... 
+* [ ] **found [issue](https://github.com/marcbachmann/node-html-pdf/issues/156)**, I might implement phantomjs html2pdf by myself in the future...
 
 ## 0.8.0
 * [ ] solve issue [#85](https://github.com/shd101wyy/markdown-preview-enhanced/issues/85)

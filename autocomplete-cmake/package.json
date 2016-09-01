@@ -1,21 +1,53 @@
 {
-  "name": "autocomplete-cmake",
-  "main": "./lib/autocomplete-cmake",
-  "version": "0.3.1",
-  "description": "An Autocomplete Plus provider for CMake.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NealRame/autocomplete-cmake.git"
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-11681-6655-np23bs/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-11681-6655-np23bs/package.tgz",
+        "spec": "/tmp/d-11681-6655-np23bs/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-11681-6655-1e4o21s"
+    ]
+  ],
+  "_from": "../d-11681-6655-np23bs/package.tgz",
+  "_id": "autocomplete-cmake@0.3.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/autocomplete-cmake",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-11681-6655-np23bs/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-11681-6655-np23bs/package.tgz",
+    "spec": "/tmp/d-11681-6655-np23bs/package.tgz",
+    "type": "local"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11681-6655-np23bs/package.tgz",
+  "_shasum": "2e4ac86b870796f919ad14821ba1efc209968943",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-11681-6655-np23bs/package.tgz",
+  "_where": "/tmp/apm-install-dir-11681-6655-1e4o21s",
+  "bugs": {
+    "url": "https://github.com/NealRame/autocomplete-cmake/issues"
   },
   "dependencies": {
     "fuzzaldrin": "^2.1.0"
   },
+  "description": "An Autocomplete Plus provider for CMake.",
   "devDependencies": {
     "eslint": "^1.8.0"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -51,6 +83,11 @@
       ]
     }
   },
+  "homepage": "https://github.com/NealRame/autocomplete-cmake#readme",
+  "license": "MIT",
+  "main": "./lib/autocomplete-cmake",
+  "name": "autocomplete-cmake",
+  "optionalDependencies": {},
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
@@ -60,52 +97,9 @@
   },
   "readme": "# autocomplete-cmake package\n\nAn Autocomplete Plus provider for CMake.\n\n![Screencast](https://dl.dropboxusercontent.com/u/23161414/autocomplete-cmake-screencast.gif)\n",
   "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/NealRame/autocomplete-cmake/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NealRame/autocomplete-cmake.git"
   },
-  "homepage": "https://github.com/NealRame/autocomplete-cmake#readme",
-  "_id": "autocomplete-cmake@0.3.1",
-  "_shasum": "2e4ac86b870796f919ad14821ba1efc209968943",
-  "_resolved": "file:../d-116720-6526-10pq0ju/package.tgz",
-  "_from": "../d-116720-6526-10pq0ju/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [
-      {
-        "name": "fuzzaldrin",
-        "version": "2.1.0",
-        "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
-      }
-    ],
-    "extensions": {
-      ".js": [
-        "lib/autocomplete-cmake.js",
-        "lib/cmake-context.js",
-        "lib/commands.js",
-        "lib/constants.js",
-        "lib/functional.js",
-        "lib/provider.js",
-        "lib/variables.js",
-        "node_modules/fuzzaldrin/lib/filter.js",
-        "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
-        "node_modules/fuzzaldrin/lib/matcher.js",
-        "node_modules/fuzzaldrin/lib/scorer.js"
-      ],
-      ".json": [
-        "node_modules/fuzzaldrin/package.json",
-        "package.json"
-      ]
-    },
-    "folders": [
-      {
-        "paths": [
-          "lib",
-          ""
-        ],
-        "dependencies": {
-          "fuzzaldrin": "^2.1.0"
-        }
-      }
-    ]
-  }
+  "version": "0.3.1"
 }
