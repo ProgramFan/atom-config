@@ -55,7 +55,7 @@ imdone-atom
 Hydrogen
 git-time-machine
 open-no-binaries
-external-open
+open-unsupported-files
 atom-commander
 auto-detect-indentation
 file-watcher
