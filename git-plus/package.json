@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11681-8348-1rqd3xb/package.tgz",
+        "raw": "/tmp/d-116816-8361-1tyt10l/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11681-8348-1rqd3xb/package.tgz",
-        "spec": "/tmp/d-11681-8348-1rqd3xb/package.tgz",
+        "rawSpec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
+        "spec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11681-8348-129xhpd"
+      "/tmp/apm-install-dir-116816-8361-18ue2f7"
     ]
   ],
-  "_from": "../d-11681-8348-1rqd3xb/package.tgz",
-  "_id": "git-plus@5.16.2",
+  "_from": "../d-116816-8361-1tyt10l/package.tgz",
+  "_id": "git-plus@5.17.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/git-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11681-8348-1rqd3xb/package.tgz",
+    "raw": "/tmp/d-116816-8361-1tyt10l/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11681-8348-1rqd3xb/package.tgz",
-    "spec": "/tmp/d-11681-8348-1rqd3xb/package.tgz",
+    "rawSpec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
+    "spec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11681-8348-1rqd3xb/package.tgz",
-  "_shasum": "e479b016f06d3ad326dc6311800f678211655147",
+  "_resolved": "file:../d-116816-8361-1tyt10l/package.tgz",
+  "_shasum": "38df3fb4754784969810be2ca3422c7058666056",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11681-8348-1rqd3xb/package.tgz",
-  "_where": "/tmp/apm-install-dir-11681-8348-129xhpd",
+  "_spec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
+  "_where": "/tmp/apm-install-dir-116816-8361-18ue2f7",
   "activationCommands": {
     "atom-workspace": [
       "git-plus:menu",
@@ -103,7 +103,8 @@
     "flavored-path": "0.0.8",
     "fs-plus": "^2.2.0",
     "fuzzaldrin": "^1.2.0",
-    "underscore-plus": "1.x"
+    "underscore": "^1.8.3",
+    "underscore-plus": "^1.6.6"
   },
   "description": "Do git things without the terminal",
   "devDependencies": {},
@@ -124,5 +125,5 @@
     "type": "git",
     "url": "git+https://github.com/akonwi/git-plus.git"
   },
-  "version": "5.16.2"
+  "version": "5.17.0"
 }

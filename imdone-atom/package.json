@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11681-8427-b8mn0v/package.tgz",
+        "raw": "/tmp/d-116816-8439-1kb079f/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11681-8427-b8mn0v/package.tgz",
-        "spec": "/tmp/d-11681-8427-b8mn0v/package.tgz",
+        "rawSpec": "/tmp/d-116816-8439-1kb079f/package.tgz",
+        "spec": "/tmp/d-116816-8439-1kb079f/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11681-8427-1vu02od"
+      "/tmp/apm-install-dir-116816-8439-82cr8c"
     ]
   ],
-  "_from": "../d-11681-8427-b8mn0v/package.tgz",
-  "_id": "imdone-atom@1.3.30",
+  "_from": "../d-116816-8439-1kb079f/package.tgz",
+  "_id": "imdone-atom@1.3.31",
   "_inCache": true,
   "_installable": true,
   "_location": "/imdone-atom",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11681-8427-b8mn0v/package.tgz",
+    "raw": "/tmp/d-116816-8439-1kb079f/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11681-8427-b8mn0v/package.tgz",
-    "spec": "/tmp/d-11681-8427-b8mn0v/package.tgz",
+    "rawSpec": "/tmp/d-116816-8439-1kb079f/package.tgz",
+    "spec": "/tmp/d-116816-8439-1kb079f/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11681-8427-b8mn0v/package.tgz",
-  "_shasum": "691415f9ca5b042136968e910f5eb16089e65848",
+  "_resolved": "file:../d-116816-8439-1kb079f/package.tgz",
+  "_shasum": "c451d093385fe56bf65f64aca5f27fd74d08ffe7",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11681-8427-b8mn0v/package.tgz",
-  "_where": "/tmp/apm-install-dir-11681-8427-1vu02od",
+  "_spec": "/tmp/d-116816-8439-1kb079f/package.tgz",
+  "_where": "/tmp/apm-install-dir-116816-8439-82cr8c",
   "author": {
     "name": "Jesse Piascik",
     "email": "jesse@piascik.net"
@@ -49,7 +49,7 @@
     "engine.io": "^1.5.4",
     "engine.io-client": "^1.6.4",
     "fs-plus": "^2.8.1",
-    "imdone-core": "1.2.49",
+    "imdone-core": "1.2.50",
     "lodash": "^4.0.0",
     "minimatch": "^3.0.0",
     "mkdirp": "^0.5.1",
@@ -87,5 +87,5 @@
     "type": "git",
     "url": "git+https://github.com/imdone/imdone-atom.git"
   },
-  "version": "1.3.30"
+  "version": "1.3.31"
 }

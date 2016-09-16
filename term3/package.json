@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11681-8081-1ja3r08/package.tgz",
+        "raw": "/tmp/d-116816-8093-wltlix/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11681-8081-1ja3r08/package.tgz",
-        "spec": "/tmp/d-11681-8081-1ja3r08/package.tgz",
+        "rawSpec": "/tmp/d-116816-8093-wltlix/package.tgz",
+        "spec": "/tmp/d-116816-8093-wltlix/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11681-8081-htmvt9"
+      "/tmp/apm-install-dir-116816-8093-zbmycc"
     ]
   ],
-  "_from": "../d-11681-8081-1ja3r08/package.tgz",
+  "_from": "../d-116816-8093-wltlix/package.tgz",
   "_id": "term3@0.22.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/term3",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11681-8081-1ja3r08/package.tgz",
+    "raw": "/tmp/d-116816-8093-wltlix/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11681-8081-1ja3r08/package.tgz",
-    "spec": "/tmp/d-11681-8081-1ja3r08/package.tgz",
+    "rawSpec": "/tmp/d-116816-8093-wltlix/package.tgz",
+    "spec": "/tmp/d-116816-8093-wltlix/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11681-8081-1ja3r08/package.tgz",
+  "_resolved": "file:../d-116816-8093-wltlix/package.tgz",
   "_shasum": "ff7baa13453403e6fc43afa5fb5db30a5d62d60d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11681-8081-1ja3r08/package.tgz",
-  "_where": "/tmp/apm-install-dir-11681-8081-htmvt9",
+  "_spec": "/tmp/d-116816-8093-wltlix/package.tgz",
+  "_where": "/tmp/apm-install-dir-116816-8093-zbmycc",
   "bugs": {
     "url": "https://github.com/Floobits/atom-term3/issues"
   },

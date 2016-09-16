@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11681-6818-1we0s86/package.tgz",
+        "raw": "/tmp/d-116816-6822-nzlrag/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11681-6818-1we0s86/package.tgz",
-        "spec": "/tmp/d-11681-6818-1we0s86/package.tgz",
+        "rawSpec": "/tmp/d-116816-6822-nzlrag/package.tgz",
+        "spec": "/tmp/d-116816-6822-nzlrag/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11681-6818-vtjqvb"
+      "/tmp/apm-install-dir-116816-6822-jizl49"
     ]
   ],
-  "_from": "../d-11681-6818-1we0s86/package.tgz",
+  "_from": "../d-116816-6822-nzlrag/package.tgz",
   "_id": "linter@1.11.16",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11681-6818-1we0s86/package.tgz",
+    "raw": "/tmp/d-116816-6822-nzlrag/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11681-6818-1we0s86/package.tgz",
-    "spec": "/tmp/d-11681-6818-1we0s86/package.tgz",
+    "rawSpec": "/tmp/d-116816-6822-nzlrag/package.tgz",
+    "spec": "/tmp/d-116816-6822-nzlrag/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11681-6818-1we0s86/package.tgz",
+  "_resolved": "file:../d-116816-6822-nzlrag/package.tgz",
   "_shasum": "9454b1450762d117b64cfd0ea1d71caaa1ab5d83",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11681-6818-1we0s86/package.tgz",
-  "_where": "/tmp/apm-install-dir-11681-6818-vtjqvb",
+  "_spec": "/tmp/d-116816-6822-nzlrag/package.tgz",
+  "_where": "/tmp/apm-install-dir-116816-6822-jizl49",
   "author": {
     "name": "atom-community"
   },

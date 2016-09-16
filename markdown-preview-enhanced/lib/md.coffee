@@ -422,19 +422,19 @@ checkGraph = (graphType, graphArray=[], preElement, text, option, $, offset)->
   if option.isForPreview
     $preElement = $(preElement)
     if !graphArray.length
-      $el = $("<div class=\"#{graphType}\" #{if graphType in ['wavedrom', 'mermaid'] then "data-offset=\"#{offset}\"" else ''}>#{text}</div>")
+      $el = $("<div class=\"#{graphType}\" data-offset=\"#{offset}\">#{text}</div>")
       $el.attr 'data-original', text
 
       $preElement.replaceWith $el
     else
       element = graphArray.splice(0, 1)[0] # get the first element
       if element.getAttribute('data-original') == text and element.getAttribute('data-processed') == 'true' # graph not changed
-        $el = $("<div class=\"#{graphType}\" data-processed=\"true\" #{if graphType in ['wavedrom', 'mermaid'] then "data-offset=\"#{offset}\"" else ''}>#{element.innerHTML}</div>")
+        $el = $("<div class=\"#{graphType}\" data-processed=\"true\" data-offset=\"#{offset}\">#{element.innerHTML}</div>")
         $el.attr 'data-original', text
 
         $preElement.replaceWith $el
       else
-        $el = $("<div class=\"#{graphType}\" #{if graphType in ['wavedrom', 'mermaid'] then "data-offset=\"#{offset}\"" else ''}>#{text}</div>")
+        $el = $("<div class=\"#{graphType}\" data-offset=\"#{offset}\">#{text}</div>")
         $el.attr('data-original', text)
 
         $preElement.replaceWith $el
@@ -521,7 +521,8 @@ resolveImagePathAndCodeBlock = (html, graphData={},  option={})->
       else
         text = ''
 
-    if lang == 'mermaid'
+    # TODO: remove 'mermaid', only keep {mermaid}
+    if lang in ['mermaid', '{mermaid}']
       mermaid.parseError = (err, hash)->
         renderCodeBlock(preElement, err, 'text')
 
@@ -530,14 +531,14 @@ resolveImagePathAndCodeBlock = (html, graphData={},  option={})->
 
         mermaidOffset += 1
 
-    else if lang == 'plantuml' or lang == 'puml'
+    else if lang in ['plantuml', 'puml', '{plantuml}', '{puml}']
       checkGraph 'plantuml', graphData.plantuml_s, preElement, text, option, $
 
-    else if lang == 'wavedrom'
+    else if lang in ['wavedrom', '{wavedrom}']
       checkGraph 'wavedrom', graphData.wavedrom_s, preElement, text, option, $, wavedromOffset
 
       wavedromOffset += 1
-    else if lang == 'viz'
+    else if lang in ['viz', '{viz}']
       checkGraph 'viz', graphData.viz_s, preElement, text, option, $
 
     else
@@ -559,7 +560,7 @@ else
     table: '',
   }
 ###
-processFrontMatter = (inputString)->
+processFrontMatter = (inputString, hideFrontMatter=false)->
   toTable = (arg)->
     if arg instanceof Array
       tbody = "<tbody><tr>"
@@ -581,29 +582,38 @@ processFrontMatter = (inputString)->
     else
       arg
 
-  if inputString.startsWith('---\n')
-    end = inputString.indexOf('---\n', 4)
-    if end > 0
-      if frontMatterRenderingOption[0] == 't' # table
-        yamlStr = inputString.slice(0, end+4)
-        content = '\n'.repeat(yamlStr.match(/\n/g)?.length or 0) + inputString.slice(end+4)
-        data = matter(yamlStr).data
+  # https://regexper.com/
+  r = /^-{3}[\n\r]([\w|\W]+?)[\n\r]-{3}[\n\r]/
 
-        # to table
-        if typeof(data) == 'object'
-          table = toTable(data)
-        else
-          table = "<pre>Failed to parse YAML.</pre>"
+  match = r.exec(inputString)
 
-        return {content, table}
-      else if frontMatterRenderingOption[0] == 'c' # code block
-        yamlStr = "```yaml\n" + inputString.slice(4, end) + '```\n'
-        content = yamlStr + inputString.slice(end+4)
-        return {content, table: ''}
-      else # hide
-        yamlStr = inputString.slice(0, end+4)
-        content = '\n'.repeat(yamlStr.match(/\n/g)?.length or 0) + inputString.slice(end+4)
-        return {content, table: ''}
+  if match
+    if hideFrontMatter or frontMatterRenderingOption[0] == 'n' # hide
+      yamlStr = match[0]
+      data = matter(yamlStr).data
+
+      content = '\n'.repeat(yamlStr.match(/\n/g)?.length or 0) + inputString.slice(yamlStr.length)
+      return {content, table: '', data}
+    else if frontMatterRenderingOption[0] == 't' # table
+      yamlStr = match[0]
+      data = matter(yamlStr).data
+
+      content = '\n'.repeat(yamlStr.match(/\n/g)?.length or 0) + inputString.slice(yamlStr.length)
+
+      # to table
+      if typeof(data) == 'object'
+        table = toTable(data)
+      else
+        table = "<pre>Failed to parse YAML.</pre>"
+
+      return {content, table, data}
+    else # if frontMatterRenderingOption[0] == 'c' # code block
+      yamlStr = match[0]
+      data = matter(yamlStr).data
+
+      content = '```yaml\n' + match[1] + '\n```\n' + inputString.slice(yamlStr.length)
+
+      return {content, table: '', data}
 
   {content: inputString, table: ''}
 
@@ -615,6 +625,7 @@ option = {
   isSavingToHTML:       bool, optional
   isForPreview:         bool, optional
   isForEbook:           bool, optional
+  hideFrontMatter:      bool, optional
   markdownPreview:      MarkdownPreviewEnhancedView. optional
   rootDirectoryPath:    string, required
                         the directory path of the markdown file.
@@ -638,8 +649,8 @@ parseMD = (inputString, option={})->
   # slide
   slideConfigs = []
 
-  # ebook
-  ebookConfig = {}
+  # yaml
+  yamlConfig = null
 
   # set graph data
   # so that we won't render the graph that hasn't changed
@@ -662,7 +673,7 @@ parseMD = (inputString, option={})->
       globalMathTypesettingData.mathjax_s = Array.prototype.slice.call markdownPreview.getElement().getElementsByClassName('mathjax-exps')
 
   # check front-matter
-  {table:frontMatterTable, content:inputString} = processFrontMatter(inputString)
+  {table:frontMatterTable, content:inputString, data:yamlConfig} = processFrontMatter(inputString, option.hideFrontMatter)
 
   # overwrite remark heading parse function
   md.renderer.rules.heading_open = (tokens, idx)=>
@@ -714,9 +725,6 @@ parseMD = (inputString, option={})->
       opt.line = tokens[idx].line
       slideConfigs.push(opt)
       return '<div class="new-slide"></div>'
-    else if subject == 'ebook'
-      opt = tokens[idx].option
-      ebookConfig = Object.assign({isEbook: true}, opt)
     return ''
 
 
@@ -761,21 +769,21 @@ parseMD = (inputString, option={})->
         tocEndLine = -1
 
         slideConfigs = []
-        ebookConfig = {}
 
         markdownPreview.parseDelay = Date.now() + 500 # prevent render again
         markdownPreview.editorScrollDelay = Date.now() + 500
         markdownPreview.previewScrollDelay = Date.now() + 500
 
-        {content:inputString} = processFrontMatter(editor.getText())
+        {content:inputString} = processFrontMatter(editor.getText(), option.hideFrontMatter)
         html = md.render(inputString)
 
   markdownPreview?.headings = headings
 
   html = resolveImagePathAndCodeBlock(html, graphData, option)
-  return {html: frontMatterTable+html, slideConfigs, ebookConfig}
+  return {html: frontMatterTable+html, slideConfigs, yamlConfig}
 
 module.exports = {
   parseMD,
-  buildScrollMap
+  buildScrollMap,
+  processFrontMatter
 }

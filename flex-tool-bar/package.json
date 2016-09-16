@@ -2,52 +2,53 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11681-7958-1xrfw8i/package.tgz",
+        "raw": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11681-7958-1xrfw8i/package.tgz",
-        "spec": "/tmp/d-11681-7958-1xrfw8i/package.tgz",
+        "rawSpec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
+        "spec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11681-7958-774zg2"
+      "/tmp/apm-install-dir-116816-7970-lvsfvz"
     ]
   ],
-  "_from": "../d-11681-7958-1xrfw8i/package.tgz",
-  "_id": "flex-tool-bar@0.10.3",
+  "_from": "../d-116816-7970-1ib4vxm/package.tgz",
+  "_id": "flex-tool-bar@0.11.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/flex-tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11681-7958-1xrfw8i/package.tgz",
+    "raw": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11681-7958-1xrfw8i/package.tgz",
-    "spec": "/tmp/d-11681-7958-1xrfw8i/package.tgz",
+    "rawSpec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
+    "spec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11681-7958-1xrfw8i/package.tgz",
-  "_shasum": "feb897cb96380a17f59a63bf2c086dc7ee27d22f",
+  "_resolved": "file:../d-116816-7970-1ib4vxm/package.tgz",
+  "_shasum": "7b297451597ff345288edf0b142d40e20f5cd599",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11681-7958-1xrfw8i/package.tgz",
-  "_where": "/tmp/apm-install-dir-11681-7958-774zg2",
+  "_spec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
+  "_where": "/tmp/apm-install-dir-116816-7970-lvsfvz",
   "bugs": {
     "url": "https://github.com/cakecatz/flex-toolbar/issues"
   },
   "consumedServices": {
     "tool-bar": {
       "versions": {
-        "^0.1.0": "consumeToolBar"
+        "^0 || ^1": "consumeToolBar"
       }
     }
   },
   "dependencies": {
     "atom-package-deps": "^4.0.1",
+    "change-case": "^3.0.0",
     "chokidar": "^1.4.3",
     "cson": "^3.0.2",
     "fs-plus": "^2.8.1",
@@ -81,5 +82,5 @@
     "type": "git",
     "url": "git+https://github.com/cakecatz/flex-toolbar.git"
   },
-  "version": "0.10.3"
+  "version": "0.11.0"
 }

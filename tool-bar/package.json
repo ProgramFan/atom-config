@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11681-7919-6zbut9/package.tgz",
+        "raw": "/tmp/d-116816-7931-1t6s8kc/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11681-7919-6zbut9/package.tgz",
-        "spec": "/tmp/d-11681-7919-6zbut9/package.tgz",
+        "rawSpec": "/tmp/d-116816-7931-1t6s8kc/package.tgz",
+        "spec": "/tmp/d-116816-7931-1t6s8kc/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11681-7919-6rzn44"
+      "/tmp/apm-install-dir-116816-7931-72xxuy"
     ]
   ],
-  "_from": "../d-11681-7919-6zbut9/package.tgz",
+  "_from": "../d-116816-7931-1t6s8kc/package.tgz",
   "_id": "tool-bar@1.0.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11681-7919-6zbut9/package.tgz",
+    "raw": "/tmp/d-116816-7931-1t6s8kc/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11681-7919-6zbut9/package.tgz",
-    "spec": "/tmp/d-11681-7919-6zbut9/package.tgz",
+    "rawSpec": "/tmp/d-116816-7931-1t6s8kc/package.tgz",
+    "spec": "/tmp/d-116816-7931-1t6s8kc/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11681-7919-6zbut9/package.tgz",
+  "_resolved": "file:../d-116816-7931-1t6s8kc/package.tgz",
   "_shasum": "20fd58e53b6e0bcecf09baa0653dc791c0a0199f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11681-7919-6zbut9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11681-7919-6rzn44",
+  "_spec": "/tmp/d-116816-7931-1t6s8kc/package.tgz",
+  "_where": "/tmp/apm-install-dir-116816-7931-72xxuy",
   "bugs": {
     "url": "https://github.com/suda/tool-bar/issues"
   },

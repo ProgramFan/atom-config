@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11681-7425-496lpo/package.tgz",
+        "raw": "/tmp/d-116816-7436-fxveoj/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11681-7425-496lpo/package.tgz",
-        "spec": "/tmp/d-11681-7425-496lpo/package.tgz",
+        "rawSpec": "/tmp/d-116816-7436-fxveoj/package.tgz",
+        "spec": "/tmp/d-116816-7436-fxveoj/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11681-7425-1wepprs"
+      "/tmp/apm-install-dir-116816-7436-efrpzn"
     ]
   ],
-  "_from": "../d-11681-7425-496lpo/package.tgz",
+  "_from": "../d-116816-7436-fxveoj/package.tgz",
   "_id": "minimap-git-diff@4.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-git-diff",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11681-7425-496lpo/package.tgz",
+    "raw": "/tmp/d-116816-7436-fxveoj/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11681-7425-496lpo/package.tgz",
-    "spec": "/tmp/d-11681-7425-496lpo/package.tgz",
+    "rawSpec": "/tmp/d-116816-7436-fxveoj/package.tgz",
+    "spec": "/tmp/d-116816-7436-fxveoj/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11681-7425-496lpo/package.tgz",
+  "_resolved": "file:../d-116816-7436-fxveoj/package.tgz",
   "_shasum": "351b314abee91e17e3688479ada6b6fd49e94d89",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11681-7425-496lpo/package.tgz",
-  "_where": "/tmp/apm-install-dir-11681-7425-1wepprs",
+  "_spec": "/tmp/d-116816-7436-fxveoj/package.tgz",
+  "_where": "/tmp/apm-install-dir-116816-7436-efrpzn",
   "author": {
     "name": "Cédric Néhémie",
     "email": "cedric.nehemie@gmail.com"

@@ -1,3 +1,23 @@
+## 0.8.5
+* [ ] support `yaml_table` [**not implement**]
+* [ ] support `erd` [#128](https://github.com/shd101wyy/markdown-preview-enhanced/issues/128) [**not implement**]
+* [x] scroll preview to the very bottom when cursor is in last 2 lines. (right now it is the last line)
+* [x] fix ebook network image error [#129](https://github.com/shd101wyy/markdown-preview-enhanced/issues/129#issuecomment-245778986)
+* [x] support `ebook-convert` args option
+* [x] improve `ebook` config
+* [x] fix `loading preview` stuck bug   
+* [ ] remove `Markdown  Preivew Enhanced: Config Header and Footer`, use `front-matter` instead. [**Might be implemented in next release**]
+
+## 0.8.4  
+* [ ] fix issue [#107](https://github.com/shd101wyy/markdown-preview-enhanced/issues/107)  
+* [ ] add TOC sidebar [#117](https://github.com/shd101wyy/markdown-preview-enhanced/issues/117)  
+* [x] fix issue [#121](https://github.com/shd101wyy/markdown-preview-enhanced/issues/121) location save
+* [x] add default document export path [#120](https://github.com/shd101wyy/markdown-preview-enhanced/issues/120)
+* [x] fix issue [#118](https://github.com/shd101wyy/markdown-preview-enhanced/issues/118) add hint for image paste
+* [x] support **pandoc**
+* [x] add vertical slides for presentation [#123](https://github.com/shd101wyy/markdown-preview-enhanced/issues/123)
+* [x] remove `Markdown Preview Enhanced: Config Presentation`, use front-matter instead   
+
 ## 0.8.3  
 * [x] add option to `hide` frontmatter.  
 * [x] change to `UIUC` license
