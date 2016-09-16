@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2179-9lu5yn/package.tgz",
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2272-1z0ieud/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2179-9lu5yn/package.tgz",
-        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2179-9lu5yn/package.tgz",
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2272-1z0ieud/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2272-1z0ieud/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-2179-y6tdpr"
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2272-1nnszzt"
     ]
   ],
-  "_from": "../d-11681-2179-9lu5yn/package.tgz",
-  "_id": "linter-scspell@2.0.1",
+  "_from": "../d-116816-2272-1z0ieud/package.tgz",
+  "_id": "linter-scspell@2.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-scspell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2179-9lu5yn/package.tgz",
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2272-1z0ieud/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2179-9lu5yn/package.tgz",
-    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2179-9lu5yn/package.tgz",
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2272-1z0ieud/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2272-1z0ieud/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11681-2179-9lu5yn/package.tgz",
-  "_shasum": "dce324dc1dd1057455d5f1192883c858ffa4efd7",
+  "_resolved": "file:../d-116816-2272-1z0ieud/package.tgz",
+  "_shasum": "6173f4a5c67b63e58ab5400dbb2869c3e547e4fb",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-11681-2179-9lu5yn/package.tgz",
-  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-11681-2179-y6tdpr",
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2272-1z0ieud/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2272-1nnszzt",
   "bugs": {
     "url": "https://github.com/spockNinja/linter-scspell/issues"
   },
@@ -63,5 +63,5 @@
     "type": "git",
     "url": "git+https://github.com/spockNinja/linter-scspell.git"
   },
-  "version": "2.0.1"
+  "version": "2.2.0"
 }

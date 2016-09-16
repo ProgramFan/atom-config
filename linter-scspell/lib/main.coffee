@@ -25,6 +25,7 @@ module.exports =
 
   provideLinter: ->
     provider =
+      name: 'scspell'
       grammarScopes: ['*']
       scope: 'file'
       lintOnFly: false
@@ -70,9 +71,10 @@ module.exports =
             stdout: (data) ->
               lines = data.split '\n'
 
-            exit: (code) ->
-              return resolve [] unless code is 0
+            stderr: (data) ->
+              lines = data.split '\n'
 
+            exit: (code) ->
               errors = []
               for line in lines
                   if line
