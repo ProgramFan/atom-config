@@ -61,3 +61,8 @@ auto-detect-indentation
 file-watcher
 remote-sync
 run-command2
+docblockr
+golden-ratio
+terminal-plus
+python-tools
+open-terminal-here
