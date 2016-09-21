@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2467-1iqx5s4/package.tgz",
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-1756-ywh6u5/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2467-1iqx5s4/package.tgz",
-        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2467-1iqx5s4/package.tgz",
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-1756-ywh6u5/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-1756-ywh6u5/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2467-1o9chuh"
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116821-1756-n1m1ii"
     ]
   ],
-  "_from": "../d-116816-2467-1iqx5s4/package.tgz",
+  "_from": "../d-116821-1756-ywh6u5/package.tgz",
   "_id": "asciidoctor-preview@0.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoctor-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2467-1iqx5s4/package.tgz",
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-1756-ywh6u5/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2467-1iqx5s4/package.tgz",
-    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2467-1iqx5s4/package.tgz",
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-1756-ywh6u5/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-1756-ywh6u5/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-2467-1iqx5s4/package.tgz",
+  "_resolved": "file:../d-116821-1756-ywh6u5/package.tgz",
   "_shasum": "b38b8e82af03e162121f3592a4b8fdaa342ff3da",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2467-1iqx5s4/package.tgz",
-  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2467-1o9chuh",
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-1756-ywh6u5/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116821-1756-n1m1ii",
   "bugs": {
     "url": "https://github.com/griffin-stewie/asciidoctor-preview/issues"
   },

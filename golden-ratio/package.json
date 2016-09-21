@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-2820-vfnlna/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-2820-vfnlna/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-2820-vfnlna/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116821-2820-wv2l8i"
+    ]
+  ],
+  "_from": "../d-116821-2820-vfnlna/package.tgz",
+  "_id": "golden-ratio@0.3.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/golden-ratio",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-2820-vfnlna/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-2820-vfnlna/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-2820-vfnlna/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116821-2820-vfnlna/package.tgz",
+  "_shasum": "3b2ce4156308afe98454d19d501ba28ce5218689",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116821-2820-vfnlna/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116821-2820-wv2l8i",
+  "activationCommands": {
+    "atom-workspace": "golden-ratio:toggle"
+  },
+  "bugs": {
+    "url": "https://github.com/geksilla/atom-golden-ratio/issues"
+  },
+  "configSchema": {
+    "scaleFactor": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "dependencies": {},
+  "description": "Automaticaly resize active pane",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/geksilla/atom-golden-ratio#readme",
+  "keywords": [
+    "golden-ratio",
+    "layout",
+    "window",
+    "resize",
+    "pane"
+  ],
+  "license": "MIT",
+  "main": "./lib/golden-ratio",
+  "name": "golden-ratio",
+  "optionalDependencies": {},
+  "readme": "# golden-ratio package\n\nGolden ratio scaling for panes. Automaticaly resize pane with active item.\n![golden-ratio-demo](http://i.imgur.com/FuzyCXa.gif)\n\n## Usage\n\nRun command via __Command Palette__ -> __Golden Ratio: Toggle__, context menu or\nadd custom keymap:\n```cson\n'atom-workspace':\n  '<your_keys_here>': 'golden-ratio:toggle'\n```\n\nFor better experience uncheck __Soft Wrap__ option from __Settings View -> Settings -> Editor__.\n\n## Configuration\n\nName                       | Default | Description\n---------------------------|---------|------------\n'golden-ratio.scaleFactor' | 1       | Scale factor\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geksilla/atom-golden-ratio.git"
+  },
+  "version": "0.3.0"
+}

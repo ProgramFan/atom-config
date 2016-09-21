@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2260-72keja/package.tgz",
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1550-vw7jrw/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2260-72keja/package.tgz",
-        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2260-72keja/package.tgz",
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1550-vw7jrw/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1550-vw7jrw/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2260-1wxnwo7"
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116820-1550-1smu0wl"
     ]
   ],
-  "_from": "../d-116816-2260-72keja/package.tgz",
+  "_from": "../d-116820-1550-vw7jrw/package.tgz",
   "_id": "linter-shellcheck@1.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2260-72keja/package.tgz",
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1550-vw7jrw/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2260-72keja/package.tgz",
-    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2260-72keja/package.tgz",
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1550-vw7jrw/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1550-vw7jrw/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-2260-72keja/package.tgz",
+  "_resolved": "file:../d-116820-1550-vw7jrw/package.tgz",
   "_shasum": "d7af73a17a21c991fea523166338a76518d18036",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2260-72keja/package.tgz",
-  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2260-1wxnwo7",
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1550-vw7jrw/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116820-1550-1smu0wl",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-shellcheck/issues"
   },

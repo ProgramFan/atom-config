@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2188-1w3anmc/package.tgz",
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1476-10z1qaw/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2188-1w3anmc/package.tgz",
-        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2188-1w3anmc/package.tgz",
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1476-10z1qaw/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1476-10z1qaw/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2188-1mnydi"
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116820-1476-hkxjsi"
     ]
   ],
-  "_from": "../d-116816-2188-1w3anmc/package.tgz",
-  "_id": "latex-autocomplete@0.5.3",
+  "_from": "../d-116820-1476-10z1qaw/package.tgz",
+  "_id": "latex-autocomplete@0.6.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/latex-autocomplete",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2188-1w3anmc/package.tgz",
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1476-10z1qaw/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2188-1w3anmc/package.tgz",
-    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2188-1w3anmc/package.tgz",
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1476-10z1qaw/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1476-10z1qaw/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-2188-1w3anmc/package.tgz",
-  "_shasum": "9059d55e2baed6dcec43d3abfd6488a9f8fcc384",
+  "_resolved": "file:../d-116820-1476-10z1qaw/package.tgz",
+  "_shasum": "6db2b0313c0cb38054b8a0cef8904e76822b9adb",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2188-1w3anmc/package.tgz",
-  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2188-1mnydi",
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1476-10z1qaw/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116820-1476-hkxjsi",
   "bugs": {
     "url": "https://github.com/evpok/latex-autocomplete/issues"
   },
@@ -59,7 +59,7 @@
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
-        "2.0.0": "get_label_completer_provider"
+        "2.0.0": "get_autocomplete_providers"
       }
     }
   },
@@ -69,5 +69,5 @@
     "type": "git",
     "url": "git+https://github.com/evpok/latex-autocomplete.git"
   },
-  "version": "0.5.3"
+  "version": "0.6.1"
 }

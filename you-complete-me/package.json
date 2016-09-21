@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2176-l0c4vs/package.tgz",
+        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1464-x7l1jv/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2176-l0c4vs/package.tgz",
-        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2176-l0c4vs/package.tgz",
+        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1464-x7l1jv/package.tgz",
+        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1464-x7l1jv/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2176-3vm0kd"
+      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116820-1464-47doss"
     ]
   ],
-  "_from": "../d-116816-2176-l0c4vs/package.tgz",
-  "_id": "you-complete-me@0.7.9",
+  "_from": "../d-116820-1464-x7l1jv/package.tgz",
+  "_id": "you-complete-me@0.7.11",
   "_inCache": true,
   "_installable": true,
   "_location": "/you-complete-me",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2176-l0c4vs/package.tgz",
+    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1464-x7l1jv/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2176-l0c4vs/package.tgz",
-    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2176-l0c4vs/package.tgz",
+    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1464-x7l1jv/package.tgz",
+    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1464-x7l1jv/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-2176-l0c4vs/package.tgz",
-  "_shasum": "c77358522d2ec5e1102da564db7e1d0f2b4f09a2",
+  "_resolved": "file:../d-116820-1464-x7l1jv/package.tgz",
+  "_shasum": "438daf2011777f3117d05cfc51d877f5439c7540",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116816-2176-l0c4vs/package.tgz",
-  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116816-2176-3vm0kd",
+  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116820-1464-x7l1jv/package.tgz",
+  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116820-1464-47doss",
   "bugs": {
     "url": "https://github.com/Qusic/atom-youcompleteme/issues"
   },
@@ -67,11 +67,11 @@
       }
     }
   },
-  "readme": "# Atom YouCompleteMe package\n\n[YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for Atom\n\n## Previews\n\n![](https://cloud.githubusercontent.com/assets/2141853/7626423/79024212-fa3b-11e4-941e-e014a8e5b0df.gif)\n![](https://cloud.githubusercontent.com/assets/2141853/7626422/7901f352-fa3b-11e4-8007-82ab514fb8e9.gif)\n\n## Features\n\n* Semantic code completion using [autocomplete+](https://github.com/atom-community/autocomplete-plus)\n* Diagnostic display using [linter](https://github.com/atom-community/linter)\n* Commands and context menus to query the type of variables or methods\n* Commands and context menus to go to declaration or definition\n\n## Keymaps\n\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>t</kbd> Get Type\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>p</kbd> Get Parent\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>g</kbd> Go To\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>i</kbd> Go To Imprecise\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>c</kbd> Go To Declaration\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>d</kbd> Go To Definition\n\n## Usage\n\n* Install the package.\n* Configure the path to your python executable and ycmd installation.  \n  For detailed instructions and troubleshooting on building ycmd, see [ycmd's README](https://github.com/Valloric/ycmd#building).\n* By default this package is enabled for C/C++/Objective-C/Objective-C++ only.  \n  You can enable it for other filetypes that YouCompleteMe supports.\n",
+  "readme": "# Atom YouCompleteMe package\n\n[YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for Atom\n\n## Previews\n\n![](https://cloud.githubusercontent.com/assets/2141853/18661117/ce2259ee-7f46-11e6-908f-50b52e121dc8.png)\n![](https://cloud.githubusercontent.com/assets/2141853/18661116/cdcdf7a0-7f46-11e6-80ce-62aa042a5ef0.png)\n\n## Features\n\n* Semantic code completion using [autocomplete+](https://atom.io/packages/autocomplete-plus)\n* Diagnostic display using [linter](https://atom.io/packages/linter)\n* Commands and context menus to query the type of variables or methods\n* Commands and context menus to go to declaration or definition\n* Go to declaration or definition with mouse click using [hyperclick](https://atom.io/packages/hyperclick)\n\n## Keymaps\n\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>t</kbd> Get Type\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>p</kbd> Get Parent\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>g</kbd> Go To\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>i</kbd> Go To Imprecise\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>c</kbd> Go To Declaration\n* <kbd>alt</kbd>+<kbd>y</kbd> <kbd>d</kbd> Go To Definition\n\n## Usage\n\n* Install the package.\n* Configure the path to your python executable and ycmd installation.  \n  For detailed instructions and troubleshooting on building ycmd, see [ycmd's README](https://github.com/Valloric/ycmd#building).\n* By default this package is enabled for C/C++/Objective-C/Objective-C++ only.  \n  You can enable it for other filetypes that YouCompleteMe supports.\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Qusic/atom-youcompleteme.git"
   },
-  "version": "0.7.9"
+  "version": "0.7.11"
 }

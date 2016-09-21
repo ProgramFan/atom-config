@@ -19,6 +19,7 @@ class AtomCommanderView extends View
   constructor: (@main, state)->
     super(@main);
 
+    @alternateButtons = false;
     @sizeColumnVisible = state.sizeColumnVisible;
     @dateColumnVisible = state.dateColumnVisible;
     @extensionColumnVisible = state.extensionColumnVisible;
@@ -62,9 +63,9 @@ class AtomCommanderView extends View
         @subview 'rightTabbedView', new TabbedView(false)
       @div {class: 'btn-group-xs'}, =>
         @button 'F2 Rename', {class: 'btn', style: buttonStyle, click: 'renameButton'}
-        @button 'F3 Add Project', {class: 'btn', style: buttonStyle, click: 'addProjectButton', outlet: 'F3Button'}
+        @button 'F3 Add Project', {class: 'btn', style: buttonStyle, click: 'addRemoveProjectButton', outlet: 'F3Button'}
         @button 'F4 New File', {class: 'btn', style: buttonStyle, click: 'newFileButton'}
-        @button 'F5 Copy', {class: 'btn', style: buttonStyle, click: 'copyButton', outlet: 'F5Button'}
+        @button 'F5 Copy', {class: 'btn', style: buttonStyle, click: 'copyDuplicateButton', outlet: 'F5Button'}
         @button 'F6 Move', {class: 'btn', style: buttonStyle, click: 'moveButton'}
         @button 'F7 New Folder', {class: 'btn', style: buttonStyle, click: 'newDirectoryButton'}
         @button 'F8 Delete', {class: 'btn', style: buttonStyle, click: 'deleteButton'}
@@ -149,10 +150,12 @@ class AtomCommanderView extends View
     @refocusLastView();
 
   showAlternateButtons: ->
+    @alternateButtons = true;
     @F3Button.text("F3 Remove Project");
     @F5Button.text("F5 Duplicate");
 
   hideAlternateButtons: ->
+    @alternateButtons = false;
     @F3Button.text("F3 Add Project");
     @F5Button.text("F5 Copy");
 
@@ -197,6 +200,12 @@ class AtomCommanderView extends View
     else
       @focusView(@getLeftView());
 
+  addRemoveProjectButton: ->
+    if @alternateButtons
+      @removeProjectButton();
+    else
+      @addProjectButton();
+
   addProjectButton: ->
     if @focusedView != null
       @focusedView.addProject();
@@ -235,6 +244,12 @@ class AtomCommanderView extends View
 
     dialog = new NewFileDialog(@focusedView, directory);
     dialog.attach();
+
+  copyDuplicateButton: ->
+    if @alternateButtons
+      @duplicateButton();
+    else
+      @copyButton();
 
   copyButton: ->
     @copyOrMoveButton(false);
