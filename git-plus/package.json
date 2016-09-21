@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-8361-1tyt10l/package.tgz",
+        "raw": "/tmp/d-116821-8351-13quesj/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
-        "spec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
+        "rawSpec": "/tmp/d-116821-8351-13quesj/package.tgz",
+        "spec": "/tmp/d-116821-8351-13quesj/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-8361-18ue2f7"
+      "/tmp/apm-install-dir-116821-8351-1icyqfw"
     ]
   ],
-  "_from": "../d-116816-8361-1tyt10l/package.tgz",
-  "_id": "git-plus@5.17.0",
+  "_from": "../d-116821-8351-13quesj/package.tgz",
+  "_id": "git-plus@5.17.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/git-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-8361-1tyt10l/package.tgz",
+    "raw": "/tmp/d-116821-8351-13quesj/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
-    "spec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
+    "rawSpec": "/tmp/d-116821-8351-13quesj/package.tgz",
+    "spec": "/tmp/d-116821-8351-13quesj/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-8361-1tyt10l/package.tgz",
-  "_shasum": "38df3fb4754784969810be2ca3422c7058666056",
+  "_resolved": "file:../d-116821-8351-13quesj/package.tgz",
+  "_shasum": "34bc7e08e01f60ca1c8a78a6e8c5e933141603b6",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-8361-1tyt10l/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-8361-18ue2f7",
+  "_spec": "/tmp/d-116821-8351-13quesj/package.tgz",
+  "_where": "/tmp/apm-install-dir-116821-8351-1icyqfw",
   "activationCommands": {
     "atom-workspace": [
       "git-plus:menu",
@@ -125,5 +125,5 @@
     "type": "git",
     "url": "git+https://github.com/akonwi/git-plus.git"
   },
-  "version": "5.17.0"
+  "version": "5.17.1"
 }

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-6304-fmu37c/package.tgz",
+        "raw": "/tmp/d-116820-6294-1xovh7v/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-6304-fmu37c/package.tgz",
-        "spec": "/tmp/d-116816-6304-fmu37c/package.tgz",
+        "rawSpec": "/tmp/d-116820-6294-1xovh7v/package.tgz",
+        "spec": "/tmp/d-116820-6294-1xovh7v/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-6304-l3xev0"
+      "/tmp/apm-install-dir-116820-6294-1sh92q5"
     ]
   ],
-  "_from": "../d-116816-6304-fmu37c/package.tgz",
+  "_from": "../d-116820-6294-1xovh7v/package.tgz",
   "_id": "language-markdown@0.16.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-markdown",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-6304-fmu37c/package.tgz",
+    "raw": "/tmp/d-116820-6294-1xovh7v/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-6304-fmu37c/package.tgz",
-    "spec": "/tmp/d-116816-6304-fmu37c/package.tgz",
+    "rawSpec": "/tmp/d-116820-6294-1xovh7v/package.tgz",
+    "spec": "/tmp/d-116820-6294-1xovh7v/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-6304-fmu37c/package.tgz",
+  "_resolved": "file:../d-116820-6294-1xovh7v/package.tgz",
   "_shasum": "70075bece09f5ec424133786f3aeacb8b397aee1",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-6304-fmu37c/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-6304-l3xev0",
+  "_spec": "/tmp/d-116820-6294-1xovh7v/package.tgz",
+  "_where": "/tmp/apm-install-dir-116820-6294-1sh92q5",
   "bugs": {
     "url": "https://github.com/burodepeper/language-markdown/issues"
   },

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-7182-o9uzgx/package.tgz",
+        "raw": "/tmp/d-116820-7172-tlirfb/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-7182-o9uzgx/package.tgz",
-        "spec": "/tmp/d-116816-7182-o9uzgx/package.tgz",
+        "rawSpec": "/tmp/d-116820-7172-tlirfb/package.tgz",
+        "spec": "/tmp/d-116820-7172-tlirfb/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-7182-1gof2zo"
+      "/tmp/apm-install-dir-116820-7172-1sxdop6"
     ]
   ],
-  "_from": "../d-116816-7182-o9uzgx/package.tgz",
+  "_from": "../d-116820-7172-tlirfb/package.tgz",
   "_id": "intentions@1.1.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/intentions",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-7182-o9uzgx/package.tgz",
+    "raw": "/tmp/d-116820-7172-tlirfb/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-7182-o9uzgx/package.tgz",
-    "spec": "/tmp/d-116816-7182-o9uzgx/package.tgz",
+    "rawSpec": "/tmp/d-116820-7172-tlirfb/package.tgz",
+    "spec": "/tmp/d-116820-7172-tlirfb/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-7182-o9uzgx/package.tgz",
+  "_resolved": "file:../d-116820-7172-tlirfb/package.tgz",
   "_shasum": "ff78e073a6bf1069e184a4cc79e8306af30a1962",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-7182-o9uzgx/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-7182-1gof2zo",
+  "_spec": "/tmp/d-116820-7172-tlirfb/package.tgz",
+  "_where": "/tmp/apm-install-dir-116820-7172-1sxdop6",
   "bugs": {
     "url": "https://github.com/steelbrain/intentions/issues"
   },

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-6979-aam6ku/package.tgz",
+        "raw": "/tmp/d-116820-6977-fph3gr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-6979-aam6ku/package.tgz",
-        "spec": "/tmp/d-116816-6979-aam6ku/package.tgz",
+        "rawSpec": "/tmp/d-116820-6977-fph3gr/package.tgz",
+        "spec": "/tmp/d-116820-6977-fph3gr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-6979-45juh4"
+      "/tmp/apm-install-dir-116820-6977-w23uu"
     ]
   ],
-  "_from": "../d-116816-6979-aam6ku/package.tgz",
+  "_from": "../d-116820-6977-fph3gr/package.tgz",
   "_id": "linter-shellcheck@1.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-6979-aam6ku/package.tgz",
+    "raw": "/tmp/d-116820-6977-fph3gr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-6979-aam6ku/package.tgz",
-    "spec": "/tmp/d-116816-6979-aam6ku/package.tgz",
+    "rawSpec": "/tmp/d-116820-6977-fph3gr/package.tgz",
+    "spec": "/tmp/d-116820-6977-fph3gr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-6979-aam6ku/package.tgz",
+  "_resolved": "file:../d-116820-6977-fph3gr/package.tgz",
   "_shasum": "d7af73a17a21c991fea523166338a76518d18036",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-6979-aam6ku/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-6979-45juh4",
+  "_spec": "/tmp/d-116820-6977-fph3gr/package.tgz",
+  "_where": "/tmp/apm-install-dir-116820-6977-w23uu",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-shellcheck/issues"
   },

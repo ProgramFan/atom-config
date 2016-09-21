@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
+        "raw": "/tmp/d-116821-7960-sbi4z5/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
-        "spec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
+        "rawSpec": "/tmp/d-116821-7960-sbi4z5/package.tgz",
+        "spec": "/tmp/d-116821-7960-sbi4z5/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-7970-lvsfvz"
+      "/tmp/apm-install-dir-116821-7960-j5rnio"
     ]
   ],
-  "_from": "../d-116816-7970-1ib4vxm/package.tgz",
+  "_from": "../d-116821-7960-sbi4z5/package.tgz",
   "_id": "flex-tool-bar@0.11.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/flex-tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
+    "raw": "/tmp/d-116821-7960-sbi4z5/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
-    "spec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
+    "rawSpec": "/tmp/d-116821-7960-sbi4z5/package.tgz",
+    "spec": "/tmp/d-116821-7960-sbi4z5/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-7970-1ib4vxm/package.tgz",
+  "_resolved": "file:../d-116821-7960-sbi4z5/package.tgz",
   "_shasum": "7b297451597ff345288edf0b142d40e20f5cd599",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-7970-1ib4vxm/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-7970-lvsfvz",
+  "_spec": "/tmp/d-116821-7960-sbi4z5/package.tgz",
+  "_where": "/tmp/apm-install-dir-116821-7960-j5rnio",
   "bugs": {
     "url": "https://github.com/cakecatz/flex-toolbar/issues"
   },

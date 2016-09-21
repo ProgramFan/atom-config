@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-7717-1xm7rm0/package.tgz",
+        "raw": "/tmp/d-116820-7708-1401rmx/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-7717-1xm7rm0/package.tgz",
-        "spec": "/tmp/d-116816-7717-1xm7rm0/package.tgz",
+        "rawSpec": "/tmp/d-116820-7708-1401rmx/package.tgz",
+        "spec": "/tmp/d-116820-7708-1401rmx/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-7717-8rvnxe"
+      "/tmp/apm-install-dir-116820-7708-11jyu8o"
     ]
   ],
-  "_from": "../d-116816-7717-1xm7rm0/package.tgz",
+  "_from": "../d-116820-7708-1401rmx/package.tgz",
   "_id": "build@0.65.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/build",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-7717-1xm7rm0/package.tgz",
+    "raw": "/tmp/d-116820-7708-1401rmx/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-7717-1xm7rm0/package.tgz",
-    "spec": "/tmp/d-116816-7717-1xm7rm0/package.tgz",
+    "rawSpec": "/tmp/d-116820-7708-1401rmx/package.tgz",
+    "spec": "/tmp/d-116820-7708-1401rmx/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-7717-1xm7rm0/package.tgz",
+  "_resolved": "file:../d-116820-7708-1401rmx/package.tgz",
   "_shasum": "7cfe0d95d32fc6877a5cf63947875f8e169d4b4f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-7717-1xm7rm0/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-7717-8rvnxe",
+  "_spec": "/tmp/d-116820-7708-1401rmx/package.tgz",
+  "_where": "/tmp/apm-install-dir-116820-7708-11jyu8o",
   "bugs": {
     "url": "https://github.com/noseglid/atom-build/issues"
   },

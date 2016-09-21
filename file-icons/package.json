@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-8322-ggc0ho/package.tgz",
+        "raw": "/tmp/d-116821-8311-149jobp/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-8322-ggc0ho/package.tgz",
-        "spec": "/tmp/d-116816-8322-ggc0ho/package.tgz",
+        "rawSpec": "/tmp/d-116821-8311-149jobp/package.tgz",
+        "spec": "/tmp/d-116821-8311-149jobp/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-8322-obox7x"
+      "/tmp/apm-install-dir-116821-8311-1mmv0bx"
     ]
   ],
-  "_from": "../d-116816-8322-ggc0ho/package.tgz",
+  "_from": "../d-116821-8311-149jobp/package.tgz",
   "_id": "file-icons@1.7.19",
   "_inCache": true,
   "_installable": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-8322-ggc0ho/package.tgz",
+    "raw": "/tmp/d-116821-8311-149jobp/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-8322-ggc0ho/package.tgz",
-    "spec": "/tmp/d-116816-8322-ggc0ho/package.tgz",
+    "rawSpec": "/tmp/d-116821-8311-149jobp/package.tgz",
+    "spec": "/tmp/d-116821-8311-149jobp/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-8322-ggc0ho/package.tgz",
+  "_resolved": "file:../d-116821-8311-149jobp/package.tgz",
   "_shasum": "8e85abc4b5672f3c89b32fd887fb77288cd3273e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-8322-ggc0ho/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-8322-obox7x",
+  "_spec": "/tmp/d-116821-8311-149jobp/package.tgz",
+  "_where": "/tmp/apm-install-dir-116821-8311-1mmv0bx",
   "bugs": {
     "url": "https://github.com/DanBrooker/file-icons/issues"
   },

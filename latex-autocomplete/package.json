@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-6744-1hmxw66/package.tgz",
+        "raw": "/tmp/d-116820-6735-1gegu9j/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-6744-1hmxw66/package.tgz",
-        "spec": "/tmp/d-116816-6744-1hmxw66/package.tgz",
+        "rawSpec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
+        "spec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-6744-1lbudxf"
+      "/tmp/apm-install-dir-116820-6735-10zhx52"
     ]
   ],
-  "_from": "../d-116816-6744-1hmxw66/package.tgz",
-  "_id": "latex-autocomplete@0.5.3",
+  "_from": "../d-116820-6735-1gegu9j/package.tgz",
+  "_id": "latex-autocomplete@0.6.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/latex-autocomplete",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-6744-1hmxw66/package.tgz",
+    "raw": "/tmp/d-116820-6735-1gegu9j/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-6744-1hmxw66/package.tgz",
-    "spec": "/tmp/d-116816-6744-1hmxw66/package.tgz",
+    "rawSpec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
+    "spec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-6744-1hmxw66/package.tgz",
-  "_shasum": "9059d55e2baed6dcec43d3abfd6488a9f8fcc384",
+  "_resolved": "file:../d-116820-6735-1gegu9j/package.tgz",
+  "_shasum": "6db2b0313c0cb38054b8a0cef8904e76822b9adb",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-6744-1hmxw66/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-6744-1lbudxf",
+  "_spec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
+  "_where": "/tmp/apm-install-dir-116820-6735-10zhx52",
   "bugs": {
     "url": "https://github.com/evpok/latex-autocomplete/issues"
   },
@@ -59,7 +59,7 @@
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
-        "2.0.0": "get_label_completer_provider"
+        "2.0.0": "get_autocomplete_providers"
       }
     }
   },
@@ -69,5 +69,5 @@
     "type": "git",
     "url": "git+https://github.com/evpok/latex-autocomplete.git"
   },
-  "version": "0.5.3"
+  "version": "0.6.1"
 }

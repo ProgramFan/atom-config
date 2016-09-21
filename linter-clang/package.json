@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116816-6901-1js5x34/package.tgz",
+        "raw": "/tmp/d-116820-6891-vw9heg/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116816-6901-1js5x34/package.tgz",
-        "spec": "/tmp/d-116816-6901-1js5x34/package.tgz",
+        "rawSpec": "/tmp/d-116820-6891-vw9heg/package.tgz",
+        "spec": "/tmp/d-116820-6891-vw9heg/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116816-6901-1apetty"
+      "/tmp/apm-install-dir-116820-6891-cjuek5"
     ]
   ],
-  "_from": "../d-116816-6901-1js5x34/package.tgz",
+  "_from": "../d-116820-6891-vw9heg/package.tgz",
   "_id": "linter-clang@3.4.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-clang",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116816-6901-1js5x34/package.tgz",
+    "raw": "/tmp/d-116820-6891-vw9heg/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116816-6901-1js5x34/package.tgz",
-    "spec": "/tmp/d-116816-6901-1js5x34/package.tgz",
+    "rawSpec": "/tmp/d-116820-6891-vw9heg/package.tgz",
+    "spec": "/tmp/d-116820-6891-vw9heg/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116816-6901-1js5x34/package.tgz",
+  "_resolved": "file:../d-116820-6891-vw9heg/package.tgz",
   "_shasum": "2207a6df4e398a3c7435b06e7428878ac0d91dfa",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116816-6901-1js5x34/package.tgz",
-  "_where": "/tmp/apm-install-dir-116816-6901-1apetty",
+  "_spec": "/tmp/d-116820-6891-vw9heg/package.tgz",
+  "_where": "/tmp/apm-install-dir-116820-6891-cjuek5",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-clang/issues"
   },
