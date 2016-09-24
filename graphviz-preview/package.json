@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116821-8390-2qy1r2/package.tgz",
+        "raw": "/tmp/d-116824-8281-ah1oi4/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116821-8390-2qy1r2/package.tgz",
-        "spec": "/tmp/d-116821-8390-2qy1r2/package.tgz",
+        "rawSpec": "/tmp/d-116824-8281-ah1oi4/package.tgz",
+        "spec": "/tmp/d-116824-8281-ah1oi4/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116821-8390-118oweq"
+      "/tmp/apm-install-dir-116824-8281-xz5xqe"
     ]
   ],
-  "_from": "../d-116821-8390-2qy1r2/package.tgz",
+  "_from": "../d-116824-8281-ah1oi4/package.tgz",
   "_id": "graphviz-preview@1.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/graphviz-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116821-8390-2qy1r2/package.tgz",
+    "raw": "/tmp/d-116824-8281-ah1oi4/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116821-8390-2qy1r2/package.tgz",
-    "spec": "/tmp/d-116821-8390-2qy1r2/package.tgz",
+    "rawSpec": "/tmp/d-116824-8281-ah1oi4/package.tgz",
+    "spec": "/tmp/d-116824-8281-ah1oi4/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116821-8390-2qy1r2/package.tgz",
+  "_resolved": "file:../d-116824-8281-ah1oi4/package.tgz",
   "_shasum": "f63467d2b58293b3095d6c17b52486895b7c5b86",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116821-8390-2qy1r2/package.tgz",
-  "_where": "/tmp/apm-install-dir-116821-8390-118oweq",
+  "_spec": "/tmp/d-116824-8281-ah1oi4/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-8281-xz5xqe",
   "activationCommands": {
     "atom-text-editor": [
       "graphviz-preview:toggle"

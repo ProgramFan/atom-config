@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116820-6380-15mfohr/package.tgz",
+        "raw": "/tmp/d-116824-6383-1xgrpl4/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116820-6380-15mfohr/package.tgz",
-        "spec": "/tmp/d-116820-6380-15mfohr/package.tgz",
+        "rawSpec": "/tmp/d-116824-6383-1xgrpl4/package.tgz",
+        "spec": "/tmp/d-116824-6383-1xgrpl4/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116820-6380-qbfohf"
+      "/tmp/apm-install-dir-116824-6383-16z8wnj"
     ]
   ],
-  "_from": "../d-116820-6380-15mfohr/package.tgz",
+  "_from": "../d-116824-6383-1xgrpl4/package.tgz",
   "_id": "language-tex@0.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-tex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116820-6380-15mfohr/package.tgz",
+    "raw": "/tmp/d-116824-6383-1xgrpl4/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116820-6380-15mfohr/package.tgz",
-    "spec": "/tmp/d-116820-6380-15mfohr/package.tgz",
+    "rawSpec": "/tmp/d-116824-6383-1xgrpl4/package.tgz",
+    "spec": "/tmp/d-116824-6383-1xgrpl4/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116820-6380-15mfohr/package.tgz",
+  "_resolved": "file:../d-116824-6383-1xgrpl4/package.tgz",
   "_shasum": "b4b4b50b3f5dd61e0cf84d8c4cbcde265227feb9",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116820-6380-15mfohr/package.tgz",
-  "_where": "/tmp/apm-install-dir-116820-6380-qbfohf",
+  "_spec": "/tmp/d-116824-6383-1xgrpl4/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-6383-16z8wnj",
   "author": {
     "name": "Yudai Nakata"
   },

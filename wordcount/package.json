@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116821-8044-k0gskh/package.tgz",
+        "raw": "/tmp/d-116824-8047-1fcrrek/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116821-8044-k0gskh/package.tgz",
-        "spec": "/tmp/d-116821-8044-k0gskh/package.tgz",
+        "rawSpec": "/tmp/d-116824-8047-1fcrrek/package.tgz",
+        "spec": "/tmp/d-116824-8047-1fcrrek/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116821-8044-1jniimi"
+      "/tmp/apm-install-dir-116824-8047-wee3pv"
     ]
   ],
-  "_from": "../d-116821-8044-k0gskh/package.tgz",
+  "_from": "../d-116824-8047-1fcrrek/package.tgz",
   "_id": "wordcount@2.6.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/wordcount",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116821-8044-k0gskh/package.tgz",
+    "raw": "/tmp/d-116824-8047-1fcrrek/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116821-8044-k0gskh/package.tgz",
-    "spec": "/tmp/d-116821-8044-k0gskh/package.tgz",
+    "rawSpec": "/tmp/d-116824-8047-1fcrrek/package.tgz",
+    "spec": "/tmp/d-116824-8047-1fcrrek/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116821-8044-k0gskh/package.tgz",
+  "_resolved": "file:../d-116824-8047-1fcrrek/package.tgz",
   "_shasum": "8b81e9c289915c8d3fa13900c1c2d12c56a52e47",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116821-8044-k0gskh/package.tgz",
-  "_where": "/tmp/apm-install-dir-116821-8044-1jniimi",
+  "_spec": "/tmp/d-116824-8047-1fcrrek/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-8047-wee3pv",
   "bugs": {
     "url": "https://github.com/nesQuick/atom-wordcount/issues"
   },

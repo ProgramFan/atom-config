@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+        "spec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-116824-9023-zmnyzp"
+    ]
+  ],
+  "_from": "../d-116824-9023-1k7d5bi/package.tgz",
+  "_id": "plantuml-viewer@0.7.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/plantuml-viewer",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+    "spec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116824-9023-1k7d5bi/package.tgz",
+  "_shasum": "ba69c21c883f690d60884035f13ac3d6a23aa90e",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-9023-zmnyzp",
+  "bugs": {
+    "url": "https://github.com/markushedvall/plantuml-viewer/issues"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.5",
+    "node-plantuml": "^0.4.2",
+    "svg-pan-zoom": "^3.2.3"
+  },
+  "description": "Open a rendered diagram of the PlantUML source in an editor with `ctrl-alt-p`.",
+  "devDependencies": {
+    "standard": "^4.5.4"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/markushedvall/plantuml-viewer#readme",
+  "keywords": [
+    "plantuml",
+    "uml",
+    "viewer",
+    "preview"
+  ],
+  "license": "MIT",
+  "main": "./lib/plantuml-viewer",
+  "name": "plantuml-viewer",
+  "optionalDependencies": {},
+  "readme": "# PlantUML Viewer package\n\nShow the rendered [PlantUML](http://plantuml.sourceforge.net/) diagram to the right of the current editor\n\n[![Build Status](https://travis-ci.org/markushedvall/plantuml-viewer.svg?branch=master)](https://travis-ci.org/markushedvall/plantuml-viewer) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)\n\nIt can be activated from the editor using the `ctrl-alt-p` key-binding and is currently enabled for `.plantuml`, `.puml`, `.pu`, `.txt` and any other text files with unknown grammar.\n\n![](https://dl.dropboxusercontent.com/u/10809390/plantuml-viewer.gif)\n\n# Install\n\n```\napm install plantuml-viewer\n```\nInstall [Graphviz](http://www.graphviz.org/) to be able to generate all diagram types.\n\n# Features\n\n* Very fast live updates utilizing the power of PlantUML's SVG output and Atoms HTML views.\n* Fluent controls for panning and zooming PlantUML diagrams, including touch support.\n* Save UML diagrams as PNG, SVG or EPS.\n* Copy UML diagrams as PNG images.\n* Supports relative include paths in source files.\n\n# Settings\n\n* `Charset`: The charset used when generating diagrams.\n* `Config File`: The config file that is read before each diagram is generated.\n* `Grammars`: The grammar types that can be toggled to show a PlantUML view.\n* `Graphviz Dot Executable`: The path to the Graphviz dot executable.\n* `Live Update`: If checked the PlantUML views will be updated while typing. (default=true)\n* `Split Pane`: If checked the PlantUML views will be opened in a split pane. (default=true)\n\n# License\nMIT\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markushedvall/plantuml-viewer.git"
+  },
+  "scripts": {
+    "lint": "standard",
+    "test": "standard && apm test"
+  },
+  "version": "0.7.0"
+}

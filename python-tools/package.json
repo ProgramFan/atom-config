@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116821-9171-wpmgdv/package.tgz",
+        "raw": "/tmp/d-116824-8907-1l3voug/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116821-9171-wpmgdv/package.tgz",
-        "spec": "/tmp/d-116821-9171-wpmgdv/package.tgz",
+        "rawSpec": "/tmp/d-116824-8907-1l3voug/package.tgz",
+        "spec": "/tmp/d-116824-8907-1l3voug/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116821-9171-s1xr1i"
+      "/tmp/apm-install-dir-116824-8907-1jjfw90"
     ]
   ],
-  "_from": "../d-116821-9171-wpmgdv/package.tgz",
+  "_from": "../d-116824-8907-1l3voug/package.tgz",
   "_id": "python-tools@0.6.8",
   "_inCache": true,
   "_installable": true,
   "_location": "/python-tools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116821-9171-wpmgdv/package.tgz",
+    "raw": "/tmp/d-116824-8907-1l3voug/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116821-9171-wpmgdv/package.tgz",
-    "spec": "/tmp/d-116821-9171-wpmgdv/package.tgz",
+    "rawSpec": "/tmp/d-116824-8907-1l3voug/package.tgz",
+    "spec": "/tmp/d-116824-8907-1l3voug/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116821-9171-wpmgdv/package.tgz",
+  "_resolved": "file:../d-116824-8907-1l3voug/package.tgz",
   "_shasum": "40ebdebd2327039652bd1414b73428334d4045d0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116821-9171-wpmgdv/package.tgz",
-  "_where": "/tmp/apm-install-dir-116821-9171-s1xr1i",
+  "_spec": "/tmp/d-116824-8907-1l3voug/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-8907-1jjfw90",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/MichaelAquilina/python-tools/issues"

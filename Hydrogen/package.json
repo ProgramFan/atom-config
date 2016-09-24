@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116821-8468-1wsg2lu/package.tgz",
+        "raw": "/tmp/d-116824-8366-xo8bvl/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116821-8468-1wsg2lu/package.tgz",
-        "spec": "/tmp/d-116821-8468-1wsg2lu/package.tgz",
+        "rawSpec": "/tmp/d-116824-8366-xo8bvl/package.tgz",
+        "spec": "/tmp/d-116824-8366-xo8bvl/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116821-8468-l7h4ns"
+      "/tmp/apm-install-dir-116824-8366-ub6cej"
     ]
   ],
-  "_from": "../d-116821-8468-1wsg2lu/package.tgz",
+  "_from": "../d-116824-8366-xo8bvl/package.tgz",
   "_id": "Hydrogen@0.14.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/Hydrogen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116821-8468-1wsg2lu/package.tgz",
+    "raw": "/tmp/d-116824-8366-xo8bvl/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116821-8468-1wsg2lu/package.tgz",
-    "spec": "/tmp/d-116821-8468-1wsg2lu/package.tgz",
+    "rawSpec": "/tmp/d-116824-8366-xo8bvl/package.tgz",
+    "spec": "/tmp/d-116824-8366-xo8bvl/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116821-8468-1wsg2lu/package.tgz",
+  "_resolved": "file:../d-116824-8366-xo8bvl/package.tgz",
   "_shasum": "98b63331283efc7120d26ebd88238af697ba5b33",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116821-8468-1wsg2lu/package.tgz",
-  "_where": "/tmp/apm-install-dir-116821-8468-l7h4ns",
+  "_spec": "/tmp/d-116824-8366-xo8bvl/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-8366-ub6cej",
   "activationCommands": {
     "atom-text-editor": [
       "hydrogen:select-kernel",

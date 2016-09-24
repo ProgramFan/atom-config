@@ -1,0 +1,59 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-116824-9062-1yirhan/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-116824-9062-1yirhan/package.tgz",
+        "spec": "/tmp/d-116824-9062-1yirhan/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-116824-9062-vbqd8q"
+    ]
+  ],
+  "_from": "../d-116824-9062-1yirhan/package.tgz",
+  "_id": "language-plantuml@0.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/language-plantuml",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-116824-9062-1yirhan/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-116824-9062-1yirhan/package.tgz",
+    "spec": "/tmp/d-116824-9062-1yirhan/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116824-9062-1yirhan/package.tgz",
+  "_shasum": "94e8b00fe556029a7d13056f88f213b4ff43aeeb",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-116824-9062-1yirhan/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-9062-vbqd8q",
+  "bugs": {
+    "url": "https://github.com/plafue/language-plantuml/issues"
+  },
+  "dependencies": {},
+  "description": "PlantUML language support for atom",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "homepage": "https://github.com/plafue/language-plantuml#readme",
+  "license": "MIT",
+  "name": "language-plantuml",
+  "optionalDependencies": {},
+  "readme": "# PlantUML language package\n\nBasic support for syntax highlighting of PlantUML files in atom.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plafue/language-plantuml.git"
+  },
+  "version": "0.2.0"
+}

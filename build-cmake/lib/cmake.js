@@ -31,10 +31,11 @@ export function providingFunction()
         {
             super();
             // TODO allow the source directory to be selected.
-            this.source_dir = source_dir;
-
+            atom.config.observe('build-cmake.cmakelists', (cmakelists) => {
+                this.source_dir = (!!cmakelists) ? source_dir+cmakelists.trim() : source_dir;
+            });
             atom.config.observe('build-cmake.build_suffix', (suffix) => {
-                this.build_dir = this.source_dir + suffix;
+                this.build_dir = source_dir + suffix;
                 this.cache_path = path.join(this.build_dir, 'CMakeCache.txt');
             });
             atom.config.observe('build-cmake.generator', (generator) => {
@@ -54,6 +55,7 @@ export function providingFunction()
             atom.config.onDidChange('build-cmake.build_suffix', () => { this.emit('refresh'); });
             atom.config.onDidChange('build-cmake.executable', () => { this.emit('refresh'); });
             atom.config.onDidChange('build-cmake.generator', () => { this.emit('refresh'); });
+            atom.config.onDidChange('build-cmake.cmakelists', () => { this.emit('refresh'); });
             atom.config.onDidChange('build-cmake.custom_args', () => { this.emit('refresh'); });
             atom.config.onDidChange('build-cmake.vs_args', () => { this.emit('refresh'); });
         }
@@ -78,7 +80,7 @@ export function providingFunction()
                 atomCommandName : 'cmake:' + target_name,
                 name : target_name,
                 exec : this.executable,
-                cwd : this.source_dir,
+                cwd : this.build_dir,
                 args : [ '--build', this.build_dir, '--target', target_name, '--' ].concat(this.vs_args),
                 errorMatch : compileErrorMatch.concat(generateErrorMatch),
                 warningMatch : compileWarningMatch.concat(generateWarningMatch),
@@ -100,7 +102,7 @@ export function providingFunction()
                 atomCommandName : 'cmake:' + target_name,
                 name : target_name,
                 exec : this.executable,
-                cwd : this.source_dir,
+                cwd : this.build_dir,
                 args : [ '--build', this.build_dir, '--target', target_name, '--', '-j' + os.cpus().length ],
                 errorMatch : compileErrorMatch.concat(generateErrorMatch),
                 warningMatch : compileWarningMatch.concat(generateWarningMatch),
@@ -124,7 +126,7 @@ export function providingFunction()
                 atomCommandName : 'cmake:' + target_name,
                 name : target_name,
                 exec : this.executable,
-                cwd : this.source_dir,
+                cwd : this.build_dir,
                 args : [ '--build', this.build_dir, '--target', target_name ],
                 errorMatch : compileErrorMatch.concat(generateErrorMatch),
                 warningMatch : compileWarningMatch.concat(generateWarningMatch),

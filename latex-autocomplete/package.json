@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116820-6735-1gegu9j/package.tgz",
+        "raw": "/tmp/d-116824-6745-ir3o7z/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
-        "spec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
+        "rawSpec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
+        "spec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116820-6735-10zhx52"
+      "/tmp/apm-install-dir-116824-6745-9uw4je"
     ]
   ],
-  "_from": "../d-116820-6735-1gegu9j/package.tgz",
+  "_from": "../d-116824-6745-ir3o7z/package.tgz",
   "_id": "latex-autocomplete@0.6.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/latex-autocomplete",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116820-6735-1gegu9j/package.tgz",
+    "raw": "/tmp/d-116824-6745-ir3o7z/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
-    "spec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
+    "rawSpec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
+    "spec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116820-6735-1gegu9j/package.tgz",
+  "_resolved": "file:../d-116824-6745-ir3o7z/package.tgz",
   "_shasum": "6db2b0313c0cb38054b8a0cef8904e76822b9adb",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116820-6735-1gegu9j/package.tgz",
-  "_where": "/tmp/apm-install-dir-116820-6735-10zhx52",
+  "_spec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-6745-9uw4je",
   "bugs": {
     "url": "https://github.com/evpok/latex-autocomplete/issues"
   },

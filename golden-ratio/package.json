@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116821-8970-ftdsl3/package.tgz",
+        "raw": "/tmp/d-116824-8868-1pbri0v/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116821-8970-ftdsl3/package.tgz",
-        "spec": "/tmp/d-116821-8970-ftdsl3/package.tgz",
+        "rawSpec": "/tmp/d-116824-8868-1pbri0v/package.tgz",
+        "spec": "/tmp/d-116824-8868-1pbri0v/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116821-8970-12vm2az"
+      "/tmp/apm-install-dir-116824-8868-1jjob5c"
     ]
   ],
-  "_from": "../d-116821-8970-ftdsl3/package.tgz",
+  "_from": "../d-116824-8868-1pbri0v/package.tgz",
   "_id": "golden-ratio@0.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/golden-ratio",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116821-8970-ftdsl3/package.tgz",
+    "raw": "/tmp/d-116824-8868-1pbri0v/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116821-8970-ftdsl3/package.tgz",
-    "spec": "/tmp/d-116821-8970-ftdsl3/package.tgz",
+    "rawSpec": "/tmp/d-116824-8868-1pbri0v/package.tgz",
+    "spec": "/tmp/d-116824-8868-1pbri0v/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116821-8970-ftdsl3/package.tgz",
+  "_resolved": "file:../d-116824-8868-1pbri0v/package.tgz",
   "_shasum": "3b2ce4156308afe98454d19d501ba28ce5218689",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116821-8970-ftdsl3/package.tgz",
-  "_where": "/tmp/apm-install-dir-116821-8970-12vm2az",
+  "_spec": "/tmp/d-116824-8868-1pbri0v/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-8868-1jjob5c",
   "activationCommands": {
     "atom-workspace": "golden-ratio:toggle"
   },

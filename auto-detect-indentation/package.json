@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116821-8775-1gwygb5/package.tgz",
+        "raw": "/tmp/d-116824-8666-m2a59r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116821-8775-1gwygb5/package.tgz",
-        "spec": "/tmp/d-116821-8775-1gwygb5/package.tgz",
+        "rawSpec": "/tmp/d-116824-8666-m2a59r/package.tgz",
+        "spec": "/tmp/d-116824-8666-m2a59r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116821-8775-1dv18k3"
+      "/tmp/apm-install-dir-116824-8666-pap76n"
     ]
   ],
-  "_from": "../d-116821-8775-1gwygb5/package.tgz",
+  "_from": "../d-116824-8666-m2a59r/package.tgz",
   "_id": "auto-detect-indentation@1.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/auto-detect-indentation",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116821-8775-1gwygb5/package.tgz",
+    "raw": "/tmp/d-116824-8666-m2a59r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116821-8775-1gwygb5/package.tgz",
-    "spec": "/tmp/d-116821-8775-1gwygb5/package.tgz",
+    "rawSpec": "/tmp/d-116824-8666-m2a59r/package.tgz",
+    "spec": "/tmp/d-116824-8666-m2a59r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116821-8775-1gwygb5/package.tgz",
+  "_resolved": "file:../d-116824-8666-m2a59r/package.tgz",
   "_shasum": "9f7a6388454e5a18e8c6b26111686f89e25b119f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116821-8775-1gwygb5/package.tgz",
-  "_where": "/tmp/apm-install-dir-116821-8775-1dv18k3",
+  "_spec": "/tmp/d-116824-8666-m2a59r/package.tgz",
+  "_where": "/tmp/apm-install-dir-116824-8666-pap76n",
   "author": {
     "name": "Jason Tokoph",
     "email": "jason@tokoph.net"
