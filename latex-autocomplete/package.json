@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116824-6745-ir3o7z/package.tgz",
+        "raw": "/tmp/d-116914-6751-1jeizrp/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
-        "spec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
+        "rawSpec": "/tmp/d-116914-6751-1jeizrp/package.tgz",
+        "spec": "/tmp/d-116914-6751-1jeizrp/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116824-6745-9uw4je"
+      "/tmp/apm-install-dir-116914-6751-n5u1w5"
     ]
   ],
-  "_from": "../d-116824-6745-ir3o7z/package.tgz",
-  "_id": "latex-autocomplete@0.6.1",
+  "_from": "../d-116914-6751-1jeizrp/package.tgz",
+  "_id": "latex-autocomplete@1.0.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/latex-autocomplete",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116824-6745-ir3o7z/package.tgz",
+    "raw": "/tmp/d-116914-6751-1jeizrp/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
-    "spec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
+    "rawSpec": "/tmp/d-116914-6751-1jeizrp/package.tgz",
+    "spec": "/tmp/d-116914-6751-1jeizrp/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-6745-ir3o7z/package.tgz",
-  "_shasum": "6db2b0313c0cb38054b8a0cef8904e76822b9adb",
+  "_resolved": "file:../d-116914-6751-1jeizrp/package.tgz",
+  "_shasum": "df680b9bcd680ed8a8823e868d8bfb01cbbdb531",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116824-6745-ir3o7z/package.tgz",
-  "_where": "/tmp/apm-install-dir-116824-6745-9uw4je",
+  "_spec": "/tmp/d-116914-6751-1jeizrp/package.tgz",
+  "_where": "/tmp/apm-install-dir-116914-6751-n5u1w5",
   "bugs": {
     "url": "https://github.com/evpok/latex-autocomplete/issues"
   },
@@ -63,11 +63,11 @@
       }
     }
   },
-  "readme": "# LaTeX-autocomplete\n\n[![Travis build status](https://travis-ci.org/Evpok/latex-autocomplete.svg?branch=master)](https://travis-ci.org/Evpok/latex-autocomplete)\n[![WTFPL badge](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/)\n\nLaTeX autocompletion for [atom](http://atom.io).\n\nDevelopment happens at https://github.com/Evpok/latex-autocomplete.\n\n![Screenshot](https://cdn.rawgit.com/Evpok/latex-autocomplete/master/doc/shot.gif)\n\n## Features\n  - Automatically closes environments in a sensible manner\n  - Provides autocompletion through [`autocomplete-plus`](https://atom.io/packages/autocomplete-plus)\n    - Currently only for `\\label`s\n\n## License\nWTFPL. See [LICENSE.md](https://cdn.rawgit.com/Evpok/latex-autocomplete/master/LICENSE.md)\n",
+  "readme": "# LaTeX-autocomplete\n\n[![Travis build status](https://travis-ci.org/Evpok/latex-autocomplete.svg?branch=master)](https://travis-ci.org/Evpok/latex-autocomplete)\n[![WTFPL badge](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/)\n\nLaTeX autocompletion for [atom](http://atom.io).\n\nDevelopment happens at https://github.com/Evpok/latex-autocomplete.\n\n![Screenshot](https://cdn.rawgit.com/Evpok/latex-autocomplete/master/doc/shot.gif)\n\n## Features\n  - Automatically closes environments in a sensible manner\n  - Provides autocompletion through [`autocomplete-plus`](https://atom.io/packages/autocomplete-plus)\n    - For user macros defined with `\\newcommand`\n    - For `\\labels`\n\n## License\nWTFPL. See [LICENSE.md](https://cdn.rawgit.com/Evpok/latex-autocomplete/master/LICENSE.md)\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/evpok/latex-autocomplete.git"
   },
-  "version": "0.6.1"
+  "version": "1.0.0"
 }

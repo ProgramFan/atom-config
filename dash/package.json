@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116824-8125-sauxsn/package.tgz",
+        "raw": "/tmp/d-116914-8138-z8oykn/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116824-8125-sauxsn/package.tgz",
-        "spec": "/tmp/d-116824-8125-sauxsn/package.tgz",
+        "rawSpec": "/tmp/d-116914-8138-z8oykn/package.tgz",
+        "spec": "/tmp/d-116914-8138-z8oykn/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116824-8125-1viffg4"
+      "/tmp/apm-install-dir-116914-8138-11zfufb"
     ]
   ],
-  "_from": "../d-116824-8125-sauxsn/package.tgz",
-  "_id": "dash@1.6.2",
+  "_from": "../d-116914-8138-z8oykn/package.tgz",
+  "_id": "dash@1.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/dash",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116824-8125-sauxsn/package.tgz",
+    "raw": "/tmp/d-116914-8138-z8oykn/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116824-8125-sauxsn/package.tgz",
-    "spec": "/tmp/d-116824-8125-sauxsn/package.tgz",
+    "rawSpec": "/tmp/d-116914-8138-z8oykn/package.tgz",
+    "spec": "/tmp/d-116914-8138-z8oykn/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-8125-sauxsn/package.tgz",
-  "_shasum": "94fffcf7806fdd8b73d432afac1a364cfc5130de",
+  "_resolved": "file:../d-116914-8138-z8oykn/package.tgz",
+  "_shasum": "b3e09d866f5cb1a9465cba507d3bb3cebd460a9a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116824-8125-sauxsn/package.tgz",
-  "_where": "/tmp/apm-install-dir-116824-8125-1viffg4",
+  "_spec": "/tmp/d-116914-8138-z8oykn/package.tgz",
+  "_where": "/tmp/apm-install-dir-116914-8138-11zfufb",
   "activationCommands": {
     "atom-text-editor": [
       "dash:shortcut",
@@ -80,5 +80,5 @@
     "lint": "coffeelint .",
     "test": "npm run lint && apm test"
   },
-  "version": "1.6.2"
+  "version": "1.7.0"
 }

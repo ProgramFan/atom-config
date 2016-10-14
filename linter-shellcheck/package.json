@@ -2,42 +2,60 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116824-6980-15xvw4f/package.tgz",
+        "raw": "/tmp/d-116914-6993-urhjt6/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116824-6980-15xvw4f/package.tgz",
-        "spec": "/tmp/d-116824-6980-15xvw4f/package.tgz",
+        "rawSpec": "/tmp/d-116914-6993-urhjt6/package.tgz",
+        "spec": "/tmp/d-116914-6993-urhjt6/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116824-6980-1xomck7"
+      "/tmp/apm-install-dir-116914-6993-18wl0hw"
     ]
   ],
-  "_from": "../d-116824-6980-15xvw4f/package.tgz",
-  "_id": "linter-shellcheck@1.4.0",
+  "_from": "../d-116914-6993-urhjt6/package.tgz",
+  "_id": "linter-shellcheck@1.4.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116824-6980-15xvw4f/package.tgz",
+    "raw": "/tmp/d-116914-6993-urhjt6/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116824-6980-15xvw4f/package.tgz",
-    "spec": "/tmp/d-116824-6980-15xvw4f/package.tgz",
+    "rawSpec": "/tmp/d-116914-6993-urhjt6/package.tgz",
+    "spec": "/tmp/d-116914-6993-urhjt6/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-6980-15xvw4f/package.tgz",
-  "_shasum": "3bc79fc97dac1f671a2cee7a8d73deadf6280adc",
+  "_resolved": "file:../d-116914-6993-urhjt6/package.tgz",
+  "_shasum": "76bf2aee28945a481882e742ed7596e3fc0e4bf3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116824-6980-15xvw4f/package.tgz",
-  "_where": "/tmp/apm-install-dir-116824-6980-1xomck7",
+  "_spec": "/tmp/d-116914-6993-urhjt6/package.tgz",
+  "_where": "/tmp/apm-install-dir-116914-6993-18wl0hw",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-shellcheck/issues"
+  },
+  "configSchema": {
+    "shellcheckExecutablePath": {
+      "type": "string",
+      "title": "Shellcheck Executable Path",
+      "default": "shellcheck"
+    },
+    "userParameters": {
+      "type": "string",
+      "title": "Additional Executable Parameters",
+      "description": "Additional shellcheck parameters, for example `-x -e SC1090`.",
+      "default": ""
+    },
+    "enableNotice": {
+      "type": "boolean",
+      "title": "Enable Notice Messages",
+      "default": false
+    }
   },
   "dependencies": {
     "atom-linter": "^8.0.0",
@@ -45,15 +63,39 @@
   },
   "description": "Lint Bash on the fly, using shellcheck",
   "devDependencies": {
-    "coffeelint": "^1.15.7"
+    "coffeelint": "^1.15.7",
+    "eslint": "^3.6.0",
+    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-plugin-import": "^1.16.0"
   },
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": ">=1.4.0 <2.0.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
+    },
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "globals": {
+      "atom": true
+    }
   },
   "homepage": "https://github.com/AtomLinter/linter-shellcheck#readme",
   "license": "MIT",
-  "linter-package": true,
-  "main": "./lib/main",
+  "main": "./lib/main.js",
   "name": "linter-shellcheck",
   "optionalDependencies": {},
   "package-deps": [
@@ -73,8 +115,8 @@
     "url": "git+https://github.com/AtomLinter/linter-shellcheck.git"
   },
   "scripts": {
-    "lint": "coffeelint lib",
+    "lint": "eslint .",
     "test": "apm test"
   },
-  "version": "1.4.0"
+  "version": "1.4.1"
 }

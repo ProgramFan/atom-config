@@ -48,11 +48,7 @@ class Manager {
     this.fileStore = new FileStore();
     this.settings = new Settings();
 
-    this.fileStore.fetch();
-
-    if (atom.config.get('project-manager.includeGitRepositories')) {
-      this.gitStore.fetch();
-    }
+    this.fetchProjects();
 
     atom.config.observe('project-manager.includeGitRepositories', (include) => {
       if (include) {
@@ -101,6 +97,14 @@ class Manager {
     return this.projects.find(project => project.rootPath === this.activePaths[0]);
   }
 
+  fetchProjects() {
+    this.fileStore.fetch();
+
+    if (atom.config.get('project-manager.includeGitRepositories')) {
+      this.gitStore.fetch();
+    }
+  }
+
   loadProject(project) {
     this.settings.load(project.getProps().settings);
   }
@@ -134,7 +138,7 @@ class Manager {
     const arr = [];
 
     for (const project of projects) {
-      const props = project.getProps();
+      const props = project.getChangedProps();
       delete props.source;
       arr.push(props);
     }

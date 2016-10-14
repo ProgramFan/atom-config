@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+        "raw": "/tmp/d-116914-9036-dh0tae/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
-        "spec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+        "rawSpec": "/tmp/d-116914-9036-dh0tae/package.tgz",
+        "spec": "/tmp/d-116914-9036-dh0tae/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116824-9023-zmnyzp"
+      "/tmp/apm-install-dir-116914-9036-1up0997"
     ]
   ],
-  "_from": "../d-116824-9023-1k7d5bi/package.tgz",
+  "_from": "../d-116914-9036-dh0tae/package.tgz",
   "_id": "plantuml-viewer@0.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/plantuml-viewer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+    "raw": "/tmp/d-116914-9036-dh0tae/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
-    "spec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
+    "rawSpec": "/tmp/d-116914-9036-dh0tae/package.tgz",
+    "spec": "/tmp/d-116914-9036-dh0tae/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-9023-1k7d5bi/package.tgz",
+  "_resolved": "file:../d-116914-9036-dh0tae/package.tgz",
   "_shasum": "ba69c21c883f690d60884035f13ac3d6a23aa90e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116824-9023-1k7d5bi/package.tgz",
-  "_where": "/tmp/apm-install-dir-116824-9023-zmnyzp",
+  "_spec": "/tmp/d-116914-9036-dh0tae/package.tgz",
+  "_where": "/tmp/apm-install-dir-116914-9036-1up0997",
   "bugs": {
     "url": "https://github.com/markushedvall/plantuml-viewer/issues"
   },

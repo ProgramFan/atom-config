@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116824-7750-i9dbxj/package.tgz",
+        "raw": "/tmp/d-116914-7763-x5frsi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116824-7750-i9dbxj/package.tgz",
-        "spec": "/tmp/d-116824-7750-i9dbxj/package.tgz",
+        "rawSpec": "/tmp/d-116914-7763-x5frsi/package.tgz",
+        "spec": "/tmp/d-116914-7763-x5frsi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116824-7750-6d5y19"
+      "/tmp/apm-install-dir-116914-7763-1j7wrkb"
     ]
   ],
-  "_from": "../d-116824-7750-i9dbxj/package.tgz",
+  "_from": "../d-116914-7763-x5frsi/package.tgz",
   "_id": "build-make@0.13.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/build-make",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116824-7750-i9dbxj/package.tgz",
+    "raw": "/tmp/d-116914-7763-x5frsi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116824-7750-i9dbxj/package.tgz",
-    "spec": "/tmp/d-116824-7750-i9dbxj/package.tgz",
+    "rawSpec": "/tmp/d-116914-7763-x5frsi/package.tgz",
+    "spec": "/tmp/d-116914-7763-x5frsi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-7750-i9dbxj/package.tgz",
+  "_resolved": "file:../d-116914-7763-x5frsi/package.tgz",
   "_shasum": "3c69da0d0ace84fb54117c2ce7a27e699c6109a5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116824-7750-i9dbxj/package.tgz",
-  "_where": "/tmp/apm-install-dir-116824-7750-6d5y19",
+  "_spec": "/tmp/d-116914-7763-x5frsi/package.tgz",
+  "_where": "/tmp/apm-install-dir-116914-7763-1j7wrkb",
   "bugs": {
     "url": "https://github.com/AtomBuild/atom-build-make/issues"
   },

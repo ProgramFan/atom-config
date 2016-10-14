@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116824-8327-5h8oyp/package.tgz",
+        "raw": "/tmp/d-116914-8341-jatnz/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116824-8327-5h8oyp/package.tgz",
-        "spec": "/tmp/d-116824-8327-5h8oyp/package.tgz",
+        "rawSpec": "/tmp/d-116914-8341-jatnz/package.tgz",
+        "spec": "/tmp/d-116914-8341-jatnz/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116824-8327-1olvqtb"
+      "/tmp/apm-install-dir-116914-8341-b3npuy"
     ]
   ],
-  "_from": "../d-116824-8327-5h8oyp/package.tgz",
+  "_from": "../d-116914-8341-jatnz/package.tgz",
   "_id": "imdone-atom@1.3.31",
   "_inCache": true,
   "_installable": true,
   "_location": "/imdone-atom",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116824-8327-5h8oyp/package.tgz",
+    "raw": "/tmp/d-116914-8341-jatnz/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116824-8327-5h8oyp/package.tgz",
-    "spec": "/tmp/d-116824-8327-5h8oyp/package.tgz",
+    "rawSpec": "/tmp/d-116914-8341-jatnz/package.tgz",
+    "spec": "/tmp/d-116914-8341-jatnz/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-8327-5h8oyp/package.tgz",
+  "_resolved": "file:../d-116914-8341-jatnz/package.tgz",
   "_shasum": "c451d093385fe56bf65f64aca5f27fd74d08ffe7",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116824-8327-5h8oyp/package.tgz",
-  "_where": "/tmp/apm-install-dir-116824-8327-1olvqtb",
+  "_spec": "/tmp/d-116914-8341-jatnz/package.tgz",
+  "_where": "/tmp/apm-install-dir-116914-8341-b3npuy",
   "author": {
     "name": "Jesse Piascik",
     "email": "jesse@piascik.net"

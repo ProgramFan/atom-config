@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116824-8588-112fadf/package.tgz",
+        "raw": "/tmp/d-116914-8601-1bwegkw/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116824-8588-112fadf/package.tgz",
-        "spec": "/tmp/d-116824-8588-112fadf/package.tgz",
+        "rawSpec": "/tmp/d-116914-8601-1bwegkw/package.tgz",
+        "spec": "/tmp/d-116914-8601-1bwegkw/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116824-8588-1rzerj7"
+      "/tmp/apm-install-dir-116914-8601-1clo839"
     ]
   ],
-  "_from": "../d-116824-8588-112fadf/package.tgz",
+  "_from": "../d-116914-8601-1bwegkw/package.tgz",
   "_id": "open-unsupported-files@1.0.19",
   "_inCache": true,
   "_installable": true,
   "_location": "/open-unsupported-files",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116824-8588-112fadf/package.tgz",
+    "raw": "/tmp/d-116914-8601-1bwegkw/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116824-8588-112fadf/package.tgz",
-    "spec": "/tmp/d-116824-8588-112fadf/package.tgz",
+    "rawSpec": "/tmp/d-116914-8601-1bwegkw/package.tgz",
+    "spec": "/tmp/d-116914-8601-1bwegkw/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-8588-112fadf/package.tgz",
+  "_resolved": "file:../d-116914-8601-1bwegkw/package.tgz",
   "_shasum": "45281d6249d49533cf416ccd83547d0550e2ad34",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116824-8588-112fadf/package.tgz",
-  "_where": "/tmp/apm-install-dir-116824-8588-1rzerj7",
+  "_spec": "/tmp/d-116914-8601-1bwegkw/package.tgz",
+  "_where": "/tmp/apm-install-dir-116914-8601-1clo839",
   "bugs": {
     "url": "https://github.com/skandasoft/open-unsupported-files/issues"
   },
