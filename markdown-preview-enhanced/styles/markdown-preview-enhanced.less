@@ -14,6 +14,7 @@
 
   @github-black: #333;
   @github-syntax-background-color: #f7f7f7;
+  @github-blockquote-color: #777;
 
 
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
@@ -75,14 +76,16 @@
   }
 
   &[data-use-github-style] {
-    h1, h2, h3, h4, h5, h6 { color: @github-black; }
+    h1, h2, h3, h4, h5 { color: @github-black; font-weight: 600; }
+    h5 { font-size: 1em; }
+    h6 { color: @github-blockquote-color; }
   }
 
 
-  h1 { font-size: 2.4em; font-weight: 300; padding-bottom: 0.3em; border-bottom: 1px solid @border;}
-  h2 { font-size: 1.8em; font-weight: 400; padding-bottom: 0.3em; border-bottom: 1px solid @border;}
+  h1 { font-size: 2.25em; font-weight: 300; padding-bottom: 0.3em; border-bottom: 1px solid @border;}
+  h2 { font-size: 1.75em; font-weight: 400; padding-bottom: 0.3em; border-bottom: 1px solid @border;}
   h3 { font-size: 1.5em; font-weight: 500; }
-  h4 { font-size: 1.2em; font-weight: 600; }
+  h4 { font-size: 1.25em; font-weight: 600; }
   h5 { font-size: 1.1em; font-weight: 600; }
   h6 { font-size: 1.0em; font-weight: 600; }
 
@@ -208,7 +211,7 @@
 
   &[data-use-github-style] {
     blockquote {
-      color: #777;
+      color: @github-blockquote-color;
       border-left: 4px solid #ddd;
     }
   }
@@ -284,11 +287,19 @@
     font-size: 0.85em !important;
     color: @fg-strong;
     background-color: contrast(@syntax-background-color, lighten(@syntax-background-color, 8%), darken(@syntax-background-color, 6%));
+
+    border-radius: 3px;
+    padding: 0.2em 0;
+
+    &::before, &::after {
+      letter-spacing: -0.2em;
+      content: "\00a0";
+    }
   }
 
   &[data-use-github-style] {
     code {
-      background-color: rgba(0, 0, 0, 0.04);
+      background-color: rgba(0, 0, 0, 0.04) !important; // issue 160. <code>
       color: inherit;
     }
   }
@@ -380,6 +391,7 @@
     color: @fg-strong;
     border: 1px solid @border;
     border-bottom: 2px solid darken(@border, 6%);
+    padding: 2px 4px;
     background-color: contrast(@syntax-background-color, lighten(@syntax-background-color, 8%), darken(@syntax-background-color, 6%));
   }
 
@@ -458,7 +470,7 @@
       }
 
       blockquote {
-        color: #777;
+        color: @github-blockquote-color;
       }
 
       pre {
@@ -520,105 +532,77 @@
     }
   }
 
-  // graphs
-  &[is='space-pen-div'] {
-    .erd {
-      overflow-x: auto;
-    }
-  }
-
   // code chunk
   &[is="space-pen-div"] {
     .code-chunk {
       position: relative;
 
-      &.hide-chunk {
-        display: block !important;
-        /*
-        pre.editor-colors {
-          opacity: 0.8;
-        }
-        &:hover {
-          pre.editor-colors {
-            opacity: 1;
-          }
-        }
-        */
+      .output-div {
+        overflow-x: auto;
       }
 
-      &:hover {
-        .run-all-btn {
-          display: block !important;
-        }
-
-        .btn-group {
-          opacity: 1;
-        }
+      pre {
+        cursor: text;
       }
 
       .btn-group {
         position: absolute;
         right: 0;
         top: 0;
-        padding: 4px;
-        opacity: 0.4;
+        display: none;
 
-        .btn {
-          text-align: center;
-          color: #fff;
-          background-color: #93BB7C;
-          background-image: none;
+        .run-btn, .run-all-btn {
           float: right;
-          margin-left: 2px;
-          border-radius: 4px;
-          border-style: none;
+          margin-left: 4px;
+          border-radius: 3px;
           font-size: 0.8em;
+          color: #eee;
+          background-color: #528bff;
+          background-image: none;
+          border: none;
 
           &:hover {
+            background-color: #4b7fe8;
             cursor: pointer;
-            background-color: darken(#93BB7C, 10%);
-          }
-
-          &.run-btn {
-            display: block !important;
           }
         }
+      }
+
+      &:hover {
+        .btn-group {
+          display: block;
+        }
+      }
+
+      .status {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 0.85em;
+        color: inherit;
+        padding: 2px 6px;
+        background-color: rgba(0, 0, 0, 0.04);
+        display: none;
       }
 
       &.running {
-        .run-btn {
-          span {
-            display: none;
-          }
-          &:after {
-            content: "ᕕ(╯°□°)ᕗ";
-          }
-          &:hover {
-            cursor: not-allowed;
-          }
+        .btn-group {
+          display: none;
         }
-      }
-
-      .output-div {
-        overflow-x: auto;
-        margin-bottom: @margin;
-      }
-
-      pre {
-        cursor: text;
+        .status {
+          display: block;
+        }
       }
     }
   }
 
   &:not([is="space-pen-div"]) {
-    // not in preview mode, so hide some elements
-    .code-chunk.hide-chunk {
-      pre.editor-colors, .btn-group {
+    .code-chunk {
+      .btn-group {
         display: none;
       }
-
-      .output-div {
-        display: block;
+      .status {
+        display: none;
       }
     }
   }

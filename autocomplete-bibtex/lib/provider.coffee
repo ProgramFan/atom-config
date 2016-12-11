@@ -3,33 +3,18 @@ bibtexParse = require "zotero-bibtex-parse"
 fuzzaldrin = require "fuzzaldrin"
 XRegExp = require('xregexp').XRegExp
 titlecaps = require "./titlecaps"
-
+citeproc = require "./citeproc"
+yaml = require "yaml-js"
 
 module.exports =
-class BibtexProvider
-  ###
-  For a while, I intended to continue using XRegExp with this `wordRegex`:
-
-  ```
-  wordRegex: XRegExp('(?:^|\\p{WhiteSpace})@[\\p{Letter}\\p{Number}\._-]*')
-  ```
-
-  But I found that the regular expression given here seems to work well. If
-  there are problems with Unicode characters, I can switch back to the other.
-
-  This regular expression is also more lenient about what punctuation it will
-  accept. Whereas the alternate only allows the punctuation which might be
-  expected in a BibTeX key, this will accept all sorts. It does not accept a
-  second `@`, as this would become confusing.
-  ###
-  wordRegex: XRegExp('(?:^|[\\p{WhiteSpace}\\p{Punctuation}])@[\\p{Letter}\\p{Number}\._-]*')
-  bibtex = []
+class ReferenceProvider
 
   atom.deserializers.add(this)
-  @deserialize: ({data}) -> new BibtexProvider(data)
+  @version: 2
+  @deserialize: ({data}) -> new ReferenceProvider(data)
 
   constructor: (state) ->
-    if state and Object.keys(state).length != 0
+    if state and Object.keys(state).length != 0 and state.bibtex?
       @bibtex = state.bibtex
       @possibleWords = state.possibleWords
     else
@@ -42,110 +27,155 @@ class BibtexProvider
       @buildWordListFromFiles(bibtexFiles)
 
     resultTemplate = atom.config.get "autocomplete-bibtex.resultTemplate"
-    atom.config.observe "autocomplete-bibtex.resultTemplate", (resultTemplate) =>
+    atom.config.observe("autocomplete-bibtex.resultTemplate", (resultTemplate) =>
       @resultTemplate = resultTemplate
+    )
+
+    possibleWords = @possibleWords
 
     @provider =
-      id: 'autocomplete-bibtex-bibtexprovider'
       selector: atom.config.get "autocomplete-bibtex.scope"
-      blacklist: ''
-      inclusionPriority: 1 #FIXME hack to prevent default provider in MD file
+      disableForSelector: atom.config.get "autocomplete-bibtex.ignoreScope"
+      # Hack to supress default provider in MD files
+      # inclusionPriority: 2
       # excludeLowerPriority: true
-      providerblacklist: '' # Give the user the option to configure this.
-      requestHandler: (options) =>
-        prefix = @prefixForCursor(options.cursor, options.buffer)
 
-        ###
-        Because the regular expression may a single whitespace or punctuation
-        character before the part in which we're interested. Since this is the
-        only case in which an `@` could be the second character, that's a simple
-        way to test for it.
+      compare: (a, b) ->
+        if a.score < b.score
+          return -1
+        if a.score > b.score
+          return 1
+        return 0
 
-        (I put this here, and not in the `prefixForCursor` method because I want
-        to keep that method as similar to the `AutocompleteManager` method of
-        the same name as I can.)
-        ###
-        prefix = prefix[1..] if prefix[1] is '@'
+      getSuggestions: ({editor, bufferPosition}) ->
+        prefix = @getPrefix(editor, bufferPosition)
 
-        return if not prefix.length or prefix[0] is not '@'
+        new Promise (resolve) ->
+          if prefix[0] == "@"
+            normalizedPrefix = prefix.normalize().replace(/^@/, '')
+            suggestions = []
+            hits = fuzzaldrin.filter possibleWords, normalizedPrefix, { key: 'author' }
 
-        normalizedPrefix = prefix.normalize().replace(/@/, '')
-        # remove line breaks
-        normalizedPrefix = normalizedPrefix.replace(/(\r\n|\n|\r)/gm,"");
+            for hit in hits
+              hit.score = fuzzaldrin.score normalizedPrefix, hit.author
 
-        words = fuzzaldrin.filter @possibleWords, normalizedPrefix, { key: 'author' }
+            hits.sort @compare
 
-        suggestions = for word in words
-          {
-            word: @resultTemplate.replace('[key]', word.key)
-            prefix: '@' + normalizedPrefix
-            label: word.label
-            renderLabelAsHtml: false
-            className: '',
-            onWillConfirm: -> # Do something here before the word has replaced the prefix (if you need, you usually don't need to),
-            onDidConfirm: -> # Do something here after the word has replaced the prefix (if you need, you usually don't need to)
-          }
-      dispose: ->
-        # Your dispose logic here
+            resultTemplate = atom.config.get "autocomplete-bibtex.resultTemplate"
 
-    # return provider
+            for word in hits
+              suggestions.push {
+                text: resultTemplate.replace("[key]", word.key)
+                displayText: word.label
+                replacementPrefix: prefix
+                leftLabel: word.key
+                rightLabel: word.by
+                className: word.type
+                iconHTML: '<i class="icon-mortar-board"></i>'
+                description: word.in if word.in?
+                descriptionMoreURL: word.url if word.url?
+              }
+
+            resolve(suggestions)
+
+      getPrefix: (editor, bufferPosition) ->
+        # Whatever your prefix regex might be
+        regex = /@[\w-]+/
+        wordregex = XRegExp('(?:^|[\\p{WhiteSpace}\\p{Punctuation}])@[\\p{Letter}\\p{Number}\._-]*')
+        cursor = editor.getCursors()[0]
+        start = cursor.getBeginningOfCurrentWordBufferPosition({ wordRegex: wordregex, allowPrevious: false })
+        end = bufferPosition
+        # Get the text for the line up to the triggered buffer position
+        line = editor.getTextInRange([start, bufferPosition])
+        # Match the regex to the line, and return the match
+        line.match(regex)?[0] or ''
 
   serialize: -> {
-    deserializer: 'BibtexProvider'
+    deserializer: 'ReferenceProvider'
     data: { bibtex: @bibtex, possibleWords: @possibleWords }
   }
 
-  buildWordList: () =>
+  buildWordList: (bibtex) =>
     possibleWords = []
-    for citation in @bibtex
-      if citation.entryTags and citation.entryTags.title and (citation.entryTags.author or citation.entryTags.editor)
+
+    for citation in bibtex
+      if citation.entryTags and citation.entryTags.title and (citation.entryTags.authors or citation.entryTags.editors)
+        citation.entryTags.title = citation.entryTags.title.replace(/(^\{|\}$)/g, "")
         citation.entryTags.prettyTitle =
           @prettifyTitle citation.entryTags.title
 
-        citation.entryTags.authors = []
+        citation.fuzzyLabel = citation.entryTags.title
 
-        if citation.entryTags.author?
-          citation.entryTags.authors =
-            citation.entryTags.authors.concat @cleanAuthors citation.entryTags.author.split ' and '
+        if citation.entryTags.authors?
+          for author in citation.entryTags.authors
+            citation.fuzzyLabel += " #{author.personalName} #{author.familyName}"
 
-        if citation.entryTags.editor?
-          citation.entryTags.authors =
-            citation.entryTags.authors.concat @cleanAuthors citation.entryTags.editor.split ' and '
+        if citation.entryTags.editors?
+          for editor in citation.entryTags.editors
+            citation.fuzzyLabel += " #{editor.personalName} #{editor.familyName}"
 
-        citation.entryTags.prettyAuthors =
-          @prettifyAuthors citation.entryTags.authors
+        if citation.entryTags.authors?
+          citation.entryTags.prettyAuthors =
+            @prettifyAuthors citation.entryTags.authors
 
-        for author in citation.entryTags.authors
+          for author in citation.entryTags.authors
+            possibleWords.push {
+              author: @prettifyName(author),
+              key: citation.citationKey,
+              label: citation.entryTags.prettyTitle
+              by: citation.entryTags.prettyAuthors
+              type: citation.entryTags.type
+              in: citation.entryTags.in or citation.entryTags.journal or citation.entryTags.booktitle
+              url: citation.entryTags.url if citation.entryTags.url?
+            }
+        else
           possibleWords.push {
-            author: @prettifyName(author, yes),
+            author: '',
             key: citation.citationKey,
-            label: "#{citation.entryTags.prettyTitle} \
-              by #{citation.entryTags.prettyAuthors}"
+            label: citation.entryTags.prettyTitle
+            by: ''
+            type: citation.entryTags.type
+            in: citation.entryTags.in or citation.entryTags.journal or citation.entryTags.booktitle
+            url: citation.entryTags.url if citation.entryTags.url?
           }
 
-    @possibleWords = possibleWords
+    return possibleWords
 
-  buildWordListFromFiles: (bibtexFiles) =>
-    @readBibtexFiles(bibtexFiles)
-    @buildWordList()
+  buildWordListFromFiles: (referenceFiles) =>
+    @bibtex = @readReferenceFiles(referenceFiles)
+    @possibleWords = @buildWordList(@bibtex)
 
-  readBibtexFiles: (bibtexFiles) =>
-    # Make sure our list of BibTeX files is an array, even if it's only one file
-    if not Array.isArray(bibtexFiles)
-      bibtexFiles = [bibtexFiles]
+  readReferenceFiles: (referenceFiles) =>
+    if referenceFiles.newValue?
+      referenceFiles = referenceFiles.newValue
+    # Make sure our list of files is an array, even if it's only one file
+    if not Array.isArray(referenceFiles)
+      referenceFiles = [referenceFiles]
 
     try
-      bibtex = []
+      references = []
 
-      for file in bibtexFiles
+      for file in referenceFiles
+        # What type of file is this?
+        fileType = file.split('.').pop()
+
         if fs.statSync(file).isFile()
-          parser = new bibtexParse(fs.readFileSync(file, 'utf-8'))
+          if fileType is "json"
+            citeprocObject = JSON.parse fs.readFileSync(file, 'utf-8')
+            citeprocReferences = citeproc.parse citeprocObject
+            references = references.concat citeprocReferences
+          else if fileType is "yaml"
+            citeprocObject = yaml.load fs.readFileSync(file, 'utf-8')
+            citeprocReferences = citeproc.parse citeprocObject
+            references = references.concat citeprocReferences
+          else
+            # Default to trying to parse as a BibTeX file.
+            bibtexParser = new bibtexParse( fs.readFileSync(file, 'utf-8'))
+            references = references.concat( @parseBibtexAuthors( bibtexParser.parse()))
 
-          bibtex = bibtex.concat parser.parse()
         else
           console.warn("'#{file}' does not appear to be a file, so autocomplete-bibtex will not try to parse it.")
-
-      @bibtex = bibtex
+      return references
     catch error
       console.error error
 
@@ -175,8 +205,21 @@ class BibtexProvider
     n = title.lastIndexOf(" ")
     title = title.slice(0, n) + "..."
 
-    # sugar function alternative
-    # title.titleize().truncateOnWord 30, 'middle'
+  parseBibtexAuthors: (citations) ->
+    validCitations = []
+    for citation in citations
+      if citation.entryTags?
+
+
+        if citation.entryTags.author?
+          citation.entryTags.authors = @cleanAuthors citation.entryTags.author.split ' and '
+
+        if citation.entryTags.editor?
+          citation.entryTags.editors = @cleanAuthors citation.entryTags.editor.split ' and '
+
+        validCitations.push(citation)
+
+    return validCitations
 
   cleanAuthors: (authors) ->
     return [{ familyName: 'Unknown' }] if not authors?
@@ -188,7 +231,13 @@ class BibtexProvider
       { personalName: personalName, familyName: familyName }
 
   prettifyAuthors: (authors) ->
+    return '' if not authors?
+    return '' if not authors.length
+
     name = @prettifyName authors[0]
+
+    # remove leading and trailing {}
+    name = name.replace /(^\{|\}$)/g, ""
 
     if authors.length > 1 then "#{name} et al." else "#{name}"
 

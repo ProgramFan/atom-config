@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116914-7841-1wspve6/package.tgz",
+        "raw": "/tmp/d-1161111-6604-1dsszap/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116914-7841-1wspve6/package.tgz",
-        "spec": "/tmp/d-116914-7841-1wspve6/package.tgz",
+        "rawSpec": "/tmp/d-1161111-6604-1dsszap/package.tgz",
+        "spec": "/tmp/d-1161111-6604-1dsszap/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116914-7841-et77i1"
+      "/tmp/apm-install-dir-1161111-6604-14x32j"
     ]
   ],
-  "_from": "../d-116914-7841-1wspve6/package.tgz",
+  "_from": "../d-1161111-6604-1dsszap/package.tgz",
   "_id": "busy@0.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/busy",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116914-7841-1wspve6/package.tgz",
+    "raw": "/tmp/d-1161111-6604-1dsszap/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116914-7841-1wspve6/package.tgz",
-    "spec": "/tmp/d-116914-7841-1wspve6/package.tgz",
+    "rawSpec": "/tmp/d-1161111-6604-1dsszap/package.tgz",
+    "spec": "/tmp/d-1161111-6604-1dsszap/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116914-7841-1wspve6/package.tgz",
+  "_resolved": "file:../d-1161111-6604-1dsszap/package.tgz",
   "_shasum": "f2a4ef8c1b3331f8b360f11160472cb9c08a19dc",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116914-7841-1wspve6/package.tgz",
-  "_where": "/tmp/apm-install-dir-116914-7841-et77i1",
+  "_spec": "/tmp/d-1161111-6604-1dsszap/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161111-6604-14x32j",
   "bugs": {
     "url": "https://github.com/noseglid/atom-busy/issues"
   },

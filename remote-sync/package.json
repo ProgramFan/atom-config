@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116914-8765-al14n3/package.tgz",
+        "raw": "/tmp/d-1161111-7427-1dsux0r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116914-8765-al14n3/package.tgz",
-        "spec": "/tmp/d-116914-8765-al14n3/package.tgz",
+        "rawSpec": "/tmp/d-1161111-7427-1dsux0r/package.tgz",
+        "spec": "/tmp/d-1161111-7427-1dsux0r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116914-8765-15bdp11"
+      "/tmp/apm-install-dir-1161111-7427-ng1wh1"
     ]
   ],
-  "_from": "../d-116914-8765-al14n3/package.tgz",
-  "_id": "remote-sync@4.1.4",
+  "_from": "../d-1161111-7427-1dsux0r/package.tgz",
+  "_id": "remote-sync@4.1.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/remote-sync",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116914-8765-al14n3/package.tgz",
+    "raw": "/tmp/d-1161111-7427-1dsux0r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116914-8765-al14n3/package.tgz",
-    "spec": "/tmp/d-116914-8765-al14n3/package.tgz",
+    "rawSpec": "/tmp/d-1161111-7427-1dsux0r/package.tgz",
+    "spec": "/tmp/d-1161111-7427-1dsux0r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116914-8765-al14n3/package.tgz",
-  "_shasum": "85abdd4c13ce91491127c5240632f0672b3ad4b0",
+  "_resolved": "file:../d-1161111-7427-1dsux0r/package.tgz",
+  "_shasum": "3be3ac87b25de35a23a8aeadb1a425809dcb2c3c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116914-8765-al14n3/package.tgz",
-  "_where": "/tmp/apm-install-dir-116914-8765-15bdp11",
+  "_spec": "/tmp/d-1161111-7427-1dsux0r/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161111-7427-ng1wh1",
   "bugs": {
     "url": "https://github.com/yongkangchen/remote-sync/issues"
   },
@@ -67,5 +67,5 @@
     "type": "git",
     "url": "git+https://github.com/yongkangchen/remote-sync.git"
   },
-  "version": "4.1.4"
+  "version": "4.1.5"
 }

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116914-7685-1vpu9k/package.tgz",
+        "raw": "/tmp/d-1161111-6448-1r2qe66/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116914-7685-1vpu9k/package.tgz",
-        "spec": "/tmp/d-116914-7685-1vpu9k/package.tgz",
+        "rawSpec": "/tmp/d-1161111-6448-1r2qe66/package.tgz",
+        "spec": "/tmp/d-1161111-6448-1r2qe66/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116914-7685-1409kpd"
+      "/tmp/apm-install-dir-1161111-6448-1m925q7"
     ]
   ],
-  "_from": "../d-116914-7685-1vpu9k/package.tgz",
+  "_from": "../d-1161111-6448-1r2qe66/package.tgz",
   "_id": "asciidoctor-preview@0.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoctor-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116914-7685-1vpu9k/package.tgz",
+    "raw": "/tmp/d-1161111-6448-1r2qe66/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116914-7685-1vpu9k/package.tgz",
-    "spec": "/tmp/d-116914-7685-1vpu9k/package.tgz",
+    "rawSpec": "/tmp/d-1161111-6448-1r2qe66/package.tgz",
+    "spec": "/tmp/d-1161111-6448-1r2qe66/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116914-7685-1vpu9k/package.tgz",
+  "_resolved": "file:../d-1161111-6448-1r2qe66/package.tgz",
   "_shasum": "ec46c7de921e348c93ecad5a4315bbdcea57a782",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116914-7685-1vpu9k/package.tgz",
-  "_where": "/tmp/apm-install-dir-116914-7685-1409kpd",
+  "_spec": "/tmp/d-1161111-6448-1r2qe66/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161111-6448-1m925q7",
   "bugs": {
     "url": "https://github.com/griffin-stewie/asciidoctor-preview/issues"
   },

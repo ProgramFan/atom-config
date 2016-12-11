@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116914-8021-1s1eksr/package.tgz",
+        "raw": "/tmp/d-1161111-6784-ei2l8v/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116914-8021-1s1eksr/package.tgz",
-        "spec": "/tmp/d-116914-8021-1s1eksr/package.tgz",
+        "rawSpec": "/tmp/d-1161111-6784-ei2l8v/package.tgz",
+        "spec": "/tmp/d-1161111-6784-ei2l8v/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116914-8021-oserxc"
+      "/tmp/apm-install-dir-1161111-6784-8xa5uq"
     ]
   ],
-  "_from": "../d-116914-8021-1s1eksr/package.tgz",
+  "_from": "../d-1161111-6784-ei2l8v/package.tgz",
   "_id": "sort-lines@0.14.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/sort-lines",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116914-8021-1s1eksr/package.tgz",
+    "raw": "/tmp/d-1161111-6784-ei2l8v/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116914-8021-1s1eksr/package.tgz",
-    "spec": "/tmp/d-116914-8021-1s1eksr/package.tgz",
+    "rawSpec": "/tmp/d-1161111-6784-ei2l8v/package.tgz",
+    "spec": "/tmp/d-1161111-6784-ei2l8v/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116914-8021-1s1eksr/package.tgz",
+  "_resolved": "file:../d-1161111-6784-ei2l8v/package.tgz",
   "_shasum": "ca019973a26ce699408c3cca7284655e6baa4915",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116914-8021-1s1eksr/package.tgz",
-  "_where": "/tmp/apm-install-dir-116914-8021-oserxc",
+  "_spec": "/tmp/d-1161111-6784-ei2l8v/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161111-6784-8xa5uq",
   "activationCommands": {
     "atom-text-editor": [
       "sort-lines:sort",

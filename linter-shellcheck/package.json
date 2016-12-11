@@ -2,40 +2,43 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116914-6993-urhjt6/package.tgz",
+        "raw": "/tmp/d-1161111-5756-1qozlaj/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116914-6993-urhjt6/package.tgz",
-        "spec": "/tmp/d-116914-6993-urhjt6/package.tgz",
+        "rawSpec": "/tmp/d-1161111-5756-1qozlaj/package.tgz",
+        "spec": "/tmp/d-1161111-5756-1qozlaj/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116914-6993-18wl0hw"
+      "/tmp/apm-install-dir-1161111-5756-1r2jw2a"
     ]
   ],
-  "_from": "../d-116914-6993-urhjt6/package.tgz",
-  "_id": "linter-shellcheck@1.4.1",
+  "_from": "../d-1161111-5756-1qozlaj/package.tgz",
+  "_id": "linter-shellcheck@1.4.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116914-6993-urhjt6/package.tgz",
+    "raw": "/tmp/d-1161111-5756-1qozlaj/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116914-6993-urhjt6/package.tgz",
-    "spec": "/tmp/d-116914-6993-urhjt6/package.tgz",
+    "rawSpec": "/tmp/d-1161111-5756-1qozlaj/package.tgz",
+    "spec": "/tmp/d-1161111-5756-1qozlaj/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116914-6993-urhjt6/package.tgz",
-  "_shasum": "76bf2aee28945a481882e742ed7596e3fc0e4bf3",
+  "_resolved": "file:../d-1161111-5756-1qozlaj/package.tgz",
+  "_shasum": "a7651e770cc3c5e140228a91f06dde3aaf4295b9",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116914-6993-urhjt6/package.tgz",
-  "_where": "/tmp/apm-install-dir-116914-6993-18wl0hw",
+  "_spec": "/tmp/d-1161111-5756-1qozlaj/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161111-5756-1r2jw2a",
+  "activationHooks": [
+    "language-shellscript:grammar-used"
+  ],
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-shellcheck/issues"
   },
@@ -64,9 +67,9 @@
   "description": "Lint Bash on the fly, using shellcheck",
   "devDependencies": {
     "coffeelint": "^1.15.7",
-    "eslint": "^3.6.0",
-    "eslint-config-airbnb-base": "^8.0.0",
-    "eslint-plugin-import": "^1.16.0"
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0"
   },
   "engines": {
     "atom": ">=1.4.0 <2.0.0"
@@ -85,7 +88,6 @@
       ]
     },
     "env": {
-      "es6": true,
       "browser": true,
       "node": true
     },
@@ -118,5 +120,5 @@
     "lint": "eslint .",
     "test": "apm test"
   },
-  "version": "1.4.1"
+  "version": "1.4.2"
 }

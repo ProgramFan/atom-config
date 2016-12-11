@@ -7,8 +7,7 @@ This package lets you run your code directly in Atom using any [Jupyter](https:/
 
 Hydrogen was inspired by Bret Victor's ideas about the power of instantaneous feedback and the design of [Light Table](http://lighttable.com/). Running code inline and in real time is a more natural way to develop. By bringing the interactive style of Light Table to the rock-solid usability of Atom, Hydrogen makes it easy to write code the way you want to.
 
-<img src="https://cloud.githubusercontent.com/assets/13285808/14598778/1cff1b32-0554-11e6-8181-504307ca6b56.gif" width=600>
-
+![hero](https://cloud.githubusercontent.com/assets/13285808/20360886/7e03e524-ac03-11e6-9176-37677f226619.gif)
 
 ## Features
 
@@ -21,55 +20,16 @@ Hydrogen was inspired by Bret Victor's ideas about the power of instantaneous fe
 - interrupt or restart the kernel if anything goes wrong
 - use a custom kernel connection (for example to run code inside Docker), read more in the "Custom kernel connection (inside Docker)" section
 
-## Dependencies
+## Installation
 
 For all systems, you'll need
 
 - [Atom](https://atom.io/) `1.6.0+`
-- [ZeroMQ](http://zeromq.org/intro:get-the-software)
-- [Jupyter notebook](http://jupyter.org): `pip install jupyter`
-- Python 2 for builds (you can still run Python 3 code)
+- [Jupyter](http://jupyter.org): If you have Python and conda or pip setup, install the notebook directly with `conda install jupyter` or `pip install jupyter`.
 
-Each operating system has their own instruction set. Please read on down to save yourself time.
+You can now run `apm install hydrogen` or search for *Hydrogen* in the Install pane of the Atom settings.
 
-#### OS X
-
-##### homebrew on OS X
-
-- [`pkg-config`](https://www.freedesktop.org/wiki/Software/pkg-config/): `brew install pkg-config`
-- [ZeroMQ](http://zeromq.org/intro:get-the-software): `brew install zeromq`
-- [Jupyter notebook](http://jupyter.org) (needs to be installed and on your `$PATH`): `pip install jupyter`
-
-#### Windows
-
-- You'll need a compiler! [Visual Studio 2013 Community Edition](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) is required to build zmq.node.
-- Python (tread on your own or install [Anaconda](https://www.continuum.io/downloads))
-- [Jupyter notebook](http://jupyter.org) (if you installed Anaconda, you're already done)
-
-After these are installed, you'll likely need to restart your machine (especially after Visual Studio).
-
-#### Linux
-
-For **Debian/Ubuntu** based variants, you'll need `libzmq3-dev` (preferred) or alternatively `libzmq-dev`.
-
-For **RedHat/CentOS/Fedora/openSUSE** based variants, you'll need `zeromq` and `zeromq-devel`.
-
-For **Arch** Linux based variants, you'll need `zeromq` or `zeromq3` (which has to be built from the <abbr title="Arch User Repository">AUR</abbr>).
-
-For **Gentoo** Linux based variants, you'll need `net-libs/zeromq`.
-
-If you have Python and pip setup, install the notebook directly, via running (as root):
-
-```
-pip install jupyter
-```
-
-## Installation
-
-Assuming you followed the dependencies steps above, you can now `apm install hydrogen` (recommended) or search for "hydrogen" in the Install pane of the Atom settings.
-
-If your default `python` is 3.x, you need to run instead `PYTHON=python2.7 apm install hydrogen` or change the default version for `apm` with `apm config set python $(which python2.7)` beforehand. You can still use 3.x versions of Python in Hydrogen, but it will only build with 2.x due to a [longstanding issue with `gyp`](https://bugs.chromium.org/p/gyp/issues/detail?id=36).
-
+If you are using Linux 32-bit follow the installation instructions [here](TROUBLESHOOTING.md).
 
 ### Kernels
 
@@ -82,12 +42,13 @@ Tested and works with:
 - [jupyter-nodejs](https://github.com/notablemind/jupyter-nodejs)
 - [IRkernel](https://github.com/IRkernel/IRkernel) `0.4+`
 - [IElixir](https://github.com/pprzetacznik/IElixir)
+- [jupyter-scala](https://github.com/alexarchambault/jupyter-scala)
 
-But it _should_ work with any [kernel](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages). If you are using hydrogen with another kernel please add it to this list or [post an issue](https://github.com/nteract/hydrogen/issues) if anything is broken!
+But it _should_ work with any [kernel](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages). If you are using Hydrogen with another kernel please add it to this list or [post an issue](https://github.com/nteract/hydrogen/issues) if anything is broken!
 
 <img src="https://cloud.githubusercontent.com/assets/13285808/16931386/048f056e-4d41-11e6-8563-3baa8ed84371.png">
 
-Note that if you install a new kernel, you'll need to reload Atom (search in the Command Palette for "reload") for Hydrogen to find it. For performance reasons, Hydrogen only looks for available kernels when it first starts.
+Note that if you install a new kernel, you'll need to run **Hydrogen: Update Kernels** for Hydrogen to find it. For performance reasons, Hydrogen only looks for available kernels when it first starts.
 
 #### Debian 8 and Ubuntu 16.04 LTS
 
@@ -147,11 +108,11 @@ There are two ways to tell Hydrogen which code in your file to run.
 
 It's easiest to see these interactions visually:
 
-<img src="http://g.recordit.co/4ViVmKtKAr.gif">
+![execute](https://cloud.githubusercontent.com/assets/13285808/20360915/a16efcba-ac03-11e6-9d5c-3489b3c3c85f.gif)
 
 **"Hydrogen: Run And Move Down"** will run the the code as described above and move the cursor to the next executable line.
 
-If your code starts getting cluttered up with results, run **"Hydrogen: Clear Results"** to remove them all at once. You can also run this command with ⌘-⌥-⌫.
+If your code starts getting cluttered up with results, run **"Hydrogen: Clear Results"** to remove them all at once.
 
 ### "Hydrogen: Run Cell"
 A "code cell" is a block of lines to be executed at once. You can define them using inline comments. Hydrogen supports a
@@ -170,12 +131,12 @@ These commands will run all code inside the editor or all code above the cursor.
 
 After you've run some code with Hydrogen, you can use the **"Hydrogen: Toggle Watches"** command from the Command Palette to open the watch expression sidebar. Whatever code you write in watch expressions will be re-run after each time you send that kernel any other code.
 
-<img width=770 src="https://cloud.githubusercontent.com/assets/13285808/14125700/e5cb587a-f60c-11e5-9c28-5aef83088da2.gif">
+![watch](https://cloud.githubusercontent.com/assets/13285808/20361086/4434ab3e-ac04-11e6-8298-1fb925de4e78.gif)
 
 **IMPORTANT:** Be careful what you put in your watch expressions. If you write code that mutates state in a watch expression, that code will get run after every execute command and likely result in some _extremely confusing_ bugs.
 
 
-You can re-run the watch expressions by using the normal run shortcut (⌘-⌥-↩ by default) inside a watch expression's edit field.
+You can re-run the watch expressions by using the normal run shortcut (⌘-↩ by default) inside a watch expression's edit field.
 
 If you have multiple kernels running, you can switch between their watch expressions with the **"Hydrogen: Select Watch Kernel"** command (or just click on the "Kernel: <language>" text).
 
@@ -201,6 +162,13 @@ You can also access these commands by clicking on the kernel status in the statu
 
 Additionally, if you have two or more kernels for a particular language (grammar), you can select which kernel to use with the "Switch to <kernel>" option in the Kernel Commands menu.
 
+## Plugins for Hydrogen
+
+Hydrogen has support for plugins. Feel free to add your own to the list:
+- [Hydrogen Launcher](https://github.com/lgeiger/hydrogen-launcher)
+
+If you are interested in building a plugin take a look at our [plugin API documentation](PLUGIN_API.md).
+
 ## How it works
 
 Hydrogen implements the [messaging protocol](http://jupyter-client.readthedocs.io/en/latest/messaging.html) for [Jupyter](https://jupyter.org/). Jupyter (formerly IPython) uses ZeroMQ to connect a client (like Hydrogen) to a running kernel (like IJulia or iTorch). The client sends code to be executed to the kernel, which runs it and sends back results.
@@ -224,15 +192,227 @@ Each entry in the gateways list needs at minimum a `name` (for displaying in the
 
 After gateways have been configured, you can use the **"Hydrogen: Connect to Remote Kernel"** command. You will be prompted to select a gateway, and then given the choice to either create a new session or connect to an existing one.
 
-Unlike with local kernels, when Hydrogen does not kill remote kernels when it disconnects from them. This allows sharing remote kernels between Hydrogen and the Notebook UI, as well as using them for long-running processes. To clean up unused kernels, you must explicitly call the **"Hydrogen: Shutdown Kernel"** command while connected to a kernel.
+Unlike with local kernels, Hydrogen does not kill remote kernels when it disconnects from them. This allows sharing remote kernels between Hydrogen and the Notebook UI, as well as using them for long-running processes. To clean up unused kernels, you must explicitly call the **"Hydrogen: Shutdown Kernel"** command while connected to a kernel.
 
 **Note:** Unlike a notebook server, the jupyter kernel gateway by default disables listing already-running kernels. This means that once disconnected from a kernel, you will not be able to reconnect to it. You can set `c.KernelGatewayApp.list_kernels = True` in your kernel gateway configuration to change this behavior.
 
+### Example remote kernel gateway
+
+To create a remote kernel gateway you could
+
+- Install Jupyter Kernel Gateway:
+
+```bash
+pip install jupyter_kernel_gateway
+```
+
+- Run the kernel gateway with parameters specifying the IP address and port to listen to, e.g.:
+
+```bash
+jupyter kernelgateway --ip=0.0.0.0 --port=8888
+```
+
+**Note**: "`0.0.0.0`" means "listen to all IPs, including public IPs".
+
+## Docker execution via kernel gateways
+
+You can use the same technique to create a kernel gateway in a Docker container. That would allow you to develop from Atom but with all the dependencies, autocompletion, environment, etc. of a Docker container.
+
+But, due to the way that the kernel gateway creates sub-processes for each kernel, you have to use it in a special way, you can't run the `jupyter kernelgateway` directly in your `Dockerfile` `CMD` section. You need to call it with an init manager such as [tini](https://github.com/krallin/tini) or run it from an interactive console.
+
+Here's an example of how to setup a Docker execution environment with Hydrogen running the kernel gateway from an interactive console:
+
+### Example Docker kernel gateway
+
+#### Dockerfile
+
+- Create a `Dockerfile`
+- Install `jupyter_kernel_gateway` in your `Dockerfile`
+- Expose the gateway port, in this example it will be `8888`:
+
+```Dockerfile
+FROM python:2.7
+
+# Remove in production
+RUN pip install jupyter_kernel_gateway
+EXPOSE 8888
+```
+
+#### Run Docker Container with Docker commands
+
+**Note**: alternatively, see below for `docker-compose` instructions.
+
+- Build your container:
+
+```bash
+docker build -t hydro .
+```
+
+- Run your container mapping the port of the gateway
+- Give your container a name
+- Make it run an infinite loop that just keeps the container alive:
+
+```bash
+docker run -d -p 8888:8888 --name hydro  hydro bash -c "while true; do sleep 10; done"
+```
+
+**Note**: you will only be able to run one container using that port mapping. So, if you had another container using that port, you will have to stop that one first. Or alternatively, you can create a mapping to a new port and add that configuration in the Hydrogen settings (see below).
+
+- Execute an interactive bash session in your running container:
+
+```bash
+docker exec -it hydro bash
+```
+
+- From that interactive session, start the gateway
+- Specify the IP `0.0.0.0` to make your container listen to public connections
+- Specify the port that you exposed in your `Dockerfile`:
+
+```bash
+jupyter kernelgateway --ip=0.0.0.0 --port=8888
+```
+
+#### Run Docker Container with Docker Compose
+
+- Create a `docker-compose.yml` file with something like:
+
+```yml
+version: '2'
+services:
+  hydro:
+    build: .
+    ports:
+      - "8888:8888"
+    command: bash -c "while true; do sleep 10; done"
+```
+
+- The `docker-compose.yml` file has a port mapping using the port exposed in the `Dockerfile` and used in the `jupyter kernelgateway` command
+- The `command` overrides the default `CMD` in the `Dockerfile` (if there was one) and executes an infinite loop that would just keep the container alive
+
+**Note**: you will only be able to run one container using that port mapping. So, if you had another container using that port, you will have to stop that one first. Or alternatively, you can create a mapping to a new port and add that configuration in the Hydrogen settings (see below).
+
+- Now start (and build) your container with `docker-compose`:
+
+```bash
+docker-compose up -d
+```
+
+- Check the name of your running container with:
+
+```bash
+docker-compose ps
+```
+
+- Execute an interactive bash session in your running container (use the name from above), e.g.:
+
+```bash
+docker exec -it myproject_hydro_1 bash
+```
+
+- From that interactive session, start the gateway
+- Specify the IP `0.0.0.0` to make your container listen to public connections
+- Specify the port that you exposed in your `Dockerfile`:
+
+```bash
+jupyter kernelgateway --ip=0.0.0.0 --port=8888
+```
+
+#### Connect Atom
+
+- Go to the settings in Atom with: `ctrl-shift-p` and type `Settings View: Open`
+- Go to the "Packages" section
+- Type `Hydrogen` and go to package settings
+- In the section "List of kernel gateways to use" add settings for the container your created
+- Use a `name` that you can remind when running Hydrogen
+- In the `baseUrl` section use the host or IP that you use to access your Docker containers:
+  - If you are using Docker Toolbox in Windows or Mac (or Docker for Windows, Docker for Mac), as it will be running in a virtual machine, the IP (host) would probably be like: `192.168.99.100`, you can read about it and check the `docker-machine ip default` command [in the official Docker docs](https://docs.docker.com/machine/get-started/#/run-containers-and-experiment-with-machine-commands)
+  - If you are using Docker in a Linux machine and you are running Atom in that same machine you can just use `localhost` as the host of your `baseUrl`
+- For example, a possible configuration for Docker Toolbox in Windows or Mac could be:
+
+```JSON
+[{"name": "Docker Toolbox", "options": {"baseUrl": "http://192.168.99.100:8888"}}]
+```
+
+- In Atom, open a Python file, e.g. `main.py`
+- Connect to the kernel you just configured: `ctrl-shift-p` and type: `Hydrogen: Connect To Remote Kernel`
+- Select the kernel gateway you configured, e.g. `Docker Toolbox`
+- Select the "type of kernel" to run, there will just be the option `Python 2`
+- Then select the line or block of code that you want to execute inside of your container
+- Run the code with: `ctrl-shift-p` and type: `Hydrogen: Run`
+
+#### Testing it
+
+You can test that it is actually working by installing a package in your container that you don't have locally and using it inside your container (from your Atom editor).
+
+- For example, install the Python package `markdown` in your `Dockerfile`:
+
+```Dockerfile
+FROM python:2.7
+
+RUN pip install markdown
+
+# Remove in production
+RUN pip install jupyter_kernel_gateway
+EXPOSE 8888
+```
+
+- Follow all the instructions above, and use a Python file that has:
+
+```python
+import markdown
+markdown.version
+```
+
+- Select the code and run it with: `ctrl-shift-p` and type `Hydrogen: Run`, you will see the code executed inline like:
+
+```python
+import markdown [✓]
+markdown.version ['2.6.6']
+```
+
+#### Terminate the connection and container
+
+- To terminate a running kernel gateway you can "kill" it as any Linux process with `ctrl-c`
+
+But because of the way Jupyter Kernel Gateway creates sub-processes and due to the fact that you are running in a Docker container, the actual kernel process will still be running.
+
+- Before exiting the terminal, find the still running (Python) kernel process with:
+
+```bash
+ps -fA
+```
+
+- You will get something like:
+
+```
+root@6d09f8fee132:/# ps -fA
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 00:21 ?        00:00:00 bash -c while true; do sleep 10; done
+root        10     0  0 00:22 ?        00:00:00 bash
+root        23     0  0 00:22 ?        00:00:00 /usr/local/bin/python2 -m ipykernel -f /root/.local/share/jupyter/runtime/kernel-95baef8a-6427-4415-bc95-e02dc74e4ebb.js
+root        77     1  0 00:28 ?        00:00:00 sleep 10
+root        78    10  0 00:28 ?        00:00:00 ps -fA
+```
+
+- Kill the `ipykernel` process by killing all the `python` processes:
+
+```bash
+pkill python
+```
+
+- Now you can exit the interactive terminal with:
+
+```bash
+exit
+```
+
 ## Custom kernel connection (inside Docker)
+
+**Note**: Hydrogen now supports using kernel gateways (see the instructions above). Using that option might be simpler and will allow you to use the functionality in Windows or Mac very easily.
 
 You can use a custom kernel connection file to connect to a previously created kernel.
 
-For example, you can run a kernel inside a Docker container and make Hydrogen connect to it automatically. If you are using Docker this would allow you to develop from Atom but with all the dependencies, autocompletion, environment, etc of a Docker container.
+For example, you can run a kernel inside a Docker container and make Hydrogen connect to it automatically.
 
 Hydrogen will look for a kernel JSON connection file under `./hydrogen/connection.json` inside your project. If that file exists, Hydrogen will try to connect to the kernel specified by that connection file.
 
@@ -243,7 +423,7 @@ Here's a simple recipe for doing and testing that with Python:
 ```
 FROM python:2.7
 
-RUN pip install markdown
+RUN pip install markdown # Delete this line after testing
 
 RUN pip install ipykernel
 RUN echo "alias hydrokernel='python -m ipykernel "'--ip=$(hostname -I)'" -f /tmp/hydrogen/connection.json'" >> /etc/bash.bashrc
@@ -251,7 +431,7 @@ RUN echo "alias hydrokernel='python -m ipykernel "'--ip=$(hostname -I)'" -f /tmp
 
 You will test using the Python package `markdown` from inside the Docker container in your local Atom editor, with autocompletion, etc.
 
-The last two lines are the only (temporal) addition to your `Dockerfile` that will allow you to develop locally using the remote Python kernel. If you already have a Python project with a `Dockerfile` you only need to copy those 2 lines and add them to it:
+The last two lines are the only (temporary) addition to your `Dockerfile` that will allow you to develop locally using the remote Python kernel. If you already have a Python project with a `Dockerfile` you only need to copy those 2 lines and add them to it:
 
 ```
 RUN pip install ipykernel
@@ -262,13 +442,15 @@ The first of those two lines will install the Python package `ipykernel`, which 
 
 The second line creates a handy shortcut named `hydrokernel` to run a Python kernel that listens on the container's IP address and writes the connection file to `/tmp/hydrogen/connection.json`.
 
+* Run your container mounting a volume that maps `./hydrogen/` in your local project directory to `/tmp/hydrogen/` in your container. That's the trick that will allow Hydrogen to connect to the kernel running inside your container automatically. It's probably better to run it with the command `bash` and start the kernel manually, so that you can restart it if you need to (or if it dies).
+
+### Running using docker build
+
 * Build your container with:
 
 ```
 docker build -t python-docker .
 ```
-
-* Run your container mounting a volume that maps `./hydrogen/` in your local project directory to `/tmp/hydrogen/` in your container. That's the trick that will allow Hydrogen to connect to the kernel running inside your container automatically. It's probably better to run it with the command `bash` and start the kernel manually, so that you can restart it if you need to (or if it dies).
 
 ```
 docker run -it --name python-docker -v $(pwd)/hydrogen:/tmp/hydrogen python-docker bash
@@ -279,7 +461,46 @@ docker run -it --name python-docker -v $(pwd)/hydrogen:/tmp/hydrogen python-dock
 ```
 hydrokernel
 ```
+Please see below for information to do after your container has started running.
 
+### Running using docker-compose
+
+If you try to use `docker-compose` with the Dockerfile as above you might not be able to connect to hydrokernel. This is because the ports have been not forwarded and cannot be accessed from outside of the new docker-compose sub-network. You need to forward these ports manually in the `docker-compose.yml` file.
+
+To ensure the ports used by hydrokernel are the same each time it loads you must specify them on the command line. Do not try and use/modify connection.json as it is overwritten on startup.
+```
+python -m ipykernel --stdin=45323 --iopub=43223 --shell=41454 --control=44186 --hb=40772 --ip=0.0.0.0 -f /tmp/hydrogen/connection.json
+```
+You may notice that the IP address given is different, `0.0.0.0` binds to all possible interfaces.
+
+Create `docker-compose.yml` and paste the following:
+```
+version: '2'
+services:
+  hydrokernel:
+    build: .
+    ports: #FROM connection.json
+      - "45323:45323"
+      - "44186:44186"
+      - "40772:40772"
+      - "41454:41454"
+      - "43223:43223"
+    volumes:
+      - ./hydrogen:/tmp/hydrogen #hydrogen connection info
+    command: python -m ipykernel --stdin=45323 --iopub=43223 --shell=41454 --control=44186 --hb=40772 --ip=0.0.0.0 -f /tmp/hydrogen/connection.json
+```
+Key points:
+* Ensure `docker-compose.yml` is in the same directory as your `Dockerfile`. If you have put your Dockerfile in a subfolder then modify the `build` entry for the hydrokernel service in the `docker-compose.yml` file to point to the Dockerfile.
+
+* Ensure that the ports that are forwarded are exactly the same on the host machine as the container i.e. port 45323 should be forwarded to 45253. Reason being, Hydrogen will attempt to connect using the ports in the connection.json file which will be described as the container sees them, not the host.
+
+* You could also run the command in the Dockerfile as a `CMD` entry but this way it's crystal clear what ports we're forwarding, there are quite a few so switching between files to get them is a headache!
+
+You can then use `docker-compose up` in the same directory as docker-compose.yml to start it up.
+
+Please see below for information to do after your container has started running.
+
+### When your container is running
 * You will see an output similar to:
 
 ```
@@ -307,7 +528,7 @@ markdown.version
 
 * Select the contents and run them with Hydrogen ("`cmd-shift-P`" and "`Hydrogen: run`").
 
-* You will see the inline execution and output that just ran from your kernel, even if you don't have the Python package `mardown` installed locally, because it's running inside your container.
+* You will see the inline execution and output that just ran from your kernel, even if you don't have the Python package `markdown` installed locally, because it's running inside your container.
 
 ```
 import markdown [✓]

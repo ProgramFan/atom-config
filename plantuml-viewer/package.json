@@ -2,46 +2,46 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116914-9036-dh0tae/package.tgz",
+        "raw": "/tmp/d-1161111-7735-1axkjiw/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116914-9036-dh0tae/package.tgz",
-        "spec": "/tmp/d-116914-9036-dh0tae/package.tgz",
+        "rawSpec": "/tmp/d-1161111-7735-1axkjiw/package.tgz",
+        "spec": "/tmp/d-1161111-7735-1axkjiw/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116914-9036-1up0997"
+      "/tmp/apm-install-dir-1161111-7735-1na5hjw"
     ]
   ],
-  "_from": "../d-116914-9036-dh0tae/package.tgz",
-  "_id": "plantuml-viewer@0.7.0",
+  "_from": "../d-1161111-7735-1axkjiw/package.tgz",
+  "_id": "plantuml-viewer@0.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/plantuml-viewer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116914-9036-dh0tae/package.tgz",
+    "raw": "/tmp/d-1161111-7735-1axkjiw/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116914-9036-dh0tae/package.tgz",
-    "spec": "/tmp/d-116914-9036-dh0tae/package.tgz",
+    "rawSpec": "/tmp/d-1161111-7735-1axkjiw/package.tgz",
+    "spec": "/tmp/d-1161111-7735-1axkjiw/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116914-9036-dh0tae/package.tgz",
-  "_shasum": "ba69c21c883f690d60884035f13ac3d6a23aa90e",
+  "_resolved": "file:../d-1161111-7735-1axkjiw/package.tgz",
+  "_shasum": "0556a04440c2203ac36f822f4b9519dadeddbd26",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116914-9036-dh0tae/package.tgz",
-  "_where": "/tmp/apm-install-dir-116914-9036-1up0997",
+  "_spec": "/tmp/d-1161111-7735-1axkjiw/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161111-7735-1na5hjw",
   "bugs": {
     "url": "https://github.com/markushedvall/plantuml-viewer/issues"
   },
   "dependencies": {
     "atom-space-pen-views": "^2.0.5",
-    "node-plantuml": "^0.4.2",
+    "node-plantuml": "^0.5.0",
     "svg-pan-zoom": "^3.2.3"
   },
   "description": "Open a rendered diagram of the PlantUML source in an editor with `ctrl-alt-p`.",
@@ -72,5 +72,5 @@
     "lint": "standard",
     "test": "standard && apm test"
   },
-  "version": "0.7.0"
+  "version": "0.7.1"
 }

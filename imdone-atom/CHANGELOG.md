@@ -1,3 +1,74 @@
+##2.0.19
+- Fix password field issue introduced in last release
+
+##2.0.18
+- Update login view
+- Remove deprecated styles
+- Update package description
+- Fix issue with undefined project info
+
+##2.0.17
+- Add haml extension and -# comment
+
+##2.0.16
+* Fix error on open files of visible tasks
+
+##2.0.15
+* Add new preview image
+
+##2.0.14
+* Add delay to chunked requests to kick the event loop
+
+## 2.0.13
+* Increase timeout for sync requests
+
+## 2.0.12
+* Defer progress update when syncing
+
+## 2.0.11
+* Send up to 3 requests of 4 tasks each when syncing with imdone.io
+
+## 2.0.10
+* Remove unused bootstrap-token library causing errors
+
+## 2.0.9
+* Fix multiple connectors getting created
+
+## 2.0.7
+* Add .boot to languages
+* Confirm opening of more than 5 files
+* Set keepEmptyPriority=true before syncing for the first time
+
+## 2.0.5
+* Enable default github TODOBOTs
+
+## 2.0.4
+* Use [ignore](https://www.npmjs.com/package/ignore) package instead of minimatch to mimic .gitignore function
+* Remove plain sign up button
+
+## 2.0.3
+* Remove debug code and provide github signup
+
+## 2.0.2
+* Fix call stack exceeded
+
+## 2.0.0
+* Integrations with http://imdone.io
+* Save priority by imdone.io in local db and on imdone.io
+* zoom
+* Add TODO token to config.code.list_names on new list  if it's all caps
+
+## 1.9.6
+* security update for marked and minimatch
+
+## 1.9.0
+* beta test
+
+## 1.4.0
+* Fix serialization
+* New "Enable file opener" setting to improve activation time for those who don't use file-opener [default false]
+* Add new languages
+
 ## 1.3.31
 * Add yaml and crystal file extensions
 
@@ -254,7 +325,7 @@
 * Fix Path for windows users
 
 ## 1.1.10
-* [Fix config path checking for windows git-iss:5](#DONE:200)
+* [Fix config path checking for windows git-iss:5 id:10](#DONE:)
 * Update version of imdone-core to allow pks and pkb files
 
 ## 1.1.9
@@ -301,4 +372,4 @@
 
 ----
 
-#DOING:20 Remember to update changelog before +publishing +package @piascikj
+#INBOX: Remember to update changelog before +publishing +package @piascikj id:9

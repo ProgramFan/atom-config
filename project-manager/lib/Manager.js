@@ -1,46 +1,25 @@
 'use babel';
 
 import { observable, autorun, computed, action } from 'mobx';
-import os from 'os';
+import untildify from 'untildify';
+import tildify from 'tildify';
 import projectUtil from 'atom-project-util';
+import { each, map } from 'underscore-plus';
 import FileStore from './stores/FileStore';
 import GitStore from './stores/GitStore';
 import Settings from './Settings';
 import Project from './models/Project';
 
-class Manager {
+export class Manager {
   @observable projects = [];
   @observable activePaths = [];
 
-  /**
-   * Create or Update a project.
-   *
-   * Props coming from file goes before any other source.
-   */
-  @action addProject(props) {
-    const foundProject = this.projects.find(project => {
-      const projectRootPath = project.rootPath.toLowerCase();
-      let propsRootPath = props.paths[0].toLowerCase();
-
-      if (propsRootPath.charAt(0) === '~') {
-        propsRootPath = propsRootPath.replace('~', os.homedir()).toLowerCase();
-      }
-
-      return projectRootPath === propsRootPath;
-    });
-
-    if (!foundProject) {
-      const newProject = new Project(props);
-      this.projects.push(newProject);
-    } else {
-      if (foundProject.source === 'file' && props.source === 'file') {
-        foundProject.updateProps(props);
-      }
-
-      if (props.source === 'file' || typeof props.source === 'undefined') {
-        foundProject.updateProps(props);
-      }
+  @computed get activeProject() {
+    if (this.activePaths.length === 0) {
+      return null;
     }
+
+    return this.projects.find(project => project.rootPath === this.activePaths[0]);
   }
 
   constructor() {
@@ -59,21 +38,22 @@ class Manager {
     });
 
     autorun(() => {
-      for (const fileProp of this.fileStore.data) {
+      each(this.fileStore.data, (fileProp) => {
         this.addProject(fileProp);
-      }
+      }, this);
+    });
 
-      for (const gitProp of this.gitStore.data) {
+    autorun(() => {
+      each(this.gitStore.data, (gitProp) => {
         this.addProject(gitProp);
-      }
+      }, this);
     });
 
     autorun(() => {
       if (this.activeProject) {
-        this.loadProject(this.activeProject);
+        this.settings.load(this.activeProject.settings);
       }
     });
-
 
     this.activePaths = atom.project.getPaths();
     atom.project.onDidChangePaths(() => {
@@ -89,12 +69,30 @@ class Manager {
     });
   }
 
-  @computed get activeProject() {
-    if (this.activePaths.length === 0) {
-      return null;
-    }
+  /**
+   * Create or Update a project.
+   *
+   * Props coming from file goes before any other source.
+   */
+  @action addProject(props) {
+    const foundProject = this.projects.find((project) => {
+      const projectRootPath = project.rootPath.toLowerCase();
+      const propsRootPath = untildify(props.paths[0]).toLowerCase();
+      return projectRootPath === propsRootPath;
+    });
 
-    return this.projects.find(project => project.rootPath === this.activePaths[0]);
+    if (!foundProject) {
+      const newProject = new Project(props);
+      this.projects.push(newProject);
+    } else {
+      if (foundProject.source === 'file' && props.source === 'file') {
+        foundProject.updateProps(props);
+      }
+
+      if (props.source === 'file' || typeof props.source === 'undefined') {
+        foundProject.updateProps(props);
+      }
+    }
   }
 
   fetchProjects() {
@@ -105,12 +103,8 @@ class Manager {
     }
   }
 
-  loadProject(project) {
-    this.settings.load(project.getProps().settings);
-  }
-
-  open(project, openInSameWindow = false) {
-    if (this.isProject(project)) {
+  static open(project, openInSameWindow = false) {
+    if (Manager.isProject(project)) {
       const { devMode } = project.getProps();
 
       if (openInSameWindow) {
@@ -126,7 +120,7 @@ class Manager {
 
   saveProject(props) {
     let propsToSave = props;
-    if (this.isProject(props)) {
+    if (Manager.isProject(props)) {
       propsToSave = props.getProps();
     }
     this.addProject({ ...propsToSave, source: 'file' });
@@ -135,18 +129,22 @@ class Manager {
 
   saveProjects() {
     const projects = this.projects.filter(project => project.props.source === 'file');
-    const arr = [];
 
-    for (const project of projects) {
+    const arr = map(projects, (project) => {
       const props = project.getChangedProps();
       delete props.source;
-      arr.push(props);
-    }
+
+      if (atom.config.get('project-manager.savePathsRelativeToHome')) {
+        props.paths = props.paths.map(path => tildify(path));
+      }
+
+      return props;
+    });
 
     this.fileStore.store(arr);
   }
 
-  isProject(project) {
+  static isProject(project) {
     if (project instanceof Project) {
       return true;
     }

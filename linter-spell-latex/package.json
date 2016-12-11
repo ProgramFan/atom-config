@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116914-7110-14padsj/package.tgz",
+        "raw": "/tmp/d-1161111-5874-1dk7hdo/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116914-7110-14padsj/package.tgz",
-        "spec": "/tmp/d-116914-7110-14padsj/package.tgz",
+        "rawSpec": "/tmp/d-1161111-5874-1dk7hdo/package.tgz",
+        "spec": "/tmp/d-1161111-5874-1dk7hdo/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116914-7110-106aj6d"
+      "/tmp/apm-install-dir-1161111-5874-o1mtxh"
     ]
   ],
-  "_from": "../d-116914-7110-14padsj/package.tgz",
-  "_id": "linter-spell-latex@0.9.0",
+  "_from": "../d-1161111-5874-1dk7hdo/package.tgz",
+  "_id": "linter-spell-latex@0.9.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-spell-latex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116914-7110-14padsj/package.tgz",
+    "raw": "/tmp/d-1161111-5874-1dk7hdo/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116914-7110-14padsj/package.tgz",
-    "spec": "/tmp/d-116914-7110-14padsj/package.tgz",
+    "rawSpec": "/tmp/d-1161111-5874-1dk7hdo/package.tgz",
+    "spec": "/tmp/d-1161111-5874-1dk7hdo/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116914-7110-14padsj/package.tgz",
-  "_shasum": "48e6fb1425d7b3c22fcbcda4fa206e55fbbc8ada",
+  "_resolved": "file:../d-1161111-5874-1dk7hdo/package.tgz",
+  "_shasum": "d289276630a57ffd8f4207be6b39bfc79d3f3515",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116914-7110-14padsj/package.tgz",
-  "_where": "/tmp/apm-install-dir-116914-7110-106aj6d",
+  "_spec": "/tmp/d-1161111-5874-1dk7hdo/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161111-5874-o1mtxh",
   "activationHooks": [
     "language-latex:grammar-used",
     "language-tex:grammar-used"
@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "atom-package-deps": "^4.0.0",
-    "linter-spell-word-list": "^0.4.0",
+    "linter-spell-word-list": "^0.4.1",
     "lodash": "^4.13.0"
   },
   "description": "LaTeX, TeX and BibTeX spell checking using linter-spell.",
@@ -102,7 +102,7 @@
       }
     }
   },
-  "readme": "# linter-spell-latex\n\n[![Travis-CI Build Status](https://img.shields.io/travis/yitzchak/linter-spell-latex/master.svg?label=Linux/OSX%20build)](https://travis-ci.org/yitzchak/linter-spell-latex) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/yitzchak/linter-spell-latex/master.svg?label=Windows%20build)](https://ci.appveyor.com/project/yitzchak/linter-spell-latex) [![David](https://img.shields.io/david/yitzchak/linter-spell-latex.svg)](https://david-dm.org/yitzchak/linter-spell-latex)\n\nProvider for Atom [linter-spell](https://atom.io/packages/linter-spell) package\nto enable LaTeX, TeX and BibTeX spell checking.\n\n## Installing\n\nUse the Atom package manager and search for \"linter-spell-latex\", or run\n`apm install linter-spell-latex` from the command line.\n\n## Prerequisites\n\nThis package relies upon [linter-spell](https://atom.io/packages/linter-spell)\nand either [language-tex](https://atom.io/packages/language-tex) (preferred) or\n[language-latex](https://atom.io/packages/language-latex).\n\n## Magic comments\n\nThe package has support for the following TeX Magic comment\n\n*   `%!TeX spellcheck = en-US,en-DE` Select languages\n\n## Status\n\nPlease note that this package is in an **beta** state.\n",
+  "readme": "# linter-spell-latex\n\n[![Travis-CI Build Status](https://img.shields.io/travis/yitzchak/linter-spell-latex/master.svg?label=Linux/OSX%20build)](https://travis-ci.org/yitzchak/linter-spell-latex) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/yitzchak/linter-spell-latex/master.svg?label=Windows%20build)](https://ci.appveyor.com/project/yitzchak/linter-spell-latex) [![David](https://img.shields.io/david/yitzchak/linter-spell-latex.svg)](https://david-dm.org/yitzchak/linter-spell-latex)\n\nProvider for Atom [linter-spell](https://atom.io/packages/linter-spell) package\nto enable LaTeX, TeX and BibTeX spell checking.\n\n## Installing\n\nUse the Atom package manager and search for \"linter-spell-latex\", or run\n`apm install linter-spell-latex` from the command line.\n\n## Prerequisites\n\nThis package relies upon [linter-spell](https://atom.io/packages/linter-spell)\nand [language-latex](https://atom.io/packages/language-latex).\n\n## Magic comments\n\nThe package has support for the following TeX Magic comment\n\n*   `%!TeX spellcheck = en-US,en-DE` Select languages\n\n## Status\n\nPlease note that this package is in an **beta** state.\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -125,5 +125,5 @@
       "waitsForPromise"
     ]
   },
-  "version": "0.9.0"
+  "version": "0.9.1"
 }

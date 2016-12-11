@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-116914-7880-xt72uj/package.tgz",
+        "raw": "/tmp/d-1161111-6643-woueen/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-116914-7880-xt72uj/package.tgz",
-        "spec": "/tmp/d-116914-7880-xt72uj/package.tgz",
+        "rawSpec": "/tmp/d-1161111-6643-woueen/package.tgz",
+        "spec": "/tmp/d-1161111-6643-woueen/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-116914-7880-pbqa72"
+      "/tmp/apm-install-dir-1161111-6643-1qy8h2f"
     ]
   ],
-  "_from": "../d-116914-7880-xt72uj/package.tgz",
+  "_from": "../d-1161111-6643-woueen/package.tgz",
   "_id": "atom-beautify@0.29.13",
   "_inCache": true,
   "_installable": true,
   "_location": "/atom-beautify",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-116914-7880-xt72uj/package.tgz",
+    "raw": "/tmp/d-1161111-6643-woueen/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-116914-7880-xt72uj/package.tgz",
-    "spec": "/tmp/d-116914-7880-xt72uj/package.tgz",
+    "rawSpec": "/tmp/d-1161111-6643-woueen/package.tgz",
+    "spec": "/tmp/d-1161111-6643-woueen/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116914-7880-xt72uj/package.tgz",
+  "_resolved": "file:../d-1161111-6643-woueen/package.tgz",
   "_shasum": "6c0473ab61e2ede807c81b133bc79b7b4653b371",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-116914-7880-xt72uj/package.tgz",
-  "_where": "/tmp/apm-install-dir-116914-7880-pbqa72",
+  "_spec": "/tmp/d-1161111-6643-woueen/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161111-6643-1qy8h2f",
   "activationCommands": {
     "atom-workspace": [
       "atom-beautify:help-debug-editor",
