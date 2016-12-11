@@ -29,13 +29,16 @@ export default class Spell extends Disposable {
       if (d.length > 0) {
         switch (this.ispell) {
           case 'aspell': // Aspell needs extra dictionaries listed separately
+            options.push('--encoding=utf-8')
             options.push('-d')
             options.push(d[0])
             if (d.length > 1) {
-              options.push(`--extra-dicts=${d.slice(1).join()}`)
+              options.push(`--extra-dicts=${d.slice(1).join(';')}`)
             }
             break
           case 'hunspell':
+            options.push('-i')
+            options.push('utf-8')
             options.push('-d')
             options.push(d.join())
             break

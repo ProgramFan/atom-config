@@ -1,3 +1,41 @@
+## 0.8.9  
+* [x] `<kbr>` style is not consistent in browser
+* [x] fix issue [#177](https://github.com/shd101wyy/markdown-preview-enhanced/issues/177)  
+* [x] add `stdin` option to code chunk  
+* [x] restore `run` and `all` buttons but only shown when hovered.  
+
+## 0.8.8  
+* [x] ISSUE: MathJax will also update when changing headings.  
+* [x] update all dependencies.  
+  * seems that `mermaid` is still of version `6.0.0` and class diagram doesn't work as expected.  
+* [x] fix bug [#168](https://github.com/shd101wyy/markdown-preview-enhanced/issues/168).
+* [x] disable `MathJax` `processEnvironments` [#167](https://github.com/shd101wyy/markdown-preview-enhanced/issues/167).
+* [x] fix issue [#160](https://github.com/shd101wyy/markdown-preview-enhanced/issues/160)
+* [x] fix issue [#150](https://github.com/shd101wyy/markdown-preview-enhanced/issues/150)
+* [x] extend `TOC`. [#171](https://github.com/shd101wyy/markdown-preview-enhanced/issues/171)
+* [x] remove `run` and `all` button for code chunk. also updated [code-chunk.md](/docs/code-chunk.md)
+
+## 0.8.7 `minor update`
+* [ ] <strike>reload cached image when necessary. (eg: replace `#cached=false` with `#cached=uid`)</strike>[**doesn't work very well; the image will flicker**]
+* [x] fix one MathJax bug [#147](https://github.com/shd101wyy/markdown-preview-enhanced/issues/147)
+* [ ] mermaid class diagram [#143](https://github.com/shd101wyy/markdown-preview-enhanced/issues/143) [**seem to be mermaid bug**]
+* [ ] pandoc and ebook graph include [**implement in next major release**]
+* [x] better pandoc error notification
+
+## 0.8.6  
+* [x] ebook export exception [#136](https://github.com/shd101wyy/markdown-preview-enhanced/issues/136)
+* [x] TOC heading level bug [#134](https://github.com/shd101wyy/markdown-preview-enhanced/issues/134)
+* [ ] extend table notation [#133](https://github.com/shd101wyy/markdown-preview-enhanced/issues/133)
+* [x] ERD [#128](https://github.com/shd101wyy/markdown-preview-enhanced/issues/128) [**might be removed in the future**]
+* [ ] <strike>ebook glossary like gitbook</strike>. [**not implemented**]
+* [x] change graph APIs.
+* [ ] change parseMD function to async function with callback.
+* [ ] pandoc graph include [**may be implemented in next version**]
+* [x] fix scroll sync bug for code block
+* [x] support Code Chunk
+* [x] change `Markdown Preview Enhanced: Toc Create` to `Markdown Preview Enhanced: Create Toc`
+* [x] save `codeChunksData` state for each editor.
+
 ## 0.8.5
 * [ ] support `yaml_table` [**not implement**]
 * [ ] support `erd` [#128](https://github.com/shd101wyy/markdown-preview-enhanced/issues/128) [**not implement**]

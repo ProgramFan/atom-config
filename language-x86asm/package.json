@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1604-1r1iqsk/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4077-1b3q7qv/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1604-1r1iqsk/package.tgz",
-        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1604-1r1iqsk/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4077-1b3q7qv/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4077-1b3q7qv/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116824-1604-a2hd1k"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161111-4077-ud4y1u"
     ]
   ],
-  "_from": "../d-116824-1604-1r1iqsk/package.tgz",
-  "_id": "language-x86asm@0.8.0",
+  "_from": "../d-1161111-4077-1b3q7qv/package.tgz",
+  "_id": "language-x86asm@0.9.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-x86asm",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1604-1r1iqsk/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4077-1b3q7qv/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1604-1r1iqsk/package.tgz",
-    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1604-1r1iqsk/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4077-1b3q7qv/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4077-1b3q7qv/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-1604-1r1iqsk/package.tgz",
-  "_shasum": "32b81e2d61e09052699fdd851549654d1bb8bb1d",
+  "_resolved": "file:../d-1161111-4077-1b3q7qv/package.tgz",
+  "_shasum": "e3b0b4c7422c0c4f534f4d83b3ff09d71a79958c",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1604-1r1iqsk/package.tgz",
-  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116824-1604-a2hd1k",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4077-1b3q7qv/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161111-4077-ud4y1u",
   "bugs": {
     "url": "https://github.com/SWW13/language-x86asm/issues"
   },
@@ -62,5 +62,5 @@
     "type": "git",
     "url": "git+https://github.com/SWW13/language-x86asm.git"
   },
-  "version": "0.8.0"
+  "version": "0.9.0"
 }

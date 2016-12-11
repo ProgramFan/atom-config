@@ -97,7 +97,7 @@
         }
         {
           'label': 'Cache'
-          'command': 'atom-commander:view-cache'
+          'command': 'atom-commander:open-cache'
         }
       ]
     }
@@ -121,6 +121,10 @@
     {
       'label': 'View'
       'submenu': [
+        {
+          'label': 'Refresh'
+          'command': 'atom-commander:refresh-view'
+        }
         {
           'label': 'Mirror'
           'command': 'atom-commander:mirror-view'

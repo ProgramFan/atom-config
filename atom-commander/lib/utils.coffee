@@ -1,3 +1,4 @@
+fsp = require 'fs-plus'
 PathUtil = require 'path'
 SimpleEncryptor = require 'simple-encryptor'
 PasswordDialog = require './dialogs/password-dialog'
@@ -46,9 +47,15 @@ class Utils
     dialog.attach();
 
   @encrypt: (text, key) ->
+    if !text or text.length == 0
+      return text;
+
     return SimpleEncryptor(@padKey(key)).encrypt(text);
 
   @decrypt: (text, key) ->
+    if !text or text.length == 0
+      return text;
+
     return SimpleEncryptor(@padKey(key)).decrypt(text);
 
   @padKey: (key) ->
@@ -82,3 +89,12 @@ class Utils
       message += "\n"+post;
 
     @showWarning(title, message, dismissable);
+
+  @resolveHome: (path) ->
+    if path.length == 0
+      return path;
+
+    if path[0] == '~'
+      return PathUtil.join(fsp.getHomeDirectory(), path.slice(1));
+
+    return path;

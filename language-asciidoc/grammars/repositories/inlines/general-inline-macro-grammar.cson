@@ -10,7 +10,7 @@ patterns: [
   #   cite:Name[Kale2015]
   #
   name: 'markup.other.inline.asciidoc'
-  match: '(?<!\\\\)(\\p{Word}+):([^\\s\\[]*)(?:\\[((?:\\\\\\]|[^\\]])*?)\\])'
+  match: '(?<!\\\\)(\\p{Word}+):([^\\s\\[:]*)(?:\\[((?:\\\\\\]|[^\\]])*?)\\])'
   captures:
     1: name: 'entity.name.function.asciidoc'
     2:

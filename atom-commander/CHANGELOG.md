@@ -1,3 +1,21 @@
+## 0.8.4 - 16 November 2016
+- Added refresh to context menu.
+- Improved error handling when creating files.
+- Added duplicate name checking when creating a file.
+- Fixed restoring of current folder after loading.
+- Fixed selection of diffs in diff viewer.
+- Fixed opening local cache from context menu.
+- Fixed null dereference in FTP dialog.
+
+## 0.8.3 - 6 October 2016
+* Fixed SFTP login when password is not stored.
+
+## 0.8.0 - 25 September 2016
+* Added SFTP SSH key login.
+* Fixed layout in FTP modal.
+* Auto show panel when navigating from command palette.
+* Added username indicator when selecting a remove file system.
+
 ## 0.7.3 - 18 September 2016
 * Fixed bug in new folder modal.
 

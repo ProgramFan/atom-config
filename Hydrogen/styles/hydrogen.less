@@ -107,8 +107,8 @@
         border-radius: 3px;
 
         display: inline-block;
-        max-height: 250px;
-        max-width: 95%;
+        max-height: 400px;
+        max-width: inherit;
         overflow: auto;
     }
 
@@ -252,14 +252,13 @@
     min-width: 200px;
     overflow-y: overlay;
     padding: 10px;
-    border-left: 1px solid @base-border-color;
 
     .toolbar {
         .language {
             display: inline-block;
             padding: @component-icon-padding - 1px;
         }
-        .btn-group {
+        .btn {
             float: right;
         }
     }
@@ -294,7 +293,7 @@
             .scrollbar {
                 overflow-x: scroll;
                 overflow-y: hidden;
-                margin-top: -@component-icon-size - @component-icon-padding + 1px;
+                margin-top: -@component-icon-size - @component-icon-padding - 1px;
                 margin-left: @component-icon-size + @component-icon-padding + 2px;
                 margin-right: @component-icon-size + @component-icon-padding + 2px;
                 .hidden {
@@ -311,7 +310,7 @@
                 display: block;
             }
             ::-webkit-scrollbar {
-                height: @component-icon-size + @component-icon-padding - 2px;
+                height: @component-icon-size + @component-icon-padding;
                 -webkit-appearance: none;
             }
             ::-webkit-scrollbar-thumb {
@@ -335,13 +334,12 @@
         cursor: ew-resize;
     }
 
-    .add-watch {
-        width: 100%;
+    .btn-group {
         margin-top: 10px;
-    }
-
-    .output-bubble.empty {
-        display: none;
+        display: block;
+        .btn {
+            width: 50%;
+        }
     }
 
     .output-bubble {
@@ -425,6 +423,12 @@
 
 .hidden {
     display: none;
+}
+
+.hydrogen.input-view {
+    .label {
+        padding-bottom: @component-padding;
+    }
 }
 
 .hydrogen {

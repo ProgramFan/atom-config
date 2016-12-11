@@ -2,46 +2,46 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-3089-nnuh1j/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-5093-11ul07q/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-3089-nnuh1j/package.tgz",
-        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-3089-nnuh1j/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-5093-11ul07q/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-5093-11ul07q/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116824-3089-jgbe9c"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161111-5093-o422zc"
     ]
   ],
-  "_from": "../d-116824-3089-nnuh1j/package.tgz",
-  "_id": "plantuml-viewer@0.7.0",
+  "_from": "../d-1161111-5093-11ul07q/package.tgz",
+  "_id": "plantuml-viewer@0.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/plantuml-viewer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-3089-nnuh1j/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-5093-11ul07q/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-3089-nnuh1j/package.tgz",
-    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-3089-nnuh1j/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-5093-11ul07q/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-5093-11ul07q/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-3089-nnuh1j/package.tgz",
-  "_shasum": "ba69c21c883f690d60884035f13ac3d6a23aa90e",
+  "_resolved": "file:../d-1161111-5093-11ul07q/package.tgz",
+  "_shasum": "0556a04440c2203ac36f822f4b9519dadeddbd26",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-3089-nnuh1j/package.tgz",
-  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116824-3089-jgbe9c",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-5093-11ul07q/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161111-5093-o422zc",
   "bugs": {
     "url": "https://github.com/markushedvall/plantuml-viewer/issues"
   },
   "dependencies": {
     "atom-space-pen-views": "^2.0.5",
-    "node-plantuml": "^0.4.2",
+    "node-plantuml": "^0.5.0",
     "svg-pan-zoom": "^3.2.3"
   },
   "description": "Open a rendered diagram of the PlantUML source in an editor with `ctrl-alt-p`.",
@@ -72,5 +72,5 @@
     "lint": "standard",
     "test": "standard && apm test"
   },
-  "version": "0.7.0"
+  "version": "0.7.1"
 }

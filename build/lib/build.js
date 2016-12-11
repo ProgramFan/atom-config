@@ -8,6 +8,8 @@ export default {
       // Manually append /usr/local/bin as it may not be set on some systems,
       // and it's common to have node installed here. Keep it at end so it won't
       // accidentially override any other node installation
+
+      // Note: This should probably be removed in a end-user friendly way...
       process.env.PATH += ':/usr/local/bin';
     }
 
@@ -152,7 +154,7 @@ export default {
           { cwd: cwd, env: env }
         );
       } else {
-        this.child = require('cross-spawn-async').spawn(
+        this.child = require('cross-spawn').spawn(
           exec,
           args,
           { cwd: cwd, env: env }
@@ -198,7 +200,7 @@ export default {
         }
 
         this.buildView.setHeading('Running postBuild...');
-        return Promise.resolve(target.postBuild ? target.postBuild(success) : null).then(() => {
+        return Promise.resolve(target.postBuild ? target.postBuild(success, stdout, stderr) : null).then(() => {
           this.buildView.setHeading(buildTitle);
 
           this.busyRegistry && this.busyRegistry.end(`build.${target.name}`, success);
@@ -227,9 +229,9 @@ export default {
           return;
         }
 
-        atom.notifications.addWarning(err.name, { detail: err.message });
+        atom.notifications.addWarning(err.name, { detail: err.message, stack: err.stack });
       } else {
-        atom.notifications.addError('Failed to build.', { detail: err.message });
+        atom.notifications.addError('Failed to build.', { detail: err.message, stack: err.stack });
       }
     });
   },

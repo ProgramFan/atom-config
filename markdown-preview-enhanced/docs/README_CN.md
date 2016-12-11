@@ -7,7 +7,7 @@ Markdown Preview Enhanced
 
 如果你发现了 bug，遇到问题，或者想要开发者添加新的功能，请在 [这里](https://github.com/shd101wyy/markdown-preview-enhanced/issues) 留言。
 
-（以下 TOC 由该插件命令 `Markdown Preview Enhanced: Toc Create` 生成）
+（以下 TOC 由该插件命令 `Markdown Preview Enhanced: Create Toc` 生成）
 <!-- toc orderedList:0 -->
 
 - [Markdown Preview Enhanced](#markdown-preview-enhanced)
@@ -23,10 +23,11 @@ Markdown Preview Enhanced
 <!-- tocstop -->
 ---
 
-![intro](http://i.imgur.com/HG1jMTK.gif)
+![intro](https://cloud.githubusercontent.com/assets/1908863/19796387/a00df0f6-9ca9-11e6-86e9-1d74e195748f.gif)  
 
 ## 支持特性
 - **编辑与预览滑动同步**  
+- **[Code Chunks (beta)](./code-chunk.md)**
 - **[pandoc](./advanced-export.md)**
 - **[ebook](./ebook.md)**  
 - **[Presentation Writer](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html)**
@@ -36,7 +37,7 @@ Markdown Preview Enhanced
 - 导出 **PDF**, **PNG**, and **JPEG** 文件  
 - 导出 **HTML** （完美支持移动端设备）  
 - 自定义 Markdown Preview 样式（css）  
-- [TOC] 自动生成 **(beta)**  
+- [TOC](./toc.md) 自动生成 **(beta)**  
 - Flowchart / Sequence 等各种图
 - Task List 任务列表 *(Github Flavored)*  
 - 图片助手
@@ -50,7 +51,8 @@ Markdown Preview Enhanced
   - `$...$` 里的内容将被正常渲染。  
   - `$$...$$` 里的内容将用 displayMode 渲染。   
   - 你可以在 [settings panel](#settings-panel) 中设置你想要的渲染引擎。   
-		**MathJax** 支持更多的符号，但是比 **KaTeX** 渲染速度更慢。  
+		**MathJax** 支持更多的符号，但是比 **KaTeX** 渲染速度更慢。   
+  - 想要支持数学表达式的高亮，请考虑安装 [language-gfm-enhanced](https://atom.io/packages/language-gfm-enhanced) 插件。
   - <img src="https://cloud.githubusercontent.com/assets/1908863/14398210/0e408954-fda8-11e5-9eb4-562d7c0ca431.gif">
 - [mermaid](https://github.com/knsv/mermaid) 来渲染 flowchart 和 sequence diagram  
 	- 代码块 `{mermaid}` 里的内容将被 [mermaid](https://github.com/knsv/mermaid) 渲染。  
@@ -74,9 +76,9 @@ Markdown Preview Enhanced
 - <strong>Markdown Preview Enhanced: Customize CSS</strong>
   - 编辑预览的样式。 你可以在 `style.less` 文件中的 `markdown-preview-enhanced-custom` 部分编辑样式。  
   - 如果你在 `style.less` 文件中没有看到 `markdown-preview-enhanced-custom` 部分，请先运行 `Markdown Preview Enhanced: Customize CSS` 指令。
-- <strong>Markdown Preview Enhanced: Toc Create </strong>
-  - 生成 TOC
-	 或者在编辑器中插入 `<!-- toc -->` （预览需要被事先开启）。
+- <strong>Markdown Preview Enhanced: Create Toc </strong>
+  - 生成 TOC。[文档在这里](./toc.md)。   
+	 或者在编辑器中插入 `<!-- toc -->` （预览需要被事先开启）。  
 - <strong>Markdown Preview Enhanced: Toggle Scroll Sync </strong>
   - 开关编辑和预览的滑动同步.
 - <strong>Markdown Preview Enhanced: Toggle Break On Single Newline </strong>
@@ -106,6 +108,7 @@ Markdown Preview Enhanced
 	- [文档](./advanced-export.md)
 
 ## 额外支持
+* **Code Chunks 运行内嵌代码** [文档](./code-chunk.md)。
 * **EBook 电子书**  
 	更多关于如何创建 电子书 请参阅 [这里](./ebook.md)。
 * **Presentation Writer**  

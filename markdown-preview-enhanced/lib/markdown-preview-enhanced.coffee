@@ -30,7 +30,7 @@ module.exports = MarkdownPreviewEnhanced =
     @subscriptions.add atom.commands.add 'atom-workspace',
       'markdown-preview-enhanced:toggle': => @toggle()
       'markdown-preview-enhanced:customize-css': => @customizeCSS()
-      'markdown-preview-enhanced:toc-create': => @createTOC()
+      'markdown-preview-enhanced:create-toc': => @createTOC()
       'markdown-preview-enhanced:toggle-scroll-sync': => @toggleScrollSync()
       'markdown-preview-enhanced:toggle-break-on-single-newline': => @toggleBreakOnSingleNewline()
       'markdown-preview-enhanced:insert-table': => @insertTable()
@@ -40,6 +40,9 @@ module.exports = MarkdownPreviewEnhanced =
       'markdown-preview-enhanced:insert-new-slide': => @insertNewSlide()
       'markdown-preview-enhanced:insert-page-break': => @insertPageBreak()
       'markdown-preview-enhanced:toggle-zen-mode': => @toggleZenMode()
+      'markdown-preview-enhanced:run-code-chunk': => @runCodeChunk()
+      'markdown-preview-enhanced:run-all-code-chunks': => @runAllCodeChunks()
+
 
     # when the preview is displayed
     # preview will display the content of pane that is activated
@@ -198,7 +201,7 @@ module.exports = MarkdownPreviewEnhanced =
     editor = atom.workspace.getActiveTextEditor()
 
     if editor and @startMDPreview(editor)
-      editor.insertText('\n<!-- toc orderedList:0 -->\n')
+      editor.insertText('\n<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->\n')
 
   toggleScrollSync: ()->
     flag = atom.config.get 'markdown-preview-enhanced.scrollSync'
@@ -281,3 +284,16 @@ module.exports = MarkdownPreviewEnhanced =
 
   onDidRenderPreview: (callback)->
     @emitter.on 'on-did-render-preview', callback
+
+
+  runCodeChunk: ()->
+    if @preview?.isOnDom()
+      @preview.runCodeChunk()
+    else
+      atom.notifications.addInfo('You need to start markdown-preview-enhanced preview first')
+
+  runAllCodeChunks: ()->
+    if @preview?.isOnDom()
+      @preview.runAllCodeChunks()
+    else
+      atom.notifications.addInfo('You need to start markdown-preview-enhanced preview first')

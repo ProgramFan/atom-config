@@ -44,7 +44,7 @@ You can set up a ebook configuration by simply adding `ebook front-matter` into 
 ---
 ebook:
   title: My EBook
-  author: shd101wyy
+  authors: shd101wyy
 ---
 ```
 Next right click at the preview, choose `Export to Disk`, then choose `EBOOK`.
@@ -228,3 +228,4 @@ To export ebook, open the `SUMMARY.md` with the preview opened. Then right click
 * Only **KaTeX** can be used for Math Typesetting.   
   And the generated ebook file doesn't render math expression properly in **iBook**.
 * **PDF** and **Mobi** generation is buggy.
+* **Code Chunk** doesn't work with Ebook generation.

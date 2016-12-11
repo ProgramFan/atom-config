@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1906-1s86exv/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4374-c70ud3/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1906-1s86exv/package.tgz",
-        "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1906-1s86exv/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4374-c70ud3/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4374-c70ud3/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116824-1906-1wv742m"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161111-4374-13cvedk"
     ]
   ],
-  "_from": "../d-116824-1906-1s86exv/package.tgz",
-  "_id": "linter-spell-html@0.6.0",
+  "_from": "../d-1161111-4374-c70ud3/package.tgz",
+  "_id": "linter-spell-html@0.6.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-spell-html",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1906-1s86exv/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4374-c70ud3/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1906-1s86exv/package.tgz",
-    "spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1906-1s86exv/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4374-c70ud3/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4374-c70ud3/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116824-1906-1s86exv/package.tgz",
-  "_shasum": "b472052d76ddde645aae948f01259d668d5bf49b",
+  "_resolved": "file:../d-1161111-4374-c70ud3/package.tgz",
+  "_shasum": "04dac04cc36c66afd39de13cf9a7a4bd73f03aa2",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/d-116824-1906-1s86exv/package.tgz",
-  "_where": "/private/var/folders/gw/_2jq29095y7b__wtby9dg_5h0000gn/T/apm-install-dir-116824-1906-1wv742m",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4374-c70ud3/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161111-4374-13cvedk",
   "activationHooks": [
     "language-html:grammar-used"
   ],
@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "atom-package-deps": "^4.0.0",
-    "linter-spell-word-list": "^0.4.0",
+    "linter-spell-word-list": "^0.4.1",
     "lodash": "^4.13.0"
   },
   "description": "HTML spell checking using linter-spell.",
@@ -124,5 +124,5 @@
       "waitsForPromise"
     ]
   },
-  "version": "0.6.0"
+  "version": "0.6.1"
 }

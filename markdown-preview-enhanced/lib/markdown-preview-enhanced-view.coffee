@@ -2,7 +2,7 @@
 {$, $$$, ScrollView}  = require 'atom-space-pen-views'
 path = require 'path'
 fs = require 'fs'
-temp = require 'temp'
+temp = require('temp').track()
 {exec} = require 'child_process'
 pdf = require 'html-pdf'
 katex = require 'katex'
@@ -12,6 +12,9 @@ plantumlAPI = require './puml'
 ebookConvert = require './ebook-convert'
 {loadMathJax} = require './mathjax-wrapper'
 pandocConvert = require './pandoc-wrapper'
+codeChunkAPI = require './code-chunk'
+
+codeChunksDataCache = {} # key is @editor.getFilePath(), value is @codeChunksData
 
 module.exports =
 class MarkdownPreviewEnhancedView extends ScrollView
@@ -51,9 +54,6 @@ class MarkdownPreviewEnhancedView extends ScrollView
     # this variable will be got from 'viz.js'
     @Viz = null
 
-    # this variable will check if it is the first time to render MathJax for markdown.
-    @firstTimeRenderMathJax = true
-
     # this variable will check if it is the first time to render markdown
     @firstTimeRenderMarkdowon = true
 
@@ -61,10 +61,12 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @presentationMode = false
     @slideConfigs = null
 
+    # graph data used to save rendered graphs
+    @graphData = null
+    @codeChunksData = {}
+
     # when resize the window, clear the editor
-    @resizeEvent = ()=>
-      @scrollMap = null
-    window.addEventListener 'resize', @resizeEvent
+    window.addEventListener 'resize', @resizeEvent.bind(this)
 
     # right click event
     atom.commands.add @element,
@@ -126,6 +128,10 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     else
       @element.innerHTML = '<p style="font-size: 24px;"> loading preview... </p>'
+
+      # save codeChunksDataCache
+      codeChunksDataCache[@editor.getPath()] = @codeChunksData || {}
+
       setTimeout(()=>
         @initEvents(editor)
       , 0)
@@ -143,12 +149,15 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @scrollMap = null
     @rootDirectoryPath = @editor.getDirectoryPath()
     @projectDirectoryPath = @getProjectDirectoryPath()
-    @firstTimeRenderMathJax = true
     @firstTimeRenderMarkdowon = true
 
     if @disposables # remove all binded events
       @disposables.dispose()
     @disposables = new CompositeDisposable()
+
+    # restore codeChunksData if already in cache
+    if codeChunksDataCache[@editor.getPath()]
+      @codeChunksData = codeChunksDataCache[@editor.getPath()]
 
     @initEditorEvent()
     @initViewEvent()
@@ -369,8 +378,10 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @scrollTimeout = setTimeout =>
         if duration <= 0
           if editorElement
+            @editorScrollDelay = Date.now() + 500
             editorElement.setScrollTop scrollTop
           else
+            @previewScrollDelay = Date.now() + 500
             @element.scrollTop = scrollTop
           return
 
@@ -431,6 +442,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @presentationMode = false
 
     @element.innerHTML = html
+    @graphData = {}
     @bindEvents()
 
     @mainModule.emitter.emit 'on-did-render-preview', {htmlString: html, previewElement: @element}
@@ -442,10 +454,14 @@ class MarkdownPreviewEnhancedView extends ScrollView
       if @presentationMode
         @scrollSyncForPresentation cursor.getBufferRow()
       else
+        t = @scrollDuration
+        @scrollDuration = 0
         @scrollSyncToLineNo cursor.getScreenRow()
+        @scrollDuration = t
 
   bindEvents: ->
     @bindTagAClickEvent()
+    @setupCodeChunks()
     @initTaskList()
     @renderMermaid()
     @renderPlantUML()
@@ -492,6 +508,134 @@ class MarkdownPreviewEnhancedView extends ScrollView
       href = a.getAttribute('href')
       analyzeHref(href)
 
+  setupCodeChunks: ()->
+    codeChunks = @element.getElementsByClassName('code-chunk')
+    return if !codeChunks.length
+
+    newCodeChunksData = {}
+    setupCodeChunk = (codeChunk)=>
+      dataArgs = codeChunk.getAttribute('data-args')
+      idMatch = dataArgs.match(/\s*id\s*:\s*\"([^\"]*)\"/)
+      if idMatch and idMatch[1]
+        id = idMatch[1]
+        codeChunk.id = 'code_chunk_' + id
+        running = @codeChunksData[id]?.running or false
+        codeChunk.classList.add('running') if running
+        newCodeChunksData[id] = {running, outputDiv: codeChunk.getElementsByClassName('output-div')[0]}
+
+      runBtn = codeChunk.getElementsByClassName('run-btn')[0]
+      runBtn?.addEventListener 'click', ()=>
+        @runCodeChunk(codeChunk) 
+
+      runAllBtn = codeChunk.getElementsByClassName('run-all-btn')[0]
+      runAllBtn?.addEventListener 'click', ()=>
+        @runAllCodeChunks()
+
+    for codeChunk in codeChunks
+      setupCodeChunk(codeChunk)
+
+    @codeChunksData = newCodeChunksData # key is codeChunkId, value is {running, outputDiv}
+
+  getNearestCodeChunk: ()->
+    bufferRow = @editor.getCursorBufferPosition().row
+    codeChunks = @element.getElementsByClassName('code-chunk')
+    i = codeChunks.length - 1
+    while i >= 0
+      codeChunk = codeChunks[i]
+      lineNo = parseInt(codeChunk.getAttribute('data-line'))
+      if lineNo <= bufferRow
+        return codeChunk
+      i-=1
+    return null
+
+  runCodeChunk: (codeChunk=null)->
+    codeChunk = @getNearestCodeChunk() if not codeChunk
+    return if not codeChunk
+    return if codeChunk.classList.contains('running')
+
+    code = codeChunk.getAttribute('data-code')
+    dataArgs = codeChunk.getAttribute('data-args')
+
+    options = null
+    try
+      options = JSON.parse '{'+dataArgs.replace((/([(\w)|(\-)]+)(:)/g), "\"$1\"$2").replace((/'/g), "\"")+'}'
+    catch error
+      atom.notifications.addError('Invalid options', detail: dataArgs)
+      return
+
+    cmd =  options.cmd || codeChunk.getAttribute('data-lang')
+
+    # check id and save outputDiv to @codeChunksData
+    idMatch = dataArgs.match(/\s*id\s*:\s*\"([^\"]*)\"/)
+
+    if !idMatch
+      id = (new Date().getTime()).toString(36)
+
+      buffer = @editor.buffer
+      return if !buffer
+
+      lineNo = parseInt(codeChunk.getAttribute('data-line'))
+
+      line = buffer.lines[lineNo].trimRight()
+      line = line.replace(/}$/, (if !dataArgs then '' else ',') + ' id:"' + id + '"}')
+
+      codeChunk.setAttribute('data-args', (if !dataArgs then '' else (dataArgs+', ')) + 'id:"' + id + '"')
+      codeChunk.id = 'code_chunk_' + id
+
+      @parseDelay = Date.now() + 500 # prevent renderMarkdown
+
+      buffer.setTextInRange([[lineNo, 0], [lineNo+1, 0]], line + '\n')
+    else
+      id = idMatch[1]
+
+    codeChunk.classList.add('running')
+    if @codeChunksData[id]
+      @codeChunksData[id].running = true
+    else
+      @codeChunksData[id] = {running: true}
+
+    codeChunkAPI.run code, @rootDirectoryPath, cmd, options, (error, data, options)=>
+      return if error
+
+      # get new codeChunk
+      codeChunk = document.getElementById('code_chunk_' + id)
+      return if not codeChunk
+      codeChunk.classList.remove('running')
+
+      outputDiv = codeChunk.getElementsByClassName('output-div')?[0]
+      if !outputDiv
+        outputDiv = document.createElement 'div'
+        outputDiv.classList.add 'output-div'
+      else
+        outputDiv.innerHTML = ''
+
+      if options.output == 'html'
+        outputDiv.innerHTML = data
+      else if options.output == 'png'
+        imageElement = document.createElement 'img'
+        imageData = Buffer(data).toString('base64')
+        imageElement.setAttribute 'src',  "data:image/png;charset=utf-8;base64,#{imageData}"
+        outputDiv.appendChild imageElement
+      else if options.output == 'none'
+        outputDiv.remove()
+        outputDiv = null
+      else
+        if data.length
+          preElement = document.createElement 'pre'
+          preElement.innerText = data
+          outputDiv.appendChild preElement
+
+      if outputDiv
+        codeChunk.appendChild outputDiv
+        @scrollMap = null
+
+      @codeChunksData[id] = {running: false, outputDiv}
+
+  runAllCodeChunks: ()->
+    codeChunks = @element.getElementsByClassName('code-chunk')
+    for chunk in codeChunks
+      @runCodeChunk(chunk)
+
   initTaskList: ()->
     checkboxs = @element.getElementsByClassName('task-list-item-checkbox')
     for checkbox in checkboxs
@@ -519,9 +663,14 @@ class MarkdownPreviewEnhancedView extends ScrollView
         buffer.setTextInRange([[lineNo, 0], [lineNo+1, 0]], line + '\n')
 
   renderMermaid: ()->
-    els = @element.querySelectorAll('.mermaid:not([data-processed])') #@element.getElementsByClassName('mermaid')
+    els = @element.getElementsByClassName('mermaid')
     if els.length
-      mermaid.init(null, els)
+      @graphData.mermaid_s = Array.prototype.slice.call(els)
+
+      notProcessedEls = @element.querySelectorAll('.mermaid:not([data-processed])')
+
+      if notProcessedEls.length
+        mermaid.init(null, notProcessedEls)
 
       ###
       # the code below doesn't seem to be working
@@ -547,6 +696,8 @@ class MarkdownPreviewEnhancedView extends ScrollView
   renderWavedrom: ()->
     els = @element.getElementsByClassName('wavedrom')
     if els.length
+      @graphData.wavedrom_s = Array.prototype.slice.call(els)
+
       # WaveDrom.RenderWaveForm(0, WaveDrom.eva('a0'), 'a')
       for el in els
         if el.getAttribute('data-processed') != 'true'
@@ -568,6 +719,10 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
   renderPlantUML: ()->
     els = @element.getElementsByClassName('plantuml')
+
+    if els.length
+      @graphData.plantuml_s = Array.prototype.slice.call(els)
+
     helper = (el, text)->
       plantumlAPI.render text, (outputHTML)=>
         el.innerHTML = outputHTML
@@ -583,6 +738,8 @@ class MarkdownPreviewEnhancedView extends ScrollView
     els = element.getElementsByClassName('viz')
 
     if els.length
+      @graphData.viz_s = Array.prototype.slice.call(els)
+
       @Viz ?= require('../dependencies/viz/viz.js')
       for el in els
         if el.getAttribute('data-processed') != 'true'
@@ -597,28 +754,24 @@ class MarkdownPreviewEnhancedView extends ScrollView
     if typeof(MathJax) == 'undefined'
       return loadMathJax document, ()=> @renderMathJax()
 
-    if @firstTimeRenderMathJax
-      els = @element.getElementsByClassName('mathjax-exps')
-      for el in els
-        el.setAttribute 'data-original', el.innerText
+    els = @element.getElementsByClassName('mathjax-exps')
+    return if !els.length
 
-      MathJax.Hub.Queue ['Typeset', MathJax.Hub, @element], ()=>
-        for el in els
-          el.setAttribute 'data-processed', true
-        @firstTimeRenderMathJax = false
-    else
-      els = @element.getElementsByClassName('mathjax-exps')
+    unprocessedElements = []
+    for el in els
+      if !el.hasAttribute('data-processed')
+        el.setAttribute 'data-original', el.textContent
+        unprocessedElements.push el
 
-      helper = (el, text)->
-        MathJax.Hub.Queue  ['Typeset', MathJax.Hub, el], ()->
-          el?.setAttribute 'data-original', text
-          el?.setAttribute 'data-processed', true
+    callback = ()=>
+      for el in unprocessedElements
+        el.setAttribute 'data-processed', true
+      @scrollMap = null
 
-      for el in els
-        if el.hasAttribute('data-processed')
-          continue
-        else
-          helper(el, el.innerText)
+    if unprocessedElements.length == els.length
+      MathJax.Hub.Queue ['Typeset', MathJax.Hub, @element], callback
+    else if unprocessedElements.length
+      MathJax.Hub.Typeset unprocessedElements, callback
 
   renderKaTeX: ()->
     return if @mathRenderingOption != 'KaTeX'
@@ -629,14 +782,17 @@ class MarkdownPreviewEnhancedView extends ScrollView
         continue
       else
         displayMode = el.hasAttribute('display-mode')
-        dataOriginal = el.innerText
+        dataOriginal = el.textContent
         try
-          katex.render(el.innerText, el, {displayMode})
+          katex.render(el.textContent, el, {displayMode})
         catch error
           el.innerHTML = "<span style=\"color: #ee7f49; font-weight: 500;\">#{error}</span>"
 
         el.setAttribute('data-processed', 'true')
         el.setAttribute('data-original', dataOriginal)
+
+  resizeEvent: ()->
+    @scrollMap = null
 
   ###
   convert './a.txt' '/a.txt'
@@ -826,7 +982,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
   printPDF: (htmlPath, dest)->
     return if not @editor
 
-    BrowserWindow = require('remote').require('browser-window')
+    {BrowserWindow} = require('electron').remote
     win = new BrowserWindow show: false
     win.loadURL htmlPath
 
@@ -1168,7 +1324,7 @@ module.exports = config || {}
       # load the last ul, analyze toc links.
       getStructure = (ul, level)->
         for li in ul.children
-          a = li.children[0].getElementsByTagName('a')[0]
+          a = li.children[0]?.getElementsByTagName('a')?[0]
           continue if not a
           filePath = a.getAttribute('href') # assume markdown file path
           heading = a.innerHTML

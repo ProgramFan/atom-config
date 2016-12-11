@@ -1,3 +1,4 @@
+fs = require 'fs'
 SSH2 = require 'ssh2'
 Utils = require '../../utils'
 
@@ -15,28 +16,68 @@ class SFTPSession
   getClient: ->
     return @client;
 
-  connect: ->
-    if @clientConfig.password?
-      @connectWithPassword(@clientConfig.password);
-    else
-      prompt = "Enter password for ";
-      prompt += @clientConfig.username;
-      prompt += "@";
-      prompt += @clientConfig.host;
-      prompt += ":"
+  # Called if connecting failed due to invalid credentials. This will only try
+  # to connect again if a password or passphrase should be prompted for.
+  reconnect: ->
+    delete @clientConfig.password;
+    delete @clientConfig.passphrase;
 
-      Utils.promptForPassword prompt, (password) =>
-        if password?
-          @connectWithPassword(password);
+    if @config.loginWithPassword or @config.usePassphrase
+      @connect();
+
+  connect: ->
+    if @config.loginWithPassword
+      if @clientConfig.password? and @clientConfig.password.length > 0
+        @connectWithPassword(@clientConfig.password);
+        return;
+    else # Login with private key.
+      if @config.usePassphrase
+        if @clientConfig.passphrase and @clientConfig.passphrase.length > 0
+          @connectWithPassphrase(@clientConfig.passphrase);
+          return;
+      else
+        @connectWithPrivateKey();
+        return;
+
+    # If this point is reached then either a password or a passphrase needs to be entered.
+
+    prompt = "Enter ";
+    if @config.loginWithPassword
+      prompt += "password for ";
+    else
+      prompt += "passphrase for ";
+    prompt += @clientConfig.username;
+    prompt += "@";
+    prompt += @clientConfig.host;
+    prompt += ":"
+
+    Utils.promptForPassword prompt, (input) =>
+      if input?
+        if @config.loginWithPassword
+          @connectWithPassword(input);
         else
-          err = {};
-          err.canceled = true;
-          err.message = "Incorrect credentials for "+@clientConfig.host;
-          @fileSystem.emitError(err);
-          @canceled();
-          # @disconnect();
+          @connectWithPassphrase(input);
+      else
+        err = {};
+        err.canceled = true;
+        err.message = "Incorrect credentials for "+@clientConfig.host;
+        @fileSystem.emitError(err);
+        @canceled();
 
   connectWithPassword: (password) ->
+    @connectWith(password, '');
+
+  connectWithPrivateKey: ->
+    @connectWith('', '');
+
+  connectWithPassphrase: (passphrase) ->
+    @connectWith('', passphrase);
+
+  # All connectWith? functions boil down to this one.
+  #
+  # password: The password that should be used. empty if not logging in with password.
+  # passphrase: The passphrase to use when loggin in with a private key. empty if it shouldn't be used.
+  connectWith: (password, passphrase) ->
     @client = null;
     @ssh2 = new SSH2();
 
@@ -54,19 +95,25 @@ class SFTPSession
 
         # If the connection was successful then remember the password for
         # the rest of the session.
-        @clientConfig.password = password;
+        if password.length > 0
+          @clientConfig.password = password;
+
+        if passphrase.length > 0
+          @clientConfig.passphrase = passphrase;
 
         if @config.storePassword
-          @config.password = password;
+          if password.length > 0
+            @config.password = password;
+          if passphrase.length > 0
+            @config.passphrase = passphrase;
           @config.passwordDecrypted = true;
 
         @opened();
 
     @ssh2.on "error", (err) =>
       if err.level == "client-authentication"
-        delete @clientConfig.password;
         atom.notifications.addWarning("Incorrect credentials for "+@clientConfig.host);
-        @connect();
+        @reconnect();
       else
         @fileSystem.emitError(err);
 
@@ -85,6 +132,8 @@ class SFTPSession
       connectConfig[key] = val;
 
     connectConfig.password = password;
+    connectConfig.passphrase = passphrase;
+
     @ssh2.connect(connectConfig);
 
   disconnect: ->
