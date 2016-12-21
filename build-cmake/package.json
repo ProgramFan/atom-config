@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-6565-1v3zw3o/package.tgz",
+        "raw": "/tmp/d-1161121-6567-uf6ukf/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-6565-1v3zw3o/package.tgz",
-        "spec": "/tmp/d-1161111-6565-1v3zw3o/package.tgz",
+        "rawSpec": "/tmp/d-1161121-6567-uf6ukf/package.tgz",
+        "spec": "/tmp/d-1161121-6567-uf6ukf/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-6565-1tip3ws"
+      "/tmp/apm-install-dir-1161121-6567-5tcqxz"
     ]
   ],
-  "_from": "../d-1161111-6565-1v3zw3o/package.tgz",
-  "_id": "build-cmake@0.6.4",
+  "_from": "../d-1161121-6567-uf6ukf/package.tgz",
+  "_id": "build-cmake@0.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/build-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-6565-1v3zw3o/package.tgz",
+    "raw": "/tmp/d-1161121-6567-uf6ukf/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-6565-1v3zw3o/package.tgz",
-    "spec": "/tmp/d-1161111-6565-1v3zw3o/package.tgz",
+    "rawSpec": "/tmp/d-1161121-6567-uf6ukf/package.tgz",
+    "spec": "/tmp/d-1161121-6567-uf6ukf/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-6565-1v3zw3o/package.tgz",
-  "_shasum": "fe166148132cb08aa9392417c434b40fc83d6c69",
+  "_resolved": "file:../d-1161121-6567-uf6ukf/package.tgz",
+  "_shasum": "f74ee04a421b79dd9f7068982ddf51a928bcf158",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-6565-1v3zw3o/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-6565-1tip3ws",
+  "_spec": "/tmp/d-1161121-6567-uf6ukf/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-6567-5tcqxz",
   "bugs": {
     "url": "https://github.com/siegelaaron94/atom-build-cmake/issues"
   },
@@ -72,5 +72,5 @@
     "type": "git",
     "url": "git+https://github.com/siegelaaron94/atom-build-cmake.git"
   },
-  "version": "0.6.4"
+  "version": "0.7.1"
 }

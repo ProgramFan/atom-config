@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-6128-11jwvfa/package.tgz",
+        "raw": "/tmp/d-1161121-6130-1k01inv/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-6128-11jwvfa/package.tgz",
-        "spec": "/tmp/d-1161111-6128-11jwvfa/package.tgz",
+        "rawSpec": "/tmp/d-1161121-6130-1k01inv/package.tgz",
+        "spec": "/tmp/d-1161121-6130-1k01inv/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-6128-l83747"
+      "/tmp/apm-install-dir-1161121-6130-1s2rxnm"
     ]
   ],
-  "_from": "../d-1161111-6128-11jwvfa/package.tgz",
+  "_from": "../d-1161121-6130-1k01inv/package.tgz",
   "_id": "minimap@4.25.7",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-6128-11jwvfa/package.tgz",
+    "raw": "/tmp/d-1161121-6130-1k01inv/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-6128-11jwvfa/package.tgz",
-    "spec": "/tmp/d-1161111-6128-11jwvfa/package.tgz",
+    "rawSpec": "/tmp/d-1161121-6130-1k01inv/package.tgz",
+    "spec": "/tmp/d-1161121-6130-1k01inv/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-6128-11jwvfa/package.tgz",
+  "_resolved": "file:../d-1161121-6130-1k01inv/package.tgz",
   "_shasum": "867a8df6ce8b9a3002945607e68f7682a14ad568",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-6128-11jwvfa/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-6128-l83747",
+  "_spec": "/tmp/d-1161121-6130-1k01inv/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-6130-1s2rxnm",
   "author": {
     "name": "Fangdun Cai",
     "email": "cfddream@gmail.com"

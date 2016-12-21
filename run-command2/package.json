@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-7466-1l6bses/package.tgz",
+        "raw": "/tmp/d-1161121-7475-1sb1103/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-7466-1l6bses/package.tgz",
-        "spec": "/tmp/d-1161111-7466-1l6bses/package.tgz",
+        "rawSpec": "/tmp/d-1161121-7475-1sb1103/package.tgz",
+        "spec": "/tmp/d-1161121-7475-1sb1103/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-7466-aym27x"
+      "/tmp/apm-install-dir-1161121-7475-9zezj2"
     ]
   ],
-  "_from": "../d-1161111-7466-1l6bses/package.tgz",
+  "_from": "../d-1161121-7475-1sb1103/package.tgz",
   "_id": "run-command2@1.12.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/run-command2",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-7466-1l6bses/package.tgz",
+    "raw": "/tmp/d-1161121-7475-1sb1103/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-7466-1l6bses/package.tgz",
-    "spec": "/tmp/d-1161111-7466-1l6bses/package.tgz",
+    "rawSpec": "/tmp/d-1161121-7475-1sb1103/package.tgz",
+    "spec": "/tmp/d-1161121-7475-1sb1103/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-7466-1l6bses/package.tgz",
+  "_resolved": "file:../d-1161121-7475-1sb1103/package.tgz",
   "_shasum": "572b3a82b7e0de0164aa2a766cbe32e31dbc0470",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-7466-1l6bses/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-7466-aym27x",
+  "_spec": "/tmp/d-1161121-7475-1sb1103/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-7475-9zezj2",
   "activationCommands": {
     "atom-workspace": [
       "run-command:run",

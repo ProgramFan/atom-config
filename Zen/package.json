@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-6940-1ra6tyj/package.tgz",
+        "raw": "/tmp/d-1161121-6949-gkoybc/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-6940-1ra6tyj/package.tgz",
-        "spec": "/tmp/d-1161111-6940-1ra6tyj/package.tgz",
+        "rawSpec": "/tmp/d-1161121-6949-gkoybc/package.tgz",
+        "spec": "/tmp/d-1161121-6949-gkoybc/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-6940-x3oxww"
+      "/tmp/apm-install-dir-1161121-6949-kmug9l"
     ]
   ],
-  "_from": "../d-1161111-6940-1ra6tyj/package.tgz",
+  "_from": "../d-1161121-6949-gkoybc/package.tgz",
   "_id": "Zen@0.16.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/Zen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-6940-1ra6tyj/package.tgz",
+    "raw": "/tmp/d-1161121-6949-gkoybc/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-6940-1ra6tyj/package.tgz",
-    "spec": "/tmp/d-1161111-6940-1ra6tyj/package.tgz",
+    "rawSpec": "/tmp/d-1161121-6949-gkoybc/package.tgz",
+    "spec": "/tmp/d-1161121-6949-gkoybc/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-6940-1ra6tyj/package.tgz",
+  "_resolved": "file:../d-1161121-6949-gkoybc/package.tgz",
   "_shasum": "8e4faa886b1afd8f9c5d87d12f1a579b630b6fad",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-6940-1ra6tyj/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-6940-x3oxww",
+  "_spec": "/tmp/d-1161121-6949-gkoybc/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-6949-kmug9l",
   "activationCommands": {
     "atom-text-editor": [
       "zen:toggle"

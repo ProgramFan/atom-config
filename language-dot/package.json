@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-5003-vaaytf/package.tgz",
+        "raw": "/tmp/d-1161121-5005-2n9bud/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-5003-vaaytf/package.tgz",
-        "spec": "/tmp/d-1161111-5003-vaaytf/package.tgz",
+        "rawSpec": "/tmp/d-1161121-5005-2n9bud/package.tgz",
+        "spec": "/tmp/d-1161121-5005-2n9bud/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-5003-hwci1d"
+      "/tmp/apm-install-dir-1161121-5005-1i2xyny"
     ]
   ],
-  "_from": "../d-1161111-5003-vaaytf/package.tgz",
+  "_from": "../d-1161121-5005-2n9bud/package.tgz",
   "_id": "language-dot@1.6.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-dot",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-5003-vaaytf/package.tgz",
+    "raw": "/tmp/d-1161121-5005-2n9bud/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-5003-vaaytf/package.tgz",
-    "spec": "/tmp/d-1161111-5003-vaaytf/package.tgz",
+    "rawSpec": "/tmp/d-1161121-5005-2n9bud/package.tgz",
+    "spec": "/tmp/d-1161121-5005-2n9bud/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-5003-vaaytf/package.tgz",
+  "_resolved": "file:../d-1161121-5005-2n9bud/package.tgz",
   "_shasum": "3a50d1573a6ed00491832f2d67a4c0d0deecd5a5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-5003-vaaytf/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-5003-hwci1d",
+  "_spec": "/tmp/d-1161121-5005-2n9bud/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-5005-1i2xyny",
   "bugs": {
     "url": "https://github.com/AdoPi/language-dot/issues"
   },

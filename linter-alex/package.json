@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-5639-1tleza2/package.tgz",
+        "raw": "/tmp/d-1161121-5641-qkdob9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-5639-1tleza2/package.tgz",
-        "spec": "/tmp/d-1161111-5639-1tleza2/package.tgz",
+        "rawSpec": "/tmp/d-1161121-5641-qkdob9/package.tgz",
+        "spec": "/tmp/d-1161121-5641-qkdob9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-5639-jrm7tz"
+      "/tmp/apm-install-dir-1161121-5641-fwgcp2"
     ]
   ],
-  "_from": "../d-1161111-5639-1tleza2/package.tgz",
+  "_from": "../d-1161121-5641-qkdob9/package.tgz",
   "_id": "linter-alex@3.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-alex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-5639-1tleza2/package.tgz",
+    "raw": "/tmp/d-1161121-5641-qkdob9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-5639-1tleza2/package.tgz",
-    "spec": "/tmp/d-1161111-5639-1tleza2/package.tgz",
+    "rawSpec": "/tmp/d-1161121-5641-qkdob9/package.tgz",
+    "spec": "/tmp/d-1161121-5641-qkdob9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-5639-1tleza2/package.tgz",
+  "_resolved": "file:../d-1161121-5641-qkdob9/package.tgz",
   "_shasum": "a858253e0107ba3be7b085c81bfbc45d3b0b5bf5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-5639-1tleza2/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-5639-jrm7tz",
+  "_spec": "/tmp/d-1161121-5641-qkdob9/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-5641-fwgcp2",
   "author": {
     "name": "Titus Wormer",
     "email": "tituswormer@gmail.com",

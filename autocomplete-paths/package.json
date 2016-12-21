@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-5320-69e7a6/package.tgz",
+        "raw": "/tmp/d-1161121-5328-tzczii/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-5320-69e7a6/package.tgz",
-        "spec": "/tmp/d-1161111-5320-69e7a6/package.tgz",
+        "rawSpec": "/tmp/d-1161121-5328-tzczii/package.tgz",
+        "spec": "/tmp/d-1161121-5328-tzczii/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-5320-cfe58y"
+      "/tmp/apm-install-dir-1161121-5328-ulsrah"
     ]
   ],
-  "_from": "../d-1161111-5320-69e7a6/package.tgz",
-  "_id": "autocomplete-paths@1.0.2",
+  "_from": "../d-1161121-5328-tzczii/package.tgz",
+  "_id": "autocomplete-paths@1.0.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-paths",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-5320-69e7a6/package.tgz",
+    "raw": "/tmp/d-1161121-5328-tzczii/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-5320-69e7a6/package.tgz",
-    "spec": "/tmp/d-1161111-5320-69e7a6/package.tgz",
+    "rawSpec": "/tmp/d-1161121-5328-tzczii/package.tgz",
+    "spec": "/tmp/d-1161121-5328-tzczii/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-5320-69e7a6/package.tgz",
-  "_shasum": "2c81b5f1926470824472829bae61d21df9f10743",
+  "_resolved": "file:../d-1161121-5328-tzczii/package.tgz",
+  "_shasum": "5e7067c0992d19e7b54a35bb07aacb154e38442c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-5320-69e7a6/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-5320-cfe58y",
+  "_spec": "/tmp/d-1161121-5328-tzczii/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-5328-ulsrah",
   "bugs": {
     "url": "https://github.com/atom-community/autocomplete-paths/issues"
   },
@@ -68,5 +68,5 @@
     "type": "git",
     "url": "git+https://github.com/atom-community/autocomplete-paths.git"
   },
-  "version": "1.0.2"
+  "version": "1.0.5"
 }

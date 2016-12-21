@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-5121-13dczfy/package.tgz",
+        "raw": "/tmp/d-1161121-5122-texffv/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-5121-13dczfy/package.tgz",
-        "spec": "/tmp/d-1161111-5121-13dczfy/package.tgz",
+        "rawSpec": "/tmp/d-1161121-5122-texffv/package.tgz",
+        "spec": "/tmp/d-1161121-5122-texffv/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-5121-170t14o"
+      "/tmp/apm-install-dir-1161121-5122-19m1tl7"
     ]
   ],
-  "_from": "../d-1161111-5121-13dczfy/package.tgz",
+  "_from": "../d-1161121-5122-texffv/package.tgz",
   "_id": "language-asciidoc@1.6.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-5121-13dczfy/package.tgz",
+    "raw": "/tmp/d-1161121-5122-texffv/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-5121-13dczfy/package.tgz",
-    "spec": "/tmp/d-1161111-5121-13dczfy/package.tgz",
+    "rawSpec": "/tmp/d-1161121-5122-texffv/package.tgz",
+    "spec": "/tmp/d-1161121-5122-texffv/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-5121-13dczfy/package.tgz",
+  "_resolved": "file:../d-1161121-5122-texffv/package.tgz",
   "_shasum": "e004d203d62aa984ba59b8570d263c34757e67db",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-5121-13dczfy/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-5121-170t14o",
+  "_spec": "/tmp/d-1161121-5122-texffv/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-5122-19m1tl7",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },

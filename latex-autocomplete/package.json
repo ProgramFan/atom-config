@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-5522-rw6hym/package.tgz",
+        "raw": "/tmp/d-1161121-5524-omrvll/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-5522-rw6hym/package.tgz",
-        "spec": "/tmp/d-1161111-5522-rw6hym/package.tgz",
+        "rawSpec": "/tmp/d-1161121-5524-omrvll/package.tgz",
+        "spec": "/tmp/d-1161121-5524-omrvll/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-5522-18da3ql"
+      "/tmp/apm-install-dir-1161121-5524-16rtdpu"
     ]
   ],
-  "_from": "../d-1161111-5522-rw6hym/package.tgz",
+  "_from": "../d-1161121-5524-omrvll/package.tgz",
   "_id": "latex-autocomplete@1.0.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/latex-autocomplete",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-5522-rw6hym/package.tgz",
+    "raw": "/tmp/d-1161121-5524-omrvll/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-5522-rw6hym/package.tgz",
-    "spec": "/tmp/d-1161111-5522-rw6hym/package.tgz",
+    "rawSpec": "/tmp/d-1161121-5524-omrvll/package.tgz",
+    "spec": "/tmp/d-1161121-5524-omrvll/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-5522-rw6hym/package.tgz",
+  "_resolved": "file:../d-1161121-5524-omrvll/package.tgz",
   "_shasum": "df680b9bcd680ed8a8823e868d8bfb01cbbdb531",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-5522-rw6hym/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-5522-18da3ql",
+  "_spec": "/tmp/d-1161121-5524-omrvll/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-5524-16rtdpu",
   "bugs": {
     "url": "https://github.com/evpok/latex-autocomplete/issues"
   },

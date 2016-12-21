@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161111-6862-hl9pqg/package.tgz",
+        "raw": "/tmp/d-1161121-6864-bsamb2/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161111-6862-hl9pqg/package.tgz",
-        "spec": "/tmp/d-1161111-6862-hl9pqg/package.tgz",
+        "rawSpec": "/tmp/d-1161121-6864-bsamb2/package.tgz",
+        "spec": "/tmp/d-1161121-6864-bsamb2/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161111-6862-ht4xpb"
+      "/tmp/apm-install-dir-1161121-6864-1nw4yzr"
     ]
   ],
-  "_from": "../d-1161111-6862-hl9pqg/package.tgz",
+  "_from": "../d-1161121-6864-bsamb2/package.tgz",
   "_id": "project-manager@3.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/project-manager",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161111-6862-hl9pqg/package.tgz",
+    "raw": "/tmp/d-1161121-6864-bsamb2/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161111-6862-hl9pqg/package.tgz",
-    "spec": "/tmp/d-1161111-6862-hl9pqg/package.tgz",
+    "rawSpec": "/tmp/d-1161121-6864-bsamb2/package.tgz",
+    "spec": "/tmp/d-1161121-6864-bsamb2/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-6862-hl9pqg/package.tgz",
+  "_resolved": "file:../d-1161121-6864-bsamb2/package.tgz",
   "_shasum": "d87fef401850b597159913516a44072ad0d1fa98",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161111-6862-hl9pqg/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161111-6862-ht4xpb",
+  "_spec": "/tmp/d-1161121-6864-bsamb2/package.tgz",
+  "_where": "/tmp/apm-install-dir-1161121-6864-1nw4yzr",
   "bugs": {
     "url": "https://github.com/danielbrodin/atom-project-manager/issues"
   },
