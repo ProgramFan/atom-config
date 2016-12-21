@@ -19,20 +19,19 @@ export function providingFunction()
         "CMake Error at (?<file>[\\/0-9a-zA-Z\\._-]+):(?<line>\\d+)"
     ];
     const compileErrorMatch = [
-        "(?<file>.+):(?<line>\\d+):(?<column>\\d+):\\s+(.*\\s+)?error:\\s+(?<message>.+)", // GCC/Clang Error
+        "(.+:\\d+:\\d+:\n)?(?<file>.+):(?<line>\\d+):(?<column>\\d+):\\s+(.*\\s+)?error:\\s+(?<message>.+)", // GCC/Clang Error,
         "(.*>)?(?<file>.+)\\((?<line>\\d+)\\):\\s+(.*\\s+)?error\\s+(C\\d+):(?<message>.*)" // Visual Studio Error
     ];
     const compileWarningMatch = [
-        "(?<file>.+):(?<line>\\d+):(?<column>\\d+):\\s+(.*\\s+)?warning:\\s+(?<message>.+)", // GCC/Clang warning
+        "(.+:\\d+:\\d+:\n)?(?<file>.+):(?<line>\\d+):(?<column>\\d+):\\s+(.*\\s+)?warning:\\s+(?<message>.+)", // GCC/Clang warning
         "(.*>)?(?<file>.+)\\((?<line>\\d+)\\):\\s+(.*\\s+)?warning\\s+(C\\d+):(?<message>.*)" // Visual Studio warning
     ];
     return class CMakeBuildProvider extends EventEmitter {
         constructor(source_dir)
         {
             super();
-            // TODO allow the source directory to be selected.
             atom.config.observe('build-cmake.cmakelists', (cmakelists) => {
-                this.source_dir = (!!cmakelists) ? source_dir+cmakelists.trim() : source_dir;
+                this.source_dir = (!!cmakelists) ? source_dir + cmakelists.trim() : source_dir;
             });
             atom.config.observe('build-cmake.build_suffix', (suffix) => {
                 this.build_dir = source_dir + suffix;
@@ -46,18 +45,22 @@ export function providingFunction()
                 // TODO: Validate executable is on path/exists and show feedback to user.
                 this.executable = executable;
             });
-            atom.config.observe('build-cmake.custom_args', (c_args) => {
-                this.custom_args = c_args;
+            atom.config.observe('build-cmake.cmake_arguments', (args) => {
+                this.cmake_arguments = args.split(' ').filter(v => v !== '');
             });
-            atom.config.observe('build-cmake.vs_args', (args) => {
-                this.vs_args = args.split(' ');
+            atom.config.observe('build-cmake.build_arguments', (args) => {
+                this.build_arguments = args.split(' ').filter(v => v !== '');
+            });
+            atom.config.observe('build-cmake.parallel_build', (parallel_build) => {
+                this.parallel_build = parallel_build;
             });
             atom.config.onDidChange('build-cmake.build_suffix', () => { this.emit('refresh'); });
             atom.config.onDidChange('build-cmake.executable', () => { this.emit('refresh'); });
             atom.config.onDidChange('build-cmake.generator', () => { this.emit('refresh'); });
             atom.config.onDidChange('build-cmake.cmakelists', () => { this.emit('refresh'); });
-            atom.config.onDidChange('build-cmake.custom_args', () => { this.emit('refresh'); });
-            atom.config.onDidChange('build-cmake.vs_args', () => { this.emit('refresh'); });
+            atom.config.onDidChange('build-cmake.cmake_arguments', () => { this.emit('refresh'); });
+            atom.config.onDidChange('build-cmake.build_arguments', () => { this.emit('refresh'); });
+            atom.config.onDidChange('build-cmake.parallel_build', () => { this.emit('refresh'); });
         }
 
         destructor()
@@ -76,12 +79,15 @@ export function providingFunction()
 
         createVisualStudioTarget(target_name)
         {
+            args_list = [ '--build', this.build_dir, '--target', target_name, '--' ];
+            if (this.parallel_build)
+                args_list.push('/maxcpucount');
             return {
                 atomCommandName : 'cmake:' + target_name,
                 name : target_name,
                 exec : this.executable,
                 cwd : this.build_dir,
-                args : [ '--build', this.build_dir, '--target', target_name, '--' ].concat(this.vs_args),
+                args : args_list.concat(this.build_arguments),
                 errorMatch : compileErrorMatch.concat(generateErrorMatch),
                 warningMatch : compileWarningMatch.concat(generateWarningMatch),
                 sh : false
@@ -98,12 +104,15 @@ export function providingFunction()
 
         createMakeFileTarget(target_name)
         {
+            args_list = [ '--build', this.build_dir, '--target', target_name, '--' ];
+            if (this.parallel_build)
+                args_list.push('-j' + os.cpus().length);
             return {
                 atomCommandName : 'cmake:' + target_name,
                 name : target_name,
                 exec : this.executable,
                 cwd : this.build_dir,
-                args : [ '--build', this.build_dir, '--target', target_name, '--', '-j' + os.cpus().length ],
+                args : args_list.concat(this.build_arguments),
                 errorMatch : compileErrorMatch.concat(generateErrorMatch),
                 warningMatch : compileWarningMatch.concat(generateWarningMatch),
                 sh : false
@@ -127,7 +136,7 @@ export function providingFunction()
                 name : target_name,
                 exec : this.executable,
                 cwd : this.build_dir,
-                args : [ '--build', this.build_dir, '--target', target_name ],
+                args : [ '--build', this.build_dir, '--target', target_name ].concat(this.build_arguments),
                 errorMatch : compileErrorMatch.concat(generateErrorMatch),
                 warningMatch : compileWarningMatch.concat(generateWarningMatch),
                 sh : false
@@ -152,7 +161,7 @@ export function providingFunction()
                     this.emit('refresh');
             });
 
-            var args = this.custom_args.split(' ').concat([ '-B' + this.build_dir, '-H' + this.source_dir, '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON' ]);
+            var args = this.cmake_arguments.concat([ '-B' + this.build_dir, '-H' + this.source_dir, '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON' ]);
             // Add custom generator if specified.
             if (!!this.generator) {
                 args.unshift('-G' + this.generator);

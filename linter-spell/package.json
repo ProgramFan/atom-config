@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4349-1tp5z5k/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161121-4673-1peqox3/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4349-1tp5z5k/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4349-1tp5z5k/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161121-4673-1peqox3/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161121-4673-1peqox3/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161111-4349-1dzdhpe"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161121-4673-1g99nhr"
     ]
   ],
-  "_from": "../d-1161111-4349-1tp5z5k/package.tgz",
-  "_id": "linter-spell@0.12.4",
+  "_from": "../d-1161121-4673-1peqox3/package.tgz",
+  "_id": "linter-spell@0.12.6",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-spell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4349-1tp5z5k/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161121-4673-1peqox3/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4349-1tp5z5k/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4349-1tp5z5k/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161121-4673-1peqox3/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161121-4673-1peqox3/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161111-4349-1tp5z5k/package.tgz",
-  "_shasum": "c2bfe1ade7522c67e6ae864c3ed2cdd5504ab88c",
+  "_resolved": "file:../d-1161121-4673-1peqox3/package.tgz",
+  "_shasum": "68b4da600164e0458859b66b21533d9c1629e651",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161111-4349-1tp5z5k/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161111-4349-1dzdhpe",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-1161121-4673-1peqox3/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-1161121-4673-1g99nhr",
   "author": {
     "name": "Tarn Burton",
     "email": "twburton@gmail.com"
@@ -127,7 +127,7 @@
     "linter-spell-word-list": "^0.4.1",
     "lodash": "^4.13.0",
     "natural": "^0.4.0",
-    "os-locale": "^1.4.0"
+    "os-locale": "^2.0.0"
   },
   "description": "Multilingual grammar-specific spell checking using Ispell-interface such as Aspell or Hunspell.",
   "devDependencies": {
@@ -200,5 +200,5 @@
       "HTMLDivElement"
     ]
   },
-  "version": "0.12.4"
+  "version": "0.12.6"
 }
