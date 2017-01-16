@@ -1,3 +1,25 @@
+## 0.9.3
+* [x] fix issue, 中文，日文 file image path error. [#236](https://github.com/shd101wyy/markdown-preview-enhanced/issues/236)
+* [x] fix issue [#237](https://github.com/shd101wyy/markdown-preview-enhanced/issues/237)  
+* [x] fix back to top button and code chunks run btn `onclick` event after restoring CACHE.
+* [x] save as markdown `front_matter` config.
+
+## 0.9.2
+* [x] quick fix issue [#223](https://github.com/shd101wyy/markdown-preview-enhanced/issues/223)  
+
+## 0.9.1
+* [x] quick fix issue [#234](https://github.com/shd101wyy/markdown-preview-enhanced/issues/234)
+
+## 0.9.0
+* [x] soft tabs (spaces of tabs) in TOC [#187](https://github.com/shd101wyy/markdown-preview-enhanced/issues/187)
+* [x] add cache support for better performance [#210](https://github.com/shd101wyy/markdown-preview-enhanced/issues/210)
+* [x] add speaker notes support for presentation (reveal.js) issue [#199](https://github.com/shd101wyy/markdown-preview-enhanced/issues/199)
+* [x] add back to top button in preview [#222](https://github.com/shd101wyy/markdown-preview-enhanced/issues/222)
+* [x] support multiple TOCs [#130](https://github.com/shd101wyy/markdown-preview-enhanced/issues/130)
+* [x] viz.js engine config
+* [x] Save as Markdown
+* [x] update several dependencies such as `KaTeX`, `saveSvgAsPng`, etc.
+
 ## 0.8.9  
 * [x] `<kbr>` style is not consistent in browser
 * [x] fix issue [#177](https://github.com/shd101wyy/markdown-preview-enhanced/issues/177)  

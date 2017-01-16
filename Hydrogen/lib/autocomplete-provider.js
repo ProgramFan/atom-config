@@ -1,6 +1,8 @@
 'use babel';
 
 import _ from 'lodash';
+import log from './log';
+import Config from './config';
 
 const iconHTML = `<img src='${__dirname}/../static/logo.svg' style='width: 100%;'>`;
 
@@ -32,7 +34,8 @@ export default function (kernelManager) {
       const grammar = editor.getGrammar();
       const language = kernelManager.getLanguageFor(grammar);
       const kernel = kernelManager.getRunningKernelFor(language);
-      if (!kernel) {
+
+      if (!kernel || kernel.executionState !== 'idle') {
         return null;
       }
 
@@ -41,7 +44,11 @@ export default function (kernelManager) {
         bufferPosition,
       ]);
 
-      const regex = regexes[language];
+      // Support none default grammars like magicpython
+      const languageMappings = Config.getJson('languageMappings');
+      const mappedLanguage = _.findKey(languageMappings, l => l === language);
+
+      const regex = regexes[language] || regexes[mappedLanguage];
       if (regex) {
         prefix = _.head(line.match(regex)) || '';
       } else {
@@ -57,7 +64,7 @@ export default function (kernelManager) {
         return null;
       }
 
-      console.log('autocompleteProvider: request:',
+      log('autocompleteProvider: request:',
         line, bufferPosition, prefix);
 
       return new Promise(resolve =>

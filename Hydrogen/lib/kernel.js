@@ -5,6 +5,7 @@ import { Emitter } from 'atom';
 import StatusView from './status-view';
 import WatchSidebar from './watch-sidebar';
 import HydrogenKernel from './plugin-api/hydrogen-kernel';
+import log from './log';
 
 export default class Kernel {
   constructor(kernelSpec, grammar) {
@@ -130,7 +131,6 @@ export default class Kernel {
         type: 'text',
         stream: 'pyout',
       };
-      result.data['text/plain'] = result.data['text/plain'].trim();
     } else {
       result = {
         data: {},
@@ -201,7 +201,6 @@ export default class Kernel {
     return result;
   }
 
-
   _parseStreamIOMessage(message) {
     let result;
     if (message.header.msg_type === 'stream') {
@@ -238,10 +237,6 @@ export default class Kernel {
       };
     }
 
-    if (result && result.data['text/plain']) {
-      result.data['text/plain'] = result.data['text/plain'].trim();
-    }
-
     return result;
   }
 
@@ -258,7 +253,7 @@ export default class Kernel {
   }
 
   destroy() {
-    console.log('Kernel: Destroying base kernel');
+    log('Kernel: Destroying base kernel');
     if (this.pluginWrapper) {
       this.pluginWrapper.destroyed = true;
     }

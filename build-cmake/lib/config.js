@@ -20,7 +20,8 @@ export default {
         description : 'The default CMake generator.',
         type : 'string',
         default : '',
-        order : 3
+        order : 3,
+        enum : [ '' ]
     },
     cmake_arguments : {
         title : 'Custom CMake Arguments',
@@ -29,11 +30,17 @@ export default {
         default : ' -DCMAKE_BUILD_TYPE=Debug ',
         order : 4
     },
-    build_suffix : {
+    build_dir : {
         title : 'Build Location',
-        description : 'The build suffix appended to the source dir (may be a path location such as "/build").',
+        description :
+            'The build directory. The following variables can be used: ' +
+            '' +
+            '<br>`TMPDIR` - The operating system\'s default temp directory' +
+            '<br>`PROJECT_DIR` - Current project directory' +
+            '<br>`PROJECT_DIRNAME` - Current project directory name' +
+            '<br> \n',
         type : 'string',
-        default : '-build',
+        default : '$PROJECT_DIR-build',
         order : 5
     },
     build_arguments : {
