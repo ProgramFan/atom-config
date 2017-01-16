@@ -3,6 +3,8 @@
 import { MessagePanelView, PlainMessageView } from 'atom-message-panel';
 import * as transformime from 'transformime';
 
+import log from './log';
+
 const transform = transformime.createTransform();
 
 export default class Inspector {
@@ -42,7 +44,7 @@ export default class Inspector {
 
 
   showInspectionResult(result) {
-    console.log('Inspector: Result:', result);
+    log('Inspector: Result:', result);
 
     if (!result.found) {
       atom.notifications.addInfo('No introspection available!');
@@ -77,7 +79,7 @@ export default class Inspector {
 
         this._lastInspectionResult = message;
         return;
-      } else if (mimetype === 'text/html') {
+      } else if (mimetype === 'text/html' || mimetype === 'text/markdown') {
         const container = document.createElement('div');
         container.appendChild(el);
         const message = container.innerHTML;

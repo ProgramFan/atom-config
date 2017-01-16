@@ -1,13 +1,13 @@
 <!-- toc orderedList:0 depthFrom: 1 -->
 
-- [Code Chunk (Beta)](#code-chunk-beta)
-	- [Format](#format)
-	- [Options](#options)
-	- [Commands & Keyboard Shortcust](#commands-keyboard-shortcust)
-	- [Macro](#macro)
-	- [Demo](#demo)
-	- [Showcases](#showcases)
-	- [Limitations](#limitations)
+* [Code Chunk (Beta)](#code-chunk-beta)
+	* [Format](#format)
+	* [Options](#options)
+	* [Commands & Keyboard Shortcust](#commands-keyboard-shortcust)
+	* [Macro](#macro)
+	* [Demo](#demo)
+	* [Showcases](#showcases)
+	* [Limitations](#limitations)
 
 <!-- tocstop -->
 
@@ -23,7 +23,7 @@ To enable code chunk highlighting, install [language-gfm-enhanced](https://atom.
     ls .
     ```
 
-    ```{node}
+    ```{javascript cmd:"node"}
     var date = Date.now()
     console.log(date.toString())
     ```   

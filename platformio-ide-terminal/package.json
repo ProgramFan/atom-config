@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161121-7631-1fjahna/package.tgz",
+        "raw": "/tmp/d-117016-7458-1d42sze/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161121-7631-1fjahna/package.tgz",
-        "spec": "/tmp/d-1161121-7631-1fjahna/package.tgz",
+        "rawSpec": "/tmp/d-117016-7458-1d42sze/package.tgz",
+        "spec": "/tmp/d-117016-7458-1d42sze/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161121-7631-131s9rt"
+      "/tmp/apm-install-dir-117016-7458-13k9901"
     ]
   ],
-  "_from": "../d-1161121-7631-1fjahna/package.tgz",
+  "_from": "../d-117016-7458-1d42sze/package.tgz",
   "_id": "platformio-ide-terminal@2.2.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/platformio-ide-terminal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161121-7631-1fjahna/package.tgz",
+    "raw": "/tmp/d-117016-7458-1d42sze/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161121-7631-1fjahna/package.tgz",
-    "spec": "/tmp/d-1161121-7631-1fjahna/package.tgz",
+    "rawSpec": "/tmp/d-117016-7458-1d42sze/package.tgz",
+    "spec": "/tmp/d-117016-7458-1d42sze/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161121-7631-1fjahna/package.tgz",
+  "_resolved": "file:../d-117016-7458-1d42sze/package.tgz",
   "_shasum": "230fbc98f66457d8ccb697cccebf487248d70e9e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161121-7631-1fjahna/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161121-7631-131s9rt",
+  "_spec": "/tmp/d-117016-7458-1d42sze/package.tgz",
+  "_where": "/tmp/apm-install-dir-117016-7458-13k9901",
   "author": {
     "name": "Jeremy Ebneyamin"
   },

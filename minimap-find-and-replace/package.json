@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161121-6176-lb77w1/package.tgz",
+        "raw": "/tmp/d-117016-6060-18ltnv/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161121-6176-lb77w1/package.tgz",
-        "spec": "/tmp/d-1161121-6176-lb77w1/package.tgz",
+        "rawSpec": "/tmp/d-117016-6060-18ltnv/package.tgz",
+        "spec": "/tmp/d-117016-6060-18ltnv/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161121-6176-q9ayck"
+      "/tmp/apm-install-dir-117016-6060-y8piq3"
     ]
   ],
-  "_from": "../d-1161121-6176-lb77w1/package.tgz",
+  "_from": "../d-117016-6060-18ltnv/package.tgz",
   "_id": "minimap-find-and-replace@4.5.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-find-and-replace",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161121-6176-lb77w1/package.tgz",
+    "raw": "/tmp/d-117016-6060-18ltnv/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161121-6176-lb77w1/package.tgz",
-    "spec": "/tmp/d-1161121-6176-lb77w1/package.tgz",
+    "rawSpec": "/tmp/d-117016-6060-18ltnv/package.tgz",
+    "spec": "/tmp/d-117016-6060-18ltnv/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161121-6176-lb77w1/package.tgz",
+  "_resolved": "file:../d-117016-6060-18ltnv/package.tgz",
   "_shasum": "ef5664f133d2fa56484387f93ba4915b47e5fce7",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161121-6176-lb77w1/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161121-6176-q9ayck",
+  "_spec": "/tmp/d-117016-6060-18ltnv/package.tgz",
+  "_where": "/tmp/apm-install-dir-117016-6060-y8piq3",
   "author": {
     "name": "Cédric Néhémie",
     "email": "cedric.nehemie@gmail.com"

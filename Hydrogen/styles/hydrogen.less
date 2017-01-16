@@ -128,6 +128,7 @@
 
             margin: 0;
             padding: 0;
+            border: none;
         }
 
         img, svg {
@@ -502,15 +503,5 @@
 .heading-summary.inspect-message {
     span[style] {
         color: @text-color-info !important;
-    }
-}
-
-atom-text-editor,
-atom-text-editor::shadow {
-    .gutter .line-number {
-        &.breakpoint {
-            margin-bottom: -1px;
-            border-bottom: 1px solid @text-color-info;
-        }
     }
 }

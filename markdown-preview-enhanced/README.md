@@ -3,7 +3,9 @@ Markdown Preview Enhanced
 Still Beta Version!    
 [![](https://img.shields.io/github/tag/shd101wyy/markdown-preview-enhanced.svg)](https://github.com/shd101wyy/markdown-preview-enhanced/releases) ![](https://img.shields.io/apm/dm/markdown-preview-enhanced.svg)  [![](https://img.shields.io/github/stars/shd101wyy/markdown-preview-enhanced.svg?style=social&label=Star)](https://github.com/shd101wyy/markdown-preview-enhanced)  
 
-[中文文档](./docs/README_CN.md)  
+[中文文档](./docs/README_CN.md)   
+
+After version `0.9.0`, **Markdown Preview Enhanced** supports compiling markdown to markdown file. More information can be found [here](./docs/markdown.md).  
 
 Post [here](https://github.com/shd101wyy/markdown-preview-enhanced/issues) if you request new features or you want to report bugs ;)
 
@@ -11,15 +13,15 @@ Post [here](https://github.com/shd101wyy/markdown-preview-enhanced/issues) if yo
 
 <!-- toc orderedList:0 -->
 
-- [Markdown Preview Enhanced](#markdown-preview-enhanced)
-	- [Features](#features)
-	- [How it works](#how-it-works)
-	- [Usages](#usages)
-	- [Preview Context Menu](#preview-context-menu)
-	- [Extra](#extra)
-	- [For Developer](#for-developer)
-	- [Thanks](#thanks)
-	- [TODO](#todo)
+* [Markdown Preview Enhanced](#markdown-preview-enhanced)
+	* [Features](#features)
+	* [How it works](#how-it-works)
+	* [Usages](#usages)
+	* [Preview Context Menu](#preview-context-menu)
+	* [Extra](#extra)
+	* [For Developer](#for-developer)
+	* [Thanks](#thanks)
+	* [TODO](#todo)
 
 <!-- tocstop -->
 ---
@@ -37,6 +39,7 @@ Post [here](https://github.com/shd101wyy/markdown-preview-enhanced/issues) if yo
 You can choose [MathJax](https://github.com/mathjax/MathJax) or [KaTeX](https://github.com/Khan/KaTeX) to render math expressions  
 - export **PDF**, **PNG**, and **JPEG**   
 - export beautiful **HTML** (mobile device supported)  
+- compile to **Markdown**
 - customize Markdown Preview css  
 - [TOC](./docs/toc.md) generation **(beta)**  
 - Flowchart / Sequence diagram
@@ -48,7 +51,7 @@ You can choose [MathJax](https://github.com/mathjax/MathJax) or [KaTeX](https://
 
 ## How it works
 - [remarkable](https://github.com/jonschlinkert/remarkable) to convert markdown to html.
-- [KaTeX](https://github.com/Khan/KaTeX) or [MathJax](https://github.com/mathjax/MathJax) to render math expressions. ([KaTeX Supported functions/symbols](https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX))
+- [KaTeX](https://github.com/Khan/KaTeX) or [MathJax](https://github.com/mathjax/MathJax) to render math expressions. ([KaTeX Supported functions/symbols](https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX)) (MathJax is incompatible with `preview-inline` package)
   - expression within `$...$` will be rendered normally.  
   - expression within `$$...$$` will be rendered in displayMode.   
   - if you want to enable math highlighting, try [language-gfm-enhanced](https://atom.io/packages/language-gfm-enhanced) package.  
@@ -66,6 +69,7 @@ You can choose [MathJax](https://github.com/mathjax/MathJax) or [KaTeX](https://
 	- code block within `{wavedrom}` notation will be rendered by [wavedrom](https://github.com/drom/wavedrom).
 - [Viz.js](https://github.com/mdaines/viz.js) to render [dot language](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) graph.  
 	- code block within `{viz}` notation will be rendered by [Viz.js](https://github.com/mdaines/viz.js).
+    - add `engine:[engine_name]` in the first line of code block with `{viz}` to choose different render engine
 - [reveal.js](https://github.com/hakimel/reveal.js) to render beautiful presentations.
 	- [Click here](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html) to see the introduction.
 
@@ -78,8 +82,7 @@ To use this package, press <kbd>cmd + shift + p</kbd>   in atom editor first to 
   - Customize preview page css. You can edit styles inside `markdown-preview-enhanced-custom` section in `style.less` file.  
   - if you didn't see `markdown-preview-enhanced-custom` section in `style.less` file, you may need to run `Markdown Preview Enhanced: Customize CSS` command first.
 - <strong>Markdown Preview Enhanced: Create Toc </strong>
-  - Generate TOC. [doc is here](./docs/toc.md).    
-	 or simply insert ` <!-- toc -->` in editor (need preview toggled).
+  - Generate TOC (need preview toggled). [doc is here](./docs/toc.md).    
 - <strong>Markdown Preview Enhanced: Toggle Scroll Sync </strong>
   - Enable/Disable scroll sync for preview.
 - <strong>Markdown Preview Enhanced: Toggle Break On Single Newline </strong>
@@ -108,6 +111,8 @@ To use this package, press <kbd>cmd + shift + p</kbd>   in atom editor first to 
 	- Export **HTML**, **PDF**, **PNG**, **JPEG**, **ePub** etc files.
 - **Pandoc Document Export**
 	- [doc](./docs/advanced-export.md)
+- **Save as Markdown**
+	- [doc](./docs/markdown.md)
 
 ## Extra
 * **Code Chunks** [doc](./docs/code-chunk.md)
@@ -130,7 +135,8 @@ It is also very easy to write your own extension, more information can be found 
 ## Thanks  
 Thanks for everyone that supports this package!    
 
-## TODO
+## TODO  
+[CHANGELOG](./CHANGELOG.md)  
 - [ ] fix bugs
 - [ ] modify css to make preview look nice
 - [x] ePub output

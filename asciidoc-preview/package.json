@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161121-6372-13k5z78/package.tgz",
+        "raw": "/tmp/d-117016-6255-1wz8hlm/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161121-6372-13k5z78/package.tgz",
-        "spec": "/tmp/d-1161121-6372-13k5z78/package.tgz",
+        "rawSpec": "/tmp/d-117016-6255-1wz8hlm/package.tgz",
+        "spec": "/tmp/d-117016-6255-1wz8hlm/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161121-6372-16xo88p"
+      "/tmp/apm-install-dir-117016-6255-5v3s7h"
     ]
   ],
-  "_from": "../d-1161121-6372-13k5z78/package.tgz",
+  "_from": "../d-117016-6255-1wz8hlm/package.tgz",
   "_id": "asciidoc-preview@2.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161121-6372-13k5z78/package.tgz",
+    "raw": "/tmp/d-117016-6255-1wz8hlm/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161121-6372-13k5z78/package.tgz",
-    "spec": "/tmp/d-1161121-6372-13k5z78/package.tgz",
+    "rawSpec": "/tmp/d-117016-6255-1wz8hlm/package.tgz",
+    "spec": "/tmp/d-117016-6255-1wz8hlm/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161121-6372-13k5z78/package.tgz",
+  "_resolved": "file:../d-117016-6255-1wz8hlm/package.tgz",
   "_shasum": "b2be0f5db29f55f5d49678bda956d351a2c7f398",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161121-6372-13k5z78/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161121-6372-16xo88p",
+  "_spec": "/tmp/d-117016-6255-1wz8hlm/package.tgz",
+  "_where": "/tmp/apm-install-dir-117016-6255-5v3s7h",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },

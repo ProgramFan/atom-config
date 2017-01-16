@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161121-6910-e411qt/package.tgz",
+        "raw": "/tmp/d-117016-6808-1dioedv/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161121-6910-e411qt/package.tgz",
-        "spec": "/tmp/d-1161121-6910-e411qt/package.tgz",
+        "rawSpec": "/tmp/d-117016-6808-1dioedv/package.tgz",
+        "spec": "/tmp/d-117016-6808-1dioedv/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161121-6910-4atfa3"
+      "/tmp/apm-install-dir-117016-6808-1brjpbc"
     ]
   ],
-  "_from": "../d-1161121-6910-e411qt/package.tgz",
+  "_from": "../d-117016-6808-1dioedv/package.tgz",
   "_id": "dash@1.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/dash",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161121-6910-e411qt/package.tgz",
+    "raw": "/tmp/d-117016-6808-1dioedv/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161121-6910-e411qt/package.tgz",
-    "spec": "/tmp/d-1161121-6910-e411qt/package.tgz",
+    "rawSpec": "/tmp/d-117016-6808-1dioedv/package.tgz",
+    "spec": "/tmp/d-117016-6808-1dioedv/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161121-6910-e411qt/package.tgz",
+  "_resolved": "file:../d-117016-6808-1dioedv/package.tgz",
   "_shasum": "b3e09d866f5cb1a9465cba507d3bb3cebd460a9a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161121-6910-e411qt/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161121-6910-4atfa3",
+  "_spec": "/tmp/d-117016-6808-1dioedv/package.tgz",
+  "_where": "/tmp/apm-install-dir-117016-6808-1brjpbc",
   "activationCommands": {
     "atom-text-editor": [
       "dash:shortcut",

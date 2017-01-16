@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161121-6254-1mlnbvh/package.tgz",
+        "raw": "/tmp/d-117016-6138-15riwxi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161121-6254-1mlnbvh/package.tgz",
-        "spec": "/tmp/d-1161121-6254-1mlnbvh/package.tgz",
+        "rawSpec": "/tmp/d-117016-6138-15riwxi/package.tgz",
+        "spec": "/tmp/d-117016-6138-15riwxi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161121-6254-1wi0lx2"
+      "/tmp/apm-install-dir-117016-6138-8b4yk9"
     ]
   ],
-  "_from": "../d-1161121-6254-1mlnbvh/package.tgz",
-  "_id": "minimap-highlight-selected@4.4.0",
+  "_from": "../d-117016-6138-15riwxi/package.tgz",
+  "_id": "minimap-highlight-selected@4.5.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-highlight-selected",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161121-6254-1mlnbvh/package.tgz",
+    "raw": "/tmp/d-117016-6138-15riwxi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161121-6254-1mlnbvh/package.tgz",
-    "spec": "/tmp/d-1161121-6254-1mlnbvh/package.tgz",
+    "rawSpec": "/tmp/d-117016-6138-15riwxi/package.tgz",
+    "spec": "/tmp/d-117016-6138-15riwxi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161121-6254-1mlnbvh/package.tgz",
-  "_shasum": "431224ac6cbe9db91f34c713f1c4bedd424fdfe6",
+  "_resolved": "file:../d-117016-6138-15riwxi/package.tgz",
+  "_shasum": "e1b99f88ecff37a867626881fbaf87e5126565d5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161121-6254-1mlnbvh/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161121-6254-1wi0lx2",
+  "_spec": "/tmp/d-117016-6138-15riwxi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117016-6138-8b4yk9",
   "bugs": {
     "url": "https://github.com/atom-minimap/minimap-highlight-selected/issues"
   },
@@ -44,10 +44,15 @@
       "versions": {
         "1.0.0": "consumeMinimapServiceV1"
       }
+    },
+    "highlightSelected": {
+      "versions": {
+        "1.0.0": "consumeHighlightSelectedServiceV1"
+      }
     }
   },
   "dependencies": {
-    "atom-utils": ">=0.6.3",
+    "atom-utils": "0.0.1",
     "event-kit": ">= 0.7.2",
     "underscore-plus": "1.x"
   },
@@ -67,5 +72,5 @@
     "type": "git",
     "url": "git+https://github.com/atom-minimap/minimap-highlight-selected.git"
   },
-  "version": "4.4.0"
+  "version": "4.5.0"
 }

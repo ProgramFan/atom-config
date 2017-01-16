@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1161121-5485-1sol4cp/package.tgz",
+        "raw": "/tmp/d-117016-7650-a79lrh/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1161121-5485-1sol4cp/package.tgz",
-        "spec": "/tmp/d-1161121-5485-1sol4cp/package.tgz",
+        "rawSpec": "/tmp/d-117016-7650-a79lrh/package.tgz",
+        "spec": "/tmp/d-117016-7650-a79lrh/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1161121-5485-1d9jwn1"
+      "/tmp/apm-install-dir-117016-7650-163w386"
     ]
   ],
-  "_from": "../d-1161121-5485-1sol4cp/package.tgz",
+  "_from": "../d-117016-7650-a79lrh/package.tgz",
   "_id": "you-complete-me@0.7.11",
   "_inCache": true,
   "_installable": true,
   "_location": "/you-complete-me",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1161121-5485-1sol4cp/package.tgz",
+    "raw": "/tmp/d-117016-7650-a79lrh/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1161121-5485-1sol4cp/package.tgz",
-    "spec": "/tmp/d-1161121-5485-1sol4cp/package.tgz",
+    "rawSpec": "/tmp/d-117016-7650-a79lrh/package.tgz",
+    "spec": "/tmp/d-117016-7650-a79lrh/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161121-5485-1sol4cp/package.tgz",
+  "_resolved": "file:../d-117016-7650-a79lrh/package.tgz",
   "_shasum": "438daf2011777f3117d05cfc51d877f5439c7540",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1161121-5485-1sol4cp/package.tgz",
-  "_where": "/tmp/apm-install-dir-1161121-5485-1d9jwn1",
+  "_spec": "/tmp/d-117016-7650-a79lrh/package.tgz",
+  "_where": "/tmp/apm-install-dir-117016-7650-163w386",
   "bugs": {
     "url": "https://github.com/Qusic/atom-youcompleteme/issues"
   },
