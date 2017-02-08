@@ -4,6 +4,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _dedent;
+
+function _load_dedent() {
+  return _dedent = _interopRequireDefault(require('dedent'));
+}
+
 var _atom = require('atom');
 
 var _DebuggerDispatcher;
@@ -17,6 +23,8 @@ var _DebuggerStore;
 function _load_DebuggerStore() {
   return _DebuggerStore = require('./DebuggerStore');
 }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const BREAKPOINT_NEED_UI_UPDATE = 'BREAKPOINT_NEED_UI_UPDATE'; /**
                                                                 * Copyright (c) 2015-present, Facebook, Inc.
@@ -163,7 +171,12 @@ class BreakpointStore {
     const lineMap = this._breakpoints.get(path);
 
     if (!(lineMap != null)) {
-      throw new Error('Invariant violation: "lineMap != null"');
+      throw new Error((_dedent || _load_dedent()).default`
+        Expected a non-null lineMap.
+        path: ${path},
+        line: ${line},
+        userAction: ${userAction}
+      `);
     }
 
     const breakpoint = lineMap.get(line);

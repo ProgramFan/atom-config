@@ -85,7 +85,7 @@ class ReactNativeDebuggerInstance extends (_nuclideDebuggerBase || _load_nuclide
     // Tell the user if we can't connect to the debugger UI.
     uiConnection$.subscribe(null, err => {
       atom.notifications.addError('Error connecting to debugger UI.', {
-        detail: `Make sure that port ${ PORT } is open.`,
+        detail: `Make sure that port ${PORT} is open.`,
         stack: err.stack,
         dismissable: true
       });
@@ -110,7 +110,7 @@ class ReactNativeDebuggerInstance extends (_nuclideDebuggerBase || _load_nuclide
       yield _this._connected;
 
       // TODO(natthu): Assign random port instead.
-      return `ws=localhost:${ PORT }/`;
+      return `ws=localhost:${PORT}/`;
     })();
   }
 }

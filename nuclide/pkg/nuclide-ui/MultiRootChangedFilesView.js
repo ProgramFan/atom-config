@@ -55,15 +55,15 @@ class MultiRootChangedFilesView extends _reactForAtom.React.Component {
     this._subscriptions = new (_UniversalDisposable || _load_UniversalDisposable()).default();
     const { commandPrefix, getRevertTargetRevision } = this.props;
     this._subscriptions.add(atom.contextMenu.add({
-      [`.${ commandPrefix }-file-entry`]: [{ type: 'separator' }, {
+      [`.${commandPrefix}-file-entry`]: [{ type: 'separator' }, {
         label: 'Add to Mercurial',
-        command: `${ commandPrefix }:add`,
+        command: `${commandPrefix}:add`,
         shouldDisplay: event => {
           return this._getStatusCodeForFile(event) === (_vcs || _load_vcs()).FileChangeStatus.UNTRACKED;
         }
       }, {
         label: 'Revert',
-        command: `${ commandPrefix }:revert`,
+        command: `${commandPrefix}:revert`,
         shouldDisplay: event => {
           const statusCode = this._getStatusCodeForFile(event);
           if (statusCode == null) {
@@ -73,47 +73,47 @@ class MultiRootChangedFilesView extends _reactForAtom.React.Component {
         }
       }, {
         label: 'Delete',
-        command: `${ commandPrefix }:delete-file`,
+        command: `${commandPrefix}:delete-file`,
         shouldDisplay: event => {
           const statusCode = this._getStatusCodeForFile(event);
           return statusCode !== (_vcs || _load_vcs()).FileChangeStatus.REMOVED;
         }
       }, {
         label: 'Goto File',
-        command: `${ commandPrefix }:goto-file`
+        command: `${commandPrefix}:goto-file`
       }, {
         label: 'Copy File Name',
-        command: `${ commandPrefix }:copy-file-name`
+        command: `${commandPrefix}:copy-file-name`
       }, {
         label: 'Copy Full Path',
-        command: `${ commandPrefix }:copy-full-path`
+        command: `${commandPrefix}:copy-full-path`
       }, { type: 'separator' }]
     }));
 
-    this._subscriptions.add(atom.commands.add(`.${ commandPrefix }-file-entry`, `${ commandPrefix }:goto-file`, event => {
+    this._subscriptions.add(atom.commands.add(`.${commandPrefix}-file-entry`, `${commandPrefix}:goto-file`, event => {
       const filePath = this._getFilePathFromEvent(event);
       if (filePath != null && filePath.length) {
         (0, (_goToLocation || _load_goToLocation()).goToLocation)(filePath);
       }
     }));
 
-    this._subscriptions.add(atom.commands.add(`.${ commandPrefix }-file-entry`, `${ commandPrefix }:copy-full-path`, event => {
+    this._subscriptions.add(atom.commands.add(`.${commandPrefix}-file-entry`, `${commandPrefix}:copy-full-path`, event => {
       atom.clipboard.write((_nuclideUri || _load_nuclideUri()).default.getPath(this._getFilePathFromEvent(event) || ''));
     }));
-    this._subscriptions.add(atom.commands.add(`.${ commandPrefix }-file-entry`, `${ commandPrefix }:delete-file`, event => {
+    this._subscriptions.add(atom.commands.add(`.${commandPrefix}-file-entry`, `${commandPrefix}:delete-file`, event => {
       const nuclideFilePath = this._getFilePathFromEvent(event);
       (0, (_vcs || _load_vcs()).confirmAndDeletePath)(nuclideFilePath);
     }));
-    this._subscriptions.add(atom.commands.add(`.${ commandPrefix }-file-entry`, `${ commandPrefix }:copy-file-name`, event => {
+    this._subscriptions.add(atom.commands.add(`.${commandPrefix}-file-entry`, `${commandPrefix}:copy-file-name`, event => {
       atom.clipboard.write((_nuclideUri || _load_nuclideUri()).default.basename(this._getFilePathFromEvent(event) || ''));
     }));
-    this._subscriptions.add(atom.commands.add(`.${ commandPrefix }-file-entry`, `${ commandPrefix }:add`, event => {
+    this._subscriptions.add(atom.commands.add(`.${commandPrefix}-file-entry`, `${commandPrefix}:add`, event => {
       const filePath = this._getFilePathFromEvent(event);
       if (filePath != null && filePath.length) {
         (0, (_vcs || _load_vcs()).addPath)(filePath);
       }
     }));
-    this._subscriptions.add(atom.commands.add(`.${ commandPrefix }-file-entry`, `${ commandPrefix }:revert`, event => {
+    this._subscriptions.add(atom.commands.add(`.${commandPrefix}-file-entry`, `${commandPrefix}:revert`, event => {
       const filePath = this._getFilePathFromEvent(event);
       if (filePath != null && filePath.length) {
         let targetRevision = null;

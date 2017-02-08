@@ -50,14 +50,15 @@ function validateDefinitions(definitions) {
   }
 
   function gatherKnownTypes() {
-    for (const definition of definitions.values()) {
+    Object.keys(definitions).forEach(name => {
+      const definition = definitions[name];
       switch (definition.kind) {
         case 'alias':
         case 'interface':
           namedTypes.set(definition.name, definition);
           break;
       }
-    }
+    });
   }
 
   function checkTypeForMissingNames(type) {
@@ -110,7 +111,7 @@ function validateDefinitions(definitions) {
       case 'named':
         const name = type.name;
         if (!namedTypes.has(name)) {
-          throw error(type, `No definition for type ${ name }.`);
+          throw error(type, `No definition for type ${name}.`);
         }
         break;
       default:
@@ -119,13 +120,14 @@ function validateDefinitions(definitions) {
   }
 
   function findRecursiveAliases() {
-    for (const definition of definitions.values()) {
+    Object.keys(definitions).forEach(name => {
+      const definition = definitions[name];
       switch (definition.kind) {
         case 'alias':
           checkAliasLayout(definition);
           break;
       }
-    }
+    });
   }
 
   function checkAliasLayout(alias) {
@@ -189,7 +191,7 @@ function validateDefinitions(definitions) {
         // $FlowFixMe(peterhal)
         const definition = namedTypes.get(name);
         if (containingDefinitions.indexOf(definition) !== -1) {
-          throw errorDefinitions(containingDefinitions.slice(containingDefinitions.indexOf(definition)), `Type ${ name } contains itself.`);
+          throw errorDefinitions(containingDefinitions.slice(containingDefinitions.indexOf(definition)), `Type ${name} contains itself.`);
         } else if (definition.kind === 'alias' && definition.definition != null) {
           containingDefinitions.push(definition);
 
@@ -207,7 +209,8 @@ function validateDefinitions(definitions) {
   }
 
   function validateReturnTypes() {
-    for (const definition of definitions.values()) {
+    Object.keys(definitions).forEach(defName => {
+      const definition = definitions[defName];
       switch (definition.kind) {
         case 'function':
           validateType(definition.type);
@@ -221,11 +224,15 @@ function validateDefinitions(definitions) {
           if (definition.constructorArgs != null) {
             definition.constructorArgs.forEach(parameter => validateType(parameter.type));
           }
-          definition.instanceMethods.forEach(validateType);
-          definition.staticMethods.forEach(validateType);
+          Object.keys(definition.instanceMethods).forEach(methodName => {
+            validateType(definition.instanceMethods[methodName]);
+          });
+          Object.keys(definition.staticMethods).forEach(methodName => {
+            validateType(definition.staticMethods[methodName]);
+          });
           break;
       }
-    }
+    });
   }
 
   // Validates a type which must be a return type.
@@ -292,7 +299,7 @@ function validateDefinitions(definitions) {
           throw new Error('Invariant violation: "otherLocation != null"');
         }
 
-        throw errorLocations([intersectionType.location, field.location, otherLocation], `Duplicate field name '${ field.name }' in intersection types are not supported.`);
+        throw errorLocations([intersectionType.location, field.location, otherLocation], `Duplicate field name '${field.name}' in intersection types are not supported.`);
       }
       fieldNameToLocation.set(field.name, field.location);
     }
@@ -615,7 +622,8 @@ function validateDefinitions(definitions) {
   }
 
   function visitAllTypes(operation) {
-    for (const definition of definitions.values()) {
+    Object.keys(definitions).forEach(name => {
+      const definition = definitions[name];
       switch (definition.kind) {
         case 'function':
           operation(definition.type);
@@ -629,11 +637,15 @@ function validateDefinitions(definitions) {
           if (definition.constructorArgs != null) {
             definition.constructorArgs.forEach(parameter => operation(parameter.type));
           }
-          definition.instanceMethods.forEach(operation);
-          definition.staticMethods.forEach(operation);
+          Object.keys(definition.instanceMethods).forEach(methodName => {
+            operation(definition.instanceMethods[methodName]);
+          });
+          Object.keys(definition.staticMethods).forEach(methodName => {
+            operation(definition.staticMethods[methodName]);
+          });
           break;
       }
-    }
+    });
   }
 
   function error(type, message) {
@@ -641,14 +653,14 @@ function validateDefinitions(definitions) {
   }
 
   function errorLocations(locations, message) {
-    let fullMessage = `${ (0, (_location || _load_location()).locationToString)(locations[0]) }:${ message }`;
-    fullMessage = fullMessage.concat(...locations.slice(1).map(location => `\n${ (0, (_location || _load_location()).locationToString)(location) }: Related location`));
+    let fullMessage = `${(0, (_location || _load_location()).locationToString)(locations[0])}:${message}`;
+    fullMessage = fullMessage.concat(...locations.slice(1).map(location => `\n${(0, (_location || _load_location()).locationToString)(location)}: Related location`));
     return new Error(fullMessage);
   }
 
   function errorDefinitions(defs, message) {
-    let fullMessage = `${ (0, (_location || _load_location()).locationToString)(defs[0].location) }:${ message }`;
-    fullMessage = fullMessage.concat(...defs.slice(1).map(definition => `\n${ (0, (_location || _load_location()).locationToString)(definition.location) }: Related definition ${ definition.name }`));
+    let fullMessage = `${(0, (_location || _load_location()).locationToString)(defs[0].location)}:${message}`;
+    fullMessage = fullMessage.concat(...defs.slice(1).map(definition => `\n${(0, (_location || _load_location()).locationToString)(definition.location)}: Related definition ${definition.name}`));
     return new Error(fullMessage);
   }
 }

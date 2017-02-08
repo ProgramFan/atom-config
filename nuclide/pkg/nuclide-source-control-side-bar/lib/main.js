@@ -333,7 +333,7 @@ function accumulateState(state, action) {
       });
   }
 
-  throw new Error(`Unrecognized action type: ${ action.type }`);
+  throw new Error(`Unrecognized action type: ${action.type}`);
 }
 
 function deactivate() {

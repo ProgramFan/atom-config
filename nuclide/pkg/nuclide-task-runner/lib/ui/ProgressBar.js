@@ -61,7 +61,7 @@ class Bar extends _reactForAtom.React.Component {
     const pct = Math.max(0, Math.min(100, this.props.progress * 100));
     return _reactForAtom.React.createElement('div', {
       className: 'nuclide-task-runner-progress-bar-bar',
-      style: { width: `${ pct }%` }
+      style: { width: `${pct}%` }
     });
   }
 }

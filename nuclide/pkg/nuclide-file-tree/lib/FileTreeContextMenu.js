@@ -274,7 +274,7 @@ class FileTreeContextMenu {
    */
   addItemToTestSection(originalItem, priority) {
     if (priority < 0 || priority >= 1000) {
-      throw Error(`Illegal priority value: ${ priority }`);
+      throw Error(`Illegal priority value: ${priority}`);
     }
 
     return this._addItemToMenu(originalItem, this._contextMenu, TEST_SECTION_PRIORITY + priority);
@@ -344,6 +344,6 @@ let nextInternalCommandId = 0;
 
 function generateNextInternalCommand(itemLabel) {
   const cmdName = itemLabel.toLowerCase().replace(/[^\w]+/g, '-') + '-' + nextInternalCommandId++;
-  return `nuclide-file-tree:${ cmdName }`;
+  return `nuclide-file-tree:${cmdName}`;
 }
 module.exports = exports['default'];

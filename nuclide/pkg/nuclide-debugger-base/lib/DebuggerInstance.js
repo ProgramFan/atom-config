@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DebuggerInstance = undefined;
 
+var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+
 var _atom = require('atom');
 
 var _UniversalDisposable;
@@ -93,7 +95,7 @@ class DebuggerInstance extends DebuggerInstanceBase {
       this._disposables.add(subscriptions);
     }
     this._disposables.add(rpcService);
-    this._logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)(`nuclide-debugger-${ this.getProviderName() }`);
+    this._logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)(`nuclide-debugger-${this.getProviderName()}`);
     this._chromeWebSocketServer = new (_WebSocketServer || _load_WebSocketServer()).WebSocketServer();
     this._chromeWebSocket = null;
     this._emitter = new _atom.Emitter();
@@ -123,9 +125,9 @@ class DebuggerInstance extends DebuggerInstanceBase {
   }
 
   _handleWebSocketServerError(error) {
-    let errorMessage = `Server error: ${ JSON.stringify(error) }`;
+    let errorMessage = `Server error: ${JSON.stringify(error)}`;
     if (error.code === 'EADDRINUSE') {
-      errorMessage = `The debug port ${ error.port } is in use.
+      errorMessage = `The debug port ${error.port} is in use.
       Please choose a different port in the debugger config settings.`;
     }
     atom.notifications.addError(errorMessage);
@@ -171,9 +173,10 @@ class DebuggerInstance extends DebuggerInstanceBase {
   _handleServerMessage(message_) {
     let message = message_;
     this.getLogger().log('Recieved server message: ' + message);
+    const processedMessage = this.preProcessServerMessage(message);
     const webSocket = this._chromeWebSocket;
     if (webSocket) {
-      message = this._translateMessageIfNeeded(message);
+      message = this._translateMessageIfNeeded(processedMessage);
       webSocket.send(message);
     } else {
       this.getLogger().logError('Why isn\'t chrome websocket available?');
@@ -191,8 +194,23 @@ class DebuggerInstance extends DebuggerInstanceBase {
   }
 
   _handleChromeSocketMessage(message) {
-    this.getLogger().log('Recieved Chrome message: ' + message);
-    this._rpcService.sendCommand((0, (_ChromeMessageRemoting || _load_ChromeMessageRemoting()).translateMessageToServer)(message));
+    var _this = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      _this.getLogger().log('Recieved Chrome message: ' + message);
+      const processedMessage = yield _this.preProcessClientMessage(message);
+      _this._rpcService.sendCommand((0, (_ChromeMessageRemoting || _load_ChromeMessageRemoting()).translateMessageToServer)(processedMessage));
+    })();
+  }
+
+  // Preprocessing hook for client messsages before sending to server.
+  preProcessClientMessage(message) {
+    return Promise.resolve(message);
+  }
+
+  // Preprocessing hook for server messages before sending to client UI.
+  preProcessServerMessage(message) {
+    return message;
   }
 
   _handleChromeSocketError(error) {
@@ -201,7 +219,7 @@ class DebuggerInstance extends DebuggerInstanceBase {
   }
 
   _handleChromeSocketClose(code) {
-    this.getLogger().log(`Chrome webSocket closed: ${ code }`);
+    this.getLogger().log(`Chrome webSocket closed: ${code}`);
     this.dispose();
   }
 

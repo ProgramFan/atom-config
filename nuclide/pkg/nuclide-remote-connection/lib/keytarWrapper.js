@@ -46,8 +46,8 @@ exports.default = {
   getPassword(service, account) {
     const script = `
       var keytar = require('keytar');
-      var service = ${ JSON.stringify(service) };
-      var account = ${ JSON.stringify(account) };
+      var service = ${JSON.stringify(service)};
+      var account = ${JSON.stringify(account)};
       var password = keytar.getPassword(service, account);
       console.log(JSON.stringify(password));
     `;
@@ -57,9 +57,9 @@ exports.default = {
   replacePassword(service, account, password) {
     const script = `
       var keytar = require('keytar');
-      var service = ${ JSON.stringify(service) };
-      var account = ${ JSON.stringify(account) };
-      var password = ${ JSON.stringify(password) };
+      var service = ${JSON.stringify(service)};
+      var account = ${JSON.stringify(account)};
+      var password = ${JSON.stringify(password)};
       var result = keytar.replacePassword(service, account, password);
       console.log(JSON.stringify(result));
     `;

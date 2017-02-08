@@ -93,7 +93,7 @@ class ClangLinter {
         });
         return ClangLinter._processDiagnostics(diagnostics, textEditor);
       } catch (error) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`ClangLinter: error linting ${ filePath }`, error);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`ClangLinter: error linting ${filePath}`, error);
         return [];
       }
     })();

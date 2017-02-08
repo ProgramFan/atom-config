@@ -125,21 +125,26 @@ class FileTreeEntryComponent extends _reactForAtom.React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.node.isLoading) {
-      const spinnerDelay = nextProps.node.wasFetched ? SUBSEQUENT_FETCH_SPINNER_DELAY : INITIAL_FETCH_SPINNER_DELAY;
-
-      this._loadingTimeout = setTimeout(() => {
+    if (nextProps.node.isLoading !== this.props.node.isLoading) {
+      if (this._loadingTimeout != null) {
+        clearTimeout(this._loadingTimeout);
         this._loadingTimeout = null;
+      }
+
+      if (nextProps.node.isLoading) {
+        const spinnerDelay = nextProps.node.wasFetched ? SUBSEQUENT_FETCH_SPINNER_DELAY : INITIAL_FETCH_SPINNER_DELAY;
+
+        this._loadingTimeout = setTimeout(() => {
+          this._loadingTimeout = null;
+          this.setState({
+            isLoading: Boolean(this.props.node.isLoading)
+          });
+        }, spinnerDelay);
+      } else {
         this.setState({
-          isLoading: Boolean(this.props.node.isLoading)
+          isLoading: false
         });
-      }, spinnerDelay);
-    } else {
-      clearTimeout(this._loadingTimeout);
-      this._loadingTimeout = null;
-      this.setState({
-        isLoading: false
-      });
+      }
     }
   }
 
@@ -222,7 +227,7 @@ class FileTreeEntryComponent extends _reactForAtom.React.Component {
     return _reactForAtom.React.createElement(
       'li',
       {
-        className: `${ outerClassName } ${ statusClass }`,
+        className: `${outerClassName} ${statusClass}`,
         style: { paddingLeft: this.props.node.getDepth() * INDENT_LEVEL },
         draggable: true,
         onMouseDown: this._onMouseDown,
@@ -236,7 +241,7 @@ class FileTreeEntryComponent extends _reactForAtom.React.Component {
         _reactForAtom.React.createElement(
           'span',
           {
-            className: `icon name ${ iconName }`,
+            className: `icon name ${iconName}`,
             ref: elem => {
               this._pathContainer = elem;
               tooltip && tooltip(elem);
@@ -407,6 +412,11 @@ class FileTreeEntryComponent extends _reactForAtom.React.Component {
 
     const fileIcon = target.cloneNode(false);
     fileIcon.style.cssText = 'position: absolute; top: 0; left: 0; color: #fff; opacity: .8;';
+
+    if (!(document.body != null)) {
+      throw new Error('Invariant violation: "document.body != null"');
+    }
+
     document.body.appendChild(fileIcon);
 
     const { dataTransfer } = event;
@@ -416,6 +426,10 @@ class FileTreeEntryComponent extends _reactForAtom.React.Component {
       dataTransfer.setData('initialPath', this.props.node.uri);
     }
     (_observable || _load_observable()).nextAnimationFrame.subscribe(() => {
+      if (!(document.body != null)) {
+        throw new Error('Invariant violation: "document.body != null"');
+      }
+
       document.body.removeChild(fileIcon);
     });
   }

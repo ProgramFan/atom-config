@@ -4,10 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createPaneContainer;
+var _ResizableFlexContainer;
 
-function _load_createPaneContainer() {
-  return _createPaneContainer = _interopRequireDefault(require('../../../commons-atom/create-pane-container'));
+function _load_ResizableFlexContainer() {
+  return _ResizableFlexContainer = require('../../../nuclide-ui/ResizableFlexContainer');
 }
 
 var _constants;
@@ -44,16 +44,6 @@ function _load_notifications() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
 
   constructor(props) {
@@ -62,43 +52,29 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
   }
 
   componentDidMount() {
-    this._paneContainer = (0, (_createPaneContainer || _load_createPaneContainer()).default)();
-    _reactForAtom.ReactDOM.findDOMNode(this.refs.paneContainer).appendChild(atom.views.getView(this._paneContainer));
-    this._navigatorPane = this._paneContainer.getActivePane();
-    this._fileChangesPane = this._navigatorPane.splitRight({
-      flexScale: 0.5
-    });
-    this._renderPaneElements();
-
     this.props.tryTriggerNux();
   }
 
-  componentDidUpdate() {
-    this._renderPaneElements();
-  }
-
   render() {
-    return _reactForAtom.React.createElement('div', { className: 'nuclide-diff-view-navigator-root', ref: 'paneContainer' });
-  }
-
-  _renderPaneElements() {
-    _reactForAtom.ReactDOM.render(this._renderNavigator(), this._getPaneElement(this._navigatorPane));
-    _reactForAtom.ReactDOM.render(this._renderFileChanges(), this._getPaneElement(this._fileChangesPane));
-  }
-
-  componentWillUnmount() {
-    const panes = [this._navigatorPane, this._fileChangesPane];
-    panes.forEach(pane => {
-      _reactForAtom.ReactDOM.unmountComponentAtNode(_reactForAtom.ReactDOM.findDOMNode(this._getPaneElement(pane)));
-      pane.destroy();
-    });
-  }
-
-  _renderNavigator() {
     return _reactForAtom.React.createElement(
-      'div',
-      { className: 'nuclide-diff-view-navigator-timeline-container' },
-      this._renderNavigationState()
+      (_ResizableFlexContainer || _load_ResizableFlexContainer()).ResizableFlexContainer,
+      {
+        className: 'nuclide-diff-view-navigator-root',
+        direction: (_ResizableFlexContainer || _load_ResizableFlexContainer()).FlexDirections.HORIZONTAL },
+      _reactForAtom.React.createElement(
+        (_ResizableFlexContainer || _load_ResizableFlexContainer()).ResizableFlexItem,
+        { initialFlexScale: 1 },
+        _reactForAtom.React.createElement(
+          'div',
+          { className: 'nuclide-diff-view-navigator-timeline-container' },
+          this._renderNavigationState()
+        )
+      ),
+      _reactForAtom.React.createElement(
+        (_ResizableFlexContainer || _load_ResizableFlexContainer()).ResizableFlexItem,
+        { initialFlexScale: 0.5 },
+        this._renderFileChanges()
+      )
     );
   }
 
@@ -131,7 +107,7 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
           'Changed Sections: '
         ),
         _reactForAtom.React.createElement((_SectionDirectionNavigator || _load_SectionDirectionNavigator()).default, {
-          commandTarget: `.${ (_constants || _load_constants()).DIFF_EDITOR_MARKER_CLASS }`,
+          commandTarget: `.${(_constants || _load_constants()).DIFF_EDITOR_MARKER_CLASS}`,
           filePath: filePath,
           navigationSections: navigationSections,
           selectedNavigationSectionIndex: activeSectionIndex,
@@ -143,15 +119,13 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
     return _reactForAtom.React.createElement(
       'div',
       { className: 'nuclide-diff-view-navigator-file-changes-container' },
-      sectionNavigator,
-      _reactForAtom.React.createElement('div', { className: 'nuclide-diff-view-navigator-horizontal-selector' }),
+      _reactForAtom.React.createElement(
+        'div',
+        null,
+        sectionNavigator
+      ),
       (0, (_DiffViewComponent || _load_DiffViewComponent()).renderFileChanges)(this.props.diffModel)
     );
-  }
-
-  _getPaneElement(pane) {
-    // $FlowFixMe querySelector returns ?HTMLElement
-    return atom.views.getView(pane).querySelector('.item-views');
   }
 
   _handleNavigateToSection(status, lineNumber) {
@@ -175,7 +149,7 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
       case (_constants || _load_constants()).DiffMode.PUBLISH_MODE:
         return this._renderPublishView();
       default:
-        throw new Error(`Invalid Diff Mode: ${ viewMode }`);
+        throw new Error(`Invalid Diff Mode: ${viewMode}`);
     }
   }
 
@@ -189,6 +163,11 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
       const dismissHandler = () => {
         actionCreators.setViewMode((_constants || _load_constants()).DiffMode.BROWSE_MODE);
       };
+
+      if (!(document.body != null)) {
+        throw new Error('Invariant violation: "document.body != null"');
+      }
+
       const modalMaxHeight = document.body.clientHeight - 100;
       return _reactForAtom.React.createElement(
         'div',
@@ -209,5 +188,14 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
     }
   }
 }
-exports.default = DiffViewNavigatorComponent;
+exports.default = DiffViewNavigatorComponent; /**
+                                               * Copyright (c) 2015-present, Facebook, Inc.
+                                               * All rights reserved.
+                                               *
+                                               * This source code is licensed under the license found in the LICENSE file in
+                                               * the root directory of this source tree.
+                                               *
+                                               * 
+                                               */
+
 module.exports = exports['default'];

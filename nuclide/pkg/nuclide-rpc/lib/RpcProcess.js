@@ -107,17 +107,17 @@ class RpcProcess {
     }
     try {
       const proc = this._createProcess();
-      logger.info(`${ this._name } - created child process with PID: `, proc.pid);
+      logger.info(`${this._name} - created child process with PID: `, proc.pid);
 
       proc.stdin.on('error', error => {
-        logger.error(`${ this._name } - error writing data: `, error);
+        logger.error(`${this._name} - error writing data: `, error);
       });
 
       this._rpcConnection = new (_RpcConnection || _load_RpcConnection()).RpcConnection('client', this._serviceRegistry, new (_StreamTransport || _load_StreamTransport()).StreamTransport(proc.stdin, proc.stdout, this._messageLogger));
       this._subscription = (0, (_process || _load_process()).getOutputStream)(proc).subscribe(this._onProcessMessage.bind(this));
       this._process = proc;
     } catch (e) {
-      logger.error(`${ this._name } - error spawning child process: `, e);
+      logger.error(`${this._name} - error spawning child process: `, e);
       throw e;
     }
   }
@@ -131,25 +131,25 @@ class RpcProcess {
       case 'stdout':
         break;
       case 'stderr':
-        logger.warn(`${ this._name } - error from stderr received: `, message.data.toString());
+        logger.warn(`${this._name} - error from stderr received: `, message.data.toString());
         break;
       case 'exit':
         // Log exit code if process exited not as a result of being disposed.
         if (!this._disposed) {
-          logger.error(`${ this._name } - exited before dispose: `, message.exitCode);
+          logger.error(`${this._name} - exited before dispose: `, message.exitCode);
         }
         this.dispose();
         this._exitCode.next(message);
         this._exitCode.complete();
         break;
       case 'error':
-        logger.error(`${ this._name } - error received: `, message.error.message);
+        logger.error(`${this._name} - error received: `, message.error.message);
         this.dispose();
         break;
       default:
         // This case should never be reached.
         if (!false) {
-          throw new Error(`${ this._name } - unknown message received: ${ message }`);
+          throw new Error(`${this._name} - unknown message received: ${message}`);
         }
 
     }
@@ -160,7 +160,7 @@ class RpcProcess {
    * and killing the child process if necessary.
    */
   dispose() {
-    logger.info(`${ this._name } - disposing connection.`);
+    logger.info(`${this._name} - disposing connection.`);
     this._disposed = true;
 
     if (this._subscription != null) {

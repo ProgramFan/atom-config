@@ -90,7 +90,7 @@ class FileSystemActions {
         const newDirectory = directory.getSubdirectory(basename);
         const created = yield newDirectory.create();
         if (!created) {
-          atom.notifications.addError(`'${ basename }' already exists.`);
+          atom.notifications.addError(`'${basename}' already exists.`);
           onDidConfirm(null);
         } else {
           onDidConfirm(newDirectory.getPath());
@@ -158,11 +158,11 @@ class FileSystemActions {
             try {
               yield hgRepository.addAll([newFilePath]);
             } catch (e) {
-              atom.notifications.addError(`Failed to add '${ newFilePath }' to version control. Error: ${ e.toString() }`);
+              atom.notifications.addError(`Failed to add '${newFilePath}' to version control. Error: ${e.toString()}`);
             }
           }
         } else {
-          atom.notifications.addError(`'${ pathToCreate }' already exists.`);
+          atom.notifications.addError(`'${pathToCreate}' already exists.`);
           onDidConfirm(null);
         }
       });
@@ -210,7 +210,7 @@ class FileSystemActions {
       const service = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getFileSystemServiceByNuclideUri)(newPath);
       const exists = !(yield service.copy(nodePath, (_nuclideUri || _load_nuclideUri()).default.getPath(newPath)));
       if (exists) {
-        atom.notifications.addError(`'${ newPath }' already exists.`);
+        atom.notifications.addError(`'${newPath}' already exists.`);
         onDidConfirm(null);
         return;
       }
@@ -256,7 +256,7 @@ class FileSystemActions {
       ),
       onConfirm: (newBasename, options) => {
         this._onConfirmRename(node, nodePath, newBasename).catch(error => {
-          atom.notifications.addError(`Rename to ${ newBasename } failed: ${ error.message }`);
+          atom.notifications.addError(`Rename to ${newBasename} failed: ${error.message}`);
         });
       },
       onClose: this._closeDialog,
@@ -297,7 +297,7 @@ class FileSystemActions {
           return;
         }
         this._onConfirmDuplicate(file, nodePath, newBasename.trim(), Boolean(options.addToVCS), onDidConfirm).catch(error => {
-          atom.notifications.addError(`Failed to duplicate '${ file.getPath() }'`);
+          atom.notifications.addError(`Failed to duplicate '${file.getPath()}'`);
         });
       },
       onClose: this._closeDialog,

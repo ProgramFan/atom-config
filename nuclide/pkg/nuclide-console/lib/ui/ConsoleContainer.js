@@ -106,7 +106,7 @@ class ConsoleContainer extends _reactForAtom.React.Component {
     if (this.state.sources.length - this.state.unselectedSourceIds.length === 1) {
       const selectedSource = this.state.sources.find(source => this.state.unselectedSourceIds.indexOf(source.id) === -1);
       if (selectedSource) {
-        return `Console: ${ selectedSource.name }`;
+        return `Console: ${selectedSource.name}`;
       }
     }
     return 'Console';

@@ -66,7 +66,7 @@ function createRemoteUri(hostname, remotePath) {
     throw new Error('NuclideUri must include a path.');
   }
 
-  return `nuclide://${ hostname }${ remotePath }`;
+  return `nuclide://${hostname}${remotePath}`;
 }
 
 /**
@@ -84,13 +84,13 @@ function parse(uri) {
     const hostSep = hostAndPath.indexOf('/');
 
     if (!(hostSep !== -1)) {
-      throw new Error(`Remote URIs must contain a hostname and a path. Failed to parse ${ uri }`);
+      throw new Error(`Remote URIs must contain a hostname and a path. Failed to parse ${uri}`);
     }
 
     const hostname = hostAndPath.substr(0, hostSep);
 
     if (!(hostname !== '')) {
-      throw new Error(`Remote URIs must contain a hostname. Failed to parse ${ uri }`);
+      throw new Error(`Remote URIs must contain a hostname. Failed to parse ${uri}`);
     }
 
     const path = hostAndPath.substr(hostSep);
@@ -111,7 +111,7 @@ function parseRemoteUri(remoteUri) {
   const parsedUri = parse(remoteUri);
 
   if (!parsedUri.hostname) {
-    throw new Error(`Remote Nuclide URIs must contain hostnames, '${ (0, (_string || _load_string()).maybeToString)(parsedUri.hostname) }' found ` + `while parsing '${ remoteUri }'`);
+    throw new Error(`Remote Nuclide URIs must contain hostnames, '${(0, (_string || _load_string()).maybeToString)(parsedUri.hostname)}' found ` + `while parsing '${remoteUri}'`);
   }
 
   // Explicitly copying object properties appeases Flow's "maybe" type handling. Using the `...`
@@ -178,7 +178,7 @@ function relative(uri, other) {
   const uriPathModule = _pathModuleFor(uri);
   const remote = isRemote(uri);
   if (remote !== isRemote(other) || remote && getHostname(uri) !== getHostname(other)) {
-    throw new Error(`Cannot relative urls on different hosts: ${ uri } and ${ other }`);
+    throw new Error(`Cannot relative urls on different hosts: ${uri} and ${other}`);
   }
   if (remote) {
     return uriPathModule.relative(getPath(uri), getPath(other));
@@ -337,7 +337,7 @@ function nuclideUriToDisplayString(uri) {
         break;
       }
     }
-    return `${ hostname }:${ getPath(uri) }`;
+    return `${hostname}:${getPath(uri)}`;
   } else {
     return uri;
   }
@@ -472,7 +472,7 @@ function ensureLocalPrefix(uri) {
     throw new Error('Local prefix can not be added to an absolute path');
   }
 
-  const localPrefix = `.${ uriPathModule.sep }`;
+  const localPrefix = `.${uriPathModule.sep}`;
   if (uri.startsWith(localPrefix)) {
     return uri;
   }
@@ -539,7 +539,7 @@ function _escapeSpecialCharacters(uri) {
 
 function _testForAtomUri(uri) {
   if (uri != null && isAtomUri(uri)) {
-    throw new Error(`Path operation invoked on Atom URI ${ uri }`);
+    throw new Error(`Path operation invoked on Atom URI ${uri}`);
   }
 }
 
@@ -554,7 +554,7 @@ function validate(uri, mustBeRemote) {
   }
 
   if (!(typeof uri === 'string')) {
-    throw new Error(`Unexpected NuclideUri type: ${ String(uri) }`);
+    throw new Error(`Unexpected NuclideUri type: ${String(uri)}`);
   }
 
   if (isRemote(uri)) {

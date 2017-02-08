@@ -88,7 +88,7 @@ class FlowProcess {
     this._root = root;
 
     this._serverStatus.subscribe(status => {
-      logger.info(`[${ status }]: Flow server in ${ this._root }`);
+      logger.info(`[${status}]: Flow server in ${this._root}`);
     });
 
     this._serverStatus.filter(x => x === (_FlowConstants || _load_FlowConstants()).ServerStatus.NOT_RUNNING).subscribe(() => {
@@ -160,7 +160,7 @@ class FlowProcess {
             // don't want to log because it just means the server is busy and we don't want to wait.
             if (!couldRetry && !suppressErrors) {
               // not sure what happened, but we'll let the caller deal with it
-              logger.error(`Flow failed: flow ${ args.join(' ') }. Error: ${ JSON.stringify(e) }`);
+              logger.error(`Flow failed: flow ${args.join(' ')}. Error: ${JSON.stringify(e)}`);
             }
             throw e;
           }
@@ -179,7 +179,7 @@ class FlowProcess {
       if (flowExecInfo == null) {
         // This should not happen in normal use. If Flow is not installed we should have caught it by
         // now.
-        logger.error(`Could not find Flow to start server in ${ _this2._root }`);
+        logger.error(`Could not find Flow to start server in ${_this2._root}`);
         _this2._setServerStatus((_FlowConstants || _load_FlowConstants()).ServerStatus.NOT_INSTALLED);
         return;
       }
@@ -191,7 +191,7 @@ class FlowProcess {
       const serverProcess = yield (0, (_nice || _load_nice()).niceSafeSpawn)(flowExecInfo.pathToFlow, ['server', '--from', 'nuclide', '--max-workers', _this2._getMaxWorkers().toString(), _this2._root], flowExecInfo.execOptions);
       const logIt = function (data) {
         const pid = serverProcess.pid;
-        logger.debug(`flow server (${ pid }): ${ data }`);
+        logger.debug(`flow server (${pid}): ${data}`);
       };
       serverProcess.stdout.on('data', logIt);
       serverProcess.stderr.on('data', logIt);
@@ -265,7 +265,7 @@ class FlowProcess {
           // server. So, don't update.
           return;
         default:
-          logger.error(`Unknown return code from Flow: ${ String(result.exitCode) }`);
+          logger.error(`Unknown return code from Flow: ${String(result.exitCode)}`);
           status = (_FlowConstants || _load_FlowConstants()).ServerStatus.UNKNOWN;
       }
     }

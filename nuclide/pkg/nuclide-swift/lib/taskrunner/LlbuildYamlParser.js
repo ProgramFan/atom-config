@@ -100,7 +100,7 @@ function _load_fsPromise() {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function llbuildYamlPath(chdir, configuration, buildPath) {
-  const yamlFileName = `${ configuration }.yaml`;
+  const yamlFileName = `${configuration}.yaml`;
   if (buildPath.length > 0) {
     return (_nuclideUri || _load_nuclideUri()).default.join(buildPath, yamlFileName);
   } else {

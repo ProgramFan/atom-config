@@ -170,619 +170,639 @@ Object.defineProperty(module.exports, "inject", {
   }
 });
 Object.defineProperty(module.exports, "defs", {
-  value: new Map([["Object", {
-    kind: "alias",
-    name: "Object",
-    location: {
-      type: "builtin"
-    }
-  }], ["Date", {
-    kind: "alias",
-    name: "Date",
-    location: {
-      type: "builtin"
-    }
-  }], ["RegExp", {
-    kind: "alias",
-    name: "RegExp",
-    location: {
-      type: "builtin"
-    }
-  }], ["Buffer", {
-    kind: "alias",
-    name: "Buffer",
-    location: {
-      type: "builtin"
-    }
-  }], ["fs.Stats", {
-    kind: "alias",
-    name: "fs.Stats",
-    location: {
-      type: "builtin"
-    }
-  }], ["NuclideUri", {
-    kind: "alias",
-    name: "NuclideUri",
-    location: {
-      type: "builtin"
-    }
-  }], ["atom$Point", {
-    kind: "alias",
-    name: "atom$Point",
-    location: {
-      type: "builtin"
-    }
-  }], ["atom$Range", {
-    kind: "alias",
-    name: "atom$Range",
-    location: {
-      type: "builtin"
-    }
-  }], ["PhpDebuggerSessionConfig", {
-    kind: "alias",
-    location: {
-      type: "source",
-      fileName: "PhpDebuggerService.js",
-      line: 21
+  value: {
+    Object: {
+      kind: "alias",
+      name: "Object",
+      location: {
+        type: "builtin"
+      }
     },
-    name: "PhpDebuggerSessionConfig",
-    definition: {
+    Date: {
+      kind: "alias",
+      name: "Date",
+      location: {
+        type: "builtin"
+      }
+    },
+    RegExp: {
+      kind: "alias",
+      name: "RegExp",
+      location: {
+        type: "builtin"
+      }
+    },
+    Buffer: {
+      kind: "alias",
+      name: "Buffer",
+      location: {
+        type: "builtin"
+      }
+    },
+    "fs.Stats": {
+      kind: "alias",
+      name: "fs.Stats",
+      location: {
+        type: "builtin"
+      }
+    },
+    NuclideUri: {
+      kind: "alias",
+      name: "NuclideUri",
+      location: {
+        type: "builtin"
+      }
+    },
+    atom$Point: {
+      kind: "alias",
+      name: "atom$Point",
+      location: {
+        type: "builtin"
+      }
+    },
+    atom$Range: {
+      kind: "alias",
+      name: "atom$Range",
+      location: {
+        type: "builtin"
+      }
+    },
+    PhpDebuggerSessionConfig: {
+      kind: "alias",
       location: {
         type: "source",
         fileName: "PhpDebuggerService.js",
         line: 21
       },
-      kind: "object",
-      fields: [{
+      name: "PhpDebuggerSessionConfig",
+      definition: {
         location: {
           type: "source",
           fileName: "PhpDebuggerService.js",
-          line: 22
+          line: 21
         },
-        name: "xdebugAttachPort",
-        type: {
+        kind: "object",
+        fields: [{
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 22
           },
-          kind: "number"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 23
-        },
-        name: "xdebugLaunchingPort",
-        type: {
+          name: "xdebugAttachPort",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 22
+            },
+            kind: "number"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 23
           },
-          kind: "number"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 24
-        },
-        name: "launchScriptPath",
-        type: {
+          name: "xdebugLaunchingPort",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 23
+            },
+            kind: "number"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 24
           },
-          kind: "string"
-        },
-        optional: true
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 25
-        },
-        name: "pid",
-        type: {
+          name: "launchScriptPath",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 24
+            },
+            kind: "string"
+          },
+          optional: true
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 25
           },
-          kind: "number"
-        },
-        optional: true
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 26
-        },
-        name: "attachScriptRegex",
-        type: {
+          name: "pid",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 25
+            },
+            kind: "number"
+          },
+          optional: true
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 26
           },
-          kind: "string"
-        },
-        optional: true
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 27
-        },
-        name: "idekeyRegex",
-        type: {
+          name: "attachScriptRegex",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 26
+            },
+            kind: "string"
+          },
+          optional: true
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 27
           },
-          kind: "string"
-        },
-        optional: true
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 28
-        },
-        name: "endDebugWhenNoRequests",
-        type: {
+          name: "idekeyRegex",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 27
+            },
+            kind: "string"
+          },
+          optional: true
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 28
           },
-          kind: "boolean"
-        },
-        optional: true
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 29
-        },
-        name: "logLevel",
-        type: {
+          name: "endDebugWhenNoRequests",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 28
+            },
+            kind: "boolean"
+          },
+          optional: true
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 29
           },
-          kind: "named",
-          name: "LogLevel"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 30
-        },
-        name: "targetUri",
-        type: {
+          name: "logLevel",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 29
+            },
+            kind: "named",
+            name: "LogLevel"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 30
           },
-          kind: "string"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 31
-        },
-        name: "phpRuntimePath",
-        type: {
+          name: "targetUri",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 30
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 31
           },
-          kind: "string"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 32
-        },
-        name: "phpRuntimeArgs",
-        type: {
+          name: "phpRuntimePath",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 31
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 32
           },
-          kind: "string"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 33
-        },
-        name: "dummyRequestFilePath",
-        type: {
+          name: "phpRuntimeArgs",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 32
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 33
           },
-          kind: "string"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 34
-        },
-        name: "stopOneStopAll",
-        type: {
+          name: "dummyRequestFilePath",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 33
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 34
           },
-          kind: "boolean"
-        },
-        optional: false
-      }]
-    }
-  }], ["NotificationMessage", {
-    kind: "alias",
-    location: {
-      type: "source",
-      fileName: "PhpDebuggerService.js",
-      line: 37
+          name: "stopOneStopAll",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 34
+            },
+            kind: "boolean"
+          },
+          optional: false
+        }]
+      }
     },
-    name: "NotificationMessage",
-    definition: {
+    NotificationMessage: {
+      kind: "alias",
       location: {
         type: "source",
         fileName: "PhpDebuggerService.js",
         line: 37
       },
-      kind: "object",
-      fields: [{
+      name: "NotificationMessage",
+      definition: {
         location: {
           type: "source",
           fileName: "PhpDebuggerService.js",
-          line: 38
+          line: 37
         },
-        name: "type",
-        type: {
+        kind: "object",
+        fields: [{
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 38
           },
-          kind: "union",
-          types: [{
+          name: "type",
+          type: {
             location: {
               type: "source",
               fileName: "PhpDebuggerService.js",
               line: 38
             },
-            kind: "string-literal",
-            value: "info"
-          }, {
-            location: {
-              type: "source",
-              fileName: "PhpDebuggerService.js",
-              line: 38
-            },
-            kind: "string-literal",
-            value: "warning"
-          }, {
-            location: {
-              type: "source",
-              fileName: "PhpDebuggerService.js",
-              line: 38
-            },
-            kind: "string-literal",
-            value: "error"
-          }, {
-            location: {
-              type: "source",
-              fileName: "PhpDebuggerService.js",
-              line: 38
-            },
-            kind: "string-literal",
-            value: "fatalError"
-          }]
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 39
-        },
-        name: "message",
-        type: {
+            kind: "union",
+            types: [{
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 38
+              },
+              kind: "string-literal",
+              value: "info"
+            }, {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 38
+              },
+              kind: "string-literal",
+              value: "warning"
+            }, {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 38
+              },
+              kind: "string-literal",
+              value: "error"
+            }, {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 38
+              },
+              kind: "string-literal",
+              value: "fatalError"
+            }]
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 39
           },
-          kind: "string"
-        },
-        optional: false
-      }]
-    }
-  }], ["PhpDebuggerService", {
-    kind: "interface",
-    name: "PhpDebuggerService",
-    location: {
-      type: "source",
-      fileName: "PhpDebuggerService.js",
-      line: 70
+          name: "message",
+          type: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 39
+            },
+            kind: "string"
+          },
+          optional: false
+        }]
+      }
     },
-    constructorArgs: [],
-    staticMethods: new Map(),
-    instanceMethods: new Map([["getNotificationObservable", {
+    PhpDebuggerService: {
+      kind: "interface",
+      name: "PhpDebuggerService",
       location: {
         type: "source",
         fileName: "PhpDebuggerService.js",
-        line: 88
+        line: 70
       },
-      kind: "function",
-      argumentTypes: [],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 88
-        },
-        kind: "observable",
-        type: {
+      constructorArgs: [],
+      staticMethods: {},
+      instanceMethods: {
+        getNotificationObservable: {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 88
           },
-          kind: "named",
-          name: "NotificationMessage"
-        }
-      }
-    }], ["getServerMessageObservable", {
-      location: {
-        type: "source",
-        fileName: "PhpDebuggerService.js",
-        line: 92
-      },
-      kind: "function",
-      argumentTypes: [],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 92
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 88
+            },
+            kind: "observable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 88
+              },
+              kind: "named",
+              name: "NotificationMessage"
+            }
+          }
         },
-        kind: "observable",
-        type: {
+        getServerMessageObservable: {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 92
           },
-          kind: "string"
-        }
-      }
-    }], ["getOutputWindowObservable", {
-      location: {
-        type: "source",
-        fileName: "PhpDebuggerService.js",
-        line: 96
-      },
-      kind: "function",
-      argumentTypes: [],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 96
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 92
+            },
+            kind: "observable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 92
+              },
+              kind: "string"
+            }
+          }
         },
-        kind: "observable",
-        type: {
+        getOutputWindowObservable: {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 96
           },
-          kind: "string"
-        }
-      }
-    }], ["debug", {
-      location: {
-        type: "source",
-        fileName: "PhpDebuggerService.js",
-        line: 100
-      },
-      kind: "function",
-      argumentTypes: [{
-        name: "config",
-        type: {
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 96
+            },
+            kind: "observable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 96
+              },
+              kind: "string"
+            }
+          }
+        },
+        debug: {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 100
           },
-          kind: "named",
-          name: "PhpDebuggerSessionConfig"
-        }
-      }],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 100
+          kind: "function",
+          argumentTypes: [{
+            name: "config",
+            type: {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 100
+              },
+              kind: "named",
+              name: "PhpDebuggerSessionConfig"
+            }
+          }],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 100
+            },
+            kind: "promise",
+            type: {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 100
+              },
+              kind: "string"
+            }
+          }
         },
-        kind: "promise",
-        type: {
-          location: {
-            type: "source",
-            fileName: "PhpDebuggerService.js",
-            line: 100
-          },
-          kind: "string"
-        }
-      }
-    }], ["sendCommand", {
-      location: {
-        type: "source",
-        fileName: "PhpDebuggerService.js",
-        line: 123
-      },
-      kind: "function",
-      argumentTypes: [{
-        name: "message",
-        type: {
-          location: {
-            type: "source",
-            fileName: "PhpDebuggerService.js",
-            line: 123
-          },
-          kind: "string"
-        }
-      }],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 123
-        },
-        kind: "promise",
-        type: {
+        sendCommand: {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 123
           },
-          kind: "void"
-        }
-      }
-    }], ["dispose", {
-      location: {
-        type: "source",
-        fileName: "PhpDebuggerService.js",
-        line: 156
-      },
-      kind: "function",
-      argumentTypes: [],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "PhpDebuggerService.js",
-          line: 156
+          kind: "function",
+          argumentTypes: [{
+            name: "message",
+            type: {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 123
+              },
+              kind: "string"
+            }
+          }],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 123
+            },
+            kind: "promise",
+            type: {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 123
+              },
+              kind: "void"
+            }
+          }
         },
-        kind: "promise",
-        type: {
+        dispose: {
           location: {
             type: "source",
             fileName: "PhpDebuggerService.js",
             line: 156
           },
-          kind: "void"
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "PhpDebuggerService.js",
+              line: 156
+            },
+            kind: "promise",
+            type: {
+              location: {
+                type: "source",
+                fileName: "PhpDebuggerService.js",
+                line: 156
+              },
+              kind: "void"
+            }
+          }
         }
       }
-    }]])
-  }], ["LogLevel", {
-    kind: "alias",
-    location: {
-      type: "source",
-      fileName: "rpc-types.js",
-      line: 11
     },
-    name: "LogLevel",
-    definition: {
+    LogLevel: {
+      kind: "alias",
       location: {
         type: "source",
         fileName: "rpc-types.js",
-        line: 12
+        line: 11
       },
-      kind: "union",
-      types: [{
+      name: "LogLevel",
+      definition: {
         location: {
           type: "source",
           fileName: "rpc-types.js",
           line: 12
         },
-        kind: "string-literal",
-        value: "ALL"
-      }, {
-        location: {
-          type: "source",
-          fileName: "rpc-types.js",
-          line: 13
-        },
-        kind: "string-literal",
-        value: "TRACE"
-      }, {
-        location: {
-          type: "source",
-          fileName: "rpc-types.js",
-          line: 14
-        },
-        kind: "string-literal",
-        value: "DEBUG"
-      }, {
-        location: {
-          type: "source",
-          fileName: "rpc-types.js",
-          line: 15
-        },
-        kind: "string-literal",
-        value: "INFO"
-      }, {
-        location: {
-          type: "source",
-          fileName: "rpc-types.js",
-          line: 16
-        },
-        kind: "string-literal",
-        value: "WARN"
-      }, {
-        location: {
-          type: "source",
-          fileName: "rpc-types.js",
-          line: 17
-        },
-        kind: "string-literal",
-        value: "ERROR"
-      }, {
-        location: {
-          type: "source",
-          fileName: "rpc-types.js",
-          line: 18
-        },
-        kind: "string-literal",
-        value: "FATAL"
-      }, {
-        location: {
-          type: "source",
-          fileName: "rpc-types.js",
-          line: 19
-        },
-        kind: "string-literal",
-        value: "OFF"
-      }]
+        kind: "union",
+        types: [{
+          location: {
+            type: "source",
+            fileName: "rpc-types.js",
+            line: 12
+          },
+          kind: "string-literal",
+          value: "ALL"
+        }, {
+          location: {
+            type: "source",
+            fileName: "rpc-types.js",
+            line: 13
+          },
+          kind: "string-literal",
+          value: "TRACE"
+        }, {
+          location: {
+            type: "source",
+            fileName: "rpc-types.js",
+            line: 14
+          },
+          kind: "string-literal",
+          value: "DEBUG"
+        }, {
+          location: {
+            type: "source",
+            fileName: "rpc-types.js",
+            line: 15
+          },
+          kind: "string-literal",
+          value: "INFO"
+        }, {
+          location: {
+            type: "source",
+            fileName: "rpc-types.js",
+            line: 16
+          },
+          kind: "string-literal",
+          value: "WARN"
+        }, {
+          location: {
+            type: "source",
+            fileName: "rpc-types.js",
+            line: 17
+          },
+          kind: "string-literal",
+          value: "ERROR"
+        }, {
+          location: {
+            type: "source",
+            fileName: "rpc-types.js",
+            line: 18
+          },
+          kind: "string-literal",
+          value: "FATAL"
+        }, {
+          location: {
+            type: "source",
+            fileName: "rpc-types.js",
+            line: 19
+          },
+          kind: "string-literal",
+          value: "OFF"
+        }]
+      }
     }
-  }]])
+  }
 });

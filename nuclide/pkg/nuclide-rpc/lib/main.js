@@ -49,7 +49,7 @@ const proxiesCache = new Map();
 // Proxy dependencies
 function proxyFilename(definitionPath) {
   if (!(_nuclideUri || _load_nuclideUri()).default.isAbsolute(definitionPath)) {
-    throw new Error(`"${ definitionPath }" definition path must be absolute.`);
+    throw new Error(`"${definitionPath}" definition path must be absolute.`);
   }
 
   const dir = (_nuclideUri || _load_nuclideUri()).default.dirname(definitionPath);

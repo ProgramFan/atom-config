@@ -14,9 +14,9 @@ function _load_Dispatcher() {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const ActionTypes = exports.ActionTypes = Object.freeze({
+  UPDATE_PROJECT_ROOT: 'UPDATE_PROJECT_ROOT',
   UPDATE_CHDIR: 'UPDATE_CHDIR',
-  UPDATE_BUILD_SETTINGS: 'UPDATE_BUILD_SETTINGS',
-  UPDATE_TEST_SETTINGS: 'UPDATE_TEST_SETTINGS',
+  UPDATE_SETTINGS: 'UPDATE_SETTINGS',
   UPDATE_COMPILE_COMMANDS: 'UPDATE_COMPILE_COMMANDS'
 });
 

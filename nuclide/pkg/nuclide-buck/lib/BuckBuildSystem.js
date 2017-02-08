@@ -5,6 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.BuckBuildSystem = undefined;
 
+var _nuclideRemoteConnection;
+
+function _load_nuclideRemoteConnection() {
+  return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
+}
+
 var _PlatformService;
 
 function _load_PlatformService() {
@@ -53,12 +59,6 @@ var _tasks;
 
 function _load_tasks() {
   return _tasks = require('../../commons-node/tasks');
-}
-
-var _nuclideRemoteConnection;
-
-function _load_nuclideRemoteConnection() {
-  return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
 }
 
 var _featureConfig;
@@ -115,10 +115,10 @@ function _load_BuckEventStream() {
   return _BuckEventStream = require('./BuckEventStream');
 }
 
-var _LLDBEventStream;
+var _DeployEventStream;
 
-function _load_LLDBEventStream() {
-  return _LLDBEventStream = require('./LLDBEventStream');
+function _load_DeployEventStream() {
+  return _DeployEventStream = require('./DeployEventStream');
 }
 
 var _observeBuildCommands;
@@ -129,42 +129,69 @@ function _load_observeBuildCommands() {
 
 var _reactForAtom = require('react-for-atom');
 
+var _passesGK;
+
+function _load_passesGK() {
+  return _passesGK = _interopRequireDefault(require('../../commons-node/passesGK'));
+}
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const SOCKET_TIMEOUT = 30000; /**
-                               * Copyright (c) 2015-present, Facebook, Inc.
-                               * All rights reserved.
-                               *
-                               * This source code is licensed under the license found in the LICENSE file in
-                               * the root directory of this source tree.
-                               *
-                               * 
-                               */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
-const INSTALLABLE_RULES = new Set(['apple_bundle', 'apk_genrule']);
+const SOCKET_TIMEOUT = 30000;
+
+const INSTALLABLE_RULES = new Set(['apple_bundle', 'apk_genrule', 'android_binary']);
 
 const DEBUGGABLE_RULES = new Set([
 // $FlowFixMe: spreadable sets
-...INSTALLABLE_RULES, 'cxx_binary', 'cxx_test']);
+...INSTALLABLE_RULES, 'cxx_binary', 'cxx_test', 'rust_binary', 'rust_test', 'android_binary']);
+
+const NUCLIDE_JAVA_DEBUGGER_GK = 'nuclide_debugger_java';
 
 function isInstallableRule(ruleType) {
   return INSTALLABLE_RULES.has(ruleType);
 }
 
-function isDebuggableRule(ruleType) {
-  return DEBUGGABLE_RULES.has(ruleType);
+function isDebuggableRule(ruleType, target) {
+  return DEBUGGABLE_RULES.has(ruleType) && isDebuggerAvailableForTarget(ruleType, target);
 }
 
-function shouldEnableTask(taskType, ruleType) {
+function passesDebuggerGatekeeper(ruleType, javaDebuggerGk) {
+  if (ruleType !== 'android_binary') {
+    return true;
+  }
+
+  return javaDebuggerGk;
+}
+
+function isDebuggerAvailableForTarget(ruleType, target) {
+  switch (ruleType) {
+    case 'android_binary':
+      return (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getServiceByNuclideUri)('JavaDebuggerService', target) != null;
+    default:
+      return true;
+  }
+}
+
+function shouldEnableTask(taskType, ruleType, target) {
   switch (taskType) {
     case 'run':
       return ruleType != null && isInstallableRule(ruleType);
     case 'debug':
-      return ruleType != null && isDebuggableRule(ruleType);
+      return ruleType != null && isDebuggableRule(ruleType, target);
     default:
-      return true;
+      return ruleType != null;
   }
 }
 
@@ -195,31 +222,13 @@ class BuckBuildSystem {
     this._platformService = new (_PlatformService || _load_PlatformService()).PlatformService();
   }
 
-  getTaskList() {
-    const { buckRoot, buildTarget, buildRuleType } = this._getStore().getState();
-    return TASKS.map(task => Object.assign({}, task, {
-      disabled: buckRoot == null,
-      runnable: buckRoot != null && Boolean(buildTarget) && shouldEnableTask(task.type, buildRuleType)
-    }));
-  }
-
-  observeTaskList(cb) {
-    if (this._tasks == null) {
-      // $FlowFixMe: type symbol-observable
-      this._tasks = _rxjsBundlesRxMinJs.Observable.from(this._getStore())
-      // Wait until we're done loading the buck project.
-      .filter(state => !state.isLoadingBuckProject).map(() => this.getTaskList());
-    }
-    return new (_UniversalDisposable || _load_UniversalDisposable()).default(this._tasks.subscribe({ next: cb }));
-  }
-
   getExtraUi() {
     if (this._extraUi == null) {
       const store = this._getStore();
       const boundActions = {
         setBuildTarget: buildTarget => store.dispatch((_Actions || _load_Actions()).setBuildTarget(buildTarget)),
         setDeploymentTarget: deploymentTarget => store.dispatch((_Actions || _load_Actions()).setDeploymentTarget(deploymentTarget)),
-        setTaskSettings: (taskType, settings) => store.dispatch((_Actions || _load_Actions()).setTaskSettings(taskType, settings))
+        setTaskSettings: settings => store.dispatch((_Actions || _load_Actions()).setTaskSettings(settings))
       };
       this._extraUi = (0, (_bindObservableAsProps || _load_bindObservableAsProps()).bindObservableAsProps)(
       // $FlowFixMe: type symbol-observable
@@ -247,9 +256,31 @@ class BuckBuildSystem {
     return this._platformService;
   }
 
-  setProjectRoot(projectRoot) {
+  setProjectRoot(projectRoot, callback) {
     const path = projectRoot == null ? null : projectRoot.getPath();
+
+    // $FlowFixMe: type symbol-observable
+    const storeReady = _rxjsBundlesRxMinJs.Observable.from(this._getStore()).distinctUntilChanged().filter(state => !state.isLoadingBuckProject && state.projectRoot === path).share();
+
+    const enabledObservable = storeReady.map(state => state.buckRoot != null).distinctUntilChanged();
+
+    const tasksObservable = storeReady.mergeMap(state => _rxjsBundlesRxMinJs.Observable.fromPromise((0, (_passesGK || _load_passesGK()).default)(NUCLIDE_JAVA_DEBUGGER_GK)).map(javaDebuggerGk => {
+      const { buildRuleType } = state;
+      const target = this._getStore().getState().buildTarget;
+      return TASKS.map(task => {
+        const enable = shouldEnableTask(task.type, buildRuleType, target);
+        const passesGk = task.type !== 'debug' ? true : passesDebuggerGatekeeper(buildRuleType, javaDebuggerGk);
+        return Object.assign({}, task, {
+          disabled: state.isLoadingPlatforms || !enable || !passesGk
+        });
+      });
+    }));
+
+    const subscription = _rxjsBundlesRxMinJs.Observable.combineLatest(enabledObservable, tasksObservable).subscribe(([enabled, tasks]) => callback(enabled, tasks));
+
     this._getStore().dispatch((_Actions || _load_Actions()).setProjectRoot(path));
+
+    return new (_UniversalDisposable || _load_UniversalDisposable()).default(subscription);
   }
 
   _logOutput(text, level) {
@@ -294,6 +325,7 @@ class BuckBuildSystem {
     }
 
     const state = this._getStore().getState();
+
     const { selectedDeploymentTarget } = state;
     let fullTargetName = state.buildTarget;
     let udid = null;
@@ -304,7 +336,7 @@ class BuckBuildSystem {
         udid = selectedDeploymentTarget.device.udid;
       }
     }
-    const resultStream = this._runTaskType(taskType, state.buckRoot, fullTargetName, state.taskSettings[taskType] || {}, isInstallableRule(state.buildRuleType), udid);
+    const resultStream = this._runTaskType(taskType, state.buckRoot, fullTargetName, state.taskSettings, isInstallableRule(state.buildRuleType), udid);
     const task = (0, (_tasks || _load_tasks()).taskFromObservable)(resultStream);
     return Object.assign({}, task, {
       cancel: () => {
@@ -385,12 +417,12 @@ class BuckBuildSystem {
     if (settings.arguments != null && settings.arguments.length > 0) {
       argString = ' ' + (0, (_shellQuote || _load_shellQuote()).quote)(settings.arguments);
     }
-    this._logOutput(`Starting "buck ${ subcommand } ${ buildTarget }${ argString }"`, 'log');
+    this._logOutput(`Starting "buck ${subcommand} ${buildTarget}${argString}"`, 'log');
 
     const buckService = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getBuckServiceByNuclideUri)(buckRoot);
 
     return _rxjsBundlesRxMinJs.Observable.fromPromise(buckService.getHTTPServerPort(buckRoot)).catch(err => {
-      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`Failed to get httpPort for ${ buildTarget }`, err);
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`Failed to get httpPort for ${buildTarget}`, err);
       return _rxjsBundlesRxMinJs.Observable.of(-1);
     }).switchMap(httpPort => {
       let socketEvents = null;
@@ -419,7 +451,7 @@ class BuckBuildSystem {
           throw Error('Timed out connecting to Buck server.');
         }
         throw err;
-      }).ignoreElements(), this._consumeEventStream(_rxjsBundlesRxMinJs.Observable.merge(mergedEvents, (_featureConfig || _load_featureConfig()).default.get('nuclide-buck.compileErrorDiagnostics') ? (0, (_BuckEventStream || _load_BuckEventStream()).getDiagnosticEvents)(mergedEvents, buckRoot) : _rxjsBundlesRxMinJs.Observable.empty(), isDebug && subcommand === 'install' ? (0, (_LLDBEventStream || _load_LLDBEventStream()).getLLDBInstallEvents)(processMessages, buckRoot) : _rxjsBundlesRxMinJs.Observable.empty(), isDebug && subcommand === 'build' ? (0, (_LLDBEventStream || _load_LLDBEventStream()).getLLDBBuildEvents)(processMessages, buckService, buckRoot, buildTarget, settings.runArguments || []) : _rxjsBundlesRxMinJs.Observable.empty())));
+      }).ignoreElements(), this._consumeEventStream(_rxjsBundlesRxMinJs.Observable.merge(mergedEvents, (_featureConfig || _load_featureConfig()).default.get('nuclide-buck.compileErrorDiagnostics') ? (0, (_BuckEventStream || _load_BuckEventStream()).getDiagnosticEvents)(mergedEvents, buckRoot) : _rxjsBundlesRxMinJs.Observable.empty(), isDebug && subcommand === 'install' ? (0, (_DeployEventStream || _load_DeployEventStream()).getDeployInstallEvents)(processMessages, buckRoot) : _rxjsBundlesRxMinJs.Observable.empty(), isDebug && subcommand === 'build' ? (0, (_DeployEventStream || _load_DeployEventStream()).getDeployBuildEvents)(processMessages, buckService, buckRoot, buildTarget, settings.runArguments || []) : _rxjsBundlesRxMinJs.Observable.empty())));
     }).share();
   }
 
@@ -474,31 +506,26 @@ class BuckBuildSystem {
   }
 }
 
-exports.BuckBuildSystem = BuckBuildSystem; // Make sure that TaskType reflects the types listed below.
-
+exports.BuckBuildSystem = BuckBuildSystem;
 const TASKS = [{
   type: 'build',
   label: 'Build',
   description: 'Build the specified Buck target',
-  runnable: true,
   icon: 'tools'
 }, {
   type: 'run',
   label: 'Run',
   description: 'Run the specfied Buck target',
-  runnable: true,
   icon: 'triangle-right'
 }, {
   type: 'test',
   label: 'Test',
   description: 'Test the specfied Buck target',
-  runnable: true,
   icon: 'check'
 }, {
   type: 'debug',
   label: 'Debug',
   description: 'Debug the specfied Buck target',
-  runnable: true,
   icon: 'nuclicon-debugger'
 }];
 
@@ -519,6 +546,6 @@ function runBuckCommand(buckService, buckRoot, buildTarget, subcommand, args, de
   } else if (subcommand === 'test') {
     return buckService.testWithOutput(buckRoot, [buildTarget], args).refCount();
   } else {
-    throw Error(`Unknown subcommand: ${ subcommand }`);
+    throw Error(`Unknown subcommand: ${subcommand}`);
   }
 }

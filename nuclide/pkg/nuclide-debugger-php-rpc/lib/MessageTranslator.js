@@ -111,8 +111,8 @@ class MessageTranslator {
 
         yield handler.handleMethod(id, methodName, params);
       } catch (e) {
-        (_utils || _load_utils()).default.logError(`Exception handling command ${ id }: ${ e } ${ e.stack }`);
-        _this._replyWithError(id, `Error handling command: ${ e }\n ${ e.stack }`);
+        (_utils || _load_utils()).default.logError(`Exception handling command ${id}: ${e} ${e.stack}`);
+        _this._replyWithError(id, `Error handling command: ${e}\n ${e.stack}`);
       }
     })();
   }

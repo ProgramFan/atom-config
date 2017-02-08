@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5039-1k03516/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5110-1i675f4/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5039-1k03516/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5039-1k03516/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5110-1i675f4/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5110-1i675f4/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-5039-s34lth"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5110-1dh58dy"
     ]
   ],
-  "_from": "../d-117016-5039-1k03516/package.tgz",
+  "_from": "../d-11718-5110-1i675f4/package.tgz",
   "_id": "markdown-table-formatter@2.8.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/markdown-table-formatter",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5039-1k03516/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5110-1i675f4/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5039-1k03516/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5039-1k03516/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5110-1i675f4/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5110-1i675f4/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-5039-1k03516/package.tgz",
+  "_resolved": "file:../d-11718-5110-1i675f4/package.tgz",
   "_shasum": "c9c28751c188ebe41c7345a175d883401a9cbe9e",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5039-1k03516/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-5039-s34lth",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5110-1i675f4/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5110-1dh58dy",
   "bugs": {
     "url": "https://github.com/fcrespo82/atom-markdown-table-formatter/issues"
   },

@@ -37,16 +37,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * TODO use generic search provider
  * TODO move combobox to separate package.
  */
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 class Combobox extends _reactForAtom.React.Component {
 
   constructor(props) {
@@ -159,6 +149,11 @@ class Combobox extends _reactForAtom.React.Component {
   _getOptionsElement() {
     if (this._optionsElement == null) {
       this._optionsElement = document.createElement('div');
+
+      if (!(document.body != null)) {
+        throw new Error('Invariant violation: "document.body != null"');
+      }
+
       document.body.appendChild(this._optionsElement);
       this._subscriptions.add(() => {
         this._optionsElement.remove();
@@ -360,7 +355,7 @@ class Combobox extends _reactForAtom.React.Component {
       width
     } = this.props;
     const wrapperStyle = {
-      width: width == null ? undefined : `${ width }px`
+      width: width == null ? undefined : `${width}px`
     };
     return _reactForAtom.React.createElement(
       'div',
@@ -380,7 +375,16 @@ class Combobox extends _reactForAtom.React.Component {
     );
   }
 }
-exports.Combobox = Combobox;
+exports.Combobox = Combobox; /**
+                              * Copyright (c) 2015-present, Facebook, Inc.
+                              * All rights reserved.
+                              *
+                              * This source code is licensed under the license found in the LICENSE file in
+                              * the root directory of this source tree.
+                              *
+                              * 
+                              */
+
 Combobox.defaultProps = {
   className: '',
   maxOptionCount: 10,

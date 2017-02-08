@@ -23,7 +23,7 @@ const EXECUTOR_PORT = 8081; /**
                              * 
                              */
 
-const WS_URL = `ws://localhost:${ EXECUTOR_PORT }/message?role=interface&name=Nuclide`;
+const WS_URL = `ws://localhost:${EXECUTOR_PORT}/message?role=interface&name=Nuclide`;
 
 class ShellMessageManager {
 

@@ -152,7 +152,7 @@ function openEpic(actions, store) {
       // We need to create the item.
       item = createViewable(uri, openers);
       if (item == null) {
-        throw new Error(`No opener found for URI ${ uri }`);
+        throw new Error(`No opener found for URI ${uri}`);
       }
 
       // Find a location for this viewable.

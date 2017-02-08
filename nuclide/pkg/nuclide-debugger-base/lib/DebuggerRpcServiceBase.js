@@ -47,7 +47,7 @@ class DebuggerRpcServiceBase {
 
   constructor(debuggerRpcServiceName) {
     this._clientCallback = new (_nuclideDebuggerCommon || _load_nuclideDebuggerCommon()).ClientCallback();
-    this._logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)(`nuclide-debugger-${ debuggerRpcServiceName }`);
+    this._logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)(`nuclide-debugger-${debuggerRpcServiceName}`);
     this._subscriptions = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._clientCallback);
   }
 
@@ -106,10 +106,10 @@ class DebuggerWebsocketRpcService extends DebuggerRpcServiceBase {
   sendCommand(message) {
     const webSocket = this._webSocket;
     if (webSocket != null) {
-      this.getLogger().logTrace(`forward client message to server: ${ message }`);
+      this.getLogger().logTrace(`forward client message to server: ${message}`);
       webSocket.send(message);
     } else {
-      this.getLogger().logInfo(`Nuclide sent message to server after socket closed: ${ message }`);
+      this.getLogger().logInfo(`Nuclide sent message to server after socket closed: ${message}`);
     }
     return Promise.resolve();
   }

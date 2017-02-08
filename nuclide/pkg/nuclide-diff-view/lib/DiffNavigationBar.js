@@ -78,11 +78,11 @@ exports.DiffNavigationBar = DiffNavigationBar;
 function sectionStatusToClassName(statusType) {
   switch (statusType) {
     case (_constants || _load_constants()).NavigationSectionStatus.ADDED:
-      return 'added';
+      return 'syntax--added';
     case (_constants || _load_constants()).NavigationSectionStatus.CHANGED:
-      return 'modified';
+      return 'syntax--modified';
     case (_constants || _load_constants()).NavigationSectionStatus.REMOVED:
-      return 'removed';
+      return 'syntax--removed';
     case (_constants || _load_constants()).NavigationSectionStatus.NEW_ELEMENT:
     case (_constants || _load_constants()).NavigationSectionStatus.OLD_ELEMENT:
       return 'icon icon-comment';
@@ -133,8 +133,8 @@ class NavigatonBarJumpTarget extends _reactForAtom.React.Component {
     const scaledTop = top * navigationScale;
     const scaledHeight = Math.max((bottom - top) * navigationScale, 1);
     const targetStyle = {
-      top: `${ scaledTop }px`,
-      height: `${ scaledHeight }px`
+      top: `${scaledTop}px`,
+      height: `${scaledHeight}px`
     };
     const targetClassName = (0, (_classnames || _load_classnames()).default)({
       'nuclide-diff-view-navigation-target': true,

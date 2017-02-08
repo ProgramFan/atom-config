@@ -186,7 +186,7 @@ class DefinitionPreviewView extends _reactForAtom.React.Component {
       _reactForAtom.React.createElement(
         'div',
         { className: 'nuclide-definition-preview-editor',
-          style: { height: `${ this.state.editorHeight }em` } },
+          style: { height: `${this.state.editorHeight}em` } },
         _reactForAtom.React.createElement((_AtomTextEditor || _load_AtomTextEditor()).AtomTextEditor, {
           ref: 'editor',
           gutterHidden: true,

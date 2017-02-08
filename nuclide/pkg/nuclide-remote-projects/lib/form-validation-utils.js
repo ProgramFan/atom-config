@@ -69,7 +69,7 @@ function validateFormInputs(profileName, connectionDetails, defaultRemoteServerC
   // Do not proceed if there are any missing fields.
   if (missingFields.length) {
     const missingFieldsString = missingFields.join(', ');
-    const errorMessage = `You must fill out all fields. Currently missing:\n${ missingFieldsString }`;
+    const errorMessage = `You must fill out all fields. Currently missing:\n${missingFieldsString}`;
     return { errorMessage };
   }
 

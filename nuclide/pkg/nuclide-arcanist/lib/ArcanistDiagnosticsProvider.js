@@ -101,7 +101,7 @@ class ArcanistDiagnosticsProvider {
     if (path == null) {
       return Promise.resolve();
     }
-    return this._busySignalProvider.reportBusy(`Waiting for arc lint results for \`${ textEditor.getTitle() }\``, () => this._runLint(textEditor), { onlyForFile: path });
+    return this._busySignalProvider.reportBusy(`Waiting for arc lint results for \`${textEditor.getTitle()}\``, () => this._runLint(textEditor), { onlyForFile: path });
   }
 
   /** Do not call this directly -- call _runLintWithBusyMessage */
@@ -119,51 +119,50 @@ class ArcanistDiagnosticsProvider {
         throw new Error('Invariant violation: "filePath"');
       }
 
+      let diagnostics;
       try {
-        const diagnostics = yield _this._findDiagnostics(filePath);
-        if (diagnostics == null) {
-          return;
-        }
+        diagnostics = yield _this._findDiagnostics(filePath);
+      } catch (err) {
+        logger.error(`_findDiagnostics error: ${err}`);
+      }
 
-        const fileDiagnostics = diagnostics.map(function (diagnostic) {
-          const range = new _atom.Range([diagnostic.row, diagnostic.col], [diagnostic.row, textEditor.getBuffer().lineLengthForRow(diagnostic.row)]);
-          let text;
-          if (Array.isArray(diagnostic.text)) {
-            // Sometimes `arc lint` returns an array of strings for the text, rather than just a
-            // string :(.
-            text = diagnostic.text.join(' ');
-          } else {
-            text = diagnostic.text;
-          }
-          const maybeProperties = {};
-          if (diagnostic.original != null && diagnostic.replacement != null &&
-          // Sometimes linters set original and replacement to the same value. Obviously that won't
-          // fix anything.
-          diagnostic.original !== diagnostic.replacement) {
-            // Copy the object so the type refinements hold...
-            maybeProperties.fix = _this._getFix(Object.assign({}, diagnostic));
-          }
-          return Object.assign({
-            scope: 'file',
-            providerName: 'Arc' + (diagnostic.code ? `: ${ diagnostic.code }` : ''),
-            type: diagnostic.type,
-            text,
-            filePath: diagnostic.filePath,
-            range
-          }, maybeProperties);
-        });
-        const diagnosticsUpdate = {
-          filePathToMessages: new Map([[filePath, fileDiagnostics]])
-        };
-        // If the editor has been closed since we made the request, we don't want to display the
-        // errors. This ties in with the fact that we invalidate errors for a file when it is closed.
-        if (!textEditor.isDestroyed()) {
-          _this._providerBase.publishMessageUpdate(diagnosticsUpdate);
-        }
-      } catch (error) {
-        logger.error(error);
+      // If the editor has been closed since we made the request, we don't want to display the
+      // errors. This ties in with the fact that we invalidate errors for a file when it is closed.
+      if (diagnostics == null || textEditor.isDestroyed()) {
         return;
       }
+
+      const fileDiagnostics = diagnostics.map(function (diagnostic) {
+        const range = new _atom.Range([diagnostic.row, diagnostic.col], [diagnostic.row, textEditor.getBuffer().lineLengthForRow(diagnostic.row)]);
+        let text;
+        if (Array.isArray(diagnostic.text)) {
+          // Sometimes `arc lint` returns an array of strings for the text, rather than just a
+          // string :(.
+          text = diagnostic.text.join(' ');
+        } else {
+          text = diagnostic.text;
+        }
+        const maybeProperties = {};
+        if (diagnostic.original != null && diagnostic.replacement != null &&
+        // Sometimes linters set original and replacement to the same value. Obviously that won't
+        // fix anything.
+        diagnostic.original !== diagnostic.replacement) {
+          // Copy the object so the type refinements hold...
+          maybeProperties.fix = _this._getFix(Object.assign({}, diagnostic));
+        }
+        return Object.assign({
+          scope: 'file',
+          providerName: 'Arc' + (diagnostic.code ? `: ${diagnostic.code}` : ''),
+          type: diagnostic.type,
+          text,
+          filePath: diagnostic.filePath,
+          range
+        }, maybeProperties);
+      });
+      const diagnosticsUpdate = {
+        filePathToMessages: new Map([[filePath, fileDiagnostics]])
+      };
+      _this._providerBase.publishMessageUpdate(diagnosticsUpdate);
     })();
   }
 

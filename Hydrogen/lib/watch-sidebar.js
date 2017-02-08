@@ -1,6 +1,5 @@
 'use babel';
 
-import { $ } from 'atom-space-pen-views';
 import { CompositeDisposable } from 'atom';
 import _ from 'lodash';
 
@@ -51,7 +50,7 @@ export default class WatchSidebar {
 
     const resizeHandle = document.createElement('div');
     resizeHandle.classList.add('watch-resize-handle');
-    $(resizeHandle).on('mousedown', this.resizeStarted);
+    resizeHandle.addEventListener('mousedown', this.resizeStarted);
 
     toolbar.appendChild(languageDisplay);
     toolbar.appendChild(toggleButton);
@@ -83,7 +82,7 @@ export default class WatchSidebar {
   }
 
   addWatch() {
-    this.createWatch().inputElement.element.focus();
+    this.createWatch().focus();
   }
 
   addWatchFromEditor() {
@@ -91,19 +90,22 @@ export default class WatchSidebar {
     if (!watchText) {
       this.addWatch();
     } else {
-      this.createWatch().setCode(watchText).run();
+      const watch = this.createWatch();
+      watch.setCode(watchText);
+      watch.run();
     }
     this.show();
   }
 
   removeWatch() {
-    const watches = (this.watchViews.map((v, k) => ({
+    const watches = this.watchViews.map((v, k) => ({
       name: v.getCode(),
       value: k,
-    })));
+    }));
     WatchesPicker.onConfirmed = (item) => {
       this.watchViews[item.value].destroy();
       this.watchViews.splice(item.value, 1);
+      if (this.watchViews.length === 0) this.addWatch();
     };
     WatchesPicker.setItems(watches);
     WatchesPicker.toggle();
@@ -116,20 +118,20 @@ export default class WatchSidebar {
   }
 
   resizeStarted() {
-    $(document).on('mousemove', this.resizeSidebar);
-    $(document).on('mouseup', this.resizeStopped);
+    document.addEventListener('mousemove', this.resizeSidebar);
+    document.addEventListener('mouseup', this.resizeStopped);
   }
 
   resizeStopped() {
-    $(document).off('mousemove', this.resizeSidebar);
-    $(document).off('mouseup', this.resizeStopped);
+    document.removeEventListener('mousemove', this.resizeSidebar);
+    document.removeEventListener('mouseup', this.resizeStopped);
   }
 
   resizeSidebar({ pageX, which }) {
     if (which !== 1) this.resizeStopped();
 
-    const width = $(document.body).width() - pageX;
-    this.element.style.width = `${width - 10}px`;
+    const width = document.body.clientWidth - pageX;
+    this.element.style.width = `${width}px`;
   }
 
   show() {

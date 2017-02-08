@@ -133,5 +133,5 @@ function createPredicate(operation, activeRect) {
     case 'right':
       return rect => rect.left > activeRect.left;
   }
-  throw Error(`Unknown operation: ${ operation }`);
+  throw Error(`Unknown operation: ${operation}`);
 }

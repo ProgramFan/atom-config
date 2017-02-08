@@ -29,7 +29,7 @@ function _load_shellQuote() {
  */
 
 function stringifyError(error) {
-  return `name: ${ error.name }, message: ${ error.message }, stack: ${ error.stack }.`;
+  return `name: ${error.name}, message: ${error.message}, stack: ${error.stack}.`;
 }
 
 // As of Flow v0.28, Flow does not alllow implicit string coercion of null or undefined. Use this to
@@ -112,7 +112,7 @@ function shellParse(str, env) {
   const result = (0, (_shellQuote || _load_shellQuote()).parse)(str, env);
   for (let i = 0; i < result.length; i++) {
     if (typeof result[i] !== 'string') {
-      throw new Error(`Unexpected operator "${ result[i].op }" provided to shellParse`);
+      throw new Error(`Unexpected operator "${result[i].op}" provided to shellParse`);
     }
   }
   return result;

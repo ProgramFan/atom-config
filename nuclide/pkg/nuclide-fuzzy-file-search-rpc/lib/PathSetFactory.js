@@ -135,7 +135,7 @@ function getPaths(localDirectory) {
   // TODO (williamsc) once ``{HG|Git}Repository` is working in nuclide-server,
   // use those instead to determine VCS.
   return getFilesFromHg(localDirectory).catch(() => getFilesFromGit(localDirectory)).catch(() => getAllFiles(localDirectory)).catch(() => {
-    throw new Error(`Failed to populate FileSearch for ${ localDirectory }`);
+    throw new Error(`Failed to populate FileSearch for ${localDirectory}`);
   });
 }
 

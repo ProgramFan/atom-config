@@ -201,7 +201,7 @@ class NuclideServer {
   }
 
   static closeConnection(client) {
-    logger.info(`Closing client: #${ client.getTransport().id }`);
+    logger.info(`Closing client: #${client.getTransport().id}`);
     if (NuclideServer._theServer != null) {
       NuclideServer._theServer._closeConnection(client);
     }

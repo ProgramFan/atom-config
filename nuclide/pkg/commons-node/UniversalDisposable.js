@@ -11,43 +11,44 @@ Object.defineProperty(exports, "__esModule", {
  */
 class UniversalDisposable {
 
-  constructor(...tearDowns) {
-    this._tearDowns = new Set(tearDowns);
-    this.wasDisposed = false;
+  constructor(...teardowns) {
+    this.teardowns = new Set();
+    this.disposed = false;
+    if (teardowns.length) {
+      this.add(...teardowns);
+    }
   }
 
-  add(...tearDowns) {
-    if (this.wasDisposed) {
+  add(...teardowns) {
+    if (this.disposed) {
       throw new Error('Cannot add to an already disposed UniversalDisposable!');
     }
-
-    tearDowns.forEach(td => this._tearDowns.add(td));
+    for (let i = 0; i < teardowns.length; i++) {
+      assertTeardown(teardowns[i]);
+      this.teardowns.add(teardowns[i]);
+    }
   }
 
-  remove(...tearDowns) {
-    if (this.wasDisposed) {
-      return;
+  remove(teardown) {
+    if (!this.disposed) {
+      this.teardowns.delete(teardown);
     }
-
-    tearDowns.forEach(td => this._tearDowns.delete(td));
   }
 
   dispose() {
-    if (this.wasDisposed) {
-      return;
+    if (!this.disposed) {
+      this.disposed = true;
+      this.teardowns.forEach(teardown => {
+        if (typeof teardown.dispose === 'function') {
+          teardown.dispose();
+        } else if (typeof teardown.unsubscribe === 'function') {
+          teardown.unsubscribe();
+        } else if (typeof teardown === 'function') {
+          teardown();
+        }
+      });
+      this.teardowns = null;
     }
-
-    this._tearDowns.forEach(t => {
-      if (typeof t === 'function') {
-        t();
-      } else if (typeof t.dispose === 'function') {
-        t.dispose();
-      } else if (typeof t.unsubscribe === 'function') {
-        t.unsubscribe();
-      }
-    });
-    this._tearDowns.clear();
-    this.wasDisposed = true;
   }
 
   unsubscribe() {
@@ -55,13 +56,12 @@ class UniversalDisposable {
   }
 
   clear() {
-    if (this.wasDisposed) {
-      return;
+    if (!this.disposed) {
+      this.teardowns.clear();
     }
-
-    this._tearDowns.clear();
   }
 }
+
 exports.default = UniversalDisposable; /**
                                         * Copyright (c) 2015-present, Facebook, Inc.
                                         * All rights reserved.
@@ -72,4 +72,10 @@ exports.default = UniversalDisposable; /**
                                         * 
                                         */
 
+function assertTeardown(teardown) {
+  if (typeof teardown.dispose === 'function' || typeof teardown.unsubscribe === 'function' || typeof teardown === 'function') {
+    return;
+  }
+  throw new TypeError('Arguments to UniversalDisposable.add must be disposable');
+}
 module.exports = exports['default'];

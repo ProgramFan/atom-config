@@ -229,7 +229,7 @@ function sortAlpha(a, b) {
 
 function MultiSelectLabel(props) {
   const { selectedOptions } = props;
-  const label = selectedOptions.length === 1 ? selectedOptions[0].label : `${ selectedOptions.length } Sources`;
+  const label = selectedOptions.length === 1 ? selectedOptions[0].label : `${selectedOptions.length} Sources`;
   return _reactForAtom.React.createElement(
     'span',
     null,

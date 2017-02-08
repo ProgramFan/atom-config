@@ -112,7 +112,7 @@ class MainRefactorComponent extends _reactForAtom.React.Component {
           'Executing refactoring...'
         );
       default:
-        throw new Error(`Unknown phase ${ phase.type }`);
+        throw new Error(`Unknown phase ${phase.type}`);
     }
   }
 }

@@ -78,8 +78,8 @@ function activate(state) {
   subscriptions = new (_UniversalDisposable || _load_UniversalDisposable()).default();
   subscriptions.add(
   // eslint-disable-next-line nuclide-internal/atom-apis
-  atom.commands.add('atom-workspace', 'nuclide-docs:open', e => {
-    const url = (0, (_createUtmUrl || _load_createUtmUrl()).default)('http://nuclide.io/docs', 'help');
+  atom.commands.add('atom-workspace', 'nuclide-home:open-docs', e => {
+    const url = (0, (_createUtmUrl || _load_createUtmUrl()).default)('https://nuclide.io/docs', 'help');
     _electron.shell.openExternal(url);
   }));
 }

@@ -12,7 +12,7 @@ let initialize = (() => {
       const { host, pathname, query } = _url.default.parse(urlToOpen);
 
       if (!(host === 'nuclide' && pathname != null && pathname !== '')) {
-        throw new Error(`Invalid URL ${ urlToOpen }`);
+        throw new Error(`Invalid URL ${urlToOpen}`);
       }
 
       const message = pathname.substr(1);

@@ -28,7 +28,7 @@ let getHackRoot = (() => {
 let setRootDirectoryUri = exports.setRootDirectoryUri = (() => {
   var _ref2 = (0, _asyncToGenerator.default)(function* (directoryUri) {
     const hackRootDirectory = yield getHackRoot(directoryUri);
-    (_utils || _load_utils()).default.log(`setRootDirectoryUri: from ${ directoryUri } to ${ (0, (_string || _load_string()).maybeToString)(hackRootDirectory) }`);
+    (_utils || _load_utils()).default.log(`setRootDirectoryUri: from ${directoryUri} to ${(0, (_string || _load_string()).maybeToString)(hackRootDirectory)}`);
     // TODO: make xdebug_includes.php path configurable from hhconfig.
     const hackDummyRequestFilePath = (_nuclideUri || _load_nuclideUri()).default.join(hackRootDirectory ? hackRootDirectory : '', '/scripts/xdebug_includes.php');
 
@@ -109,7 +109,7 @@ function isCorrectConnection(isAttachConnection, message) {
   }
 
   const init = message.init;
-  if (!init.engine || !init.engine || !init.engine[0] || init.engine[0]._ !== 'xdebug') {
+  if (!init.engine || !init.engine || !init.engine[0] || init.engine[0]._.toLowerCase() !== 'xdebug') {
     (_utils || _load_utils()).default.logError('Incorrect engine');
     return false;
   }

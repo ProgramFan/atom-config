@@ -44,7 +44,7 @@ function createDebuggerProvider() {
   return {
     name: 'Node',
     getLaunchAttachProvider(connection) {
-      return new (_NodeLaunchAttachProvider || _load_NodeLaunchAttachProvider()).NodeLaunchAttachProvider('JavaScript', connection);
+      return new (_NodeLaunchAttachProvider || _load_NodeLaunchAttachProvider()).NodeLaunchAttachProvider('NodeJS', connection);
     }
   };
 }

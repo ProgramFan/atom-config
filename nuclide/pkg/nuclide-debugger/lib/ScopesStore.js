@@ -35,7 +35,7 @@ class ScopesStore {
         this._handleClearInterface();
         break;
       case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.UPDATE_SCOPES:
-        this._handleUpdateScopes(payload.data.scopeVariables, payload.data.scopeName);
+        this._handleUpdateScopes(payload.data);
         break;
       default:
         return;
@@ -46,12 +46,8 @@ class ScopesStore {
     this._scopes.next([]);
   }
 
-  _handleUpdateScopes(scopeVariables, scopeName) {
-    const scopeSection = {
-      name: scopeName,
-      scopeVariables
-    };
-    this._scopes.next([...this._scopes.getValue(), scopeSection]);
+  _handleUpdateScopes(scopeSections) {
+    this._scopes.next(scopeSections);
   }
 
   getScopes() {

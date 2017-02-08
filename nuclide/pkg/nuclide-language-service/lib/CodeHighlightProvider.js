@@ -46,10 +46,15 @@ class CodeHighlightProvider {
       const fileVersion = yield (0, (_nuclideOpenFiles || _load_nuclideOpenFiles()).getFileVersionOfEditor)(editor);
       const languageService = _this._connectionToLanguageService.getForUri(editor.getPath());
       if (languageService == null || fileVersion == null) {
-        return [];
+        return null;
       }
 
-      return (yield (yield languageService).highlight(fileVersion, position)).map(function (range) {
+      const result = yield (yield languageService).highlight(fileVersion, position);
+      if (result == null) {
+        return null;
+      }
+
+      return result.map(function (range) {
         return new _atom.Range(range.start, range.end);
       });
     }));

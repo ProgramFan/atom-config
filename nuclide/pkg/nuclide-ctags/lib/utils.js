@@ -36,7 +36,7 @@ let getLineNumberForTag = exports.getLineNumberForTag = (() => {
           }
         }
       } catch (e) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`nuclide-ctags: Could not locate pattern in ${ tag.file }`, e);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`nuclide-ctags: Could not locate pattern in ${tag.file}`, e);
       }
     }
 

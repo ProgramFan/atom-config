@@ -45,21 +45,20 @@ class DatatipComponent extends _reactForAtom.React.Component {
   }
 
   render() {
-    const {
+    const _props = this.props,
+          {
       className,
       children,
       action,
       actionTitle
-    } = this.props;
-
-    const props = _objectWithoutProperties(this.props, ['className', 'children', 'action', 'actionTitle']);
-
+    } = _props,
+          props = _objectWithoutProperties(_props, ['className', 'children', 'action', 'actionTitle']);
     delete props.onActionClick;
     let actionButton;
     if (action != null && IconsForAction[action] != null) {
       const actionIcon = IconsForAction[action];
       actionButton = _reactForAtom.React.createElement('div', {
-        className: `nuclide-datatip-pin-button icon-${ actionIcon }`,
+        className: `nuclide-datatip-pin-button icon-${actionIcon}`,
         onClick: this.handleActionClick,
         title: actionTitle
       });
@@ -67,7 +66,7 @@ class DatatipComponent extends _reactForAtom.React.Component {
     return _reactForAtom.React.createElement(
       'div',
       Object.assign({
-        className: `${ (0, (_string || _load_string()).maybeToString)(className) } nuclide-datatip-container`
+        className: `${(0, (_string || _load_string()).maybeToString)(className)} nuclide-datatip-container`
       }, props),
       _reactForAtom.React.createElement(
         'div',

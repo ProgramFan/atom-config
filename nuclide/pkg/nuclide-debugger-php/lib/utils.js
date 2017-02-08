@@ -57,7 +57,7 @@ function validateConfig(config) {
       throw new Error('Invariant violation: "attachScriptRegex != null"');
     }
 
-    throw Error(`config scriptRegex is not a valid regular expression: ${ attachScriptRegex }`);
+    throw Error(`config scriptRegex is not a valid regular expression: ${attachScriptRegex}`);
   }
 
   if (!isValidRegex(config.idekeyRegex)) {
@@ -65,7 +65,7 @@ function validateConfig(config) {
       throw new Error('Invariant violation: "config.idekeyRegex != null"');
     }
 
-    throw Error(`config idekeyRegex is not a valid regular expression: ${ config.idekeyRegex }`);
+    throw Error(`config idekeyRegex is not a valid regular expression: ${config.idekeyRegex}`);
   }
 }
 

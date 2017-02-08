@@ -25,7 +25,7 @@ function normalizeRemoteObjectValue(remoteObject) {
     }
 
     modifiedProperties[field] = remoteObject[field];
-    const underscoreField = `_${ field }`;
+    const underscoreField = `_${field}`;
     if (remoteObject.hasOwnProperty(underscoreField) && remoteObject[underscoreField] != null) {
       modifiedProperties[field] = String(remoteObject[underscoreField]);
     } else if (remoteObject.hasOwnProperty(field) && remoteObject[field] != null) {

@@ -63,7 +63,7 @@ class JediServer {
 
   constructor(src, pythonPath = PYTHON_EXECUTABLE, paths = []) {
     // Generate a name for this server using the src file name, used to namespace logs
-    const name = `JediServer-${ (_nuclideUri || _load_nuclideUri()).default.basename(src) }`;
+    const name = `JediServer-${(_nuclideUri || _load_nuclideUri()).default.basename(src)}`;
     let args = [PROCESS_PATH, '-s', src];
     if (paths.length > 0) {
       args.push('-p');

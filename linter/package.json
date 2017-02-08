@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4906-1npqsk6/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4975-1u6bcue/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4906-1npqsk6/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4906-1npqsk6/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4975-1u6bcue/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4975-1u6bcue/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-4906-16pgtfz"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-4975-zxox9g"
     ]
   ],
-  "_from": "../d-117016-4906-1npqsk6/package.tgz",
+  "_from": "../d-11718-4975-1u6bcue/package.tgz",
   "_id": "linter@1.11.21",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4906-1npqsk6/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4975-1u6bcue/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4906-1npqsk6/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4906-1npqsk6/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4975-1u6bcue/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4975-1u6bcue/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-4906-1npqsk6/package.tgz",
+  "_resolved": "file:../d-11718-4975-1u6bcue/package.tgz",
   "_shasum": "03a2ae350e04482afb21aa9408018537f5768ea0",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4906-1npqsk6/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-4906-16pgtfz",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4975-1u6bcue/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-4975-zxox9g",
   "author": {
     "name": "atom-community"
   },

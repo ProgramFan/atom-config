@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5068-1j4blv9/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5134-1pgnqkd/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5068-1j4blv9/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5068-1j4blv9/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5134-1pgnqkd/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5134-1pgnqkd/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-5068-zoo5wv"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5134-11s704f"
     ]
   ],
-  "_from": "../d-117016-5068-1j4blv9/package.tgz",
+  "_from": "../d-11718-5134-1pgnqkd/package.tgz",
   "_id": "minimap-find-and-replace@4.5.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-find-and-replace",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5068-1j4blv9/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5134-1pgnqkd/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5068-1j4blv9/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5068-1j4blv9/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5134-1pgnqkd/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5134-1pgnqkd/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-5068-1j4blv9/package.tgz",
+  "_resolved": "file:../d-11718-5134-1pgnqkd/package.tgz",
   "_shasum": "ef5664f133d2fa56484387f93ba4915b47e5fce7",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5068-1j4blv9/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-5068-zoo5wv",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5134-1pgnqkd/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5134-11s704f",
   "author": {
     "name": "Cédric Néhémie",
     "email": "cedric.nehemie@gmail.com"

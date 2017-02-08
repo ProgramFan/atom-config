@@ -50,9 +50,9 @@ class RevisionTimelineNode extends _reactForAtom.React.Component {
       'selected-revision-end': index === selectedIndex - 1,
       'selected-revision-last': index === revisionsCount - 2
     });
-    const tooltip = `${ hash }: ${ title }
-  Author: ${ author }
-  Date: ${ date.toString() }`;
+    const tooltip = `${hash}: ${title}
+  Author: ${author}
+  Date: ${date.toString()}`;
 
     const commitAuthor = (0, (_utils || _load_utils()).getCommitAuthorFromAuthorEmail)(author);
     let commitAuthorElement;

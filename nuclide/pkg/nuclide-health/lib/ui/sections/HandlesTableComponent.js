@@ -55,7 +55,7 @@ class HandlesTableComponent extends _reactForAtom.React.Component {
             ),
             this.props.columns.map((column, c) => _reactForAtom.React.createElement(
               "th",
-              { key: c, width: `${ column.widthPercentage }%` },
+              { key: c, width: `${column.widthPercentage}%` },
               column.title
             ))
           )

@@ -304,7 +304,7 @@ class FileTreeStore {
       try {
         return new (_minimatch || _load_minimatch()).Minimatch(ignoredName, { matchBase: true, dot: true });
       } catch (error) {
-        atom.notifications.addWarning(`Error parsing pattern '${ ignoredName }' from "Settings" > "Ignored Names"`, { detail: error.message });
+        atom.notifications.addWarning(`Error parsing pattern '${ignoredName}' from "Settings" > "Ignored Names"`, { detail: error.message });
         return null;
       }
     }).filter(pattern => pattern != null);
@@ -435,6 +435,9 @@ class FileTreeStore {
         break;
       case (_FileTreeDispatcher2 || _load_FileTreeDispatcher2()).ActionTypes.ADD_EXTRA_PROJECT_SELECTION_CONTENT:
         this.addExtraProjectSelectionContent(payload.content);
+        break;
+      case (_FileTreeDispatcher2 || _load_FileTreeDispatcher2()).ActionTypes.REMOVE_EXTRA_PROJECT_SELECTION_CONTENT:
+        this.removeExtraProjectSelectionContent(payload.content);
         break;
       case (_FileTreeDispatcher2 || _load_FileTreeDispatcher2()).ActionTypes.SET_OPEN_FILES_EXPANDED:
         this._setOpenFilesExpanded(payload.openFilesExpanded);
@@ -708,7 +711,7 @@ class FileTreeStore {
           // An invalid URI might cause an exception to be thrown
           ensurePresentParents(uri);
         } catch (e) {
-          this._logger.error(`Error enriching the VCS statuses for ${ uri }`, e);
+          this._logger.error(`Error enriching the VCS statuses for ${uri}`, e);
         }
       }
     });
@@ -861,7 +864,7 @@ class FileTreeStore {
     }
 
     const promise = (_FileTreeHelpers || _load_FileTreeHelpers()).default.fetchChildren(nodeKey).then(childrenKeys => this._setFetchedKeys(nodeKey, childrenKeys), error => {
-      this._logger.error(`Unable to fetch children for "${ nodeKey }".`);
+      this._logger.error(`Unable to fetch children for "${nodeKey}".`);
       this._logger.error('Original error: ', error);
 
       // Unless the contents were already fetched in the past
@@ -964,7 +967,7 @@ class FileTreeStore {
        * Log error and mark the directory as dirty so the failed subscription will be attempted
        * again next time the directory is expanded.
        */
-      this._logger.error(`Cannot subscribe to directory "${ nodeKey }"`, ex);
+      this._logger.error(`Cannot subscribe to directory "${nodeKey}"`, ex);
       return null;
     }
   }
@@ -1040,6 +1043,16 @@ class FileTreeStore {
 
   addExtraProjectSelectionContent(content) {
     this._extraProjectSelectionContent = this._extraProjectSelectionContent.push(content);
+    this._emitChange();
+  }
+
+  removeExtraProjectSelectionContent(content) {
+    const index = this._extraProjectSelectionContent.indexOf(content);
+    if (index === -1) {
+      return;
+    }
+    this._extraProjectSelectionContent = this._extraProjectSelectionContent.remove(index);
+    this._emitChange();
   }
 
   getFilterFound() {

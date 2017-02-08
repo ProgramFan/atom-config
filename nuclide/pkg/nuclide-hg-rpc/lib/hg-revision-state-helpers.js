@@ -36,11 +36,11 @@ const FILE_ADDS_LABEL = 'file-adds:';
 const FILE_DELETES_LABEL = 'file-dels:';
 const FILE_COPIES_LABEL = 'file-copies:';
 const FILE_MODS_LABEL = 'file-mods:';
-const REVISION_FILE_CHANGES_TEMPLATE = `${ ALL_FILES_LABEL } {files}
-${ FILE_ADDS_LABEL } {file_adds}
-${ FILE_DELETES_LABEL } {file_dels}
-${ FILE_COPIES_LABEL } {file_copies}
-${ FILE_MODS_LABEL } {file_mods}`;
+const REVISION_FILE_CHANGES_TEMPLATE = `${ALL_FILES_LABEL} {files}
+${FILE_ADDS_LABEL} {file_adds}
+${FILE_DELETES_LABEL} {file_dels}
+${FILE_COPIES_LABEL} {file_copies}
+${FILE_MODS_LABEL} {file_mods}`;
 // Regex for: "new_file (previous_file", with two capture groups, one for each file.
 const COPIED_FILE_PAIR_REGEX = /(.+) \((.+)/;
 

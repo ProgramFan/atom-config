@@ -176,8 +176,8 @@ class Bridge {
     this._debuggerModel.getActions().updateCallstack(callstack);
   }
 
-  _handleScopesUpdate(scopeVariables, scopeName) {
-    this._debuggerModel.getActions().updateScopes(scopeVariables, scopeName);
+  _handleScopesUpdate(scopeSections) {
+    this._debuggerModel.getActions().updateScopes(scopeSections);
   }
 
   _handleIpcMessage(stdEvent) {
@@ -229,7 +229,7 @@ class Bridge {
             this._handleCallstackUpdate(event.args[1]);
             break;
           case 'ScopesUpdate':
-            this._handleScopesUpdate(event.args[1], event.args[2]);
+            this._handleScopesUpdate(event.args[1]);
             break;
           case 'ThreadsUpdate':
             this._handleThreadsUpdate(event.args[1]);
@@ -387,6 +387,11 @@ class Bridge {
       // to live in the DOM. We render it into the body to keep it separate from our view, which may
       // be detached. If the webview were a child, it would cause the webview to reload when
       // reattached, and we'd lose our state.
+
+      if (!(document.body != null)) {
+        throw new Error('Invariant violation: "document.body != null"');
+      }
+
       document.body.appendChild(webview);
 
       this._setWebviewElement(webview);

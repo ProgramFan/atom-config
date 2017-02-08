@@ -100,7 +100,7 @@ class QuickOpenHelpers {
       { title: kind },
       _reactForAtom.React.createElement(
         'span',
-        { className: `file icon ${ icon }` },
+        { className: `file icon ${icon}` },
         _reactForAtom.React.createElement(
           'code',
           null,

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5491-8u0h11/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5557-gkmy17/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5491-8u0h11/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5491-8u0h11/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5557-gkmy17/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5557-gkmy17/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-5491-xe3bt2"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5557-1xtuhjh"
     ]
   ],
-  "_from": "../d-117016-5491-8u0h11/package.tgz",
+  "_from": "../d-11718-5557-gkmy17/package.tgz",
   "_id": "remote-sync@4.1.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/remote-sync",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5491-8u0h11/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5557-gkmy17/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5491-8u0h11/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5491-8u0h11/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5557-gkmy17/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5557-gkmy17/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-5491-8u0h11/package.tgz",
+  "_resolved": "file:../d-11718-5557-gkmy17/package.tgz",
   "_shasum": "3be3ac87b25de35a23a8aeadb1a425809dcb2c3c",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-5491-8u0h11/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-5491-xe3bt2",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5557-gkmy17/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5557-1xtuhjh",
   "bugs": {
     "url": "https://github.com/yongkangchen/remote-sync/issues"
   },

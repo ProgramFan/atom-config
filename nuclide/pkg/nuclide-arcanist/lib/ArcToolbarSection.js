@@ -84,7 +84,7 @@ class ArcToolbarSection extends _reactForAtom.React.Component {
       icon: 'sync',
       size: (_Button || _load_Button()).ButtonSizes.SMALL,
       onClick: this._reloadBuildTargets,
-      tooltip: { title: 'Reload build steps', delay: 100, placement: 'bottom' }
+      tooltip: { title: 'Reload build steps', delay: { show: 500, hide: 0 }, placement: 'bottom' }
     });
   }
 

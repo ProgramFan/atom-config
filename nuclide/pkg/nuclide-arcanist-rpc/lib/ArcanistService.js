@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.__TEST__ = exports.getProjectRelativePath = exports.findArcProjectIdAndDirectory = exports.findArcProjectIdOfPath = exports.readArcConfig = exports.findArcConfigDirectory = undefined;
+exports.__TEST__ = exports.getProjectRelativePath = exports.findArcProjectIdAndDirectory = exports.findArcProjectIdOfPath = exports.getArcConfigKey = exports.readArcConfig = exports.findArcConfigDirectory = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -46,19 +46,31 @@ let readArcConfig = exports.readArcConfig = (() => {
   };
 })();
 
-let findArcProjectIdOfPath = exports.findArcProjectIdOfPath = (() => {
-  var _ref3 = (0, _asyncToGenerator.default)(function* (fileName) {
-    const project = yield readArcConfig(fileName);
-    return project ? project.project_id || project['project.name'] : null;
+let getArcConfigKey = exports.getArcConfigKey = (() => {
+  var _ref3 = (0, _asyncToGenerator.default)(function* (fileName, key) {
+    return _callArcGetConfig(fileName, key).map(function (s) {
+      return s.split(':')[1].trim().replace(/"/g, '');
+    }).toPromise();
   });
 
-  return function findArcProjectIdOfPath(_x3) {
+  return function getArcConfigKey(_x3, _x4) {
     return _ref3.apply(this, arguments);
   };
 })();
 
-let findArcProjectIdAndDirectory = exports.findArcProjectIdAndDirectory = (() => {
+let findArcProjectIdOfPath = exports.findArcProjectIdOfPath = (() => {
   var _ref4 = (0, _asyncToGenerator.default)(function* (fileName) {
+    const project = yield readArcConfig(fileName);
+    return project ? project.project_id || project['project.name'] : null;
+  });
+
+  return function findArcProjectIdOfPath(_x5) {
+    return _ref4.apply(this, arguments);
+  };
+})();
+
+let findArcProjectIdAndDirectory = exports.findArcProjectIdAndDirectory = (() => {
+  var _ref5 = (0, _asyncToGenerator.default)(function* (fileName) {
     const directory = yield findArcConfigDirectory(fileName);
     if (directory != null) {
       // This will hit the directory map cache.
@@ -70,24 +82,24 @@ let findArcProjectIdAndDirectory = exports.findArcProjectIdAndDirectory = (() =>
     return null;
   });
 
-  return function findArcProjectIdAndDirectory(_x4) {
-    return _ref4.apply(this, arguments);
-  };
-})();
-
-let getProjectRelativePath = exports.getProjectRelativePath = (() => {
-  var _ref5 = (0, _asyncToGenerator.default)(function* (fileName) {
-    const arcPath = yield findArcConfigDirectory(fileName);
-    return arcPath && fileName ? (_nuclideUri || _load_nuclideUri()).default.relative(arcPath, fileName) : null;
-  });
-
-  return function getProjectRelativePath(_x5) {
+  return function findArcProjectIdAndDirectory(_x6) {
     return _ref5.apply(this, arguments);
   };
 })();
 
+let getProjectRelativePath = exports.getProjectRelativePath = (() => {
+  var _ref6 = (0, _asyncToGenerator.default)(function* (fileName) {
+    const arcPath = yield findArcConfigDirectory(fileName);
+    return arcPath && fileName ? (_nuclideUri || _load_nuclideUri()).default.relative(arcPath, fileName) : null;
+  });
+
+  return function getProjectRelativePath(_x7) {
+    return _ref6.apply(this, arguments);
+  };
+})();
+
 let getMercurialHeadCommitChanges = (() => {
-  var _ref6 = (0, _asyncToGenerator.default)(function* (filePath) {
+  var _ref7 = (0, _asyncToGenerator.default)(function* (filePath) {
     const hgRepoDetails = (0, (_nuclideSourceControlHelpers || _load_nuclideSourceControlHelpers()).findHgRepository)(filePath);
     if (hgRepoDetails == null) {
       throw new Error('Cannot find source control root to diff from');
@@ -99,13 +111,13 @@ let getMercurialHeadCommitChanges = (() => {
     return filesChanged;
   });
 
-  return function getMercurialHeadCommitChanges(_x6) {
-    return _ref6.apply(this, arguments);
+  return function getMercurialHeadCommitChanges(_x8) {
+    return _ref7.apply(this, arguments);
   };
 })();
 
 let getCommitBasedArcConfigDirectory = (() => {
-  var _ref7 = (0, _asyncToGenerator.default)(function* (filePath) {
+  var _ref8 = (0, _asyncToGenerator.default)(function* (filePath) {
     // TODO Support other source control types file changes (e.g. `git`).
     const filesChanged = yield getMercurialHeadCommitChanges(filePath);
     let configLookupPath = null;
@@ -117,13 +129,13 @@ let getCommitBasedArcConfigDirectory = (() => {
     return findArcConfigDirectory(configLookupPath);
   });
 
-  return function getCommitBasedArcConfigDirectory(_x7) {
-    return _ref7.apply(this, arguments);
+  return function getCommitBasedArcConfigDirectory(_x9) {
+    return _ref8.apply(this, arguments);
   };
 })();
 
 let getArcExecOptions = (() => {
-  var _ref8 = (0, _asyncToGenerator.default)(function* (cwd, hgEditor) {
+  var _ref9 = (0, _asyncToGenerator.default)(function* (cwd, hgEditor) {
     const options = {
       cwd,
       env: Object.assign({}, (yield (0, (_process || _load_process()).getOriginalEnvironment)()), {
@@ -138,8 +150,8 @@ let getArcExecOptions = (() => {
     return options;
   });
 
-  return function getArcExecOptions(_x8, _x9) {
-    return _ref8.apply(this, arguments);
+  return function getArcExecOptions(_x10, _x11) {
+    return _ref9.apply(this, arguments);
   };
 })();
 
@@ -228,6 +240,11 @@ function findDiagnostics(path, skip) {
     }
     return execArcLint(arcDir, [path], skip);
   }).publish();
+}
+
+function _callArcGetConfig(filePath, name) {
+  const args = ['get-config', name];
+  return _rxjsBundlesRxMinJs.Observable.fromPromise(getArcExecOptions(filePath)).switchMap(opts => (0, (_process || _load_process()).runCommand)('arc', args, opts));
 }
 
 function _callArcDiff(filePath, extraArcDiffArgs) {

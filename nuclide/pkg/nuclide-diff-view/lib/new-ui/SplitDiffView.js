@@ -349,7 +349,7 @@ function updateEditorLoadingIndicator(editorElement, isLoading) {
   function removeLoadingIndicator() {
     // Unfade the editor and hide the loading spinner with delay.
     editorElement.classList.remove(NUCLIDE_DIFF_EDITOR_LOADING_CLASSNAME);
-    const loadingElement = editorParent.querySelector(`.${ NUCLIDE_DIFF_LOADING_INDICATOR_CLASSNAME }`);
+    const loadingElement = editorParent.querySelector(`.${NUCLIDE_DIFF_LOADING_INDICATOR_CLASSNAME}`);
     if (loadingElement != null) {
       editorParent.removeChild(loadingElement);
     }

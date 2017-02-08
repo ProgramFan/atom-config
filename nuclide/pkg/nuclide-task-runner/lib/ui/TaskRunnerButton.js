@@ -15,19 +15,19 @@ var _reactForAtom = require('react-for-atom');
 
 function TaskRunnerButton(props) {
   const IconComponent = props.iconComponent;
+  const icon = IconComponent ? _reactForAtom.React.createElement(IconComponent, null) : null;
   const buttonProps = Object.assign({}, props);
   delete buttonProps.label;
   delete buttonProps.iconComponent;
   return _reactForAtom.React.createElement(
     (_Button || _load_Button()).Button,
     Object.assign({}, buttonProps, {
-      className: 'nuclide-task-runner-system-task-button' }),
+      className: 'nuclide-task-runner-task-runner-button' }),
     _reactForAtom.React.createElement(
       'div',
-      { className: 'nuclide-task-runner-system-icon-wrapper' },
-      _reactForAtom.React.createElement(IconComponent, null)
+      { className: 'nuclide-task-runner-task-runner-icon-wrapper' },
+      icon
     ),
-    _reactForAtom.React.createElement('div', { className: 'nuclide-task-runner-system-task-button-divider' }),
     props.children
   );
 } /**

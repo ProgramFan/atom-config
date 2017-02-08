@@ -67,6 +67,16 @@ class RemoteProjectsService {
       });
     })();
   }
+
+  openConnectionDialog(options) {
+    return (0, (_openConnection || _load_openConnection()).openConnectionDialog)(options);
+  }
+
+  findOrCreate(config) {
+    return (0, _asyncToGenerator.default)(function* () {
+      return (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).RemoteConnection.findOrCreate(config);
+    })();
+  }
 }
 exports.default = RemoteProjectsService; /**
                                           * Copyright (c) 2015-present, Facebook, Inc.

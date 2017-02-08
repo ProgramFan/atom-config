@@ -37,7 +37,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (args) {
     const argv = yield new Promise(function (resolve, reject) {
-      resolve((_yargs || _load_yargs()).default.usage(`Usage: atom-script ${ __dirname }/markdown.js -o <output file> <input file>`).help('h').alias('h', 'help').option('out', {
+      resolve((_yargs || _load_yargs()).default.usage(`Usage: atom-script ${__dirname}/markdown.js -o <output file> <input file>`).help('h').alias('h', 'help').option('out', {
         alias: 'o',
         demand: false,
         describe: 'Must specify a path to an output file.',
@@ -84,7 +84,7 @@ exports.default = (() => {
     });
     const styles = view.getMarkdownPreviewCSS();
 
-    const title = `${ markdownFile }.html`;
+    const title = `${markdownFile}.html`;
     // It is not obvious from markdown-preview/lib/markdown-preview-view.coffee#saveAs
     // that the data-use-github-style attribute is key to this working.
     // https://github.com/atom/markdown-preview/pull/335 drew my attention to it.
@@ -97,10 +97,10 @@ exports.default = (() => {
 <html>
   <head>
       <meta charset="utf-8" />
-      <title>${ title }</title>
-      <style>${ styles }</style>
+      <title>${title}</title>
+      <style>${styles}</style>
   </head>
-  <body class="markdown-preview" data-use-github-style>${ htmlBody }</body>
+  <body class="markdown-preview" data-use-github-style>${htmlBody}</body>
 </html>`;
 
     if (argv.out == null) {

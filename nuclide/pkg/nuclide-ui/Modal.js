@@ -86,9 +86,10 @@ class Modal extends _reactForAtom.React.Component {
       { container: this._container },
       _reactForAtom.React.createElement(
         'div',
-        {
-          tabIndex: '0',
-          ref: this._handleContainerInnerElement },
+        Object.assign({
+          tabIndex: '0'
+        }, this.props, {
+          ref: this._handleContainerInnerElement }),
         this.props.children
       )
     );

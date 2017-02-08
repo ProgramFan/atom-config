@@ -138,6 +138,13 @@ class FileTreeActions {
     });
   }
 
+  removeExtraProjectSelectionContent(content) {
+    this._dispatcher.dispatch({
+      actionType: (_FileTreeDispatcher2 || _load_FileTreeDispatcher2()).ActionTypes.REMOVE_EXTRA_PROJECT_SELECTION_CONTENT,
+      content
+    });
+  }
+
   expandNode(rootKey, nodeKey) {
     this._dispatcher.dispatch({
       actionType: (_FileTreeDispatcher2 || _load_FileTreeDispatcher2()).ActionTypes.EXPAND_NODE,
@@ -569,13 +576,13 @@ class FileTreeActions {
         } else if (internalGitRepo.isStatusDeleted(gitStatusNumber)) {
           statusCode = StatusCodeNumber.REMOVED;
         } else {
-          (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`Unrecognized git status number ${ gitStatusNumber }`);
+          (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`Unrecognized git status number ${gitStatusNumber}`);
           statusCode = StatusCodeNumber.MODIFIED;
         }
         relativeCodePaths[relativePath] = statusCode;
       }
     } else {
-      throw new Error(`Unsupported repository type: ${ repo.getType() }`);
+      throw new Error(`Unsupported repository type: ${repo.getType()}`);
     }
     const repoRoot = repo.getWorkingDirectory();
     const absoluteCodePaths = {};

@@ -12,7 +12,7 @@ let clearConnectionConfig = exports.clearConnectionConfig = (() => {
     try {
       localStorage.removeItem(getStorageKey(host));
     } catch (e) {
-      logger.error(`Failed to clear configuration for ${ host }.`, e);
+      logger.error(`Failed to clear configuration for ${host}.`, e);
     }
   });
 
@@ -75,7 +75,7 @@ function isInsecure(config) {
 }
 
 function getStorageKey(host) {
-  return `${ CONFIG_DIR }:${ host }`;
+  return `${CONFIG_DIR}:${host}`;
 }
 
 function getConnectionConfig(host) {
@@ -86,12 +86,12 @@ function getConnectionConfig(host) {
   try {
     return decryptConfig(JSON.parse(storedConfig));
   } catch (e) {
-    logger.error(`The configuration file for ${ host } is corrupted.`, e);
+    logger.error(`The configuration file for ${host} is corrupted.`, e);
     return null;
   }
 }
 
-function setConnectionConfig(config) {
+function setConnectionConfig(config, ipAddress) {
   // Don't attempt to store insecure connections.
   // Insecure connections are used for testing and will fail the encryption call below.
   if (isInsecure(config)) {
@@ -99,15 +99,19 @@ function setConnectionConfig(config) {
   }
 
   try {
-    localStorage.setItem(getStorageKey(config.host), JSON.stringify(encryptConfig(config)));
+    const encrypted = JSON.stringify(encryptConfig(config));
+    localStorage.setItem(getStorageKey(config.host), encrypted);
+    // Store configurations by their IP address as well.
+    // This way, multiple aliases for the same hostname can reuse a single connection.
+    localStorage.setItem(getStorageKey(ipAddress), encrypted);
   } catch (e) {
-    logger.error(`Failed to store configuration file for ${ config.host }.`, e);
+    logger.error(`Failed to store configuration file for ${config.host}.`, e);
   }
 }
 
 function encryptConfig(remoteProjectConfig) {
   const sha1 = _crypto.default.createHash('sha1');
-  sha1.update(`${ remoteProjectConfig.host }:${ remoteProjectConfig.port }`);
+  sha1.update(`${remoteProjectConfig.host}:${remoteProjectConfig.port}`);
   const sha1sum = sha1.digest('hex');
 
   const { certificateAuthorityCertificate, clientCertificate, clientKey } = remoteProjectConfig;
@@ -146,7 +150,7 @@ function encryptConfig(remoteProjectConfig) {
  */
 function decryptConfig(remoteProjectConfig) {
   const sha1 = _crypto.default.createHash('sha1');
-  sha1.update(`${ remoteProjectConfig.host }:${ remoteProjectConfig.port }`);
+  sha1.update(`${remoteProjectConfig.host}:${remoteProjectConfig.port}`);
   const sha1sum = sha1.digest('hex');
 
   const password = (_keytarWrapper || _load_keytarWrapper()).default.getPassword('nuclide.remoteProjectConfig', sha1sum);
@@ -171,7 +175,7 @@ function decryptConfig(remoteProjectConfig) {
   //  "nolint" is to suppress ArcanistPrivateKeyLinter errors
   if (!restoredClientKey.startsWith('-----BEGIN RSA PRIVATE KEY-----')) {
     /* nolint */
-    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`decrypted client key did not start with expected header: ${ restoredClientKey }`);
+    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`decrypted client key did not start with expected header: ${restoredClientKey}`);
   }
 
   if (!certificateAuthorityCertificate) {
@@ -194,9 +198,7 @@ function decryptConfig(remoteProjectConfig) {
 function decryptString(text, password, salt) {
   const decipher = _crypto.default.createDecipheriv('aes-128-cbc', new Buffer(password, 'base64'), new Buffer(salt, 'base64'));
 
-  // $FlowIssue according to the Flow typedefs, 'base64' is not a valid input encoding
   let decryptedString = decipher.update(text, 'base64', 'utf8');
-  // $FlowIssue apparently 'utf8' is not a valid output encoding
   decryptedString += decipher.final('utf8');
 
   return decryptedString;

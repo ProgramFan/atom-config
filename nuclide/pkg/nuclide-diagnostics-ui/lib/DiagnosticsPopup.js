@@ -58,10 +58,8 @@ const DiagnosticsPopup = props => {
     left,
     messages,
     top
-  } = props;
-
-  const rest = _objectWithoutProperties(props, ['fixer', 'goToLocation', 'left', 'messages', 'top']);
-
+  } = props,
+        rest = _objectWithoutProperties(props, ['fixer', 'goToLocation', 'left', 'messages', 'top']);
   return _reactForAtom.React.createElement(
     'div',
     Object.assign({

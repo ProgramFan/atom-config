@@ -72,16 +72,16 @@ function escapeName(name) {
 }
 
 function paramSignature(params) {
-  const paramStrings = params.map(param => `${ param.type } ${ param.name }`);
-  return `(${ paramStrings.join(', ') })`;
+  const paramStrings = params.map(param => `${param.type} ${param.name}`);
+  return `(${paramStrings.join(', ')})`;
 }
 
 function matchSnippet(name, params) {
   const escapedName = escapeName(name);
   if (params != null) {
     // Construct the snippet: e.g. myFunction(${1:$arg1}, ${2:$arg2});
-    const paramsString = params.map((param, index) => `\${${ index + 1 }:${ param.name }}`).join(', ');
-    return `${ escapedName }(${ paramsString })`;
+    const paramsString = params.map((param, index) => `\${${index + 1}:${param.name}}`).join(', ');
+    return `${escapedName}(${paramsString})`;
   } else {
     return escapedName;
   }
@@ -101,6 +101,13 @@ function matchLength(contents, match) {
 
 function processCompletions(completionsResponse, contents, offset, defaultPrefix) {
   const contentsLine = contents.substring(contents.lastIndexOf('\n', offset - 1) + 1, offset).toLowerCase();
+
+  const lineEndOrNotFound = contents.indexOf('\n', offset);
+  const lineEnd = lineEndOrNotFound !== -1 ? lineEndOrNotFound : contents.length;
+  const contentsRestOfLine = contents.substring(offset, lineEnd);
+  const nextCharIndex = contentsRestOfLine.search(/\S/);
+  const alreadyHasParams = nextCharIndex !== -1 && contentsRestOfLine[nextCharIndex] === '(';
+
   return completionsResponse.map(completion => {
     const { name, type, func_details } = completion;
     const resultPrefix = contents.substring(offset - matchLength(contentsLine, name.toLowerCase()), offset);
@@ -109,16 +116,22 @@ function processCompletions(completionsResponse, contents, offset, defaultPrefix
       replacementPrefix: resultPrefix === '' ? defaultPrefix : resultPrefix,
       description: matchTypeOfType(type)
     };
+    // The typechecker only gives us suggestions that are valid in the
+    // current scope - so, if what the user typed didn't start with the
+    // namespace (which would lead to us having a resultPrefix), we don't
+    // want to put the namespace in the replacement.
+    const scopedName = resultPrefix === '' ? name.split('\\').pop() : name;
     if (func_details != null) {
+      const completionParams = alreadyHasParams ? null : func_details.params;
       return Object.assign({}, commonResult, {
-        snippet: matchSnippet(name, func_details.params),
+        snippet: matchSnippet(scopedName, completionParams),
         leftLabel: func_details.return_type,
         rightLabel: paramSignature(func_details.params),
         type: 'function'
       });
     } else {
       return Object.assign({}, commonResult, {
-        snippet: matchSnippet(name),
+        snippet: matchSnippet(scopedName),
         rightLabel: matchTypeOfType(type)
       });
     }

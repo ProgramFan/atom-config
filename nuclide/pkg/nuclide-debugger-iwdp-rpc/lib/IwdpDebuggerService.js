@@ -74,7 +74,7 @@ class IwdpDebuggerService {
   attach(targetEnvironment) {
     const connection = connectToTarget(targetEnvironment);
     this._disposables.add(connection.subscribe(deviceInfo => {
-      log(`Got device info: ${ JSON.stringify(deviceInfo) }`);
+      log(`Got device info: ${JSON.stringify(deviceInfo)}`);
       this._connectionMultiplexer.add(deviceInfo);
     }));
     return Promise.resolve('IWDP Connected');
@@ -100,5 +100,5 @@ function connectToTarget(targetEnvironment) {
   } else if (targetEnvironment === 'Android') {
     return (0, (_connectToPackager || _load_connectToPackager()).connectToPackager)();
   }
-  throw new Error(`Unrecognized environment: ${ targetEnvironment }`);
+  throw new Error(`Unrecognized environment: ${targetEnvironment}`);
 }

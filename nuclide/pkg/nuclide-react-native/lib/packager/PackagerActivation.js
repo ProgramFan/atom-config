@@ -80,7 +80,7 @@ class PackagerActivation {
               throw new Error('Invariant violation: "err instanceof PackagerError"');
             }
 
-            atom.notifications.addError(`Packager exited with ${ err.exitMessage }`, {
+            atom.notifications.addError(`Packager exited with ${err.exitMessage}`, {
               dismissable: true,
               detail: err.stderr.trim() === '' ? undefined : err.stderr
             });
@@ -99,8 +99,8 @@ class PackagerActivation {
       this._logTailer.stop();
     }), atom.commands.add('atom-workspace', {
       'nuclide-react-native:start-packager': event => {
-        // $FlowFixMe
         const detail = event.detail != null && typeof event.detail === 'object' ? event.detail : undefined;
+        // $FlowFixMe
         this._logTailer.start(detail);
       },
       'nuclide-react-native:stop-packager': () => this._logTailer.stop(),
@@ -170,10 +170,10 @@ function getPackagerObservable(projectRootPath) {
     if (!(remote != null)) {
       throw new Error('Invariant violation: "remote != null"');
     }
-
-    const app = remote.require('app');
     // Tell the packager to use this Atom to edit the files.
-    const editor = [app.getPath('exe')];
+
+
+    const editor = [remote.app.getPath('exe')];
     if (atom.devMode) {
       editor.push('--dev');
     }

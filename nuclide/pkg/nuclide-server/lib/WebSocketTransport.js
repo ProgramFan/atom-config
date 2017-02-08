@@ -80,10 +80,10 @@ class WebSocketTransport {
 
     socket.on('error', e => {
       if (this._socket != null) {
-        logger.error(`Client #${ this.id } error: ${ e.message }`);
+        logger.error(`Client #${this.id} error: ${e.message}`);
         this._emitter.emit('error', e);
       } else {
-        logger.error(`Client #${ this.id } error after close: ${ e.message }`);
+        logger.error(`Client #${this.id} error after close: ${e.message}`);
       }
     });
 
@@ -99,7 +99,7 @@ class WebSocketTransport {
 
   _onSocketMessage(message) {
     if (this._socket == null) {
-      logger.error('Received socket message after connection closed', new Error());
+      logger.error('Received socket message after connection closed');
       return;
     }
     this._messages.next(message);

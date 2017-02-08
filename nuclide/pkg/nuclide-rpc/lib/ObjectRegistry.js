@@ -205,7 +205,7 @@ class ObjectRegistry {
 
     return (0, _asyncToGenerator.default)(function* () {
       const ids = Array.from(_this2._registrationsById.keys());
-      logger.info(`Disposing ${ ids.length } registrations`);
+      logger.info(`Disposing ${ids.length} registrations`);
 
       yield Promise.all(ids.map((() => {
         var _ref = (0, _asyncToGenerator.default)(function* (id) {
@@ -222,7 +222,7 @@ class ObjectRegistry {
       })()));
 
       const subscriptions = Array.from(_this2._subscriptions.keys());
-      logger.info(`Disposing ${ subscriptions.length } subscriptions`);
+      logger.info(`Disposing ${subscriptions.length} subscriptions`);
       for (const id of subscriptions) {
         try {
           _this2.disposeSubscription(id);

@@ -61,7 +61,7 @@ class DbgpMessageHandler {
      * 2: length<NULL>xml-part1.
      * >=3: Other scenarios.
      */
-    (_utils || _load_utils()).default.log(`Total components: ${ components.length }`);
+    (_utils || _load_utils()).default.log(`Total components: ${components.length}`);
 
     // Merge head component with prevIncompletedMessage if needed.
     const results = [];
@@ -78,7 +78,7 @@ class DbgpMessageHandler {
 
     // Verify that we can't get another message without completing previous one.
     if (prevIncompletedMessage && components.length !== 0) {
-      (_utils || _load_utils()).default.logErrorAndThrow('Error: got extra messages without completing previous message. ' + `Previous message was: ${ JSON.stringify(prevIncompletedMessage) }. ` + `Remaining components: ${ JSON.stringify(components) }`);
+      (_utils || _load_utils()).default.logErrorAndThrow('Error: got extra messages without completing previous message. ' + `Previous message was: ${JSON.stringify(prevIncompletedMessage)}. ` + `Remaining components: ${JSON.stringify(components)}`);
     }
 
     const isIncompleteResponse = components.length % 2 === 0;
@@ -87,7 +87,7 @@ class DbgpMessageHandler {
     if (!isIncompleteResponse) {
       const lastComponent = components.pop();
       if (lastComponent.length !== 0) {
-        (_utils || _load_utils()).default.logErrorAndThrow('The complete response should terminate with' + ` zero character while got: ${ lastComponent } `);
+        (_utils || _load_utils()).default.logErrorAndThrow('The complete response should terminate with' + ` zero character while got: ${lastComponent} `);
       }
     }
 
@@ -120,7 +120,7 @@ class DbgpMessageHandler {
         content: components.shift()
       };
       if (!this._isCompletedMessage(message)) {
-        (_utils || _load_utils()).default.logErrorAndThrow(`Got message length(${ message.content.length }) ` + `not equal to expected(${ message.length }). ` + `Message was: ${ JSON.stringify(message) }`);
+        (_utils || _load_utils()).default.logErrorAndThrow(`Got message length(${message.content.length}) ` + `not equal to expected(${message.length}). ` + `Message was: ${JSON.stringify(message)}`);
       }
       results.push(this._parseXml(message));
     }

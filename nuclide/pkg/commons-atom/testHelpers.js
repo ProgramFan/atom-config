@@ -47,6 +47,10 @@ function dispatchKeyboardEvent(key, target, metaKeys = {}) {
     throw new Error('Invariant violation: "shift !== true || key.toUpperCase() === key"');
   }
 
+  if (!(target != null)) {
+    throw new Error('Invariant violation: "target != null"');
+  }
+
   const event = atom.keymaps.constructor.buildKeydownEvent(key, {
     target,
     alt: Boolean(alt),
@@ -119,7 +123,7 @@ function setLocalProject(projectPath) {
  * Can only be used in a Jasmine context.
  */
 function waitsForFile(filename, timeoutMs = 10000) {
-  waitsFor(`${ filename } to become active`, timeoutMs, () => {
+  waitsFor(`${filename} to become active`, timeoutMs, () => {
     const editor = atom.workspace.getActiveTextEditor();
     if (editor == null) {
       return false;
@@ -133,7 +137,7 @@ function waitsForFile(filename, timeoutMs = 10000) {
 }
 
 function waitsForFilePosition(filename, row, column, timeoutMs = 10000) {
-  waitsFor(`${ filename } to become active at ${ row }:${ column }`, timeoutMs, () => {
+  waitsFor(`${filename} to become active at ${row}:${column}`, timeoutMs, () => {
     const editor = atom.workspace.getActiveTextEditor();
     if (editor == null) {
       return false;

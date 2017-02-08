@@ -355,7 +355,7 @@ class DebuggerHandler extends (_Handler || _load_Handler()).default {
           });
           break;
         default:
-          (_utils2 || _load_utils2()).default.logErrorAndThrow(`Unexpected notification: ${ notifyName }`);
+          (_utils2 || _load_utils2()).default.logErrorAndThrow(`Unexpected notification: ${notifyName}`);
       }
     })();
   }

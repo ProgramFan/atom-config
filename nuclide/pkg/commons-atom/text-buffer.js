@@ -124,7 +124,7 @@ function createBufferForUri(uri) {
   } else {
     const connection = (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).ServerConnection.getForUri(uri);
     if (connection == null) {
-      throw new Error(`ServerConnection cannot be found for uri: ${ uri }`);
+      throw new Error(`ServerConnection cannot be found for uri: ${uri}`);
     }
     buffer = new (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).NuclideTextBuffer(connection, { filePath: uri });
   }

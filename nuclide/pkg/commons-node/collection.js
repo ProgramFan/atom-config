@@ -24,6 +24,9 @@ exports.someOfIterable = someOfIterable;
 exports.findInIterable = findInIterable;
 exports.filterIterable = filterIterable;
 exports.mapIterable = mapIterable;
+exports.firstOfIterable = firstOfIterable;
+exports.iterableIsEmpty = iterableIsEmpty;
+exports.iterableContains = iterableContains;
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -353,4 +356,20 @@ function* mapIterable(iterable, projectorFn) {
   for (const element of iterable) {
     yield projectorFn(element);
   }
+}
+
+function firstOfIterable(iterable) {
+  return findInIterable(iterable, () => true);
+}
+
+function iterableIsEmpty(iterable) {
+  // eslint-disable-next-line no-unused-vars
+  for (const element of iterable) {
+    return false;
+  }
+  return true;
+}
+
+function iterableContains(iterable, value) {
+  return !iterableIsEmpty(filterIterable(iterable, element => element === value));
 }

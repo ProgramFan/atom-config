@@ -116,6 +116,6 @@ function convertStringFamilyToNumberFamily(family) {
     case 'IPv6':
       return 6;
     default:
-      throw new Error(`Unrecognized network address family ${ family }`);
+      throw new Error(`Unrecognized network address family ${family}`);
   }
 }

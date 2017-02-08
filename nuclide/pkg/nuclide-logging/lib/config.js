@@ -95,12 +95,6 @@ function _load_fsPromise() {
   return _fsPromise = _interopRequireDefault(require('../../commons-node/fsPromise'));
 }
 
-var _userInfo;
-
-function _load_userInfo() {
-  return _userInfo = _interopRequireDefault(require('../../commons-node/userInfo'));
-}
-
 var _os = _interopRequireDefault(require('os'));
 
 var _nuclideUri;
@@ -111,16 +105,17 @@ function _load_nuclideUri() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const LOG_DIRECTORY = (_nuclideUri || _load_nuclideUri()).default.join(_os.default.tmpdir(), `/nuclide-${ (0, (_userInfo || _load_userInfo()).default)().username }-logs`); /**
-                                                                                                                                                                             * Copyright (c) 2015-present, Facebook, Inc.
-                                                                                                                                                                             * All rights reserved.
-                                                                                                                                                                             *
-                                                                                                                                                                             * This source code is licensed under the license found in the LICENSE file in
-                                                                                                                                                                             * the root directory of this source tree.
-                                                                                                                                                                             *
-                                                                                                                                                                             * 
-                                                                                                                                                                             */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
+const LOG_DIRECTORY = (_nuclideUri || _load_nuclideUri()).default.join(_os.default.tmpdir(), `/nuclide-${_os.default.userInfo().username}-logs`);
 const LOG_FILE_PATH = exports.LOG_FILE_PATH = (_nuclideUri || _load_nuclideUri()).default.join(LOG_DIRECTORY, 'nuclide.log');
 
 let logDirectoryInitialized = false;
@@ -142,6 +137,6 @@ const FileAppender = exports.FileAppender = {
     type: 'pattern',
     // Format log in following pattern:
     // yyyy-MM-dd HH:mm:ss.mil $Level (pid:$pid) $categroy - $message.
-    pattern: `%d{ISO8601} %p (pid:${ process.pid }) %c - %m`
+    pattern: `%d{ISO8601} %p (pid:${process.pid}) %c - %m`
   }
 };

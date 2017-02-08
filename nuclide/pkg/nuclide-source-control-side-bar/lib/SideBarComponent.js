@@ -141,12 +141,15 @@ class SideBarComponent extends _reactForAtom.React.Component {
   }
 
   _handleBookmarkContextMenu(bookmark, repository, event) {
+    // Prevent the normal context menu.
+    event.stopPropagation();
+
     const menu = remote.Menu.buildFromTemplate([{
       click: () => {
         this.props.updateToBookmark(bookmark, repository);
       },
       enabled: !bookmark.active,
-      label: `Update to ${ bookmark.bookmark }`
+      label: `Update to ${bookmark.bookmark}`
     }, { type: 'separator' }, {
       click: () => {
         this.setState({
@@ -160,7 +163,7 @@ class SideBarComponent extends _reactForAtom.React.Component {
           })
         });
       },
-      label: `Delete ${ bookmark.bookmark }...`
+      label: `Delete ${bookmark.bookmark}...`
     }, {
       click: () => {
         this.setState({
@@ -174,7 +177,7 @@ class SideBarComponent extends _reactForAtom.React.Component {
           })
         });
       },
-      label: `Rename ${ bookmark.bookmark }...`
+      label: `Rename ${bookmark.bookmark}...`
     }]);
 
     // Store event position because React cleans up SyntheticEvent objects.

@@ -10,6 +10,12 @@ function _load_createPackage() {
   return _createPackage = _interopRequireDefault(require('../../commons-atom/createPackage'));
 }
 
+var _UniversalDisposable;
+
+function _load_UniversalDisposable() {
+  return _UniversalDisposable = _interopRequireDefault(require('../../commons-node/UniversalDisposable'));
+}
+
 var _PaneLocation;
 
 function _load_PaneLocation() {
@@ -27,8 +33,6 @@ var _PanelLocationIds;
 function _load_PanelLocationIds() {
   return _PanelLocationIds = _interopRequireDefault(require('./PanelLocationIds'));
 }
-
-var _atom = require('atom');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -48,7 +52,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 class Activation {
 
   constructor() {
-    this._disposables = new _atom.CompositeDisposable();
+    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default();
     this._panelLocations = new Map();
     this._initialPanelVisibility = new Map();
   }
@@ -74,7 +78,13 @@ class Activation {
   }
 
   consumeWorkspaceViewsService(api) {
-    this._disposables.add(api.registerLocation({ id: 'pane', create: () => new (_PaneLocation || _load_PaneLocation()).PaneLocation() }), ...(_PanelLocationIds || _load_PanelLocationIds()).default.map(id => api.registerLocation({
+    const layout = require('../../nuclide-ui/VendorLib/atom-tabs/lib/layout');
+    layout.activate();
+    this._disposables.add(() => {
+      layout.deactivate();
+    }, api.registerLocation({ id: 'pane', create: () => new (_PaneLocation || _load_PaneLocation()).PaneLocation() }),
+    // $FlowIssue: Flow is having issues with multiple spreads.
+    ...(_PanelLocationIds || _load_PanelLocationIds()).default.map(id => api.registerLocation({
       id,
       create: serializedState_ => {
         const serializedState = serializedState_ == null ? {} : serializedState_;
@@ -87,7 +97,7 @@ class Activation {
         this._panelLocations.set(id, location);
         return location;
       }
-    })), ...(_PanelLocationIds || _load_PanelLocationIds()).default.map(id => atom.commands.add('atom-workspace', `nuclide-workspace-views:toggle-${ id }`, () => {
+    })), ...(_PanelLocationIds || _load_PanelLocationIds()).default.map(id => atom.commands.add('atom-workspace', `nuclide-workspace-views:toggle-${id}`, () => {
       this._toggleVisibility(id);
     })));
   }
@@ -101,7 +111,7 @@ class Activation {
   provideDistractionFreeModeProvider() {
     this._initialPanelVisibility = new Map((_PanelLocationIds || _load_PanelLocationIds()).default.map(id => [id, false]));
     return (_PanelLocationIds || _load_PanelLocationIds()).default.map(id => ({
-      name: `nuclide-workspace-view-locations:${ id }`,
+      name: `nuclide-workspace-view-locations:${id}`,
       isVisible: () => {
         const location = this._panelLocations.get(id);
         return location == null ? Boolean(this._initialPanelVisibility.get(id)) : location.isVisible();

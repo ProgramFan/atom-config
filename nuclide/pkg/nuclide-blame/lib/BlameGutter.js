@@ -111,7 +111,7 @@ class BlameGutter {
         // Note that 'shell' is not the public 'shell' package on npm but an Atom built-in.
         _electron.shell.openExternal(url);
       } else {
-        atom.notifications.addWarning(`No URL found for ${ revision.hash }.`);
+        atom.notifications.addWarning(`No URL found for ${revision.hash}.`);
       }
 
       (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('blame-gutter-click-revision', {

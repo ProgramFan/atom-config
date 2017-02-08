@@ -172,7 +172,7 @@ class TypeRegistry {
 
       const namedMarshaller = this._namedMarshallers.get(type.name);
       if (namedMarshaller == null) {
-        throw new Error(`No marshaller found for named type ${ type.name }.`);
+        throw new Error(`No marshaller found for named type ${type.name}.`);
       }
       return namedMarshaller.marshaller(value, context);
     }, (value, type, context) => {
@@ -182,7 +182,7 @@ class TypeRegistry {
 
       const namedMarshaller = this._namedMarshallers.get(type.name);
       if (namedMarshaller == null) {
-        throw new Error(`No marshaller found for named type ${ type.name }.`);
+        throw new Error(`No marshaller found for named type ${type.name}.`);
       }
       return namedMarshaller.unmarshaller(value, context);
     });
@@ -225,7 +225,7 @@ class TypeRegistry {
     if (existingMarshaller != null) {
       // If the locations are equal then assume that the types are equal.
       if (!(0, (_location || _load_location()).locationsEqual)(existingMarshaller.location, location)) {
-        throw new Error(`${ (0, (_location || _load_location()).locationToString)(location) }: A type by the name ${ typeName } has already` + ` been registered at ${ (0, (_location || _load_location()).locationToString)(existingMarshaller.location) }.`);
+        throw new Error(`${(0, (_location || _load_location()).locationToString)(location)}: A type by the name ${typeName} has already` + ` been registered at ${(0, (_location || _load_location()).locationToString)(existingMarshaller.location)}.`);
       }
     } else {
       this._namedMarshallers.set(typeName, {
@@ -258,7 +258,7 @@ class TypeRegistry {
   _marshal(context, value, type) {
     const kindMarshaller = this._kindMarshallers.get(type.kind);
     if (kindMarshaller == null) {
-      throw new Error(`No marshaller found for type kind ${ type.kind }.`);
+      throw new Error(`No marshaller found for type kind ${type.kind}.`);
     }
     return kindMarshaller.marshaller(value, type, context);
   }
@@ -295,7 +295,7 @@ class TypeRegistry {
   unmarshalArguments(context, args, argTypes) {
     return Promise.all(argTypes.map((arg, i) => {
       if (!(Object.hasOwnProperty.call(args, arg.name) || canBeUndefined(arg.type))) {
-        throw new Error(`unmarshalArguments: Missing argument: ${ arg.name }`);
+        throw new Error(`unmarshalArguments: Missing argument: ${arg.name}`);
       }
 
       return this.unmarshal(context, args[arg.name], arg.type);
@@ -305,7 +305,7 @@ class TypeRegistry {
   _unmarshal(context, value, type) {
     const kindMarshaller = this._kindMarshallers.get(type.kind);
     if (kindMarshaller == null) {
-      throw new Error(`No unmarshaller found for type kind ${ type.kind }.`);
+      throw new Error(`No unmarshaller found for type kind ${type.kind}.`);
     }
     return kindMarshaller.unmarshaller(value, type, context);
   }
@@ -531,7 +531,7 @@ class TypeRegistry {
       // Unbox argument.
       base64string = base64string instanceof String ? base64string.valueOf() : base64string;
 
-      (0, _assert.default)(typeof base64string === 'string', `Expected a base64 string. Not ${ typeof base64string }`);
+      (0, _assert.default)(typeof base64string === 'string', `Expected a base64 string. Not ${typeof base64string}`);
       return new Buffer(base64string, 'base64');
     });
 
@@ -580,7 +580,7 @@ class TypeRegistry {
         const name = prop.name;
         const originalValue = obj[name];
         const annotateErrorAndThrow = e => {
-          addMarshallingContextToError(`Field: ${ name }`, originalValue, e);
+          addMarshallingContextToError(`Field: ${name}`, originalValue, e);
           throw e;
         };
         // Check if the source object has this key.
@@ -603,7 +603,7 @@ class TypeRegistry {
           }
         } else if (!prop.optional) {
           // If the property is optional, it's okay for it to be missing.
-          throw new Error(`Source object: ${ JSON.stringify(obj) } is missing property ${ prop.name }.`);
+          throw new Error(`Source object: ${JSON.stringify(obj)} is missing property ${prop.name}.`);
         }
       }));
       if (promise instanceof Promise) {
@@ -624,7 +624,7 @@ class TypeRegistry {
           const name = prop.name;
           const originalValue = obj[name];
           const annotateErrorAndThrow = e => {
-            addMarshallingContextToError(`Field: ${ name }`, originalValue, e);
+            addMarshallingContextToError(`Field: ${name}`, originalValue, e);
             throw e;
           };
           try {
@@ -640,7 +640,7 @@ class TypeRegistry {
         } else if (!prop.optional && !canBeUndefined(prop.type)) {
           // If the property is optional, it's okay for it to be missing.
           // JSON omits undefined values, so they can also be missing.
-          throw new Error(`Source object: ${ JSON.stringify(obj) } is missing property ${ prop.name }.`);
+          throw new Error(`Source object: ${JSON.stringify(obj)} is missing property ${prop.name}.`);
         }
       }));
       if (promise instanceof Promise) {
@@ -715,7 +715,7 @@ class TypeRegistry {
       }
 
       const types = type.types;
-      (0, _assert.default)(value.length === types.length, `Expected tuple of length ${ types.length }.`);
+      (0, _assert.default)(value.length === types.length, `Expected tuple of length ${types.length}.`);
 
       // Convert all of the elements through the correct marshaller.
       return checkedSmartPromiseAll(value.map((elem, i) => this._marshal(context, elem, types[i])));
@@ -728,7 +728,7 @@ class TypeRegistry {
       }
 
       const types = type.types;
-      (0, _assert.default)(value.length === types.length, `Expected tuple of length ${ types.length }.`);
+      (0, _assert.default)(value.length === types.length, `Expected tuple of length ${types.length}.`);
 
       // Convert all of the elements through the correct unmarshaller.
       return checkedSmartPromiseAll(value.map((elem, i) => this._unmarshal(context, elem, types[i])));
@@ -793,9 +793,9 @@ function valueToString(value) {
 function addMarshallingContextToError(message, value, e) {
   if (e.hasMarshallingError == null) {
     e.hasMarshallingError = true;
-    e.message += `\nError marshalling value: '${ valueToString(value) }'\n`;
+    e.message += `\nError marshalling value: '${valueToString(value)}'\n`;
   }
-  e.message += `${ message }\n`;
+  e.message += `${message}\n`;
 }
 
 function makeKindMarshaller(kind, transformer) {

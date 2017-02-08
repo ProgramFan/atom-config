@@ -44,9 +44,17 @@ class ArcBuildSystem {
     this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._outputMessages);
   }
 
-  setCwdApi(cwdApi) {
-    this._cwdApi = cwdApi;
-    this._model.setCwdApi(cwdApi);
+  setProjectRoot(projectRoot, callback) {
+    const path = projectRoot ? projectRoot.getPath() : null;
+    this._model.setProjectPath(path);
+
+    const storeReady = (0, (_event || _load_event()).observableFromSubscribeFunction)(this._model.onChange.bind(this._model)).map(() => this._model).startWith(this._model).filter(model => model.isArcSupported() !== null && model.getActiveProjectPath() === path);
+
+    const enabledObservable = storeReady.map(model => model.isArcSupported() === true).distinctUntilChanged();
+
+    const tasksObservable = storeReady.map(model => model.getTaskList());
+
+    return new (_UniversalDisposable || _load_UniversalDisposable()).default(_rxjsBundlesRxMinJs.Observable.combineLatest(enabledObservable, tasksObservable).subscribe(([enabled, tasks]) => callback(enabled, tasks)));
   }
 
   _getModel() {
@@ -58,13 +66,6 @@ class ArcBuildSystem {
       ArcToolbarModel = require('./ArcToolbarModel').ArcToolbarModel;
     }
     return new ArcToolbarModel(this._outputMessages);
-  }
-
-  observeTaskList(cb) {
-    if (this._tasks == null) {
-      this._tasks = _rxjsBundlesRxMinJs.Observable.concat(_rxjsBundlesRxMinJs.Observable.of(this._model.getTaskList()), (0, (_event || _load_event()).observableFromSubscribeFunction)(this._model.onChange.bind(this._model)).map(() => this._model.getTaskList()));
-    }
-    return new (_UniversalDisposable || _load_UniversalDisposable()).default(this._tasks.subscribe({ next: cb }));
   }
 
   getExtraUi() {
@@ -84,7 +85,7 @@ class ArcBuildSystem {
 
   runTask(taskType) {
     if (!this._model.getTaskList().some(task => task.type === taskType)) {
-      throw new Error(`There's no hhvm task named "${ taskType }"`);
+      throw new Error(`There's no hhvm task named "${taskType}"`);
     }
 
     const taskFunction = getTaskRunFunction(this._model, taskType);
@@ -111,7 +112,7 @@ function getTaskRunFunction(model, taskType) {
     case 'build':
       return () => model.arcBuild();
     default:
-      throw new Error(`Invalid task type: ${ taskType }`);
+      throw new Error(`Invalid task type: ${taskType}`);
   }
 }
 

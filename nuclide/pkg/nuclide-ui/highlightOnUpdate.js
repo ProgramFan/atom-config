@@ -71,7 +71,7 @@ unhighlightDelay = 200) {
     render() {
       return _reactForAtom.React.createElement(
         'span',
-        { className: `${ className } ${ this.showFlash ? className + '-highlight' : '' }` },
+        { className: `${className} ${this.showFlash ? className + '-highlight' : ''}` },
         _reactForAtom.React.createElement(ComposedComponent, this.props)
       );
     }

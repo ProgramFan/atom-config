@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.setProjectRoot = setProjectRoot;
+exports.setBuckRoot = setBuckRoot;
 exports.setBuildTarget = setBuildTarget;
 exports.setDeploymentTarget = setDeploymentTarget;
 exports.setTaskSettings = setTaskSettings;
@@ -29,6 +30,10 @@ function setProjectRoot(projectRoot) {
   return { type: SET_PROJECT_ROOT, projectRoot };
 }
 
+function setBuckRoot(buckRoot) {
+  return { type: SET_BUCK_ROOT, buckRoot };
+}
+
 function setBuildTarget(buildTarget) {
   return { type: SET_BUILD_TARGET, buildTarget };
 }
@@ -37,6 +42,6 @@ function setDeploymentTarget(deploymentTarget) {
   return { type: SET_DEPLOYMENT_TARGET, deploymentTarget };
 }
 
-function setTaskSettings(taskType, settings) {
-  return { type: SET_TASK_SETTINGS, taskType, settings };
+function setTaskSettings(settings) {
+  return { type: SET_TASK_SETTINGS, settings };
 }

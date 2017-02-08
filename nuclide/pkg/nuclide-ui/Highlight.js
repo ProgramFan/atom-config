@@ -46,10 +46,8 @@ const Highlight = props => {
     className,
     color,
     children
-  } = props;
-
-  const remainingProps = _objectWithoutProperties(props, ['className', 'color', 'children']);
-
+  } = props,
+        remainingProps = _objectWithoutProperties(props, ['className', 'color', 'children']);
   const colorClassName = HighlightColorClassNames[color == null ? 'default' : color];
   const newClassName = (0, (_classnames || _load_classnames()).default)(colorClassName, className);
   return _reactForAtom.React.createElement(

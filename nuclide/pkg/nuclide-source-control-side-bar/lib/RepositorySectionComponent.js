@@ -38,18 +38,21 @@ function _load_Section() {
 
 var _url = _interopRequireDefault(require('url'));
 
+var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const ACTIVE_BOOKMARK_TITLE = 'Active bookmark'; /**
-                                                  * Copyright (c) 2015-present, Facebook, Inc.
-                                                  * All rights reserved.
-                                                  *
-                                                  * This source code is licensed under the license found in the LICENSE file in
-                                                  * the root directory of this source tree.
-                                                  *
-                                                  * 
-                                                  */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
+const ACTIVE_BOOKMARK_TITLE = 'Active bookmark';
 const LOADING_BOOKMARK_TITLE = 'Loading...';
 
 class RepositorySectionComponent extends _reactForAtom.React.Component {
@@ -128,7 +131,7 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
       } else if (repository.getType() === 'git') {
         bookmarksBranchesHeader = 'BRANCHES';
       } else {
-        bookmarksBranchesHeader = `UNSUPPORTED REPOSITORY TYPE ${ repository.getType() }`;
+        bookmarksBranchesHeader = `UNSUPPORTED REPOSITORY TYPE ${repository.getType()}`;
       }
 
       if (repository.getType() === 'hg') {
@@ -181,20 +184,28 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
               loadingSpinner = _reactForAtom.React.createElement('span', { className: 'loading loading-spinner-tiny inline-block inline-block-tight' });
             }
 
-            let onContextMenu;
-            if (!isLoading) {
-              // When the bookmark is not loading, show its context menu so actions can be taken on
-              // it.
-              onContextMenu = this._handleBookmarkContextMenu.bind(this, bookmark);
-            }
+            // We need to use native event handling so that we can preempt Electron's menu.
+            let sub;
+            const cb = el => {
+              if (el == null) {
+                if (sub != null) {
+                  sub.unsubscribe();
+                  sub = null;
+                }
+                return;
+              }
+              sub = _rxjsBundlesRxMinJs.Observable.fromEvent(el, 'contextmenu').filter(() => !isLoading).subscribe(event => {
+                this._handleBookmarkContextMenu(bookmark, event);
+              });
+            };
 
             return _reactForAtom.React.createElement(
               'li',
               {
+                ref: cb,
                 className: liClassName,
                 key: bookmark.bookmark,
                 onClick: this._handleBookmarkClick.bind(this, bookmark),
-                onContextMenu: onContextMenu,
                 title: title },
               _reactForAtom.React.createElement(
                 'span',

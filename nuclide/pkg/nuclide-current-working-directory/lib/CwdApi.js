@@ -48,7 +48,7 @@ class CwdApi {
 
   setCwd(path) {
     if (getDirectory(path) == null) {
-      throw new Error(`Path does not belong to a project root: ${ path }`);
+      throw new Error(`Path does not belong to a project root: ${path}`);
     }
     this._cwdPath$.next(path);
   }

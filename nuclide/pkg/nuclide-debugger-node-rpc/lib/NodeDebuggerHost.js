@@ -66,15 +66,16 @@ class NodeDebuggerHost {
     const debugPort = 5858;
     const wsPort = this._generateRandomInteger(2000, 65535);
     this._nodeSocketServer.start(wsPort).then(websocket => {
-      log(`Websocket server created for port: ${ wsPort }`);
+      log(`Websocket server created for port: ${wsPort}`);
       // TODO: do we need to add webSocket into CompositeDisposable?
       const config = {
         debugPort,
-        preload: false };
+        preload: false, // This makes the node inspector not load all the source files on startup.
+        inject: false };
       const session = new (_Session || _load_Session()).Session(config, debugPort, websocket);
       _rxjsBundlesRxMinJs.Observable.fromEvent(session, 'close').subscribe(this._close$);
     });
-    return `ws://127.0.0.1:${ wsPort }/`;
+    return `ws://127.0.0.1:${wsPort}/`;
   }
 
   _generateRandomInteger(min, max) {

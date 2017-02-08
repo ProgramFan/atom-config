@@ -69,11 +69,11 @@ function createProcessStream() {
         });
       default:
         // This should never happen.
-        throw new Error(`Invalid event kind: ${ event.kind }`);
+        throw new Error(`Invalid event kind: ${event.kind}`);
     }
   }, { event: null, lastError: null }).map(acc => acc.event))
   // Only get the text from stdout.
-  .filter(event => event.kind === 'stdout').map(event => event.data && event.data.replace(/\r?\n$/, ''));
+  .filter(event => event.kind === 'stdout').map(event => event.data && event.data.replace(/\r*\n$/, ''));
 }
 
 function spawnAdbLogcat() {

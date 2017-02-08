@@ -52,14 +52,15 @@ class RelativeDate extends _reactForAtom.React.Component {
   }
 
   render() {
-    const {
+    const _props = this.props,
+          {
       date,
+      // eslint-disable-next-line no-unused-vars
+      delay: _,
       shorten,
       withToolip
-    } = this.props;
-
-    const remainingProps = _objectWithoutProperties(this.props, ['date', 'shorten', 'withToolip']);
-
+    } = _props,
+          remainingProps = _objectWithoutProperties(_props, ['date', 'delay', 'shorten', 'withToolip']);
     return _reactForAtom.React.createElement(
       'span',
       Object.assign({}, remainingProps, {

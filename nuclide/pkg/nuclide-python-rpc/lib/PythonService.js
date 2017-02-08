@@ -75,7 +75,7 @@ let getDiagnostics = exports.getDiagnostics = (() => {
         shouldRunFlake8 = false;
         return [];
       }
-      throw new Error(`flake8 failed with error: ${ (0, (_string || _load_string()).maybeToString)(result.errorMessage) }, ` + `stderr: ${ result.stderr }, stdout: ${ result.stdout }`);
+      throw new Error(`flake8 failed with error: ${(0, (_string || _load_string()).maybeToString)(result.errorMessage)}, ` + `stderr: ${result.stderr}, stdout: ${result.stdout}`);
     }
     return (0, (_flake || _load_flake()).parseFlake8Output)(src, result.stdout);
   });
@@ -280,7 +280,7 @@ class PythonSingleFileLanguageService {
       const libCommand = getFormatterPath();
       const dirName = (_nuclideUri || _load_nuclideUri()).default.dirname((_nuclideUri || _load_nuclideUri()).default.getPath(filePath));
 
-      const result = yield (0, (_process || _load_process()).asyncExecute)(libCommand, ['--line', `${ start }-${ end }`], { cwd: dirName, stdin: contents });
+      const result = yield (0, (_process || _load_process()).asyncExecute)(libCommand, ['--line', `${start}-${end}`], { cwd: dirName, stdin: contents });
 
       /*
        * At the moment, yapf outputs 3 possible exit codes:
@@ -291,9 +291,9 @@ class PythonSingleFileLanguageService {
        * See: https://github.com/google/yapf/issues/228#issuecomment-198682079
        */
       if (result.exitCode === 1) {
-        throw new Error(`"${ libCommand }" failed, likely due to syntax errors.`);
+        throw new Error(`"${libCommand}" failed, likely due to syntax errors.`);
       } else if (result.exitCode == null) {
-        throw new Error(`"${ libCommand }" failed with error: ${ (0, (_string || _load_string()).maybeToString)(result.errorMessage) }, ` + `stderr: ${ result.stderr }, stdout: ${ result.stdout }.`);
+        throw new Error(`"${libCommand}" failed with error: ${(0, (_string || _load_string()).maybeToString)(result.errorMessage)}, ` + `stderr: ${result.stderr}, stdout: ${result.stdout}.`);
       } else if (contents !== '' && result.stdout === '') {
         // Throw error if the yapf output is empty, which is almost never desirable.
         throw new Error('Empty output received from yapf.');

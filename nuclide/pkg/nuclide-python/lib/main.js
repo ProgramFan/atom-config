@@ -91,7 +91,7 @@ let busySignalProvider = null;
 const atomConfig = {
   name: 'Python',
   grammars: (_constants || _load_constants()).GRAMMARS,
-  outlines: {
+  outline: {
     version: '0.0.0',
     priority: 1,
     analyticsEventName: 'python.outline'
@@ -112,7 +112,9 @@ const atomConfig = {
     suggestionPriority: 5, // Higher than the snippets provider.
     disableForSelector: '.source.python .comment, .source.python .string',
     excludeLowerPriority: false,
-    analyticsEventName: 'nuclide-python:getAutocompleteSuggestions'
+    analyticsEventName: 'nuclide-python:getAutocompleteSuggestions',
+    autocompleteCacherConfig: null,
+    onDidInsertSuggestionAnalyticsEventName: 'nuclide-python.autocomplete-chosen'
   },
   definition: {
     version: '0.0.0',
@@ -144,7 +146,7 @@ function provideLint() {
         throw new Error('Invariant violation: "busySignalProvider"');
       }
 
-      return busySignalProvider.reportBusy(`Python: Waiting for flake8 lint results for \`${ editor.getTitle() }\``, () => (_LintHelpers || _load_LintHelpers()).default.lint(editor));
+      return busySignalProvider.reportBusy(`Python: Waiting for flake8 lint results for \`${editor.getTitle()}\``, () => (_LintHelpers || _load_LintHelpers()).default.lint(editor));
     }
   };
 }

@@ -102,7 +102,7 @@ function getlocalService(serviceName) {
     const [serviceConfig] = (_servicesConfig || _load_servicesConfig()).default.filter(config => config.name === serviceName);
 
     if (!serviceConfig) {
-      throw new Error(`No config found for service ${ serviceName }`);
+      throw new Error(`No config found for service ${serviceName}`);
     }
     // $FlowIgnore
 

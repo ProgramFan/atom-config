@@ -135,7 +135,7 @@ class NuclideTextBuffer extends _atom.TextBuffer {
         }
 
         _this._pendingSaveContents = toSaveContents;
-        yield (0, (_loadingNotification || _load_loadingNotification()).default)(file.write(toSaveContents), `Saving ${ (_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(filePath) }...`, 1000);
+        yield (0, (_loadingNotification || _load_loadingNotification()).default)(file.write(toSaveContents), `Saving ${(_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(filePath)}...`, 1000);
         _this.cachedDiskContents = toSaveContents;
         _this._saveID++;
         _this.conflict = false;
@@ -159,7 +159,7 @@ class NuclideTextBuffer extends _atom.TextBuffer {
             return editor.setText(toSaveContents);
           });
         }
-        atom.notifications.addError(`Failed to save remote file ${ filePath }: ${ message }`);
+        atom.notifications.addError(`Failed to save remote file ${filePath}: ${message}`);
         success = false;
       }
 

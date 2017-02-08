@@ -15,73 +15,57 @@ let fetchDatatip = (() => {
       return null;
     }
 
-    let combinedRange = null;
-    const renderedProviders = (0, (_collection || _load_collection()).arrayCompact)((yield Promise.all(providers.map((() => {
+    const datatipsAndProviders = (0, (_collection || _load_collection()).arrayCompact)((yield Promise.all(providers.map((() => {
       var _ref2 = (0, _asyncToGenerator.default)(function* (provider) {
         const name = getProviderName(provider);
         const datatip = yield (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)(name + '.datatip', function () {
           return provider.datatip(editor, position);
         });
+
         if (!datatip) {
           return null;
         }
-        const { pinnable, component, range } = datatip;
-        const ProvidedComponent = component;
 
-        // We track the timing above, but we still want to know the number of
-        // popups that are shown.
-        (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('datatip-popup', {
-          scope: scopeName,
-          providerName: name,
-          rangeStartRow: String(range.start.row),
-          rangeStartColumn: String(range.start.column),
-          rangeEndRow: String(range.end.row),
-          rangeEndColumn: String(range.end.column)
-        });
-
-        if (!combinedRange) {
-          combinedRange = range;
-        } else {
-          combinedRange = combinedRange.union(range);
-        }
-
-        let action;
-        let actionTitle;
-        // Datatips are pinnable by default, unless explicitly specified
-        // otherwise.
-        if (pinnable !== false) {
-          action = (_DatatipComponent || _load_DatatipComponent()).DATATIP_ACTIONS.PIN;
-          actionTitle = 'Pin this Datatip';
-        }
-
-        return _reactForAtom.React.createElement(
-          (_DatatipComponent || _load_DatatipComponent()).DatatipComponent,
-          {
-            action: action,
-            actionTitle: actionTitle,
-            onActionClick: function () {
-              return onPinClick(editor, datatip);
-            },
-            key: name },
-          _reactForAtom.React.createElement(ProvidedComponent, null)
-        );
+        return {
+          datatip,
+          provider
+        };
       });
 
       return function (_x5) {
         return _ref2.apply(this, arguments);
       };
     })()))));
-    if (renderedProviders.length === 0) {
+
+    // Providers are already sorted by priority and we've already removed the ones
+    // with no datatip, so just grab the first one.
+    const [topDatatipAndProvider] = datatipsAndProviders;
+    if (topDatatipAndProvider == null) {
       return null;
     }
+    const topDatatip = topDatatipAndProvider.datatip;
+
+    if (!(topDatatip != null)) {
+      throw new Error('Invariant violation: "topDatatip != null"');
+    }
+
+    const { range } = topDatatip;
+    const providerName = getProviderName(topDatatipAndProvider.provider);
+
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('datatip-popup', {
+      scope: scopeName,
+      providerName,
+      rangeStartRow: String(range.start.row),
+      rangeStartColumn: String(range.start.column),
+      rangeEndRow: String(range.end.row),
+      rangeEndColumn: String(range.end.column)
+    });
+
+    const renderedProvider = renderProvider(topDatatip, editor, providerName, onPinClick);
 
     return {
-      range: combinedRange,
-      renderedProviders: _reactForAtom.React.createElement(
-        'div',
-        null,
-        renderedProviders
-      )
+      range,
+      renderedProvider
     };
   });
 
@@ -212,11 +196,35 @@ function getBufferPosition(editor, editorView, event) {
   return editor.bufferPositionForScreenPosition(screenPosition);
 }
 
-function renderDatatip(editor, element, { range, renderedProviders }) {
+function renderProvider(datatip, editor, providerName, onPinClick) {
+  const { pinnable, component } = datatip;
+  const ProvidedComponent = component;
+
+  let action;
+  let actionTitle;
+  // Datatips are pinnable by default, unless explicitly specified
+  // otherwise.
+  if (pinnable !== false) {
+    action = (_DatatipComponent || _load_DatatipComponent()).DATATIP_ACTIONS.PIN;
+    actionTitle = 'Pin this Datatip';
+  }
+
+  return _reactForAtom.React.createElement(
+    (_DatatipComponent || _load_DatatipComponent()).DatatipComponent,
+    {
+      action: action,
+      actionTitle: actionTitle,
+      onActionClick: () => onPinClick(editor, datatip),
+      key: providerName },
+    _reactForAtom.React.createElement(ProvidedComponent, null)
+  );
+}
+
+function renderDatatip(editor, element, { range, renderedProvider }) {
   // Transform the matched element range to the hint range.
   const marker = editor.markBufferRange(range, { invalidate: 'never' });
 
-  _reactForAtom.ReactDOM.render(renderedProviders, element);
+  _reactForAtom.ReactDOM.render(renderedProvider, element);
   element.style.display = 'block';
 
   editor.decorateMarker(marker, {

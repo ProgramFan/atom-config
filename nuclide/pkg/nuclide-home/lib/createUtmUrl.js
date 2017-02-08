@@ -15,6 +15,6 @@ exports.default = createUtmUrl;
  */
 
 function createUtmUrl(url, campaign) {
-  return `${ url }/?utm_source=nuclide&utm_medium=app&utm_campaign=${ campaign }`;
+  return `${url}/?utm_source=nuclide&utm_medium=app&utm_campaign=${campaign}`;
 }
 module.exports = exports["default"];

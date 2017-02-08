@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4880-njdzu8/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4951-tcnixp/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4880-njdzu8/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4880-njdzu8/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4951-tcnixp/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4951-tcnixp/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-4880-1gbmquk"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-4951-gmllvx"
     ]
   ],
-  "_from": "../d-117016-4880-njdzu8/package.tgz",
-  "_id": "autocomplete-python@1.8.26",
+  "_from": "../d-11718-4951-tcnixp/package.tgz",
+  "_id": "autocomplete-python@1.8.43",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-python",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4880-njdzu8/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4951-tcnixp/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4880-njdzu8/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4880-njdzu8/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4951-tcnixp/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4951-tcnixp/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-4880-njdzu8/package.tgz",
-  "_shasum": "3a350b4952f9b3e8a7761ea9dbd5f4e0d8350bce",
+  "_resolved": "file:../d-11718-4951-tcnixp/package.tgz",
+  "_shasum": "88462666ad51168cb4ef29e46a002451e944d11a",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117016-4880-njdzu8/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117016-4880-1gbmquk",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4951-tcnixp/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-4951-gmllvx",
   "bugs": {
     "url": "https://github.com/autocomplete-python/autocomplete-python/issues"
   },
@@ -60,7 +60,7 @@
     "atom-slick": "^2.0.0",
     "atom-space-pen-views": "~2.1.0",
     "fuzzaldrin-plus": "^0.3.1",
-    "kite-installer": "0.7.0",
+    "kite-installer": "^0.11.10",
     "mixpanel": "^0.5.0",
     "selector-kit": "^0.1",
     "space-pen": "^5.1.2",
@@ -100,5 +100,5 @@
     "type": "git",
     "url": "git+https://github.com/autocomplete-python/autocomplete-python.git"
   },
-  "version": "1.8.26"
+  "version": "1.8.43"
 }

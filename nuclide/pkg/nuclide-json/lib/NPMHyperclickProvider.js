@@ -92,7 +92,7 @@ function isPackageJson(textEditor) {
 
 function getPackageUrl(packageName, version) {
   if ((_semver || _load_semver()).default.valid(version)) {
-    return `https://www.npmjs.com/package/${ packageName }/`;
+    return `https://www.npmjs.com/package/${packageName}/`;
   }
 
   // - optionally prefixed with 'github:' (but don't capture that)
@@ -107,8 +107,8 @@ function getPackageUrl(packageName, version) {
   const githubMatch = version.match(githubRegex);
   if (githubMatch != null) {
     const commit = githubMatch[2];
-    const commitSuffix = commit == null ? '' : `/tree/${ commit }`;
-    return `https://github.com/${ githubMatch[1] }${ commitSuffix }`;
+    const commitSuffix = commit == null ? '' : `/tree/${commit}`;
+    return `https://github.com/${githubMatch[1]}${commitSuffix}`;
   }
 
   return null;

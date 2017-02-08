@@ -21,10 +21,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function createDebuggerProvider() {
   return {
-    name: 'IWDP',
+    name: 'Mobile JS',
     getLaunchAttachProvider: connection => {
       if ((_nuclideUri || _load_nuclideUri()).default.isLocal(connection)) {
-        return new (_IwdpLaunchAttachProvider || _load_IwdpLaunchAttachProvider()).IwdpLaunchAttachProvider('iOS Webkit Debug Proxy', connection);
+        return new (_IwdpLaunchAttachProvider || _load_IwdpLaunchAttachProvider()).IwdpLaunchAttachProvider('Mobile JS', connection);
       } else {
         return null;
       }

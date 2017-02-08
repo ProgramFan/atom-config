@@ -146,7 +146,7 @@ class TestRunnerController {
       // Get selected test runner when Flow knows `this._testRunnerPanel` is defined.
       const selectedTestRunner = _this._testRunnerPanel.getSelectedTestRunner();
       if (!selectedTestRunner) {
-        logger.warn(`No test runner selected. Active test runners: ${ _this._testRunners.size }`);
+        logger.warn(`No test runner selected. Active test runners: ${_this._testRunners.size}`);
         return;
       }
 
@@ -251,7 +251,7 @@ class TestRunnerController {
     // bookkeeping.
     //
     // @see {@link https://atom.io/docs/api/v1.0.4/TextBuffer#instance-append|TextBuffer::append}
-    this._buffer.append(`${ text }${ _os.default.EOL }`, { undo: 'skip' });
+    this._buffer.append(`${text}${_os.default.EOL}`, { undo: 'skip' });
   }
 
   _onDebuggerCheckboxChanged(isChecked) {
@@ -300,17 +300,17 @@ class TestRunnerController {
             this._run.stop();
           }
           if (error.code === 'ENOENT') {
-            this._appendToBuffer(`${ (_Ansi || _load_Ansi()).default.YELLOW }Command '${ error.path }' does not exist${ (_Ansi || _load_Ansi()).default.RESET }`);
-            this._appendToBuffer(`${ (_Ansi || _load_Ansi()).default.YELLOW }Are you trying to run remotely?${ (_Ansi || _load_Ansi()).default.RESET }`);
-            this._appendToBuffer(`${ (_Ansi || _load_Ansi()).default.YELLOW }Path: ${ path }${ (_Ansi || _load_Ansi()).default.RESET }`);
+            this._appendToBuffer(`${(_Ansi || _load_Ansi()).default.YELLOW}Command '${error.path}' does not exist${(_Ansi || _load_Ansi()).default.RESET}`);
+            this._appendToBuffer(`${(_Ansi || _load_Ansi()).default.YELLOW}Are you trying to run remotely?${(_Ansi || _load_Ansi()).default.RESET}`);
+            this._appendToBuffer(`${(_Ansi || _load_Ansi()).default.YELLOW}Path: ${path}${(_Ansi || _load_Ansi()).default.RESET}`);
           }
-          this._appendToBuffer(`${ (_Ansi || _load_Ansi()).default.RED }Original Error: ${ error.message }${ (_Ansi || _load_Ansi()).default.RESET }`);
+          this._appendToBuffer(`${(_Ansi || _load_Ansi()).default.RED}Original Error: ${error.message}${(_Ansi || _load_Ansi()).default.RESET}`);
           this._setExecutionState((_TestRunnerPanel || _load_TestRunnerPanel()).default.ExecutionState.STOPPED);
-          logger.error(`Error running tests: "${ error.message }"`);
+          logger.error(`Error running tests: "${error.message}"`);
           break;
         case 'stderr':
           // Color stderr output red in the console to distinguish it as error.
-          this._appendToBuffer(`${ (_Ansi || _load_Ansi()).default.RED }${ message.data }${ (_Ansi || _load_Ansi()).default.RESET }`);
+          this._appendToBuffer(`${(_Ansi || _load_Ansi()).default.RED}${message.data}${(_Ansi || _load_Ansi()).default.RESET}`);
           break;
       }
     }).finally(() => {
@@ -340,7 +340,7 @@ class TestRunnerController {
       // track.
       progressValue = 100;
     }
-
+    this._root.style.display = 'flex';
     const component = _reactForAtom.ReactDOM.render(_reactForAtom.React.createElement((_TestRunnerPanel || _load_TestRunnerPanel()).default, {
       attachDebuggerBeforeRunning: this._attachDebuggerBeforeRunning,
       buffer: this._buffer,
@@ -392,7 +392,7 @@ class TestRunnerController {
         // proceed as usual.
 
 
-        logger.error(`Error when stopping test run #'${ this._run.label }: ${ e }`);
+        logger.error(`Error when stopping test run #'${this._run.label}: ${e}`);
       }
     }
   }

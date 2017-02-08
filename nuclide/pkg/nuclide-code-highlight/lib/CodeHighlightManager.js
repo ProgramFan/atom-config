@@ -71,6 +71,9 @@ class CodeHighlightManager {
 
       const originalChangeCount = editor.getBuffer().changeCount;
       const highlightedRanges = yield _this._getHighlightedRanges(editor, position);
+      if (highlightedRanges == null) {
+        return;
+      }
 
       // If the cursor has moved, or the file was edited
       // the highlighted ranges we just computed are useless, so abort
@@ -94,7 +97,7 @@ class CodeHighlightManager {
       const { scopeName } = editor.getGrammar();
       const [provider] = _this2._getMatchingProvidersForScopeName(scopeName);
       if (!provider) {
-        return [];
+        return null;
       }
 
       return provider.highlight(editor, position);

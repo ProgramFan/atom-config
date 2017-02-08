@@ -36,20 +36,20 @@ let callHHClient = exports.callHHClient = (() => {
 
         let execResult = null;
 
-        (_hackConfig || _load_hackConfig()).logger.logTrace(`Calling Hack: ${ hackCommand } with ${ allArgs.toString() }`);
+        (_hackConfig || _load_hackConfig()).logger.logTrace(`Calling Hack: ${hackCommand} with ${allArgs.toString()}`);
         execResult = yield (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)(trackingIdOfHackArgs(args), function () {
           return (0, (_process || _load_process()).asyncExecute)(hackCommand, allArgs, { stdin: processInput });
         });
 
         const { stdout, stderr } = execResult;
         if (stderr.indexOf(HH_SERVER_INIT_MESSAGE) !== -1) {
-          throw new Error(`${ HH_SERVER_INIT_MESSAGE }: try: \`arc build\` or try again later!`);
+          throw new Error(`${HH_SERVER_INIT_MESSAGE}: try: \`arc build\` or try again later!`);
         } else if (stderr.startsWith(HH_SERVER_BUSY_MESSAGE)) {
-          throw new Error(`${ HH_SERVER_BUSY_MESSAGE }: try: \`arc build\` or try again later!`);
+          throw new Error(`${HH_SERVER_BUSY_MESSAGE}: try: \`arc build\` or try again later!`);
         }
 
         const output = errorStream ? stderr : stdout;
-        (_hackConfig || _load_hackConfig()).logger.logTrace(`Hack output for ${ allArgs.toString() }: ${ output }`);
+        (_hackConfig || _load_hackConfig()).logger.logTrace(`Hack output for ${allArgs.toString()}: ${output}`);
         try {
           const result = JSON.parse(output);
 
@@ -62,8 +62,8 @@ let callHHClient = exports.callHHClient = (() => {
           result.hackRoot = hackRoot;
           return result;
         } catch (err) {
-          const errorMessage = `hh_client error, args: [${ args.join(',') }]
-stdout: ${ stdout }, stderr: ${ stderr }`;
+          const errorMessage = `hh_client error, args: [${args.join(',')}]
+stdout: ${stdout}, stderr: ${stderr}`;
           (_hackConfig || _load_hackConfig()).logger.logError(errorMessage);
           throw new Error(errorMessage);
         }

@@ -37,7 +37,7 @@ class DebuggerActionsStore {
         if (data == null) {
           this._bridge.cleanup();
         } else {
-          const url = `${ (_nuclideUri || _load_nuclideUri()).default.join(__dirname, '../scripts/inspector.html') }?${ data }`;
+          const url = `${(_nuclideUri || _load_nuclideUri()).default.join(__dirname, '../scripts/inspector.html')}?${data}`;
           this._bridge.renderChromeWebview(url);
         }
         break;

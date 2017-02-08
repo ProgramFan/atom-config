@@ -79,7 +79,7 @@ class StatusBarTile extends _reactForAtom.React.Component {
         });
         break;
       default:
-        throw new Error(`Should handle kind ${ result.kind }`);
+        throw new Error(`Should handle kind ${result.kind}`);
     }
   }
 

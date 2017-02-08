@@ -68,7 +68,8 @@ Markdown Preview Enhanced
 	- 代码块 `{wavedrom}` 里的内容将被 [wavedrom](https://github.com/drom/wavedrom) 渲染。
 - [Viz.js](https://github.com/mdaines/viz.js) 来渲染 [dot language](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) 图形.  
 	- 代码块 `{viz}` 里的内容将被 [Viz.js](https://github.com/mdaines/viz.js) 渲染。
-    - 在代码块第一行，可以通过`engine:[engine_name]`形式选择渲染引擎。比如:`engine:dot`
+    - 在代码块第一行，可以通过`engine:[engine_name]`形式选择渲染引擎。比如:`engine:dot`。支持 `circo`, `dot`, `neato`, `osage`, or `twopi` 引擎。 `dot` 是默认引擎.    
+    - ![viz](https://cloud.githubusercontent.com/assets/1908863/22486898/f3b71a8a-e7d0-11e6-9f69-88e30baa3a9a.gif)
 - [reveal.js](https://github.com/hakimel/reveal.js) 来渲染漂亮的 presentations.
 	- [点击这里](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html) 查看相关介绍。
 
@@ -77,6 +78,8 @@ Markdown Preview Enhanced
 - <strong>Markdown Preview Enhanced: Toggle</strong>
   - 开关预览。   
 	你也可以用快捷键 <kbd>ctrl+shift+m</kbd> 来开关预览.（为了防止快捷键冲突，请禁用默认的 [markdown preview](https://atom.io/packages/markdown-preview) 插件）
+- <strong>Markdown Preview Enhanced: Toggle Zen Mode </strong>  
+	- 开关清净式写作模式。  
 - <strong>Markdown Preview Enhanced: Customize CSS</strong>
   - 编辑预览的样式。 你可以在 `style.less` 文件中的 `markdown-preview-enhanced-custom` 部分编辑样式。  
   - 如果你在 `style.less` 文件中没有看到 `markdown-preview-enhanced-custom` 部分，请先运行 `Markdown Preview Enhanced: Customize CSS` 指令。

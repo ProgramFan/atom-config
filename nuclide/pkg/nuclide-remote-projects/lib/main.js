@@ -15,7 +15,7 @@ let createEditorForNuclide = (() => {
     try {
       let buffer;
       try {
-        buffer = yield (0, (_loadingNotification || _load_loadingNotification()).default)((0, (_textBuffer || _load_textBuffer()).loadBufferForUri)(uri), `Opening \`${ (_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(uri) }\`...`, 1000);
+        buffer = yield (0, (_loadingNotification || _load_loadingNotification()).default)((0, (_textBuffer || _load_textBuffer()).loadBufferForUri)(uri), `Opening \`${(_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(uri)}\`...`, 1000);
       } catch (err) {
         // Suppress ENOENT errors which occur if the file doesn't exist.
         // This is the same thing Atom does when opening a file (given a URI) that doesn't exist.
@@ -60,7 +60,7 @@ let createEditorForNuclide = (() => {
       }
     } catch (err) {
       logger.warn('buffer load issue:', err);
-      atom.notifications.addError(`Failed to open ${ uri }: ${ err.message }`);
+      atom.notifications.addError(`Failed to open ${uri}: ${err.message}`);
       throw err;
     }
   });
@@ -109,7 +109,7 @@ let reloadRemoteProjects = (() => {
             return;
           }
 
-          if (path.startsWith(`nuclide:/${ config.host }`)) {
+          if (path.startsWith(`nuclide:/${config.host}`)) {
             textEditor.destroy();
           }
         });
@@ -225,6 +225,12 @@ var _RemoteProjectsService;
 
 function _load_RemoteProjectsService() {
   return _RemoteProjectsService = _interopRequireDefault(require('./RemoteProjectsService'));
+}
+
+var _patchAtomWorkspaceReplace;
+
+function _load_patchAtomWorkspaceReplace() {
+  return _patchAtomWorkspaceReplace = _interopRequireDefault(require('./patchAtomWorkspaceReplace'));
 }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -349,6 +355,8 @@ function addRemoteFolderToProject(connection) {
 
     action();
   }
+
+  return subscription;
 }
 
 function closeOpenFilesForRemoteProject(connection) {
@@ -420,7 +428,7 @@ function activate(state) {
   remoteProjectsService = new (_RemoteProjectsService || _load_RemoteProjectsService()).default();
 
   subscriptions.add((_nuclideRemoteConnection || _load_nuclideRemoteConnection()).RemoteConnection.onDidAddRemoteConnection(connection => {
-    addRemoteFolderToProject(connection);
+    subscriptions.add(addRemoteFolderToProject(connection));
 
     // On Atom restart, it tries to open uri paths as local `TextEditor` pane items.
     // Here, Nuclide reloads the remote project files that have empty text editors open.
@@ -493,6 +501,8 @@ function activate(state) {
       return textEditorPromise;
     }
   }));
+
+  subscriptions.add((0, (_patchAtomWorkspaceReplace || _load_patchAtomWorkspaceReplace()).default)());
 
   // If RemoteDirectoryProvider is called before this, and it failed
   // to provide a RemoteDirectory for a

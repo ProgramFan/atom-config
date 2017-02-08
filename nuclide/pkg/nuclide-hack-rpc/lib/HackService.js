@@ -153,7 +153,7 @@ class HackLanguageServiceImpl extends (_nuclideLanguageServiceRpc || _load_nucli
     }
   }
 
-  getAutocompleteSuggestions(fileVersion, position, activatedManually) {
+  getAutocompleteSuggestions(fileVersion, position, activatedManually, prefix) {
     var _this = this;
 
     return (0, _asyncToGenerator.default)(function* () {
@@ -167,7 +167,7 @@ class HackLanguageServiceImpl extends (_nuclideLanguageServiceRpc || _load_nucli
       } else {
         // Babel workaround: w/o the es2015-classes transform, async functions can't call `super`.
         // https://github.com/babel/babel/issues/3930
-        return (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ServerLanguageService.prototype.getAutocompleteSuggestions.call(_this, fileVersion, position, activatedManually);
+        return (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ServerLanguageService.prototype.getAutocompleteSuggestions.call(_this, fileVersion, position, activatedManually, prefix);
       }
     })();
   }
@@ -228,10 +228,10 @@ class HackSingleFileLanguageService {
     return (0, (_HackProcess || _load_HackProcess()).observeConnections)(this._fileCache).mergeMap(connection => {
       (_hackConfig || _load_hackConfig()).logger.logTrace('notifyDiagnostics');
       return (0, (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ensureInvalidations)((_hackConfig || _load_hackConfig()).logger, connection.notifyDiagnostics().refCount().catch(error => {
-        (_hackConfig || _load_hackConfig()).logger.logError(`Error: notifyDiagnostics ${ error }`);
+        (_hackConfig || _load_hackConfig()).logger.logError(`Error: notifyDiagnostics ${error}`);
         return _rxjsBundlesRxMinJs.Observable.empty();
       }).map(hackDiagnostics => {
-        (_hackConfig || _load_hackConfig()).logger.logTrace(`Got hack error in ${ hackDiagnostics.filename }`);
+        (_hackConfig || _load_hackConfig()).logger.logTrace(`Got hack error in ${hackDiagnostics.filename}`);
         return {
           filePath: hackDiagnostics.filename,
           messages: hackDiagnostics.errors.map(diagnostic => (0, (_Diagnostics || _load_Diagnostics()).hackMessageToDiagnosticMessage)(diagnostic.message))
@@ -392,7 +392,7 @@ class HackSingleFileLanguageService {
 
       const id = getIdentifierAtPosition(buffer, position);
       if (id == null) {
-        return [];
+        return null;
       }
 
       const result = yield (0, (_HackHelpers || _load_HackHelpers()).callHHClient)(
@@ -400,7 +400,7 @@ class HackSingleFileLanguageService {
       /* errorStream */false,
       /* processInput */contents,
       /* file */filePath);
-      return result == null ? [] : result.map((_HackHelpers || _load_HackHelpers()).hackRangeToAtomRange);
+      return result == null ? null : result.map((_HackHelpers || _load_HackHelpers()).hackRangeToAtomRange);
     })();
   }
 
@@ -421,7 +421,7 @@ class HackSingleFileLanguageService {
       } else if (response.internal_error) {
         throw new Error('Internal error formatting hack source.');
       } else if (response.error_message !== '') {
-        throw new Error(`Error formatting hack source: ${ response.error_message }`);
+        throw new Error(`Error formatting hack source: ${response.error_message}`);
       }
       return response.result;
     })();
@@ -460,7 +460,7 @@ function formatAtomLineColumn(position) {
 }
 
 function formatLineColumn(line, column) {
-  return `${ line }:${ column }`;
+  return `${line}:${column}`;
 }
 
 // Calculate the offset of the cursor from the beginning of the file.

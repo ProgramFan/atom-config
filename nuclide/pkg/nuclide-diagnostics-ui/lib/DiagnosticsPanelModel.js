@@ -145,12 +145,9 @@ function getPropsStream(diagnosticsStream, warnAboutLinterStream, showTraces, in
   return _rxjsBundlesRxMinJs.Observable.combineLatest(activeTextEditorPaths, sortedDiagnostics, warnAboutLinterStream, filterByActiveTextEditorStream, showTraces).map(([pathToActiveTextEditor, diagnostics, warnAboutLinter, filter, traces]) => ({
     pathToActiveTextEditor,
     diagnostics,
-    // $FlowFixMe I think the typedefs are imprecise
     warnAboutLinter,
-    // $FlowFixMe I think the typedefs are imprecise
     showTraces: traces,
     disableLinter,
-    // $FlowFixMe I think the typedefs are imprecise
     filterByActiveTextEditor: filter,
     onFilterByActiveTextEditorChange: handleFilterByActiveTextEditorChange
   }));

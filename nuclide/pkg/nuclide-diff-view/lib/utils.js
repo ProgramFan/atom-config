@@ -8,7 +8,7 @@ exports.promptToCleanDirtyChanges = undefined;
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 let promptToCleanDirtyChanges = exports.promptToCleanDirtyChanges = (() => {
-  var _ref = (0, _asyncToGenerator.default)(function* (repository, commitMessage, shouldRebaseOnAmend) {
+  var _ref = (0, _asyncToGenerator.default)(function* (repository, commitMessage, shouldRebaseOnAmend, publishUpdates) {
     const dirtyFileChanges = (0, (_vcs || _load_vcs()).getDirtyFileChanges)(repository);
 
     let shouldAmend = false;
@@ -63,7 +63,7 @@ let promptToCleanDirtyChanges = exports.promptToCleanDirtyChanges = (() => {
         }
     }
     if (shouldAmend) {
-      yield repository.amend(commitMessage, getAmendMode(shouldRebaseOnAmend)).toArray().toPromise();
+      yield amendWithErrorOnFailure(repository, commitMessage, getAmendMode(shouldRebaseOnAmend), publishUpdates).toPromise();
       amended = true;
     }
     return {
@@ -72,7 +72,7 @@ let promptToCleanDirtyChanges = exports.promptToCleanDirtyChanges = (() => {
     };
   });
 
-  return function promptToCleanDirtyChanges(_x, _x2, _x3) {
+  return function promptToCleanDirtyChanges(_x, _x2, _x3, _x4) {
     return _ref.apply(this, arguments);
   };
 })();
@@ -134,6 +134,12 @@ function _load_nuclideLogging() {
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
+var _streamProcessToConsoleMessages;
+
+function _load_streamProcessToConsoleMessages() {
+  return _streamProcessToConsoleMessages = require('../../commons-atom/streamProcessToConsoleMessages');
+}
+
 var _stripAnsi;
 
 function _load_stripAnsi() {
@@ -146,15 +152,17 @@ var _url = _interopRequireDefault(require('url'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const MAX_DIALOG_FILE_STATUS_COUNT = 20; /**
-                                          * Copyright (c) 2015-present, Facebook, Inc.
-                                          * All rights reserved.
-                                          *
-                                          * This source code is licensed under the license found in the LICENSE file in
-                                          * the root directory of this source tree.
-                                          *
-                                          * 
-                                          */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
+const MAX_DIALOG_FILE_STATUS_COUNT = 20;
 
 function processArcanistOutput(stream_) {
   let stream = stream_;
@@ -200,15 +208,15 @@ function processArcanistOutput(stream_) {
     switch (decodedJSON.type) {
       case 'phutil:out':
       case 'phutil:out:raw':
+      case 'phutil:err':
         messages.push({ level: 'log', text: (0, (_stripAnsi || _load_stripAnsi()).default)(decodedJSON.message) });
         break;
-      case 'phutil:err':
+      case 'error':
         messages.push({ level: 'error', text: (0, (_stripAnsi || _load_stripAnsi()).default)(decodedJSON.message) });
         break;
-      case 'error':
-        return _rxjsBundlesRxMinJs.Observable.throw(new Error(`Arc Error: ${ decodedJSON.message }`));
       default:
         (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().info('Unhandled message type:', decodedJSON.type, 'Message payload:', decodedJSON.message);
+        messages.push({ level: 'log', text: (0, (_stripAnsi || _load_stripAnsi()).default)(decodedJSON.message) });
         break;
     }
     return messages;
@@ -232,7 +240,9 @@ function processArcanistOutput(stream_) {
   return _rxjsBundlesRxMinJs.Observable.merge(...levelStreams).map(messages => ({
     level: messages[0].level,
     text: messages.map(message => message.text).join('')
-  })).catch(error => _rxjsBundlesRxMinJs.Observable.throw(new Error('Failed publish to Phabricator\n' + 'You could have missed test plan or mistyped reviewers.\n' + 'Please fix and try again.')));
+  })).catch(error => {
+    return _rxjsBundlesRxMinJs.Observable.throw(new Error('Check the console ouput for issues.'));
+  });
 }
 
 function getFileStatusListMessage(fileChanges) {
@@ -242,7 +252,7 @@ function getFileStatusListMessage(fileChanges) {
       message += '\n' + (_vcs || _load_vcs()).FileChangeStatusToPrefix[statusCode] + atom.project.relativize(filePath);
     }
   } else {
-    message = `\n more than ${ MAX_DIALOG_FILE_STATUS_COUNT } files (check using \`hg status\`)`;
+    message = `\n more than ${MAX_DIALOG_FILE_STATUS_COUNT} files (check using \`hg status\`)`;
   }
   return message;
 }
@@ -295,7 +305,7 @@ function getSelectedFileChanges(repository, diffOption, revisions, compareCommit
 }
 
 function getSelectedFileChangesToCommit(repository, beforeCommitId) {
-  return repository.fetchFilesChangedSinceRevision(`${ beforeCommitId }`).map(fileStatusCodes => {
+  return repository.fetchFilesChangedSinceRevision(`${beforeCommitId}`).map(fileStatusCodes => {
     const fileChanges = new Map();
     for (const [filePath, statusCode] of fileStatusCodes) {
       fileChanges.set(filePath, (_vcs || _load_vcs()).HgStatusToFileChangeStatus[statusCode]);
@@ -328,15 +338,15 @@ function getHgDiff(repository, filePath, headToForkBaseRevisions, diffOption, co
       compareCommitId = compareId || headCommitId;
       break;
     default:
-      return _rxjsBundlesRxMinJs.Observable.throw(new Error(`Invalid Diff Option: ${ diffOption }`));
+      return _rxjsBundlesRxMinJs.Observable.throw(new Error(`Invalid Diff Option: ${diffOption}`));
   }
 
   const revisionInfo = headToForkBaseRevisions.find(revision => revision.id === compareCommitId);
   if (revisionInfo == null) {
-    return _rxjsBundlesRxMinJs.Observable.throw(new Error(`Diff Viw Fetcher: revision with id ${ compareCommitId } not found`));
+    return _rxjsBundlesRxMinJs.Observable.throw(new Error(`Diff Viw Fetcher: revision with id ${compareCommitId} not found`));
   }
 
-  return repository.fetchFileContentAtRevision(filePath, `${ compareCommitId }`)
+  return repository.fetchFileContentAtRevision(filePath, `${compareCommitId}`)
   // If the file didn't exist on the previous revision,
   // Return the no such file at revision message.
   .catch(error => _rxjsBundlesRxMinJs.Observable.of('')).map(committedContents => ({
@@ -347,7 +357,7 @@ function getHgDiff(repository, filePath, headToForkBaseRevisions, diffOption, co
 
 function formatFileDiffRevisionTitle(revisionInfo) {
   const { hash, bookmarks } = revisionInfo;
-  return `${ hash }` + (bookmarks.length === 0 ? '' : ` - (${ bookmarks.join(', ') })`);
+  return `${hash}` + (bookmarks.length === 0 ? '' : ` - (${bookmarks.join(', ')})`);
 }
 
 function getAmendMode(shouldRebaseOnAmend) {
@@ -361,7 +371,7 @@ function getAmendMode(shouldRebaseOnAmend) {
 function getRevisionUpdateMessage(phabricatorRevision) {
   return `
 
-# Updating ${ phabricatorRevision.name }
+# Updating ${phabricatorRevision.name}
 #
 # Enter a brief description of the changes included in this update.
 # The first line is used as subject, next lines as comment.`;
@@ -376,9 +386,25 @@ function viewModeToDiffOption(viewMode) {
     case (_constants || _load_constants()).DiffMode.BROWSE_MODE:
       return (_constants || _load_constants()).DiffOption.COMPARE_COMMIT;
     default:
-      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Unrecognized diff view mode: ${ viewMode }`);
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Unrecognized diff view mode: ${viewMode}`);
       return (_constants || _load_constants()).DiffOption.DIRTY;
   }
+}
+
+function amendWithErrorOnFailure(repository, commitMessage, amendMode, publishUpdates) {
+  return _rxjsBundlesRxMinJs.Observable.defer(() => {
+    // Defer the update till amend flow start time.
+    publishUpdates.next({ text: 'Amending commit with your changes', level: 'info' });
+    return _rxjsBundlesRxMinJs.Observable.empty();
+  }).concat(repository.amend(commitMessage, (_nuclideHgRpc || _load_nuclideHgRpc()).hgConstants.AmendMode.CLEAN).flatMap(message => {
+    // Side Effect: streaming progress to console.
+    (0, (_streamProcessToConsoleMessages || _load_streamProcessToConsoleMessages()).pipeProcessMessagesToConsole)('Amend', publishUpdates, message);
+
+    if (message.kind === 'exit' && message.exitCode !== 0) {
+      return _rxjsBundlesRxMinJs.Observable.throw(new Error('Failed to amend commit - aborting publish!'));
+    }
+    return _rxjsBundlesRxMinJs.Observable.empty();
+  })).ignoreElements();
 }
 
 // TODO(most): Cleanup to avoid using `.do()` and have side effects:
@@ -391,9 +417,7 @@ function createPhabricatorRevision(repository, publishUpdates, headCommitMessage
     // We intentionally amend in clean mode here, because creating the revision
     // amends the commit message (with the revision url), breaking the stack on top of it.
     // Consider prompting for `hg amend --fixup` after to rebase the stack when needed.
-    amendStream = repository.amend(publishMessage, (_nuclideHgRpc || _load_nuclideHgRpc()).hgConstants.AmendMode.CLEAN).do({
-      complete: () => atom.notifications.addSuccess('Commit amended with the updated message')
-    });
+    amendStream = amendWithErrorOnFailure(repository, publishMessage, (_nuclideHgRpc || _load_nuclideHgRpc()).hgConstants.AmendMode.CLEAN, publishUpdates);
   }
 
   return _rxjsBundlesRxMinJs.Observable.concat(
@@ -430,20 +454,20 @@ function updatePhabricatorRevision(repository, publishUpdates, headCommitMessage
 
   const stream = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getArcanistServiceByNuclideUri)(filePath).updatePhabricatorRevision(filePath, userUpdateMessage, allowUntracked, lintExcuse, verbatimModeEnabled).refCount();
 
-  return processArcanistOutput(stream).startWith({ level: 'info', text: `Updating revision \`${ phabricatorRevision.name }\`...\n` }).do({
+  return processArcanistOutput(stream).startWith({ level: 'info', text: `Updating revision \`${phabricatorRevision.name}\`...\n` }).do({
     next: message => publishUpdates.next(message),
     complete: () => notifyRevisionStatus(phabricatorRevision, 'updated')
   }).ignoreElements();
 }
 
 function notifyRevisionStatus(phabRevision, statusMessage) {
-  let message = `Revision ${ statusMessage }`;
+  let message = `Revision ${statusMessage}`;
   if (phabRevision == null) {
     atom.notifications.addSuccess(message, { nativeFriendly: true });
     return;
   }
   const { name, url: revisionUrl } = phabRevision;
-  message = `Revision '${ name }' ${ statusMessage }`;
+  message = `Revision '${name}' ${statusMessage}`;
   atom.notifications.addSuccess(message, {
     buttons: [{
       className: 'icon icon-globe',

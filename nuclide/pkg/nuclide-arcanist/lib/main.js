@@ -45,33 +45,16 @@ function _load_openArcDeepLink() {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // eslint-disable-next-line nuclide-internal/no-cross-atom-imports
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 class Activation {
 
   constructor(state) {
     this._disposables = new _atom.CompositeDisposable();
     this._busySignalProvider = new (_nuclideBusySignal || _load_nuclideBusySignal()).DedupedBusySignalProviderBase();
-    (0, (_registerGrammar || _load_registerGrammar()).default)('source.json', '.arcconfig');
+    (0, (_registerGrammar || _load_registerGrammar()).default)('source.json', ['.arcconfig']);
   }
 
   dispose() {
     this._disposables.dispose();
-  }
-
-  setCwdApi(cwdApi) {
-    this._cwdApi = cwdApi;
-    if (this._buildSystem != null) {
-      this._buildSystem.setCwdApi(cwdApi);
-    }
   }
 
   provideBusySignal() {
@@ -95,22 +78,6 @@ class Activation {
     }));
   }
 
-  consumeCwdApi(api) {
-    this.setCwdApi(api);
-
-    let pkg = this;
-    this._disposables.add({
-      dispose() {
-        pkg = null;
-      }
-    });
-    return new _atom.Disposable(() => {
-      if (pkg != null) {
-        pkg.setCwdApi(null);
-      }
-    });
-  }
-
   /**
    * Files can be opened relative to Arcanist directories via
    *   atom://nuclide/open-arc?project=<project_id>&path=<relative_path>
@@ -132,15 +99,20 @@ class Activation {
   _getBuildSystem() {
     if (this._buildSystem == null) {
       const buildSystem = new (_ArcBuildSystem || _load_ArcBuildSystem()).default();
-      if (this._cwdApi != null) {
-        buildSystem.setCwdApi(this._cwdApi);
-      }
       this._disposables.add(buildSystem);
       this._buildSystem = buildSystem;
     }
     return this._buildSystem;
   }
-}
+} /**
+   * Copyright (c) 2015-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the license found in the LICENSE file in
+   * the root directory of this source tree.
+   *
+   * 
+   */
 
 exports.default = (0, (_createPackage || _load_createPackage()).default)(Activation);
 module.exports = exports['default'];

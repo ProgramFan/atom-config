@@ -149,7 +149,7 @@ class NotifiersByConnection {
 
             yield message.fileVersion.notifier.onFileEvent(message);
           } catch (e) {
-            logger.error(`Error sending file close event: ${ filePath } ${ version }`, e);
+            logger.error(`Error sending file close event: ${filePath} ${version}`, e);
             setTimeout(sendMessage, RESYNC_TIMEOUT_MS);
           }
         }

@@ -78,7 +78,7 @@ function diagnosticsForResult(result) {
 }
 
 function uncoveredRangeToDiagnostic(region, path, providerName) {
-  const text = region.message != null ? region.message : `Not covered by ${ providerName }`;
+  const text = region.message != null ? region.message : `Not covered by ${providerName}`;
   return {
     scope: 'file',
     providerName: 'Type Coverage',

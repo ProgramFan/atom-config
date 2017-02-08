@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+
 var _addTooltip;
 
 function _load_addTooltip() {
@@ -20,6 +22,12 @@ var _ConnectionDetailsForm;
 
 function _load_ConnectionDetailsForm() {
   return _ConnectionDetailsForm = _interopRequireDefault(require('./ConnectionDetailsForm'));
+}
+
+var _connectionProfileUtils;
+
+function _load_connectionProfileUtils() {
+  return _connectionProfileUtils = require('./connection-profile-utils');
 }
 
 var _HR;
@@ -62,10 +70,22 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
     super(props);
     this._settingFormFieldsLock = false;
 
+    this.state = {
+      IPs: null,
+      shouldDisplayTooltipWarning: false
+    };
+
     this._handleConnectionDetailsFormDidChange = this._handleConnectionDetailsFormDidChange.bind(this);
     this._onDefaultProfileClicked = this._onDefaultProfileClicked.bind(this);
     this._onDeleteProfileClicked = this._onDeleteProfileClicked.bind(this);
     this._onProfileClicked = this._onProfileClicked.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.connectionProfiles) {
+      this.setState({ IPs: (0, (_connectionProfileUtils || _load_connectionProfileUtils()).getIPsForHosts)((0, (_connectionProfileUtils || _load_connectionProfileUtils()).getUniqueHostsForProfiles)(this.props.connectionProfiles)) });
+    }
+    this._checkForHostCollisions();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -86,6 +106,11 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
         existingConnectionDetailsForm.focus();
       }
     }
+
+    if (prevProps.connectionProfiles !== this.props.connectionProfiles && this.props.connectionProfiles) {
+      this.setState({ IPs: (0, (_connectionProfileUtils || _load_connectionProfileUtils()).getIPsForHosts)((0, (_connectionProfileUtils || _load_connectionProfileUtils()).getUniqueHostsForProfiles)(this.props.connectionProfiles)) });
+    }
+    this._checkForHostCollisions();
   }
 
   focus() {
@@ -114,6 +139,10 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
   }
 
   _onDefaultProfileClicked() {
+    const existingConnectionDetailsForm = this.refs['connection-details-form'];
+    if (existingConnectionDetailsForm) {
+      existingConnectionDetailsForm.promptChanged();
+    }
     this.props.onProfileClicked(0);
   }
 
@@ -121,7 +150,10 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
     if (profileId == null) {
       return;
     }
-
+    const existingConnectionDetailsForm = this.refs['connection-details-form'];
+    if (existingConnectionDetailsForm) {
+      existingConnectionDetailsForm.promptChanged();
+    }
     // The id of a profile is its index in the list of props.
     // * This requires a `+ 1` because the default profile is sliced from the Array during render
     //   creating an effective offset of -1 for each index passed to the `MutableListSelector`.
@@ -129,23 +161,47 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
   }
 
   _onProfileClicked(profileId) {
+    const existingConnectionDetailsForm = this.refs['connection-details-form'];
+    if (existingConnectionDetailsForm) {
+      existingConnectionDetailsForm.promptChanged();
+    }
     // The id of a profile is its index in the list of props.
     // * This requires a `+ 1` because the default profile is sliced from the Array during render
     //   creating an effective offset of -1 for each index passed to the `MutableListSelector`.
     this.props.onProfileClicked(parseInt(profileId, 10) + 1);
   }
 
+  _checkForHostCollisions() {
+    var _this = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      if (_this.state.IPs) {
+        const IPs = yield _this.state.IPs;
+        if (IPs.length !== new Set(IPs).size) {
+          if (!_this.state.shouldDisplayTooltipWarning) {
+            _this.setState({ shouldDisplayTooltipWarning: true });
+          }
+        } else {
+          if (_this.state.shouldDisplayTooltipWarning) {
+            _this.setState({ shouldDisplayTooltipWarning: false });
+          }
+        }
+      }
+    })();
+  }
+
   render() {
     // If there are profiles, pre-fill the form with the information from the
     // specified selected profile.
     const prefilledConnectionParams = this.getPrefilledConnectionParams() || {};
-
+    let uniqueHosts;
     let defaultConnectionProfileList;
     let listSelectorItems;
     const connectionProfiles = this.props.connectionProfiles;
     if (connectionProfiles == null || connectionProfiles.length === 0) {
       listSelectorItems = [];
     } else {
+      uniqueHosts = (0, (_connectionProfileUtils || _load_connectionProfileUtils()).getUniqueHostsForProfiles)(connectionProfiles);
       const mostRecentClassName = (0, (_classnames || _load_classnames()).default)('list-item', {
         selected: this.props.indexOfSelectedConnectionProfile === 0
       });
@@ -203,6 +259,26 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
       idOfSelectedItem = String(idOfSelectedItem);
     }
 
+    let toolTipWarning;
+    if (this.state.shouldDisplayTooltipWarning) {
+      toolTipWarning = _reactForAtom.React.createElement('span', {
+        style: { paddingLeft: 10 },
+        className: 'icon icon-info pull-right nuclide-remote-projects-tooltip-warning',
+        ref: (0, (_addTooltip || _load_addTooltip()).default)({
+          // Intentionally *not* an arrow function so the jQuery
+          // Tooltip plugin can set the context to the Tooltip
+          // instance.
+          placement() {
+            // Atom modals have z indices of 9999. This Tooltip needs
+            // to stack on top of the modal; beat the modal's z-index.
+            this.tip.style.zIndex = 10999;
+            return 'right';
+          },
+          title: 'Two or more of your profiles use host names that resolve ' + 'to the same IP address. Consider unifying them to avoid ' + 'potential collisions.'
+        })
+      });
+    }
+
     return _reactForAtom.React.createElement(
       'div',
       { className: 'nuclide-remote-projects-connection-dialog' },
@@ -213,7 +289,8 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
         _reactForAtom.React.createElement(
           'h6',
           null,
-          'Profiles'
+          'Profiles',
+          toolTipWarning
         ),
         _reactForAtom.React.createElement((_MutableListSelector || _load_MutableListSelector()).MutableListSelector, {
           items: listSelectorItems,
@@ -234,6 +311,7 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
         initialPathToPrivateKey: prefilledConnectionParams.pathToPrivateKey,
         initialAuthMethod: prefilledConnectionParams.authMethod,
         initialDisplayTitle: prefilledConnectionParams.displayTitle,
+        profileHosts: uniqueHosts,
         onConfirm: this.props.onConfirm,
         onCancel: this.props.onCancel,
         onDidChange: this._handleConnectionDetailsFormDidChange,

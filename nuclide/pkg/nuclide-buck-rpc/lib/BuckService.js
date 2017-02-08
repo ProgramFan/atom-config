@@ -13,13 +13,13 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 let getBuildFile = exports.getBuildFile = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (rootPath, targetName) {
     try {
-      const result = yield query(rootPath, `buildfile(${ targetName })`);
+      const result = yield query(rootPath, `buildfile(${targetName})`);
       if (result.length === 0) {
         return null;
       }
       return (_nuclideUri || _load_nuclideUri()).default.join(rootPath, result[0]);
     } catch (e) {
-      logger.error(`No build file for target "${ targetName }" ${ e }`);
+      logger.error(`No build file for target "${targetName}" ${e}`);
       return null;
     }
   });
@@ -89,9 +89,9 @@ let _getBuckCommandAndOptions = (() => {
 
 let getOwners = exports.getOwners = (() => {
   var _ref4 = (0, _asyncToGenerator.default)(function* (rootPath, filePath, kindFilter) {
-    let queryString = `owner(${ (0, (_shellQuote || _load_shellQuote()).quote)([filePath]) })`;
+    let queryString = `owner(${(0, (_shellQuote || _load_shellQuote()).quote)([filePath])})`;
     if (kindFilter != null) {
-      queryString = `kind(${ JSON.stringify(kindFilter) }, ${ queryString })`;
+      queryString = `kind(${JSON.stringify(kindFilter)}, ${queryString})`;
     }
     return query(rootPath, queryString);
   });
@@ -187,7 +187,7 @@ let _build = (() => {
       try {
         return JSON.parse(json);
       } catch (e) {
-        throw Error(`Failed to parse:\n${ json }`);
+        throw Error(`Failed to parse:\n${json}`);
       }
     } finally {
       (_fsPromise || _load_fsPromise()).default.unlink(report);
@@ -298,7 +298,7 @@ let buildRuleTypeFor = exports.buildRuleTypeFor = (() => {
     // If aliasOrTarget is an alias, targets[0] will be the fully qualified build target.
     const targets = Object.keys(json);
     if (targets.length === 0) {
-      throw new Error(`Error determining rule type of '${ aliasOrTarget }'.`);
+      throw new Error(`Error determining rule type of '${aliasOrTarget}'.`);
     }
     // target: and target/... build a set of targets.
     // These don't have a single rule type so let's just return something.

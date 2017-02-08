@@ -31,6 +31,14 @@ function _load_nuclideMarshalersCommon() {
   return _nuclideMarshalersCommon = require('../../nuclide-marshalers-common');
 }
 
+var _collection;
+
+function _load_collection() {
+  return _collection = require('../../commons-node/collection');
+}
+
+var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Ties the AtomCommands registered via RemoteCommandService to
@@ -72,9 +80,15 @@ class CommandServer {
     })();
   }
 
-  constructor(atomCommands) {
+  constructor(fileCache, atomCommands) {
     this._atomCommands = atomCommands;
+    this._fileCache = fileCache;
+
     CommandServer._ensureServer();
+  }
+
+  hasOpenPath(filePath) {
+    return !(0, (_collection || _load_collection()).iterableIsEmpty)((0, (_collection || _load_collection()).filterIterable)(this._fileCache.getOpenDirectories(), dir => (_nuclideUri || _load_nuclideUri()).default.contains(dir, filePath))) || (0, (_collection || _load_collection()).iterableContains)(this._fileCache.getOpenFiles(), filePath);
   }
 
   dispose() {
@@ -85,9 +99,9 @@ class CommandServer {
     CommandServer._connections.splice(CommandServer._connections.indexOf(this), 1);
   }
 
-  static register(atomCommands) {
+  static register(fileCache, atomCommands) {
     return (0, _asyncToGenerator.default)(function* () {
-      const server = new CommandServer(atomCommands);
+      const server = new CommandServer(fileCache, atomCommands);
       CommandServer._connections.push(server);
       return server;
     })();
@@ -100,11 +114,55 @@ class CommandServer {
     return CommandServer._connections[CommandServer._connections.length - 1];
   }
 
-  static getAtomCommands() {
+  static getDefaultAtomCommands() {
     const server = CommandServer.getCurrentServer();
     return server == null ? null : server._atomCommands;
   }
+
+  static getServerByPath(filePath) {
+    return (0, (_collection || _load_collection()).firstOfIterable)((0, (_collection || _load_collection()).concatIterators)(CommandServer._connections.filter(server => server.hasOpenPath(filePath)), [CommandServer.getCurrentServer()].filter(server => server != null)));
+  }
+
+  static getAtomCommandsByPath(filePath) {
+    const server = CommandServer.getServerByPath(filePath);
+    return server == null ? null : server._atomCommands;
+  }
+
+  static getAtomCommands() {
+    return CommandServer._connections.length === 0 ? null : new ServiceAtomCommands();
+  }
 }
+
 exports.CommandServer = CommandServer;
 CommandServer._connections = [];
 CommandServer._server = null;
+class ServiceAtomCommands {
+  openFile(filePath, line, column, isWaiting) {
+    const commands = CommandServer.getAtomCommandsByPath(filePath);
+    if (commands != null) {
+      return commands.openFile(filePath, line, column, isWaiting);
+    } else {
+      return _rxjsBundlesRxMinJs.Observable.throw('No connected Atom windows').publish();
+    }
+  }
+
+  openRemoteFile(uri, line, column, isWaiting) {
+    const commands = CommandServer.getAtomCommandsByPath(uri);
+    if (commands != null) {
+      return commands.openRemoteFile(uri, line, column, isWaiting);
+    } else {
+      return _rxjsBundlesRxMinJs.Observable.throw('No connected Atom windows').publish();
+    }
+  }
+
+  addProject(projectPath) {
+    const commands = CommandServer.getAtomCommandsByPath(projectPath);
+    if (commands != null) {
+      return commands.addProject(projectPath);
+    } else {
+      throw new Error('No connected Atom windows');
+    }
+  }
+
+  dispose() {}
+}

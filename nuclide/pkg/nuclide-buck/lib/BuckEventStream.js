@@ -81,7 +81,7 @@ function getEventsFromSocket(socketStream) {
       case 'InstallFinished':
         return log('Install finished.', 'info');
       case 'BuildFinished':
-        return log(`Build finished with exit code ${ message.exitCode }.`, message.exitCode === 0 ? 'info' : 'error');
+        return log(`Build finished with exit code ${message.exitCode}.`, message.exitCode === 0 ? 'info' : 'error');
       case 'BuildProgressUpdated':
         return _rxjsBundlesRxMinJs.Observable.of({
           type: 'progress',
@@ -101,7 +101,7 @@ function getEventsFromSocket(socketStream) {
   // Periodically emit log events for progress updates.
   const progressEvents = eventStream.switchMap(event => {
     if (event.type === 'progress' && event.progress != null && event.progress > 0 && event.progress < 1) {
-      return log(`Building... [${ Math.round(event.progress * 100) }%]`);
+      return log(`Building... [${Math.round(event.progress * 100)}%]`);
     }
     return _rxjsBundlesRxMinJs.Observable.empty();
   });
@@ -115,10 +115,10 @@ function getEventsFromProcess(processStream) {
       case 'error':
         return {
           type: 'error',
-          message: `Buck failed: ${ message.error.message }`
+          message: `Buck failed: ${message.error.message}`
         };
       case 'exit':
-        const logMessage = `Buck exited with ${ (0, (_process || _load_process()).exitEventToMessage)(message) }.`;
+        const logMessage = `Buck exited with ${(0, (_process || _load_process()).exitEventToMessage)(message)}.`;
         if (message.exitCode === 0) {
           return {
             type: 'log',
@@ -167,7 +167,6 @@ function combineEventStreams(subcommand, socketEvents, processEvents) {
 
   // Error/info logs from the process represent exit/error conditions, so always take them.
   // We ensure that error/info logs will not duplicate messages from the websocket.
-  // $FlowFixMe: add skipWhile to flow-typed rx definitions
   processEvents.skipWhile(isRegularLogMessage));
   if (subcommand === 'test') {
     // The websocket does not reliably provide test output.

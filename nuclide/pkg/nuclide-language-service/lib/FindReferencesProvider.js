@@ -74,7 +74,7 @@ class FindReferencesProvider {
         return null;
       }
 
-      return (0, (_loadingNotification || _load_loadingNotification()).default)((yield languageService).findReferences(fileVersion, position), `Loading references from ${ _this2.name } server...`);
+      return (0, (_loadingNotification || _load_loadingNotification()).default)((yield languageService).findReferences(fileVersion, position), `Loading references from ${_this2.name} server...`);
     }));
   }
 }

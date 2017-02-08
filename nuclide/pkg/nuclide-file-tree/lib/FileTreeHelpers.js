@@ -56,7 +56,7 @@ function fetchChildren(nodeKey) {
 
   return new Promise((resolve, reject) => {
     if (directory == null) {
-      reject(`Directory "${ nodeKey }" not found or is inaccessible.`);
+      reject(`Directory "${nodeKey}" not found or is inaccessible.`);
       return;
     }
 

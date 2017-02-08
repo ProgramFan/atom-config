@@ -75,9 +75,9 @@ function getPagedProperties(pagedId) {
     return {
       configurable: false,
       enumerable: true,
-      name: `Elements(${ childStartIndex }..${ childStartIndex + childCount - 1 })`,
+      name: `Elements(${childStartIndex}..${childStartIndex + childCount - 1})`,
       value: {
-        description: `${ childCount } elements`,
+        description: `${childCount} elements`,
         type: 'object',
         objectId: (0, (_ObjectId || _load_ObjectId()).remoteObjectIdOfObjectId)(childId)
       }

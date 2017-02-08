@@ -27,8 +27,8 @@ exports.default = (() => {
       return null;
     }
     const response = yield new Promise(function (resolve) {
-      const notification = atom.notifications.addInfo(`Project \`${ projectId }\` not open`, {
-        description: `You tried to open a file in the \`${ projectId }\` project, but it doesn't ` + 'seem to be in your open projects.<br />' + `You last had it open at \`${ (_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(lastPath) }\`.<br />` + 'Would you like to try re-opening it?',
+      const notification = atom.notifications.addInfo(`Project \`${projectId}\` not open`, {
+        description: `You tried to open a file in the \`${projectId}\` project, but it doesn't ` + 'seem to be in your open projects.<br />' + `You last had it open at \`${(_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(lastPath)}\`.<br />` + 'Would you like to try re-opening it?',
         dismissable: true,
         buttons: [{
           className: 'icon icon-file-add',

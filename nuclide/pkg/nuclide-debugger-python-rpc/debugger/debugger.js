@@ -80,7 +80,7 @@ function launchDebugger(commander, initialBreakpoints, pathToPythonExecutable, p
         } else if (method === METHOD_START) {
           observer.next({ event: 'start' });
         } else {
-          const error = new Error(`Unrecognized message: ${ JSON.stringify(args) }`);
+          const error = new Error(`Unrecognized message: ${JSON.stringify(args)}`);
           observer.error(error);
         }
       });
@@ -88,7 +88,7 @@ function launchDebugger(commander, initialBreakpoints, pathToPythonExecutable, p
       // Take requests from the input commander and pass them through to the Python debugger.
       // TODO(mbolin): If a `quit` message comes in, we should tear down everything from here
       // because the Python code may be locked up such that it won't get the message.
-      commander.subscribe(write, error => log(`Unexpected error from commander: ${ String(error) }`), () => log('Apparently the commander is done.'));
+      commander.subscribe(write, error => log(`Unexpected error from commander: ${String(error)}`), () => log('Apparently the commander is done.'));
 
       connection.on('end', () => {
         // In the current design, we only expect there to be one connection ever, so when it
@@ -105,7 +105,7 @@ function launchDebugger(commander, initialBreakpoints, pathToPythonExecutable, p
 
     const socketPath = createSocketPath();
     server.listen({ path: socketPath }, () => {
-      log(`listening for connections on ${ socketPath }. About to run python.`);
+      log(`listening for connections on ${socketPath}. About to run python.`);
 
       // The connection is set up, so now we can launch our Python program.
       const pythonDebugger = (_nuclideUri || _load_nuclideUri()).default.join(__dirname, 'main.py');
@@ -115,13 +115,13 @@ function launchDebugger(commander, initialBreakpoints, pathToPythonExecutable, p
       /* eslint-disable no-console */
       // TODO(mbolin): These do not seem to be fired until the debugger finishes.
       // Probably need to handle things differently in debugger.py.
-      python.stdout.on('data', data => console.log(`python stdout: ${ data }`));
-      python.stderr.on('data', data => console.log(`python stderr: ${ data }`));
+      python.stdout.on('data', data => console.log(`python stdout: ${data}`));
+      python.stderr.on('data', data => console.log(`python stderr: ${data}`));
       /* eslint-enable no-console */
     });
   });
 }
 
 function createSocketPath() {
-  return (_nuclideUri || _load_nuclideUri()).default.join(_os.default.tmpdir(), `${ (_uuid || _load_uuid()).default.v4() }.sock`);
+  return (_nuclideUri || _load_nuclideUri()).default.join(_os.default.tmpdir(), `${(_uuid || _load_uuid()).default.v4()}.sock`);
 }

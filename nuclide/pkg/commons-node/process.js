@@ -31,7 +31,7 @@ let killUnixProcessTree = exports.killUnixProcessTree = (() => {
     const descendants = yield getDescendantsOfProcess(childProcess.pid);
     // Kill the processes, starting with those of greatest depth.
     for (const info of descendants.reverse()) {
-      process.kill(info.pid);
+      killPid(info.pid);
     }
   });
 
@@ -47,8 +47,8 @@ let checkOutput = exports.checkOutput = (() => {
   var _ref3 = (0, _asyncToGenerator.default)(function* (command, args, options = {}) {
     const result = yield asyncExecute((_nuclideUri || _load_nuclideUri()).default.expandHomeDir(command), args, options);
     if (result.exitCode !== 0) {
-      const reason = result.exitCode != null ? `exitCode: ${ result.exitCode }` : `error: ${ (0, (_string || _load_string()).maybeToString)(result.errorMessage) }`;
-      throw new Error(`asyncExecute "${ command }" failed with ${ reason }, ` + `stderr: ${ result.stderr }, stdout: ${ result.stdout }.`);
+      const reason = result.exitCode != null ? `exitCode: ${result.exitCode}` : `error: ${(0, (_string || _load_string()).maybeToString)(result.errorMessage)}`;
+      throw new Error(`asyncExecute "${command}" failed with ${reason}, ` + `stderr: ${result.stderr}, stdout: ${result.stdout}.`);
     }
     return result;
   });
@@ -168,6 +168,7 @@ exports.createArgsForScriptCommand = createArgsForScriptCommand;
 exports.scriptSafeSpawn = scriptSafeSpawn;
 exports.scriptSafeSpawnAndObserveOutput = scriptSafeSpawnAndObserveOutput;
 exports.killProcess = killProcess;
+exports.killPid = killPid;
 exports.createProcessStream = createProcessStream;
 exports.observeProcessExit = observeProcessExit;
 exports.getOutputStream = getOutputStream;
@@ -212,12 +213,6 @@ function _load_string() {
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
-var _semver;
-
-function _load_semver() {
-  return _semver = _interopRequireDefault(require('semver'));
-}
-
 var _shellQuote;
 
 function _load_shellQuote() {
@@ -233,15 +228,17 @@ function _load_performanceNow() {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Node crashes if we allow buffers that are too large.
-const DEFAULT_MAX_BUFFER = 100 * 1024 * 1024; /**
-                                               * Copyright (c) 2015-present, Facebook, Inc.
-                                               * All rights reserved.
-                                               *
-                                               * This source code is licensed under the license found in the LICENSE file in
-                                               * the root directory of this source tree.
-                                               *
-                                               * 
-                                               */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
+const DEFAULT_MAX_BUFFER = 100 * 1024 * 1024;
 
 const MAX_LOGGED_CALLS = 100;
 const PREVERVED_HISTORY_CALLS = 50;
@@ -263,7 +260,7 @@ function logCall(duration, command, args) {
 class ProcessSystemError extends Error {
 
   constructor(opts) {
-    super(`"${ opts.command }" failed with code ${ opts.code }`);
+    super(`"${opts.command}" failed with code ${opts.code}`);
     this.name = 'ProcessSystemError';
     this.command = opts.command;
     this.args = opts.args;
@@ -277,7 +274,7 @@ exports.ProcessSystemError = ProcessSystemError;
 class ProcessExitError extends Error {
 
   constructor(opts) {
-    super(`"${ opts.command }" failed with ${ exitEventToMessage(opts.exitMessage) }\n\n${ opts.stderr }`);
+    super(`"${opts.command}" failed with ${exitEventToMessage(opts.exitMessage)}\n\n${opts.stderr}`);
     this.name = 'ProcessExitError';
     this.command = opts.command;
     this.args = opts.args;
@@ -316,7 +313,7 @@ function monitorStreamErrors(process, command, args, options) {
     stream.on('error', error => {
       // This can happen without the full execution of the command to fail,
       // but we want to learn about it.
-      logError(`stream error on stream ${ streamName } with command:`, command, args, options, 'error:', error);
+      logError(`stream error on stream ${streamName} with command:`, command, args, options, 'error:', error);
     });
   });
 }
@@ -467,15 +464,15 @@ function _createProcessStream(createProcess, throwOnError, killTreeOnComplete) {
 }
 
 function killProcess(childProcess, killTree) {
-  log(`Ending process stream. Killing process ${ childProcess.pid }`);
+  log(`Ending process stream. Killing process ${childProcess.pid}`);
   _killProcess(childProcess, killTree).then(() => {}, error => {
-    logError(`Killing process ${ childProcess.pid } failed`, error);
+    logError(`Killing process ${childProcess.pid} failed`, error);
   });
 }
 
 function killWindowsProcessTree(pid) {
   return new Promise((resolve, reject) => {
-    _child_process.default.exec(`taskkill /pid ${ pid } /T /F`, error => {
+    _child_process.default.exec(`taskkill /pid ${pid} /T /F`, error => {
       if (error == null) {
         reject(error);
       } else {
@@ -483,6 +480,16 @@ function killWindowsProcessTree(pid) {
       }
     });
   });
+}
+
+function killPid(pid) {
+  try {
+    process.kill(pid);
+  } catch (err) {
+    if (err.code !== 'ESRCH') {
+      throw err;
+    }
+  }
 }
 
 function createProcessStream(createProcess, killTreeOnComplete = false) {
@@ -667,14 +674,12 @@ function writeToStdin(childProcess, options) {
 let cachedOriginalEnvironment = null;
 
 let loadedShellResolve;
-let loadedShellTimeout;
 const loadedShellPromise = new Promise(resolve => {
   loadedShellResolve = resolve;
 }).then(() => {
   // No need to include default paths now that the environment is loaded.
   DEFAULT_PATH_INCLUDE = [];
   cachedOriginalEnvironment = null;
-  loadedShellTimeout = null;
 });
 
 if (!loadedShellResolve) {
@@ -684,28 +689,21 @@ if (!loadedShellResolve) {
 if (typeof atom === 'undefined' || atom.inSpecMode()) {
   // This doesn't apply server-side or in tests, so just immediately resolve.
   loadedShellResolve();
-} else if ((_semver || _load_semver()).default.lt(atom.getVersion(), '1.12.7')) {
-  // Atom <= 1.12.6 has a bug where our hook won't trigger if we activate too late.
-  // Apply a 10 second timeout to prevent the case where this never resolves.
-  loadedShellTimeout = setTimeout(loadedShellResolve, 10000);
 }
 
 function loadedShellEnvironment() {
-  if (loadedShellTimeout != null) {
-    clearTimeout(loadedShellTimeout);
-  }
   loadedShellResolve();
 }
 
 function exitEventToMessage(event) {
   if (event.exitCode != null) {
-    return `exit code ${ event.exitCode }`;
+    return `exit code ${event.exitCode}`;
   } else {
     if (!(event.signal != null)) {
       throw new Error('Invariant violation: "event.signal != null"');
     }
 
-    return `signal ${ event.signal }`;
+    return `signal ${event.signal}`;
   }
 }
 

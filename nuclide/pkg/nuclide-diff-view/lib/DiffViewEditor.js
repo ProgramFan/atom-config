@@ -146,7 +146,7 @@ class DiffViewEditor {
   _createLineMarker(lineNumber, type) {
     const range = new _atom.Range([lineNumber, 0], [lineNumber + 1, 0]);
     const marker = this._editor.markBufferRange(range, { invalidate: 'never' });
-    this._editor.decorateMarker(marker, { type: 'highlight', class: `diff-view-${ type }` });
+    this._editor.decorateMarker(marker, { type: 'highlight', class: `diff-view-${type}` });
     return marker;
   }
 

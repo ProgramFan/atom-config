@@ -15,6 +15,7 @@ exports.provideCodeFormat = provideCodeFormat;
 exports.provideLinter = provideLinter;
 exports.provideOutlineView = provideOutlineView;
 exports.provideRefactoring = provideRefactoring;
+exports.consumeCompilationDatabase = consumeCompilationDatabase;
 exports.deactivate = deactivate;
 
 var _atom = require('atom');
@@ -179,7 +180,7 @@ function provideLinter() {
     lint(editor) {
       const getResult = () => (_ClangLinter || _load_ClangLinter()).default.lint(editor);
       if (busySignalProvider) {
-        return busySignalProvider.reportBusy(`Clang: compiling \`${ editor.getTitle() }\``, getResult);
+        return busySignalProvider.reportBusy(`Clang: compiling \`${editor.getTitle()}\``, getResult);
       }
       return getResult();
     }
@@ -209,6 +210,10 @@ function provideRefactoring() {
       return (_Refactoring || _load_Refactoring()).default.refactor(request);
     }
   };
+}
+
+function consumeCompilationDatabase(provider) {
+  return (0, (_libclang || _load_libclang()).registerCompilationDatabaseProvider)(provider);
 }
 
 function deactivate() {

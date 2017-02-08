@@ -118,8 +118,8 @@ class DiagnosticsPanel extends _reactForAtom.React.Component {
       );
     }
 
-    const errorSpanClassName = `inline-block ${ errorCount > 0 ? 'text-error' : '' }`;
-    const warningSpanClassName = `inline-block ${ warningCount > 0 ? 'text-warning' : '' }`;
+    const errorSpanClassName = `inline-block ${errorCount > 0 ? 'text-error' : ''}`;
+    const warningSpanClassName = `inline-block ${warningCount > 0 ? 'text-warning' : ''}`;
 
     return _reactForAtom.React.createElement(
       'div',

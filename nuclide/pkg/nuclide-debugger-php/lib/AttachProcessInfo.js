@@ -83,9 +83,9 @@ class AttachProcessInfo extends (_nuclideDebuggerBase || _load_nuclideDebuggerBa
 
       const rpcService = _this2._getRpcService();
       const sessionConfig = (0, (_utils2 || _load_utils2()).getSessionConfig)((_nuclideUri || _load_nuclideUri()).default.getPath(_this2.getTargetUri()), false);
-      logInfo(`Connection session config: ${ JSON.stringify(sessionConfig) }`);
+      logInfo(`Connection session config: ${JSON.stringify(sessionConfig)}`);
       const result = yield rpcService.debug(sessionConfig);
-      logInfo(`Launch process result: ${ result }`);
+      logInfo(`Launch process result: ${result}`);
 
       return new (_PhpDebuggerInstance || _load_PhpDebuggerInstance()).PhpDebuggerInstance(_this2, rpcService);
     })();

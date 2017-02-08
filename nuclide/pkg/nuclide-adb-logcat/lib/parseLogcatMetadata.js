@@ -8,7 +8,7 @@ exports.default = parseLogcatMetadata;
 
 // Example: [ 01-14 17:14:44.285   640:  656 E/KernelUidCpuTimeReader ]
 // eslint-disable-next-line max-len
-const METADATA_REGEX = /^\[ (\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3})\s+(\d+):(?:(0x[a-f0-9]+)|\s+(\d+))\s+(V|D|I|W|E|F|S)\/(.+) ]$/; /**
+const METADATA_REGEX = /^\[ (\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3})\s+(\d+):(?:(0x[a-f0-9]+)|\s*(\d+))\s+(V|D|I|W|E|F|S)\/(.+) ]$/; /**
                                                                                                                                     * Copyright (c) 2015-present, Facebook, Inc.
                                                                                                                                     * All rights reserved.
                                                                                                                                     *

@@ -22,17 +22,13 @@ function _load_nuclideRemoteConnection() {
   return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
 }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _featureConfig;
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+function _load_featureConfig() {
+  return _featureConfig = _interopRequireDefault(require('../../commons-atom/featureConfig'));
+}
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
   name: 'nuclide-ocaml',
@@ -42,6 +38,9 @@ module.exports = {
   invalidateOnClose: true,
 
   lint(textEditor) {
+    if (!(_featureConfig || _load_featureConfig()).default.get('nuclide-ocaml.enableDiagnostics')) {
+      return Promise.resolve([]);
+    }
     return (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)('nuclide-ocaml.lint', (0, _asyncToGenerator.default)(function* () {
       const filePath = textEditor.getPath();
       if (filePath == null) {
@@ -68,4 +67,12 @@ module.exports = {
       });
     }));
   }
-};
+}; /**
+    * Copyright (c) 2015-present, Facebook, Inc.
+    * All rights reserved.
+    *
+    * This source code is licensed under the license found in the LICENSE file in
+    * the root directory of this source tree.
+    *
+    * 
+    */

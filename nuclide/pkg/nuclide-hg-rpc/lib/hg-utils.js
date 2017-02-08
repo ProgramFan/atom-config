@@ -89,7 +89,7 @@ let getEditMergeConfigs = exports.getEditMergeConfigs = (() => {
       };
     }
     // Atom RPC needs to agree with the Atom process / nuclide server on the address and port.
-    const hgEditor = getAtomRpcScriptPath() + ` -f ${ connectionDetails.family } -p ${ connectionDetails.port } --wait`;
+    const hgEditor = getAtomRpcScriptPath() + ` -f ${connectionDetails.family} -p ${connectionDetails.port} --wait`;
     return {
       args: ['--config', 'merge-tools.editmerge.check=conflicts', '--config', 'ui.merge=editmerge'],
       hgEditor
@@ -162,9 +162,9 @@ function hgRunCommand(args_, options_) {
 }
 
 function logAndThrowHgError(args, options, stdout, stderr) {
-  (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error executing hg command: ${ JSON.stringify(args) }\n` + `stderr: ${ stderr }\nstdout: ${ stdout }\n` + `options: ${ JSON.stringify(options) }`);
+  (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error executing hg command: ${JSON.stringify(args)}\n` + `stderr: ${stderr}\nstdout: ${stdout}\n` + `options: ${JSON.stringify(options)}`);
   if (stderr.length > 0 && stdout.length > 0) {
-    throw new Error(`hg error\nstderr: ${ stderr }\nstdout: ${ stdout }`);
+    throw new Error(`hg error\nstderr: ${stderr}\nstdout: ${stdout}`);
   } else {
     // One of `stderr` or `stdout` is empty - not both.
     throw new Error(stderr || stdout);

@@ -36,7 +36,7 @@ function _load_vcs() {
  */
 
 function onFileChosen(uri) {
-  atom.notifications.addInfo(`Selected file ${ uri }`);
+  atom.notifications.addInfo(`Selected file ${uri}`);
 }
 
 function BasicExample() {

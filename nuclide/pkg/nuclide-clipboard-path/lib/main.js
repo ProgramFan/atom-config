@@ -116,7 +116,7 @@ function getArcanistRelativePath(path) {
 
 function copyToClipboard(messagePrefix, value) {
   atom.clipboard.write(value);
-  notify(`${ messagePrefix }: \`\`\`${ value }\`\`\``);
+  notify(`${messagePrefix}: \`\`\`${value}\`\`\``);
 }
 
 function getCurrentNuclideUri() {

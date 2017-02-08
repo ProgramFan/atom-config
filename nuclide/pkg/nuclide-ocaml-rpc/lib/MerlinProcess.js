@@ -45,7 +45,7 @@ let getInstance = exports.getInstance = (() => {
         merlinProcessInstance = new MerlinProcessV2_3_1(process);
         break;
       default:
-        logger.error(`Unsupported merlin version: ${ version }`);
+        logger.error(`Unsupported merlin version: ${version}`);
         return null;
     }
 
@@ -507,7 +507,7 @@ function runSingleCommandImpl(process, command) {
       const content = response[1];
 
       if (ERROR_RESPONSES.has(status)) {
-        logger.error(`Ocamlmerlin raised an error: ${ line }\n  command: ${ commandString }`);
+        logger.error(`Ocamlmerlin raised an error: ${line}\n  command: ${commandString}`);
         reject(Error('Ocamlmerlin returned an error'));
         return;
       }

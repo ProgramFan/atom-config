@@ -38,6 +38,16 @@ function _load_TextRenderer() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+const URL_REGEX = /https?:\/\/[\S]+/i; /**
+                                        * Copyright (c) 2015-present, Facebook, Inc.
+                                        * All rights reserved.
+                                        *
+                                        * This source code is licensed under the license found in the LICENSE file in
+                                        * the root directory of this source tree.
+                                        *
+                                        * 
+                                        */
+
 class RecordView extends _reactForAtom.React.Component {
 
   _renderContent(record) {
@@ -56,6 +66,8 @@ class RecordView extends _reactForAtom.React.Component {
     } else if (record.data != null) {
       const provider = this.props.getProvider(record.sourceId);
       return this._renderNestedValueComponent(record, provider);
+    } else if (record.text.match(URL_REGEX)) {
+      return this._renderTextWithURL(record.text);
     } else {
       // If there's not text, use a space to make sure the row doesn't collapse.
       const text = record.text || ' ';
@@ -65,6 +77,49 @@ class RecordView extends _reactForAtom.React.Component {
         text
       );
     }
+  }
+
+  _renderTextWithURL(text) {
+    return _reactForAtom.React.createElement(
+      'span',
+      null,
+      text.split(' ').map(word => {
+        if (word.match(URL_REGEX)) {
+          return {
+            type: 'link',
+            href: word
+          };
+        }
+        return {
+          type: 'text',
+          text: word
+        };
+      }).reduce((collection, current) => {
+        const lastIndex = collection.length - 1;
+        const lastItem = collection[lastIndex];
+        if (lastItem && lastItem.type === 'text' && current.type === 'text') {
+          lastItem.text += ' ' + current.text;
+          return collection;
+        }
+        collection.push(current);
+        return collection;
+      }, []).map((current, i) => {
+        if (current.type === 'text') {
+          return _reactForAtom.React.createElement(
+            'pre',
+            { key: 'd' + i },
+            ' ',
+            current.text,
+            ' '
+          );
+        }
+        return _reactForAtom.React.createElement(
+          'a',
+          { key: 'd' + i, href: current.href, target: '_blank' },
+          current.href
+        );
+      })
+    );
   }
 
   shouldComponentUpdate(nextProps) {
@@ -87,17 +142,17 @@ class RecordView extends _reactForAtom.React.Component {
 
   render() {
     const { record } = this.props;
-    const classNames = (0, (_classnames || _load_classnames()).default)('nuclide-console-record', `level-${ record.level || 'log' }`, {
+    const classNames = (0, (_classnames || _load_classnames()).default)('nuclide-console-record', `level-${record.level || 'log'}`, {
       request: record.kind === 'request',
       response: record.kind === 'response'
     });
 
     const iconName = getIconName(record);
-    const icon = iconName ? _reactForAtom.React.createElement('span', { className: `icon icon-${ iconName }` }) : null;
+    const icon = iconName ? _reactForAtom.React.createElement('span', { className: `icon icon-${iconName}` }) : null;
     const sourceLabel = this.props.showSourceLabel ? _reactForAtom.React.createElement(
       'span',
       {
-        className: `nuclide-console-record-source-label ${ getHighlightClassName(record.level) }` },
+        className: `nuclide-console-record-source-label ${getHighlightClassName(record.level)}` },
       record.sourceId
     ) : null;
 
@@ -115,16 +170,7 @@ class RecordView extends _reactForAtom.React.Component {
   }
 }
 
-exports.default = RecordView; /**
-                               * Copyright (c) 2015-present, Facebook, Inc.
-                               * All rights reserved.
-                               *
-                               * This source code is licensed under the license found in the LICENSE file in
-                               * the root directory of this source tree.
-                               *
-                               * 
-                               */
-
+exports.default = RecordView;
 function getComponent(type) {
   switch (type) {
     case 'text':

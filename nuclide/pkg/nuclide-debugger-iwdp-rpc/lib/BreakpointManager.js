@@ -42,13 +42,20 @@ class BreakpointManager {
     this._connections = new Set();
     this._sendMessageToClient = sendMessageToClient;
     this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(() => this._connections.clear());
+    this._setPauseOnExceptionsState = 'none';
   }
 
   addConnection(connection) {
     this._connections.add(connection);
     return Promise.all([
     // Send file/line breakpoints.
-    this._sendLineBreakpointsToTarget(connection)]);
+    this._sendLineBreakpointsToTarget(connection),
+    // Send exception breakpoints.
+    this._sendSetPauseOnExceptionToTarget(connection)]);
+  }
+
+  removeConnection(connection) {
+    this._connections.delete(connection);
   }
 
   _sendLineBreakpointsToTarget(connection) {
@@ -86,6 +93,50 @@ class BreakpointManager {
     })();
   }
 
+  _sendSetPauseOnExceptionToTarget(connection) {
+    const resolve = this._resolvePendingExceptionBreakpointMessage;
+    if (resolve != null) {
+      resolve();
+      return Promise.resolve();
+    }
+    return connection.sendCommand({
+      method: 'Debugger.setPauseOnExceptions',
+      params: this._setPauseOnExceptionsState
+    });
+  }
+
+  setPauseOnExceptions(message) {
+    var _this2 = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      _this2._setPauseOnExceptionsState = message.params.state;
+      if (_this2._connections.size === 0) {
+        // Wait for a connection to come in.
+        yield new Promise(function (resolve) {
+          _this2._resolvePendingExceptionBreakpointMessage = resolve;
+        });
+        _this2._resolvePendingExceptionBreakpointMessage = null;
+      }
+      return _this2._setPauseOnExceptions(message);
+    })();
+  }
+
+  _setPauseOnExceptions(message) {
+    var _this3 = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      const responses = yield _this3._sendMessageToAllTargets(message);
+      log(`setPauseOnExceptions yielded: ${JSON.stringify(responses)}`);
+      for (const response of responses) {
+        // We can receive multiple responses, so just send the first non-error one.
+        if (response.result != null && response.error == null) {
+          return response;
+        }
+      }
+      return responses[0];
+    })();
+  }
+
   /**
    * setBreakpointByUrl must send this breakpoint to each connection managed by the multiplexer.
    */
@@ -119,7 +170,7 @@ class BreakpointManager {
   }
 
   _setBreakpointByUrl(message) {
-    var _this2 = this;
+    var _this4 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
       const { params } = message;
@@ -130,14 +181,14 @@ class BreakpointManager {
         jscId: null,
         resolved: true
       };
-      _this2._breakpoints.set(nuclideId, breakpoint);
+      _this4._breakpoints.set(nuclideId, breakpoint);
       const targetMessage = Object.assign({}, message, {
         params: Object.assign({}, message.params, {
-          url: _this2._fileCache.getUrlFromFilePath(message.params.url)
+          url: _this4._fileCache.getUrlFromFilePath(message.params.url)
         })
       });
-      const responses = yield _this2._sendMessageToAllTargets(targetMessage);
-      log(`setBreakpointByUrl yielded: ${ JSON.stringify(responses) }`);
+      const responses = yield _this4._sendMessageToAllTargets(targetMessage);
+      log(`setBreakpointByUrl yielded: ${JSON.stringify(responses)}`);
       for (const response of responses) {
         // We will receive multiple responses, so just send the first non-error one.
         if (response.result != null && response.error == null && response.result.breakpointId != null) {
@@ -154,12 +205,12 @@ class BreakpointManager {
    * removeBreakpoint must send this message to each connection managed by the multiplexer.
    */
   removeBreakpoint(message) {
-    var _this3 = this;
+    var _this5 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
       const { id } = message;
       const { breakpointId } = message.params;
-      const breakpoint = _this3._breakpoints.get(breakpointId);
+      const breakpoint = _this5._breakpoints.get(breakpointId);
       if (breakpoint == null) {
         return { id };
       }
@@ -168,9 +219,9 @@ class BreakpointManager {
           breakpointId: breakpoint.jscId
         }
       });
-      const responses = yield _this3._sendMessageToAllTargets(targetMessage);
-      log(`removeBreakpoint yielded: ${ JSON.stringify(responses) }`);
-      _this3._breakpoints.delete(breakpoint.nuclideId);
+      const responses = yield _this5._sendMessageToAllTargets(targetMessage);
+      log(`removeBreakpoint yielded: ${JSON.stringify(responses)}`);
+      _this5._breakpoints.delete(breakpoint.nuclideId);
       return { id };
     })();
   }
@@ -190,5 +241,5 @@ class BreakpointManager {
 
 exports.BreakpointManager = BreakpointManager;
 function createNuclideId(params) {
-  return `${ BREAKPOINT_ID_PREFIX }_${ params.url }:${ params.lineNumber }`;
+  return `${BREAKPOINT_ID_PREFIX}_${params.url}:${params.lineNumber}`;
 }

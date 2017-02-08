@@ -5,27 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DebuggerConnection = undefined;
 
-var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
-
 var _UniversalDisposable;
 
 function _load_UniversalDisposable() {
   return _UniversalDisposable = _interopRequireDefault(require('../../commons-node/UniversalDisposable'));
 }
 
-var _ws;
-
-function _load_ws() {
-  return _ws = _interopRequireDefault(require('ws'));
-}
-
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
-
-var _createWebSocketListener;
-
-function _load_createWebSocketListener() {
-  return _createWebSocketListener = require('./createWebSocketListener');
-}
 
 var _logger;
 
@@ -39,17 +25,13 @@ function _load_constants() {
   return _constants = require('./constants');
 }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _Socket;
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+function _load_Socket() {
+  return _Socket = require('./Socket');
+}
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const { log } = (_logger || _load_logger()).logger;
 
@@ -65,57 +47,31 @@ const { log } = (_logger || _load_logger()).logger;
  * `Debugger.paused` events.  Interested parties can subscribe to these events via the
  * `subscribeToEvents` API, which accepts a callback called when events are emitted from the target.
  */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
 class DebuggerConnection {
 
   constructor(connectionId, deviceInfo) {
     this._deviceInfo = deviceInfo;
     this._connectionId = connectionId;
-    this._webSocket = null;
     this._events = new _rxjsBundlesRxMinJs.Subject();
-    this._id = 0;
-    this._pendingRequests = new Map();
     this._status = new _rxjsBundlesRxMinJs.BehaviorSubject((_constants || _load_constants()).RUNNING);
     const { webSocketDebuggerUrl } = deviceInfo;
-    const webSocket = new (_ws || _load_ws()).default(webSocketDebuggerUrl);
-    // It's not enough to just construct the websocket -- we have to also wait for it to open.
-    this._webSocketPromise = new Promise(resolve => webSocket.on('open', () => resolve(webSocket)));
-    const socketMessages = (0, (_createWebSocketListener || _load_createWebSocketListener()).createWebSocketListener)(webSocket);
-    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(() => webSocket.close(), socketMessages.subscribe(message => this._handleSocketMessage(message)));
-    log(`DebuggerConnection created with device info: ${ JSON.stringify(deviceInfo) }`);
+    this._socket = new (_Socket || _load_Socket()).Socket(webSocketDebuggerUrl, this._handleChromeEvent.bind(this), () => this._status.next((_constants || _load_constants()).ENDED));
+    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._socket);
+    log(`DebuggerConnection created with device info: ${JSON.stringify(deviceInfo)}`);
   }
 
   sendCommand(message) {
-    var _this = this;
-
-    return (0, _asyncToGenerator.default)(function* () {
-      if (_this._webSocket == null) {
-        _this._webSocket = yield _this._webSocketPromise;
-      }
-      const webSocket = _this._webSocket;
-      if (message.id == null) {
-        message.id = _this._id++;
-      }
-      return new Promise(function (resolve) {
-        _this._pendingRequests.set(message.id, resolve);
-        webSocket.send(JSON.stringify(message));
-      });
-    })();
-  }
-
-  _handleSocketMessage(message) {
-    const obj = JSON.parse(message);
-    if (isEvent(obj)) {
-      this._handleChromeEvent(obj);
-    } else {
-      const resolve = this._pendingRequests.get(obj.id);
-
-      if (!(resolve != null)) {
-        throw new Error(`Got response for a request that wasn't sent: ${ message }`);
-      }
-
-      this._pendingRequests.delete(obj.id);
-      resolve(obj);
-    }
+    return this._socket.sendCommand(message);
   }
 
   _handleChromeEvent(message) {
@@ -158,12 +114,14 @@ class DebuggerConnection {
     return this._connectionId;
   }
 
+  onDispose(...teardowns) {
+    for (const teardown of teardowns) {
+      this._disposables.add(teardown);
+    }
+  }
+
   dispose() {
     this._disposables.dispose();
   }
 }
-
 exports.DebuggerConnection = DebuggerConnection;
-function isEvent(obj) {
-  return obj.id == null;
-}

@@ -7,6 +7,12 @@ exports.DbgpSocket = exports.COMMAND_DETACH = exports.COMMAND_STOP = exports.COM
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
+var _dedent;
+
+function _load_dedent() {
+  return _dedent = _interopRequireDefault(require('dedent'));
+}
+
 var _utils;
 
 function _load_utils() {
@@ -35,6 +41,16 @@ function _load_event() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
 const ConnectionStatus = exports.ConnectionStatus = {
   // Responses to the DBGP 'status' command
   Starting: 'starting',
@@ -58,16 +74,6 @@ const ConnectionStatus = exports.ConnectionStatus = {
 };
 
 // Notifications.
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 const BREAKPOINT_RESOLVED_NOTIFICATION = exports.BREAKPOINT_RESOLVED_NOTIFICATION = 'breakpoint_resolved';
 
 // Valid continuation commands
@@ -222,7 +228,7 @@ class DbgpSocket {
     const outputType = stream.$.type;
     // The body of the `stream` XML can be omitted, e.g. `echo null`, so we defend against this.
     const outputText = stream._ != null ? (0, (_helpers || _load_helpers()).base64Decode)(stream._) : '';
-    (_utils || _load_utils()).default.log(`${ outputType } message received: ${ outputText }`);
+    (_utils || _load_utils()).default.log(`${outputType} message received: ${outputText}`);
     const status = outputType === 'stdout' ? ConnectionStatus.Stdout : ConnectionStatus.Stderr;
     // TODO: t13439903 -- add a way to fetch the rest of the data.
     const truncatedOutputText = outputText.slice(0, STREAM_MESSAGE_MAX_SIZE);
@@ -234,12 +240,12 @@ class DbgpSocket {
     if (notifyName === 'breakpoint_resolved') {
       const breakpoint = notify.breakpoint[0].$;
       if (breakpoint == null) {
-        (_utils || _load_utils()).default.logError(`Fail to get breakpoint from 'breakpoint_resolved' notify: ${ JSON.stringify(notify) }`);
+        (_utils || _load_utils()).default.logError(`Fail to get breakpoint from 'breakpoint_resolved' notify: ${JSON.stringify(notify)}`);
         return;
       }
       this._emitNotification(BREAKPOINT_RESOLVED_NOTIFICATION, breakpoint);
     } else {
-      (_utils || _load_utils()).default.logError(`Unknown notify: ${ JSON.stringify(notify) }`);
+      (_utils || _load_utils()).default.logError(`Unknown notify: ${JSON.stringify(notify)}`);
     }
   }
 
@@ -265,7 +271,7 @@ class DbgpSocket {
     var _this = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const result = yield _this._callDebugger('context_names', `-d ${ frameIndex }`);
+      const result = yield _this._callDebugger('context_names', `-d ${frameIndex}`);
       return result.context.map(function (context) {
         return context.$;
       });
@@ -276,7 +282,7 @@ class DbgpSocket {
     var _this2 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const result = yield _this2._callDebugger('context_get', `-d ${ frameIndex } -c ${ contextId }`);
+      const result = yield _this2._callDebugger('context_get', `-d ${frameIndex} -c ${contextId}`);
       // 0 results yields missing 'property' member
       return result.property || [];
     })();
@@ -288,7 +294,7 @@ class DbgpSocket {
     return (0, _asyncToGenerator.default)(function* () {
       // Escape any double quote in the expression.
       const escapedFullname = fullname.replace(/"/g, '\\"');
-      const result = yield _this3._callDebugger('property_value', `-d ${ frameIndex } -c ${ contextId } -n "${ escapedFullname }" -p ${ page }`);
+      const result = yield _this3._callDebugger('property_value', `-d ${frameIndex} -c ${contextId} -n "${escapedFullname}" -p ${page}`);
       // property_value returns the outer property, we want the children ...
       // 0 results yields missing 'property' member
       if (result.property == null || result.property[0] == null) {
@@ -315,7 +321,7 @@ class DbgpSocket {
       const escapedExpression = expression.replace(/"/g, '\\"');
       // Quote the input expression so that we can support expression with
       // space in it(e.g. function evaluation).
-      const result = yield _this5._callDebugger('property_value', `-d ${ frameIndex } -n "${ escapedExpression }"`);
+      const result = yield _this5._callDebugger('property_value', `-d ${frameIndex} -n "${escapedExpression}"`);
       if (result.error && result.error.length > 0) {
         return {
           error: result.error[0],
@@ -327,7 +333,7 @@ class DbgpSocket {
           wasThrown: false
         };
       } else {
-        (_utils || _load_utils()).default.log(`Received non-error evaluateOnCallFrame response with no properties: ${ expression }`);
+        (_utils || _load_utils()).default.log(`Received non-error evaluateOnCallFrame response with no properties: ${expression}`);
         return {
           result: DEFAULT_DBGP_PROPERTY,
           wasThrown: false
@@ -403,7 +409,7 @@ class DbgpSocket {
     var _this11 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const response = yield _this11._callDebugger('feature_set', `-n ${ name } -v ${ value }`);
+      const response = yield _this11._callDebugger('feature_set', `-n ${name} -v ${value}`);
       return response.$.success !== '0';
     })();
   }
@@ -415,7 +421,7 @@ class DbgpSocket {
     var _this12 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const response = yield _this12._callDebugger('eval', `-- ${ (0, (_helpers || _load_helpers()).base64Encode)(expr) }`);
+      const response = yield _this12._callDebugger('eval', `-- ${(0, (_helpers || _load_helpers()).base64Encode)(expr)}`);
       if (response.error && response.error.length > 0) {
         return {
           error: response.error[0],
@@ -427,7 +433,7 @@ class DbgpSocket {
           wasThrown: false
         };
       } else {
-        (_utils || _load_utils()).default.log(`Received non-error runtimeEvaluate response with no properties: ${ expr }`);
+        (_utils || _load_utils()).default.log(`Received non-error runtimeEvaluate response with no properties: ${expr}`);
       }
       return {
         result: DEFAULT_DBGP_PROPERTY,
@@ -443,7 +449,7 @@ class DbgpSocket {
     var _this13 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const response = yield _this13._callDebugger('breakpoint_set', `-t exception -x ${ exceptionName }`);
+      const response = yield _this13._callDebugger('breakpoint_set', `-t exception -x ${exceptionName}`);
       if (response.error) {
         throw new Error('Error from setPausedOnExceptions: ' + JSON.stringify(response));
       }
@@ -461,13 +467,17 @@ class DbgpSocket {
 
     return (0, _asyncToGenerator.default)(function* () {
       const { filename, lineNumber, conditionExpression } = breakpointInfo;
-      let params = `-t line -f ${ filename } -n ${ lineNumber }`;
+      let params = `-t line -f ${filename} -n ${lineNumber}`;
       if (conditionExpression != null) {
-        params += ` -- ${ (0, (_helpers || _load_helpers()).base64Encode)(conditionExpression) }`;
+        params += ` -- ${(0, (_helpers || _load_helpers()).base64Encode)(conditionExpression)}`;
       }
       const response = yield _this14._callDebugger('breakpoint_set', params);
       if (response.error) {
-        throw new Error('Error setting breakpoint: ' + JSON.stringify(response));
+        throw new Error((_dedent || _load_dedent()).default`
+        Error setting breakpoint for command: breakpoint_set ${params}
+        Got response: ${JSON.stringify(response)}
+        BreakpointInfo is: ${JSON.stringify(breakpointInfo)}
+      `);
       }
       // TODO: Validate that response.$.state === 'enabled'
       return response.$.id;
@@ -481,7 +491,7 @@ class DbgpSocket {
     var _this15 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const response = yield _this15._callDebugger('breakpoint_get', `-d ${ breakpointId }`);
+      const response = yield _this15._callDebugger('breakpoint_get', `-d ${breakpointId}`);
       if (response.error != null || response.breakpoint == null || response.breakpoint[0] == null || response.breakpoint[0].$ == null) {
         throw new Error('Error getting breakpoint: ' + JSON.stringify(response));
       }
@@ -493,7 +503,7 @@ class DbgpSocket {
     var _this16 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const response = yield _this16._callDebugger('breakpoint_remove', `-d ${ breakpointId }`);
+      const response = yield _this16._callDebugger('breakpoint_remove', `-d ${breakpointId}`);
       if (response.error) {
         throw new Error('Error removing breakpoint: ' + JSON.stringify(response));
       }
@@ -527,7 +537,7 @@ class DbgpSocket {
 
   _sendCommand(command, params) {
     const id = ++this._transactionId;
-    let message = `${ command } -i ${ id }`;
+    let message = `${command} -i ${id}`;
     if (params) {
       message += ' ' + params;
     }
@@ -551,7 +561,7 @@ class DbgpSocket {
   }
 
   _emitNotification(notifyName, notify) {
-    (_utils || _load_utils()).default.log(`Emitting notification: ${ notifyName }`);
+    (_utils || _load_utils()).default.log(`Emitting notification: ${notifyName}`);
     this._emitter.emit(DBGP_SOCKET_NOTIFICATION_EVENT, notifyName, notify);
   }
 

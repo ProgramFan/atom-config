@@ -22,7 +22,7 @@ function _load_DiagnosticsMessage() {
 }
 
 const GOTOLOCATION = (path, line) => {
-  atom.notifications.addInfo(`Let's pretend I opened "${ path }" at line ${ line }.`);
+  atom.notifications.addInfo(`Let's pretend I opened "${path}" at line ${line}.`);
 }; /**
     * Copyright (c) 2015-present, Facebook, Inc.
     * All rights reserved.

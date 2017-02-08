@@ -8,7 +8,7 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 let fetchDeviceData = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (port) {
-    const response = yield (0, (_xfetch || _load_xfetch()).default)(`http://localhost:${ port }/json`, {});
+    const response = yield (0, (_xfetch || _load_xfetch()).default)(`http://localhost:${port}/json`, {});
     const responseText = yield response.text();
     return JSON.parse(responseText);
   });
@@ -70,17 +70,17 @@ function connectToIwdp() {
       const matches = CONNECTED_TO_DEVICE_REGEX.exec(data);
       if (matches != null) {
         const port = Number(matches[1]);
-        log(`Fetching device data because we got ${ data }`);
+        log(`Fetching device data because we got ${data}`);
         return _rxjsBundlesRxMinJs.Observable.interval(POLLING_INTERVAL).switchMap(() => fetchDeviceData(port));
       }
       if (data.startsWith('Listing devices on :')) {
-        log(`IWDP Connected!: ${ data }`);
+        log(`IWDP Connected!: ${data}`);
       }
       return _rxjsBundlesRxMinJs.Observable.never();
     } else if (message.kind === 'exit') {
       return _rxjsBundlesRxMinJs.Observable.empty();
     } else {
-      return _rxjsBundlesRxMinJs.Observable.throw(new Error(`Error for ios_webkit_debug_proxy: ${ JSON.stringify(message) }`));
+      return _rxjsBundlesRxMinJs.Observable.throw(new Error(`Error for ios_webkit_debug_proxy: ${JSON.stringify(message)}`));
     }
   }).mergeMap(deviceInfos => deviceInfos).distinct(deviceInfo => deviceInfo.webSocketDebuggerUrl);
 }

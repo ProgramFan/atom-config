@@ -51,7 +51,7 @@ class ServerLanguageService {
     return this._service.observeDiagnostics().publish();
   }
 
-  getAutocompleteSuggestions(fileVersion, position, activatedManually) {
+  getAutocompleteSuggestions(fileVersion, position, activatedManually, prefix) {
     var _this2 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
@@ -60,7 +60,7 @@ class ServerLanguageService {
       if (buffer == null) {
         return [];
       }
-      return _this2._service.getAutocompleteSuggestions(filePath, buffer, position, activatedManually);
+      return _this2._service.getAutocompleteSuggestions(filePath, buffer, position, activatedManually, prefix);
     })();
   }
 
@@ -208,10 +208,10 @@ function ensureInvalidations(logger, diagnostics) {
   const trackedDiagnotics = diagnostics.do(diagnostic => {
     const filePath = diagnostic.filePath;
     if (diagnostic.messages.length === 0) {
-      logger.logTrace(`Removing ${ filePath } from files with errors`);
+      logger.logTrace(`Removing ${filePath} from files with errors`);
       filesWithErrors.delete(filePath);
     } else {
-      logger.logTrace(`Adding ${ filePath } to files with errors`);
+      logger.logTrace(`Adding ${filePath} to files with errors`);
       filesWithErrors.add(filePath);
     }
   });
@@ -219,7 +219,7 @@ function ensureInvalidations(logger, diagnostics) {
   const fileInvalidations = _rxjsBundlesRxMinJs.Observable.defer(() => {
     logger.logTrace('Clearing errors after stream closed');
     return _rxjsBundlesRxMinJs.Observable.from(Array.from(filesWithErrors).map(file => {
-      logger.logTrace(`Clearing errors for ${ file } after connection closed`);
+      logger.logTrace(`Clearing errors for ${file} after connection closed`);
       return {
         filePath: file,
         messages: []

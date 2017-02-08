@@ -207,398 +207,389 @@ Object.defineProperty(module.exports, "inject", {
   }
 });
 Object.defineProperty(module.exports, "defs", {
-  value: new Map([["Object", {
-    kind: "alias",
-    name: "Object",
-    location: {
-      type: "builtin"
-    }
-  }], ["Date", {
-    kind: "alias",
-    name: "Date",
-    location: {
-      type: "builtin"
-    }
-  }], ["RegExp", {
-    kind: "alias",
-    name: "RegExp",
-    location: {
-      type: "builtin"
-    }
-  }], ["Buffer", {
-    kind: "alias",
-    name: "Buffer",
-    location: {
-      type: "builtin"
-    }
-  }], ["fs.Stats", {
-    kind: "alias",
-    name: "fs.Stats",
-    location: {
-      type: "builtin"
-    }
-  }], ["NuclideUri", {
-    kind: "alias",
-    name: "NuclideUri",
-    location: {
-      type: "builtin"
-    }
-  }], ["atom$Point", {
-    kind: "alias",
-    name: "atom$Point",
-    location: {
-      type: "builtin"
-    }
-  }], ["atom$Range", {
-    kind: "alias",
-    name: "atom$Range",
-    location: {
-      type: "builtin"
-    }
-  }], ["CtagsResult", {
-    kind: "alias",
-    location: {
-      type: "source",
-      fileName: "CtagsService.js",
-      line: 20
+  value: {
+    Object: {
+      kind: "alias",
+      name: "Object",
+      location: {
+        type: "builtin"
+      }
     },
-    name: "CtagsResult",
-    definition: {
+    Date: {
+      kind: "alias",
+      name: "Date",
+      location: {
+        type: "builtin"
+      }
+    },
+    RegExp: {
+      kind: "alias",
+      name: "RegExp",
+      location: {
+        type: "builtin"
+      }
+    },
+    Buffer: {
+      kind: "alias",
+      name: "Buffer",
+      location: {
+        type: "builtin"
+      }
+    },
+    "fs.Stats": {
+      kind: "alias",
+      name: "fs.Stats",
+      location: {
+        type: "builtin"
+      }
+    },
+    NuclideUri: {
+      kind: "alias",
+      name: "NuclideUri",
+      location: {
+        type: "builtin"
+      }
+    },
+    atom$Point: {
+      kind: "alias",
+      name: "atom$Point",
+      location: {
+        type: "builtin"
+      }
+    },
+    atom$Range: {
+      kind: "alias",
+      name: "atom$Range",
+      location: {
+        type: "builtin"
+      }
+    },
+    CtagsResult: {
+      kind: "alias",
       location: {
         type: "source",
         fileName: "CtagsService.js",
         line: 20
       },
-      kind: "object",
-      fields: [{
+      name: "CtagsResult",
+      definition: {
         location: {
           type: "source",
           fileName: "CtagsService.js",
-          line: 21
+          line: 20
         },
-        name: "name",
-        type: {
+        kind: "object",
+        fields: [{
           location: {
             type: "source",
             fileName: "CtagsService.js",
             line: 21
           },
-          kind: "string"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 22
-        },
-        name: "file",
-        type: {
+          name: "name",
+          type: {
+            location: {
+              type: "source",
+              fileName: "CtagsService.js",
+              line: 21
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "CtagsService.js",
             line: 22
           },
-          kind: "named",
-          name: "NuclideUri"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 24
-        },
-        name: "lineNumber",
-        type: {
+          name: "file",
+          type: {
+            location: {
+              type: "source",
+              fileName: "CtagsService.js",
+              line: 22
+            },
+            kind: "named",
+            name: "NuclideUri"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "CtagsService.js",
             line: 24
           },
-          kind: "number"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 26
-        },
-        name: "kind",
-        type: {
+          name: "lineNumber",
+          type: {
+            location: {
+              type: "source",
+              fileName: "CtagsService.js",
+              line: 24
+            },
+            kind: "number"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "CtagsService.js",
             line: 26
           },
-          kind: "string"
-        },
-        optional: false
-      }, {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 27
-        },
-        name: "pattern",
-        type: {
+          name: "kind",
+          type: {
+            location: {
+              type: "source",
+              fileName: "CtagsService.js",
+              line: 26
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
           location: {
             type: "source",
             fileName: "CtagsService.js",
             line: 27
           },
-          kind: "string"
-        },
-        optional: true
-      }, {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 28
-        },
-        name: "fields",
-        type: {
+          name: "pattern",
+          type: {
+            location: {
+              type: "source",
+              fileName: "CtagsService.js",
+              line: 27
+            },
+            kind: "string"
+          },
+          optional: true
+        }, {
           location: {
             type: "source",
             fileName: "CtagsService.js",
             line: 28
           },
-          kind: "map",
-          keyType: {
+          name: "fields",
+          type: {
             location: {
               type: "source",
               fileName: "CtagsService.js",
               line: 28
             },
-            kind: "string"
+            kind: "map",
+            keyType: {
+              location: {
+                type: "source",
+                fileName: "CtagsService.js",
+                line: 28
+              },
+              kind: "string"
+            },
+            valueType: {
+              location: {
+                type: "source",
+                fileName: "CtagsService.js",
+                line: 28
+              },
+              kind: "string"
+            }
           },
-          valueType: {
-            location: {
-              type: "source",
-              fileName: "CtagsService.js",
-              line: 28
-            },
-            kind: "string"
-          }
-        },
-        optional: true
-      }]
-    }
-  }], ["CtagsService", {
-    kind: "interface",
-    name: "CtagsService",
-    location: {
-      type: "source",
-      fileName: "CtagsService.js",
-      line: 31
-    },
-    constructorArgs: [{
-      name: "tagsPath",
-      type: {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 34
-        },
-        kind: "named",
-        name: "NuclideUri"
+          optional: true
+        }]
       }
-    }],
-    staticMethods: new Map(),
-    instanceMethods: new Map([["getTagsPath", {
+    },
+    CtagsService: {
+      kind: "interface",
+      name: "CtagsService",
       location: {
         type: "source",
         fileName: "CtagsService.js",
-        line: 38
+        line: 31
       },
-      kind: "function",
-      argumentTypes: [],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 38
-        },
-        kind: "promise",
+      constructorArgs: [{
+        name: "tagsPath",
         type: {
+          location: {
+            type: "source",
+            fileName: "CtagsService.js",
+            line: 34
+          },
+          kind: "named",
+          name: "NuclideUri"
+        }
+      }],
+      staticMethods: {},
+      instanceMethods: {
+        getTagsPath: {
           location: {
             type: "source",
             fileName: "CtagsService.js",
             line: 38
           },
-          kind: "named",
-          name: "NuclideUri"
-        }
-      }
-    }], ["findTags", {
-      location: {
-        type: "source",
-        fileName: "CtagsService.js",
-        line: 42
-      },
-      kind: "function",
-      argumentTypes: [{
-        name: "query",
-        type: {
-          location: {
-            type: "source",
-            fileName: "CtagsService.js",
-            line: 43
-          },
-          kind: "string"
-        }
-      }, {
-        name: "options",
-        type: {
-          location: {
-            type: "source",
-            fileName: "CtagsService.js",
-            line: 44
-          },
-          kind: "nullable",
-          type: {
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
             location: {
               type: "source",
               fileName: "CtagsService.js",
-              line: 44
+              line: 38
             },
-            kind: "object",
-            fields: [{
+            kind: "promise",
+            type: {
               location: {
                 type: "source",
                 fileName: "CtagsService.js",
-                line: 44
+                line: 38
               },
-              name: "caseInsensitive",
-              type: {
-                location: {
-                  type: "source",
-                  fileName: "CtagsService.js",
-                  line: 44
-                },
-                kind: "boolean"
-              },
-              optional: true
-            }, {
-              location: {
-                type: "source",
-                fileName: "CtagsService.js",
-                line: 44
-              },
-              name: "partialMatch",
-              type: {
-                location: {
-                  type: "source",
-                  fileName: "CtagsService.js",
-                  line: 44
-                },
-                kind: "boolean"
-              },
-              optional: true
-            }, {
-              location: {
-                type: "source",
-                fileName: "CtagsService.js",
-                line: 44
-              },
-              name: "limit",
-              type: {
-                location: {
-                  type: "source",
-                  fileName: "CtagsService.js",
-                  line: 44
-                },
-                kind: "number"
-              },
-              optional: true
-            }]
+              kind: "named",
+              name: "NuclideUri"
+            }
           }
-        }
-      }],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 45
         },
-        kind: "promise",
-        type: {
+        findTags: {
           location: {
             type: "source",
             fileName: "CtagsService.js",
-            line: 45
+            line: 42
           },
-          kind: "array",
-          type: {
+          kind: "function",
+          argumentTypes: [{
+            name: "query",
+            type: {
+              location: {
+                type: "source",
+                fileName: "CtagsService.js",
+                line: 43
+              },
+              kind: "string"
+            }
+          }, {
+            name: "options",
+            type: {
+              location: {
+                type: "source",
+                fileName: "CtagsService.js",
+                line: 44
+              },
+              kind: "nullable",
+              type: {
+                location: {
+                  type: "source",
+                  fileName: "CtagsService.js",
+                  line: 44
+                },
+                kind: "object",
+                fields: [{
+                  location: {
+                    type: "source",
+                    fileName: "CtagsService.js",
+                    line: 44
+                  },
+                  name: "caseInsensitive",
+                  type: {
+                    location: {
+                      type: "source",
+                      fileName: "CtagsService.js",
+                      line: 44
+                    },
+                    kind: "boolean"
+                  },
+                  optional: true
+                }, {
+                  location: {
+                    type: "source",
+                    fileName: "CtagsService.js",
+                    line: 44
+                  },
+                  name: "partialMatch",
+                  type: {
+                    location: {
+                      type: "source",
+                      fileName: "CtagsService.js",
+                      line: 44
+                    },
+                    kind: "boolean"
+                  },
+                  optional: true
+                }, {
+                  location: {
+                    type: "source",
+                    fileName: "CtagsService.js",
+                    line: 44
+                  },
+                  name: "limit",
+                  type: {
+                    location: {
+                      type: "source",
+                      fileName: "CtagsService.js",
+                      line: 44
+                    },
+                    kind: "number"
+                  },
+                  optional: true
+                }]
+              }
+            }
+          }],
+          returnType: {
             location: {
               type: "source",
               fileName: "CtagsService.js",
               line: 45
             },
-            kind: "named",
-            name: "CtagsResult"
+            kind: "promise",
+            type: {
+              location: {
+                type: "source",
+                fileName: "CtagsService.js",
+                line: 45
+              },
+              kind: "array",
+              type: {
+                location: {
+                  type: "source",
+                  fileName: "CtagsService.js",
+                  line: 45
+                },
+                kind: "named",
+                name: "CtagsResult"
+              }
+            }
+          }
+        },
+        dispose: {
+          location: {
+            type: "source",
+            fileName: "CtagsService.js",
+            line: 82
+          },
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "CtagsService.js",
+              line: 82
+            },
+            kind: "void"
           }
         }
       }
-    }], ["dispose", {
-      location: {
-        type: "source",
-        fileName: "CtagsService.js",
-        line: 82
-      },
-      kind: "function",
-      argumentTypes: [],
-      returnType: {
-        location: {
-          type: "source",
-          fileName: "CtagsService.js",
-          line: 82
-        },
-        kind: "void"
-      }
-    }]])
-  }], ["getCtagsService", {
-    kind: "function",
-    name: "getCtagsService",
-    location: {
-      type: "source",
-      fileName: "CtagsService.js",
-      line: 87
     },
-    type: {
+    getCtagsService: {
+      kind: "function",
+      name: "getCtagsService",
       location: {
         type: "source",
         fileName: "CtagsService.js",
         line: 87
       },
-      kind: "function",
-      argumentTypes: [{
-        name: "uri",
-        type: {
-          location: {
-            type: "source",
-            fileName: "CtagsService.js",
-            line: 87
-          },
-          kind: "named",
-          name: "NuclideUri"
-        }
-      }],
-      returnType: {
+      type: {
         location: {
           type: "source",
           fileName: "CtagsService.js",
           line: 87
         },
-        kind: "promise",
-        type: {
-          location: {
-            type: "source",
-            fileName: "CtagsService.js",
-            line: 87
-          },
-          kind: "nullable",
+        kind: "function",
+        argumentTypes: [{
+          name: "uri",
           type: {
             location: {
               type: "source",
@@ -606,10 +597,35 @@ Object.defineProperty(module.exports, "defs", {
               line: 87
             },
             kind: "named",
-            name: "CtagsService"
+            name: "NuclideUri"
+          }
+        }],
+        returnType: {
+          location: {
+            type: "source",
+            fileName: "CtagsService.js",
+            line: 87
+          },
+          kind: "promise",
+          type: {
+            location: {
+              type: "source",
+              fileName: "CtagsService.js",
+              line: 87
+            },
+            kind: "nullable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "CtagsService.js",
+                line: 87
+              },
+              kind: "named",
+              name: "CtagsService"
+            }
           }
         }
       }
     }
-  }]])
+  }
 });

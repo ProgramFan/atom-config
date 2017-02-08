@@ -240,7 +240,7 @@ class WString {
     const nextChar = this.ith(pos + 1);
 
     if (prevChar == null || nextChar == null) {
-      throw new Error(`Position ${ pos } invalid within wstring`);
+      throw new Error(`Position ${pos} invalid within wstring`);
     }
 
     const c = {

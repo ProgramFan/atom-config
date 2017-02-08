@@ -94,7 +94,7 @@ class BuckToolbar extends _reactForAtom.React.Component {
         'div',
         { ref: (0, (_addTooltip || _load_addTooltip()).default)({ title, delay: 0 }) },
         _reactForAtom.React.createElement((_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinner, {
-          className: 'inline-block',
+          className: 'inline-block buck-spinner',
           size: 'EXTRA_SMALL'
         })
       );
@@ -102,17 +102,20 @@ class BuckToolbar extends _reactForAtom.React.Component {
       let title;
       if (buckRoot == null) {
         if (projectRoot != null) {
-          title = `No Buck project found in the Current Working Root:<br />${ projectRoot }`;
+          title = `No Buck project found in the Current Working Root:<br />${projectRoot}`;
         } else {
           title = 'No Current Working Root.';
         }
       } else {
-        title = `Rule "${ buildTarget }" could not be found in ${ buckRoot }.<br />` + `Check your Current Working Root: ${ (0, (_string || _load_string()).maybeToString)(projectRoot) }`;
+        title = `Rule "${buildTarget}" could not be found in ${buckRoot}.<br />` + `Check your Current Working Root: ${(0, (_string || _load_string()).maybeToString)(projectRoot)}`;
       }
+
+      title += '<br />Click icon to retry';
 
       status = _reactForAtom.React.createElement('span', {
         className: 'icon icon-alert',
-        ref: (0, (_addTooltip || _load_addTooltip()).default)({ title, delay: 0 })
+        ref: (0, (_addTooltip || _load_addTooltip()).default)({ title, delay: 0 }),
+        onClick: () => this.props.setBuildTarget(buildTarget)
       });
     }
 
@@ -138,7 +141,6 @@ class BuckToolbar extends _reactForAtom.React.Component {
       }));
     }
 
-    const { activeTaskType } = this.props;
     return _reactForAtom.React.createElement(
       'div',
       { className: 'nuclide-buck-toolbar' },
@@ -149,16 +151,14 @@ class BuckToolbar extends _reactForAtom.React.Component {
       _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
         className: 'nuclide-buck-settings icon icon-gear',
         size: (_Button || _load_Button()).ButtonSizes.SMALL,
-        disabled: activeTaskType == null || buckRoot == null,
         onClick: () => this._showSettings()
       }),
       widgets,
-      this.state.settingsVisible && activeTaskType != null ? _reactForAtom.React.createElement((_BuckToolbarSettings || _load_BuckToolbarSettings()).default, {
+      this.state.settingsVisible ? _reactForAtom.React.createElement((_BuckToolbarSettings || _load_BuckToolbarSettings()).default, {
         currentBuckRoot: buckRoot,
-        settings: taskSettings[activeTaskType] || {},
-        buildType: activeTaskType,
+        settings: taskSettings,
         onDismiss: () => this._hideSettings(),
-        onSave: settings => this._saveSettings(activeTaskType, settings)
+        onSave: settings => this._saveSettings(settings)
       }) : null
     );
   }
@@ -175,8 +175,8 @@ class BuckToolbar extends _reactForAtom.React.Component {
     this.setState({ settingsVisible: false });
   }
 
-  _saveSettings(taskType, settings) {
-    this.props.setTaskSettings(taskType, settings);
+  _saveSettings(settings) {
+    this.props.setTaskSettings(settings);
     this._hideSettings();
   }
 
@@ -203,7 +203,7 @@ class BuckToolbar extends _reactForAtom.React.Component {
 
     const selectableOptions = platform.devices.map(device => {
       return {
-        label: `  ${ device.name }`,
+        label: `  ${device.name}`,
         selectedLabel: device.name,
         value: { platform, device }
       };
@@ -222,16 +222,16 @@ class BuckToolbar extends _reactForAtom.React.Component {
       if (platform.devices.length) {
         return {
           type: 'submenu',
-          label: `  ${ platform.name }`,
+          label: `  ${platform.name}`,
           submenu: platform.devices.map(device => ({
             label: device.name,
-            selectedLabel: `${ device.name }`,
+            selectedLabel: `${device.name}`,
             value: { platform, device }
           }))
         };
       } else {
         return {
-          label: `  ${ platform.name }`,
+          label: `  ${platform.name}`,
           selectedLabel: platform.name,
           value: { platform, device: null }
         };

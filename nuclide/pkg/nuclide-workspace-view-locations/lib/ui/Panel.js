@@ -72,6 +72,6 @@ function getPreferredInitialSize(item, position) {
     case 'right':
       return typeof item.getPreferredInitialWidth === 'function' ? item.getPreferredInitialWidth() : null;
     default:
-      throw new Error(`Invalid position: ${ position }`);
+      throw new Error(`Invalid position: ${position}`);
   }
 }

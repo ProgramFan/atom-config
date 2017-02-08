@@ -78,7 +78,7 @@ class FileDialogComponent extends _reactForAtom.React.Component {
   render() {
     let labelClassName;
     if (this.props.iconClassName != null) {
-      labelClassName = `icon ${ this.props.iconClassName }`;
+      labelClassName = `icon ${this.props.iconClassName}`;
     }
 
     const checkboxes = [];

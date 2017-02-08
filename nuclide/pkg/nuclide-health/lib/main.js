@@ -184,7 +184,7 @@ class Activation {
       Object.keys(aggregates).forEach(aggregatesKey => {
         const value = aggregates[aggregatesKey];
         if (value !== null && value !== undefined) {
-          aggregateStats[`${ statsKey }_${ aggregatesKey }`] = value.toFixed(2);
+          aggregateStats[`${statsKey}_${aggregatesKey}`] = value.toFixed(2);
         }
       });
     });
@@ -214,17 +214,17 @@ function formatToolbarJewelLabel(opts) {
   const { stats, toolbarJewel } = opts;
   switch (toolbarJewel) {
     case 'CPU':
-      return `${ stats.cpuPercentage.toFixed(0) }%`;
+      return `${stats.cpuPercentage.toFixed(0)}%`;
     case 'Heap':
-      return `${ stats.heapPercentage.toFixed(0) }%`;
+      return `${stats.heapPercentage.toFixed(0)}%`;
     case 'Memory':
-      return `${ Math.floor(stats.rss / 1024 / 1024) }M`;
+      return `${Math.floor(stats.rss / 1024 / 1024)}M`;
     case 'Handles':
-      return `${ stats.activeHandles }`;
+      return `${stats.activeHandles}`;
     case 'Child processes':
-      return `${ stats.activeHandlesByType.childprocess.length }`;
+      return `${stats.activeHandlesByType.childprocess.length}`;
     case 'Event loop':
-      return `${ stats.activeRequests }`;
+      return `${stats.activeRequests}`;
     default:
       return '';
   }

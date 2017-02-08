@@ -154,7 +154,7 @@ _fs.default.readdirSync(FEATURES_DIR).forEach(item => {
     features[pkg.name] = {
       pkg,
       dirname,
-      useKeyPath: `nuclide.use.${ pkg.name }`
+      useKeyPath: `nuclide.use.${pkg.name}`
     };
   }
 });
@@ -176,18 +176,18 @@ Object.keys(features).forEach(name => {
 
   // Entry for enabling/disabling the feature
   const setting = {
-    title: `Enable the "${ name }" feature`,
+    title: `Enable the "${name}" feature`,
     description: pkg.description || '',
     type: 'boolean',
     default: enabled
   };
   if (pkg.providedServices) {
     const provides = Object.keys(pkg.providedServices).join(', ');
-    setting.description += `<br/>**Provides:** _${ provides }_`;
+    setting.description += `<br/>**Provides:** _${provides}_`;
   }
   if (pkg.consumedServices) {
     const consumes = Object.keys(pkg.consumedServices).join(', ');
-    setting.description += `<br/>**Consumes:** _${ consumes }_`;
+    setting.description += `<br/>**Consumes:** _${consumes}_`;
   }
   config.use.properties[name] = setting;
 
@@ -259,7 +259,7 @@ function activate() {
   disposables.add(atom.menu.add([{
     label: 'Nuclide',
     submenu: [{
-      label: `Version ${ (_package || _load_package()).default.version }`,
+      label: `Version ${(_package || _load_package()).default.version}`,
       enabled: false
     }]
   }]));
@@ -352,7 +352,7 @@ function safeDeactivate(name, suppressSerialization) {
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.error(`Error deactivating "${ name }": ${ err.message }`);
+    console.error(`Error deactivating "${name}": ${err.message}`);
   }
 }
 
@@ -365,6 +365,6 @@ function safeSerialize(name) {
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.error(`Error serializing "${ name }": ${ err.message }`);
+    console.error(`Error serializing "${name}": ${err.message}`);
   }
 }

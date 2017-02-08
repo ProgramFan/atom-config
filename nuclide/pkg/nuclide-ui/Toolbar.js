@@ -23,7 +23,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Toolbar = exports.Toolbar = props => {
   const className = (0, (_classnames || _load_classnames()).default)('nuclide-ui-toolbar', {
-    [`nuclide-ui-toolbar--${ (0, (_string || _load_string()).maybeToString)(props.location) }`]: props.location != null
+    [`nuclide-ui-toolbar--${(0, (_string || _load_string()).maybeToString)(props.location)}`]: props.location != null
   }, props.className);
 
   return _reactForAtom.React.createElement(

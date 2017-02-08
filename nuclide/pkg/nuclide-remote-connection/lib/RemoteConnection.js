@@ -100,10 +100,11 @@ class RemoteConnection {
    * Create a connection by reusing the configuration of last successful connection associated with
    * given host. If the server's certs has been updated or there is no previous successful
    * connection, null (resolved by promise) is returned.
+   * Configurations may also be retrieved by IP address.
    */
-  static createConnectionBySavedConfig(host, cwd, displayTitle) {
+  static createConnectionBySavedConfig(hostOrIp, cwd, displayTitle) {
     return (0, _asyncToGenerator.default)(function* () {
-      const connectionConfig = (0, (_RemoteConnectionConfigurationManager || _load_RemoteConnectionConfigurationManager()).getConnectionConfig)(host);
+      const connectionConfig = (0, (_RemoteConnectionConfigurationManager || _load_RemoteConnectionConfigurationManager()).getConnectionConfig)(hostOrIp);
       if (!connectionConfig) {
         return null;
       }
@@ -112,7 +113,7 @@ class RemoteConnection {
         return yield RemoteConnection.findOrCreate(config);
       } catch (e) {
         const log = e.name === 'VersionMismatchError' ? logger.warn : logger.error;
-        log(`Failed to reuse connectionConfiguration for ${ host }`, e);
+        log(`Failed to reuse connectionConfiguration for ${hostOrIp}`, e);
         return null;
       }
     })();
@@ -132,7 +133,7 @@ class RemoteConnection {
   }
 
   getUriOfRemotePath(remotePath) {
-    return `nuclide://${ this.getRemoteHostname() }${ remotePath }`;
+    return `nuclide://${this.getRemoteHostname()}${remotePath}`;
   }
 
   getPathOfUri(uri) {
@@ -216,17 +217,17 @@ class RemoteConnection {
     const subscription = watchStream.subscribe(watchUpdate => {
       // Nothing needs to be done if the root directory was watched correctly.
       // Let's just console log it anyway.
-      logger.info(`Watcher Features Initialized for project: ${ rootDirectoryUri }`, watchUpdate);
+      logger.info(`Watcher Features Initialized for project: ${rootDirectoryUri}`, watchUpdate);
     }, (() => {
       var _ref = (0, _asyncToGenerator.default)(function* (error) {
-        let warningMessageToUser = 'You just connected to a remote project ' + `\`${ rootDirectoryPath }\` without Watchman support, which means that ` + 'crucial features such as synced remote file editing, file search, ' + 'and Mercurial-related updates will not work.<br/><br/>' + 'A possible workaround is to create an empty `.watchmanconfig` file ' + 'in the remote folder, which will enable Watchman if you have it installed.<br/><br/>';
+        let warningMessageToUser = 'You just connected to a remote project ' + `\`${rootDirectoryPath}\` without Watchman support, which means that ` + 'crucial features such as synced remote file editing, file search, ' + 'and Mercurial-related updates will not work.<br/><br/>' + 'A possible workaround is to create an empty `.watchmanconfig` file ' + 'in the remote folder, which will enable Watchman if you have it installed.<br/><br/>';
 
         const loggedErrorMessage = error.message || error;
-        logger.error(`Watcher failed to start - watcher features disabled! Error: ${ loggedErrorMessage }`);
+        logger.error(`Watcher failed to start - watcher features disabled! Error: ${loggedErrorMessage}`);
 
         const FileSystemService = _this3.getService(FILE_SYSTEM_SERVICE);
         if (yield FileSystemService.isNfs(rootDirectoryPath)) {
-          warningMessageToUser += `This project directory: \`${ rootDirectoryPath }\` is on <b>\`NFS\`</b> filesystem. ` + 'Nuclide works best with local (non-NFS) root directory.' + 'e.g. `/data/users/$USER`';
+          warningMessageToUser += `This project directory: \`${rootDirectoryPath}\` is on <b>\`NFS\`</b> filesystem. ` + 'Nuclide works best with local (non-NFS) root directory.' + 'e.g. `/data/users/$USER`';
         } else {
           warningMessageToUser += '<b><a href="https://facebook.github.io/watchman/">Watchman</a> Error:</b>' + loggedErrorMessage;
         }
@@ -239,7 +240,7 @@ class RemoteConnection {
       };
     })(), () => {
       // Nothing needs to be done if the root directory watch has ended.
-      logger.info(`Watcher Features Ended for project: ${ rootDirectoryUri }`);
+      logger.info(`Watcher Features Ended for project: ${rootDirectoryUri}`);
     });
     this._subscriptions.add(subscription);
   }

@@ -69,7 +69,7 @@ function hackMessageToDiagnosticMessage(hackMessages) {
 
   const diagnosticMessage = {
     scope: 'file',
-    providerName: `Hack: ${ hackMessages[0].code }`,
+    providerName: `Hack: ${hackMessages[0].code}`,
     type: 'Error',
     text: causeMessage.descr,
     filePath: causeMessage.path,
@@ -91,7 +91,7 @@ function convertDiagnostics(result) {
   // Prevent too many diagnostics from killing the Atom process.
   const diagnostics = result.errors.slice(0, DIAGNOSTICS_LIMIT);
   if (diagnostics.length !== result.errors.length) {
-    (_hackConfig || _load_hackConfig()).logger.logError(`Too many Hack Errors. Found ${ result.errors.length }. Truncating.`);
+    (_hackConfig || _load_hackConfig()).logger.logError(`Too many Hack Errors. Found ${result.errors.length}. Truncating.`);
   }
 
   // Convert array messages to Error Objects with Traces.
