@@ -33,7 +33,7 @@ let getSuggestion = (() => {
       }
 
       const filePath = definition.projectRoot == null ? definition.path : (_nuclideUri || _load_nuclideUri()).default.relative(definition.projectRoot, definition.path);
-      return `${ definition.name } (${ filePath })`;
+      return `${definition.name} (${filePath})`;
     }
 
     if (definitions.length === 1) {

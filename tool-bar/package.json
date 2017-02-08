@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-6607-6x9nb1/package.tgz",
+        "raw": "/tmp/d-11718-6598-14qcj5x/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-6607-6x9nb1/package.tgz",
-        "spec": "/tmp/d-117016-6607-6x9nb1/package.tgz",
+        "rawSpec": "/tmp/d-11718-6598-14qcj5x/package.tgz",
+        "spec": "/tmp/d-11718-6598-14qcj5x/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-6607-1a48lec"
+      "/tmp/apm-install-dir-11718-6598-1wveyth"
     ]
   ],
-  "_from": "../d-117016-6607-6x9nb1/package.tgz",
+  "_from": "../d-11718-6598-14qcj5x/package.tgz",
   "_id": "tool-bar@1.0.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-6607-6x9nb1/package.tgz",
+    "raw": "/tmp/d-11718-6598-14qcj5x/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-6607-6x9nb1/package.tgz",
-    "spec": "/tmp/d-117016-6607-6x9nb1/package.tgz",
+    "rawSpec": "/tmp/d-11718-6598-14qcj5x/package.tgz",
+    "spec": "/tmp/d-11718-6598-14qcj5x/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-6607-6x9nb1/package.tgz",
+  "_resolved": "file:../d-11718-6598-14qcj5x/package.tgz",
   "_shasum": "20fd58e53b6e0bcecf09baa0653dc791c0a0199f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-6607-6x9nb1/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-6607-1a48lec",
+  "_spec": "/tmp/d-11718-6598-14qcj5x/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-6598-1wveyth",
   "bugs": {
     "url": "https://github.com/suda/tool-bar/issues"
   },

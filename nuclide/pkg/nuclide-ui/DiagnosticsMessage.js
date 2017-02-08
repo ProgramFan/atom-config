@@ -67,7 +67,7 @@ function plainTextForItem(item) {
   if (item.filePath == null) {
     pathComponent = '';
   } else {
-    const lineComponent = item.range != null ? `:${ item.range.start.row + 1 }` : '';
+    const lineComponent = item.range != null ? `:${item.range.start.row + 1}` : '';
     pathComponent = ': ' + (_nuclideUri || _load_nuclideUri()).default.getPath(item.filePath) + lineComponent;
   }
   return mainComponent + pathComponent;

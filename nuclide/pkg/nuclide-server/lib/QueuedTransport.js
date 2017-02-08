@@ -92,19 +92,6 @@ class QueuedTransport {
     transport.onClose(() => this._onClose(transport));
   }
 
-  _onMessage(transport, message) {
-    if (this._isClosed) {
-      logger.error('Received socket message after connection closed', new Error());
-      return;
-    }
-    if (this._transport !== transport) {
-      // This shouldn't happen, but ...
-      logger.error('Received message after transport closed', new Error());
-    }
-
-    this._emitter.emit('message', message);
-  }
-
   _onClose(transport) {
     if (!transport.isClosed()) {
       throw new Error('Invariant violation: "transport.isClosed()"');
@@ -116,7 +103,7 @@ class QueuedTransport {
     }
     if (transport !== this._transport) {
       // This should not happen...
-      logger.error('Orphaned transport closed', new Error());
+      logger.error('Orphaned transport closed');
       return;
     }
 
@@ -183,7 +170,7 @@ class QueuedTransport {
 
     return (0, _asyncToGenerator.default)(function* () {
       if (!!_this._isClosed) {
-        throw new Error(`Attempt to send socket message after connection closed: ${ message }`);
+        throw new Error(`Attempt to send socket message after connection closed: ${message}`);
       }
 
       _this._messageQueue.push(message);

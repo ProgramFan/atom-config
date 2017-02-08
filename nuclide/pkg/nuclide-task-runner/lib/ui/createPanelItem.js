@@ -29,22 +29,10 @@ function _load_Actions() {
   return _Actions = _interopRequireWildcard(require('../redux/Actions'));
 }
 
-var _Selectors;
-
-function _load_Selectors() {
-  return _Selectors = require('../redux/Selectors');
-}
-
 var _Toolbar;
 
 function _load_Toolbar() {
   return _Toolbar = require('./Toolbar');
-}
-
-var _lodash;
-
-function _load_lodash() {
-  return _lodash = _interopRequireDefault(require('lodash.memoize'));
 }
 
 var _reactForAtom = require('react-for-atom');
@@ -63,16 +51,13 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function createPanelItem(store) {
   const staticProps = {
-    runTask: taskId => {
-      store.dispatch((_Actions || _load_Actions()).runTask(taskId));
+    runTask: taskMeta => {
+      store.dispatch((_Actions || _load_Actions()).runTask(taskMeta));
     },
-    selectTask: taskId => {
-      store.dispatch((_Actions || _load_Actions()).selectTask(taskId));
+    selectTaskRunner: taskRunner => {
+      store.dispatch((_Actions || _load_Actions()).selectTaskRunner(taskRunner, true));
     },
-    selectTaskRunner: taskRunnerId => {
-      store.dispatch((_Actions || _load_Actions()).selectTaskRunner(taskRunnerId));
-    },
-    stopTask: () => {
+    stopRunningTask: () => {
       store.dispatch((_Actions || _load_Actions()).stopTask());
     }
   };
@@ -84,42 +69,28 @@ function createPanelItem(store) {
   // become ready; that would cause too many updates in quick succession. So we make the parts of
   // the state related to the selected task "sticky." Other parts of the state, however, we always
   // need to update immediately (e.g. progress).
-  const stickyProps = states.filter(state => state.tasksAreReady).startWith(store.getState())
-  // Map to a subset of state so we can ignore changes of the other parts.
-  .map(state => ({
+  const stickyProps = states.filter(state => state.taskRunnersReady && !state.isUpdatingTaskRunners).startWith(store.getState()).map(state => ({
     taskRunners: state.taskRunners,
-    activeTaskRunner: (0, (_Selectors || _load_Selectors()).getActiveTaskRunner)(state),
-    activeTaskId: state.activeTaskId,
-    taskLists: state.taskLists
-  })).distinctUntilChanged((_shallowequal || _load_shallowequal()).default).map(({ taskRunners, activeTaskRunner, activeTaskId, taskLists }) => {
-    return {
-      taskRunnerInfo: Array.from(taskRunners.values()),
-      getExtraUi: getExtraUiFactory(activeTaskRunner),
-      activeTaskId,
-      activeTaskRunner,
-      taskLists,
-      getActiveTaskRunnerIcon: () => activeTaskRunner && activeTaskRunner.getIcon()
-    };
-  });
-  const otherProps = states.map(state => {
-    return Object.assign({}, staticProps, {
-      // Don't let people click on things if we're using "stale" sticky props.
-      disabled: !state.tasksAreReady,
-      progress: state.runningTaskInfo && state.runningTaskInfo.progress,
-      taskIsRunning: state.runningTaskInfo != null,
-      showPlaceholder: !state.viewIsInitialized && state.showPlaceholderInitially
-    });
-  }).distinctUntilChanged((_shallowequal || _load_shallowequal()).default);
-  // Throttle to animation frames.
-  const props = (0, (_observable || _load_observable()).throttle)(_rxjsBundlesRxMinJs.Observable.combineLatest(stickyProps, otherProps, (a, b) => Object.assign({}, a, b)), () => (_observable || _load_observable()).nextAnimationFrame);
+    statesForTaskRunners: state.statesForTaskRunners,
+    activeTaskRunner: state.activeTaskRunner,
+    iconComponent: state.activeTaskRunner ? state.activeTaskRunner.getIcon() : null,
+    extraUiComponent: getExtraUiComponent(state.activeTaskRunner)
+  })).distinctUntilChanged((_shallowequal || _load_shallowequal()).default);
+
+  const alwaysUpToDateProps = states.map(state => Object.assign({}, staticProps, {
+    toolbarDisabled: !state.taskRunnersReady || state.isUpdatingTaskRunners,
+    progress: state.runningTask ? state.runningTask.progress : null,
+    taskIsRunning: state.runningTask != null,
+    runningTaskIsCancelable: state.runningTask ? state.runningTask.metadata.cancelable !== false : undefined
+  }));
+
+  const props = (0, (_observable || _load_observable()).throttle)(_rxjsBundlesRxMinJs.Observable.combineLatest(stickyProps, alwaysUpToDateProps, (a, b) => Object.assign({}, a, b)), () => (_observable || _load_observable()).nextAnimationFrame);
+
   const StatefulToolbar = (0, (_bindObservableAsProps || _load_bindObservableAsProps()).bindObservableAsProps)(props, (_Toolbar || _load_Toolbar()).Toolbar);
   return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_reactForAtom.React.createElement(StatefulToolbar, null));
 }
 
-/**
- * Since `getExtraUi` may create a React class dynamically, we want to ensure that we only ever call
- * it once. To do that, we memoize the function and cache the result.
- */
+// Since `getExtraUi` may create a React class dynamically, the classes are cached
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -130,19 +101,19 @@ function createPanelItem(store) {
  * 
  */
 
-const extraUiFactories = new WeakMap();
-function getExtraUiFactory(taskRunner) {
-  let getExtraUi = extraUiFactories.get(taskRunner);
-  if (getExtraUi != null) {
-    return getExtraUi;
-  }
-  if (taskRunner == null) {
+const extraUiComponentCache = new WeakMap();
+function getExtraUiComponent(taskRunner) {
+  if (!taskRunner) {
     return null;
   }
-  if (taskRunner.getExtraUi == null) {
+  let extraUi = extraUiComponentCache.get(taskRunner);
+  if (extraUi != null) {
+    return extraUi;
+  }
+  if (!taskRunner.getExtraUi) {
     return null;
   }
-  getExtraUi = (0, (_lodash || _load_lodash()).default)(taskRunner.getExtraUi.bind(taskRunner));
-  extraUiFactories.set(taskRunner, getExtraUi);
-  return getExtraUi;
+  extraUi = taskRunner.getExtraUi();
+  extraUiComponentCache.set(taskRunner, extraUi);
+  return extraUi;
 }

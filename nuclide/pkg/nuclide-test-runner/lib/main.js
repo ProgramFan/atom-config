@@ -48,7 +48,7 @@ const FILE_TREE_CONTEXT_MENU_PRIORITY = 200;
  */
 function limitString(str, length = 20) {
   const strLength = str.length;
-  return strLength > length ? `${ str.substring(0, length / 2) }…${ str.substring(str.length - length / 2) }` : str;
+  return strLength > length ? `${str.substring(0, length / 2)}…${str.substring(str.length - length / 2)}` : str;
 }
 
 class Activation {
@@ -122,7 +122,7 @@ class Activation {
 
   addTestRunner(testRunner) {
     if (this._testRunners.has(testRunner)) {
-      logger.info(`Attempted to add test runner "${ testRunner.label }" that was already added`);
+      logger.info(`Attempted to add test runner "${testRunner.label}" that was already added`);
       return;
     }
 
@@ -202,7 +202,7 @@ class Activation {
         }
         const name = target.dataset.name;
         this.command = 'nuclide-test-runner:run-tests';
-        this.label = `${ label } '${ limitString(name) }'`;
+        this.label = `${label} '${limitString(name)}'`;
       },
       shouldDisplay: event => {
         // Don't show a testing option if there are no test runners.

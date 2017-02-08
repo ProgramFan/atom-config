@@ -49,12 +49,12 @@ let createLanguageService = (() => {
     const atomConfig = {
       name: 'Hack',
       grammars: (_nuclideHackCommon || _load_nuclideHackCommon()).HACK_GRAMMARS,
-      highlights: {
+      highlight: {
         version: '0.0.0',
         priority: 1,
         analyticsEventName: 'hack.codehighlight'
       },
-      outlines: {
+      outline: {
         version: '0.0.0',
         priority: 1,
         analyticsEventName: 'hack.outline'
@@ -96,7 +96,9 @@ let createLanguageService = (() => {
         suggestionPriority: 3,
         disableForSelector: null,
         excludeLowerPriority: false,
-        analyticsEventName: 'hack.getAutocompleteSuggestions'
+        analyticsEventName: 'hack.getAutocompleteSuggestions',
+        autocompleteCacherConfig: null,
+        onDidInsertSuggestionAnalyticsEventName: 'hack.autocomplete-chosen'
       },
       diagnostics: diagnosticsConfig
     };

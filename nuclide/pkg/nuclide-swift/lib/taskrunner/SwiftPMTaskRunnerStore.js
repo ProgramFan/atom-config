@@ -31,7 +31,6 @@ class SwiftPMTaskRunnerStore {
       this._Xcc = initialState.Xcc ? initialState.Xcc : '';
       this._Xlinker = initialState.Xlinker ? initialState.Xlinker : '';
       this._Xswiftc = initialState.Xswiftc ? initialState.Xswiftc : '';
-      this._testBuildPath = initialState.testBuildPath ? initialState.testBuildPath : '';
       this._compileCommands = initialState.compileCommands ? new Map((0, (_collection || _load_collection()).objectEntries)(initialState.compileCommands)) : new Map();
     } else {
       this._chdir = '';
@@ -40,29 +39,29 @@ class SwiftPMTaskRunnerStore {
       this._Xcc = '';
       this._Xlinker = '';
       this._Xswiftc = '';
-      this._testBuildPath = '';
       this._compileCommands = new Map();
     }
 
     this._dispatcher.register(action => {
       switch (action.actionType) {
+        case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_PROJECT_ROOT:
+          this._projectRoot = action.projectRoot;
+          break;
         case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_CHDIR:
           this._chdir = action.chdir;
           break;
-        case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_BUILD_SETTINGS:
+        case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_SETTINGS:
           this._configuration = action.configuration;
           this._Xcc = action.Xcc;
           this._Xlinker = action.Xlinker;
           this._Xswiftc = action.Xswiftc;
           this._buildPath = action.buildPath;
           break;
-        case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_TEST_SETTINGS:
-          this._testBuildPath = action.buildPath;
-          break;
         case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_COMPILE_COMMANDS:
           this._compileCommands = action.compileCommands;
           break;
       }
+      this.emitChange();
     });
   }
 
@@ -78,8 +77,7 @@ class SwiftPMTaskRunnerStore {
       Xcc: this.getXcc(),
       Xlinker: this.getXlinker(),
       Xswiftc: this.getXswiftc(),
-      compileCommands: (0, (_collection || _load_collection()).objectFromMap)(this.getCompileCommands()),
-      testBuildPath: this.getTestBuildPath()
+      compileCommands: (0, (_collection || _load_collection()).objectFromMap)(this.getCompileCommands())
     };
   }
 
@@ -103,6 +101,10 @@ class SwiftPMTaskRunnerStore {
     return this._buildPath;
   }
 
+  getProjectRoot() {
+    return this._projectRoot;
+  }
+
   getFlag() {
     return this._flag;
   }
@@ -117,10 +119,6 @@ class SwiftPMTaskRunnerStore {
 
   getXswiftc() {
     return this._Xswiftc;
-  }
-
-  getTestBuildPath() {
-    return this._testBuildPath;
   }
 
   getCompileCommands() {

@@ -54,7 +54,7 @@ function provideIosDevices(buckRoot, ruleType, buildTarget) {
         name: 'iOS Simulators',
         flavor: 'iphonesimulator-x86_64',
         devices: devices.map(device => ({
-          name: `${ device.name } (${ device.os })`,
+          name: `${device.name} (${device.os})`,
           udid: device.udid
         }))
       }]

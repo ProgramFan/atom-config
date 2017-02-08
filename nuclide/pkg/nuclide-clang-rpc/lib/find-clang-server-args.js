@@ -33,7 +33,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 let fbFindClangServerArgs;
 
 exports.default = (() => {
-  var _ref = (0, _asyncToGenerator.default)(function* () {
+  var _ref = (0, _asyncToGenerator.default)(function* (src) {
     if (fbFindClangServerArgs === undefined) {
       fbFindClangServerArgs = null;
       try {
@@ -71,14 +71,14 @@ exports.default = (() => {
       pythonPathEnv: (_nuclideUri || _load_nuclideUri()).default.join(__dirname, '../VendorLib')
     };
     if (typeof fbFindClangServerArgs === 'function') {
-      const clangServerArgsOverrides = yield fbFindClangServerArgs();
+      const clangServerArgsOverrides = yield fbFindClangServerArgs(src);
       return Object.assign({}, clangServerArgs, clangServerArgsOverrides);
     } else {
       return clangServerArgs;
     }
   });
 
-  function findClangServerArgs() {
+  function findClangServerArgs(_x) {
     return _ref.apply(this, arguments);
   }
 

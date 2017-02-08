@@ -71,7 +71,7 @@ class LogTailer {
         this._stop();
       }
     }).catch(err => {
-      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error with ${ this._name } tailer.`, err);
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error with ${this._name} tailer.`, err);
       const wasStarting = this._statuses.getValue() === 'starting';
       this._stop(false);
 
@@ -92,12 +92,12 @@ class LogTailer {
 
       if (!errorWasHandled) {
         // Default error handling.
-        const message = `An unexpected error occurred while running the ${ this._name } process` + (err.message ? `:\n\n**${ err.message }**` : '.');
+        const message = `An unexpected error occurred while running the ${this._name} process` + (err.message ? `:\n\n**${err.message}**` : '.');
         const notification = atom.notifications.addError(message, {
           dismissable: true,
           detail: err.stack == null ? '' : err.stack.toString(),
           buttons: [{
-            text: `Restart ${ this._name }`,
+            text: `Restart ${this._name}`,
             className: 'icon icon-sync',
             onDidClick: () => {
               notification.dismiss();
@@ -225,7 +225,7 @@ class LogTailer {
 exports.LogTailer = LogTailer;
 class ProcessCancelledError extends Error {
   constructor(logProducerName) {
-    super(`${ logProducerName } was stopped`);
+    super(`${logProducerName} was stopped`);
     this.name = 'ProcessCancelledError';
   }
 }

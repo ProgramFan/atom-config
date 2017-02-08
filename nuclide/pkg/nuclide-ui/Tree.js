@@ -30,10 +30,8 @@ const TreeItem = props => {
     className,
     selected,
     children
-  } = props;
-
-  const remainingProps = _objectWithoutProperties(props, ['className', 'selected', 'children']);
-
+  } = props,
+        remainingProps = _objectWithoutProperties(props, ['className', 'selected', 'children']);
   return _reactForAtom.React.createElement(
     'li',
     Object.assign({ className: (0, (_classnames || _load_classnames()).default)(className, {
@@ -58,10 +56,8 @@ const NestedTreeItem = props => {
     collapsed,
     title,
     children
-  } = props;
-
-  const remainingProps = _objectWithoutProperties(props, ['className', 'selected', 'collapsed', 'title', 'children']);
-
+  } = props,
+        remainingProps = _objectWithoutProperties(props, ['className', 'selected', 'collapsed', 'title', 'children']);
   return _reactForAtom.React.createElement(
     'li',
     Object.assign({ className: (0, (_classnames || _load_classnames()).default)(className, {

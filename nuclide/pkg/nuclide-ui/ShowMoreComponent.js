@@ -59,7 +59,10 @@ class ShowMoreComponent extends _reactForAtom.React.Component {
     const { maxHeight } = this.props;
 
     const showMessage = showingMore ? 'Show Less' : 'Show More';
-    const conditionalStyle = !showingMore ? { 'max-height': `${ maxHeight }px`, 'overflow-y': 'hidden' } : {};
+    const conditionalStyle = !showingMore ? {
+      maxHeight: `${maxHeight}px`,
+      overflowY: 'hidden'
+    } : {};
     const displayNoneIfBelowMaxHeight = currentHeight <= maxHeight ? { display: 'none' } : {};
     const showMoreButton = _reactForAtom.React.createElement(
       'div',

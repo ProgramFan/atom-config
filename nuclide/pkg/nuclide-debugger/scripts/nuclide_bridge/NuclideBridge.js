@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+
 var _electron = _interopRequireDefault(require('electron'));
 
 var _Emitter;
@@ -133,15 +135,11 @@ class NuclideBridge {
           return;
         }
         this.updateProperties(properties, internalProperties);
-        const neededProperties = getIpcExpansionResult(properties);
-        if (neededProperties != null && scopeName != null) {
-          ipcRenderer.sendToHost('notification', 'ScopesUpdate', neededProperties, scopeName);
-        }
       }
       // $FlowFixMe.
       (_WebInspector || _load_WebInspector()).default.RemoteObject.loadFromObject(this.object, Boolean(this.ignoreHasOwnProperty),
       // We use the scope object's `description` field as the scope's section header in the UI.
-      callback.bind(this, this.object.description));
+      callback.bind(this));
     };
   }
 
@@ -235,6 +233,7 @@ class NuclideBridge {
       sourceURL: uiLocation.uiSourceCode.uri(),
       lineNumber: uiLocation.lineNumber
     });
+    this._updateScopes(frame);
   }
 
   _handleOpenSourceLocation(event) {
@@ -269,7 +268,37 @@ class NuclideBridge {
     if (target != null) {
       const selectedFrame = target.debuggerModel.callFrames[callframeIndex];
       target.debuggerModel.setSelectedCallFrame(selectedFrame);
+      this._updateScopes(selectedFrame);
     }
+  }
+
+  _updateScopes(frame) {
+    return (0, _asyncToGenerator.default)(function* () {
+      const scopes = frame.scopeChain();
+      // We need to wait for the backend to send us the scope data, and only want to continue when
+      // we have each scope.
+      const scopeSections = yield Promise.all(scopes.map(function (scope) {
+        const scopeObj = scope.object();
+        return new Promise(function (resolve) {
+          return scopeObj.getOwnProperties(function (scopeVariables) {
+            return resolve({ name: scopeObj.description, scopeVariables });
+          });
+        });
+      }));
+      ipcRenderer.sendToHost('notification', 'ScopesUpdate', scopeSections.map(function (scope) {
+        const { name, scopeVariables } = scope;
+        return {
+          name,
+          scopeVariables: scopeVariables.map(function (scopeVariable) {
+            const { name: variableName, value: scopeValue } = scopeVariable;
+            return {
+              name: variableName,
+              value: getIpcEvaluationResult(false /* wasThrown */, scopeValue)
+            };
+          })
+        };
+      }));
+    })();
   }
 
   _sendCallstack() {

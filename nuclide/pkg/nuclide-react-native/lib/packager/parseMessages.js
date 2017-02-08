@@ -52,7 +52,7 @@ function parseMessages(raw) {
               kind: 'message',
               message: {
                 level: 'info',
-                text: `Running packager on port ${ match[1] }.`
+                text: `Running packager on port ${match[1]}.`
               }
             });
             return;
@@ -77,7 +77,7 @@ function parseMessages(raw) {
               kind: 'message',
               message: {
                 level: 'info',
-                text: `Looking for JS files in: ${ sourceDirectories.join(',') }`
+                text: `Looking for JS files in: ${sourceDirectories.join(',')}`
               }
             });
             return;

@@ -51,39 +51,9 @@ for (const file of _fs.default.readdirSync(dir)) {
 
     (0, (_location || _load_location()).stripLocationsFileName)(definitions);
 
-    const json = mapDefinitions(definitions);
-    _fs.default.writeFileSync(definitionPath.replace('.def', '.def.json'), JSON.stringify(json, null, 4), 'utf8');
+    _fs.default.writeFileSync(definitionPath.replace('.def', '.def.json'), JSON.stringify(definitions, null, 4), 'utf8');
 
     const code = (0, (_proxyGenerator || _load_proxyGenerator()).generateProxy)(serviceName, preserveFunctionNames, definitions);
     _fs.default.writeFileSync(definitionPath.replace('.def', '.proxy'), code, 'utf8');
   }
-}
-
-function mapDefinitions(map) {
-  const obj = {};
-  for (const it of map.values()) {
-    let value;
-    switch (it.kind) {
-      case 'interface':
-        value = {
-          constructorArgs: it.constructorArgs,
-          instanceMethods: mapToJSON(it.instanceMethods),
-          staticMethods: mapToJSON(it.staticMethods)
-        };
-        break;
-      default:
-        value = it;
-        break;
-    }
-    obj[it.name] = value;
-  }
-  return obj;
-}
-
-function mapToJSON(map) {
-  const result = {};
-  for (const it of map.entries()) {
-    result[it[0]] = it[1];
-  }
-  return result;
 }

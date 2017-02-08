@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-7689-1yr42oq/package.tgz",
+        "raw": "/tmp/d-11718-7680-13bv530/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-7689-1yr42oq/package.tgz",
-        "spec": "/tmp/d-117016-7689-1yr42oq/package.tgz",
+        "rawSpec": "/tmp/d-11718-7680-13bv530/package.tgz",
+        "spec": "/tmp/d-11718-7680-13bv530/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-7689-s7piir"
+      "/tmp/apm-install-dir-11718-7680-e9ddyq"
     ]
   ],
-  "_from": "../d-117016-7689-1yr42oq/package.tgz",
+  "_from": "../d-11718-7680-13bv530/package.tgz",
   "_id": "latextools@0.8.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/latextools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-7689-1yr42oq/package.tgz",
+    "raw": "/tmp/d-11718-7680-13bv530/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-7689-1yr42oq/package.tgz",
-    "spec": "/tmp/d-117016-7689-1yr42oq/package.tgz",
+    "rawSpec": "/tmp/d-11718-7680-13bv530/package.tgz",
+    "spec": "/tmp/d-11718-7680-13bv530/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-7689-1yr42oq/package.tgz",
+  "_resolved": "file:../d-11718-7680-13bv530/package.tgz",
   "_shasum": "a75d86dd742fbef160fc32662e3efd1bb26fdbd1",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-7689-1yr42oq/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-7689-s7piir",
+  "_spec": "/tmp/d-11718-7680-13bv530/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-7680-e9ddyq",
   "bugs": {
     "url": "https://github.com/msiniscalchi/atom-latextools/issues"
   },

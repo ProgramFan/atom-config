@@ -73,10 +73,10 @@ class LaunchProcessInfo extends (_nuclideDebuggerBase || _load_nuclideDebuggerBa
       sessionConfig.endDebugWhenNoRequests = true;
       sessionConfig.launchScriptPath = _this._launchTarget;
 
-      logInfo(`Connection session config: ${ JSON.stringify(sessionConfig) }`);
+      logInfo(`Connection session config: ${JSON.stringify(sessionConfig)}`);
 
       const result = yield rpcService.debug(sessionConfig);
-      logInfo(`Launch process result: ${ result }`);
+      logInfo(`Launch process result: ${result}`);
       return new (_PhpDebuggerInstance || _load_PhpDebuggerInstance()).PhpDebuggerInstance(_this, rpcService);
     })();
   }

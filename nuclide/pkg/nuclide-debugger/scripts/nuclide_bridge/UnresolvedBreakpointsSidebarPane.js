@@ -80,8 +80,8 @@ class UnresolvedBreakpointsComponent extends (_react || _load_react()).default.C
         throw new Error('Invariant violation: "pathname"');
       }
 
-      const longRep = `${ pathname }:${ breakpoint.line + 1 }`;
-      const shortRep = `${ (_nuclideUri || _load_nuclideUri()).default.basename(pathname) }:${ breakpoint.line + 1 }`;
+      const longRep = `${pathname}:${breakpoint.line + 1}`;
+      const shortRep = `${(_nuclideUri || _load_nuclideUri()).default.basename(pathname)}:${breakpoint.line + 1}`;
       return (_react || _load_react()).default.createElement(
         'li',
         {

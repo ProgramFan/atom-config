@@ -17,7 +17,7 @@ const NUCLIDE_CONFIG_SCOPE = 'nuclide.'; /**
                                           */
 
 function formatKeyPath(keyPath) {
-  return `${ NUCLIDE_CONFIG_SCOPE }${ keyPath }`;
+  return `${NUCLIDE_CONFIG_SCOPE}${keyPath}`;
 }
 
 /*
@@ -108,7 +108,7 @@ function unset(keyPath, options) {
  *   'nuclide' package itself is disabled.
  */
 function isFeatureDisabled(name) {
-  return atom.packages.isPackageDisabled('nuclide') || !atom.config.get(`nuclide.use.${ name }`);
+  return atom.packages.isPackageDisabled('nuclide') || !atom.config.get(`nuclide.use.${name}`);
 }
 
 exports.default = {

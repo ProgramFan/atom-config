@@ -159,7 +159,7 @@ class WatchExpressionComponent extends _reactForAtom.React.Component {
       _reactForAtom.React.createElement(
         'div',
         {
-          className: 'nuclide-debugger-expression-value-content',
+          className: (0, (_classnames || _load_classnames()).default)('nuclide-debugger-expression-value-content', 'nuclide-debugger-watch-expression-value-content'),
           onDoubleClick: this._setRowBeingEdited.bind(this, index) },
         _reactForAtom.React.createElement(ValueComponent, {
           expression: expression,

@@ -43,14 +43,13 @@ class ListViewItem extends _reactForAtom.React.Component {
 
 
   render() {
-    const {
+    const _props = this.props,
+          {
       children,
       index,
       value
-    } = this.props;
-
-    const remainingProps = _objectWithoutProperties(this.props, ['children', 'index', 'value']);
-
+    } = _props,
+          remainingProps = _objectWithoutProperties(_props, ['children', 'index', 'value']);
     return _reactForAtom.React.createElement(
       'div',
       Object.assign({

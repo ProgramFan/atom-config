@@ -107,12 +107,12 @@ function structuredStackTraceHook(error, frames) {
 }
 
 function defaultPrepareStackTrace(error, frames) {
-  let formattedStackTrace = error.message ? `${ error.name }: ${ error.message }` : `${ error.name }`;
+  let formattedStackTrace = error.message ? `${error.name}: ${error.message}` : `${error.name}`;
   frames.forEach(frame => {
     // Do not use `maybeToString` here since lazily loading it (inline-imports) may
     // result in a circular load of `babel-core` via `nuclide-node-transpiler`.
     // https://github.com/babel/babel/blob/c2b3ea7/packages/babel-template/src/index.js#L21
-    formattedStackTrace += `\n    at ${ String(frame.toString()) }`;
+    formattedStackTrace += `\n    at ${String(frame.toString())}`;
   });
   return formattedStackTrace;
 }

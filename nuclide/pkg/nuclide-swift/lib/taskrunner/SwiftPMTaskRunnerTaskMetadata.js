@@ -7,8 +7,7 @@ const SwiftPMTaskRunnerBuildTaskMetadata = exports.SwiftPMTaskRunnerBuildTaskMet
   type: 'build',
   label: 'Build',
   description: 'Build a Swift package',
-  icon: 'tools',
-  runnable: true
+  icon: 'tools'
 }; /**
     * Copyright (c) 2015-present, Facebook, Inc.
     * All rights reserved.
@@ -23,8 +22,7 @@ const SwiftPMTaskRunnerTestTaskMetadata = exports.SwiftPMTaskRunnerTestTaskMetad
   type: 'test',
   label: 'Test',
   description: 'Run a Swift package\'s tests',
-  icon: 'check',
-  runnable: true
+  icon: 'check'
 };
 
 const SwiftPMTaskRunnerTaskMetadata = exports.SwiftPMTaskRunnerTaskMetadata = [SwiftPMTaskRunnerBuildTaskMetadata, SwiftPMTaskRunnerTestTaskMetadata];

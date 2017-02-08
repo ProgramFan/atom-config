@@ -184,7 +184,7 @@ function applyActionMiddleware(actions, getState) {
 
       if (!(repository instanceof (_nuclideHgRepositoryClient || _load_nuclideHgRepositoryClient()).HgRepositoryClient)) {
         atom.notifications.addWarning('Failed Renaming Bookmark', {
-          detail: `Expected repository type 'hg' but found ${ repository.getType() }`,
+          detail: `Expected repository type 'hg' but found ${repository.getType()}`,
           dismissable: true
         });
         return _rxjsBundlesRxMinJs.Observable.empty();
@@ -233,7 +233,7 @@ function applyActionMiddleware(actions, getState) {
 
       if (!(repository instanceof (_nuclideHgRepositoryClient || _load_nuclideHgRepositoryClient()).HgRepositoryClient)) {
         atom.notifications.addWarning('Failed Deleting Bookmark', {
-          detail: `Expected repository type 'hg' but found ${ repository.getType() }`,
+          detail: `Expected repository type 'hg' but found ${repository.getType()}`,
           dismissable: true
         });
         return _rxjsBundlesRxMinJs.Observable.empty();

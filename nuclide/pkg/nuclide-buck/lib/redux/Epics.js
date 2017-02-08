@@ -31,7 +31,7 @@ function setProjectRootEpic(actions, store) {
 
     const { projectRoot } = action;
     const rootObs = projectRoot == null ? _rxjsBundlesRxMinJs.Observable.of(null) : _rxjsBundlesRxMinJs.Observable.fromPromise((0, (_nuclideBuckBase || _load_nuclideBuckBase()).getBuckProjectRoot)(projectRoot));
-    return rootObs.switchMap(buckRoot => _rxjsBundlesRxMinJs.Observable.of({ type: (_Actions || _load_Actions()).SET_BUCK_ROOT, buckRoot },
+    return rootObs.switchMap(buckRoot => _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).setBuckRoot(buckRoot),
     // Also refresh the rule type of the current target.
     (_Actions || _load_Actions()).setBuildTarget(store.getState().buildTarget)));
   });

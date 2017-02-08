@@ -120,9 +120,9 @@ class DbgpConnector {
   _onServerError(error) {
     let errorMessage;
     if (error.code === 'EADDRINUSE') {
-      errorMessage = `Can't start debugging because port ${ this._port } is being used by another process. ` + "Try running 'killall node' on your devserver and then restarting Nuclide.";
+      errorMessage = `Can't start debugging because port ${this._port} is being used by another process. ` + "Try running 'killall node' on your devserver and then restarting Nuclide.";
     } else {
-      errorMessage = `Unknown debugger socket error: ${ error.code }.`;
+      errorMessage = `Unknown debugger socket error: ${error.code}.`;
     }
 
     (_utils || _load_utils()).default.logError(errorMessage);

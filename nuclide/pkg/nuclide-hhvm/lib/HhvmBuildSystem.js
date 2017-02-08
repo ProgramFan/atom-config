@@ -70,12 +70,6 @@ class HhvmBuildSystem {
     this._projectStore.dispose();
   }
 
-  observeTaskList(callback) {
-    return new (_UniversalDisposable || _load_UniversalDisposable()).default(_rxjsBundlesRxMinJs.Observable.concat(_rxjsBundlesRxMinJs.Observable.of(this.getTaskList()), (0, (_event || _load_event()).observableFromSubscribeFunction)(this._projectStore.onChange.bind(this._projectStore)).map(() => this.getTaskList()))
-    // Wait until the project type has finished loading.
-    .filter(() => this._projectStore.isHHVMProject() != null).subscribe(callback));
-  }
-
   getExtraUi() {
     if (this._extraUi == null) {
       const projectStore = this._projectStore;
@@ -85,18 +79,8 @@ class HhvmBuildSystem {
     return this._extraUi;
   }
 
-  getTaskList() {
-    const disabled = !this._projectStore.isHHVMProject();
-    return [{
-      type: 'debug',
-      label: 'Debug',
-      description: 'Debug a HHVM project',
-      icon: 'triangle-right',
-      disabled,
-      priority: 1, // Take precedence over the Arcanist build toolbar.
-      runnable: !disabled,
-      cancelable: false
-    }];
+  getPriority() {
+    return 1; // Take precedence over the Arcanist build toolbar.
   }
 
   getIcon() {
@@ -107,8 +91,24 @@ class HhvmBuildSystem {
     return (0, (_tasks || _load_tasks()).taskFromObservable)(_rxjsBundlesRxMinJs.Observable.fromPromise((0, (_HhvmDebug || _load_HhvmDebug()).debug)(this._projectStore.getDebugMode(), this._projectStore.getProjectRoot(), this._projectStore.getDebugTarget())).ignoreElements());
   }
 
-  setProjectRoot(projectRoot) {
-    this._projectStore.setProjectRoot(projectRoot == null ? null : projectRoot.getPath());
+  setProjectRoot(projectRoot, callback) {
+    const path = projectRoot == null ? null : projectRoot.getPath();
+
+    const enabledObservable = (0, (_event || _load_event()).observableFromSubscribeFunction)(this._projectStore.onChange.bind(this._projectStore)).map(() => this._projectStore).filter(store => store.getProjectRoot() === path && store.isHHVMProject() !== null).map(store => store.isHHVMProject() === true).distinctUntilChanged();
+
+    const tasksObservable = _rxjsBundlesRxMinJs.Observable.of([{
+      type: 'debug',
+      label: 'Debug',
+      description: 'Debug an HHVM project',
+      icon: 'nuclicon-debugger',
+      cancelable: false
+    }]);
+
+    const subscription = _rxjsBundlesRxMinJs.Observable.combineLatest(enabledObservable, tasksObservable).subscribe(([enabled, tasks]) => callback(enabled, tasks));
+
+    this._projectStore.setProjectRoot(path);
+
+    return new (_UniversalDisposable || _load_UniversalDisposable()).default(subscription);
   }
 }
 exports.default = HhvmBuildSystem; /**

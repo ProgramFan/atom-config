@@ -15,7 +15,7 @@ let doGetBlameForEditor = (() => {
 
     const repo = (0, (_common || _load_common()).hgRepositoryForEditor)(editor);
     if (!repo) {
-      const message = `HgBlameProvider could not fetch blame for ${ path }: no Hg repo found.`;
+      const message = `HgBlameProvider could not fetch blame for ${path}: no Hg repo found.`;
       logger.error(message);
       throw new Error(message);
     }

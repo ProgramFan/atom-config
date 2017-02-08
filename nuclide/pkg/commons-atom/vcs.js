@@ -60,20 +60,20 @@ let findVcs = exports.findVcs = (() => {
 let hgActionToPath = (() => {
   var _ref5 = (0, _asyncToGenerator.default)(function* (nodePath, actionName, actionDoneMessage, action) {
     if (nodePath == null || nodePath.length === 0) {
-      atom.notifications.addError(`Cannot ${ actionName } an empty path!`);
+      atom.notifications.addError(`Cannot ${actionName} an empty path!`);
       return;
     }
     const repository = repositoryForPath(nodePath);
     if (repository == null || repository.getType() !== 'hg') {
-      atom.notifications.addError(`Cannot ${ actionName } a non-mercurial repository path`);
+      atom.notifications.addError(`Cannot ${actionName} a non-mercurial repository path`);
       return;
     }
     const hgRepository = repository;
     try {
       yield action(hgRepository);
-      atom.notifications.addSuccess(`${ actionDoneMessage } \`${ repository.relativize(nodePath) }\` successfully.`);
+      atom.notifications.addSuccess(`${actionDoneMessage} \`${repository.relativize(nodePath)}\` successfully.`);
     } catch (error) {
-      atom.notifications.addError(`Failed to ${ actionName } \`${ repository.relativize(nodePath) }\``, { detail: error.message });
+      atom.notifications.addError(`Failed to ${actionName} \`${repository.relativize(nodePath)}\``, { detail: error.message });
     }
   });
 
@@ -399,7 +399,8 @@ function getMultiRootFileChanges(fileChanges, rootPaths) {
 
 function confirmAndDeletePath(nuclideFilePath) {
   const result = atom.confirm({
-    message: 'Are you sure you want to delete?',
+    message: 'Are you sure you want to delete the following item?',
+    detailedMessage: `You are deleting: \n ${(_nuclideUri || _load_nuclideUri()).default.getPath(nuclideFilePath)}`,
     buttons: ['Delete', 'Cancel']
   });
 

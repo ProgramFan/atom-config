@@ -6,6 +6,14 @@ Object.defineProperty(exports, "__esModule", {
 exports.startServer = startServer;
 exports.getDeviceList = getDeviceList;
 exports.getDeviceArchitecture = getDeviceArchitecture;
+exports.getDeviceModel = getDeviceModel;
+exports.getAPIVersion = getAPIVersion;
+exports.installPackage = installPackage;
+exports.uninstallPackage = uninstallPackage;
+exports.getPidFromPackageName = getPidFromPackageName;
+exports.forwardJdwpPortToPid = forwardJdwpPortToPid;
+exports.launchActivity = launchActivity;
+exports.activityExists = activityExists;
 
 var _ADB;
 
@@ -15,17 +23,19 @@ function _load_ADB() {
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
 function startServer(adbPath) {
   return (_ADB || _load_ADB()).startServer(adbPath);
-} /**
-   * Copyright (c) 2015-present, Facebook, Inc.
-   * All rights reserved.
-   *
-   * This source code is licensed under the license found in the LICENSE file in
-   * the root directory of this source tree.
-   *
-   * 
-   */
+}
 
 function getDeviceList(adbPath) {
   return (_ADB || _load_ADB()).getDeviceList(adbPath);
@@ -33,4 +43,36 @@ function getDeviceList(adbPath) {
 
 function getDeviceArchitecture(adbPath, device) {
   return (_ADB || _load_ADB()).getDeviceArchitecture(adbPath, device);
+}
+
+function getDeviceModel(adbPath, device) {
+  return (_ADB || _load_ADB()).getDeviceModel(adbPath, device);
+}
+
+function getAPIVersion(adbPath, device) {
+  return (_ADB || _load_ADB()).getAPIVersion(adbPath, device);
+}
+
+function installPackage(adbPath, device, packagePath) {
+  return (_ADB || _load_ADB()).installPackage(adbPath, device, packagePath).publish();
+}
+
+function uninstallPackage(adbPath, device, packageName) {
+  return (_ADB || _load_ADB()).uninstallPackage(adbPath, device, packageName).publish();
+}
+
+function getPidFromPackageName(adbPath, device, packageName) {
+  return (_ADB || _load_ADB()).getPidFromPackageName(adbPath, device, packageName);
+}
+
+function forwardJdwpPortToPid(adbPath, device, tcpPort, pid) {
+  return (_ADB || _load_ADB()).forwardJdwpPortToPid(adbPath, device, tcpPort, pid);
+}
+
+function launchActivity(adbPath, device, packageName, activity, action) {
+  return (_ADB || _load_ADB()).launchActivity(adbPath, device, packageName, activity, action);
+}
+
+function activityExists(adbPath, device, packageName, activity) {
+  return (_ADB || _load_ADB()).activityExists(adbPath, device, packageName, activity);
 }

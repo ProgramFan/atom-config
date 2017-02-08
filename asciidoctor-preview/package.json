@@ -2,50 +2,50 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-6341-83z717/package.tgz",
+        "raw": "/tmp/d-11718-6332-1n8xqcx/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-6341-83z717/package.tgz",
-        "spec": "/tmp/d-117016-6341-83z717/package.tgz",
+        "rawSpec": "/tmp/d-11718-6332-1n8xqcx/package.tgz",
+        "spec": "/tmp/d-11718-6332-1n8xqcx/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-6341-1qsjfxq"
+      "/tmp/apm-install-dir-11718-6332-1v3ysup"
     ]
   ],
-  "_from": "../d-117016-6341-83z717/package.tgz",
-  "_id": "asciidoctor-preview@0.3.1",
+  "_from": "../d-11718-6332-1n8xqcx/package.tgz",
+  "_id": "asciidoctor-preview@0.3.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoctor-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-6341-83z717/package.tgz",
+    "raw": "/tmp/d-11718-6332-1n8xqcx/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-6341-83z717/package.tgz",
-    "spec": "/tmp/d-117016-6341-83z717/package.tgz",
+    "rawSpec": "/tmp/d-11718-6332-1n8xqcx/package.tgz",
+    "spec": "/tmp/d-11718-6332-1n8xqcx/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-6341-83z717/package.tgz",
-  "_shasum": "ec46c7de921e348c93ecad5a4315bbdcea57a782",
+  "_resolved": "file:../d-11718-6332-1n8xqcx/package.tgz",
+  "_shasum": "8f23f0c05c6fbaeb0362c27ca3832ebcd3edbcee",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-6341-83z717/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-6341-1qsjfxq",
+  "_spec": "/tmp/d-11718-6332-1n8xqcx/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-6332-1v3ysup",
   "bugs": {
     "url": "https://github.com/griffin-stewie/asciidoctor-preview/issues"
   },
   "dependencies": {
     "atom-space-pen-views": "^2.2.0",
-    "cheerio": "^0.20.0",
-    "fs-extra": "^0.28.0",
-    "fs-plus": "^2.8.2",
-    "grim": "^2.0.0",
-    "mustache": "^2.2.1",
+    "cheerio": "^0.22.0",
+    "fs-extra": "^2.0.0",
+    "fs-plus": "^2.9.3",
+    "grim": "^2.0.1",
+    "mustache": "^2.3.0",
     "temp": "^0.8.3",
     "underscore-plus": "^1.6.6"
   },
@@ -65,5 +65,5 @@
     "type": "git",
     "url": "git+https://github.com/griffin-stewie/asciidoctor-preview.git"
   },
-  "version": "0.3.1"
+  "version": "0.3.2"
 }

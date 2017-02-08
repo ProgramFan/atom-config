@@ -96,9 +96,9 @@ function getText(completion, includeOptionalArgs = true, createPlaceholders = fa
     const params = includeOptionalArgs ? completion.params : completion.params.filter(param => param.indexOf('=') < 0 && param.indexOf('*') < 0);
 
     const paramTexts = params.map((param, index) => {
-      return createPlaceholders ? `\${${ index + 1 }:${ param }}` : param;
+      return createPlaceholders ? `\${${index + 1}:${param}}` : param;
     });
-    return `${ completion.text }(${ paramTexts.join(', ') })`;
+    return `${completion.text}(${paramTexts.join(', ')})`;
   }
 
   return completion.text;

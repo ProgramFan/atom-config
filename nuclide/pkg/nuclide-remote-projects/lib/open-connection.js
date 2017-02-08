@@ -42,17 +42,16 @@ var _reactForAtom = require('react-for-atom');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)(); /**
+                                                                              * Copyright (c) 2015-present, Facebook, Inc.
+                                                                              * All rights reserved.
+                                                                              *
+                                                                              * This source code is licensed under the license found in the LICENSE file in
+                                                                              * the root directory of this source tree.
+                                                                              *
+                                                                              * 
+                                                                              */
 
-const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
 let dialogPromiseQueue = null;
 
 /**
@@ -159,7 +158,8 @@ function openConnectionDialog(options) {
       const initialDialogProps = {
         onCancel: closeNewProfileForm,
         onSave,
-        initialFormFields: defaultConnectionProfile.params
+        initialFormFields: defaultConnectionProfile.params,
+        profileHosts: (0, (_connectionProfileUtils || _load_connectionProfileUtils()).getUniqueHostsForProfiles)(compositeConnectionProfiles)
       };
 
       newProfilePanel = atom.workspace.addModalPanel({ item: hostElementForNewProfileForm });

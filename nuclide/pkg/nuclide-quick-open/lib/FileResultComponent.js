@@ -77,7 +77,7 @@ class FileResultComponent {
           streakOngoing = false;
         } else {
           if (i > 0) {
-            pathComponents.push(renderUnmatchedSubsequence(filePath.slice(start, i), `before${ i }`));
+            pathComponents.push(renderUnmatchedSubsequence(filePath.slice(start, i), `before${i}`));
           }
           pathComponents.push(renderMatchedSubsequence(filePath.slice(i, i + 1), i));
         }

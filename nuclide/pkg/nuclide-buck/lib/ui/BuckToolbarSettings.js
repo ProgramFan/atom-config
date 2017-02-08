@@ -64,26 +64,6 @@ class BuckToolbarSettings extends _reactForAtom.React.Component {
   }
 
   render() {
-    let runArguments;
-    if (this.props.buildType === 'debug' || this.props.buildType === 'run') {
-      runArguments = _reactForAtom.React.createElement(
-        'div',
-        null,
-        _reactForAtom.React.createElement(
-          'label',
-          null,
-          'Run Arguments:'
-        ),
-        _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
-          tabIndex: '0',
-          initialValue: this.state.runArguments,
-          placeholderText: 'Custom command-line arguments to pass to the app/binary',
-          onDidChange: this._onRunArgsChange.bind(this),
-          onConfirm: this._onSave.bind(this)
-        })
-      );
-    }
-
     return _reactForAtom.React.createElement(
       (_Modal || _load_Modal()).Modal,
       { onDismiss: this.props.onDismiss },
@@ -93,16 +73,6 @@ class BuckToolbarSettings extends _reactForAtom.React.Component {
         _reactForAtom.React.createElement(
           'div',
           { className: 'block' },
-          _reactForAtom.React.createElement(
-            'h5',
-            null,
-            'Buck Settings for build type: ',
-            _reactForAtom.React.createElement(
-              'b',
-              null,
-              this.props.buildType
-            )
-          ),
           _reactForAtom.React.createElement(
             'label',
             null,
@@ -129,7 +99,22 @@ class BuckToolbarSettings extends _reactForAtom.React.Component {
             onDidChange: this._onArgsChange.bind(this),
             onConfirm: this._onSave.bind(this)
           }),
-          runArguments
+          _reactForAtom.React.createElement(
+            'div',
+            null,
+            _reactForAtom.React.createElement(
+              'label',
+              null,
+              'Run Arguments:'
+            ),
+            _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+              tabIndex: '0',
+              initialValue: this.state.runArguments,
+              placeholderText: 'Custom command-line arguments to pass to the app/binary',
+              onDidChange: this._onRunArgsChange.bind(this),
+              onConfirm: this._onSave.bind(this)
+            })
+          )
         ),
         _reactForAtom.React.createElement(
           'div',

@@ -55,7 +55,7 @@ class FileWatcher {
     const _subscriptions = new _atom.CompositeDisposable();
     _subscriptions.add(this._editor.onDidConflict(() => {
       if (this._shouldPromptToReload()) {
-        logger.info(`Conflict at file: ${ this._editor.getPath() || 'File not found' }`);
+        logger.info(`Conflict at file: ${this._editor.getPath() || 'File not found'}`);
         this._promptReload();
       }
     }));

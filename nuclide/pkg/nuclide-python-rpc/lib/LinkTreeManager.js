@@ -45,7 +45,7 @@ const LINK_TREE_SUFFIXES = {
 
 class LinkTreeManager {
   _getBuckTargetForDir(dirPath) {
-    return `//${ dirPath }:`;
+    return `//${dirPath}:`;
   }
 
   _getDirForBuckTarget(target) {
@@ -73,7 +73,7 @@ class LinkTreeManager {
           // Not using Promise.all since we want to break as soon as one query returns
           // a non-empty result, and we don't want concurrent buck queries.
           // eslint-disable-next-line no-await-in-loop
-          const results = yield (_nuclideBuckRpc || _load_nuclideBuckRpc()).query(basePath, `kind(${ kind }, rdeps(${ searchRoot }, owner(${ src })))`);
+          const results = yield (_nuclideBuckRpc || _load_nuclideBuckRpc()).query(basePath, `kind(${kind}, rdeps(${searchRoot}, owner(${src})))`);
           if (results.length > 0) {
             return results;
           }

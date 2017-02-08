@@ -54,9 +54,7 @@ function accumulateState(state, action) {
       });
     case (_Actions || _load_Actions()).SET_TASK_SETTINGS:
       return Object.assign({}, state, {
-        taskSettings: Object.assign({}, state.taskSettings, {
-          [action.taskType]: action.settings
-        })
+        taskSettings: action.settings
       });
   }
   return state;

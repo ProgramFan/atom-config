@@ -42,17 +42,17 @@ let createHackProcess = (() => {
       return null;
     }
 
-    (_hackConfig || _load_hackConfig()).logger.logInfo(`Creating new hack connection for ${ configDir }: ${ command }`);
-    (_hackConfig || _load_hackConfig()).logger.logInfo(`Current PATH: ${ (0, (_string || _load_string()).maybeToString)(process.env.PATH) }`);
+    (_hackConfig || _load_hackConfig()).logger.logInfo(`Creating new hack connection for ${configDir}: ${command}`);
+    (_hackConfig || _load_hackConfig()).logger.logInfo(`Current PATH: ${(0, (_string || _load_string()).maybeToString)(process.env.PATH)}`);
     const startServerResult = yield (0, (_process || _load_process()).asyncExecute)(command, ['start', configDir]);
-    (_hackConfig || _load_hackConfig()).logger.logInfo(`Hack connection start server results:\n${ JSON.stringify(startServerResult, null, 2) }\n`);
+    (_hackConfig || _load_hackConfig()).logger.logInfo(`Hack connection start server results:\n${JSON.stringify(startServerResult, null, 2)}\n`);
     if (startServerResult.exitCode !== 0 && startServerResult.exitCode !== HACK_SERVER_ALREADY_EXISTS_EXIT_CODE) {
       return null;
     }
     const createProcess = function () {
       return (0, (_process || _load_process()).safeSpawn)(command, ['ide', configDir]);
     };
-    return new HackProcess(fileCache, `HackProcess-${ configDir }`, createProcess, configDir);
+    return new HackProcess(fileCache, `HackProcess-${configDir}`, createProcess, configDir);
   });
 
   return function createHackProcess(_x3, _x4) {
@@ -145,7 +145,7 @@ function getServiceRegistry() {
 }
 
 function logMessage(direction, message) {
-  (_hackConfig || _load_hackConfig()).logger.logInfo(`Hack Connection message ${ direction }: '${ message }'`);
+  (_hackConfig || _load_hackConfig()).logger.logInfo(`Hack Connection message ${direction}: '${message}'`);
 }
 
 class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
@@ -180,7 +180,7 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
           service.didChangeFile(filePath, version, [editToHackEdit(fileEvent)]);
           break;
         default:
-          throw new Error(`Unexpected FileEvent kind: ${ JSON.stringify(fileEvent) }`);
+          throw new Error(`Unexpected FileEvent kind: ${JSON.stringify(fileEvent)}`);
       }
       this._fileVersionNotifier.onEvent(fileEvent);
     });
@@ -219,7 +219,7 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
 
     return (0, _asyncToGenerator.default)(function* () {
       const filePath = fileVersion.filePath;
-      (_hackConfig || _load_hackConfig()).logger.logTrace(`Attempting Hack Autocomplete: ${ filePath }, ${ position.toString() }`);
+      (_hackConfig || _load_hackConfig()).logger.logTrace(`Attempting Hack Autocomplete: ${filePath}, ${position.toString()}`);
       const buffer = yield _this2.getBufferAtVersion(fileVersion);
       if (buffer == null) {
         return [];
@@ -261,7 +261,7 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
         processes.get(this._fileCache).delete(this._hhconfigPath);
       }
     } else {
-      (_hackConfig || _load_hackConfig()).logger.logInfo(`HackProcess attempt to shut down already disposed ${ this.getRoot() }.`);
+      (_hackConfig || _load_hackConfig()).logger.logInfo(`HackProcess attempt to shut down already disposed ${this.getRoot()}.`);
     }
   }
 }
@@ -288,7 +288,7 @@ processes.observeKeys().subscribe(fileCache => {
 });
 
 function ensureProcesses(fileCache, configPaths) {
-  (_hackConfig || _load_hackConfig()).logger.logInfo(`Hack ensureProcesses. ${ Array.from(configPaths).join(', ') }`);
+  (_hackConfig || _load_hackConfig()).logger.logInfo(`Hack ensureProcesses. ${Array.from(configPaths).join(', ')}`);
   processes.get(fileCache).setKeys(configPaths);
 }
 
@@ -296,7 +296,7 @@ function ensureProcesses(fileCache, configPaths) {
 function closeProcesses(fileCache) {
   (_hackConfig || _load_hackConfig()).logger.logInfo('Hack closeProcesses');
   if (processes.has(fileCache)) {
-    (_hackConfig || _load_hackConfig()).logger.logInfo(`Shutting down HackProcesses ${ Array.from(processes.get(fileCache).keys()).join(',') }`);
+    (_hackConfig || _load_hackConfig()).logger.logInfo(`Shutting down HackProcesses ${Array.from(processes.get(fileCache).keys()).join(',')}`);
     processes.delete(fileCache);
   }
 }
@@ -319,7 +319,7 @@ function observeConnections(fileCache) {
       throw new Error('Invariant violation: "process != null"');
     }
 
-    (_hackConfig || _load_hackConfig()).logger.logInfo(`Observing process ${ process._hhconfigPath }`);
+    (_hackConfig || _load_hackConfig()).logger.logInfo(`Observing process ${process._hhconfigPath}`);
     return process.getConnectionService();
   });
 }

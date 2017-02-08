@@ -110,7 +110,7 @@ class RemoteDirectory {
       this._watchSubscription = null;
     }, () => {
       // Nothing needs to be done if the root directory watch has ended.
-      logger.debug(`watchDirectory ended: ${ this._uri }`);
+      logger.debug(`watchDirectory ended: ${this._uri}`);
       this._watchSubscription = null;
     });
   }
@@ -190,7 +190,8 @@ class RemoteDirectory {
   }
 
   getRealPathSync() {
-    throw new Error('Not implemented');
+    // Remote paths should already be resolved.
+    return this._uri;
   }
 
   getBaseName() {

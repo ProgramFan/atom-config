@@ -1,5 +1,127 @@
 # Nuclide Changelog
 
+## v0.205.0
+
+Hotfix for internal changes.
+
+
+## v0.204.0
+
+### Mobile JS
+
+* Improved disposal logic for the experimental debugger, resulting in fewer crashes.
+
+### Hack
+
+* With this week's HHVM release, asynchronous callstacks in the debugger will no longer be missing frames.
+
+### Improvements and Fixes
+
+* Improved Atom responsiveness when using flow by offloading more work to the nuclide-server.
+* Fixed issue with remote connection that would cause Atom to not be able to serialize state.
+* Improved task runner toolbar UI.
+
+
+## v0.203.0
+
+Hotfix for internal changes.
+
+
+## v0.202.0
+
+### Highlights
+
+* GraphQL Integration. Autocomplete, syntax errors, go to definition, outline and context views integrations... All you need for `.graphql` files!
+
+### HACK
+
+* Syntax highlighting fixed for methods that start with magic method names (eg `__getBlah()`).
+
+### Logcat
+
+* Fixed parsing for some versions of adb that included extra CRs (Thanks @fcFn!).
+* Added "unknown:React" to default tag whitelist.
+
+### Reason
+
+* Fixed slow syntax highlighting (Thanks @freebroccolo!).
+
+### Source Control
+
+* Fixed double context menu bug in source control sidebar.
+* Fix Diff View changed sections gutter highlighting.
+
+### Debugger
+
+* Watches in the debugger now have the 'x' on the left.
+* Clicking the selected frame in the debugger callstack window navigates to the expected file.
+
+### Misc
+
+* File permissions are preserved when using search and replace on remote files.
+* Bugfix for Xdebug on PHP 5.3 (Thanks @jesseschalken!)
+* Windows - fixed panel being stuck occasionally in an endless resize.
+* When opening a file from the CLI, prefer windows which already have the directory open.
+* Flow autocomplete will no longer work with Flow v0.19 and below.
+
+
+## v0.201.0
+
+### Highlights
+
+* URLs in console messages are now clickable. Thanks @nmn!
+* Sections in the debugger panel are now resizable.
+
+### General
+
+* Hyperclick now creates a navigation stack entry before performing an action. Thanks Sandor!
+* Fixed a bug that prevented “opening all“ bugs from the diagnostics table when there were more than 20. Thanks Sandor!
+* We now only show the most relevant datatip for a given location, rather than all applicable ones. Thanks Sandor!
+* A warning will show up if several of the remote profiles connect to same server by different names. Thanks Kody!
+* Removed confusing “split” context menu items from file tree.
+
+### Debugger
+
+* Make JavaScript debugger names more clear. (iOS Webkit Debug Proxy → Mobile JS, JavaScript -> NodeJS)
+* Detaching the Node debugger no longer crashes the Node process.
+* Node and Native debugger process selection lists refresh as soon as the dialog is opened.
+* Bugfixes for attaching the Node debugger to a Node process.
+
+## v0.200.0
+
+Hotfix for internal changes.
+
+
+## v0.199.0
+
+Hotfix for quick-open providers selection for multiple projects case.
+
+
+## v0.198.0
+
+### Highlights
+
+* Project-level replace now works remotely.
+
+### General
+
+* Fix bug causing server crash when using different hostnames for the same server.
+* Atom 1.13 is now the minimal required version of Atom.
+
+### Source Control
+
+*  Improved Commit Workflow:
+  * Warn against publishing public commits.
+  * Improved console logging for arcanist errors.
+  * Toggle console, showing the error in case of failed commits.
+  * Publish only after successful commit/amend.
+
+### Flow
+
+* Remove experimental structured type hints option from Flow.
+* Enabled definition preview in Context View.
+
+
 ## v0.197.0
 
 Hotfix for 0.196.0 with backwards-compatible Atom 1.13.x shadow DOM fixes.

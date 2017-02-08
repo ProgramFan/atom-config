@@ -39,7 +39,7 @@ let main = (() => {
     yield (0, (_errors || _load_errors()).setupLogging)();
     (0, (_errors || _load_errors()).setupErrorHandling)();
 
-    logger.debug(`nuclide-remote-atom with arguments: ${ argv._ }`);
+    logger.debug(`nuclide-remote-atom with arguments: ${argv._}`);
 
     // TODO(t10180337): Consider a batch API for openFile().
     if (argv._ != null && argv._.length > 0) {

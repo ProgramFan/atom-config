@@ -61,7 +61,7 @@ class ScribeProcess {
   write(message) {
     const child = this._getOrCreateChildProcess();
     return new Promise((resolve, reject) => {
-      child.stdin.write(`${ message }${ _os.default.EOL }`, resolve);
+      child.stdin.write(`${message}${_os.default.EOL}`, resolve);
     });
   }
 

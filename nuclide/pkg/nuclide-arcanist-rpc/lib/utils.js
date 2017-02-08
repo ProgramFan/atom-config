@@ -39,7 +39,7 @@ function getPhabricatorRevisionFromUrl(diffUrl) {
   return {
     url: diffUrl,
     id: parseInt(match[1], 10),
-    name: `D${ match[1] }`
+    name: `D${match[1]}`
   };
 }
 

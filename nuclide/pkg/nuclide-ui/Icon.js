@@ -33,11 +33,9 @@ const Icon = props => {
     icon,
     children,
     className
-  } = props;
-
-  const remainingProps = _objectWithoutProperties(props, ['icon', 'children', 'className']);
-
-  const newClassName = (0, (_classnames || _load_classnames()).default)(className, icon == null ? null : `icon icon-${ icon }`);
+  } = props,
+        remainingProps = _objectWithoutProperties(props, ['icon', 'children', 'className']);
+  const newClassName = (0, (_classnames || _load_classnames()).default)(className, icon == null ? null : `icon icon-${icon}`);
   return _reactForAtom.React.createElement(
     'span',
     Object.assign({ className: newClassName }, remainingProps),

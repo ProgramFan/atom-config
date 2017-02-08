@@ -27,6 +27,7 @@ function sortDiagnostics(diagnostics, sortedColumnName, sortDescending) {
   const getter = displayDiagnostic => sortedColumnName === 'description' ? displayDiagnostic.data.description.text : displayDiagnostic.data[sortedColumnName];
   // $FlowFixMe -- this whole thing is poorly typed
   return [...diagnostics].sort((a, b) => {
+    // $FlowFixMe -- this whole thing is poorly typed
     return cmp(getter(a), getter(b), !sortDescending);
   });
 }

@@ -99,11 +99,12 @@ function generateProxy(serviceName, preserveFunctionNames, defs) {
   // Declare remoteModule as empty object.
   statements.push((_babelTypes || _load_babelTypes()).variableDeclaration('const', [(_babelTypes || _load_babelTypes()).variableDeclarator((_babelTypes || _load_babelTypes()).identifier('remoteModule'), emptyObject)]));
 
-  defs.forEach(definition => {
+  Object.keys(defs).forEach(defName => {
+    const definition = defs[defName];
     const name = definition.name;
     switch (definition.kind) {
       case 'function':
-        const functionName = preserveFunctionNames ? name : `${ serviceName }/${ name }`;
+        const functionName = preserveFunctionNames ? name : `${serviceName}/${name}`;
         // Generate a remote proxy for each module-level function.
         statements.push((_babelTypes || _load_babelTypes()).expressionStatement((_babelTypes || _load_babelTypes()).assignmentExpression('=', (_babelTypes || _load_babelTypes()).memberExpression(remoteModule, (_babelTypes || _load_babelTypes()).identifier(name)), generateFunctionProxy(functionName, definition.type))));
         break;
@@ -155,7 +156,7 @@ function generateFunctionProxy(name, funcType) {
   const result = generateUnmarshalResult(funcType.returnType, marshalArgsAndCall);
 
   // function(arg0, ... argN) { return ... }
-  const args = funcType.argumentTypes.map((arg, i) => (_babelTypes || _load_babelTypes()).identifier(`arg${ i }`));
+  const args = funcType.argumentTypes.map((arg, i) => (_babelTypes || _load_babelTypes()).identifier(`arg${i}`));
   return (_babelTypes || _load_babelTypes()).functionExpression(null, args, (_babelTypes || _load_babelTypes()).blockStatement([(_babelTypes || _load_babelTypes()).returnStatement(result)]));
 }
 
@@ -168,8 +169,9 @@ function generateInterfaceProxy(def) {
   const methodDefinitions = [];
 
   // Generate proxies for static methods.
-  def.staticMethods.forEach((funcType, methodName) => {
-    const funcProxy = generateFunctionProxy(`${ def.name }/${ methodName }`, funcType);
+  Object.keys(def.staticMethods).forEach(methodName => {
+    const funcType = def.staticMethods[methodName];
+    const funcProxy = generateFunctionProxy(`${def.name}/${methodName}`, funcType);
     methodDefinitions.push((_babelTypes || _load_babelTypes()).classMethod('method', (_babelTypes || _load_babelTypes()).identifier(methodName), funcProxy.params, funcProxy.body,
     /* computed: */false,
     /* static: */true));
@@ -186,7 +188,8 @@ function generateInterfaceProxy(def) {
     location: def.location,
     name: def.name
   };
-  def.instanceMethods.forEach((funcType, methodName) => {
+  Object.keys(def.instanceMethods).forEach(methodName => {
+    const funcType = def.instanceMethods[methodName];
     // dispose method is generated custom at the end
     if (methodName === 'dispose') {
       return;
@@ -209,7 +212,7 @@ function generateInterfaceProxy(def) {
  */
 function generateRemoteConstructor(className, constructorArgs) {
   // arg0, .... argN
-  const args = constructorArgs.map((arg, i) => (_babelTypes || _load_babelTypes()).identifier(`arg${ i }`));
+  const args = constructorArgs.map((arg, i) => (_babelTypes || _load_babelTypes()).identifier(`arg${i}`));
   // [arg0, ... argN]
   const argsArray = (_babelTypes || _load_babelTypes()).arrayExpression(args);
   // [argType0, ... argTypeN]
@@ -240,7 +243,7 @@ function generateRemoteDispatch(methodName, thisType, funcType) {
   const marshallThenCall = thenPromise(argumentsPromise, (_babelTypes || _load_babelTypes()).arrowFunctionExpression([(_babelTypes || _load_babelTypes()).identifier('args')], (_babelTypes || _load_babelTypes()).blockStatement([(_babelTypes || _load_babelTypes()).returnStatement(idThenCall)])));
 
   // methodName(arg0, ... argN) { return ... }
-  const funcTypeArgs = funcType.argumentTypes.map((arg, i) => (_babelTypes || _load_babelTypes()).identifier(`arg${ i }`));
+  const funcTypeArgs = funcType.argumentTypes.map((arg, i) => (_babelTypes || _load_babelTypes()).identifier(`arg${i}`));
   const result = generateUnmarshalResult(funcType.returnType, marshallThenCall);
   return (_babelTypes || _load_babelTypes()).classMethod('method', (_babelTypes || _load_babelTypes()).identifier(methodName), funcTypeArgs, (_babelTypes || _load_babelTypes()).blockStatement([(_babelTypes || _load_babelTypes()).returnStatement(result)]));
 }
@@ -271,7 +274,7 @@ function generateUnmarshalResult(returnType, rpcCallExpression) {
       // And finally, convert to a ConnectableObservable with publish.
       return (_babelTypes || _load_babelTypes()).callExpression((_babelTypes || _load_babelTypes()).memberExpression(unmarshalledObservable, (_babelTypes || _load_babelTypes()).identifier('publish')), []);
     default:
-      throw new Error(`Unkown return type ${ returnType.kind }.`);
+      throw new Error(`Unkown return type ${returnType.kind}.`);
   }
 }
 
@@ -346,10 +349,10 @@ function objectToLiteral(obj) {
     : []);
   } else if (typeof obj === 'object') {
     // {a: 1, b: 2}
-    return (_babelTypes || _load_babelTypes()).objectExpression(Object.keys(obj).map(key => (_babelTypes || _load_babelTypes()).objectProperty((_babelTypes || _load_babelTypes()).identifier(key), objectToLiteral(obj[key]))));
+    return (_babelTypes || _load_babelTypes()).objectExpression(Object.keys(obj).map(key => (_babelTypes || _load_babelTypes()).objectProperty((_babelTypes || _load_babelTypes()).isValidIdentifier(key) ? (_babelTypes || _load_babelTypes()).identifier(key) : (_babelTypes || _load_babelTypes()).stringLiteral(key), objectToLiteral(obj[key]))));
   }
 
-  throw new Error(`Cannot convert unknown type ${ typeof obj } to literal.`);
+  throw new Error(`Cannot convert unknown type ${typeof obj} to literal.`);
 }
 
 /**

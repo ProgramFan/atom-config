@@ -50,7 +50,7 @@ function filterName(name, filter, isSelected) {
       'text-highlight': !isSelected
     });
 
-    return name.split(new RegExp(`(?:(?=${ formatFilter(filter) }))`, 'ig')).map((text, i) => {
+    return name.split(new RegExp(`(?:(?=${formatFilter(filter)}))`, 'ig')).map((text, i) => {
       if (matchesFilter(text, filter)) {
         return _reactForAtom.React.createElement(
           'span',

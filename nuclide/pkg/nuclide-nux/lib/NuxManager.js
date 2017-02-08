@@ -141,9 +141,9 @@ class NuxManager {
       try {
         return new (_NuxView || _load_NuxView()).NuxView(nuxTourModel.id, model.selector, model.selectorFunction, model.position, model.content, model.completionPredicate, index, arr.length);
       } catch (err) {
-        const error = `NuxView #${ index } for "${ nuxTourModel.id }" failed to instantiate.`;
-        logger.error(`ERROR: ${ error }`);
-        this._track(nuxTourModel.id, nuxTourModel.name, `NuxView #${ index + 1 } failed to instantiate.`, err.toString());
+        const error = `NuxView #${index} for "${nuxTourModel.id}" failed to instantiate.`;
+        logger.error(`ERROR: ${error}`);
+        this._track(nuxTourModel.id, nuxTourModel.name, `NuxView #${index + 1} failed to instantiate.`, err.toString());
         return null;
       }
     }));
@@ -300,7 +300,7 @@ class NuxManager {
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('nux-manager-action', {
       tourId,
       tourName,
-      message: `${ message }`,
+      message: `${message}`,
       error: (0, (_string || _load_string()).maybeToString)(error)
     });
   }

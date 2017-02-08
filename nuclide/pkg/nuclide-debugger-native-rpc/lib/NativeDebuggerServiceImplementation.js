@@ -116,7 +116,7 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
   }
 
   attach(attachInfo) {
-    this.getLogger().log(`attach process: ${ JSON.stringify(attachInfo) }`);
+    this.getLogger().log(`attach process: ${JSON.stringify(attachInfo)}`);
     const inferiorArguments = {
       pid: String(attachInfo.pid),
       basepath: attachInfo.basepath ? attachInfo.basepath : this._config.buckConfigRootFile,
@@ -126,7 +126,7 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
   }
 
   launch(launchInfo) {
-    this.getLogger().log(`launch process: ${ JSON.stringify(launchInfo) }`);
+    this.getLogger().log(`launch process: ${JSON.stringify(launchInfo)}`);
     const inferiorArguments = {
       executable_path: launchInfo.executablePath,
       launch_arguments: launchInfo.arguments,
@@ -134,6 +134,16 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
       working_directory: launchInfo.workingDirectory,
       stdin_filepath: launchInfo.stdinFilePath ? launchInfo.stdinFilePath : '',
       basepath: launchInfo.basepath ? launchInfo.basepath : this._config.buckConfigRootFile,
+      lldb_python_path: this._config.lldbPythonPath
+    };
+    return _rxjsBundlesRxMinJs.Observable.fromPromise(this._startDebugging(inferiorArguments)).publish();
+  }
+
+  bootstrap(bootstrapInfo) {
+    this.getLogger().log(`bootstrap lldb: ${JSON.stringify(bootstrapInfo)}`);
+    const inferiorArguments = {
+      lldb_bootstrap_files: bootstrapInfo.lldbBootstrapFiles,
+      basepath: bootstrapInfo.basepath ? bootstrapInfo.basepath : this._config.buckConfigRootFile,
       lldb_python_path: this._config.lldbPythonPath
     };
     return _rxjsBundlesRxMinJs.Observable.fromPromise(this._startDebugging(inferiorArguments)).publish();
@@ -151,20 +161,20 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
 
       // TODO[jeffreytan]: explicitly use ipv4 address 127.0.0.1 for now.
       // Investigate if we can use localhost and match protocol version between client/server.
-      const lldbWebSocketAddress = `ws://127.0.0.1:${ lldbWebSocketListeningPort }/`;
+      const lldbWebSocketAddress = `ws://127.0.0.1:${lldbWebSocketListeningPort}/`;
       yield _this.connectToWebSocketServer(lldbWebSocketAddress);
-      _this.getLogger().log(`Connected with lldb at address: ${ lldbWebSocketAddress }`);
+      _this.getLogger().log(`Connected with lldb at address: ${lldbWebSocketAddress}`);
     })();
   }
 
   _registerIpcChannel(lldbProcess) {
     const IPC_CHANNEL_FD = 4;
     const ipcStream = lldbProcess.stdio[IPC_CHANNEL_FD];
-    this.getSubscriptions().add((0, (_observable || _load_observable()).splitStream)((0, (_stream || _load_stream()).observeStream)(ipcStream)).subscribe(this._handleIpcMessage.bind(this, ipcStream), error => this.getLogger().logError(`ipcStream error: ${ JSON.stringify(error) }`)));
+    this.getSubscriptions().add((0, (_observable || _load_observable()).splitStream)((0, (_stream || _load_stream()).observeStream)(ipcStream)).subscribe(this._handleIpcMessage.bind(this, ipcStream), error => this.getLogger().logError(`ipcStream error: ${JSON.stringify(error)}`)));
   }
 
   _handleIpcMessage(ipcStream, message) {
-    this.getLogger().logTrace(`ipc message: ${ message }`);
+    this.getLogger().logTrace(`ipc message: ${message}`);
     const messageJson = JSON.parse(message);
     if (messageJson.type === 'Nuclide.userOutput') {
       // Write response message to ipc for sync message.
@@ -175,7 +185,7 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
       }
       this.getClientCallback().sendUserOutputMessage(JSON.stringify(messageJson.message));
     } else {
-      this.getLogger().logError(`Unknown message: ${ message }`);
+      this.getLogger().logError(`Unknown message: ${message}`);
     }
   }
 
@@ -190,7 +200,7 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
       detached: false, // When Atom is killed, clang_server.py should be killed, too.
       env: { PYTHONPATH: this._config.envPythonPath }
     };
-    this.getLogger().logInfo(`spawn child_process: ${ JSON.stringify(python_args) }`);
+    this.getLogger().logInfo(`spawn child_process: ${JSON.stringify(python_args)}`);
     const lldbProcess = _child_process.default.spawn(this._config.pythonBinaryPath, python_args, options);
     this.getSubscriptions().add(() => lldbProcess.kill());
     return lldbProcess;
@@ -205,13 +215,13 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
     this.getSubscriptions().add((0, (_stream || _load_stream()).observeStream)(argumentsStream).first().subscribe(text => {
       if (text.startsWith('ready')) {
         const args_in_json = JSON.stringify(args);
-        this.getLogger().logInfo(`Sending ${ args_in_json } to child_process`);
-        argumentsStream.write(`${ args_in_json }\n`);
+        this.getLogger().logInfo(`Sending ${args_in_json} to child_process`);
+        argumentsStream.write(`${args_in_json}\n`);
       } else {
-        this.getLogger().logError(`Get unknown initial data: ${ text }.`);
+        this.getLogger().logError(`Get unknown initial data: ${text}.`);
         child.kill();
       }
-    }, error => this.getLogger().logError(`argumentsStream error: ${ JSON.stringify(error) }`)));
+    }, error => this.getLogger().logError(`argumentsStream error: ${JSON.stringify(error)}`)));
   }
 
   _connectWithLLDB(lldbProcess) {
@@ -221,7 +231,7 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
       lldbProcess.stdout.on('data', chunk => {
         // stdout should hopefully be set to line-buffering, in which case the
         const block = chunk.toString();
-        this.getLogger().log(`child process(${ lldbProcess.pid }) stdout: ${ block }`);
+        this.getLogger().log(`child process(${lldbProcess.pid}) stdout: ${block}`);
         const result = /Port: (\d+)\n/.exec(block);
         if (result != null) {
           // $FlowIssue - flow has wrong typing for it(t9649946).
@@ -235,15 +245,15 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
           level: 'error',
           text: errorMessage
         }));
-        this.getLogger().logError(`child process(${ lldbProcess.pid }) stderr: ${ errorMessage }`);
+        this.getLogger().logError(`child process(${lldbProcess.pid}) stderr: ${errorMessage}`);
       });
       lldbProcess.on('error', err => {
-        reject(`debugger server error: ${ JSON.stringify(err) }`);
+        reject(`debugger server error: ${JSON.stringify(err)}`);
       });
       lldbProcess.on('exit', (code, signal) => {
-        let message = `debugger server exits with code: ${ code }`;
+        let message = `debugger server exits with code: ${code}`;
         if (signal != null) {
-          message += `, because of signal ${ signal }`;
+          message += `, because of signal ${signal}`;
         }
         reject(message);
       });

@@ -20,7 +20,7 @@ exports.default = (() => {
     const out = Object.keys(process.versions).map(function (key) {
       return [key, process.versions[key]];
     }).concat([['atom', atom.getVersion()]]).map(function ([name, version]) {
-      return `${ ctx.yellow(name) }=${ ctx.green(version) }`;
+      return `${ctx.yellow(name)}=${ctx.green(version)}`;
     }).sort().join('\n');
     console.log(out);
     return 0;

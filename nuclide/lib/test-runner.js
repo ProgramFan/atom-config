@@ -61,7 +61,7 @@ exports.default = (() => {
     // It's assumed that all of the tests belong to the same package.
     const pkg = getPackage(params.testPaths[0]);
     if (pkg == null) {
-      throw new Error(`Couldn't find a parent "package.json" for ${ params.testPaths[0] }`);
+      throw new Error(`Couldn't find a parent "package.json" for ${params.testPaths[0]}`);
     }
     const nuclideConfig = pkg.nuclide && pkg.nuclide.config;
 
@@ -89,7 +89,7 @@ exports.default = (() => {
 
           jasmine.getEnv().afterEach(() => {
             if (atomGlobal.confirm.calls.length) {
-              const details = atomGlobal.confirm.argsForCall.map((args, i) => `call #${ i } with ${ JSON.stringify(args) }`);
+              const details = atomGlobal.confirm.argsForCall.map((args, i) => `call #${i} with ${JSON.stringify(args)}`);
               throw new Error('atom.confirm was called.\n' + details);
             }
           });
@@ -101,7 +101,7 @@ exports.default = (() => {
             // and it doesn't load for unit tests, it's necessary to manually
             // construct any default config that they define.
             Object.keys(nuclideConfig).forEach(key => {
-              atomGlobal.config.setSchema(`nuclide.${ pkg.name }.${ key }`, nuclideConfig[key]);
+              atomGlobal.config.setSchema(`nuclide.${pkg.name}.${key}`, nuclideConfig[key]);
             });
           });
         }
@@ -118,7 +118,7 @@ exports.default = (() => {
           resolve();
           if (err && err.message !== 'not tracking') {
             // eslint-disable-next-line no-console
-            console.log(`temp.cleanup() failed. ${ err }`);
+            console.log(`temp.cleanup() failed. ${err}`);
           }
         });
       } else {

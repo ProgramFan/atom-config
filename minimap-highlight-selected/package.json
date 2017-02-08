@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-6138-15riwxi/package.tgz",
+        "raw": "/tmp/d-11718-6137-kb76rs/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-6138-15riwxi/package.tgz",
-        "spec": "/tmp/d-117016-6138-15riwxi/package.tgz",
+        "rawSpec": "/tmp/d-11718-6137-kb76rs/package.tgz",
+        "spec": "/tmp/d-11718-6137-kb76rs/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-6138-8b4yk9"
+      "/tmp/apm-install-dir-11718-6137-106dcyq"
     ]
   ],
-  "_from": "../d-117016-6138-15riwxi/package.tgz",
+  "_from": "../d-11718-6137-kb76rs/package.tgz",
   "_id": "minimap-highlight-selected@4.5.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-highlight-selected",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-6138-15riwxi/package.tgz",
+    "raw": "/tmp/d-11718-6137-kb76rs/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-6138-15riwxi/package.tgz",
-    "spec": "/tmp/d-117016-6138-15riwxi/package.tgz",
+    "rawSpec": "/tmp/d-11718-6137-kb76rs/package.tgz",
+    "spec": "/tmp/d-11718-6137-kb76rs/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-6138-15riwxi/package.tgz",
+  "_resolved": "file:../d-11718-6137-kb76rs/package.tgz",
   "_shasum": "e1b99f88ecff37a867626881fbaf87e5126565d5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-6138-15riwxi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-6138-8b4yk9",
+  "_spec": "/tmp/d-11718-6137-kb76rs/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-6137-106dcyq",
   "bugs": {
     "url": "https://github.com/atom-minimap/minimap-highlight-selected/issues"
   },

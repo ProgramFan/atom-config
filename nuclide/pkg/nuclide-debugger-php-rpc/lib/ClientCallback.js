@@ -69,7 +69,7 @@ class ClientCallback {
   }
 
   sendUserMessage(type, message) {
-    (_utils || _load_utils()).default.log(`sendUserMessage(${ type }): ${ JSON.stringify(message) }`);
+    (_utils || _load_utils()).default.log(`sendUserMessage(${type}): ${JSON.stringify(message)}`);
     switch (type) {
       case 'notification':
         this._notifications.next({
@@ -88,7 +88,7 @@ class ClientCallback {
         });
         break;
       default:
-        (_utils || _load_utils()).default.logError(`Unknown UserMessageType: ${ type }`);
+        (_utils || _load_utils()).default.logError(`Unknown UserMessageType: ${type}`);
     }
   }
 
@@ -131,6 +131,6 @@ class ClientCallback {
 exports.ClientCallback = ClientCallback;
 function sendJsonObject(subject, value) {
   const message = JSON.stringify(value);
-  (_utils || _load_utils()).default.log(`Sending JSON: ${ message }`);
+  (_utils || _load_utils()).default.log(`Sending JSON: ${message}`);
   subject.next(message);
 }

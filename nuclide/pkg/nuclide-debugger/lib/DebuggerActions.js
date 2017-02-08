@@ -122,7 +122,7 @@ class DebuggerActions {
       } catch (err) {
         (0, (_AnalyticsHelper || _load_AnalyticsHelper()).failTimerTracking)(err);
         (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)(AnalyticsEvents.DEBUGGER_START_FAIL, {});
-        const errorMessage = `Failed to start debugger process: ${ err }`;
+        const errorMessage = `Failed to start debugger process: ${err}`;
         _this.setError(errorMessage);
         atom.notifications.addError(errorMessage);
         _this.stopDebugging();
@@ -215,8 +215,8 @@ class DebuggerActions {
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)(AnalyticsEvents.DEBUGGER_STOP);
     (0, (_AnalyticsHelper || _load_AnalyticsHelper()).endTimerTracking)();
 
-    if (!(this._store.getDebuggerInstance() === null)) {
-      throw new Error('Invariant violation: "this._store.getDebuggerInstance() === null"');
+    if (!(this._store.getDebuggerInstance() == null)) {
+      throw new Error('Invariant violation: "this._store.getDebuggerInstance() == null"');
     }
 
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-debugger:hide');
@@ -508,13 +508,10 @@ class DebuggerActions {
     });
   }
 
-  updateScopes(scopeVariables, scopeName) {
+  updateScopes(scopeSections) {
     this._dispatcher.dispatch({
       actionType: (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.UPDATE_SCOPES,
-      data: {
-        scopeVariables,
-        scopeName
-      }
+      data: scopeSections
     });
   }
 

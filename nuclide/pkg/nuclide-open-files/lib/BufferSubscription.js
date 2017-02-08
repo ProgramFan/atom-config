@@ -152,7 +152,7 @@ class BufferSubscription {
         yield event.fileVersion.notifier.onFileEvent(event);
         _this2.updateServerVersion(event.fileVersion.version);
       } catch (e) {
-        logger.error(`Error sending file event: ${ eventToString(event) }`, e);
+        logger.error(`Error sending file event: ${eventToString(event)}`, e);
 
         if (event.fileVersion.filePath === _this2._buffer.getPath()) {
           logger.error('Attempting file resync');
@@ -218,9 +218,9 @@ class BufferSubscription {
               yield notifier.onFileEvent(syncEvent);
               _this3.updateServerVersion(resyncVersion);
 
-              logger.error(`Successful resync event: ${ eventToString(syncEvent) }`);
+              logger.error(`Successful resync event: ${eventToString(syncEvent)}`);
             } catch (syncError) {
-              logger.error(`Error sending file sync event: ${ eventToString(syncEvent) }`, syncError);
+              logger.error(`Error sending file sync event: ${eventToString(syncEvent)}`, syncError);
 
               // continue trying until either the file is closed,
               // or a resync to a later edit is attempted

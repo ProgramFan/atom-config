@@ -59,20 +59,20 @@ const EXIT_CODE_INVALID_ARGUMENTS = exports.EXIT_CODE_INVALID_ARGUMENTS = 4;
 
 function setupErrorHandling() {
   process.on('uncaughtException', event => {
-    logger.error(`Caught unhandled exception: ${ event.message }`, event.originalError);
-    process.stderr.write(`Unhandled exception: ${ event.message }\n`);
+    logger.error(`Caught unhandled exception: ${event.message}`, event.originalError);
+    process.stderr.write(`Unhandled exception: ${event.message}\n`);
     process.exit(EXIT_CODE_UNKNOWN_ERROR);
   });
 
   process.on('unhandledRejection', (error, promise) => {
     logger.error('Caught unhandled rejection', error);
-    process.stderr.write(`Unhandled rejection: ${ error.message }\n`);
+    process.stderr.write(`Unhandled rejection: ${error.message}\n`);
     process.exit(EXIT_CODE_UNKNOWN_ERROR);
   });
 }
 
 function reportConnectionErrorAndExit(detailMessage) {
-  process.stderr.write(`Error: ${ detailMessage }.\n`);
+  process.stderr.write(`Error: ${detailMessage}.\n`);
   process.stderr.write('Do you have Atom with Nuclide open?\n');
   process.stderr.write(new Error().stack);
   process.stderr.write('\n');

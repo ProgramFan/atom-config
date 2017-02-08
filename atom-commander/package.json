@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-7177-jmevvr/package.tgz",
+        "raw": "/tmp/d-11718-7176-ho9ypu/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-7177-jmevvr/package.tgz",
-        "spec": "/tmp/d-117016-7177-jmevvr/package.tgz",
+        "rawSpec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
+        "spec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-7177-1uhzhbh"
+      "/tmp/apm-install-dir-11718-7176-zv66xn"
     ]
   ],
-  "_from": "../d-117016-7177-jmevvr/package.tgz",
+  "_from": "../d-11718-7176-ho9ypu/package.tgz",
   "_id": "atom-commander@0.8.6",
   "_inCache": true,
   "_installable": true,
   "_location": "/atom-commander",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-7177-jmevvr/package.tgz",
+    "raw": "/tmp/d-11718-7176-ho9ypu/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-7177-jmevvr/package.tgz",
-    "spec": "/tmp/d-117016-7177-jmevvr/package.tgz",
+    "rawSpec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
+    "spec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-7177-jmevvr/package.tgz",
+  "_resolved": "file:../d-11718-7176-ho9ypu/package.tgz",
   "_shasum": "500de6191de44eb58e0c621327e69b14a9b4ad3e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-7177-jmevvr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-7177-1uhzhbh",
+  "_spec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-7176-zv66xn",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/morassman/atom-commander/issues"

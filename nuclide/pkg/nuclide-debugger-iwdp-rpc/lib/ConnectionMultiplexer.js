@@ -77,19 +77,16 @@ const { log, logError } = (_logger || _load_logger()).logger;
  * 3. The `add` method can be called to add an additonal connection to be managed by the CM.
  */
 class ConnectionMultiplexer {
-
+  // Invariant: this._enabledConnection != null, if and only if that connection is paused.
   constructor(sendMessageToClient) {
     this._connections = new Set();
     this._sendMessageToClient = message => sendMessageToClient(message);
     this._fileCache = new (_FileCache || _load_FileCache()).FileCache();
-    this._setPauseOnExceptionsState = 'none';
     this._freshConnectionId = 0;
     this._newConnections = new _rxjsBundlesRxMinJs.Subject();
     this._breakpointManager = new (_BreakpointManager || _load_BreakpointManager()).BreakpointManager(this._fileCache, this._sendMessageToClient.bind(this));
     this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._newConnections.subscribe(this._handleNewConnection.bind(this)), this._breakpointManager);
   }
-  // Invariant: this._enabledConnection != null, if and only if that connection is paused.
-
 
   sendCommand(message) {
     const [domain, method] = message.method.split('.');
@@ -111,7 +108,7 @@ class ConnectionMultiplexer {
         }
       default:
         {
-          this._replyWithError(message.id, `Unhandled message: ${ JSON.stringify(message) }`);
+          this._replyWithError(message.id, `Unhandled message: ${JSON.stringify(message)}`);
         }
     }
   }
@@ -169,7 +166,7 @@ class ConnectionMultiplexer {
           }
         case 'setPauseOnExceptions':
           {
-            const response = yield _this._setPauseOnExceptions(message);
+            const response = yield _this._breakpointManager.setPauseOnExceptions(message);
             _this._sendMessageToClient(response);
             break;
           }
@@ -198,7 +195,7 @@ class ConnectionMultiplexer {
 
         default:
           {
-            _this._replyWithError(message.id, `Unhandled message: ${ JSON.stringify(message) }`);
+            _this._replyWithError(message.id, `Unhandled message: ${JSON.stringify(message)}`);
           }
       }
     })();
@@ -218,7 +215,7 @@ class ConnectionMultiplexer {
         }
       default:
         {
-          this._replyWithError(message.id, `Unhandled message: ${ JSON.stringify(message) }`);
+          this._replyWithError(message.id, `Unhandled message: ${JSON.stringify(message)}`);
         }
     }
   }
@@ -232,7 +229,7 @@ class ConnectionMultiplexer {
         }
       default:
         {
-          this._replyWithError(message.id, `Unhandled message: ${ JSON.stringify(message) }`);
+          this._replyWithError(message.id, `Unhandled message: ${JSON.stringify(message)}`);
         }
     }
   }
@@ -287,7 +284,7 @@ class ConnectionMultiplexer {
         const response = yield _this3._enabledConnection.sendCommand(message);
         _this3._sendMessageToClient(response);
       } else {
-        _this3._replyWithError(message.id, `${ message.method } sent to running connection`);
+        _this3._replyWithError(message.id, `${message.method} sent to running connection`);
       }
     })();
   }
@@ -299,66 +296,44 @@ class ConnectionMultiplexer {
       if (_this4._enabledConnection != null) {
         const response = yield _this4._enabledConnection.sendCommand({
           id,
-          method: `Debugger.${ method }`
+          method: `Debugger.${method}`
         });
         _this4._sendMessageToClient(response);
       } else {
-        _this4._replyWithError(id, `Debugger.${ method } sent to running connection`);
+        _this4._replyWithError(id, `Debugger.${method} sent to running connection`);
       }
       return Promise.resolve();
     })();
   }
 
-  _setPauseOnExceptions(message) {
+  add(deviceInfo) {
     var _this5 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      if (_this5._connections.size === 0) {
-        return { id: message.id, error: { message: 'setPauseOnExceptions sent with no connections.' } };
-      }
-      _this5._setPauseOnExceptionsState = message.params.state;
-      const responsePromises = [];
-      for (const connection of _this5._connections) {
-        responsePromises.push(connection.sendCommand(message));
-      }
-      const responses = yield Promise.all(responsePromises);
-      log(`setPauseOnExceptions yielded: ${ JSON.stringify(responses) }`);
-      for (const response of responses) {
-        // We can receive multiple responses, so just send the first non-error one.
-        if (response.result != null && response.error == null) {
-          return response;
-        }
-      }
-      return responses[0];
-    })();
-  }
-
-  add(deviceInfo) {
-    var _this6 = this;
-
-    return (0, _asyncToGenerator.default)(function* () {
-      const connection = _this6._connectToContext(deviceInfo);
-      _this6._newConnections.next(connection);
+      const connection = _this5._connectToContext(deviceInfo);
+      _this5._newConnections.next(connection);
     })();
   }
 
   _connectToContext(deviceInfo) {
     const connection = new (_DebuggerConnection || _load_DebuggerConnection()).DebuggerConnection(this._freshConnectionId++, deviceInfo);
-    this._disposables.add(connection.getStatusChanges().subscribe(status => this._handleStatusChange(status, connection)), connection.subscribeToEvents(this.sendCommand.bind(this)));
+    // While it is the CM's responsibility to create these subscriptions, their lifetimes are the
+    // same as the connection, so their disposal will be handled by the connection.
+    connection.onDispose(connection.getStatusChanges().subscribe(status => this._handleStatusChange(status, connection)), connection.subscribeToEvents(this.sendCommand.bind(this)));
+    this._disposables.add(connection);
     this._connections.add(connection);
     return connection;
   }
 
   _handleNewConnection(connection) {
-    var _this7 = this;
+    var _this6 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
       // When a connection comes in, we need to do a few things:
       // 1. Exchange prelude messages, enabling the relevant domains, etc.
-      yield _this7._sendPreludeToTarget(connection);
+      yield _this6._sendPreludeToTarget(connection);
       // 2. Add this connection to the breakpoint manager so that will handle breakpoints.
-      yield _this7._breakpointManager.addConnection(connection);
-      yield _this7._sendSetPauseOnExceptionToTarget(connection);
+      yield _this6._breakpointManager.addConnection(connection);
     })();
   }
 
@@ -372,22 +347,10 @@ class ConnectionMultiplexer {
       if (!responses.every(function (response) {
         return response.result != null && response.error == null;
       })) {
-        const err = `A prelude message response was an error: ${ JSON.stringify(responses) }`;
+        const err = `A prelude message response was an error: ${JSON.stringify(responses)}`;
         logError(err);
         throw new Error(err);
       }
-    })();
-  }
-
-  _sendSetPauseOnExceptionToTarget(connection) {
-    var _this8 = this;
-
-    return (0, _asyncToGenerator.default)(function* () {
-      // Drop the responses on the floor, since setting initial pauseOnException is handled by CM.
-      yield connection.sendCommand({
-        method: 'Debugger.setPauseOnExceptions',
-        params: _this8._setPauseOnExceptionsState
-      });
     })();
   }
 
@@ -403,14 +366,19 @@ class ConnectionMultiplexer {
           this._handlePausedMode(connection);
           break;
         }
+      case (_constants || _load_constants()).ENDED:
+        {
+          this._handleEndedMode(connection);
+          break;
+        }
       default:
         {
           if (!false) {
-            throw new Error(`Unknown status: ${ status }`);
+            throw new Error(`Unknown status: ${status}`);
           }
         }
     }
-    log(`Switching status to: ${ status }`);
+    log(`Switching status to: ${status}`);
   }
 
   _handleRunningMode(connection) {
@@ -427,6 +395,15 @@ class ConnectionMultiplexer {
   _handlePausedMode(connection) {
     if (this._enabledConnection == null) {
       this._enabledConnection = connection;
+    }
+  }
+
+  _handleEndedMode(connection) {
+    this._breakpointManager.removeConnection(connection);
+    const wasFound = this._connections.delete(connection);
+    if (wasFound) {
+      this._disposables.remove(connection);
+      connection.dispose();
     }
   }
 

@@ -64,7 +64,7 @@ class StatusBarTileComponent extends _reactForAtom.React.Component {
         'nuclide-type-coverage-status-bar-pending': this.props.pending,
         'nuclide-type-coverage-status-bar-ready': !this.props.pending
       }, colorClasses));
-      const formattedPercentage = `${ Math.floor(percentage) }%`;
+      const formattedPercentage = `${Math.floor(percentage)}%`;
       const tooltipString = getTooltipString(formattedPercentage, result.providerName);
       return _reactForAtom.React.createElement(
         'div',
@@ -87,5 +87,5 @@ class StatusBarTileComponent extends _reactForAtom.React.Component {
 
 exports.StatusBarTileComponent = StatusBarTileComponent;
 function getTooltipString(formattedPercentage, providerName) {
-  return `This file is ${ formattedPercentage } covered by ${ providerName }.<br/>` + 'Click to toggle display of uncovered areas.';
+  return `This file is ${formattedPercentage} covered by ${providerName}.<br/>` + 'Click to toggle display of uncovered areas.';
 }

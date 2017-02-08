@@ -34,7 +34,7 @@ exports.createErrorResponseMessage = createErrorResponseMessage;
 function decodeError(message, encodedError) {
   if (encodedError != null && typeof encodedError === 'object') {
     const resultError = new Error();
-    resultError.message = `Remote Error: ${ encodedError.message } processing message ${ JSON.stringify(message) }\n` + JSON.stringify(encodedError.stack);
+    resultError.message = `Remote Error: ${encodedError.message} processing message ${JSON.stringify(message)}\n` + JSON.stringify(encodedError.stack);
     // $FlowIssue - some Errors (notably file operations) have a code.
     resultError.code = encodedError.code;
     resultError.stack = encodedError.stack;
@@ -153,9 +153,9 @@ function formatError(error) {
     return undefined;
   } else {
     try {
-      return `Unknown Error: ${ JSON.stringify(error, null, 2) }`;
+      return `Unknown Error: ${JSON.stringify(error, null, 2)}`;
     } catch (jsonError) {
-      return `Unknown Error: ${ error.toString() }`;
+      return `Unknown Error: ${error.toString()}`;
     }
   }
 }

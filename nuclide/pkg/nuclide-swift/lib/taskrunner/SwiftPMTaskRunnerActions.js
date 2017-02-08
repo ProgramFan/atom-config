@@ -22,6 +22,13 @@ class SwiftPMTaskRunnerActions {
     this._dispatcher = dispatcher;
   }
 
+  updateProjectRoot(projectRoot) {
+    this._dispatcher.dispatch({
+      actionType: (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_PROJECT_ROOT,
+      projectRoot
+    });
+  }
+
   updateChdir(chdir) {
     this._dispatcher.dispatch({
       actionType: (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_CHDIR,
@@ -29,20 +36,13 @@ class SwiftPMTaskRunnerActions {
     });
   }
 
-  updateBuildSettings(configuration, Xcc, Xlinker, Xswiftc, buildPath) {
+  updateSettings(configuration, Xcc, Xlinker, Xswiftc, buildPath) {
     this._dispatcher.dispatch({
-      actionType: (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_BUILD_SETTINGS,
+      actionType: (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_SETTINGS,
       configuration,
       Xcc,
       Xlinker,
       Xswiftc,
-      buildPath
-    });
-  }
-
-  updateTestSettings(buildPath) {
-    this._dispatcher.dispatch({
-      actionType: (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_TEST_SETTINGS,
       buildPath
     });
   }
@@ -54,7 +54,7 @@ class SwiftPMTaskRunnerActions {
       compileCommandsPromise = (0, (_LlbuildYamlParser || _load_LlbuildYamlParser()).readCompileCommands)(yamlPath);
     } catch (e) {
       atom.notifications.addError('The YAML produced by the Swift package manager is malformed', {
-        description: `Nuclide could not parse the YAML file at \`${ yamlPath }\`. ` + 'Please file a bug, and include the contents of the file in ' + 'your report.'
+        description: `Nuclide could not parse the YAML file at \`${yamlPath}\`. ` + 'Please file a bug, and include the contents of the file in ' + 'your report.'
       });
       return;
     }

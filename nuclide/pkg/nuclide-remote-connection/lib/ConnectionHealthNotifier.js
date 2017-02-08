@@ -110,7 +110,7 @@ class ConnectionHealthNotifier {
     const notifyNetworkAway = code => {
       this._heartbeatNetworkAwayCount++;
       if (this._heartbeatNetworkAwayCount >= HEARTBEAT_AWAY_REPORT_COUNT) {
-        addHeartbeatNotification(HEARTBEAT_NOTIFICATION_WARNING, code, `Nuclide server cannot be reached at "${ serverUri }".<br/>` + 'Nuclide will reconnect when the network is restored.',
+        addHeartbeatNotification(HEARTBEAT_NOTIFICATION_WARNING, code, `Nuclide server cannot be reached at "${serverUri}".<br/>` + 'Nuclide will reconnect when the network is restored.',
         /* dismissable */true,
         /* askToReload */false);
       }
@@ -145,7 +145,7 @@ class ConnectionHealthNotifier {
         case 'PORT_NOT_ACCESSIBLE':
           // Notify never heard a heartbeat from the server.
           const port = socket.getServerPort();
-          addHeartbeatNotification(HEARTBEAT_NOTIFICATION_ERROR, code, '**Nuclide Server Is Not Reachable**<br/>' + `It could be running on a port that is not accessible: ${ String(port) }.`,
+          addHeartbeatNotification(HEARTBEAT_NOTIFICATION_ERROR, code, '**Nuclide Server Is Not Reachable**<br/>' + `It could be running on a port that is not accessible: ${String(port)}.`,
           /* dismissable */true,
           /* askToReload */false);
           break;

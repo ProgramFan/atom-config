@@ -26,7 +26,7 @@ const DiagnosticsTraceItem = exports.DiagnosticsTraceItem = props => {
     const [, relativePath] = atom.project.relativizePath(path);
     let locString = relativePath;
     if (trace.range) {
-      locString += `:${ trace.range.start.row + 1 }`;
+      locString += `:${trace.range.start.row + 1}`;
     }
     const onClick = event => {
       event.stopPropagation();

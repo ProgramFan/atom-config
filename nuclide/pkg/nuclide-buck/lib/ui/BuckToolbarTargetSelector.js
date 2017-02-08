@@ -99,7 +99,7 @@ class BuckToolbarTargetSelector extends _reactForAtom.React.Component {
     this._cachedOwners = buckService == null ? Promise.resolve([]) : buckService.getOwners(buckRoot, path).then(
     // Strip off the optional leading "//" to match typical user input.
     owners => owners.map(owner => owner.startsWith('//') ? owner.substring(2) : owner)).catch(err => {
-      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error getting Buck owners for ${ path }`, err);
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error getting Buck owners for ${path}`, err);
       return [];
     });
     this._cachedOwnersPath = path;

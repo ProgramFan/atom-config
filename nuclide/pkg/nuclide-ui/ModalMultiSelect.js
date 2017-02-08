@@ -195,6 +195,6 @@ function DefaultLabelComponent(props) {
   return _reactForAtom.React.createElement(
     'span',
     null,
-    `${ count } ${ noun } Selected`
+    `${count} ${noun} Selected`
   );
 }

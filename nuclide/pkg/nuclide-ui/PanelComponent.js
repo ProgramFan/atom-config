@@ -96,20 +96,22 @@ class PanelComponent extends _reactForAtom.React.Component {
     // is resizing the panel, even if their mouse leaves the handle.
     let resizeCursorOverlay = null;
     if (this.state.isResizing) {
-      resizeCursorOverlay = _reactForAtom.React.createElement('div', { className: `nuclide-ui-panel-component-resize-cursor-overlay ${ this.props.dock }` });
+      resizeCursorOverlay = _reactForAtom.React.createElement('div', { className: `nuclide-ui-panel-component-resize-cursor-overlay ${this.props.dock}` });
     }
 
     let containerStyle;
-    if (this.props.dock === 'left' || this.props.dock === 'right') {
-      containerStyle = {
-        width: this.state.length,
-        minWidth: MINIMUM_LENGTH
-      };
-    } else if (this.props.dock === 'top' || this.props.dock === 'bottom') {
-      containerStyle = {
-        height: this.state.length,
-        minHeight: MINIMUM_LENGTH
-      };
+    if (this.props.doNotSetSize !== true) {
+      if (this.props.dock === 'left' || this.props.dock === 'right') {
+        containerStyle = {
+          width: this.state.length,
+          minWidth: MINIMUM_LENGTH
+        };
+      } else if (this.props.dock === 'top' || this.props.dock === 'bottom') {
+        containerStyle = {
+          height: this.state.length,
+          minHeight: MINIMUM_LENGTH
+        };
+      }
     }
 
     const content = _reactForAtom.React.cloneElement(_reactForAtom.React.Children.only(this.props.children), { ref: 'child' });
@@ -125,20 +127,13 @@ class PanelComponent extends _reactForAtom.React.Component {
       );
     }
 
-    // Use the `tree-view-resizer` class from Atom's [tree-view][1] because it is targeted by some
-    // themes, like [spacegray-dark-ui][2], to customize the scroll bar in the tree-view. Use this
-    // inside `PanelComponent` rather than just file-tree so any scrollable panels created with this
-    // component are styled accordingly.
-    //
-    // [1] https://github.com/atom/tree-view/blob/v0.201.5/lib/tree-view.coffee#L28
-    // [2] https://github.com/cannikin/spacegray-dark-ui/blob/v0.12.0/styles/tree-view.less#L21
     return _reactForAtom.React.createElement(
       'div',
       {
-        className: `nuclide-ui-panel-component tree-view-resizer ${ this.props.dock }`,
+        className: `nuclide-ui-panel-component ${this.props.dock}`,
         hidden: this.props.hidden,
         style: containerStyle },
-      _reactForAtom.React.createElement('div', { className: `nuclide-ui-panel-component-resize-handle ${ this.props.dock }`,
+      _reactForAtom.React.createElement('div', { className: `nuclide-ui-panel-component-resize-handle ${this.props.dock}`,
         ref: 'handle',
         onMouseDown: this._handleMouseDown,
         onDoubleClick: this._handleDoubleClick
@@ -187,6 +182,12 @@ class PanelComponent extends _reactForAtom.React.Component {
   }
 
   _handleMouseMove(event) {
+    if (event.buttons === 0) {
+      // We missed the mouseup event. For some reason it happens on Windows
+      this._handleMouseUp(event);
+      return;
+    }
+
     const containerEl = _reactForAtom.ReactDOM.findDOMNode(this);
     let length = 0;
     switch (this.props.dock) {

@@ -24,7 +24,7 @@ const TREE_API_DATA_PATH = 'data-path';
 function uiTreePath(event) {
   // Event target isn't necessarily an HTMLElement,
   const target = event.currentTarget;
-  const nameElement = target.hasAttribute(TREE_API_DATA_PATH) ? target : target.querySelector(`[${ TREE_API_DATA_PATH }]`);
+  const nameElement = target.hasAttribute(TREE_API_DATA_PATH) ? target : target.querySelector(`[${TREE_API_DATA_PATH}]`);
 
   if (!(nameElement != null)) {
     throw new Error('Invariant violation: "nameElement != null"');

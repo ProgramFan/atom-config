@@ -162,7 +162,7 @@ function searchInSubdir(matchesByFile, directory, subdir, regex) {
 
   return results
   // Limit the total result size.
-  .merge(results.scan((size, { match }) => size + match.lineText.length + match.matchText.length, 0).filter(size => size > MATCH_BYTE_LIMIT).switchMapTo(_rxjsBundlesRxMinJs.Observable.throw(Error(`Too many results, truncating to ${ MATCH_BYTE_LIMIT } bytes`))).ignoreElements())
+  .merge(results.scan((size, { match }) => size + match.lineText.length + match.matchText.length, 0).filter(size => size > MATCH_BYTE_LIMIT).switchMapTo(_rxjsBundlesRxMinJs.Observable.throw(Error(`Too many results, truncating to ${MATCH_BYTE_LIMIT} bytes`))).ignoreElements())
   // Buffer results by file. Flush when the file changes, or on completion.
   .buffer(_rxjsBundlesRxMinJs.Observable.concat(results.distinct(result => result.filePath), _rxjsBundlesRxMinJs.Observable.of(null))).filter(buffer => buffer.length > 0).map(buffer => ({
     filePath: buffer[0].filePath,

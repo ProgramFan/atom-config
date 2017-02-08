@@ -33,7 +33,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function createBuckWebSocket(httpPort) {
   return _rxjsBundlesRxMinJs.Observable.create(observer => {
-    const uri = `ws://localhost:${ httpPort }/ws/build`;
+    const uri = `ws://localhost:${httpPort}/ws/build`;
     const socket = new (_ws || _load_ws()).default(uri);
     let buildId = null;
 

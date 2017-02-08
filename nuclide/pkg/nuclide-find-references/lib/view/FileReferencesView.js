@@ -117,7 +117,7 @@ class FileReferencesView extends _reactForAtom.React.Component {
 
     return _reactForAtom.React.createElement(
       'li',
-      { className: `${ outerClassName }` },
+      { className: `${outerClassName}` },
       _reactForAtom.React.createElement(
         'div',
         {

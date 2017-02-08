@@ -68,7 +68,7 @@ function getModuleNameRange(message, line, editor) {
     }
     lineNumber += 1;
   }
-  logger.warn(`getModuleNameRange failed for message: ${ message }`);
+  logger.warn(`getModuleNameRange failed for message: ${message}`);
 }
 
 // Computes an appropriate underline range using the diagnostic type information.
@@ -162,8 +162,8 @@ function getDiagnosticRange(diagnostic, editor) {
         break;
     }
   } catch (e) {
-    const diagnosticAsString = `${ diagnostic.file }:${ unsafeLine }:${ column } - ${ code }: ${ message }`;
-    logger.error(`Failed to find flake8 diagnostic range: ${ diagnosticAsString }`, e);
+    const diagnosticAsString = `${diagnostic.file}:${unsafeLine}:${column} - ${code}: ${message}`;
+    logger.error(`Failed to find flake8 diagnostic range: ${diagnosticAsString}`, e);
   }
 
   return new _atom.Range([line, trimmedStartCol], [line, trimmedEndCol]);

@@ -11,6 +11,12 @@ var _atom = require('atom');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+const TASKS = exports.TASKS = [];
+
+/*
+ * This will provide the toolbar functionality for the open-source-supported HHVM targets.
+ * e.g. HHVM Debugger
+ */
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -21,20 +27,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 
  */
 
-const TASKS = exports.TASKS = [];
-
-/*
- * This will provide the toolbar functionality for the open-source-supported HHVM targets.
- * e.g. HHVM Debugger
- */
 class ArcToolbarModel {
 
   constructor(outputMessages) {
     this._outputMessages = outputMessages;
   }
 
-  setCwdApi(cwdApi) {
-    this._cwdApi = cwdApi;
+  setProjectPath(projectPath) {
+    this._projectPath = projectPath;
   }
 
   logOutput(text, level) {
@@ -42,15 +42,7 @@ class ArcToolbarModel {
   }
 
   getActiveProjectPath() {
-    if (this._cwdApi == null) {
-      return atom.project.getPaths()[0];
-    }
-    const workingDirectory = this._cwdApi.getCwd();
-    if (workingDirectory != null) {
-      return workingDirectory.getPath();
-    } else {
-      return null;
-    }
+    return this._projectPath;
   }
 
   onChange(callback) {

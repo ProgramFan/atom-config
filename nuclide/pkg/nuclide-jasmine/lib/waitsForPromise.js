@@ -38,7 +38,7 @@ function waitsForPromise(...args) {
         // Do nothing, it's expected.
       }, error => {
         const text = error ? error.stack || error.toString() : 'undefined';
-        jasmine.getEnv().currentSpec.fail(`Expected promise to be resolved, but it was rejected with ${ text }`);
+        jasmine.getEnv().currentSpec.fail(`Expected promise to be resolved, but it was rejected with ${text}`);
       }).then(() => {
         finished = true;
       });

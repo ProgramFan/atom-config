@@ -78,7 +78,7 @@ class Subscription {
     try {
       this._observer.error((0, (_messages || _load_messages()).decodeError)(this._message, error));
     } catch (e) {
-      logger.error(`Caught exception in Subscription.error: ${ e.toString() }`);
+      logger.error(`Caught exception in Subscription.error: ${e.toString()}`);
     }
   }
 
@@ -86,7 +86,7 @@ class Subscription {
     try {
       this._observer.next(data);
     } catch (e) {
-      logger.error(`Caught exception in Subscription.next: ${ e.toString() }`);
+      logger.error(`Caught exception in Subscription.next: ${e.toString()}`);
     }
   }
 
@@ -94,7 +94,7 @@ class Subscription {
     try {
       this._observer.complete();
     } catch (e) {
-      logger.error(`Caught exception in Subscription.complete: ${ e.toString() }`);
+      logger.error(`Caught exception in Subscription.complete: ${e.toString()}`);
     }
   }
 }
@@ -139,7 +139,7 @@ class Call {
   _timeout() {
     if (!this._complete) {
       this.cleanup();
-      this._reject(new Error(`Timeout after ${ SERVICE_FRAMEWORK_RPC_TIMEOUT_MS } for id: ` + `${ this._message.id }, ${ this._timeoutMessage }.`));
+      this._reject(new Error(`Timeout after ${SERVICE_FRAMEWORK_RPC_TIMEOUT_MS} for id: ` + `${this._message.id}, ${this._timeoutMessage}.`));
     }
   }
 }
@@ -178,7 +178,7 @@ class RpcConnection {
     const service = this._objectRegistry.getService(serviceName);
 
     if (!(service != null)) {
-      throw new Error(`No config found for service ${ serviceName }`);
+      throw new Error(`No config found for service ${serviceName}`);
     }
 
     return service;
@@ -216,7 +216,7 @@ class RpcConnection {
    * @param args - The serialized arguments to invoke the remote function with.
    */
   callRemoteFunction(functionName, returnType, args) {
-    return this._sendMessageAndListenForResult((0, (_messages || _load_messages()).createCallMessage)(this._getProtocol(), functionName, this._generateRequestId(), args), returnType, `Calling function ${ functionName }`);
+    return this._sendMessageAndListenForResult((0, (_messages || _load_messages()).createCallMessage)(this._getProtocol(), functionName, this._generateRequestId(), args), returnType, `Calling function ${functionName}`);
   }
 
   /**
@@ -228,7 +228,7 @@ class RpcConnection {
    * @param args - The serialized arguments to invoke the remote method with.
    */
   callRemoteMethod(objectId, methodName, returnType, args) {
-    return this._sendMessageAndListenForResult((0, (_messages || _load_messages()).createCallObjectMessage)(this._getProtocol(), methodName, objectId, this._generateRequestId(), args), returnType, `Calling remote method ${ methodName }.`);
+    return this._sendMessageAndListenForResult((0, (_messages || _load_messages()).createCallObjectMessage)(this._getProtocol(), methodName, objectId, this._generateRequestId(), args), returnType, `Calling remote method ${methodName}.`);
   }
 
   /**
@@ -244,7 +244,7 @@ class RpcConnection {
 
     const idPromise = (0, _asyncToGenerator.default)(function* () {
       const marshalledArgs = yield _this._getTypeRegistry().marshalArguments(_this._objectRegistry, unmarshalledArgs, argTypes);
-      return _this._sendMessageAndListenForResult((0, (_messages || _load_messages()).createNewObjectMessage)(_this._getProtocol(), interfaceName, _this._generateRequestId(), marshalledArgs), 'promise', `Creating instance of ${ interfaceName }`);
+      return _this._sendMessageAndListenForResult((0, (_messages || _load_messages()).createNewObjectMessage)(_this._getProtocol(), interfaceName, _this._generateRequestId(), marshalledArgs), 'promise', `Creating instance of ${interfaceName}`);
     })();
     this._objectRegistry.addProxy(thisArg, interfaceName, idPromise);
   }
@@ -265,7 +265,7 @@ class RpcConnection {
       } else if (_this2._transport.isClosed()) {
         logger.info('Dispose call on remote proxy after connection closed');
       } else {
-        return _this2._sendMessageAndListenForResult((0, (_messages || _load_messages()).createDisposeMessage)(_this2._getProtocol(), _this2._generateRequestId(), objectId), 'promise', `Disposing object ${ objectId }`);
+        return _this2._sendMessageAndListenForResult((0, (_messages || _load_messages()).createDisposeMessage)(_this2._getProtocol(), _this2._generateRequestId(), objectId), 'promise', `Disposing object ${objectId}`);
       }
     })();
   }
@@ -342,7 +342,7 @@ class RpcConnection {
             return observable;
           }
         default:
-          throw new Error(`Unkown return type: ${ returnType }.`);
+          throw new Error(`Unkown return type: ${returnType}.`);
       }
     };
     return (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)(trackingIdOfMessageAndNetwork(this._objectRegistry, message), operation);
@@ -411,7 +411,7 @@ class RpcConnection {
         this._returnObservable(id, value, type.type);
         break;
       default:
-        throw new Error(`Unkown return type ${ type.kind }.`);
+        throw new Error(`Unkown return type ${type.kind}.`);
     }
     return false;
   }
@@ -447,10 +447,11 @@ class RpcConnection {
         throw new Error('Invariant violation: "classDefinition != null"');
       }
 
-      const type = classDefinition.definition.instanceMethods.get(call.method);
+      const { instanceMethods } = classDefinition.definition;
+      const type = instanceMethods[call.method];
 
-      if (!(type != null)) {
-        throw new Error('Invariant violation: "type != null"');
+      if (!(instanceMethods.hasOwnProperty(call.method) && type != null)) {
+        throw new Error('Invariant violation: "instanceMethods.hasOwnProperty(call.method) && type != null"');
       }
 
       const marshalledArgs = yield _this4._getTypeRegistry().unmarshalArguments(_this4._objectRegistry, call.args, type.argumentTypes);
@@ -512,7 +513,7 @@ class RpcConnection {
       */
       return result;
     } catch (e) {
-      logger.error(`Recieved invalid JSON message: '${ value }'`);
+      logger.error(`Recieved invalid JSON message: '${value}'`);
       return null;
     }
   }
@@ -597,7 +598,7 @@ class RpcConnection {
           break;
         }
       default:
-        throw new Error(`Unexpected message type ${ JSON.stringify(message) }`);
+        throw new Error(`Unexpected message type ${JSON.stringify(message)}`);
     }
   }
 
@@ -636,13 +637,13 @@ class RpcConnection {
             _this6._objectRegistry.disposeSubscription(id);
             break;
           default:
-            throw new Error(`Unknown message type ${ message.type }`);
+            throw new Error(`Unknown message type ${message.type}`);
         }
         if (!returnedPromise) {
           timingTracker.onSuccess();
         }
       } catch (e) {
-        logger.error(`Error handling RPC ${ message.type } message`, e);
+        logger.error(`Error handling RPC ${message.type} message`, e);
         timingTracker.onError(e == null ? new Error() : e);
         _this6._transport.send(JSON.stringify((0, (_messages || _load_messages()).createErrorResponseMessage)(_this6._getProtocol(), id, e)));
       }
@@ -682,19 +683,19 @@ exports.RpcConnection = RpcConnection;
 function trackingIdOfMessage(registry, message) {
   switch (message.type) {
     case 'call':
-      return `service-framework:${ message.method }`;
+      return `service-framework:${message.method}`;
     case 'call-object':
       const callInterface = registry.getInterface(message.objectId);
-      return `service-framework:${ callInterface }.${ message.method }`;
+      return `service-framework:${callInterface}.${message.method}`;
     case 'new':
-      return `service-framework:new:${ message.interface }`;
+      return `service-framework:new:${message.interface}`;
     case 'dispose':
       const interfaceName = registry.getInterface(message.objectId);
-      return `service-framework:dispose:${ interfaceName }`;
+      return `service-framework:dispose:${interfaceName}`;
     case 'unsubscribe':
       return 'service-framework:disposeObservable';
     default:
-      throw new Error(`Unknown message type ${ message.type }`);
+      throw new Error(`Unknown message type ${message.type}`);
   }
 }
 

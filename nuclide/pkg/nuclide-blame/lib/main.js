@@ -139,7 +139,7 @@ class Activation {
       } else {
         atom.notifications.addInfo('Could not open blame: no blame information currently available for this file.');
 
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().info('nuclide-blame: Could not open blame: no blame provider currently available for this ' + `file: ${ String(editor.getPath()) }`);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().info('nuclide-blame: Could not open blame: no blame provider currently available for this ' + `file: ${String(editor.getPath())}`);
       }
     }
   }

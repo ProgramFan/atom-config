@@ -8,7 +8,7 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 let fetchDeviceData = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (port) {
-    const response = yield (0, (_xfetch || _load_xfetch()).default)(`http://localhost:${ port }/inspector/json`, {});
+    const response = yield (0, (_xfetch || _load_xfetch()).default)(`http://localhost:${port}/inspector/json`, {});
     if (response.ok) {
       const responseText = yield response.text();
       return JSON.parse(responseText);

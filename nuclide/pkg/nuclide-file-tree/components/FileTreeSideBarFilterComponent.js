@@ -34,7 +34,7 @@ class FileTreeSidebarFilterComponent extends _reactForAtom.React.Component {
       'show': Boolean(filter && filter.length),
       'not-found': !found
     });
-    const text = `search for: ${ filter }`;
+    const text = `search for: ${filter}`;
 
     return _reactForAtom.React.createElement(
       'div',

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-6730-x0qhvs/package.tgz",
+        "raw": "/tmp/d-11718-6729-16lkf9z/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-6730-x0qhvs/package.tgz",
-        "spec": "/tmp/d-117016-6730-x0qhvs/package.tgz",
+        "rawSpec": "/tmp/d-11718-6729-16lkf9z/package.tgz",
+        "spec": "/tmp/d-11718-6729-16lkf9z/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-6730-1d89xve"
+      "/tmp/apm-install-dir-11718-6729-9dfwr4"
     ]
   ],
-  "_from": "../d-117016-6730-x0qhvs/package.tgz",
-  "_id": "wordcount@2.10.2",
+  "_from": "../d-11718-6729-16lkf9z/package.tgz",
+  "_id": "wordcount@2.10.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/wordcount",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-6730-x0qhvs/package.tgz",
+    "raw": "/tmp/d-11718-6729-16lkf9z/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-6730-x0qhvs/package.tgz",
-    "spec": "/tmp/d-117016-6730-x0qhvs/package.tgz",
+    "rawSpec": "/tmp/d-11718-6729-16lkf9z/package.tgz",
+    "spec": "/tmp/d-11718-6729-16lkf9z/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-6730-x0qhvs/package.tgz",
-  "_shasum": "8e38308e8c0db6737f286dc6fc9b094e516cda45",
+  "_resolved": "file:../d-11718-6729-16lkf9z/package.tgz",
+  "_shasum": "ffb2505806c0b1429a012913097c5d77d2a1ea1a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-6730-x0qhvs/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-6730-1d89xve",
+  "_spec": "/tmp/d-11718-6729-16lkf9z/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-6729-9dfwr4",
   "bugs": {
     "url": "https://github.com/nesQuick/atom-wordcount/issues"
   },
@@ -76,5 +76,5 @@
     "type": "git",
     "url": "git+https://github.com/nesQuick/atom-wordcount.git"
   },
-  "version": "2.10.2"
+  "version": "2.10.4"
 }

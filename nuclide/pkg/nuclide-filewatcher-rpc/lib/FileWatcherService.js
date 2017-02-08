@@ -13,10 +13,10 @@ let getRealPath = (() => {
       stat = yield (_fsPromise || _load_fsPromise()).default.stat(entityPath);
     } catch (e) {
       // Atom watcher behavior compatibility.
-      throw new Error(`Can't watch a non-existing entity: ${ entityPath }`);
+      throw new Error(`Can't watch a non-existing entity: ${entityPath}`);
     }
     if (stat.isFile() !== isFile) {
-      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`FileWatcherService: expected ${ entityPath } to be a ${ isFile ? 'file' : 'directory' }`);
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`FileWatcherService: expected ${entityPath} to be a ${isFile ? 'file' : 'directory'}`);
     }
     return (_fsPromise || _load_fsPromise()).default.realpath(entityPath);
   });
@@ -125,7 +125,7 @@ function watchDirectoryRecursive(directoryPath) {
   if (client.hasSubscription(directoryPath)) {
     return _rxjsBundlesRxMinJs.Observable.of('EXISTING').publish();
   }
-  return _rxjsBundlesRxMinJs.Observable.fromPromise(client.watchDirectoryRecursive(directoryPath, `filewatcher-${ directoryPath }`,
+  return _rxjsBundlesRxMinJs.Observable.fromPromise(client.watchDirectoryRecursive(directoryPath, `filewatcher-${directoryPath}`,
   // Reloading with file changes should happen
   // during source control operations to reflect the file contents / tree state.
   { defer_vcs: false })).flatMap(watcher => {

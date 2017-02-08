@@ -82,7 +82,9 @@ class ServiceRegistry {
       });
 
       // Register type aliases.
-      factory.defs.forEach(definition => {
+      const defs = factory.defs;
+      Object.keys(defs).forEach(defName => {
+        const definition = defs[defName];
         const name = definition.name;
         switch (definition.kind) {
           case 'alias':
@@ -92,7 +94,7 @@ class ServiceRegistry {
             break;
           case 'function':
             // Register module-level functions.
-            const functionName = service.preserveFunctionNames ? name : `${ service.name }/${ name }`;
+            const functionName = service.preserveFunctionNames ? name : `${service.name}/${name}`;
             this._registerFunction(functionName, localImpl[name], definition.type);
             break;
           case 'interface':
@@ -105,21 +107,22 @@ class ServiceRegistry {
             this._typeRegistry.registerType(name, definition.location, (object, context) => context.marshal(name, object), (objectId, context) => context.unmarshal(objectId, name, context.getService(service.name)[name]));
 
             // Register all of the static methods as remote functions.
-            definition.staticMethods.forEach((funcType, funcName) => {
-              this._registerFunction(`${ name }/${ funcName }`, localImpl[name][funcName], funcType);
+            Object.keys(definition.staticMethods).forEach(funcName => {
+              const funcType = definition.staticMethods[funcName];
+              this._registerFunction(`${name}/${funcName}`, localImpl[name][funcName], funcType);
             });
             break;
         }
       });
     } catch (e) {
-      logger.error(`Failed to load service ${ service.name }. Stack Trace:\n${ e.stack }`);
+      logger.error(`Failed to load service ${service.name}. Stack Trace:\n${e.stack}`);
       throw e;
     }
   }
 
   _registerFunction(name, localImpl, type) {
     if (this._functionsByName.has(name)) {
-      throw new Error(`Duplicate RPC function: ${ name }`);
+      throw new Error(`Duplicate RPC function: ${name}`);
     }
     this._functionsByName.set(name, {
       localImplementation: localImpl,

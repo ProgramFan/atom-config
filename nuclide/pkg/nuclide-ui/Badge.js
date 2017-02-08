@@ -70,7 +70,7 @@ const Badge = exports.Badge = props => {
   const newClassName = (0, (_classnames || _load_classnames()).default)(className, 'badge', {
     [sizeClassName]: size != null,
     [colorClassName]: color != null,
-    [`icon icon-${ (0, (_string || _load_string()).maybeToString)(icon) }`]: icon != null
+    [`icon icon-${(0, (_string || _load_string()).maybeToString)(icon)}`]: icon != null
   });
   return _reactForAtom.React.createElement(
     'span',

@@ -18,7 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function locationToString(location) {
   switch (location.type) {
     case 'source':
-      return `${ location.fileName }(${ location.line })`;
+      return `${location.fileName}(${location.line})`;
     case 'builtin':
       return '<builtin>';
     default:

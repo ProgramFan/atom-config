@@ -84,7 +84,7 @@ function spawnClangProcess(src, serverArgs, flags) {
 class ClangServer extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
 
   constructor(src, serverArgs, flagsData) {
-    super(`ClangServer-${ src }`, getServiceRegistry(), () => spawnClangProcess(src, serverArgs, flagsData.flags));
+    super(`ClangServer-${src}`, getServiceRegistry(), () => spawnClangProcess(src, serverArgs, flagsData.flags));
     this._usesDefaultFlags = flagsData.usesDefaultFlags;
     this._pendingCompileRequests = 0;
     this._serverStatus = new _rxjsBundlesRxMinJs.BehaviorSubject(ClangServer.Status.READY);

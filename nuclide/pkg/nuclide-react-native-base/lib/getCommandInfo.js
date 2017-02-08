@@ -115,7 +115,7 @@ let getCommandFromBuck = (() => {
     // TODO(matthewwithanm): Move this to BuckUtils?
     const filePath = (_nuclideUri || _load_nuclideUri()).default.join(projectRoot, '.buckConfig');
     const content = yield (_fsPromise || _load_fsPromise()).default.readFile(filePath, 'utf8');
-    const parsed = (_ini || _load_ini()).default.parse(`scope = global\n${ content }`);
+    const parsed = (_ini || _load_ini()).default.parse(`scope = global\n${content}`);
     const section = parsed['react-native'];
     if (section == null || section.server == null) {
       return null;

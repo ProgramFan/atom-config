@@ -78,15 +78,13 @@ const Button = props => {
     className,
     wrapperElement,
     tooltip
-  } = props;
-
-  const remainingProps = _objectWithoutProperties(props, ['icon', 'buttonType', 'selected', 'size', 'children', 'className', 'wrapperElement', 'tooltip']);
-
+  } = props,
+        remainingProps = _objectWithoutProperties(props, ['icon', 'buttonType', 'selected', 'size', 'children', 'className', 'wrapperElement', 'tooltip']);
   const sizeClassname = size == null ? '' : ButtonSizeClassnames[size] || '';
   const buttonTypeClassname = buttonType == null ? '' : ButtonTypeClassnames[buttonType] || '';
   const ref = tooltip ? (0, (_addTooltip || _load_addTooltip()).default)(tooltip) : null;
   const newClassName = (0, (_classnames || _load_classnames()).default)(className, 'btn', {
-    [`icon icon-${ (0, (_string || _load_string()).maybeToString)(icon) }`]: icon != null,
+    [`icon icon-${(0, (_string || _load_string()).maybeToString)(icon)}`]: icon != null,
     [sizeClassname]: size != null,
     selected,
     [buttonTypeClassname]: buttonType != null

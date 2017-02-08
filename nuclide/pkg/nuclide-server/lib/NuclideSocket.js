@@ -124,7 +124,7 @@ class NuclideSocket {
 
     const { protocol, host } = _url.default.parse(serverUri);
     // TODO verify that `host` is non-null rather than using maybeToString
-    this._websocketUri = `ws${ protocol === 'https:' ? 's' : '' }://${ (0, (_string || _load_string()).maybeToString)(host) }`;
+    this._websocketUri = `ws${protocol === 'https:' ? 's' : ''}://${(0, (_string || _load_string()).maybeToString)(host)}`;
 
     this._heartbeat = new (_XhrConnectionHeartbeat || _load_XhrConnectionHeartbeat()).XhrConnectionHeartbeat(serverUri, options);
     this._heartbeat.onConnectionRestored(() => {
@@ -169,7 +169,7 @@ class NuclideSocket {
     // in uncaught exceptions. This is due to EventEmitter treating 'error'
     // events specially.
     const onSocketError = error => {
-      logger.error(`WebSocket Error while connecting... ${ error.message }`);
+      logger.error(`WebSocket Error while connecting... ${error.message}`);
       if (this.isDisconnected()) {
         logger.info('WebSocket reconnecting after error.');
         this._scheduleReconnect();

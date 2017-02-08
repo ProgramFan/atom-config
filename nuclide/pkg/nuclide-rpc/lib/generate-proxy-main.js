@@ -120,7 +120,7 @@ if (argv.validate) {
     const factory = (0, (_main || _load_main()).createProxyFactory)(serviceName, preserveFunctionNames, definitionPath, predefinedTypeNames);
     factory(fakeClient);
   } catch (e) {
-    console.error(`Failed to validate "${ definitionPath }"`);
+    console.error(`Failed to validate "${definitionPath}"`);
     throw e;
   }
 }

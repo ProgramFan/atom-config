@@ -47,7 +47,7 @@ class DebuggerRpcServiceBase {
 
   constructor(debuggerRpcServiceName) {
     this._clientCallback = new (_ClientCallback || _load_ClientCallback()).default();
-    this._logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)(`nuclide-debugger-${ debuggerRpcServiceName }-rpc`);
+    this._logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)(`nuclide-debugger-${debuggerRpcServiceName}-rpc`);
     this._subscriptions = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._clientCallback);
   }
 
@@ -112,16 +112,25 @@ class DebuggerRpcWebSocketService extends DebuggerRpcServiceBase {
         // Successfully connected with WS server, fulfill the promise.
         resolve(ws);
       });
+      ws.on('error', error => {
+        reject(error);
+        this.dispose();
+      });
+      ws.on('close', (code, reason) => {
+        const message = `WebSocket closed with: ${code}, ${reason}`;
+        reject(Error(message));
+        this.dispose();
+      });
     });
   }
 
   sendCommand(message) {
     const webSocket = this._webSocket;
     if (webSocket != null) {
-      this.getLogger().logTrace(`forward client message to server: ${ message }`);
+      this.getLogger().logTrace(`forward client message to server: ${message}`);
       webSocket.send(message);
     } else {
-      this.getLogger().logInfo(`Nuclide sent message to server after socket closed: ${ message }`);
+      this.getLogger().logInfo(`Nuclide sent message to server after socket closed: ${message}`);
     }
     return Promise.resolve();
   }

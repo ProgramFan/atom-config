@@ -229,7 +229,7 @@ function createLogPaneForPath(path) {
       files: [path],
       showDifferentialRevision
     },
-    title: `${ repository.getType() } log ${ (0, (_string || _load_string()).maybeToString)((0, (_projects || _load_projects()).getAtomProjectRelativePath)(path)) }`
+    title: `${repository.getType()} log ${(0, (_string || _load_string()).maybeToString)((0, (_projects || _load_projects()).getAtomProjectRelativePath)(path))}`
   });
 
   repository.log([path], MAX_NUM_LOG_RESULTS).then(response => pane.updateWithLogEntries(response.entries));

@@ -49,7 +49,7 @@ class Hasher {
         {
           let hash = this._hashes.get(item);
           if (hash == null) {
-            hash = `${ type }:${ this._objectCount }`;
+            hash = `${type}:${this._objectCount}`;
             this._hashes.set(item, hash);
             this._objectCount = this._objectCount + 1 === Number.MAX_SAFE_INTEGER ? Number.MIN_SAFE_INTEGER : this._objectCount + 1;
           }
@@ -59,7 +59,7 @@ class Hasher {
         return 'undefined';
       case 'string':
       case 'boolean':
-        return `${ type }:${ item.toString() }`;
+        return `${type}:${item.toString()}`;
       case 'number':
         return item;
       default:

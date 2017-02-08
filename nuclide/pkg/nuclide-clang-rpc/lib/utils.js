@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.isHeaderFile = isHeaderFile;
 exports.isSourceFile = isSourceFile;
+exports.commonPrefix = commonPrefix;
 exports.findIncludingSourceFile = findIncludingSourceFile;
 
 var _escapeStringRegexp;
@@ -50,6 +51,14 @@ function isSourceFile(filename) {
   return SOURCE_EXTENSIONS.has((_nuclideUri || _load_nuclideUri()).default.extname(filename));
 }
 
+function commonPrefix(a, b) {
+  let len = 0;
+  while (len < a.length && len < b.length && a[len] === b[len]) {
+    len++;
+  }
+  return len;
+}
+
 function processGrepResult(result, headerFile, includeRegex) {
   const splitIndex = result.indexOf('\0');
   if (splitIndex === -1) {
@@ -88,7 +97,7 @@ function processGrepResult(result, headerFile, includeRegex) {
 function findIncludingSourceFile(headerFile, projectRoot) {
   const basename = (0, (_escapeStringRegexp || _load_escapeStringRegexp()).default)((_nuclideUri || _load_nuclideUri()).default.basename(headerFile));
   const relativePath = (0, (_escapeStringRegexp || _load_escapeStringRegexp()).default)((_nuclideUri || _load_nuclideUri()).default.relative(projectRoot, headerFile));
-  const pattern = `^\\s*#include\\s+["<](${ relativePath }|(../)*${ basename })[">]\\s*$`;
+  const pattern = `^\\s*#include\\s+["<](${relativePath}|(../)*${basename})[">]\\s*$`;
   const regex = new RegExp(pattern);
   const spawnGrepProcess = () => {
     // We need both the file and the match to verify relative includes.

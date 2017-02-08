@@ -25,6 +25,12 @@ function _load_nuclideOpenFiles() {
   return _nuclideOpenFiles = require('../../nuclide-open-files');
 }
 
+var _AutocompleteCacher;
+
+function _load_AutocompleteCacher() {
+  return _AutocompleteCacher = _interopRequireDefault(require('../../commons-atom/AutocompleteCacher'));
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -39,34 +45,55 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 class AutocompleteProvider {
 
-  constructor(name, selector, inclusionPriority, suggestionPriority, disableForSelector, excludeLowerPriority, analyticsEventName, connectionToLanguageService) {
+  constructor(name, selector, inclusionPriority, suggestionPriority, disableForSelector, excludeLowerPriority, analyticsEventName, onDidInsertSuggestionAnalyticsEventName, autocompleteCacherConfig, connectionToLanguageService) {
     this.name = name;
     this.selector = selector;
     this.inclusionPriority = inclusionPriority;
     this.suggestionPriority = suggestionPriority;
+    this.disableForSelector = disableForSelector;
     this.excludeLowerPriority = excludeLowerPriority;
     this._analyticsEventName = analyticsEventName;
     this._connectionToLanguageService = connectionToLanguageService;
+
+    if (autocompleteCacherConfig != null) {
+      this._autocompleteCacher = new (_AutocompleteCacher || _load_AutocompleteCacher()).default(request => this._getSuggestionsFromLanguageService(request), autocompleteCacherConfig);
+    }
+
+    this.onDidInsertSuggestion = () => {
+      (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)(onDidInsertSuggestionAnalyticsEventName);
+    };
   }
 
   static register(name, grammars, config, connectionToLanguageService) {
-    return atom.packages.serviceHub.provide('autocomplete.provider', config.version, new AutocompleteProvider(name, grammars.map(grammar => '.' + grammar).join(', '), config.inclusionPriority, config.suggestionPriority, config.disableForSelector, config.excludeLowerPriority, config.analyticsEventName, connectionToLanguageService));
+    return atom.packages.serviceHub.provide('autocomplete.provider', config.version, new AutocompleteProvider(name, grammars.map(grammar => '.' + grammar).join(', '), config.inclusionPriority, config.suggestionPriority, config.disableForSelector, config.excludeLowerPriority, config.analyticsEventName, config.onDidInsertSuggestionAnalyticsEventName, config.autocompleteCacherConfig, connectionToLanguageService));
   }
 
   getSuggestions(request) {
+    return (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)(this._analyticsEventName, () => {
+      if (this._autocompleteCacher != null) {
+        return this._autocompleteCacher.getSuggestions(request);
+      } else {
+        return this._getSuggestionsFromLanguageService(request);
+      }
+    });
+  }
+
+  _getSuggestionsFromLanguageService(request) {
     var _this = this;
 
-    return (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)(this._analyticsEventName, (0, _asyncToGenerator.default)(function* () {
-      const { editor, activatedManually } = request;
+    return (0, _asyncToGenerator.default)(function* () {
+      const { editor, activatedManually, prefix } = request;
+      const position = editor.getLastCursor().getBufferPosition();
+      const path = editor.getPath();
       const fileVersion = yield (0, (_nuclideOpenFiles || _load_nuclideOpenFiles()).getFileVersionOfEditor)(editor);
-      const languageService = _this._connectionToLanguageService.getForUri(editor.getPath());
+
+      const languageService = _this._connectionToLanguageService.getForUri(path);
       if (languageService == null || fileVersion == null) {
         return [];
       }
-      const position = editor.getLastCursor().getBufferPosition();
 
-      return (yield languageService).getAutocompleteSuggestions(fileVersion, position, activatedManually == null ? false : activatedManually);
-    }));
+      return (yield languageService).getAutocompleteSuggestions(fileVersion, position, activatedManually == null ? false : activatedManually, prefix);
+    })();
   }
 }
 exports.AutocompleteProvider = AutocompleteProvider;

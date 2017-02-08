@@ -9,7 +9,7 @@ let readFileContents = (() => {
     try {
       contents = (yield (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getFileSystemServiceByNuclideUri)(uri).readFile(localPath)).toString('utf8');
     } catch (e) {
-      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`find-references: could not load file ${ uri }`, e);
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`find-references: could not load file ${uri}`, e);
       return null;
     }
     return contents;

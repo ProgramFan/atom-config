@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-7302-5bs88a/package.tgz",
+        "raw": "/tmp/d-11718-7293-1vsx57l/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-7302-5bs88a/package.tgz",
-        "spec": "/tmp/d-117016-7302-5bs88a/package.tgz",
+        "rawSpec": "/tmp/d-11718-7293-1vsx57l/package.tgz",
+        "spec": "/tmp/d-11718-7293-1vsx57l/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-7302-hwp644"
+      "/tmp/apm-install-dir-11718-7293-1rmann0"
     ]
   ],
-  "_from": "../d-117016-7302-5bs88a/package.tgz",
+  "_from": "../d-11718-7293-1vsx57l/package.tgz",
   "_id": "remote-sync@4.1.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/remote-sync",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-7302-5bs88a/package.tgz",
+    "raw": "/tmp/d-11718-7293-1vsx57l/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-7302-5bs88a/package.tgz",
-    "spec": "/tmp/d-117016-7302-5bs88a/package.tgz",
+    "rawSpec": "/tmp/d-11718-7293-1vsx57l/package.tgz",
+    "spec": "/tmp/d-11718-7293-1vsx57l/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-7302-5bs88a/package.tgz",
+  "_resolved": "file:../d-11718-7293-1vsx57l/package.tgz",
   "_shasum": "3be3ac87b25de35a23a8aeadb1a425809dcb2c3c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-7302-5bs88a/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-7302-hwp644",
+  "_spec": "/tmp/d-11718-7293-1vsx57l/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-7293-1rmann0",
   "bugs": {
     "url": "https://github.com/yongkangchen/remote-sync/issues"
   },

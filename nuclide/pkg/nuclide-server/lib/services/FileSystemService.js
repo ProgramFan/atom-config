@@ -175,7 +175,7 @@ let readFile = exports.readFile = (() => {
   var _ref7 = (0, _asyncToGenerator.default)(function* (path, options) {
     const stats = yield (_fsPromise || _load_fsPromise()).default.stat(path);
     if (stats.size > READFILE_SIZE_LIMIT) {
-      throw new Error(`File is too large (${ stats.size } bytes)`);
+      throw new Error(`File is too large (${stats.size} bytes)`);
     }
     return (_fsPromise || _load_fsPromise()).default.readFile(path, options);
   });

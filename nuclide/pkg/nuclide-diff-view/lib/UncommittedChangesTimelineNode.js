@@ -39,7 +39,7 @@ class UncommittedChangesTimelineNode extends _reactForAtom.React.Component {
     const hasChanges = dirtyFileCount > 0;
     let filesMessage;
     if (hasChanges) {
-      filesMessage = `${ dirtyFileCount } Uncommitted Change${ dirtyFileCount > 1 ? 's' : '' }`;
+      filesMessage = `${dirtyFileCount} Uncommitted Change${dirtyFileCount > 1 ? 's' : ''}`;
     } else {
       filesMessage = 'No Uncommitted Changes';
     }

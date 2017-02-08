@@ -11,11 +11,7 @@ function _load_systemInfo() {
   return _systemInfo = require('./system-info');
 }
 
-var _userInfo;
-
-function _load_userInfo() {
-  return _userInfo = _interopRequireDefault(require('./userInfo'));
-}
+var _os = _interopRequireDefault(require('os'));
 
 var _uuid;
 
@@ -50,7 +46,7 @@ function getCacheableRuntimeInformation() {
 
   cachedInformation = {
     sessionId: (_uuid || _load_uuid()).default.v4(),
-    user: (0, (_userInfo || _load_userInfo()).default)().username,
+    user: _os.default.userInfo().username,
     osType: (0, (_systemInfo || _load_systemInfo()).getOsType)(),
     timestamp: 0,
     isClient: (0, (_systemInfo || _load_systemInfo()).isRunningInClient)(),

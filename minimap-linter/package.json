@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-6216-1nmpbty/package.tgz",
+        "raw": "/tmp/d-11718-6215-1k2mo4p/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-6216-1nmpbty/package.tgz",
-        "spec": "/tmp/d-117016-6216-1nmpbty/package.tgz",
+        "rawSpec": "/tmp/d-11718-6215-1k2mo4p/package.tgz",
+        "spec": "/tmp/d-11718-6215-1k2mo4p/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-6216-cri6ej"
+      "/tmp/apm-install-dir-11718-6215-rls8hm"
     ]
   ],
-  "_from": "../d-117016-6216-1nmpbty/package.tgz",
+  "_from": "../d-11718-6215-1k2mo4p/package.tgz",
   "_id": "minimap-linter@1.6.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-linter",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-6216-1nmpbty/package.tgz",
+    "raw": "/tmp/d-11718-6215-1k2mo4p/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-6216-1nmpbty/package.tgz",
-    "spec": "/tmp/d-117016-6216-1nmpbty/package.tgz",
+    "rawSpec": "/tmp/d-11718-6215-1k2mo4p/package.tgz",
+    "spec": "/tmp/d-11718-6215-1k2mo4p/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-6216-1nmpbty/package.tgz",
+  "_resolved": "file:../d-11718-6215-1k2mo4p/package.tgz",
   "_shasum": "f10f2a9f5ef01fd4d83e6acf9f239a924cf65ec0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-6216-1nmpbty/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-6216-cri6ej",
+  "_spec": "/tmp/d-11718-6215-1k2mo4p/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-6215-rls8hm",
   "bugs": {
     "url": "https://github.com/AtomLinter/atom-minimap-linter/issues"
   },

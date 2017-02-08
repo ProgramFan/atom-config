@@ -64,8 +64,8 @@ class Inspector extends _reactForAtom.React.Component {
     const requirePaths = require.cache[__filename].paths;
     const inspectorDevTools = (_nuclideUri || _load_nuclideUri()).default.join(__dirname, '../../VendorLib/dev-tools/build/standalone.js');
     element.executeJavaScript(`initializeElementInspector(
-        ${ JSON.stringify(inspectorDevTools) },
-        ${ JSON.stringify(requirePaths) }
+        ${JSON.stringify(inspectorDevTools)},
+        ${JSON.stringify(requirePaths)}
       );`);
   }
 }

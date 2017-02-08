@@ -28,9 +28,9 @@ let main = (() => {
       }, (_servicesConfig || _load_servicesConfig()).default);
       yield server.connect();
       serverStartTimer.onSuccess();
-      logger.info(`NuclideServer started on port ${ port }.`);
-      logger.info(`Using node ${ process.version }.`);
-      logger.info(`Server ready time: ${ process.uptime() * 1000 }ms`);
+      logger.info(`NuclideServer started on port ${port}.`);
+      logger.info(`Using node ${process.version}.`);
+      logger.info(`Server ready time: ${process.uptime() * 1000}ms`);
     } catch (e) {
       // Ensure logging is configured.
       yield (0, (_nuclideLogging || _load_nuclideLogging()).initialUpdateConfig)();
@@ -116,7 +116,7 @@ process.on('uncaughtException', err => {
 //
 // We include this code here in anticipation of the Node/io.js merger.
 process.on('unhandledRejection', (error, promise) => {
-  logger.error(`Unhandled promise rejection ${ promise }. Error:`, error);
+  logger.error(`Unhandled promise rejection ${promise}. Error:`, error);
 });
 
 const argv = (_yargs || _load_yargs()).default.default('port', DEFAULT_PORT).argv;

@@ -104,8 +104,8 @@ class NuxView {
       this._onNuxComplete(false);
       // An error is logged and tracked instead of simply throwing an error since this function
       // will execute outside of the parent scope's execution and cannot be caught.
-      const error = `NuxView #${ this._index } for NUX#"${ this._tourId }" ` + 'failed to succesfully attach to the DOM.';
-      logger.error(`ERROR: ${ error }`);
+      const error = `NuxView #${this._index} for NUX#"${this._tourId}" ` + 'failed to succesfully attach to the DOM.';
+      logger.error(`ERROR: ${error}`);
       this._track(error, error);
       return;
     }
@@ -191,8 +191,8 @@ class NuxView {
     // In this case we show a hint to the user.
     const nextLinkButton = `\
       <span
-        class="nuclide-nux-link ${ nextLinkStyle } nuclide-nux-next-link-${ this._index }"
-        ${ nextLinkStyle === LINK_DISABLED ? 'title="Interact with the indicated UI element to proceed."' : '' }>
+        class="nuclide-nux-link ${nextLinkStyle} nuclide-nux-next-link-${this._index}"
+        ${nextLinkStyle === LINK_DISABLED ? 'title="Interact with the indicated UI element to proceed."' : ''}>
         Continue
       </span>
     `;
@@ -205,13 +205,13 @@ class NuxView {
     const content = `\
       <span class="nuclide-nux-content-container">
         <div class="nuclide-nux-content">
-            ${ this._content }
+            ${this._content}
         </div>
         <div class="nuclide-nux-navigation">
-          <span class="nuclide-nux-link ${ LINK_ENABLED } nuclide-nux-dismiss-link-${ this._index }">
-            ${ !this._finalNuxInTour ? 'Dismiss' : 'Complete' } Tour
+          <span class="nuclide-nux-link ${LINK_ENABLED} nuclide-nux-dismiss-link-${this._index}">
+            ${!this._finalNuxInTour ? 'Dismiss' : 'Complete'} Tour
           </span>
-          ${ !this._finalNuxInTour ? nextLinkButton : '' }
+          ${!this._finalNuxInTour ? nextLinkButton : ''}
       </div>
     </span>`;
 
@@ -229,7 +229,7 @@ class NuxView {
 
     if (nextLinkStyle === LINK_ENABLED) {
       const nextElementClickListener = this._handleDisposableClick.bind(this, true /* continue to the next NUX in the tour */);
-      const nextElement = document.querySelector(`.nuclide-nux-next-link-${ this._index }`);
+      const nextElement = document.querySelector(`.nuclide-nux-next-link-${this._index}`);
 
       if (!(nextElement != null)) {
         throw new Error('Invariant violation: "nextElement != null"');
@@ -242,7 +242,7 @@ class NuxView {
     // Record the NUX as dismissed iff it is not the last NUX in the tour.
     // Clicking "Complete Tour" on the last NUX should be tracked as succesful completion.
     const dismissElementClickListener = !this._finalNuxInTour ? this._handleDisposableClick.bind(this, false /* skip to the end of the tour */) : this._handleDisposableClick.bind(this, true /* continue to the next NUX in the tour */);
-    const dismissElement = document.querySelector(`.nuclide-nux-dismiss-link-${ this._index }`);
+    const dismissElement = document.querySelector(`.nuclide-nux-dismiss-link-${this._index}`);
 
     if (!(dismissElement != null)) {
       throw new Error('Invariant violation: "dismissElement != null"');
@@ -293,7 +293,7 @@ class NuxView {
   _track(message, error) {
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('nux-view-action', {
       tourId: this._tourId,
-      message: `${ message }`,
+      message: `${message}`,
       error: (0, (_string || _load_string()).maybeToString)(error)
     });
   }

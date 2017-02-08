@@ -137,7 +137,7 @@ class SshHandshake {
   }
 
   _error(message, errorType, error) {
-    logger.error(`SshHandshake failed: ${ errorType }, ${ message }`, error);
+    logger.error(`SshHandshake failed: ${errorType}, ${message}`, error);
     this._delegate.onError(errorType, error, this._config);
   }
 
@@ -149,7 +149,7 @@ class SshHandshake {
       const retryText = this._passwordRetryCount ? ' again' : '';
       this._delegate.onKeyboardInteractive('', '', '', // ignored
       [{
-        prompt: `Authentication failed. Try entering your password${ retryText }:`,
+        prompt: `Authentication failed. Try entering your password${retryText}:`,
         echo: true
       }], ([password]) => {
         this._connection.connect({
@@ -183,18 +183,21 @@ class SshHandshake {
         return;
       }
 
-      const connection = yield (_RemoteConnection || _load_RemoteConnection()).RemoteConnection.createConnectionBySavedConfig(_this._config.host, _this._config.cwd, _this._config.displayTitle);
+      let address;
+      try {
+        address = yield (0, (_lookupPreferIpV || _load_lookupPreferIpV()).default)(config.host);
+      } catch (e) {
+        return _this._error('Failed to resolve DNS.', SshHandshake.ErrorType.HOST_NOT_FOUND, e);
+      }
+
+      const connection = (yield (_RemoteConnection || _load_RemoteConnection()).RemoteConnection.createConnectionBySavedConfig(_this._config.host, _this._config.cwd, _this._config.displayTitle)) || (
+      // We save connections by their IP address as well, in case a different hostname
+      // was used for the same server.
+      yield (_RemoteConnection || _load_RemoteConnection()).RemoteConnection.createConnectionBySavedConfig(address, _this._config.cwd, _this._config.displayTitle));
 
       if (connection) {
         _this._didConnect(connection);
         return;
-      }
-
-      let address = null;
-      try {
-        address = yield (0, (_lookupPreferIpV || _load_lookupPreferIpV()).default)(config.host);
-      } catch (e) {
-        _this._error('Failed to resolve DNS.', SshHandshake.ErrorType.HOST_NOT_FOUND, e);
       }
 
       if (config.authMethod === SupportedMethods.SSL_AGENT) {
@@ -310,10 +313,10 @@ class SshHandshake {
     let sftpTimer = null;
     return new Promise((resolve, reject) => {
       let stdOut = '';
-      const remoteTempFile = `/tmp/nuclide-sshhandshake-${ Math.random() }`;
+      const remoteTempFile = `/tmp/nuclide-sshhandshake-${Math.random()}`;
       // TODO: escape any single quotes
       // TODO: the timeout value shall be configurable using .json file too (t6904691).
-      const cmd = `${ this._config.remoteServerCommand } --workspace=${ this._config.cwd }` + ` --common-name=${ this._config.host } --json-output-file=${ remoteTempFile } -t 60`;
+      const cmd = `${this._config.remoteServerCommand} --workspace=${this._config.cwd}` + ` --common-name=${this._config.host} --json-output-file=${remoteTempFile} -t 60`;
 
       this._connection.exec(cmd, { pty: { term: 'nuclide' } }, (err, stream) => {
         if (err) {

@@ -64,7 +64,7 @@ class PickRefactorComponent extends _reactForAtom.React.Component {
           'Rename'
         );
       default:
-        throw new Error(`Unknown refactoring kind ${ refactoring.kind }`);
+        throw new Error(`Unknown refactoring kind ${refactoring.kind}`);
     }
   }
 }

@@ -11,10 +11,10 @@ function _load_Button() {
   return _Button = require('../../../nuclide-ui/Button');
 }
 
-var _CommonControls;
+var _ButtonGroup;
 
-function _load_CommonControls() {
-  return _CommonControls = require('./CommonControls');
+function _load_ButtonGroup() {
+  return _ButtonGroup = require('../../../nuclide-ui/ButtonGroup');
 }
 
 var _ProgressBar;
@@ -23,10 +23,16 @@ function _load_ProgressBar() {
   return _ProgressBar = require('./ProgressBar');
 }
 
-var _getTaskMetadata;
+var _TaskRunnerButton;
 
-function _load_getTaskMetadata() {
-  return _getTaskMetadata = require('../getTaskMetadata');
+function _load_TaskRunnerButton() {
+  return _TaskRunnerButton = require('./TaskRunnerButton');
+}
+
+var _Dropdown;
+
+function _load_Dropdown() {
+  return _Dropdown = require('../../../nuclide-ui/Dropdown');
 }
 
 var _classnames;
@@ -41,92 +47,112 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 class Toolbar extends _reactForAtom.React.Component {
 
-  _renderExtraUi() {
-    if (this.props.activeTaskId) {
-      const ExtraUi = this.props.getExtraUi && this.props.getExtraUi();
-      return ExtraUi ? _reactForAtom.React.createElement(ExtraUi, { activeTaskType: this.props.activeTaskId.type }) : null;
-    }
-    const runnerCount = this.props.taskRunnerInfo.length;
-    if (runnerCount === 0) {
-      return _reactForAtom.React.createElement(
-        'span',
-        null,
-        'Please install and enable a task runner'
-      );
-    } else {
-      const waitingForTasks = !Array.from(this.props.taskLists.values()).some(taskList => taskList.length > 0);
-      if (waitingForTasks) {
-        if (runnerCount === 1) {
-          const runnerName = this.props.taskRunnerInfo[0].name;
-          return _reactForAtom.React.createElement(
-            'span',
-            null,
-            'Waiting for tasks from ',
-            runnerName,
-            '...'
-          );
-        }
-        return _reactForAtom.React.createElement(
-          'span',
-          null,
-          'Waiting for tasks from ',
-          runnerCount,
-          ' task runners...'
-        );
-      }
-      return _reactForAtom.React.createElement(
-        'span',
-        null,
-        'No Task Selected'
-      );
-    }
-  }
-
-  _renderContents(activeTask) {
-    if (this.props.showPlaceholder) {
-      return _reactForAtom.React.createElement(Placeholder, null);
-    }
-
-    return _reactForAtom.React.createElement(
-      'div',
-      { style: { display: 'flex', flex: 1 } },
-      _reactForAtom.React.createElement((_CommonControls || _load_CommonControls()).CommonControls, {
-        activeTask: activeTask,
-        activeTaskRunner: this.props.activeTaskRunner,
-        getActiveTaskRunnerIcon: this.props.getActiveTaskRunnerIcon,
-        taskRunnerInfo: this.props.taskRunnerInfo,
-        runTask: this.props.runTask,
-        selectTask: this.props.selectTask,
-        selectTaskRunner: this.props.selectTaskRunner,
-        taskIsRunning: this.props.taskIsRunning,
-        taskLists: this.props.taskLists,
-        stopTask: this.props.stopTask
-      }),
-      this._renderExtraUi(),
-      _reactForAtom.React.createElement((_ProgressBar || _load_ProgressBar()).ProgressBar, {
-        progress: this.props.progress,
-        visible: this.props.taskIsRunning
-      })
-    );
-  }
-
   render() {
-    const activeTaskId = this.props.activeTaskId;
-    const activeTask = activeTaskId == null ? null : (0, (_getTaskMetadata || _load_getTaskMetadata()).getTaskMetadata)(activeTaskId, this.props.taskLists);
-
     const className = (0, (_classnames || _load_classnames()).default)('nuclide-task-runner-toolbar', {
-      disabled: this.props.disabled
+      disabled: this.props.toolbarDisabled
     });
 
+    const { activeTaskRunner, taskRunners } = this.props;
+    let taskRunnerOptions = [];
+    let taskRunnerSpecificContent = null;
+    let dropdownVisibility = { visibility: 'hidden' };
+    if (taskRunners.length === 0 && !this.props.toolbarDisabled) {
+      dropdownVisibility = { display: 'none' };
+      taskRunnerSpecificContent = _reactForAtom.React.createElement(NoTaskRunnersMessage, null);
+    } else if (activeTaskRunner) {
+      const taskRunnerState = this.props.statesForTaskRunners.get(activeTaskRunner);
+      if (taskRunnerState) {
+        taskRunnerOptions = getTaskRunnerOptions(taskRunners, this.props.statesForTaskRunners);
+        const ExtraUi = this.props.extraUiComponent;
+        const extraUi = ExtraUi ? _reactForAtom.React.createElement(ExtraUi, null) : null;
+        const taskButtons = this._renderTaskButtons();
+        taskRunnerSpecificContent = [taskButtons, extraUi];
+        dropdownVisibility = {};
+      }
+    }
+
+    const ButtonComponent = buttonProps => _reactForAtom.React.createElement((_TaskRunnerButton || _load_TaskRunnerButton()).TaskRunnerButton, Object.assign({}, buttonProps, { iconComponent: this.props.iconComponent }));
+
     return _reactForAtom.React.createElement(
       'div',
-      { className: className },
+      { className: `${className} padded` },
       _reactForAtom.React.createElement(
         'div',
-        { className: 'nuclide-task-runner-toolbar-contents padded' },
-        this._renderContents(activeTask)
+        { className: 'nuclide-task-runner-toolbar-contents' },
+        _reactForAtom.React.createElement(
+          'span',
+          { className: 'inline-block', style: dropdownVisibility },
+          _reactForAtom.React.createElement((_Dropdown || _load_Dropdown()).Dropdown, {
+            buttonComponent: ButtonComponent,
+            value: activeTaskRunner,
+            options: taskRunnerOptions,
+            onChange: value => {
+              this.props.selectTaskRunner(value);
+            },
+            size: 'sm'
+          })
+        ),
+        taskRunnerSpecificContent
+      ),
+      _reactForAtom.React.createElement((_ProgressBar || _load_ProgressBar()).ProgressBar, { progress: this.props.progress, visible: this.props.taskIsRunning })
+    );
+  }
+
+  _renderTaskButtons() {
+    const taskButtons = this._getButtonsForTasks();
+    return _reactForAtom.React.createElement(
+      'span',
+      { className: 'inline-block' },
+      _reactForAtom.React.createElement(
+        (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
+        null,
+        taskButtons,
+        _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+          className: 'nuclide-task-button',
+          key: 'stop',
+          size: (_Button || _load_Button()).ButtonSizes.SMALL,
+          icon: 'primitive-square',
+          tooltip: tooltip('Stop'),
+          disabled: this.props.runningTaskIsCancelable !== true,
+          onClick: this.props.stopRunningTask
+        })
       )
     );
+  }
+
+  _getButtonsForTasks() {
+    const { activeTaskRunner } = this.props;
+
+    if (!activeTaskRunner) {
+      throw new Error('Invariant violation: "activeTaskRunner"');
+    }
+
+    const state = this.props.statesForTaskRunners.get(activeTaskRunner);
+    if (!state) {
+      return [];
+    }
+
+    if (!state) {
+      throw new Error('Invariant violation: "state"');
+    }
+
+    return state.tasks.map(task => {
+      const taskAction = () => {
+        if (this.props.taskIsRunning) {
+          this.props.stopRunningTask();
+        }
+        this.props.runTask(Object.assign({}, task, { taskRunner: activeTaskRunner }));
+      };
+      return _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+        className: 'nuclide-task-button',
+        key: task.type,
+        size: (_Button || _load_Button()).ButtonSizes.SMALL,
+        icon: task.icon,
+        tooltip: tooltip(task.label),
+        disabled: task.disabled || this.props.runningTaskIsCancelable === false,
+        onClick: taskAction
+      });
+    });
   }
 }
 
@@ -140,17 +166,33 @@ exports.Toolbar = Toolbar; /**
                             * 
                             */
 
-function Placeholder() {
-  return (
-    // Themes actually change the size of UI elements (sometimes even dynamically!) and can
-    // therefore change the size of the toolbar! To try to ensure that the placholder has the same
-    // height as the toolbar, we put a dummy button in it and hide it with CSS.
+function tooltip(title) {
+  return { title, delay: { show: 500, hide: 0 }, placement: 'bottom' };
+}
+
+function getTaskRunnerOptions(taskRunners, statesForTaskRunners) {
+  return taskRunners.map(runner => {
+    const state = statesForTaskRunners.get(runner);
+    return {
+      value: runner,
+      label: runner.name,
+      disabled: !state || !state.enabled,
+      selectedLabel: ''
+    };
+  });
+}
+
+function NoTaskRunnersMessage() {
+  const featureLink = 'https://nuclide.io/docs/features/task-runner/';
+  return _reactForAtom.React.createElement(
+    'span',
+    { style: { 'white-space': 'nowrap' } },
+    'Install and enable a ',
     _reactForAtom.React.createElement(
-      (_Button || _load_Button()).Button,
-      {
-        className: 'nuclide-task-runner-placeholder',
-        size: (_Button || _load_Button()).ButtonSizes.SMALL },
-      'Seeing this button is a bug!'
-    )
+      'a',
+      { href: featureLink },
+      'task runner'
+    ),
+    ' to use this toolbar'
   );
 }

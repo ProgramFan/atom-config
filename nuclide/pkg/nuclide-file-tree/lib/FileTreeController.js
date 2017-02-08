@@ -76,23 +76,23 @@ function _load_UniversalDisposable() {
   return _UniversalDisposable = _interopRequireDefault(require('../../commons-node/UniversalDisposable'));
 }
 
+var _atom = require('atom');
+
 var _os = _interopRequireDefault(require('os'));
 
 var _electron = require('electron');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-const VALID_FILTER_CHARS = '!#./0123456789-:;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ' + '_abcdefghijklmnopqrstuvwxyz~';
+const VALID_FILTER_CHARS = '!#./0123456789-:;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ' + '_abcdefghijklmnopqrstuvwxyz~'; /**
+                                                                                                              * Copyright (c) 2015-present, Facebook, Inc.
+                                                                                                              * All rights reserved.
+                                                                                                              *
+                                                                                                              * This source code is licensed under the license found in the LICENSE file in
+                                                                                                              * the root directory of this source tree.
+                                                                                                              *
+                                                                                                              * 
+                                                                                                              */
 
 class ProjectSelectionManager {
 
@@ -103,6 +103,7 @@ class ProjectSelectionManager {
 
   addExtraContent(content) {
     this._actions.addExtraProjectSelectionContent(content);
+    return new _atom.Disposable(() => this._actions.removeExtraProjectSelectionContent(content));
   }
 
   getExtraContent() {
@@ -143,7 +144,7 @@ class FileTreeController {
     };
     for (let i = 0, c = VALID_FILTER_CHARS.charCodeAt(0); i < VALID_FILTER_CHARS.length; i++, c = VALID_FILTER_CHARS.charCodeAt(i)) {
       const char = String.fromCharCode(c);
-      letterKeyBindings[`nuclide-file-tree:go-to-letter-${ char }`] = this._handlePrefixKeypress.bind(this, char);
+      letterKeyBindings[`nuclide-file-tree:go-to-letter-${char}`] = this._handlePrefixKeypress.bind(this, char);
     }
     this._disposables.add(atom.commands.add((_FileTreeConstants || _load_FileTreeConstants()).EVENT_HANDLER_SELECTOR, Object.assign({
       'core:move-down': this._moveDown.bind(this),
@@ -462,16 +463,16 @@ class FileTreeController {
           },
           Cancel: () => {}
         },
-        detailedMessage: `You are deleting:${ _os.default.EOL }${ selectedPaths.join(_os.default.EOL) }`,
+        detailedMessage: `You are deleting:${_os.default.EOL}${selectedPaths.join(_os.default.EOL)}`,
         message
       });
     } else {
       let message;
       if (rootPaths.size === 1) {
-        message = `The root directory '${ rootPaths.first().nodeName }' can't be removed.`;
+        message = `The root directory '${rootPaths.first().nodeName}' can't be removed.`;
       } else {
-        const rootPathNames = rootPaths.map(node => `'${ node.nodeName }'`).join(', ');
-        message = `The root directories ${ rootPathNames } can't be removed.`;
+        const rootPathNames = rootPaths.map(node => `'${node.nodeName}'`).join(', ');
+        message = `The root directories ${rootPathNames} can't be removed.`;
       }
 
       atom.confirm({

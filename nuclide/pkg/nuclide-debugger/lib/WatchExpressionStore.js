@@ -212,7 +212,7 @@ class WatchExpressionStore {
         // TODO: It would be nice to expose a better error from the backend here.
         return {
           type: 'text',
-          value: `Failed to evaluate: ${ expression }`
+          value: `Failed to evaluate: ${expression}`
         };
       } else {
         return result;
@@ -229,7 +229,7 @@ class WatchExpressionStore {
         // TODO: It would be nice to expose a better error from the backend here.
         return {
           type: 'text',
-          value: `Failed to evaluate: ${ expression }`
+          value: `Failed to evaluate: ${expression}`
         };
       } else {
         return result;
@@ -250,7 +250,7 @@ class WatchExpressionStore {
       try {
         result = yield deferred.promise;
       } catch (e) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`${ command }: Error getting result.`, e);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().warn(`${command}: Error getting result.`, e);
       }
       _this3._evaluationRequestsInFlight.delete(evalId);
       return result;

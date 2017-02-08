@@ -69,6 +69,9 @@ function _load_findClangServerArgs() {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Limit the number of active Clang servers.
+const SERVER_LIMIT = 20;
+
+// Limit the total memory usage of all Clang servers.
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -79,9 +82,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 
  */
 
-const SERVER_LIMIT = 20;
-
-// Limit the total memory usage of all Clang servers.
 const MEMORY_LIMIT = Math.round(_os.default.totalmem() * 15 / 100);
 
 let _getDefaultFlags;
@@ -108,7 +108,7 @@ class ClangServerManager {
    * Currently, there's no "status" observable, so we can only provide a busy signal to the user
    * on diagnostic requests - and hence we only restart on 'compile' requests.
    */
-  getClangServer(src, contents, defaultFlags, restartIfChanged) {
+  getClangServer(src, contents, compilationDBFile, defaultFlags, restartIfChanged) {
     var _this = this;
 
     return (0, _asyncToGenerator.default)(function* () {
@@ -120,7 +120,7 @@ class ClangServerManager {
           return server;
         }
       }
-      const [serverArgs, flagsResult] = yield Promise.all([(0, (_findClangServerArgs || _load_findClangServerArgs()).default)(), _this._getFlags(src, defaultFlags)]);
+      const [serverArgs, flagsResult] = yield Promise.all([(0, (_findClangServerArgs || _load_findClangServerArgs()).default)(src), _this._getFlags(src, compilationDBFile, defaultFlags)]);
       if (flagsResult == null) {
         return null;
       }
@@ -141,12 +141,12 @@ class ClangServerManager {
 
   // 1. Attempt to get flags from ClangFlagsManager.
   // 2. Otherwise, fall back to default flags.
-  _getFlags(src, defaultFlags) {
+  _getFlags(src, compilationDBFile, defaultFlags) {
     var _this2 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const flagsData = yield _this2._flagsManager.getFlagsForSrc(src).catch(function (e) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error getting flags for ${ src }:`, e);
+      const flagsData = yield _this2._flagsManager.getFlagsForSrc(src, compilationDBFile).catch(function (e) {
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error getting flags for ${src}:`, e);
         return null;
       });
       if (flagsData != null && flagsData.flags != null) {

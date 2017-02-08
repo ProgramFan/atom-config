@@ -82,7 +82,7 @@ class ChangedFilesList extends _reactForAtom.React.Component {
 
     const repository = (0, (_vcs || _load_vcs()).repositoryForPath)(this.props.rootPath);
     const fileClassName = (0, (_classnames || _load_classnames()).default)('icon', 'icon-file-text', 'nuclide-file-changes-file-entry', {
-      [`${ commandPrefix }-file-entry`]: repository != null && repository.getType() === 'hg'
+      [`${commandPrefix}-file-entry`]: repository != null && repository.getType() === 'hg'
     });
 
     const showMoreFilesElement = fileChanges.size > filesToShow ? _reactForAtom.React.createElement('div', {

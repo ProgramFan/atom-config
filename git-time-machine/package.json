@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-7060-13qcog4/package.tgz",
+        "raw": "/tmp/d-11718-7051-1ku03da/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-7060-13qcog4/package.tgz",
-        "spec": "/tmp/d-117016-7060-13qcog4/package.tgz",
+        "rawSpec": "/tmp/d-11718-7051-1ku03da/package.tgz",
+        "spec": "/tmp/d-11718-7051-1ku03da/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-7060-r59468"
+      "/tmp/apm-install-dir-11718-7051-fbi5vd"
     ]
   ],
-  "_from": "../d-117016-7060-13qcog4/package.tgz",
+  "_from": "../d-11718-7051-1ku03da/package.tgz",
   "_id": "git-time-machine@1.5.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/git-time-machine",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-7060-13qcog4/package.tgz",
+    "raw": "/tmp/d-11718-7051-1ku03da/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-7060-13qcog4/package.tgz",
-    "spec": "/tmp/d-117016-7060-13qcog4/package.tgz",
+    "rawSpec": "/tmp/d-11718-7051-1ku03da/package.tgz",
+    "spec": "/tmp/d-11718-7051-1ku03da/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-7060-13qcog4/package.tgz",
+  "_resolved": "file:../d-11718-7051-1ku03da/package.tgz",
   "_shasum": "d5071a7be3fa83f97b3363a5f6a404342dd2b11c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-7060-13qcog4/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-7060-r59468",
+  "_spec": "/tmp/d-11718-7051-1ku03da/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-7051-fbi5vd",
   "activationCommands": {
     "atom-workspace": "git-time-machine:toggle"
   },

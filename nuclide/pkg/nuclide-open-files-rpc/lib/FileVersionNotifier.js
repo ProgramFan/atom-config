@@ -46,7 +46,7 @@ class FileVersionNotifier {
         this._versions.set(filePath, changeCount);
         break;
       default:
-        throw new Error(`Unexpected LocalFileEvent.kind: ${ event.kind }`);
+        throw new Error(`Unexpected LocalFileEvent.kind: ${event.kind}`);
     }
     this._checkRequests(filePath);
   }

@@ -98,7 +98,7 @@ function findHackConfigDir(localFile) {
   if (newHackCommand === '') {
     hackCommand = DEFAULT_HACK_COMMAND;
   } else {
-    logger.logTrace(`Using custom hh_client: ${ newHackCommand }`);
+    logger.logTrace(`Using custom hh_client: ${newHackCommand}`);
     hackCommand = Promise.resolve(newHackCommand);
   }
 }

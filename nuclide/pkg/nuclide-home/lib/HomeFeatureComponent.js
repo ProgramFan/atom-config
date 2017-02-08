@@ -53,7 +53,7 @@ class HomeFeatureComponent extends _reactForAtom.React.Component {
       { className: 'nuclide-home-card' },
       _reactForAtom.React.createElement(
         'summary',
-        { className: `nuclide-home-summary icon icon-${ this.props.icon }` },
+        { className: `nuclide-home-summary icon icon-${this.props.icon}` },
         title,
         command ? _reactForAtom.React.createElement(
           (_Button || _load_Button()).Button,

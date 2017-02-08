@@ -121,7 +121,6 @@ class Activation {
     // Giant hack to fix the context menu highlight
     // For explanation, see https://github.com/atom/atom/pull/13266
 
-    // $FlowIgnore: Undocumented API
     const { showForEvent } = atom.contextMenu;
     const disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(() => {
       atom.contextMenu.showForEvent = showForEvent;

@@ -262,7 +262,7 @@ class HgService {
         expression: primarySubscriptionExpression,
         defer: ['hg.update']
       });
-      logger.debug(`Watchman subscription ${ WATCHMAN_SUBSCRIPTION_NAME_PRIMARY } established.`);
+      logger.debug(`Watchman subscription ${WATCHMAN_SUBSCRIPTION_NAME_PRIMARY} established.`);
 
       // Subscribe to changes to files unrelated to source control.
       const conflictStateSubscribtion = yield watchmanClient.watchDirectoryRecursive(workingDirectory, WATCHMAN_SUBSCRIPTION_NAME_CONFLICTS, {
@@ -270,7 +270,7 @@ class HgService {
         expression: ['name', '.hg/merge', 'wholename'],
         defer: ['hg.update']
       });
-      logger.debug(`Watchman subscription ${ WATCHMAN_SUBSCRIPTION_NAME_CONFLICTS } established.`);
+      logger.debug(`Watchman subscription ${WATCHMAN_SUBSCRIPTION_NAME_CONFLICTS} established.`);
 
       // Subscribe to changes to the active Mercurial bookmark.
       const hgActiveBookmarkSubscription = yield watchmanClient.watchDirectoryRecursive(workingDirectory, WATCHMAN_SUBSCRIPTION_NAME_HGBOOKMARK, {
@@ -278,7 +278,7 @@ class HgService {
         expression: ['name', '.hg/bookmarks.current', 'wholename'],
         defer: ['hg.update']
       });
-      logger.debug(`Watchman subscription ${ WATCHMAN_SUBSCRIPTION_NAME_HGBOOKMARK } established.`);
+      logger.debug(`Watchman subscription ${WATCHMAN_SUBSCRIPTION_NAME_HGBOOKMARK} established.`);
 
       // Subscribe to changes in Mercurial bookmarks.
       const hgBookmarksSubscription = yield watchmanClient.watchDirectoryRecursive(workingDirectory, WATCHMAN_SUBSCRIPTION_NAME_HGBOOKMARKS, {
@@ -286,14 +286,14 @@ class HgService {
         expression: ['name', '.hg/bookmarks', 'wholename'],
         defer: ['hg.update']
       });
-      logger.debug(`Watchman subscription ${ WATCHMAN_SUBSCRIPTION_NAME_HGBOOKMARKS } established.`);
+      logger.debug(`Watchman subscription ${WATCHMAN_SUBSCRIPTION_NAME_HGBOOKMARKS} established.`);
 
       const dirStateSubscribtion = yield watchmanClient.watchDirectoryRecursive(workingDirectory, WATCHMAN_HG_DIR_STATE, {
         fields: ['name'],
         expression: ['name', '.hg/dirstate', 'wholename'],
         defer: ['hg.update']
       });
-      logger.debug(`Watchman subscription ${ WATCHMAN_HG_DIR_STATE } established.`);
+      logger.debug(`Watchman subscription ${WATCHMAN_HG_DIR_STATE} established.`);
 
       // Those files' changes indicate a commit-changing action has been applied to the repository,
       // Watchman currently (v4.7) ignores `.hg/store` file updates.
@@ -443,7 +443,7 @@ class HgService {
       try {
         output = yield _this5._hgAsyncExecute(args, options);
       } catch (e) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error when running hg diff for paths: ${ filePaths.toString() } \n\tError: ${ e.stderr }`);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error when running hg diff for paths: ${filePaths.toString()} \n\tError: ${e.stderr}`);
         return null;
       }
       const pathToDiffInfo = (0, (_hgDiffOutputParser || _load_hgDiffOutputParser()).parseMultiFileHgDiffUnifiedOutput)(output.stdout);
@@ -500,7 +500,7 @@ class HgService {
       try {
         output = yield _this6._hgAsyncExecute(args, execOptions);
       } catch (e) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`LocalHgServiceBase failed to fetch bookmarks. Error: ${ e.stderr }`);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`LocalHgServiceBase failed to fetch bookmarks. Error: ${e.stderr}`);
         throw e;
       }
 
@@ -588,7 +588,7 @@ class HgService {
         '-r', 'wdir()', // Blank out uncommitted changes
         filePath], { cwd: _this9._workingDirectory })).stdout.split('\n');
       } catch (e) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`LocalHgServiceBase failed to fetch blame for file: ${ filePath }. Error: ${ e.stderr }`);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`LocalHgServiceBase failed to fetch blame for file: ${filePath}. Error: ${e.stderr}`);
         throw e;
       }
 
@@ -600,7 +600,7 @@ class HgService {
       try {
         revisionsArray = yield (0, (_hgRevisionExpressionHelpers || _load_hgRevisionExpressionHelpers()).fetchRevisionsInfo)(uniqueRevisions.join('+'), _this9._workingDirectory, { hidden: true, shouldLimit: false }).toPromise();
       } catch (e) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`LocalHgServiceBase failed to fetch blame for file: ${ filePath }. Error: ${ e.stderr }`);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`LocalHgServiceBase failed to fetch blame for file: ${filePath}. Error: ${e.stderr}`);
         throw e;
       }
 
@@ -630,7 +630,7 @@ class HgService {
       try {
         return (yield _this10._hgAsyncExecute(args, execOptions)).stdout.trim();
       } catch (e) {
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Failed to fetch Hg config for key ${ key }.  Error: ${ e.toString() }`);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Failed to fetch Hg config for key ${key}.  Error: ${e.toString()}`);
         return null;
       }
     })();
@@ -656,7 +656,7 @@ class HgService {
         return stdout ? stdout : null;
       } catch (e) {
         // This should not happen: `hg log` does not error even if it does not recognize the template.
-        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Failed when trying to get differential revision for: ${ changeSetId }`);
+        (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Failed when trying to get differential revision for: ${changeSetId}`);
         return null;
       }
     })();
@@ -787,7 +787,7 @@ class HgService {
   }
 
   show(revision) {
-    const args = ['show', `${ revision }`, '-Tjson'];
+    const args = ['show', `${revision}`, '-Tjson'];
     const execOptions = {
       cwd: this._workingDirectory
     };
@@ -1011,7 +1011,7 @@ class HgService {
 
   _checkOrigFile(origBackupPath, filePath) {
     return (0, _asyncToGenerator.default)(function* () {
-      const origFilePath = (_nuclideUri || _load_nuclideUri()).default.join(origBackupPath, `${ filePath }.orig`);
+      const origFilePath = (_nuclideUri || _load_nuclideUri()).default.join(origBackupPath, `${filePath}.orig`);
       logger.info('origBackupPath:', origBackupPath);
       logger.info('filePath:', filePath);
       logger.info('origFilePath:', origFilePath);

@@ -2,6 +2,26 @@
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
+let getCompilationDatabaseFile = (() => {
+  var _ref = (0, _asyncToGenerator.default)(function* (src) {
+    const compilationDatabases = yield Promise.all(Array.from(compilationDatabaseProviders.values()).map(function (provider) {
+      return provider.getCompilationDatabaseFile(src);
+    }));
+    for (const compilationDatabase of compilationDatabases) {
+      if (compilationDatabase != null) {
+        return compilationDatabase;
+      }
+    }
+    return null;
+  });
+
+  return function getCompilationDatabaseFile(_x) {
+    return _ref.apply(this, arguments);
+  };
+})();
+
+var _atom = require('atom');
+
 var _featureConfig;
 
 function _load_featureConfig() {
@@ -26,6 +46,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 
  */
 
+const compilationDatabaseProviders = new Set();
+
 function getDefaultFlags() {
   const config = (_featureConfig || _load_featureConfig()).default.get('nuclide-clang');
   if (!config.enableDefaultFlags) {
@@ -37,6 +59,10 @@ function getDefaultFlags() {
 const clangServices = new WeakSet();
 
 module.exports = {
+  registerCompilationDatabaseProvider(provider) {
+    compilationDatabaseProviders.add(provider);
+    return new _atom.Disposable(() => compilationDatabaseProviders.delete(provider));
+  },
 
   getDiagnostics(editor) {
     return (0, _asyncToGenerator.default)(function* () {
@@ -56,7 +82,7 @@ module.exports = {
         yield service.reset();
       }
 
-      return service.compile(src, contents, defaultFlags).refCount().toPromise();
+      return service.compile(src, contents, (yield getCompilationDatabaseFile(src)), defaultFlags).refCount().toPromise();
     })();
   },
 
@@ -74,7 +100,7 @@ module.exports = {
     const defaultFlags = getDefaultFlags();
     const service = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getClangServiceByNuclideUri)(src);
 
-    return service.getCompletions(src, editor.getText(), line, column, tokenStartColumn, prefix, defaultFlags);
+    return getCompilationDatabaseFile(src).then(compilationDBFile => service.getCompletions(src, editor.getText(), line, column, tokenStartColumn, prefix, compilationDBFile, defaultFlags));
   },
 
   /**
@@ -88,7 +114,7 @@ module.exports = {
     }
     const defaultFlags = getDefaultFlags();
     const service = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getClangServiceByNuclideUri)(src);
-    return service.getDeclaration(src, editor.getText(), line, column, defaultFlags);
+    return getCompilationDatabaseFile(src).then(compilationDBFile => service.getDeclaration(src, editor.getText(), line, column, compilationDBFile, defaultFlags));
   },
 
   getDeclarationInfo(editor, line, column) {
@@ -103,7 +129,7 @@ module.exports = {
       return Promise.resolve(null);
     }
 
-    return service.getDeclarationInfo(src, editor.getText(), line, column, defaultFlags);
+    return getCompilationDatabaseFile(src).then(compilationDBFile => service.getDeclarationInfo(src, editor.getText(), line, column, compilationDBFile, defaultFlags));
   },
 
   getOutline(editor) {
@@ -113,7 +139,7 @@ module.exports = {
     }
     const defaultFlags = getDefaultFlags();
     const service = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getClangServiceByNuclideUri)(src);
-    return service.getOutline(src, editor.getText(), defaultFlags);
+    return getCompilationDatabaseFile(src).then(compilationDBFile => service.getOutline(src, editor.getText(), compilationDBFile, defaultFlags));
   },
 
   getLocalReferences(editor, line, column) {
@@ -128,7 +154,7 @@ module.exports = {
       return Promise.resolve(null);
     }
 
-    return service.getLocalReferences(src, editor.getText(), line, column, defaultFlags);
+    return getCompilationDatabaseFile(src).then(compilationDBFile => service.getLocalReferences(src, editor.getText(), line, column, compilationDBFile, defaultFlags));
   },
 
   formatCode(editor, range) {

@@ -118,8 +118,8 @@ class DataCache {
     return (0, _asyncToGenerator.default)(function* () {
       // Every evaluation we perform with xdebug's eval command is saved in a unique variable
       // for later lookup.
-      const newIdentifier = `${ EVAL_IDENTIFIER }${ ++_this2._evalIdentifierId }`;
-      const evaluatedResult = yield _this2._socket.runtimeEvaluate(`${ newIdentifier } = ${ expression }`);
+      const newIdentifier = `${EVAL_IDENTIFIER}${++_this2._evalIdentifierId}`;
+      const evaluatedResult = yield _this2._socket.runtimeEvaluate(`${newIdentifier} = ${expression}`);
       if (evaluatedResult.wasThrown) {
         return evaluatedResult;
       }
@@ -192,10 +192,10 @@ class DataCache {
     var _this4 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      (_utils || _load_utils()).default.log(`DataCache.getProperties call on ID: ${ remoteId }`);
+      (_utils || _load_utils()).default.log(`DataCache.getProperties call on ID: ${remoteId}`);
       const id = JSON.parse(remoteId);
       if (id.enableCount !== _this4._enableCount) {
-        (_utils || _load_utils()).default.logErrorAndThrow(`Got request for stale RemoteObjectId ${ remoteId }`);
+        (_utils || _load_utils()).default.logErrorAndThrow(`Got request for stale RemoteObjectId ${remoteId}`);
       }
 
       // context and single paged ids require getting children from the debuggee and converting
@@ -265,7 +265,7 @@ function contextNameToScopeType(name) {
       return 'global';
     // TODO: Verify this ...
     default:
-      (_utils || _load_utils()).default.log(`Unexpected context name: ${ name }`);
+      (_utils || _load_utils()).default.log(`Unexpected context name: ${name}`);
       return 'closure';
   }
 }

@@ -48,7 +48,7 @@ class StatusBarTile extends _reactForAtom.React.Component {
       return null;
     }
     return _reactForAtom.React.createElement('span', {
-      className: `icon icon-${ iconName } nuclide-remote-projects-status-icon`,
+      className: `icon icon-${iconName} nuclide-remote-projects-status-icon`,
       onClick: this._onStatusBarTileClicked
     });
   }

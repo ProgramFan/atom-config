@@ -64,7 +64,7 @@ class RangeFormatProvider extends CodeFormatProvider {
       const fileVersion = yield (0, (_nuclideOpenFiles || _load_nuclideOpenFiles()).getFileVersionOfEditor)(editor);
       const languageService = _this._connectionToLanguageService.getForUri(editor.getPath());
       if (languageService != null && fileVersion != null) {
-        const result = yield _this._busySignalProvider.reportBusy(`${ _this.name }: Formatting ${ fileVersion.filePath }`, (0, _asyncToGenerator.default)(function* () {
+        const result = yield _this._busySignalProvider.reportBusy(`${_this.name}: Formatting ${fileVersion.filePath}`, (0, _asyncToGenerator.default)(function* () {
           return (yield languageService).formatSource(fileVersion, range);
         }));
         if (result != null) {
@@ -89,7 +89,7 @@ class FileFormatProvider extends CodeFormatProvider {
       const fileVersion = yield (0, (_nuclideOpenFiles || _load_nuclideOpenFiles()).getFileVersionOfEditor)(editor);
       const languageService = _this2._connectionToLanguageService.getForUri(editor.getPath());
       if (languageService != null && fileVersion != null) {
-        const result = yield _this2._busySignalProvider.reportBusy(`${ _this2.name }: Formatting ${ fileVersion.filePath }`, (0, _asyncToGenerator.default)(function* () {
+        const result = yield _this2._busySignalProvider.reportBusy(`${_this2.name}: Formatting ${fileVersion.filePath}`, (0, _asyncToGenerator.default)(function* () {
           return (yield languageService).formatEntireFile(fileVersion, range);
         }));
         if (result != null) {

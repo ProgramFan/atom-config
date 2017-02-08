@@ -353,7 +353,7 @@ const SplitButtonDropdownExample = (() => {
       value: 2,
       onConfirm:
       // eslint-disable-next-line no-alert
-      x => alert(`You selected ${ x }!`)
+      x => alert(`You selected ${x}!`)
     })
   );
 })();

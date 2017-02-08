@@ -109,8 +109,8 @@ class NuxTour {
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('nux-tour-action', {
       tourId: this._id,
       tourName: this._name,
-      step: `${ this._currentStep + 1 }/${ this._nuxList.length + 1 }`,
-      completed: `${ completed.toString() }`,
+      step: `${this._currentStep + 1}/${this._nuxList.length + 1}`,
+      completed: `${completed.toString()}`,
       error: (0, (_string || _load_string()).maybeToString)(error)
     });
   }

@@ -1,6 +1,20 @@
 ## Changelog
 
-### 7.1
+### 7.2.1
+- Swapped pin icon in the status-bar for 'git+'. [#613](https://github.com/akonwi/git-plus/issues/613)
+- Removed analytics
+
+### 7.2.0
+- Fixes [#596](https://github.com/akonwi/git-plus/issues/596)
+  - __BREAKING__ the config option of `Pull From Upstream` is now the default behavior.
+  - If your git config for 'push.default' is set to nothing or you want to intentionally choose a branch, turn on the 'Prompt for branch...' option
+- Merges [#604](https://github.com/akonwi/git-plus/issues/604) thanks to (@lgeiger)
+
+### 7.1.1
+- Fixes [#598](https://github.com/akonwi/git-plus/issues/598)
+- Fixes [#599](https://github.com/akonwi/git-plus/issues/599)
+
+### 7.1.0
 - Fixes [#573](https://github.com/akonwi/git-plus/issues/573)
 
 ### 7.0.7

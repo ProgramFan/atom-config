@@ -99,7 +99,7 @@ const HackSymbolProvider = exports.HackSymbolProvider = {
     const name = item.name || '';
 
     const icon = bestIconForItem(item);
-    const symbolClasses = `file icon ${ icon }`;
+    const symbolClasses = `file icon ${icon}`;
     return _reactForAtom.React.createElement(
       'div',
       { title: item.additionalInfo || '' },

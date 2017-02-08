@@ -104,7 +104,7 @@ class HyperclickHelpers {
           callback: tags.map(function (tag) {
             const { file, fields, kind } = tag;
             const relpath = (_nuclideUri || _load_nuclideUri()).default.relative(tagsDir, file);
-            let title = `${ tag.name } (${ relpath })`;
+            let title = `${tag.name} (${relpath})`;
             if (fields != null) {
               // Python uses a.b.c; most other langauges use a::b::c.
               // There are definitely other cases, but it's not a big issue.

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-5091-lllktb/package.tgz",
+        "raw": "/tmp/d-11718-5090-yu9wbm/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-5091-lllktb/package.tgz",
-        "spec": "/tmp/d-117016-5091-lllktb/package.tgz",
+        "rawSpec": "/tmp/d-11718-5090-yu9wbm/package.tgz",
+        "spec": "/tmp/d-11718-5090-yu9wbm/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-5091-1w95r12"
+      "/tmp/apm-install-dir-11718-5090-1mou7bg"
     ]
   ],
-  "_from": "../d-117016-5091-lllktb/package.tgz",
-  "_id": "language-markdown@0.18.2",
+  "_from": "../d-11718-5090-yu9wbm/package.tgz",
+  "_id": "language-markdown@0.19.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-markdown",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-5091-lllktb/package.tgz",
+    "raw": "/tmp/d-11718-5090-yu9wbm/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-5091-lllktb/package.tgz",
-    "spec": "/tmp/d-117016-5091-lllktb/package.tgz",
+    "rawSpec": "/tmp/d-11718-5090-yu9wbm/package.tgz",
+    "spec": "/tmp/d-11718-5090-yu9wbm/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-5091-lllktb/package.tgz",
-  "_shasum": "81d228863119296d3933659da42b2ebf0cb68170",
+  "_resolved": "file:../d-11718-5090-yu9wbm/package.tgz",
+  "_shasum": "ee9de2258e915fcc0f50e9eb75f89d0b9a361ad3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-5091-lllktb/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-5091-1w95r12",
+  "_spec": "/tmp/d-11718-5090-yu9wbm/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-5090-1mou7bg",
   "bugs": {
     "url": "https://github.com/burodepeper/language-markdown/issues"
   },
@@ -78,5 +78,5 @@
     "type": "git",
     "url": "git+https://github.com/burodepeper/language-markdown.git"
   },
-  "version": "0.18.2"
+  "version": "0.19.1"
 }

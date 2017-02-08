@@ -39,7 +39,7 @@ let openArcDeepLink = exports.openArcDeepLink = (() => {
       }
 
       if (matches.length === 0) {
-        throw new Error(`The file you are trying to open is in the \`${ project }\` project ` + 'but you do not have the project open.<br />' + 'Please add the project manually and try again.');
+        throw new Error(`The file you are trying to open is in the \`${project}\` project ` + 'but you do not have the project open.<br />' + 'Please add the project manually and try again.');
       }
 
       // Params can be strings or arrays. Always convert to an array

@@ -56,7 +56,7 @@ function testCommand(chdir, buildPath) {
 function _swiftPath() {
   const path = (_featureConfig || _load_featureConfig()).default.get('nuclide-swift.swiftToolchainPath');
   if (path) {
-    return `${ path }/usr/bin/swift`;
+    return `${path}/usr/bin/swift`;
   }
 
   if (process.platform === 'darwin') {

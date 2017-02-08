@@ -75,10 +75,4 @@ const fsStatsType = exports.fsStatsType = {
   name: 'fs.Stats'
 };
 
-const namedBuiltinTypes = exports.namedBuiltinTypes = new Set();
-
-namedBuiltinTypes.add(objectType.name);
-namedBuiltinTypes.add(dateType.name);
-namedBuiltinTypes.add(regExpType.name);
-namedBuiltinTypes.add(bufferType.name);
-namedBuiltinTypes.add(fsStatsType.name);
+const namedBuiltinTypes = exports.namedBuiltinTypes = [objectType.name, dateType.name, regExpType.name, bufferType.name, fsStatsType.name];

@@ -38,13 +38,13 @@ function pipeProcessMessagesToConsole(processName, progressUpdates, processMessa
     case 'exit':
       if (processMessage.exitCode === 0) {
         // TODO(asriram) t13831340 Check if console was initially open, if yes then dont close here
-        progressUpdates.next({ text: `${ processName } completed successfully`, level: 'success' });
+        progressUpdates.next({ text: `${processName} completed successfully`, level: 'success' });
         atom.notifications.addSuccess('Operation completed successfully', {
-          detail: `${ processName } finished`
+          detail: `${processName} finished`
         });
       } else {
         // Keep console open
-        progressUpdates.next({ text: `${ processName } exited with non zero code`, level: 'error' });
+        progressUpdates.next({ text: `${processName} exited with non zero code`, level: 'error' });
         atom.notifications.addError('Operation Failed', {
           detail: 'Check console for output'
         });

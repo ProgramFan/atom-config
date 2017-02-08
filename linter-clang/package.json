@@ -2,46 +2,46 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-5571-rm1cmn/package.tgz",
+        "raw": "/tmp/d-11718-5570-b4jnla/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-5571-rm1cmn/package.tgz",
-        "spec": "/tmp/d-117016-5571-rm1cmn/package.tgz",
+        "rawSpec": "/tmp/d-11718-5570-b4jnla/package.tgz",
+        "spec": "/tmp/d-11718-5570-b4jnla/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-5571-5l4smt"
+      "/tmp/apm-install-dir-11718-5570-d0rihr"
     ]
   ],
-  "_from": "../d-117016-5571-rm1cmn/package.tgz",
-  "_id": "linter-clang@3.4.4",
+  "_from": "../d-11718-5570-b4jnla/package.tgz",
+  "_id": "linter-clang@3.4.6",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-clang",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-5571-rm1cmn/package.tgz",
+    "raw": "/tmp/d-11718-5570-b4jnla/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-5571-rm1cmn/package.tgz",
-    "spec": "/tmp/d-117016-5571-rm1cmn/package.tgz",
+    "rawSpec": "/tmp/d-11718-5570-b4jnla/package.tgz",
+    "spec": "/tmp/d-11718-5570-b4jnla/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-5571-rm1cmn/package.tgz",
-  "_shasum": "2207a6df4e398a3c7435b06e7428878ac0d91dfa",
+  "_resolved": "file:../d-11718-5570-b4jnla/package.tgz",
+  "_shasum": "b72bae02382c751c9d3fe4ed91b61c4b8853dd8a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-5571-rm1cmn/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-5571-5l4smt",
+  "_spec": "/tmp/d-11718-5570-b4jnla/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-5570-d0rihr",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-clang/issues"
   },
   "dependencies": {
-    "atom-linter": "^4.5.0",
-    "atom-package-deps": "^3.0.8",
+    "atom-linter": "^8.0.0",
+    "atom-package-deps": "^4.0.1",
     "clang-flags": "^0.2.2"
   },
   "description": "Lint C-based files using clang",
@@ -83,5 +83,5 @@
     "type": "git",
     "url": "git+https://github.com/AtomLinter/linter-clang.git"
   },
-  "version": "3.4.4"
+  "version": "3.4.6"
 }

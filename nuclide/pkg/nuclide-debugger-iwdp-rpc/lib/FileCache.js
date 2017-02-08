@@ -10,14 +10,14 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 let createFileData = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (url) {
     // Handle the bundle file.
-    log(`FileCache got url: ${ url.toString() }`);
+    log(`FileCache got url: ${url.toString()}`);
     const localhostedUrl = url.toString().replace(EMULATOR_LOCALHOST_ADDR, 'localhost');
-    log(`Converted to: ${ localhostedUrl }`);
+    log(`Converted to: ${localhostedUrl}`);
     const fileResponse = yield (0, (_xfetch || _load_xfetch()).default)(localhostedUrl, {});
     const basename = (_nuclideUri || _load_nuclideUri()).default.basename(url.pathname);
     const [fileText, filePath] = yield Promise.all([fileResponse.text(), (_fsPromise || _load_fsPromise()).default.tempfile({ prefix: basename, suffix: '.js' })]);
     yield (_fsPromise || _load_fsPromise()).default.writeFile(filePath, fileText);
-    const fileSystemUrl = `file://${ filePath }`;
+    const fileSystemUrl = `file://${filePath}`;
 
     const matches = SOURCE_MAP_REGEX.exec(fileText);
     if (matches == null) {
@@ -28,14 +28,14 @@ let createFileData = (() => {
     }
 
     // Handle source maps for the bundle.
-    const sourceMapUrl = `${ url.origin }${ matches[1] }`;
+    const sourceMapUrl = `${url.origin}${matches[1]}`;
     const sourceMapResponse = yield (0, (_xfetch || _load_xfetch()).default)(sourceMapUrl.replace(EMULATOR_LOCALHOST_ADDR, 'localhost'), {});
     const sourceMap = yield sourceMapResponse.text();
     const base64SourceMap = new Buffer(sourceMap).toString('base64');
     return {
       filePath: fileSystemUrl,
       url: url.toString(),
-      sourceMapUrl: `${ SOURCE_MAP_PREFIX }${ base64SourceMap }`
+      sourceMapUrl: `${SOURCE_MAP_PREFIX}${base64SourceMap}`
     };
   });
 

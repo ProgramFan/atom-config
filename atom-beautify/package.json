@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-6536-5ff6bj/package.tgz",
+        "raw": "/tmp/d-11718-6535-1splm3/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-6536-5ff6bj/package.tgz",
-        "spec": "/tmp/d-117016-6536-5ff6bj/package.tgz",
+        "rawSpec": "/tmp/d-11718-6535-1splm3/package.tgz",
+        "spec": "/tmp/d-11718-6535-1splm3/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-6536-1ugchm2"
+      "/tmp/apm-install-dir-11718-6535-fpokdi"
     ]
   ],
-  "_from": "../d-117016-6536-5ff6bj/package.tgz",
-  "_id": "atom-beautify@0.29.16",
+  "_from": "../d-11718-6535-1splm3/package.tgz",
+  "_id": "atom-beautify@0.29.17",
   "_inCache": true,
   "_installable": true,
   "_location": "/atom-beautify",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-6536-5ff6bj/package.tgz",
+    "raw": "/tmp/d-11718-6535-1splm3/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-6536-5ff6bj/package.tgz",
-    "spec": "/tmp/d-117016-6536-5ff6bj/package.tgz",
+    "rawSpec": "/tmp/d-11718-6535-1splm3/package.tgz",
+    "spec": "/tmp/d-11718-6535-1splm3/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-6536-5ff6bj/package.tgz",
-  "_shasum": "b98e1044092bac8ab09d7a7a7148da70eb6ba5c8",
+  "_resolved": "file:../d-11718-6535-1splm3/package.tgz",
+  "_shasum": "b463d188fc9ae62f8b33e3dba65625f7207776a2",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-6536-5ff6bj/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-6536-1ugchm2",
+  "_spec": "/tmp/d-11718-6535-1splm3/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-6535-fpokdi",
   "activationCommands": {
     "atom-workspace": [
       "atom-beautify:help-debug-editor",
@@ -345,5 +345,5 @@
     "postinstall": "npm run build-options",
     "prepublish": "npm run docs"
   },
-  "version": "0.29.16"
+  "version": "0.29.17"
 }

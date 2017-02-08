@@ -261,14 +261,14 @@ class ConnectionMultiplexer {
         const xdebugBreakpoint = notify;
         const breakpointId = this._breakpointStore.getBreakpointIdFromConnection(connection, xdebugBreakpoint);
         if (breakpointId == null) {
-          throw Error(`Cannot find xdebug breakpoint ${ JSON.stringify(xdebugBreakpoint) } in connection.`);
+          throw Error(`Cannot find xdebug breakpoint ${JSON.stringify(xdebugBreakpoint)} in connection.`);
         }
         this._breakpointStore.updateBreakpoint(breakpointId, xdebugBreakpoint);
         const breakpoint = this._breakpointStore.getBreakpoint(breakpointId);
         this._emitNotification((_DbgpSocket || _load_DbgpSocket()).BREAKPOINT_RESOLVED_NOTIFICATION, breakpoint);
         break;
       default:
-        (_utils || _load_utils()).default.logError(`Unknown notify: ${ notifyName }`);
+        (_utils || _load_utils()).default.logError(`Unknown notify: ${notifyName}`);
         break;
     }
   }
@@ -278,7 +278,7 @@ class ConnectionMultiplexer {
   }
 
   _connectionOnStatus(connection, status, ...args) {
-    (_utils || _load_utils()).default.log(`Mux got status: ${ status } on connection ${ connection.getId() }`);
+    (_utils || _load_utils()).default.log(`Mux got status: ${status} on connection ${connection.getId()}`);
 
     switch (status) {
       case (_DbgpSocket || _load_DbgpSocket()).ConnectionStatus.Starting:
@@ -318,7 +318,7 @@ class ConnectionMultiplexer {
       case (_DbgpSocket || _load_DbgpSocket()).ConnectionStatus.Error:
         let message = 'The debugger encountered a problem and the connection had to be shut down.';
         if (args[0] != null) {
-          message = `${ message }  Error message: ${ args[0] }`;
+          message = `${message}  Error message: ${args[0]}`;
         }
         this._clientCallback.sendUserMessage('notification', {
           type: 'error',
@@ -448,7 +448,7 @@ class ConnectionMultiplexer {
       type: 'error',
       message: error
     });
-    (_utils || _load_utils()).default.logError(`PHP debugger attach error: ${ error }`);
+    (_utils || _load_utils()).default.logError(`PHP debugger attach error: ${error}`);
     this._emitStatus(ConnectionMultiplexerStatus.End);
   }
 
@@ -464,7 +464,7 @@ class ConnectionMultiplexer {
     var _this3 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      (_utils || _load_utils()).default.log(`runtimeEvaluate() on dummy connection for: ${ expression }`);
+      (_utils || _load_utils()).default.log(`runtimeEvaluate() on dummy connection for: ${expression}`);
       if (_this3._dummyConnection != null) {
         // Global runtime evaluation on dummy connection does not care about
         // which frame it is being evaluated on so choose top frame here.
@@ -494,7 +494,7 @@ class ConnectionMultiplexer {
   _reportEvaluationFailureIfNeeded(expression, result) {
     if (result.wasThrown) {
       const message = {
-        text: 'Failed to evaluate ' + `"${ expression }": (${ result.error.$.code }) ${ result.error.message[0] }`,
+        text: 'Failed to evaluate ' + `"${expression}": (${result.error.$.code}) ${result.error.message[0]}`,
         level: 'error'
       };
       this._clientCallback.sendUserMessage('console', message);

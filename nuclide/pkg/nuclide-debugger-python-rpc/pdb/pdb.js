@@ -88,7 +88,7 @@ function interact(observable, commander) {
           commander.step();
           break;
         default:
-          console.error(`Unrecognized command: ${ answer }`);
+          console.error(`Unrecognized command: ${answer}`);
           ask();
       }
     });
@@ -102,7 +102,7 @@ function interact(observable, commander) {
         ask();
       } else if (message.event === 'stop') {
         const { file, line } = message;
-        console.log(`Stopped at: ${ file }:${ line }`);
+        console.log(`Stopped at: ${file}:${line}`);
         ask();
       }
     },

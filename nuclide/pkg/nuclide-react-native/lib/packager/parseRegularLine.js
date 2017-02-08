@@ -16,8 +16,8 @@ const TIMESTAMP_FORMATS = ['\\d{1,2}:\\d{2}:\\d{2} (?:A|P)M', '\\d{1,2}/\\d{1,2}
                                                                                                                                                                                                                                 * 
                                                                                                                                                                                                                                 */
 
-const TIMESTAMP = TIMESTAMP_FORMATS.map(str => `(?:\\[?${ str }\\]?)`).join('|');
-const NORMAL_LINE = new RegExp(`^\\s*(?:${ TIMESTAMP })\\s*(.*?)\\s*$`);
+const TIMESTAMP = TIMESTAMP_FORMATS.map(str => `(?:\\[?${str}\\]?)`).join('|');
+const NORMAL_LINE = new RegExp(`^\\s*(?:${TIMESTAMP})\\s*(.*?)\\s*$`);
 const ERROR_LINE = /^\s*ERROR\s*(.*?)\s*$/;
 
 function parseRegularLine(line) {

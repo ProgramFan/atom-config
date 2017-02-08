@@ -11,11 +11,7 @@ function _load_nuclideUri() {
   return _nuclideUri = _interopRequireDefault(require('../../commons-node/nuclideUri'));
 }
 
-var _userInfo;
-
-function _load_userInfo() {
-  return _userInfo = _interopRequireDefault(require('../../commons-node/userInfo'));
-}
+var _os = _interopRequireDefault(require('os'));
 
 var _nuclideRemoteConnection;
 
@@ -36,14 +32,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 function getConnectionDialogDefaultSettings() {
-  const { username, homedir } = (0, (_userInfo || _load_userInfo()).default)();
+  const { username, homedir } = _os.default.userInfo();
   return {
     server: '',
     username,
     // Do not use path.join() because we assume that the remote machine is *nix,
     // so we always want to use `/` as the path separator for cwd, even if Atom
     // is running on Windows.
-    cwd: `/home/${ username }/`,
+    cwd: `/home/${username}/`,
     pathToPrivateKey: (_nuclideUri || _load_nuclideUri()).default.join(homedir, '.ssh', 'id_rsa'),
     remoteServerCommand: 'nuclide-start-server',
     authMethod: (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).SshHandshake.SupportedMethods.PASSWORD,

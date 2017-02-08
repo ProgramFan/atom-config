@@ -100,7 +100,7 @@ class RemoteFile {
       this._watchSubscription = null;
     }, () => {
       // Nothing needs to be done if the root directory watch has ended.
-      logger.debug(`watchFile ended: ${ this._path }`);
+      logger.debug(`watchFile ended: ${this._path}`);
       this._watchSubscription = null;
     });
   }

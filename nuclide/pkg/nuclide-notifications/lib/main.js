@@ -51,7 +51,7 @@ function proxyToNativeNotification(notification) {
     return;
   }
 
-  raiseNativeNotification(`${ upperCaseFirst(notification.getType()) }: ${ notification.getMessage() }`, options.detail);
+  raiseNativeNotification(`${upperCaseFirst(notification.getType())}: ${notification.getMessage()}`, options.detail);
 }
 
 function raiseNativeNotification(title, body) {
@@ -76,5 +76,5 @@ function deactivate() {
 }
 
 function upperCaseFirst(str) {
-  return `${ str[0].toUpperCase() }${ str.slice(1) }`;
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
 }

@@ -49,7 +49,7 @@ class Task {
     const child = this._child = this._fork();
     // eslint-disable-next-line no-console
     const log = buffer => {
-      console.log(`TASK(${ child.pid }): ${ buffer }`);
+      console.log(`TASK(${child.pid}): ${buffer}`);
     };
     child.stdout.on('data', log);
     child.stderr.on('data', log);

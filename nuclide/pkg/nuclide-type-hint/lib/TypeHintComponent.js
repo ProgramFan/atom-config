@@ -89,7 +89,7 @@ class TypeHintComponent extends _reactForAtom.React.Component {
       { className: 'list-tree' },
       children
     ) : null;
-    const className = 'icon nuclide-type-hint-expandable-chevron ' + `icon-chevron-${ isExpanded ? 'down' : 'right' }`;
+    const className = 'icon nuclide-type-hint-expandable-chevron ' + `icon-chevron-${isExpanded ? 'down' : 'right'}`;
     return _reactForAtom.React.createElement(
       'li',
       { className: 'list-nested-item' },

@@ -65,7 +65,7 @@ let tryCreateView = (() => {
     } catch (e) {
       // TODO(peterhal): Remove this when unhandled rejections have a default handler.
       logger.error('Exception in nuclide-find-references', e);
-      atom.notifications.addError(`nuclide-find-references: ${ e }`, { dismissable: true });
+      atom.notifications.addError(`nuclide-find-references: ${e}`, { dismissable: true });
     }
   });
 

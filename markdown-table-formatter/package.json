@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117016-5982-huutz/package.tgz",
+        "raw": "/tmp/d-11718-5981-1znn2v/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117016-5982-huutz/package.tgz",
-        "spec": "/tmp/d-117016-5982-huutz/package.tgz",
+        "rawSpec": "/tmp/d-11718-5981-1znn2v/package.tgz",
+        "spec": "/tmp/d-11718-5981-1znn2v/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117016-5982-1xga9im"
+      "/tmp/apm-install-dir-11718-5981-h38weh"
     ]
   ],
-  "_from": "../d-117016-5982-huutz/package.tgz",
+  "_from": "../d-11718-5981-1znn2v/package.tgz",
   "_id": "markdown-table-formatter@2.8.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/markdown-table-formatter",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117016-5982-huutz/package.tgz",
+    "raw": "/tmp/d-11718-5981-1znn2v/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117016-5982-huutz/package.tgz",
-    "spec": "/tmp/d-117016-5982-huutz/package.tgz",
+    "rawSpec": "/tmp/d-11718-5981-1znn2v/package.tgz",
+    "spec": "/tmp/d-11718-5981-1znn2v/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117016-5982-huutz/package.tgz",
+  "_resolved": "file:../d-11718-5981-1znn2v/package.tgz",
   "_shasum": "c9c28751c188ebe41c7345a175d883401a9cbe9e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117016-5982-huutz/package.tgz",
-  "_where": "/tmp/apm-install-dir-117016-5982-1xga9im",
+  "_spec": "/tmp/d-11718-5981-1znn2v/package.tgz",
+  "_where": "/tmp/apm-install-dir-11718-5981-h38weh",
   "bugs": {
     "url": "https://github.com/fcrespo82/atom-markdown-table-formatter/issues"
   },
