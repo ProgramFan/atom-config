@@ -16,7 +16,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 25
+            line: 27
           },
           name: "IwdpDebuggerService"
         }).then(id => {
@@ -27,9 +27,35 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 45
+            line: 47
           },
           kind: "string"
+        });
+      }).publish();
+    }
+
+    getAtomNotificationObservable() {
+      return Observable.fromPromise(_client.marshalArguments(Array.from(arguments), []).then(args => {
+        return _client.marshal(this, {
+          kind: "named",
+          location: {
+            type: "source",
+            fileName: "IwdpDebuggerService.js",
+            line: 27
+          },
+          name: "IwdpDebuggerService"
+        }).then(id => {
+          return _client.callRemoteMethod(id, "getAtomNotificationObservable", "observable", args);
+        });
+      })).concatMap(id => id).concatMap(value => {
+        return _client.unmarshal(value, {
+          location: {
+            type: "source",
+            fileName: "IwdpDebuggerService.js",
+            line: 51
+          },
+          kind: "named",
+          name: "AtomNotification"
         });
       }).publish();
     }
@@ -41,7 +67,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 49
+            line: 55
           },
           kind: "named",
           name: "TargetEnvironment"
@@ -52,7 +78,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 25
+            line: 27
           },
           name: "IwdpDebuggerService"
         }).then(id => {
@@ -63,7 +89,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 49
+            line: 55
           },
           kind: "string"
         });
@@ -77,7 +103,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 60
+            line: 78
           },
           kind: "string"
         }
@@ -87,7 +113,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 25
+            line: 27
           },
           name: "IwdpDebuggerService"
         }).then(id => {
@@ -98,7 +124,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 60
+            line: 78
           },
           kind: "void"
         });
@@ -182,7 +208,7 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "IwdpDebuggerService.js",
-        line: 25
+        line: 27
       },
       constructorArgs: [],
       staticMethods: {},
@@ -191,7 +217,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 45
+            line: 47
           },
           kind: "function",
           argumentTypes: [],
@@ -199,16 +225,42 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "IwdpDebuggerService.js",
-              line: 45
+              line: 47
             },
             kind: "observable",
             type: {
               location: {
                 type: "source",
                 fileName: "IwdpDebuggerService.js",
-                line: 45
+                line: 47
               },
               kind: "string"
+            }
+          }
+        },
+        getAtomNotificationObservable: {
+          location: {
+            type: "source",
+            fileName: "IwdpDebuggerService.js",
+            line: 51
+          },
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "IwdpDebuggerService.js",
+              line: 51
+            },
+            kind: "observable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "IwdpDebuggerService.js",
+                line: 51
+              },
+              kind: "named",
+              name: "AtomNotification"
             }
           }
         },
@@ -216,7 +268,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 49
+            line: 55
           },
           kind: "function",
           argumentTypes: [{
@@ -225,7 +277,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "IwdpDebuggerService.js",
-                line: 49
+                line: 55
               },
               kind: "named",
               name: "TargetEnvironment"
@@ -235,14 +287,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "IwdpDebuggerService.js",
-              line: 49
+              line: 55
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "IwdpDebuggerService.js",
-                line: 49
+                line: 55
               },
               kind: "string"
             }
@@ -252,7 +304,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 60
+            line: 78
           },
           kind: "function",
           argumentTypes: [{
@@ -261,7 +313,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "IwdpDebuggerService.js",
-                line: 60
+                line: 78
               },
               kind: "string"
             }
@@ -270,14 +322,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "IwdpDebuggerService.js",
-              line: 60
+              line: 78
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "IwdpDebuggerService.js",
-                line: 60
+                line: 78
               },
               kind: "void"
             }
@@ -287,7 +339,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "IwdpDebuggerService.js",
-            line: 65
+            line: 83
           },
           kind: "function",
           argumentTypes: [],
@@ -295,14 +347,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "IwdpDebuggerService.js",
-              line: 65
+              line: 83
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "IwdpDebuggerService.js",
-                line: 65
+                line: 83
               },
               kind: "void"
             }
@@ -1135,6 +1187,157 @@ Object.defineProperty(module.exports, "defs", {
           },
           kind: "string-literal",
           value: "Android"
+        }]
+      }
+    },
+    AtomNotificationType: {
+      kind: "alias",
+      location: {
+        type: "source",
+        fileName: "types.js",
+        line: 11
+      },
+      name: "AtomNotificationType",
+      definition: {
+        location: {
+          type: "source",
+          fileName: "types.js",
+          line: 11
+        },
+        kind: "union",
+        types: [{
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 11
+          },
+          kind: "string-literal",
+          value: "info"
+        }, {
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 11
+          },
+          kind: "string-literal",
+          value: "warning"
+        }, {
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 11
+          },
+          kind: "string-literal",
+          value: "error"
+        }, {
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 11
+          },
+          kind: "string-literal",
+          value: "fatalError"
+        }]
+      }
+    },
+    AtomNotification: {
+      kind: "alias",
+      location: {
+        type: "source",
+        fileName: "types.js",
+        line: 12
+      },
+      name: "AtomNotification",
+      definition: {
+        location: {
+          type: "source",
+          fileName: "types.js",
+          line: 12
+        },
+        kind: "object",
+        fields: [{
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 13
+          },
+          name: "type",
+          type: {
+            location: {
+              type: "source",
+              fileName: "types.js",
+              line: 13
+            },
+            kind: "named",
+            name: "AtomNotificationType"
+          },
+          optional: false
+        }, {
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 14
+          },
+          name: "message",
+          type: {
+            location: {
+              type: "source",
+              fileName: "types.js",
+              line: 14
+            },
+            kind: "string"
+          },
+          optional: false
+        }]
+      }
+    },
+    ThreadColumn: {
+      kind: "alias",
+      location: {
+        type: "source",
+        fileName: "types.js",
+        line: 17
+      },
+      name: "ThreadColumn",
+      definition: {
+        location: {
+          type: "source",
+          fileName: "types.js",
+          line: 17
+        },
+        kind: "object",
+        fields: [{
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 18
+          },
+          name: "key",
+          type: {
+            location: {
+              type: "source",
+              fileName: "types.js",
+              line: 18
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 19
+          },
+          name: "title",
+          type: {
+            location: {
+              type: "source",
+              fileName: "types.js",
+              line: 19
+            },
+            kind: "string"
+          },
+          optional: false
         }]
       }
     }

@@ -171,7 +171,15 @@ function consumeDiagnosticsProviderV2(provider) {
   const compositeDisposable = new (_UniversalDisposable || _load_UniversalDisposable()).default();
   const store = getDiagnosticStore();
 
-  compositeDisposable.add(provider.updates.subscribe(update => store.updateMessages(provider, update)), provider.invalidations.subscribe(invalidation => store.invalidateMessages(provider, invalidation)), () => {
+  compositeDisposable.add(provider.updates.subscribe(update => store.updateMessages(provider, update), error => {
+    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error: updates.subscribe ${error}`);
+  }, () => {
+    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('updates.subscribe completed');
+  }), provider.invalidations.subscribe(invalidation => store.invalidateMessages(provider, invalidation), error => {
+    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error: invalidations.subscribe ${error}`);
+  }, () => {
+    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('invalidations.subscribe completed');
+  }), () => {
     store.invalidateMessages(provider, { scope: 'all' });
   });
 

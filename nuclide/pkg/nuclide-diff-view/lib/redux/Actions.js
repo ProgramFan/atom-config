@@ -31,6 +31,7 @@ exports.updateDiffEditors = updateDiffEditors;
 exports.updateDiffNavigatorVisibility = updateDiffNavigatorVisibility;
 exports.updateActiveNavigationSection = updateActiveNavigationSection;
 exports.updateDockConfig = updateDockConfig;
+exports.setLintExcuse = setLintExcuse;
 exports.setShouldPublishOnCommit = setShouldPublishOnCommit;
 exports.setIsPrepareMode = setIsPrepareMode;
 exports.setVerbatimModeEnabled = setVerbatimModeEnabled;
@@ -318,6 +319,15 @@ function updateDockConfig(shouldDockPublishView) {
     type: (_ActionTypes || _load_ActionTypes()).UPDATE_DOCK_CONFIG,
     payload: {
       shouldDockPublishView
+    }
+  };
+}
+
+function setLintExcuse(lintExcuse) {
+  return {
+    type: (_ActionTypes || _load_ActionTypes()).SET_LINT_EXCUSE,
+    payload: {
+      lintExcuse
     }
   };
 }

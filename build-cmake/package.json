@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11718-6457-1a8muts/package.tgz",
+        "raw": "/tmp/d-117120-6472-ru51a2/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11718-6457-1a8muts/package.tgz",
-        "spec": "/tmp/d-11718-6457-1a8muts/package.tgz",
+        "rawSpec": "/tmp/d-117120-6472-ru51a2/package.tgz",
+        "spec": "/tmp/d-117120-6472-ru51a2/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11718-6457-egqjz"
+      "/tmp/apm-install-dir-117120-6472-1px09n7"
     ]
   ],
-  "_from": "../d-11718-6457-1a8muts/package.tgz",
+  "_from": "../d-117120-6472-ru51a2/package.tgz",
   "_id": "build-cmake@0.8.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/build-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11718-6457-1a8muts/package.tgz",
+    "raw": "/tmp/d-117120-6472-ru51a2/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11718-6457-1a8muts/package.tgz",
-    "spec": "/tmp/d-11718-6457-1a8muts/package.tgz",
+    "rawSpec": "/tmp/d-117120-6472-ru51a2/package.tgz",
+    "spec": "/tmp/d-117120-6472-ru51a2/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-6457-1a8muts/package.tgz",
+  "_resolved": "file:../d-117120-6472-ru51a2/package.tgz",
   "_shasum": "1323edb024be7a774368ebbea2b63071b7115bdc",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11718-6457-1a8muts/package.tgz",
-  "_where": "/tmp/apm-install-dir-11718-6457-egqjz",
+  "_spec": "/tmp/d-117120-6472-ru51a2/package.tgz",
+  "_where": "/tmp/apm-install-dir-117120-6472-1px09n7",
   "bugs": {
     "url": "https://github.com/siegelaaron94/atom-build-cmake/issues"
   },

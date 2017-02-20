@@ -22,12 +22,6 @@ function _load_Dropdown() {
   return _Dropdown = require('../../../nuclide-ui/Dropdown');
 }
 
-var _PanelComponent;
-
-function _load_PanelComponent() {
-  return _PanelComponent = require('../../../nuclide-ui/PanelComponent');
-}
-
 var _Toolbar;
 
 function _load_Toolbar() {
@@ -73,6 +67,16 @@ function _load_TestClassTree() {
 }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
 class TestRunnerPanel extends _reactForAtom.React.Component {
 
@@ -224,46 +228,42 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
     }
 
     return _reactForAtom.React.createElement(
-      (_PanelComponent || _load_PanelComponent()).PanelComponent,
-      { dock: 'bottom', doNotSetSize: true },
+      'div',
+      { className: 'nuclide-test-runner-panel' },
       _reactForAtom.React.createElement(
-        'div',
-        { className: 'nuclide-test-runner-panel' },
+        (_Toolbar || _load_Toolbar()).Toolbar,
+        { location: 'top' },
         _reactForAtom.React.createElement(
-          (_Toolbar || _load_Toolbar()).Toolbar,
-          { location: 'top' },
-          _reactForAtom.React.createElement(
-            (_ToolbarLeft || _load_ToolbarLeft()).ToolbarLeft,
-            null,
-            dropdown,
-            runStopButton,
-            attachDebuggerCheckbox,
-            _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
-              size: (_Button || _load_Button()).ButtonSizes.SMALL,
-              icon: 'trashcan',
-              className: 'trashcan inline-block',
-              disabled: this.isDisabled() || this.props.executionState === TestRunnerPanel.ExecutionState.RUNNING,
-              onClick: this.props.onClickClear,
-              title: 'Clear Output'
-            }),
-            pathMsg
-          ),
-          _reactForAtom.React.createElement(
-            (_ToolbarRight || _load_ToolbarRight()).ToolbarRight,
-            null,
-            runMsg,
-            _reactForAtom.React.createElement('progress', Object.assign({ className: 'inline-block', max: '100' }, progressAttrs)),
-            _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
-              onClick: this.props.onClickClose,
-              className: 'inline-block',
-              icon: 'x',
-              size: (_Button || _load_Button()).ButtonSizes.SMALL,
-              title: 'Close Panel'
-            })
-          )
+          (_ToolbarLeft || _load_ToolbarLeft()).ToolbarLeft,
+          null,
+          dropdown,
+          runStopButton,
+          attachDebuggerCheckbox,
+          _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+            size: (_Button || _load_Button()).ButtonSizes.SMALL,
+            icon: 'trashcan',
+            className: 'trashcan inline-block',
+            disabled: this.isDisabled() || this.props.executionState === TestRunnerPanel.ExecutionState.RUNNING,
+            onClick: this.props.onClickClear,
+            title: 'Clear Output'
+          }),
+          pathMsg
         ),
-        _reactForAtom.React.createElement('div', { className: 'nuclide-test-runner-console', ref: 'paneContainer' })
-      )
+        _reactForAtom.React.createElement(
+          (_ToolbarRight || _load_ToolbarRight()).ToolbarRight,
+          null,
+          runMsg,
+          _reactForAtom.React.createElement('progress', Object.assign({ className: 'inline-block', max: '100' }, progressAttrs)),
+          _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+            onClick: this.props.onClickClose,
+            className: 'inline-block',
+            icon: 'x',
+            size: (_Button || _load_Button()).ButtonSizes.SMALL,
+            title: 'Close Panel'
+          })
+        )
+      ),
+      _reactForAtom.React.createElement('div', { className: 'nuclide-test-runner-console', ref: 'paneContainer' })
     );
   }
 
@@ -299,16 +299,7 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
     _reactForAtom.ReactDOM.render(_reactForAtom.React.createElement((_Console || _load_Console()).default, { textBuffer: this.props.buffer }), atom.views.getView(this._rightPane).querySelector('.item-views'));
   }
 }
-exports.default = TestRunnerPanel; /**
-                                    * Copyright (c) 2015-present, Facebook, Inc.
-                                    * All rights reserved.
-                                    *
-                                    * This source code is licensed under the license found in the LICENSE file in
-                                    * the root directory of this source tree.
-                                    *
-                                    * 
-                                    */
-
+exports.default = TestRunnerPanel;
 TestRunnerPanel.ExecutionState = Object.freeze({
   RUNNING: 0,
   STOPPED: 1

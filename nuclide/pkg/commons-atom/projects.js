@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.__test__ = undefined;
 exports.getAtomProjectRelativePath = getAtomProjectRelativePath;
 exports.getAtomProjectRootPath = getAtomProjectRootPath;
 exports.observeProjectPaths = observeProjectPaths;
@@ -18,27 +17,7 @@ function _load_nuclideUri() {
   return _nuclideUri = _interopRequireDefault(require('../commons-node/nuclideUri'));
 }
 
-var _singleton;
-
-function _load_singleton() {
-  return _singleton = _interopRequireDefault(require('../commons-node/singleton'));
-}
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-const REMOVE_PROJECT_EVENT = 'did-remove-project';
-const ADD_PROJECT_EVENT = 'did-add-project';
-const PROJECT_PATH_WATCHER_INSTANCE_KEY = '_nuclide_project_path_watcher';
 
 function getValidProjectPaths() {
   return atom.project.getDirectories().filter(directory => {
@@ -49,51 +28,15 @@ function getValidProjectPaths() {
     }
     return true;
   }).map(directory => directory.getPath());
-}
-
-class ProjectManager {
-
-  constructor() {
-    this._emitter = new _atom.Emitter();
-    this._projectPaths = new Set(getValidProjectPaths());
-    atom.project.onDidChangePaths(this._updateProjectPaths.bind(this));
-  }
-
-  _updateProjectPaths(newProjectPaths) {
-    const oldProjectPathSet = this._projectPaths;
-    const newProjectPathSet = new Set(getValidProjectPaths());
-    for (const oldProjectPath of oldProjectPathSet) {
-      if (!newProjectPathSet.has(oldProjectPath)) {
-        this._emitter.emit(REMOVE_PROJECT_EVENT, oldProjectPath);
-      }
-    }
-    for (const newProjectPath of newProjectPathSet) {
-      if (!oldProjectPathSet.has(newProjectPath)) {
-        this._emitter.emit(ADD_PROJECT_EVENT, newProjectPath);
-      }
-    }
-    this._projectPaths = newProjectPathSet;
-  }
-
-  observeProjectPaths(callback) {
-    for (const projectPath of this._projectPaths) {
-      callback(projectPath);
-    }
-    return this._emitter.on(ADD_PROJECT_EVENT, callback);
-  }
-
-  onDidAddProjectPath(callback) {
-    return this._emitter.on(ADD_PROJECT_EVENT, callback);
-  }
-
-  onDidRemoveProjectPath(callback) {
-    return this._emitter.on(REMOVE_PROJECT_EVENT, callback);
-  }
-}
-
-function getProjectManager() {
-  return (_singleton || _load_singleton()).default.get(PROJECT_PATH_WATCHER_INSTANCE_KEY, () => new ProjectManager());
-}
+} /**
+   * Copyright (c) 2015-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the license found in the LICENSE file in
+   * the root directory of this source tree.
+   *
+   * 
+   */
 
 function getAtomProjectRelativePath(path) {
   const [projectPath, relativePath] = atom.project.relativizePath(path);
@@ -109,17 +52,44 @@ function getAtomProjectRootPath(path) {
 }
 
 function observeProjectPaths(callback) {
-  return getProjectManager().observeProjectPaths(callback);
+  getValidProjectPaths().forEach(callback);
+  return onDidAddProjectPath(callback);
 }
 
 function onDidAddProjectPath(callback) {
-  return getProjectManager().onDidAddProjectPath(callback);
+  let projectPaths = getValidProjectPaths();
+  let changing = false;
+  return atom.project.onDidChangePaths(() => {
+    if (changing) {
+      throw new Error('Cannot update projects in the middle of an update');
+    }
+    changing = true;
+    const newProjectPaths = getValidProjectPaths();
+    for (const newProjectPath of newProjectPaths) {
+      if (!projectPaths.includes(newProjectPath)) {
+        callback(newProjectPath);
+      }
+    }
+    changing = false;
+    projectPaths = newProjectPaths;
+  });
 }
 
 function onDidRemoveProjectPath(callback) {
-  return getProjectManager().onDidRemoveProjectPath(callback);
+  let projectPaths = getValidProjectPaths();
+  let changing = false;
+  return atom.project.onDidChangePaths(() => {
+    if (changing) {
+      throw new Error('Cannot update projects in the middle of an update');
+    }
+    changing = true;
+    const newProjectPaths = getValidProjectPaths();
+    for (const projectPath of projectPaths) {
+      if (!newProjectPaths.includes(projectPath)) {
+        callback(projectPath);
+      }
+    }
+    changing = false;
+    projectPaths = newProjectPaths;
+  });
 }
-
-const __test__ = exports.__test__ = {
-  PROJECT_PATH_WATCHER_INSTANCE_KEY
-};

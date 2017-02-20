@@ -173,6 +173,7 @@ exports.createProcessStream = createProcessStream;
 exports.observeProcessExit = observeProcessExit;
 exports.getOutputStream = getOutputStream;
 exports.observeProcess = observeProcess;
+exports.observeProcessRaw = observeProcessRaw;
 exports.asyncExecute = asyncExecute;
 exports.runCommand = runCommand;
 exports.loadedShellEnvironment = loadedShellEnvironment;
@@ -510,7 +511,8 @@ function observeProcessExit(createProcess, killTreeOnComplete = false) {
   return _createProcessStream(createProcess, false, killTreeOnComplete).flatMap(observeProcessExitMessage);
 }
 
-function getOutputStream(process, killTreeOnComplete = false) {
+function getOutputStream(process, killTreeOnComplete = false, splitByLines = true) {
+  const chunk = splitByLines ? (_observable || _load_observable()).splitStream : x => x;
   return _rxjsBundlesRxMinJs.Observable.defer(() => {
     // We need to start listening for the exit event immediately, but defer emitting it until the
     // (buffered) output streams end.
@@ -522,8 +524,8 @@ function getOutputStream(process, killTreeOnComplete = false) {
     // This utility, however, treats the exit event as stream-ending, which helps us to avoid easy
     // bugs. We give a short (100ms) timeout for the stdout and stderr streams to close.
     const close = exit.delay(100);
-    const stdout = (0, (_observable || _load_observable()).splitStream)((0, (_stream || _load_stream()).observeStream)(process.stdout).takeUntil(close)).map(data => ({ kind: 'stdout', data }));
-    const stderr = (0, (_observable || _load_observable()).splitStream)((0, (_stream || _load_stream()).observeStream)(process.stderr).takeUntil(close)).map(data => ({ kind: 'stderr', data }));
+    const stdout = chunk((0, (_stream || _load_stream()).observeStream)(process.stdout).takeUntil(close)).map(data => ({ kind: 'stdout', data }));
+    const stderr = chunk((0, (_stream || _load_stream()).observeStream)(process.stderr).takeUntil(close)).map(data => ({ kind: 'stderr', data }));
 
     return (0, (_observable || _load_observable()).takeWhileInclusive)(_rxjsBundlesRxMinJs.Observable.merge(_rxjsBundlesRxMinJs.Observable.merge(stdout, stderr).concat(exit), error), event => event.kind !== 'error' && event.kind !== 'exit').finally(() => {
       exitSub.unsubscribe();
@@ -536,6 +538,13 @@ function getOutputStream(process, killTreeOnComplete = false) {
  */
 function observeProcess(createProcess, killTreeOnComplete = false) {
   return _createProcessStream(createProcess, false, killTreeOnComplete).flatMap(getOutputStream);
+}
+
+/**
+ * Observe the stdout, stderr and exit code of a process.
+ */
+function observeProcessRaw(createProcess, killTreeOnComplete = false) {
+  return _createProcessStream(createProcess, false, killTreeOnComplete).flatMap(process => getOutputStream(process, false, false));
 }
 
 let FB_INCLUDE_PATHS;
@@ -625,28 +634,25 @@ function writeToStdin(childProcess, options) {
     childProcess.stdin.end();
   }
 }function runCommand(command, args = [], options = {}, killTreeOnComplete = false) {
+  const seed = {
+    error: null,
+    stdout: [],
+    stderr: [],
+    exitMessage: null
+  };
   return observeProcess(() => safeSpawn(command, args, options), killTreeOnComplete).reduce((acc, event) => {
     switch (event.kind) {
       case 'stdout':
-        acc.stdout += event.data;
-        break;
+        return Object.assign({}, acc, { stdout: acc.stdout.concat(event.data) });
       case 'stderr':
-        acc.stderr += event.data;
-        break;
+        return Object.assign({}, acc, { stderr: acc.stderr.concat(event.data) });
       case 'error':
-        acc.error = event.error;
-        break;
+        return Object.assign({}, acc, { error: event.error });
       case 'exit':
-        acc.exitMessage = event;
-        break;
+        return Object.assign({}, acc, { exitMessage: event });
     }
     return acc;
-  }, {
-    error: null,
-    stdout: '',
-    stderr: '',
-    exitMessage: null
-  }).map(acc => {
+  }, seed).map(acc => {
     if (acc.error != null) {
       throw new ProcessSystemError({
         command,
@@ -655,17 +661,18 @@ function writeToStdin(childProcess, options) {
         code: acc.error.code, // Alias of errno
         originalError: acc.error });
     }
+    const stdout = acc.stdout.join('');
     if (acc.exitMessage != null && acc.exitMessage.exitCode !== 0) {
       throw new ProcessExitError({
         command,
         args,
         options,
         exitMessage: acc.exitMessage,
-        stdout: acc.stdout,
-        stderr: acc.stderr
+        stdout,
+        stderr: acc.stderr.join('')
       });
     }
-    return acc.stdout;
+    return stdout;
   });
 }
 

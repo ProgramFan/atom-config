@@ -538,6 +538,7 @@ function commit(actions, store) {
     const {
       commit: { mode },
       isPrepareMode,
+      lintExcuse,
       publish,
       shouldPublishOnCommit,
       shouldRebaseOnAmend
@@ -558,7 +559,7 @@ function commit(actions, store) {
 
       return _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).updatePublishState(Object.assign({}, publish, {
         mode: publishMode
-      })), (_Actions || _load_Actions()).publishDiff(repository, publishUpdateMessage, isPrepareMode, null, publishUpdates));
+      })), (_Actions || _load_Actions()).publishDiff(repository, publishUpdateMessage, isPrepareMode, lintExcuse, publishUpdates));
     }
 
     const resetCommitAction = (_Actions || _load_Actions()).updateCommitState({

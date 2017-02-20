@@ -152,6 +152,11 @@ function rootReducer(state, action) {
         shouldDockPublishView: action.payload.shouldDockPublishView
       });
 
+    case (_ActionTypes || _load_ActionTypes()).SET_LINT_EXCUSE:
+      return Object.assign({}, state, {
+        lintExcuse: action.payload.lintExcuse
+      });
+
     case (_ActionTypes || _load_ActionTypes()).SET_SHOULD_PUBLISH_ON_COMMIT:
       return Object.assign({}, state, {
         shouldPublishOnCommit: action.payload.shouldPublishOnCommit

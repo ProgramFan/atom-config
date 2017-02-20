@@ -64,7 +64,7 @@ class Toolbar extends _reactForAtom.React.Component {
       if (taskRunnerState) {
         taskRunnerOptions = getTaskRunnerOptions(taskRunners, this.props.statesForTaskRunners);
         const ExtraUi = this.props.extraUiComponent;
-        const extraUi = ExtraUi ? _reactForAtom.React.createElement(ExtraUi, null) : null;
+        const extraUi = ExtraUi ? _reactForAtom.React.createElement(ExtraUi, { key: 'extraui' }) : null;
         const taskButtons = this._renderTaskButtons();
         taskRunnerSpecificContent = [taskButtons, extraUi];
         dropdownVisibility = {};
@@ -102,7 +102,7 @@ class Toolbar extends _reactForAtom.React.Component {
     const taskButtons = this._getButtonsForTasks();
     return _reactForAtom.React.createElement(
       'span',
-      { className: 'inline-block' },
+      { className: 'inline-block', key: 'taskButtons' },
       _reactForAtom.React.createElement(
         (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
         null,
@@ -136,7 +136,7 @@ class Toolbar extends _reactForAtom.React.Component {
       throw new Error('Invariant violation: "state"');
     }
 
-    return state.tasks.map(task => {
+    return state.tasks.filter(task => task.hidden !== true).map(task => {
       const taskAction = () => {
         if (this.props.taskIsRunning) {
           this.props.stopRunningTask();

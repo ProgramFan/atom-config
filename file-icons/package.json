@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11718-6885-1hvnvb6/package.tgz",
+        "raw": "/tmp/d-117120-6900-yh3t9i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11718-6885-1hvnvb6/package.tgz",
-        "spec": "/tmp/d-11718-6885-1hvnvb6/package.tgz",
+        "rawSpec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
+        "spec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11718-6885-zwe0ur"
+      "/tmp/apm-install-dir-117120-6900-5n9jp0"
     ]
   ],
-  "_from": "../d-11718-6885-1hvnvb6/package.tgz",
+  "_from": "../d-117120-6900-yh3t9i/package.tgz",
   "_id": "file-icons@2.0.15",
   "_inCache": true,
   "_installable": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11718-6885-1hvnvb6/package.tgz",
+    "raw": "/tmp/d-117120-6900-yh3t9i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11718-6885-1hvnvb6/package.tgz",
-    "spec": "/tmp/d-11718-6885-1hvnvb6/package.tgz",
+    "rawSpec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
+    "spec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-6885-1hvnvb6/package.tgz",
+  "_resolved": "file:../d-117120-6900-yh3t9i/package.tgz",
   "_shasum": "19d9ae7f35bddb2c339c4cbce43b6f806eb402d1",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11718-6885-1hvnvb6/package.tgz",
-  "_where": "/tmp/apm-install-dir-11718-6885-zwe0ur",
+  "_spec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117120-6900-5n9jp0",
   "atomTestRunner": "atom-mocha",
   "bugs": {
     "url": "https://github.com/file-icons/atom/issues"

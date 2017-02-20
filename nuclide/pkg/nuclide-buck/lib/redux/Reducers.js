@@ -41,8 +41,16 @@ function accumulateState(state, action) {
       });
     case (_Actions || _load_Actions()).SET_PLATFORM_GROUPS:
       const { platformGroups } = action;
-      const previouslySelected = state.selectedDeploymentTarget;
-      const selectedDeploymentTarget = selectValidDeploymentTarget(previouslySelected, platformGroups);
+      let currentPlatformName;
+      let currentDeviceName;
+      if (state.selectedDeploymentTarget) {
+        currentPlatformName = state.selectedDeploymentTarget.platform.name;
+        currentDeviceName = state.selectedDeploymentTarget.device ? state.selectedDeploymentTarget.device.name : null;
+      } else {
+        currentPlatformName = state.lastSessionPlatformName;
+        currentDeviceName = state.lastSessionDeviceName;
+      }
+      const selectedDeploymentTarget = selectValidDeploymentTarget(currentPlatformName, currentDeviceName, platformGroups);
       return Object.assign({}, state, {
         platformGroups,
         selectedDeploymentTarget,
@@ -50,7 +58,9 @@ function accumulateState(state, action) {
       });
     case (_Actions || _load_Actions()).SET_DEPLOYMENT_TARGET:
       return Object.assign({}, state, {
-        selectedDeploymentTarget: action.deploymentTarget
+        selectedDeploymentTarget: action.deploymentTarget,
+        lastSessionPlatformName: null,
+        lastSessionDeviceName: null
       });
     case (_Actions || _load_Actions()).SET_TASK_SETTINGS:
       return Object.assign({}, state, {
@@ -68,24 +78,29 @@ function accumulateState(state, action) {
    * 
    */
 
-function selectValidDeploymentTarget(previouslySelected, platformGroups) {
+function selectValidDeploymentTarget(currentPlatformName, currentDeviceName, platformGroups) {
   if (!platformGroups.length) {
     return null;
   }
 
   let existingDevice = null;
   let existingPlatform = null;
-  if (previouslySelected) {
-    const previousPlatform = previouslySelected.platform;
-    const previousDevice = previouslySelected.device;
+  if (currentPlatformName) {
     for (const platformGroup of platformGroups) {
       for (const platform of platformGroup.platforms) {
-        if (platform.flavor === previousPlatform.flavor) {
+        if (platform.name === currentPlatformName) {
           existingPlatform = platform;
-          if (previousDevice) {
-            for (const device of platform.devices) {
-              if (device.udid === previousDevice.udid) {
-                existingDevice = device;
+          if (currentDeviceName) {
+            for (const deviceGroup of platform.deviceGroups) {
+              for (const device of deviceGroup.devices) {
+                if (device.name === currentDeviceName) {
+                  existingDevice = device;
+                  break;
+                }
+              }
+
+              if (existingDevice) {
+                break;
               }
             }
           }
@@ -103,8 +118,8 @@ function selectValidDeploymentTarget(previouslySelected, platformGroups) {
     existingPlatform = platformGroups[0].platforms[0];
   }
 
-  if (!existingDevice && existingPlatform.devices.length) {
-    existingDevice = existingPlatform.devices[0];
+  if (!existingDevice && existingPlatform.deviceGroups.length && existingPlatform.deviceGroups[0].devices.length) {
+    existingDevice = existingPlatform.deviceGroups[0].devices[0];
   }
 
   return { platform: existingPlatform, device: existingDevice };

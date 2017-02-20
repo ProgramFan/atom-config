@@ -72,7 +72,8 @@ class NewDebuggerView extends _reactForAtom.React.PureComponent {
     this._disposables = new _atom.CompositeDisposable();
     const debuggerStore = props.model.getStore();
     this.state = {
-      showThreadsWindow: Boolean(debuggerStore.getSettings().get('SupportThreadsWindow'))
+      showThreadsWindow: Boolean(debuggerStore.getSettings().get('SupportThreadsWindow')),
+      customThreadColumns: debuggerStore.getSettings().get('CustomThreadColumns') || []
     };
   }
 
@@ -80,7 +81,8 @@ class NewDebuggerView extends _reactForAtom.React.PureComponent {
     const debuggerStore = this.props.model.getStore();
     this._disposables.add(debuggerStore.onChange(() => {
       this.setState({
-        showThreadsWindow: Boolean(debuggerStore.getSettings().get('SupportThreadsWindow'))
+        showThreadsWindow: Boolean(debuggerStore.getSettings().get('SupportThreadsWindow')),
+        customThreadColumns: debuggerStore.getSettings().get('CustomThreadColumns') || []
       });
     }));
   }
@@ -108,7 +110,8 @@ class NewDebuggerView extends _reactForAtom.React.PureComponent {
           { className: 'nuclide-debugger-section-content' },
           _reactForAtom.React.createElement((_DebuggerThreadsComponent || _load_DebuggerThreadsComponent()).DebuggerThreadsComponent, {
             bridge: this.props.model.getBridge(),
-            threadStore: model.getThreadStore()
+            threadStore: model.getThreadStore(),
+            customThreadColumns: this.state.customThreadColumns
           })
         )
       )

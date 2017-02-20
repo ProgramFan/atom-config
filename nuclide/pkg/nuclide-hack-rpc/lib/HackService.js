@@ -118,6 +118,18 @@ function _load_UniversalDisposable() {
   return _UniversalDisposable = _interopRequireDefault(require('../../commons-node/UniversalDisposable'));
 }
 
+var _nuclideHackCommon;
+
+function _load_nuclideHackCommon() {
+  return _nuclideHackCommon = require('../../nuclide-hack-common');
+}
+
+var _autocomplete;
+
+function _load_autocomplete() {
+  return _autocomplete = require('../../nuclide-hack-common/lib/autocomplete');
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const HH_DIAGNOSTICS_DELAY_MS = 600; /**
@@ -160,7 +172,7 @@ class HackLanguageServiceImpl extends (_nuclideLanguageServiceRpc || _load_nucli
       if (_this._useIdeConnection) {
         const process = yield (0, (_HackProcess || _load_HackProcess()).getHackProcess)(_this._fileCache, fileVersion.filePath);
         if (process == null) {
-          return [];
+          return null;
         } else {
           return process.getAutocompleteSuggestions(fileVersion, position, activatedManually);
         }
@@ -219,24 +231,27 @@ class HackSingleFileLanguageService {
   }
 
   observeDiagnostics() {
-    (_hackConfig || _load_hackConfig()).logger.logTrace('observeDiagnostics');
+    (_hackConfig || _load_hackConfig()).logger.log('observeDiagnostics');
 
     if (!this._useIdeConnection) {
       throw new Error('Invariant violation: "this._useIdeConnection"');
     }
 
     return (0, (_HackProcess || _load_HackProcess()).observeConnections)(this._fileCache).mergeMap(connection => {
-      (_hackConfig || _load_hackConfig()).logger.logTrace('notifyDiagnostics');
+      (_hackConfig || _load_hackConfig()).logger.log('notifyDiagnostics');
       return (0, (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ensureInvalidations)((_hackConfig || _load_hackConfig()).logger, connection.notifyDiagnostics().refCount().catch(error => {
         (_hackConfig || _load_hackConfig()).logger.logError(`Error: notifyDiagnostics ${error}`);
         return _rxjsBundlesRxMinJs.Observable.empty();
       }).map(hackDiagnostics => {
-        (_hackConfig || _load_hackConfig()).logger.logTrace(`Got hack error in ${hackDiagnostics.filename}`);
+        (_hackConfig || _load_hackConfig()).logger.log(`Got hack error in ${hackDiagnostics.filename}`);
         return {
           filePath: hackDiagnostics.filename,
           messages: hackDiagnostics.errors.map(diagnostic => (0, (_Diagnostics || _load_Diagnostics()).hackMessageToDiagnosticMessage)(diagnostic.message))
         };
       }));
+    }).catch(error => {
+      (_hackConfig || _load_hackConfig()).logger.logError(`Error: observeDiagnostics ${error}`);
+      throw error;
     });
   }
 
@@ -245,7 +260,7 @@ class HackSingleFileLanguageService {
       const contents = buffer.getText();
       const offset = buffer.characterIndexForPosition(position);
 
-      const replacementPrefix = (0, (_Completions || _load_Completions()).findHackPrefix)(buffer, position);
+      const replacementPrefix = (0, (_autocomplete || _load_autocomplete()).findHackPrefix)(buffer, position);
       if (replacementPrefix === '' && !(0, (_Completions || _load_Completions()).hasPrefix)(buffer, position)) {
         return [];
       }
@@ -470,7 +485,7 @@ function markFileForCompletion(contents, offset) {
 }
 
 function getIdentifierAndRange(buffer, position) {
-  const matchData = (0, (_range || _load_range()).wordAtPositionFromBuffer)(buffer, position, (_HackHelpers || _load_HackHelpers()).HACK_WORD_REGEX);
+  const matchData = (0, (_range || _load_range()).wordAtPositionFromBuffer)(buffer, position, (_nuclideHackCommon || _load_nuclideHackCommon()).HACK_WORD_REGEX);
   return matchData == null || matchData.wordMatch.length === 0 ? null : { id: matchData.wordMatch[0], range: matchData.range };
 }
 

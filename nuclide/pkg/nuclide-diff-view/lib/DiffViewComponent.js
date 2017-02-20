@@ -114,21 +114,27 @@ function getCommitComponent(shouldUseTextBasedForm) {
 
 function renderPublishView(diffModel) {
   const {
+    lintExcuse,
     publish: { message, mode, state },
     activeRepositoryState: { headRevision },
+    isPrepareMode,
     shouldDockPublishView,
     shouldUseTextBasedForm,
-    suggestedReviewers
+    suggestedReviewers,
+    verbatimModeEnabled
   } = diffModel.getState();
   const PublishComponent = getPublishComponent(shouldUseTextBasedForm);
   return _reactForAtom.React.createElement(PublishComponent, {
+    lintExcuse: lintExcuse,
     suggestedReviewers: suggestedReviewers,
     publishModeState: state,
     message: message,
     publishMode: mode,
     headCommitMessage: headRevision == null ? '' : headRevision.description,
     diffModel: diffModel,
-    shouldDockPublishView: shouldDockPublishView
+    shouldDockPublishView: shouldDockPublishView,
+    isPrepareMode: isPrepareMode,
+    verbatimModeEnabled: verbatimModeEnabled
   });
 }
 
@@ -136,6 +142,7 @@ function renderCommitView(diffModel) {
   const {
     commit: { message, mode, state },
     isPrepareMode,
+    lintExcuse,
     shouldPublishOnCommit,
     shouldRebaseOnAmend,
     shouldUseTextBasedForm,
@@ -150,6 +157,7 @@ function renderCommitView(diffModel) {
     commitMode: mode,
     commitModeState: state,
     isPrepareMode: isPrepareMode,
+    lintExcuse: lintExcuse,
     shouldPublishOnCommit: shouldPublishOnCommit,
     shouldRebaseOnAmend: shouldRebaseOnAmend
     // `diffModel` is acting as the action creator for commit view and needs to be passed so

@@ -98,6 +98,7 @@ function createEmptyAppState() {
     fileDiff: getEmptyFileDiffState(),
     isLoadingFileDiff: false,
     isPrepareMode: false,
+    lintExcuse: '',
     publish: getEmptyPublishState(),
     repositories: new Map(),
     shouldDockPublishView: true,

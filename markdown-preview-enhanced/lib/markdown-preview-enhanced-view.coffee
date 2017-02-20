@@ -7,6 +7,8 @@ temp = require('temp').track()
 pdf = require 'html-pdf'
 katex = require 'katex'
 matter = require('gray-matter')
+{allowUnsafeEval, allowUnsafeNewFunction} = require 'loophole'
+cheerio = null
 
 {getMarkdownPreviewCSS} = require './style'
 plantumlAPI = require './puml'
@@ -37,9 +39,11 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @liveUpdate = true
     @scrollSync = true
     @scrollDuration = null
+    @textChanged = false
 
     @mathRenderingOption = atom.config.get('markdown-preview-enhanced.mathRenderingOption')
     @mathRenderingOption = if @mathRenderingOption == 'None' then null else @mathRenderingOption
+    @mathJaxProcessEnvironments = atom.config.get('markdown-preview-enhanced.mathJaxProcessEnvironments')
 
     @parseDelay = Date.now()
     @editorScrollDelay = Date.now()
@@ -65,6 +69,9 @@ class MarkdownPreviewEnhancedView extends ScrollView
     # graph data used to save rendered graphs
     @graphData = null
     @codeChunksData = {}
+
+    # files cache for document import
+    @filesCache = {}
 
     # when resize the window, clear the editor
     window.addEventListener 'resize', @resizeEvent.bind(this)
@@ -157,7 +164,8 @@ class MarkdownPreviewEnhancedView extends ScrollView
         codeChunksData: @codeChunksData,
         graphData: @graphData,
         presentationMode: @presentationMode,
-        slideConfigs: @slideConfigs
+        slideConfigs: @slideConfigs,
+        filesCache: @filesCache,
       }
 
       # @element.innerHTML = '<p style="font-size: 24px;"> loading preview... <br>type something if preview doesn\'t render :( </p>'
@@ -180,6 +188,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @rootDirectoryPath = @editor.getDirectoryPath()
     @projectDirectoryPath = @getProjectDirectoryPath()
     @firstTimeRenderMarkdowon = true
+    @filesCache = {}
 
     if @disposables # remove all binded events
       @disposables.dispose()
@@ -196,6 +205,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @codeChunksData = d.codeChunksData
       @presentationMode = d.presentationMode
       @slideConfigs = d.slideConfigs
+      @filesCache = d.filesCache
 
       if @presentationMode
         @element.setAttribute 'data-presentation-preview-mode', ''
@@ -206,17 +216,23 @@ class MarkdownPreviewEnhancedView extends ScrollView
       # console.log 'restore ' + @editor.getPath()
 
       # reset back to top button onclick event
-      document.getElementsByClassName('back-to-top-btn')?[0]?.onclick = ()=>
+      @element.getElementsByClassName('back-to-top-btn')?[0]?.onclick = ()=>
         @element.scrollTop = 0
+
+      # reset refresh button onclick event
+      @element.getElementsByClassName('refresh-btn')?[0]?.onclick = ()=>
+        @filesCache = {}
+        codeChunkAPI.clearCache()
+        @renderMarkdown()
 
       # rebind tag a click event
       @bindTagAClickEvent()
 
-      # reset code chunks
-      @setupCodeChunks()
-
       # render plantuml in case
       @renderPlantUML()
+
+      # reset code chunks
+      @setupCodeChunks()
     else
       @renderMarkdown()
     @scrollMap = null
@@ -235,15 +251,21 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @element.innerHTML = '<p style="font-size: 24px;"> Open a markdown file to start preview </p>'
 
     @disposables.add @editor.onDidStopChanging ()=>
+      # @textChanged = true # this line has problem.
       if @liveUpdate
         @updateMarkdown()
 
     @disposables.add @editor.onDidSave ()=>
       if not @liveUpdate
+        @textChanged = true
         @updateMarkdown()
 
+    @disposables.add @editor.onDidChangeModified ()=>
+      if not @liveUpdate
+        @textChanged = true
+
     @disposables.add editorElement.onDidChangeScrollTop ()=>
-      if !@scrollSync or !@element or !@liveUpdate or !@editor or @presentationMode
+      if !@scrollSync or !@element or @textChanged or !@editor or @presentationMode
         return
       if Date.now() < @editorScrollDelay
         return
@@ -261,11 +283,11 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @previewScrollDelay = Date.now() + 500
 
       # @element.scrollTop = @scrollMap[lineNo] - editorHeight / 2
-      @scrollToPos(@scrollMap[lineNo]-editorHeight / 2)
+      if lineNo of @scrollMap then @scrollToPos(@scrollMap[lineNo]-editorHeight / 2)
 
     # match markdown preview to cursor position
     @disposables.add @editor.onDidChangeCursorPosition (event)=>
-      if !@scrollSync or !@element or !@liveUpdate
+      if !@scrollSync or !@element or @textChanged
         return
       if Date.now() < @parseDelay
         return
@@ -291,7 +313,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
   initViewEvent: ->
     @element.onscroll = ()=>
-      if !@editor or !@scrollSync or !@liveUpdate or @presentationMode
+      if !@editor or !@scrollSync or @textChanged or @presentationMode
         return
       if Date.now() < @previewScrollDelay
         return
@@ -362,7 +384,9 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     # liveUpdate?
     @settingsDisposables.add atom.config.observe 'markdown-preview-enhanced.liveUpdate',
-      (flag) => @liveUpdate = flag
+      (flag) =>
+        @liveUpdate = flag
+        @scrollMap = null
 
     # scroll sync?
     @settingsDisposables.add atom.config.observe 'markdown-preview-enhanced.scrollSync',
@@ -492,6 +516,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
   renderMarkdown: ->
     if Date.now() < @parseDelay or !@editor or !@element
+      @textChanged = false
       return
     @parseDelay = Date.now() + 200
 
@@ -516,6 +541,9 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     @setInitialScrollPos()
     @addBackToTopButton()
+    @addRefreshButton()
+
+    @textChanged = false
 
   setInitialScrollPos: ->
     if @firstTimeRenderMarkdowon
@@ -543,6 +571,21 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
       backToTopBtn.onclick = ()=>
         @element.scrollTop = 0
+
+  addRefreshButton: ->
+    refreshBtn = document.createElement('div')
+    refreshBtn.classList.add('refresh-btn')
+    refreshBtn.classList.add('btn')
+    refreshBtn.innerHTML = '<span>⟳</span>'
+    @element.appendChild(refreshBtn)
+
+    refreshBtn.onclick = ()=>
+      # clear cache
+      @filesCache = {}
+      codeChunkAPI.clearCache()
+
+      # render again
+      @renderMarkdown()
 
   bindEvents: ->
     @bindTagAClickEvent()
@@ -601,6 +644,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
     return if !codeChunks.length
 
     newCodeChunksData = {}
+    needToSetupChunksId = false
     setupCodeChunk = (codeChunk)=>
       dataArgs = codeChunk.getAttribute('data-args')
       idMatch = dataArgs.match(/\s*id\s*:\s*\"([^\"]*)\"/)
@@ -609,7 +653,25 @@ class MarkdownPreviewEnhancedView extends ScrollView
         codeChunk.id = 'code_chunk_' + id
         running = @codeChunksData[id]?.running or false
         codeChunk.classList.add('running') if running
-        newCodeChunksData[id] = {running, outputDiv: codeChunk.getElementsByClassName('output-div')[0]}
+
+        # remove output-div and output-element
+        children = codeChunk.children
+        i = children.length - 1
+        while i >= 0
+          child = children[i]
+          if child.classList.contains('output-div') or child.classList.contains('output-element')
+            child.remove()
+          i -= 1
+
+        outputDiv = @codeChunksData[id]?.outputDiv
+        outputElement = @codeChunksData[id]?.outputElement
+
+        codeChunk.appendChild(outputElement) if outputElement
+        codeChunk.appendChild(outputDiv) if outputDiv
+
+        newCodeChunksData[id] = {running, outputDiv, outputElement}
+      else # id not exist, create new id
+        needToSetupChunksId = true
 
       runBtn = codeChunk.getElementsByClassName('run-btn')[0]
       runBtn?.addEventListener 'click', ()=>
@@ -620,9 +682,51 @@ class MarkdownPreviewEnhancedView extends ScrollView
         @runAllCodeChunks()
 
     for codeChunk in codeChunks
+      break if needToSetupChunksId
       setupCodeChunk(codeChunk)
 
+    if needToSetupChunksId
+      @setupCodeChunksId()
+
     @codeChunksData = newCodeChunksData # key is codeChunkId, value is {running, outputDiv}
+
+  setupCodeChunksId: ()->
+    buffer = @editor.buffer
+    return if !buffer
+
+    lines = buffer.lines
+    lineNo = 0
+    curScreenPos = @editor.getCursorScreenPosition()
+
+    while lineNo < lines.length
+      line = lines[lineNo]
+      match = line.match(/^\`\`\`\{(.+)\}(\s*)/)
+      if match
+        cmd = match[1]
+        dataArgs = ''
+        i = cmd.indexOf(' ')
+        if i > 0
+          dataArgs = cmd.slice(i + 1, cmd.length).trim()
+          cmd = cmd.slice(0, i)
+
+        idMatch = match[1].match(/\s*id\s*:\s*\"([^\"]*)\"/)
+        if !idMatch
+          id = (new Date().getTime()).toString(36)
+
+          line = line.trimRight()
+          line = line.replace(/}$/, (if !dataArgs then '' else ',') + ' id:"' + id + '"}')
+
+          @parseDelay = Date.now() + 500 # prevent renderMarkdown
+
+          buffer.setTextInRange([[lineNo, 0], [lineNo+1, 0]], line + '\n')
+
+      lineNo += 1
+
+    @editor.setCursorScreenPosition(curScreenPos) # restore cursor position.
+
+      # This will cause Maximum size exceeded
+      # @parseDelay = Date.now()
+      # @renderMarkdown()
 
   getNearestCodeChunk: ()->
     bufferRow = @editor.getCursorBufferPosition().row
@@ -636,45 +740,69 @@ class MarkdownPreviewEnhancedView extends ScrollView
       i-=1
     return null
 
-  runCodeChunk: (codeChunk=null)->
-    codeChunk = @getNearestCodeChunk() if not codeChunk
-    return if not codeChunk
-    return if codeChunk.classList.contains('running')
-
+  # return false if meet error
+  # otherwise return
+  # {
+  #   cmd,
+  #   options,
+  #   code,
+  #   id,
+  # }
+  parseCodeChunk: (codeChunk)->
     code = codeChunk.getAttribute('data-code')
     dataArgs = codeChunk.getAttribute('data-args')
 
     options = null
     try
-      options = JSON.parse '{'+dataArgs.replace((/([(\w)|(\-)]+)(:)/g), "\"$1\"$2").replace((/'/g), "\"")+'}'
+      allowUnsafeEval ->
+        options = eval("({#{dataArgs}})")
+      # options = JSON.parse '{'+dataArgs.replace((/([(\w)|(\-)]+)(:)/g), "\"$1\"$2").replace((/'/g), "\"")+'}'
     catch error
       atom.notifications.addError('Invalid options', detail: dataArgs)
-      return
+      return false
 
     cmd =  options.cmd or codeChunk.getAttribute('data-lang')
+    id = options.id
 
-    # check id and save outputDiv to @codeChunksData
-    idMatch = dataArgs.match(/\s*id\s*:\s*\"([^\"]*)\"/)
+    # check options.continue
+    if options.continue
+      last = null
+      if options.continue == true
+        codeChunks = @element.getElementsByClassName 'code-chunk'
+        i = codeChunks.length - 1
+        while i >= 0
+          if codeChunks[i] == codeChunk
+            last = codeChunks[i - 1]
+            break
+          i--
+      else # id
+        last = document.getElementById('code_chunk_' + options.continue)
 
-    if !idMatch
-      id = (new Date().getTime()).toString(36)
+      if last
+        {code: lastCode, options: lastOptions} = @parseCodeChunk(last) or {}
+        lastOptions = lastOptions or {}
+        code = (lastCode or '') + '\n' + code
 
-      buffer = @editor.buffer
-      return if !buffer
+        options.matplotlib = true if (lastOptions.matplotlib or lastOptions.mpl) # inherit matplotlib config
+      else
+        atom.notifications.addError('Invalid continue for code chunk ' + (options.id or ''), detail: options.continue.toString())
+        return false
 
-      lineNo = parseInt(codeChunk.getAttribute('data-line'))
+    return {cmd, options, code, id}
 
-      line = buffer.lines[lineNo].trimRight()
-      line = line.replace(/}$/, (if !dataArgs then '' else ',') + ' id:"' + id + '"}')
 
-      codeChunk.setAttribute('data-args', (if !dataArgs then '' else (dataArgs+', ')) + 'id:"' + id + '"')
-      codeChunk.id = 'code_chunk_' + id
 
-      @parseDelay = Date.now() + 500 # prevent renderMarkdown
+  runCodeChunk: (codeChunk=null)->
+    codeChunk = @getNearestCodeChunk() if not codeChunk
+    return if not codeChunk
+    return if codeChunk.classList.contains('running')
 
-      buffer.setTextInRange([[lineNo, 0], [lineNo+1, 0]], line + '\n')
-    else
-      id = idMatch[1]
+    parseResult = @parseCodeChunk(codeChunk)
+    return if !parseResult
+    {code, options, cmd, id} = parseResult
+
+    if !id
+      return atom.notifications.addError('Code chunk error', detail: 'id is not found or just updated.')
 
     codeChunk.classList.add('running')
     if @codeChunksData[id]
@@ -682,13 +810,27 @@ class MarkdownPreviewEnhancedView extends ScrollView
     else
       @codeChunksData[id] = {running: true}
 
-    codeChunkAPI.run code, @rootDirectoryPath, cmd, options, (error, data, options)=>
-      return if error
+    # check options `element`
+    if options.element
+      outputElement = codeChunk.getElementsByClassName('output-element')?[0]
+      if !outputElement # create and append `output-element` div
+        outputElement = document.createElement 'div'
+        outputElement.classList.add 'output-element'
+        codeChunk.appendChild outputElement
 
+      outputElement.innerHTML = options.element
+    else
+      codeChunk.getElementsByClassName('output-element')?[0]?.remove()
+      outputElement = null
+
+    codeChunkAPI.run code, @rootDirectoryPath, cmd, options, (error, data, options)=>
       # get new codeChunk
       codeChunk = document.getElementById('code_chunk_' + id)
       return if not codeChunk
       codeChunk.classList.remove('running')
+
+      return if error # or !data
+      data = (data or '').toString()
 
       outputDiv = codeChunk.getElementsByClassName('output-div')?[0]
       if !outputDiv
@@ -704,20 +846,36 @@ class MarkdownPreviewEnhancedView extends ScrollView
         imageData = Buffer(data).toString('base64')
         imageElement.setAttribute 'src',  "data:image/png;charset=utf-8;base64,#{imageData}"
         outputDiv.appendChild imageElement
+      else if options.output == 'markdown'
+        {html} = @parseMD(data, {@rootDirectoryPath, @projectDirectoryPath})
+        outputDiv.innerHTML = html
       else if options.output == 'none'
         outputDiv.remove()
         outputDiv = null
       else
-        if data.length
+        if data?.length
           preElement = document.createElement 'pre'
           preElement.innerText = data
+          preElement.classList.add('editor-colors')
+          preElement.classList.add('lang-text')
           outputDiv.appendChild preElement
 
       if outputDiv
         codeChunk.appendChild outputDiv
         @scrollMap = null
 
-      @codeChunksData[id] = {running: false, outputDiv}
+      # check matplotlib | mpl
+      if options.matplotlib or options.mpl
+        scriptElements = outputDiv.getElementsByTagName('script')
+        if scriptElements.length
+          window.d3 ?= require('../dependencies/mpld3/d3.v3.min.js')
+          window.mpld3 ?= require('../dependencies/mpld3/mpld3.v0.3.min.js')
+          for scriptElement in scriptElements
+            code = scriptElement.innerHTML
+            allowUnsafeNewFunction -> allowUnsafeEval ->
+              eval(code)
+
+      @codeChunksData[id] = {running: false, outputDiv, outputElement}
 
   runAllCodeChunks: ()->
     codeChunks = @element.getElementsByClassName('code-chunk')
@@ -751,14 +909,14 @@ class MarkdownPreviewEnhancedView extends ScrollView
         buffer.setTextInRange([[lineNo, 0], [lineNo+1, 0]], line + '\n')
 
   renderMermaid: ()->
-    els = @element.getElementsByClassName('mermaid')
+    els = @element.getElementsByClassName('mermaid mpe-graph')
     if els.length
       @graphData.mermaid_s = Array.prototype.slice.call(els)
 
-      notProcessedEls = @element.querySelectorAll('.mermaid:not([data-processed])')
+      notProcessedEls = @element.querySelectorAll('.mermaid.mpe-graph:not([data-processed])')
 
       if notProcessedEls.length
-        mermaid.init(null, notProcessedEls)
+        mermaid.init null, notProcessedEls
 
       ###
       # the code below doesn't seem to be working
@@ -782,7 +940,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @previewScrollDelay = Date.now() + 500
 
   renderWavedrom: ()->
-    els = @element.getElementsByClassName('wavedrom')
+    els = @element.getElementsByClassName('wavedrom mpe-graph')
     if els.length
       @graphData.wavedrom_s = Array.prototype.slice.call(els)
 
@@ -793,20 +951,22 @@ class MarkdownPreviewEnhancedView extends ScrollView
           el.id = 'wavedrom'+offset
           text = el.getAttribute('data-original').trim()
           continue if not text.length
-          try
-            content = JSON.parse(text.replace((/([(\w)|(\-)]+)(:)/g), "\"$1\"$2").replace((/'/g), "\"")) # clean up bad json string.
-            WaveDrom.RenderWaveForm(offset, content, 'wavedrom')
-            el.setAttribute 'data-processed', 'true'
 
-            @scrollMap = null
-          catch error
-            el.innerText = 'failed to parse JSON'
+          allowUnsafeEval =>
+            try
+              content = eval("(#{text})") # eval function here
+              WaveDrom.RenderWaveForm(offset, content, 'wavedrom')
+              el.setAttribute 'data-processed', 'true'
+
+              @scrollMap = null
+            catch error
+              el.innerText = 'failed to eval WaveDrom code.'
 
       # disable @element onscroll
       @previewScrollDelay = Date.now() + 500
 
   renderPlantUML: ()->
-    els = @element.getElementsByClassName('plantuml')
+    els = @element.getElementsByClassName('plantuml mpe-graph')
 
     if els.length
       @graphData.plantuml_s = Array.prototype.slice.call(els)
@@ -823,7 +983,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
         el.innerText = 'rendering graph...\n'
 
   renderViz: (element=@element)->
-    els = element.getElementsByClassName('viz')
+    els = element.getElementsByClassName('viz mpe-graph')
 
     if els.length
       @graphData.viz_s = Array.prototype.slice.call(els)
@@ -849,6 +1009,9 @@ class MarkdownPreviewEnhancedView extends ScrollView
     return if @mathRenderingOption != 'MathJax'
     if typeof(MathJax) == 'undefined'
       return loadMathJax document, ()=> @renderMathJax()
+
+    if @mathJaxProcessEnvironments
+      return MathJax.Hub.Queue ['Typeset', MathJax.Hub, @element], ()=> @scrollMap = null
 
     els = @element.getElementsByClassName('mathjax-exps')
     return if !els.length
@@ -893,20 +1056,19 @@ class MarkdownPreviewEnhancedView extends ScrollView
   ###
   convert './a.txt' '/a.txt'
   ###
-  resolveFilePath: (filePath, relative=false)->
-    if filePath.startsWith('./') or filePath.startsWith('/')
-      if relative
-        if filePath[0] == '.'
-          return filePath
-        else
-          return path.relative(@rootDirectoryPath, path.resolve(@projectDirectoryPath, '.'+filePath))
-      else
-        if filePath[0] == '.'
-          return 'file:///'+path.resolve(@rootDirectoryPath, filePath)
-        else
-          return 'file:///'+path.resolve(@projectDirectoryPath, '.'+filePath)
-    else
+  resolveFilePath: (filePath='', relative=false)->
+    if filePath.match(/^(http|https|file|atom)\:\/\//)
       return filePath
+    else if filePath.startsWith('/')
+      if relative
+        return path.relative(@rootDirectoryPath, path.resolve(@projectDirectoryPath, '.'+filePath))
+      else
+        return 'file:///'+path.resolve(@projectDirectoryPath, '.'+filePath)
+    else
+      if relative
+        return filePath
+      else
+        return 'file:///'+path.resolve(@rootDirectoryPath, filePath)
 
   ## Utilities
   openInBrowser: (isForPresentationPrint=false)->
@@ -942,10 +1104,90 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     exec "#{cmd} #{filePath}"
 
-  getHTMLContent: ({isForPrint, offline, isSavingToHTML, phantomjsType})->
+  ##
+  ## {Function} callback (htmlContent)
+  insertCodeChunksResult: (htmlContent)->
+    # insert outputDiv and outputElement accordingly
+    cheerio ?= require 'cheerio'
+    $ = cheerio.load(htmlContent, {decodeEntities: false})
+    codeChunks = $('.code-chunk')
+    jsCode = ''
+    requireCache = {} # key is path
+    scriptsStr = ""
+
+    for codeChunk in codeChunks
+      $codeChunk = $(codeChunk)
+      dataArgs = $codeChunk.attr('data-args').unescape()
+
+      options = null
+      try
+        allowUnsafeEval ->
+          options = eval("({#{dataArgs}})")
+      catch e
+        continue
+
+      id = options.id
+      continue if !id
+
+      cmd = options.cmd or $codeChunk.attr('data-lang')
+      code = $codeChunk.attr('data-code').unescape()
+
+      outputDiv = @codeChunksData[id]?.outputDiv
+      outputElement = @codeChunksData[id]?.outputElement
+
+      if outputDiv # append outputDiv result
+        $codeChunk.append("<div class=\"output-div\">#{outputDiv.innerHTML}</div>")
+        if options.matplotlib or options.mpl
+          # remove innerHTML of <div id="fig_..."></div>
+          # this is for fixing mpld3 exporting issue.
+          gs = $('.output-div > div', $codeChunk)
+          if gs
+            for g in gs
+              $g = $(g)
+              if $g.attr('id')?.match(/fig\_/)
+                $g.html('')
+
+          ss = $('.output-div > script', $codeChunk)
+          if ss
+            for s in ss
+              $s = $(s)
+              c = $s.html()
+              $s.remove()
+              jsCode += (c + '\n')
+
+      if options.element
+        $codeChunk.append("<div class=\"output-element\">#{options.element}</div>")
+
+      if cmd == 'javascript'
+        requires = options.require or []
+        if typeof(requires) == 'string'
+          requires = [requires]
+        requiresStr = ""
+        for requirePath in requires
+          # TODO: css
+          if requirePath.match(/^(http|https)\:\/\//)
+            if (!requireCache[requirePath])
+              requireCache[requirePath] = true
+              scriptsStr += "<script src=\"#{requirePath}\"></script>\n"
+          else
+            requirePath = path.resolve(@rootDirectoryPath, requirePath)
+            if !requireCache[requirePath]
+              requiresStr += (fs.readFileSync(requirePath, {encoding: 'utf-8'}) + '\n')
+              requireCache[requirePath] = true
+
+        jsCode += (requiresStr + code + '\n')
+
+    html = $.html()
+    html += "#{scriptsStr}\n" if scriptsStr
+    html += "<script data-js-code>#{jsCode}</script>" if jsCode
+    return html
+
+  ##
+  # {Function} callback (htmlContent)
+  getHTMLContent: ({isForPrint, offline, useRelativeImagePath, phantomjsType}, callback)->
     isForPrint ?= false
     offline ?= false
-    isSavingToHTML ?= false
+    useRelativeImagePath ?= false
     phantomjsType ?= false # pdf | png | jpeg | false
     return if not @editor
 
@@ -953,10 +1195,14 @@ class MarkdownPreviewEnhancedView extends ScrollView
     useGitHubSyntaxTheme = atom.config.get('markdown-preview-enhanced.useGitHubSyntaxTheme')
     mathRenderingOption = atom.config.get('markdown-preview-enhanced.mathRenderingOption')
 
-    res = @parseMD(@formatStringBeforeParsing(@editor.getText()), {isSavingToHTML, @rootDirectoryPath, @projectDirectoryPath, markdownPreview: this, hideFrontMatter: true})
+    res = @parseMD(@formatStringBeforeParsing(@editor.getText()), {useRelativeImagePath, @rootDirectoryPath, @projectDirectoryPath, markdownPreview: this, hideFrontMatter: true})
     htmlContent = @formatStringAfterParsing(res.html)
     slideConfigs = res.slideConfigs
     yamlConfig = res.yamlConfig or {}
+
+
+    # replace code chunks inside htmlContent
+    htmlContent = @insertCodeChunksResult htmlContent
 
     # as for example black color background doesn't produce nice pdf
     # therefore, I decide to print only github style...
@@ -972,6 +1218,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
     else if mathRenderingOption == 'MathJax'
       inline = atom.config.get('markdown-preview-enhanced.indicatorForMathRenderingInline')
       block = atom.config.get('markdown-preview-enhanced.indicatorForMathRenderingBlock')
+      mathJaxProcessEnvironments = atom.config.get('markdown-preview-enhanced.mathJaxProcessEnvironments')
       if offline
         mathStyle = "
         <script type=\"text/x-mathjax-config\">
@@ -979,6 +1226,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
             messageStyle: 'none',
             tex2jax: {inlineMath: #{inline},
                       displayMath: #{block},
+                      processEnvironments: #{mathJaxProcessEnvironments},
                       processEscapes: true}
           });
         </script>
@@ -993,6 +1241,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
             messageStyle: 'none',
             tex2jax: {inlineMath: #{inline},
                       displayMath: #{block},
+                      processEnvironments: #{mathJaxProcessEnvironments},
                       processEscapes: true}
           });
         </script>
@@ -1003,7 +1252,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     # presentation
     if slideConfigs.length
-      htmlContent = @parseSlidesForExport(htmlContent, slideConfigs, isSavingToHTML)
+      htmlContent = @parseSlidesForExport(htmlContent, slideConfigs, useRelativeImagePath)
       if offline
         presentationScript = "
         <script src='file:///#{path.resolve(__dirname, '../dependencies/reveal/lib/js/head.min.js')}'></script>
@@ -1136,16 +1385,16 @@ class MarkdownPreviewEnhancedView extends ScrollView
           throw err if err
           @printPDF "file://#{info.path}", dest
 
-  saveAsHTML: (dest, offline=true)->
+  saveAsHTML: (dest, offline=true, useRelativeImagePath)->
     return if not @editor
 
-    htmlContent = @getHTMLContent isForPrint: false, offline: offline, isSavingToHTML: true
+    htmlContent = @getHTMLContent isForPrint: false, offline: offline, useRelativeImagePath: useRelativeImagePath
 
     htmlFileName = path.basename(dest)
 
     # presentation speaker notes
     # copy dependency files
-    if !offline and htmlContent.indexOf('[{"src":"revealjs_deps/notes.js","async":true}]')
+    if !offline and htmlContent.indexOf('[{"src":"revealjs_deps/notes.js","async":true}]') >= 0
       depsDirName = path.resolve(path.dirname(dest), 'revealjs_deps')
       depsDir = new Directory(depsDirName)
       depsDir.create().then (flag)->
@@ -1243,7 +1492,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
     </div>
     """
 
-  parseSlidesForExport: (html, slideConfigs, isSavingToHTML)->
+  parseSlidesForExport: (html, slideConfigs, useRelativeImagePath)->
     slides = html.split '<div class="new-slide"></div>'
     slides = slides.slice(1)
     output = ''
@@ -1251,7 +1500,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
     parseAttrString = (slideConfig)=>
       attrString = ''
       if slideConfig['data-background-image']
-        attrString += " data-background-image='#{@resolveFilePath(slideConfig['data-background-image'], isSavingToHTML)}'"
+        attrString += " data-background-image='#{@resolveFilePath(slideConfig['data-background-image'], useRelativeImagePath)}'"
 
       if slideConfig['data-background-size']
         attrString += " data-background-size='#{slideConfig['data-background-size']}'"
@@ -1269,7 +1518,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
         attrString += " data-notes='#{slideConfig['data-notes']}'"
 
       if slideConfig['data-background-video']
-        attrString += " data-background-video='#{@resolveFilePath(slideConfig['data-background-video'], isSavingToHTML)}'"
+        attrString += " data-background-video='#{@resolveFilePath(slideConfig['data-background-video'], useRelativeImagePath)}'"
 
       if slideConfig['data-background-video-loop']
         attrString += " data-background-video-loop"
@@ -1281,7 +1530,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
         attrString += " data-transition='#{slideConfig['data-transition']}'"
 
       if slideConfig['data-background-iframe']
-        attrString += " data-background-iframe='#{@resolveFilePath(slideConfig['data-background-iframe'], isSavingToHTML)}'"
+        attrString += " data-background-iframe='#{@resolveFilePath(slideConfig['data-background-iframe'], useRelativeImagePath)}'"
       attrString
 
     i = 0
@@ -1660,6 +1909,12 @@ module.exports = config || {}
     if @settingsDisposables
       @settingsDisposables.dispose()
       @settingsDisposables = null
+
+    # clear CACHE
+    for key of CACHE
+      delete(CACHE[key])
+
+    @mainModule.preview = null # unbind
 
   getElement: ->
     @element

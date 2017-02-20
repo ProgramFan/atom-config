@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11718-5726-1dufzyd/package.tgz",
+        "raw": "/tmp/d-117120-5741-yi5bol/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11718-5726-1dufzyd/package.tgz",
-        "spec": "/tmp/d-11718-5726-1dufzyd/package.tgz",
+        "rawSpec": "/tmp/d-117120-5741-yi5bol/package.tgz",
+        "spec": "/tmp/d-117120-5741-yi5bol/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11718-5726-147q9xz"
+      "/tmp/apm-install-dir-117120-5741-ku29cb"
     ]
   ],
-  "_from": "../d-11718-5726-1dufzyd/package.tgz",
+  "_from": "../d-117120-5741-yi5bol/package.tgz",
   "_id": "linter-spell@0.12.6",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-spell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11718-5726-1dufzyd/package.tgz",
+    "raw": "/tmp/d-117120-5741-yi5bol/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11718-5726-1dufzyd/package.tgz",
-    "spec": "/tmp/d-11718-5726-1dufzyd/package.tgz",
+    "rawSpec": "/tmp/d-117120-5741-yi5bol/package.tgz",
+    "spec": "/tmp/d-117120-5741-yi5bol/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-5726-1dufzyd/package.tgz",
+  "_resolved": "file:../d-117120-5741-yi5bol/package.tgz",
   "_shasum": "68b4da600164e0458859b66b21533d9c1629e651",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11718-5726-1dufzyd/package.tgz",
-  "_where": "/tmp/apm-install-dir-11718-5726-147q9xz",
+  "_spec": "/tmp/d-117120-5741-yi5bol/package.tgz",
+  "_where": "/tmp/apm-install-dir-117120-5741-ku29cb",
   "author": {
     "name": "Tarn Burton",
     "email": "twburton@gmail.com"

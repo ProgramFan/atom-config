@@ -83,10 +83,10 @@ function _load_PanelLocationIds() {
   return _PanelLocationIds = _interopRequireWildcard(require('./PanelLocationIds'));
 }
 
-var _Panel;
+var _PanelComponent;
 
-function _load_Panel() {
-  return _Panel = require('./ui/Panel');
+function _load_PanelComponent() {
+  return _PanelComponent = require('./ui/PanelComponent');
 }
 
 var _nullthrows;
@@ -247,7 +247,7 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
       position: this._position,
       onResize: this._handlePanelResize
     }));
-    const Component = (0, (_bindObservableAsProps || _load_bindObservableAsProps()).bindObservableAsProps)(props, (_Panel || _load_Panel()).Panel);
+    const Component = (0, (_bindObservableAsProps || _load_bindObservableAsProps()).bindObservableAsProps)(props, (_PanelComponent || _load_PanelComponent()).PanelComponent);
     return { getElement: () => (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_reactForAtom.React.createElement(Component, null)) };
   }
 

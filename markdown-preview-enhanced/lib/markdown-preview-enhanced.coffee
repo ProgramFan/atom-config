@@ -32,6 +32,7 @@ module.exports = MarkdownPreviewEnhanced =
       'markdown-preview-enhanced:customize-css': => @customizeCSS()
       'markdown-preview-enhanced:create-toc': => @createTOC()
       'markdown-preview-enhanced:toggle-scroll-sync': => @toggleScrollSync()
+      'markdown-preview-enhanced:toggle-live-update': => @toggleLiveUpdate()
       'markdown-preview-enhanced:toggle-break-on-single-newline': => @toggleBreakOnSingleNewline()
       'markdown-preview-enhanced:insert-table': => @insertTable()
       'markdown-preview-enhanced:image-helper': => @startImageHelper()
@@ -95,6 +96,11 @@ module.exports = MarkdownPreviewEnhanced =
             else
               editorElement.removeAttribute('data-markdown-zen')
 
+      if enableZenMode
+        document.getElementsByTagName('atom-workspace')?[0]?.setAttribute('data-markdown-zen', '')
+      else
+        document.getElementsByTagName('atom-workspace')?[0]?.removeAttribute('data-markdown-zen')
+
 
   deactivate: ->
     @subscriptions.dispose()
@@ -112,10 +118,8 @@ module.exports = MarkdownPreviewEnhanced =
 
   toggle: ->
     if @preview?.isOnDom()
-      @preview.destroy()
-
       pane = atom.workspace.paneForItem(@preview)
-      pane.destroyItem(@preview)
+      pane.destroyItem(@preview) # this will trigger @preview.destroy()
     else
       ## check if it is valid markdown file
       editor = atom.workspace.getActiveTextEditor()
@@ -134,7 +138,7 @@ module.exports = MarkdownPreviewEnhanced =
 
       if !@documentExporterView
         @documentExporterView = new ExporterView()
-        @preview.documentExporterView = @documentExporterView
+      @preview.documentExporterView = @documentExporterView
       return true
     else
       return false
@@ -144,7 +148,7 @@ module.exports = MarkdownPreviewEnhanced =
       atom.notifications.addError('Markdown file should be saved first.')
       return false
 
-    fileName = editor.getFileName().trim()
+    fileName = editor.getFileName()?.trim() or ''
     if !(path.extname(fileName) in @fileExtensions)
       atom.notifications.addError("Invalid Markdown file: #{fileName} with wrong extension #{path.extname(fileName)}.", detail: "only '#{@fileExtensions.join(', ')}' are supported." )
       return false
@@ -156,6 +160,17 @@ module.exports = MarkdownPreviewEnhanced =
 
     return true
 
+  appendSyntaxStyle: ()->
+    textEditorStyle = document.getElementById('markdown-preview-enhanced-syntax-style')
+    if !textEditorStyle
+      textEditorStyle = document.createElement('style')
+      textEditorStyle.id = 'markdown-preview-enhanced-syntax-style'
+      textEditorStyle.setAttribute('for', 'markdown-preview-enhanced')
+      head = document.getElementsByTagName('head')[0]
+      atomStyles = document.getElementsByTagName('atom-styles')[0]
+      head.insertBefore(textEditorStyle, atomStyles)
+    textEditorStyle.innerHTML = getReplacedTextEditorStyles()
+
   appendGlobalStyle: ()->
     if not @katexStyle
       @katexStyle = document.createElement 'link'
@@ -163,16 +178,17 @@ module.exports = MarkdownPreviewEnhanced =
       @katexStyle.href = path.resolve(__dirname, '../node_modules/katex/dist/katex.min.css')
       document.getElementsByTagName('head')[0].appendChild(@katexStyle)
 
-      @subscriptions.add atom.config.observe 'core.themes', ()->
-        textEditorStyle = document.getElementById('markdown-preview-enhanced-syntax-style')
-        if !textEditorStyle
-          textEditorStyle = document.createElement('style')
-          textEditorStyle.id = 'markdown-preview-enhanced-syntax-style'
-          textEditorStyle.setAttribute('for', 'markdown-preview-enhanced')
-          head = document.getElementsByTagName('head')[0]
-          atomStyles = document.getElementsByTagName('atom-styles')[0]
-          head.insertBefore(textEditorStyle, atomStyles)
-        textEditorStyle.innerHTML = getReplacedTextEditorStyles()
+      # change theme
+      @subscriptions.add atom.config.observe 'core.themes', ()=>
+        if not atom.config.get('markdown-preview-enhanced.useGitHubSyntaxTheme')
+          @appendSyntaxStyle()
+
+      # github syntax theme
+      @subscriptions.add atom.config.observe 'markdown-preview-enhanced.useGitHubSyntaxTheme', (useGitHubSyntaxTheme)=>
+        if useGitHubSyntaxTheme
+          document.getElementById('markdown-preview-enhanced-syntax-style')?.remove()
+        else
+          @appendSyntaxStyle()
 
   customizeCSS: ()->
     atom.workspace
@@ -237,6 +253,15 @@ module.exports = MarkdownPreviewEnhanced =
       atom.notifications.addInfo('Scroll Sync enabled')
     else
       atom.notifications.addInfo('Scroll Sync disabled')
+
+  toggleLiveUpdate: ()->
+    flag = atom.config.get 'markdown-preview-enhanced.liveUpdate'
+    atom.config.set('markdown-preview-enhanced.liveUpdate', !flag)
+
+    if !flag
+      atom.notifications.addInfo('Live Update enabled')
+    else
+      atom.notifications.addInfo('Live Update disabled')
 
   toggleBreakOnSingleNewline: ()->
     flag = atom.config.get 'markdown-preview-enhanced.breakOnSingleNewline'

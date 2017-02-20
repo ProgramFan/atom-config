@@ -7,6 +7,7 @@ Viz = require '../dependencies/viz/viz.js'
 plantumlAPI = require './puml'
 codeChunkAPI = require './code-chunk'
 {svgAsPngUri} = require '../dependencies/save-svg-as-png/save-svg-as-png.js'
+{allowUnsafeEval, allowUnsafeNewFunction} = require 'loophole'
 
 # convert mermaid, wavedrom, viz.js from svg to png
 # used for markdown-convert and pandoc-convert
@@ -19,7 +20,7 @@ processGraphs = (text, {rootDirectoryPath, projectDirectoryPath, imageDirectoryP
   while i < lines.length
     line = lines[i]
     trimmedLine = line.trim()
-    if trimmedLine.startsWith('```{') and trimmedLine.endsWith('}')
+    if trimmedLine.match(/^```\{(.+)\}$/) or trimmedLine.match(/^```\@/)
       numOfSpacesAhead = line.match(/\s*/).length
 
       j = i + 1
@@ -47,7 +48,6 @@ saveSvgAsPng = (svgElement, dest, option={}, cb)->
     fs.writeFile dest, base64Data, 'base64', (err)->
       cb(err)
 
-
 # {start, end, content}
 processCodes = (codes, lines, {rootDirectoryPath, projectDirectoryPath, imageDirectoryPath, imageFilePrefix, useAbsoluteImagePath}, callback)->
   asyncFunctions = []
@@ -57,11 +57,16 @@ processCodes = (codes, lines, {rootDirectoryPath, projectDirectoryPath, imageDir
   imageFilePrefix = encodeURIComponent(imageFilePrefix)
   imgCount = 0
 
+  wavedromIdPrefix = 'wavedrom_' + (Math.random().toString(36).substr(2, 9) + '_')
+  wavedromOffset = 100
+
+  codeChunksArr = [] # array of {id, options, code}
+
   for codeData in codes
     {start, end, content} = codeData
     def = lines[start].trim().slice(3)
 
-    match = def.match(/^{(mermaid|wavedrom|viz|plantuml|puml)}$/)
+    match = def.match(/^\@(mermaid|wavedrom|viz|plantuml|puml|dot)/)
 
     if match  # builtin graph
       graphType = match[1]
@@ -74,6 +79,7 @@ processCodes = (codes, lines, {rootDirectoryPath, projectDirectoryPath, imageDir
 
             if mermaidAPI.parse(content)
               div = document.createElement('div')
+              # div.style.display = 'none' # will cause font issue.
               div.classList.add('mermaid')
               div.textContent = content
               document.body.appendChild(div)
@@ -123,7 +129,44 @@ processCodes = (codes, lines, {rootDirectoryPath, projectDirectoryPath, imageDir
 
       else if graphType == 'wavedrom'
         # not supported
+        null
+        ###
+        helper = (start, end, content)->
+          (cb)->
+            div = document.createElement('div')
+            div.id = wavedromIdPrefix + wavedromOffset
+            div.style.display = 'none'
 
+            # check engine
+            content = content.trim()
+
+            allowUnsafeEval ->
+              try
+                document.body.appendChild(div)
+                WaveDrom.RenderWaveForm(wavedromOffset, eval("(#{content})"), wavedromIdPrefix)
+                wavedromOffset += 1
+
+                dest = path.resolve(imageDirectoryPath, imageFilePrefix + imgCount + '.png')
+                imgCount += 1
+
+                svgElement = div.children[0]
+                width = svgElement.getBBox().width
+                height = svgElement.getBBox().height
+
+                console.log('rendered WaveDrom')
+                window.svgElement = svgElement
+
+                saveSvgAsPng svgElement, dest, {width, height}, (error)->
+                  document.body.removeChild(div)
+                  cb(null, {dest, start, end, content, type: 'graph'})
+              catch error
+                console.log('failed to render wavedrom')
+                document.body.removeChild(div)
+                cb(null, null)
+
+        asyncFunc = helper(start, end, content)
+        asyncFunctions.push asyncFunc
+        ###
       else # plantuml
         helper = (start, end, content)->
           (cb)->
@@ -156,12 +199,39 @@ processCodes = (codes, lines, {rootDirectoryPath, projectDirectoryPath, imageDir
 
           options = null
           try
-            options = JSON.parse '{'+dataArgs.replace((/([(\w)|(\-)]+)(:)/g), "\"$1\"$2").replace((/'/g), "\"")+'}'
+            allowUnsafeEval ->
+              options = eval("({#{dataArgs}})")
+            # options = JSON.parse '{'+dataArgs.replace((/([(\w)|(\-)]+)(:)/g), "\"$1\"$2").replace((/'/g), "\"")+'}'
           catch error
             atom.notifications.addError('Invalid options', detail: dataArgs)
             return
 
           cmd = options.cmd if options.cmd
+          id = options.id
+
+          codeChunksArr.push {id, code: content, options}
+
+          # check continue
+          offset = codeChunksArr.length - 1
+          currentCodeChunk = codeChunksArr[offset]
+          while currentCodeChunk?.options.continue
+            last = null
+            if currentCodeChunk.options.continue == true
+              last = codeChunksArr[offset - 1]
+            else
+              for c in codeChunksArr
+                if c.id == currentCodeChunk.options.continue
+                  last = c
+                  break
+
+            if last
+              content = last.code + '\n' + content
+              options.matplotlib = last.options.matplotlib or last.options.mpl
+            else # error
+              break
+
+            offset--
+            currentCodeChunk = codeChunksArr[offset]
 
           codeChunkAPI.run content, rootDirectoryPath, cmd, options, (error, data, options)->
             outputType = options.output || 'text'
@@ -184,7 +254,10 @@ processCodes = (codes, lines, {rootDirectoryPath, projectDirectoryPath, imageDir
                 saveSvgAsPng svgElement, dest, {width, height}, (error)->
                   cb(null, {start, end, content, type: 'code_chunk', hide: options.hide, dest, cmd})
               else
+                # html will not be working with pandoc.
                 cb(null, {start, end, content, type: 'code_chunk', hide: options.hide, data, cmd})
+            else if outputType == 'markdown'
+              cb(null, {start, end, content, type: 'code_chunk', hide: options.hide, data, cmd})
             else
               cb(null, null)
 
@@ -202,9 +275,9 @@ processCodes = (codes, lines, {rootDirectoryPath, projectDirectoryPath, imageDir
       if type == 'graph'
         {dest} = d
         if useAbsoluteImagePath
-          imgMd = "![](#{'/' + path.relative(projectDirectoryPath, dest) + '?' + Math.random()})"
+          imgMd = "![](#{'/' + path.relative(projectDirectoryPath, dest) + '?' + Math.random()})  "
         else
-          imgMd = "![](#{path.relative(rootDirectoryPath, dest) + '?' + Math.random()})"
+          imgMd = "![](#{path.relative(rootDirectoryPath, dest) + '?' + Math.random()})  "
         imagePaths.push dest
 
         lines[start] = imgMd
@@ -229,9 +302,9 @@ processCodes = (codes, lines, {rootDirectoryPath, projectDirectoryPath, imageDir
         if dest
           imagePaths.push dest
           if useAbsoluteImagePath
-            imgMd = "![](#{'/' + path.relative(projectDirectoryPath, dest) + '?' + Math.random()})"
+            imgMd = "![](#{'/' + path.relative(projectDirectoryPath, dest) + '?' + Math.random()})  "
           else
-            imgMd = "![](#{path.relative(rootDirectoryPath, dest) + '?' + Math.random()})"
+            imgMd = "![](#{path.relative(rootDirectoryPath, dest) + '?' + Math.random()})  "
           lines[end] += ('\n' + imgMd)
 
         if data

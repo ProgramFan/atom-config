@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getPidFromPackageName = exports.getDeviceList = undefined;
+exports.getJavaProcesses = exports.getPidFromPackageName = exports.getDeviceList = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -61,6 +61,36 @@ let getPidFromPackageName = exports.getPidFromPackageName = (() => {
   };
 })();
 
+let getJavaProcesses = exports.getJavaProcesses = (() => {
+  var _ref4 = (0, _asyncToGenerator.default)(function* (adbPath, device) {
+    const allProcesses = yield runShortAdbCommand(adbPath, device, ['shell', 'ps']).map(function (stdout) {
+      const psOutput = stdout.trim();
+      return parsePsTableOutput(psOutput, ['user', 'pid', 'name']);
+    }).toPromise();
+
+    const args = (device !== '' ? ['-s', device] : []).concat('jdwp');
+    return (0, (_process || _load_process()).observeProcessRaw)(function () {
+      return (0, (_process || _load_process()).safeSpawn)(adbPath, args);
+    }, true).take(1).map(function (output) {
+      const jdwpPids = new Set();
+      if (output.kind === 'stdout') {
+        const block = output.data;
+        block.split(/\s+/).forEach(function (pid) {
+          jdwpPids.add(pid.trim());
+        });
+      }
+
+      return allProcesses.filter(function (row) {
+        return jdwpPids.has(row.pid);
+      });
+    }).toPromise();
+  });
+
+  return function getJavaProcesses(_x6, _x7) {
+    return _ref4.apply(this, arguments);
+  };
+})();
+
 exports.startServer = startServer;
 exports.getDeviceArchitecture = getDeviceArchitecture;
 exports.getDeviceModel = getDeviceModel;
@@ -70,6 +100,7 @@ exports.uninstallPackage = uninstallPackage;
 exports.forwardJdwpPortToPid = forwardJdwpPortToPid;
 exports.launchActivity = launchActivity;
 exports.activityExists = activityExists;
+exports.parsePsTableOutput = parsePsTableOutput;
 
 var _nuclideUri;
 
@@ -183,4 +214,41 @@ function activityExists(adbPath, device, packageName, activity) {
   const deviceArg = device !== '' ? ['-s', device] : [];
   const command = deviceArg.concat(['shell', 'dumpsys', 'package']);
   return (0, (_process || _load_process()).runCommand)(adbPath, command).map(stdout => stdout.includes(packageActivityString)).toPromise();
+}
+
+function parsePsTableOutput(output, desiredFields) {
+  const lines = output.split(/\n/);
+  const header = lines[0];
+  const cols = header.split(/\s+/);
+  const colMapping = {};
+
+  for (let i = 0; i < cols.length; i++) {
+    const columnName = cols[i].toLowerCase();
+    if (desiredFields.includes(columnName)) {
+      colMapping[i] = columnName;
+    }
+  }
+
+  const formattedData = [];
+  const data = lines.slice(1);
+  data.filter(row => row.trim() !== '').forEach(row => {
+    const rowData = row.split(/\s+/);
+    const rowObj = {};
+    for (let i = 0; i < rowData.length; i++) {
+      // Android's ps output has an extra column "S" in the data that doesn't appear
+      // in the header. Skip that column's value.
+      const effectiveColumn = i;
+      if (rowData[i] === 'S' && i < rowData.length - 1) {
+        i++;
+      }
+
+      if (colMapping[effectiveColumn] !== undefined) {
+        rowObj[colMapping[effectiveColumn]] = rowData[i];
+      }
+    }
+
+    formattedData.push(rowObj);
+  });
+
+  return formattedData;
 }

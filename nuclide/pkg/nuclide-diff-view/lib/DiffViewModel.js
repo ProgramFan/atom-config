@@ -64,14 +64,14 @@ class DiffViewModel {
     this._actionCreators.setCompareId(this._state.activeRepository, revision.id);
   }
 
-  publishDiff(publishMessage, isPrepareMode, lintExcuse) {
+  publishDiff(publishMessage, isPrepareMode) {
     const activeRepository = this._state.activeRepository;
 
     if (!(activeRepository != null)) {
       throw new Error('Cannot publish without an active stack!');
     }
 
-    this._actionCreators.publishDiff(activeRepository, publishMessage, isPrepareMode, lintExcuse, this._progressUpdates);
+    this._actionCreators.publishDiff(activeRepository, publishMessage, isPrepareMode, this._state.lintExcuse, this._progressUpdates);
   }
 
   updatePublishMessage(message) {
@@ -124,6 +124,10 @@ class DiffViewModel {
     this._actionCreators.updatePublishState(Object.assign({}, this._state.publish, {
       message
     }));
+  }
+
+  setLintExcuse(lintExcuse) {
+    this._actionCreators.setLintExcuse(lintExcuse);
   }
 
   setIsPrepareMode(isPrepareMode) {

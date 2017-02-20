@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.HACK_WORD_REGEX = exports.callHHClient = undefined;
+exports.callHHClient = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -36,7 +36,7 @@ let callHHClient = exports.callHHClient = (() => {
 
         let execResult = null;
 
-        (_hackConfig || _load_hackConfig()).logger.logTrace(`Calling Hack: ${hackCommand} with ${allArgs.toString()}`);
+        (_hackConfig || _load_hackConfig()).logger.log(`Calling Hack: ${hackCommand} with ${allArgs.toString()}`);
         execResult = yield (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)(trackingIdOfHackArgs(args), function () {
           return (0, (_process || _load_process()).asyncExecute)(hackCommand, allArgs, { stdin: processInput });
         });
@@ -49,6 +49,8 @@ let callHHClient = exports.callHHClient = (() => {
         }
 
         const output = errorStream ? stderr : stdout;
+        // keeping this at "Trace" log level, since output for --color contains
+        // entire file contents, which fills the logs too quickly
         (_hackConfig || _load_hackConfig()).logger.logTrace(`Hack output for ${allArgs.toString()}: ${output}`);
         try {
           const result = JSON.parse(output);
@@ -131,8 +133,6 @@ let hhPromiseQueue = null;function hackRangeToAtomRange(position) {
 function atomPointOfHackRangeStart(position) {
   return new (_simpleTextBuffer || _load_simpleTextBuffer()).Point(position.line - 1, position.char_start - 1);
 }
-
-const HACK_WORD_REGEX = exports.HACK_WORD_REGEX = /[a-zA-Z0-9_$]+/g;
 
 function trackingIdOfHackArgs(args) {
   const command = args.length === 0 ? '--diagnostics' : args[0];

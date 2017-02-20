@@ -5,7 +5,16 @@ Still Beta Version!
 
 [中文文档](./docs/README_CN.md)   
 
-After version `0.9.0`, **Markdown Preview Enhanced** supports compiling markdown to markdown file. More information can be found [here](./docs/markdown.md).  
+From version `0.9.9`, **markdown-preview-enhanced** supports more **powerful code chunk**.   
+You can now use python `matplotlib` very easily to make plots and even create interactive figures powered by [mpld3](mpld3.github.io).   
+JavaScript code chunk (not node.js but browser javascript) is also supported so that you can use libraries like [Char.js](http://www.chartjs.org/), [d3js](https://d3js.org/), [plotly](https://plot.ly/) to draw graphs.  
+[Code Chunk (beta) Doc](./docs/code-chunk.md) is also updated.        
+
+**Here is a  [demo](https://cdn.rawgit.com/shd101wyy/markdown-preview-enhanced/f83acb43/test/code-chunks-test.html), and its [raw file](https://raw.githubusercontent.com/shd101wyy/markdown-preview-enhanced/master/test/code-chunks-test.md).**  
+
+---  
+
+[language-gfm-enhanced](https://atom.io/packages/language-gfm-enhanced) is recommended to be installed to work with markdown-preview-enhanced.  
 
 Post [here](https://github.com/shd101wyy/markdown-preview-enhanced/issues) if you request new features or you want to report bugs ;)
 
@@ -20,16 +29,18 @@ Post [here](https://github.com/shd101wyy/markdown-preview-enhanced/issues) if yo
 	* [Preview Context Menu](#preview-context-menu)
 	* [Extra](#extra)
 	* [For Developer](#for-developer)
+	* [FAQ](#faq)
+	* [Credits](#credits)
 	* [Thanks](#thanks)
-	* [TODO](#todo)
 
 <!-- tocstop -->
 ---
 
-![intro](https://cloud.githubusercontent.com/assets/1908863/19796387/a00df0f6-9ca9-11e6-86e9-1d74e195748f.gif)
+![intro](https://cloud.githubusercontent.com/assets/1908863/22763072/32f09e80-ee28-11e6-9d42-c3953f5749a1.gif)
 
 ## Features
 - **2-side scroll sync**  
+- **[Import external files](./docs/doc-imports.md)**
 - **[Code Chunks (beta)](./docs/code-chunk.md)**
 - **[pandoc](./docs/advanced-export.md)**
 - **[ebook](./docs/ebook.md)**
@@ -39,7 +50,7 @@ Post [here](https://github.com/shd101wyy/markdown-preview-enhanced/issues) if yo
 You can choose [MathJax](https://github.com/mathjax/MathJax) or [KaTeX](https://github.com/Khan/KaTeX) to render math expressions  
 - export **PDF**, **PNG**, and **JPEG**   
 - export beautiful **HTML** (mobile device supported)  
-- compile to **Markdown**
+- [compile to Markdown](./docs/markdown.md)
 - customize Markdown Preview css  
 - [TOC](./docs/toc.md) generation **(beta)**  
 - Flowchart / Sequence diagram
@@ -59,18 +70,17 @@ You can choose [MathJax](https://github.com/mathjax/MathJax) or [KaTeX](https://
 		**MathJax** supports more symbols, but it has slower rendering speed compared to **KaTeX**.
   - <img src="https://cloud.githubusercontent.com/assets/1908863/14398210/0e408954-fda8-11e5-9eb4-562d7c0ca431.gif">
 - [mermaid](https://github.com/knsv/mermaid) to render flowchart and sequence diagram.  
-	- code block with `{mermaid}` notation will be rendered by [mermaid](https://github.com/knsv/mermaid)  
+	- code block with `@mermaid` notation will be rendered by [mermaid](https://github.com/knsv/mermaid)  
 	- check [mermaid doc](http://knsv.github.io/mermaid/#flowcharts-basic-syntax) for more information about how to create flowchart and sequence diagram   
-	- ![mermaid](http://i.imgur.com/rwIPIA8.gif)
+	- ![mermaid](https://cloud.githubusercontent.com/assets/1908863/22724073/622549ac-ed89-11e6-9a3e-6f35dd3f1c81.gif)
 - [PlantUML](http://plantuml.com/) to create multiple kinds of graph. (**Java** is required)  
 	- You can install [Graphviz](http://www.graphviz.org/) (not required) to generate all diagram types.
-	- code block with `{puml}` or `{plantuml}` notation will be rendered by [PlantUML](http://plantuml.com/).  
+	- code block with `@puml` or `@plantuml` notation will be rendered by [PlantUML](http://plantuml.com/).  
 - [WaveDrom](http://wavedrom.com/) to create digital timing diagram.  
-	- code block with `{wavedrom}` notation will be rendered by [wavedrom](https://github.com/drom/wavedrom).
+	- code block with `@wavedrom` notation will be rendered by [wavedrom](https://github.com/drom/wavedrom).
 - [Viz.js](https://github.com/mdaines/viz.js) to render [dot language](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) graph.  
-	- code block with `{viz}` notation will be rendered by [Viz.js](https://github.com/mdaines/viz.js).
-    - add `engine:[engine_name]` at the first line of code block to choose different render engine. Engine `circo`, `dot`, `neato`, `osage`, or `twopi` are supported. Default engine is `dot`.   
-    - ![viz](https://cloud.githubusercontent.com/assets/1908863/22486898/f3b71a8a-e7d0-11e6-9f69-88e30baa3a9a.gif)
+	- code block with `@viz` notation will be rendered by [Viz.js](https://github.com/mdaines/viz.js).
+    - add `engine:[engine_name]` at the first line of code block to choose different render engine. For example `engine:dot`. Engine `circo`, `dot`, `neato`, `osage`, or `twopi` are supported. Default engine is `dot`.   
 - [reveal.js](https://github.com/hakimel/reveal.js) to render beautiful presentations.
 	- [Click here](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html) to see the introduction.
 
@@ -88,6 +98,9 @@ To use this package, press <kbd>cmd + shift + p</kbd>   in atom editor first to 
   - Generate TOC (need preview toggled). [doc is here](./docs/toc.md).    
 - <strong>Markdown Preview Enhanced: Toggle Scroll Sync </strong>
   - Enable/Disable scroll sync for preview.
+- <strong>Markdown Preview Enhanced: Toggle Live Update </strong>
+	 - Enable/Disable live update for preview.
+	 - If disabled, preview will only be rendered when the file is saved.  
 - <strong>Markdown Preview Enhanced: Toggle Break On Single Newline </strong>
   - Enable/Disable breaking on single newline.
 - <strong>Markdown Preview Enhanced: Insert New Slide </strong>  
@@ -135,19 +148,44 @@ To use this package, press <kbd>cmd + shift + p</kbd>   in atom editor first to 
 Manual installation instruction can be found [here](./docs/DEVELOPER.md).   
 It is also very easy to write your own extension, more information can be found [here](./docs/extension.md).
 
+## FAQ
+1. **I am not able to find this package in atom?**  
+Please search for the full name of this package. `markdown-preview-enhanced`  
+2. **I exported a html file, and I want to deploy it on my own remote server. But math typesetting (MathJax or KaTeX) doesn't work, what should I do?**  
+Please make sure you have `Use CDN hosted resources` checked when exporting.  
+3. **I exported a presentation html file, and I want to put it on my Github Page or deploy remotely?**  
+Please check the last question.  
+4. **How do I get dark style preview?**  
+If you want the style of the preview to be consistent with your atom editor, go to settings of this package, then uncheck `Github.com style` and `Use Github.com syntax theme`. [#281](https://github.com/shd101wyy/markdown-preview-enhanced/issues/281).  
+Or you can run `Markdown Preview Enhanced: Customize Css` command, then modify the `style.less` file.  [#68](https://github.com/shd101wyy/markdown-preview-enhanced/issues/68), [#89](https://github.com/shd101wyy/markdown-preview-enhanced/issues/89).
+5. **The preview is super super lagging?**  
+This might happen when your markdown file is too big, or you are using too many math or graphs.  
+Therefore I would like to recommend you to disable `Live Update` functionality.  
+You can run `Markdown Preview Enhanced: Toggle Live Update` to disable it.  
+
+## Credits  
+* [remarkable](https://github.com/jonschlinkert/remarkable) - Markdown parser, done right. Commonmark support, extensions, syntax plugins, high speed - all in one. Gulp and metalsmith plugins are also available.  
+* [KaTeX](https://github.com/Khan/KaTeX) - Fast math typesetting for the web.  
+* [MathJax](https://github.com/mathjax/MathJax) - Beautiful math in all browsers.  
+* [mermaid](https://github.com/knsv/mermaid) - Generation of diagram and flowchart from text in a similar manner as markdown.  
+* [viz.js](https://github.com/mdaines/viz.js) - A hack to put Graphviz on the web.
+* [plantuml](https://github.com/plantuml/plantuml) - Generate UML diagram from textual description.
+* [WaveDrom](https://github.com/drom/wavedrom) - Digital timing diagram rendering engine.
+* [reveal.js](https://github.com/hakimel/reveal.js) - The HTML Presentation Framework.
+* [save-svg-as-png](https://github.com/exupero/saveSvgAsPng) - Save SVGs as PNGs from the browser.
+* [pandoc](https://github.com/jgm/pandoc) - Universal markup converter.
+* [async](https://github.com/caolan/async) - Async utilities for node and the browser.
+* [babyparse](https://github.com/mholt/PapaParse) - Fast and powerful CSV (delimited text) parser that gracefully handles large files and malformed input.
+* [cheerio](https://github.com/cheeriojs/cheerio) - Fast, flexible, and lean implementation of core jQuery designed specifically for the server.
+* [gray-matter](https://github.com/jonschlinkert/gray-matter) - Smarter yaml front matter parser, used by assemble, metalsmith and many others.
+* [html-pdf](https://github.com/marcbachmann/node-html-pdf) - Html to pdf converter in nodejs. It spawns a phantomjs process and passes the pdf as buffer or as filename.
+* [node-imgur](https://github.com/kaimallea/node-imgur) - Upload images to imgur.com.
+* [request](https://github.com/request/request) - Simplified HTTP request client.
+* [node-temp](https://github.com/bruce/node-temp) - Temporary File, Directory, and Stream support for Node.js.
+* [uslug](https://github.com/jeremys/uslug) - A permissive slug generator that works with unicode.
+* [atom](https://github.com/atom/atom) - The hackable text editor.
+
 ## Thanks  
-Thanks for everyone that supports this package!    
-
-## TODO  
-[CHANGELOG](./CHANGELOG.md)  
-- [ ] fix bugs
-- [ ] modify css to make preview look nice
-- [x] ePub output
-- [x] support more image upload methods other than imgur (as imgur is blocked in some countries)
-- [x] image paste [#30](https://github.com/shd101wyy/markdown-preview-enhanced/issues/30)
-- [ ] pdf book generation [#56](https://github.com/shd101wyy/markdown-preview-enhanced/issues/56)
-- [x] header and footer for pdf [57](https://github.com/shd101wyy/markdown-preview-enhanced/issues/57)
-
 Thanks for using and supporting this package ;)
 
 > University of Illinois/NCSA Open Source License

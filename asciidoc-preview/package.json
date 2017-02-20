@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11718-6254-1uilvwp/package.tgz",
+        "raw": "/tmp/d-117120-6270-ac4u7u/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11718-6254-1uilvwp/package.tgz",
-        "spec": "/tmp/d-11718-6254-1uilvwp/package.tgz",
+        "rawSpec": "/tmp/d-117120-6270-ac4u7u/package.tgz",
+        "spec": "/tmp/d-117120-6270-ac4u7u/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11718-6254-h121a8"
+      "/tmp/apm-install-dir-117120-6270-1mrulcs"
     ]
   ],
-  "_from": "../d-11718-6254-1uilvwp/package.tgz",
-  "_id": "asciidoc-preview@2.7.1",
+  "_from": "../d-117120-6270-ac4u7u/package.tgz",
+  "_id": "asciidoc-preview@2.7.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11718-6254-1uilvwp/package.tgz",
+    "raw": "/tmp/d-117120-6270-ac4u7u/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11718-6254-1uilvwp/package.tgz",
-    "spec": "/tmp/d-11718-6254-1uilvwp/package.tgz",
+    "rawSpec": "/tmp/d-117120-6270-ac4u7u/package.tgz",
+    "spec": "/tmp/d-117120-6270-ac4u7u/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-6254-1uilvwp/package.tgz",
-  "_shasum": "b2be0f5db29f55f5d49678bda956d351a2c7f398",
+  "_resolved": "file:../d-117120-6270-ac4u7u/package.tgz",
+  "_shasum": "71ffdcfcd21047a83350a9b48bf8299cbefbf63f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11718-6254-1uilvwp/package.tgz",
-  "_where": "/tmp/apm-install-dir-11718-6254-h121a8",
+  "_spec": "/tmp/d-117120-6270-ac4u7u/package.tgz",
+  "_where": "/tmp/apm-install-dir-117120-6270-1mrulcs",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },
@@ -181,10 +181,10 @@
   "dependencies": {
     "asciidoctor.js": "1.5.5-1",
     "atom-space-pen-views": "~2.2.0",
-    "cheerio": "~0.20.0",
-    "font-awesome": "^4.6.3",
-    "fs-plus": "~2.8.2",
-    "mustache": "~2.2.1",
+    "cheerio": "~0.22.0",
+    "font-awesome": "^4.7.0",
+    "fs-plus": "~2.9.3",
+    "mustache": "~2.3.0",
     "opn": "^4.0.2",
     "underscore-plus": "~1.6.6"
   },
@@ -218,5 +218,5 @@
     "font-awesome",
     "asciidoc-preview"
   ],
-  "version": "2.7.1"
+  "version": "2.7.2"
 }

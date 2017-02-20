@@ -52,12 +52,38 @@ function provideIosDevices(buckRoot, ruleType, buildTarget) {
       name: 'iOS Simulators',
       platforms: [{
         name: 'iOS Simulators',
-        flavor: 'iphonesimulator-x86_64',
-        devices: devices.map(device => ({
-          name: `${device.name} (${device.os})`,
-          udid: device.udid
-        }))
+        tasks: new Set(['build', 'run', 'test', 'debug']),
+        runTask,
+        deviceGroups: [{
+          name: 'iOS Simulators',
+          devices: devices.map(device => ({
+            name: `${device.name} (${device.os})`,
+            udid: device.udid
+          }))
+        }]
       }]
     };
   });
+}
+
+function runTask(builder, taskType, buildTarget, device) {
+  let subcommand = taskType;
+
+  if (!device) {
+    throw new Error('Invariant violation: "device"');
+  }
+
+  if (!device.udid) {
+    throw new Error('Invariant violation: "device.udid"');
+  }
+
+  if (!(typeof device.udid === 'string')) {
+    throw new Error('Invariant violation: "typeof device.udid === \'string\'"');
+  }
+
+  if (subcommand === 'run' || subcommand === 'debug') {
+    subcommand = 'install';
+  }
+
+  return builder.runSubcommand(subcommand, buildTarget, {}, taskType === 'debug', device.udid);
 }

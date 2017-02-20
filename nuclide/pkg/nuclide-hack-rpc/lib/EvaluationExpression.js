@@ -11,10 +11,10 @@ function _load_range() {
   return _range = require('../../commons-node/range');
 }
 
-var _HackHelpers;
+var _nuclideHackCommon;
 
-function _load_HackHelpers() {
-  return _HackHelpers = require('./HackHelpers');
+function _load_nuclideHackCommon() {
+  return _nuclideHackCommon = require('../../nuclide-hack-common');
 }
 
 /**
@@ -29,7 +29,7 @@ function _load_HackHelpers() {
 
 function getEvaluationExpression(filePath, buffer, position) {
   // TODO: Replace RegExp with AST-based, more accurate approach.
-  const extractedIdentifier = (0, (_range || _load_range()).wordAtPositionFromBuffer)(buffer, position, (_HackHelpers || _load_HackHelpers()).HACK_WORD_REGEX);
+  const extractedIdentifier = (0, (_range || _load_range()).wordAtPositionFromBuffer)(buffer, position, (_nuclideHackCommon || _load_nuclideHackCommon()).HACK_WORD_REGEX);
   if (extractedIdentifier == null) {
     return null;
   }

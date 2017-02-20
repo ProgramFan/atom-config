@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11718-7332-jw9qqu/package.tgz",
+        "raw": "/tmp/d-117120-7348-b4fwix/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11718-7332-jw9qqu/package.tgz",
-        "spec": "/tmp/d-11718-7332-jw9qqu/package.tgz",
+        "rawSpec": "/tmp/d-117120-7348-b4fwix/package.tgz",
+        "spec": "/tmp/d-117120-7348-b4fwix/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11718-7332-r8n6hi"
+      "/tmp/apm-install-dir-117120-7348-s6xk6o"
     ]
   ],
-  "_from": "../d-11718-7332-jw9qqu/package.tgz",
+  "_from": "../d-117120-7348-b4fwix/package.tgz",
   "_id": "docblockr@0.9.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/docblockr",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11718-7332-jw9qqu/package.tgz",
+    "raw": "/tmp/d-117120-7348-b4fwix/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11718-7332-jw9qqu/package.tgz",
-    "spec": "/tmp/d-11718-7332-jw9qqu/package.tgz",
+    "rawSpec": "/tmp/d-117120-7348-b4fwix/package.tgz",
+    "spec": "/tmp/d-117120-7348-b4fwix/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-7332-jw9qqu/package.tgz",
+  "_resolved": "file:../d-117120-7348-b4fwix/package.tgz",
   "_shasum": "000e28a066d97d77b08cd9a1768fff4afb4ddde5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11718-7332-jw9qqu/package.tgz",
-  "_where": "/tmp/apm-install-dir-11718-7332-r8n6hi",
+  "_spec": "/tmp/d-117120-7348-b4fwix/package.tgz",
+  "_where": "/tmp/apm-install-dir-117120-7348-s6xk6o",
   "atomTestRunner": "./spec/runner",
   "bugs": {
     "url": "https://github.com/nikhilkalige/docblockr/issues"

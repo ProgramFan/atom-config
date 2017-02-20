@@ -81,6 +81,8 @@ class Modal extends _reactForAtom.React.Component {
   }
 
   render() {
+    const props = Object.assign({}, this.props);
+    delete props.onDismiss;
     return _reactForAtom.React.createElement(
       (_Portal || _load_Portal()).Portal,
       { container: this._container },
@@ -88,7 +90,7 @@ class Modal extends _reactForAtom.React.Component {
         'div',
         Object.assign({
           tabIndex: '0'
-        }, this.props, {
+        }, props, {
           ref: this._handleContainerInnerElement }),
         this.props.children
       )

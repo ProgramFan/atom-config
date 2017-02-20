@@ -1,0 +1,71 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+
+var _createPackage;
+
+function _load_createPackage() {
+  return _createPackage = _interopRequireDefault(require('../../commons-atom/createPackage'));
+}
+
+var _projects;
+
+function _load_projects() {
+  return _projects = require('../../commons-atom/projects');
+}
+
+var _UniversalDisposable;
+
+function _load_UniversalDisposable() {
+  return _UniversalDisposable = _interopRequireDefault(require('../../commons-node/UniversalDisposable'));
+}
+
+var _fsPromise;
+
+function _load_fsPromise() {
+  return _fsPromise = _interopRequireDefault(require('../../commons-node/fsPromise'));
+}
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
+class Activation {
+
+  constructor(state) {
+    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default((0, (_projects || _load_projects()).observeProjectPaths)((() => {
+      var _ref = (0, _asyncToGenerator.default)(function* (projectPath) {
+        const realPath = yield (_fsPromise || _load_fsPromise()).default.realpath(projectPath);
+        if (realPath !== projectPath) {
+          atom.notifications.addWarning('You have mounted a non-canonical project path. ' + 'Nuclide only supports mounting canonical paths.<br />' + '<strong>Some Nuclide features such as Flow might not work properly.</strong>', {
+            dismissable: true,
+            detail: `Mounted path: ${projectPath}\n \n ` + `Try re-mounting the canonical project path instead:\n${realPath}`
+          });
+        }
+      });
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    })()));
+  }
+
+  dispose() {
+    this._disposables.dispose();
+  }
+}
+
+exports.default = (0, (_createPackage || _load_createPackage()).default)(Activation);
+module.exports = exports['default'];

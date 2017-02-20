@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11718-7410-1ltgpes/package.tgz",
+        "raw": "/tmp/d-117120-7426-t6kfu7/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11718-7410-1ltgpes/package.tgz",
-        "spec": "/tmp/d-11718-7410-1ltgpes/package.tgz",
+        "rawSpec": "/tmp/d-117120-7426-t6kfu7/package.tgz",
+        "spec": "/tmp/d-117120-7426-t6kfu7/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11718-7410-mxwb3q"
+      "/tmp/apm-install-dir-117120-7426-hha0ng"
     ]
   ],
-  "_from": "../d-11718-7410-1ltgpes/package.tgz",
+  "_from": "../d-117120-7426-t6kfu7/package.tgz",
   "_id": "python-tools@0.6.9",
   "_inCache": true,
   "_installable": true,
   "_location": "/python-tools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11718-7410-1ltgpes/package.tgz",
+    "raw": "/tmp/d-117120-7426-t6kfu7/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11718-7410-1ltgpes/package.tgz",
-    "spec": "/tmp/d-11718-7410-1ltgpes/package.tgz",
+    "rawSpec": "/tmp/d-117120-7426-t6kfu7/package.tgz",
+    "spec": "/tmp/d-117120-7426-t6kfu7/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-7410-1ltgpes/package.tgz",
+  "_resolved": "file:../d-117120-7426-t6kfu7/package.tgz",
   "_shasum": "dba6e2a8889971140b20f143c8535e6b054a1df0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11718-7410-1ltgpes/package.tgz",
-  "_where": "/tmp/apm-install-dir-11718-7410-mxwb3q",
+  "_spec": "/tmp/d-117120-7426-t6kfu7/package.tgz",
+  "_where": "/tmp/apm-install-dir-117120-7426-hha0ng",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/MichaelAquilina/python-tools/issues"

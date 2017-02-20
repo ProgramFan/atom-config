@@ -97,7 +97,10 @@ let createLanguageService = (() => {
         disableForSelector: null,
         excludeLowerPriority: false,
         analyticsEventName: 'hack.getAutocompleteSuggestions',
-        autocompleteCacherConfig: null,
+        autocompleteCacherConfig: {
+          updateResults: updateAutocompleteResults,
+          gatekeeper: 'nuclide_hack_fast_autocomplete'
+        },
         onDidInsertSuggestionAnalyticsEventName: 'hack.autocomplete-chosen'
       },
       diagnostics: diagnosticsConfig
@@ -168,6 +171,12 @@ function _load_nuclideHackCommon() {
   return _nuclideHackCommon = require('../../nuclide-hack-common');
 }
 
+var _autocomplete;
+
+function _load_autocomplete() {
+  return _autocomplete = require('../../nuclide-hack-common/lib/autocomplete');
+}
+
 var _nuclideUri;
 
 function _load_nuclideUri() {
@@ -199,4 +208,32 @@ function resetHackLanguageService() {
   // Reset to an unactivated LanguageService when the Hack package is deactivated.
   // TODO: Sort out the dependencies between the HHVM toolbar, quick-open and Hack.
   exports.hackLanguageService = hackLanguageService = createLanguageService();
+}
+
+function updateAutocompleteResults(request, firstResult) {
+  if (firstResult == null) {
+    return null;
+  }
+  const replacementPrefix = (0, (_autocomplete || _load_autocomplete()).findHackPrefix)(request.editor.getBuffer(), request.bufferPosition);
+  const updatedCompletions = updateReplacementPrefix(request, firstResult, replacementPrefix);
+  return (0, (_autocomplete || _load_autocomplete()).sortAndFilterCompletions)(updatedCompletions, replacementPrefix);
+}
+
+function updateReplacementPrefix(request, firstResult, prefixCandidate) {
+  const { editor, bufferPosition } = request;
+  const contents = editor.getText();
+  const offset = editor.getBuffer().characterIndexForPosition(bufferPosition);
+  return firstResult.map(completion => {
+    const name = completion.displayText;
+
+    if (!(name != null)) {
+      throw new Error('Invariant violation: "name != null"');
+    }
+
+    const resultPrefix = (0, (_autocomplete || _load_autocomplete()).getResultPrefix)(contents, offset, name);
+    const replacementPrefix = (0, (_autocomplete || _load_autocomplete()).getReplacementPrefix)(resultPrefix, prefixCandidate);
+    return Object.assign({}, completion, {
+      replacementPrefix
+    });
+  });
 }

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11718-7176-ho9ypu/package.tgz",
+        "raw": "/tmp/d-117120-7191-1uodoh6/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
-        "spec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
+        "rawSpec": "/tmp/d-117120-7191-1uodoh6/package.tgz",
+        "spec": "/tmp/d-117120-7191-1uodoh6/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11718-7176-zv66xn"
+      "/tmp/apm-install-dir-117120-7191-8ur1mt"
     ]
   ],
-  "_from": "../d-11718-7176-ho9ypu/package.tgz",
-  "_id": "atom-commander@0.8.6",
+  "_from": "../d-117120-7191-1uodoh6/package.tgz",
+  "_id": "atom-commander@0.8.7",
   "_inCache": true,
   "_installable": true,
   "_location": "/atom-commander",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11718-7176-ho9ypu/package.tgz",
+    "raw": "/tmp/d-117120-7191-1uodoh6/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
-    "spec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
+    "rawSpec": "/tmp/d-117120-7191-1uodoh6/package.tgz",
+    "spec": "/tmp/d-117120-7191-1uodoh6/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-7176-ho9ypu/package.tgz",
-  "_shasum": "500de6191de44eb58e0c621327e69b14a9b4ad3e",
+  "_resolved": "file:../d-117120-7191-1uodoh6/package.tgz",
+  "_shasum": "2c8b4799049e3a4ab88a8b5fe081b6e03229144a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11718-7176-ho9ypu/package.tgz",
-  "_where": "/tmp/apm-install-dir-11718-7176-zv66xn",
+  "_spec": "/tmp/d-117120-7191-1uodoh6/package.tgz",
+  "_where": "/tmp/apm-install-dir-117120-7191-8ur1mt",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/morassman/atom-commander/issues"
@@ -93,5 +93,5 @@
     "type": "git",
     "url": "git+https://github.com/morassman/atom-commander.git"
   },
-  "version": "0.8.6"
+  "version": "0.8.7"
 }

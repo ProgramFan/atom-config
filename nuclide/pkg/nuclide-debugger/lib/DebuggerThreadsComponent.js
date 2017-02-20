@@ -78,12 +78,14 @@ class DebuggerThreadsComponent extends _reactForAtom.React.Component {
       threadList,
       selectedThreadId
     } = this.state;
-    const columns = [{
+    const activeThreadCol = {
       component: activeThreadIndicatorComponent,
       title: '',
       key: 'isSelected',
       width: 0.05
-    }, {
+    };
+
+    const defaultColumns = [activeThreadCol, {
       title: 'ID',
       key: 'id',
       width: 0.15
@@ -96,6 +98,14 @@ class DebuggerThreadsComponent extends _reactForAtom.React.Component {
       key: 'stopReason',
       width: 0.25
     }];
+
+    // Individual debuggers can override the displayed columns.
+    const customColumns = this.props.customThreadColumns.length === 0 ? [] : [activeThreadCol].concat(this.props.customThreadColumns.map(col => ({
+      title: col.title,
+      key: col.key
+    })));
+
+    const columns = customColumns.length > 0 ? customColumns : defaultColumns;
     const emptyComponent = () => _reactForAtom.React.createElement(
       'div',
       { className: 'nuclide-debugger-thread-list-empty' },
@@ -118,6 +128,7 @@ class DebuggerThreadsComponent extends _reactForAtom.React.Component {
       emptyComponent: emptyComponent,
       rows: rows,
       selectable: true,
+      resizable: true,
       onSelect: this._handleSelectThread
     });
   }

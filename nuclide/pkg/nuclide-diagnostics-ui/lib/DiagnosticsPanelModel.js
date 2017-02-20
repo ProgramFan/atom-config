@@ -73,7 +73,7 @@ const WORKSPACE_VIEW_URI = exports.WORKSPACE_VIEW_URI = 'atom://nuclide/diagnost
 
 class DiagnosticsPanelModel {
 
-  constructor(diagnostics, initialfilterByActiveTextEditor, showTraces, disableLinter, onFilterByActiveTextEditorChange, warnAboutLinterStream) {
+  constructor(diagnostics, showTracesStream, onShowTracesChange, disableLinter, warnAboutLinterStream, initialfilterByActiveTextEditor, onFilterByActiveTextEditorChange) {
     this._visibility = new _rxjsBundlesRxMinJs.BehaviorSubject(true);
 
     this._visibilitySubscription = this._visibility.debounceTime(1000).distinctUntilChanged().filter(Boolean).subscribe(() => {
@@ -81,7 +81,7 @@ class DiagnosticsPanelModel {
     });
 
     // A stream that contains the props, but is "muted" when the panel's not visible.
-    this._props = (0, (_observable || _load_observable()).toggle)(getPropsStream(diagnostics, warnAboutLinterStream, showTraces, initialfilterByActiveTextEditor, disableLinter, onFilterByActiveTextEditorChange).publishReplay(1).refCount(), this._visibility.distinctUntilChanged());
+    this._props = (0, (_observable || _load_observable()).toggle)(getPropsStream(diagnostics, warnAboutLinterStream, showTracesStream, onShowTracesChange, disableLinter, initialfilterByActiveTextEditor, onFilterByActiveTextEditorChange).publishReplay(1).refCount(), this._visibility.distinctUntilChanged());
   }
 
   destroy() {
@@ -126,7 +126,7 @@ class DiagnosticsPanelModel {
 }
 
 exports.DiagnosticsPanelModel = DiagnosticsPanelModel;
-function getPropsStream(diagnosticsStream, warnAboutLinterStream, showTraces, initialfilterByActiveTextEditor, disableLinter, onFilterByActiveTextEditorChange) {
+function getPropsStream(diagnosticsStream, warnAboutLinterStream, showTracesStream, onShowTracesChange, disableLinter, initialfilterByActiveTextEditor, onFilterByActiveTextEditorChange) {
   const activeTextEditorPaths = (0, (_event || _load_event()).observableFromSubscribeFunction)(atom.workspace.observeActivePaneItem.bind(atom.workspace)).map(paneItem => {
     if ((0, (_textEditor || _load_textEditor()).isValidTextEditor)(paneItem)) {
       const textEditor = paneItem;
@@ -142,11 +142,12 @@ function getPropsStream(diagnosticsStream, warnAboutLinterStream, showTraces, in
     onFilterByActiveTextEditorChange(filterByActiveTextEditor);
   };
 
-  return _rxjsBundlesRxMinJs.Observable.combineLatest(activeTextEditorPaths, sortedDiagnostics, warnAboutLinterStream, filterByActiveTextEditorStream, showTraces).map(([pathToActiveTextEditor, diagnostics, warnAboutLinter, filter, traces]) => ({
+  return _rxjsBundlesRxMinJs.Observable.combineLatest(activeTextEditorPaths, sortedDiagnostics, warnAboutLinterStream, filterByActiveTextEditorStream, showTracesStream).map(([pathToActiveTextEditor, diagnostics, warnAboutLinter, filter, traces]) => ({
     pathToActiveTextEditor,
     diagnostics,
     warnAboutLinter,
     showTraces: traces,
+    onShowTracesChange,
     disableLinter,
     filterByActiveTextEditor: filter,
     onFilterByActiveTextEditorChange: handleFilterByActiveTextEditorChange

@@ -51,10 +51,13 @@ function registerTaskRunner(taskRunner) {
   };
 }
 
-function runTask(taskMeta) {
+function runTask(taskMeta, verifySaved = true) {
   return {
     type: RUN_TASK,
-    payload: { taskMeta }
+    payload: {
+      verifySaved,
+      taskMeta
+    }
   };
 }
 

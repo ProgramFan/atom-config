@@ -5,12 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.BuckBuildSystem = undefined;
 
-var _nuclideRemoteConnection;
-
-function _load_nuclideRemoteConnection() {
-  return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
-}
-
 var _PlatformService;
 
 function _load_PlatformService() {
@@ -59,6 +53,12 @@ var _tasks;
 
 function _load_tasks() {
   return _tasks = require('../../commons-node/tasks');
+}
+
+var _nuclideRemoteConnection;
+
+function _load_nuclideRemoteConnection() {
+  return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
 }
 
 var _featureConfig;
@@ -129,82 +129,32 @@ function _load_observeBuildCommands() {
 
 var _reactForAtom = require('react-for-atom');
 
-var _passesGK;
-
-function _load_passesGK() {
-  return _passesGK = _interopRequireDefault(require('../../commons-node/passesGK'));
-}
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+const SOCKET_TIMEOUT = 30000; /**
+                               * Copyright (c) 2015-present, Facebook, Inc.
+                               * All rights reserved.
+                               *
+                               * This source code is licensed under the license found in the LICENSE file in
+                               * the root directory of this source tree.
+                               *
+                               * 
+                               */
 
-const SOCKET_TIMEOUT = 30000;
+const DEBUGGABLE_RULES = new Set(['cxx_binary', 'cxx_test', 'rust_binary', 'rust_test']);
 
-const INSTALLABLE_RULES = new Set(['apple_bundle', 'apk_genrule', 'android_binary']);
+const RUNNABLE_RULES = new Set([]);
 
-const DEBUGGABLE_RULES = new Set([
-// $FlowFixMe: spreadable sets
-...INSTALLABLE_RULES, 'cxx_binary', 'cxx_test', 'rust_binary', 'rust_test', 'android_binary']);
-
-const NUCLIDE_JAVA_DEBUGGER_GK = 'nuclide_debugger_java';
-
-function isInstallableRule(ruleType) {
-  return INSTALLABLE_RULES.has(ruleType);
-}
-
-function isDebuggableRule(ruleType, target) {
-  return DEBUGGABLE_RULES.has(ruleType) && isDebuggerAvailableForTarget(ruleType, target);
-}
-
-function passesDebuggerGatekeeper(ruleType, javaDebuggerGk) {
-  if (ruleType !== 'android_binary') {
-    return true;
-  }
-
-  return javaDebuggerGk;
-}
-
-function isDebuggerAvailableForTarget(ruleType, target) {
-  switch (ruleType) {
-    case 'android_binary':
-      return (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getServiceByNuclideUri)('JavaDebuggerService', target) != null;
+function shouldEnableTask(taskType, ruleType) {
+  switch (taskType) {
+    case 'run':
+      return RUNNABLE_RULES.has(ruleType);
+    case 'debug':
+      return DEBUGGABLE_RULES.has(ruleType);
     default:
       return true;
-  }
-}
-
-function shouldEnableTask(taskType, ruleType, target) {
-  switch (taskType) {
-    case 'run':
-      return ruleType != null && isInstallableRule(ruleType);
-    case 'debug':
-      return ruleType != null && isDebuggableRule(ruleType, target);
-    default:
-      return ruleType != null;
-  }
-}
-
-function getSubcommand(taskType, isInstallable) {
-  switch (taskType) {
-    case 'run':
-      return 'install';
-    case 'debug':
-      // For mobile builds, install the build on the device.
-      // Otherwise, run a regular build and invoke the debugger on the output.
-      return isInstallable ? 'install' : 'build';
-    default:
-      return taskType;
   }
 }
 
@@ -264,17 +214,27 @@ class BuckBuildSystem {
 
     const enabledObservable = storeReady.map(state => state.buckRoot != null).distinctUntilChanged();
 
-    const tasksObservable = storeReady.mergeMap(state => _rxjsBundlesRxMinJs.Observable.fromPromise((0, (_passesGK || _load_passesGK()).default)(NUCLIDE_JAVA_DEBUGGER_GK)).map(javaDebuggerGk => {
-      const { buildRuleType } = state;
-      const target = this._getStore().getState().buildTarget;
+    const tasksObservable = storeReady.map(state => {
+      const { buildRuleType, selectedDeploymentTarget } = state;
+      const tasksFromPlatform = selectedDeploymentTarget ? selectedDeploymentTarget.platform.tasks : null;
       return TASKS.map(task => {
-        const enable = shouldEnableTask(task.type, buildRuleType, target);
-        const passesGk = task.type !== 'debug' ? true : passesDebuggerGatekeeper(buildRuleType, javaDebuggerGk);
-        return Object.assign({}, task, {
-          disabled: state.isLoadingPlatforms || !enable || !passesGk
-        });
+        let disabled = state.isLoadingPlatforms || buildRuleType == null;
+        if (!disabled) {
+          if (tasksFromPlatform) {
+            disabled = !tasksFromPlatform.has(task.type);
+          } else {
+            if (!buildRuleType) {
+              throw new Error('Invariant violation: "buildRuleType"');
+            }
+            // No platform provider selected, fall back to default logic
+
+
+            disabled = !shouldEnableTask(task.type, buildRuleType);
+          }
+        }
+        return Object.assign({}, task, { disabled });
       });
-    }));
+    });
 
     const subscription = _rxjsBundlesRxMinJs.Observable.combineLatest(enabledObservable, tasksObservable).subscribe(([enabled, tasks]) => callback(enabled, tasks));
 
@@ -303,8 +263,10 @@ class BuckBuildSystem {
         isLoadingPlatforms: false,
         buildTarget: this._serializedState.buildTarget || '',
         buildRuleType: null,
-        selectedDeploymentTarget: this._serializedState.selectedDeploymentTarget,
-        taskSettings: this._serializedState.taskSettings || {}
+        selectedDeploymentTarget: null,
+        taskSettings: this._serializedState.taskSettings || {},
+        lastSessionPlatformName: this._serializedState.selectedPlatformName,
+        lastSessionDeviceName: this._serializedState.selectedDeviceName
       };
       const epics = Object.keys(_Epics || _load_Epics()).map(k => (_Epics || _load_Epics())[k]).filter(epic => typeof epic === 'function');
       const rootEpic = (actions, store) => (0, (_reduxObservable || _load_reduxObservable()).combineEpics)(...epics)(actions, store)
@@ -325,28 +287,28 @@ class BuckBuildSystem {
     }
 
     const state = this._getStore().getState();
+    const { buildTarget, selectedDeploymentTarget } = state;
 
-    const { selectedDeploymentTarget } = state;
-    let fullTargetName = state.buildTarget;
-    let udid = null;
+    let resultStream;
     if (selectedDeploymentTarget) {
-      const separator = !fullTargetName.includes('#') ? '#' : ',';
-      fullTargetName += separator + selectedDeploymentTarget.platform.flavor;
-      if (selectedDeploymentTarget.device) {
-        udid = selectedDeploymentTarget.device.udid;
-      }
+      const { platform, device } = selectedDeploymentTarget;
+      resultStream = platform.runTask(this, taskType, buildTarget, device);
+    } else {
+      const subcommand = taskType === 'debug' ? 'build' : taskType;
+      resultStream = this.runSubcommand(subcommand, buildTarget, {}, taskType === 'debug', null);
     }
-    const resultStream = this._runTaskType(taskType, state.buckRoot, fullTargetName, state.taskSettings, isInstallableRule(state.buildRuleType), udid);
+
     const task = (0, (_tasks || _load_tasks()).taskFromObservable)(resultStream);
     return Object.assign({}, task, {
       cancel: () => {
         this._logOutput('Build cancelled.', 'warning');
         task.cancel();
       },
-      getTrackingData: () => {
-        const { buckRoot, buildTarget, taskSettings } = this._getStore().getState();
-        return { buckRoot, buildTarget, taskSettings };
-      }
+      getTrackingData: () => ({
+        buckRoot: state.buckRoot,
+        buildTarget: state.buildTarget,
+        taskSettings: state.taskSettings
+      })
     });
   }
 
@@ -359,7 +321,7 @@ class BuckBuildSystem {
     let pathToArtifact = null;
     const buckService = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getBuckServiceByNuclideUri)(root);
 
-    const task = (0, (_tasks || _load_tasks()).taskFromObservable)(_rxjsBundlesRxMinJs.Observable.concat(this._runTaskType('build', root, target, {}, false, null),
+    const task = (0, (_tasks || _load_tasks()).taskFromObservable)(_rxjsBundlesRxMinJs.Observable.concat(this.runSubcommand('build', target, {}, false, null),
 
     // Don't complete until we've determined the artifact path.
     _rxjsBundlesRxMinJs.Observable.defer(() => buckService.showOutput(root, target)).do(output => {
@@ -397,13 +359,30 @@ class BuckBuildSystem {
     if (this._store == null) {
       return;
     }
-    const { buildTarget, taskSettings, selectedDeploymentTarget } = this._store.getState();
-    return { buildTarget, taskSettings, selectedDeploymentTarget };
+    const state = this._store.getState();
+    const { buildTarget, taskSettings, selectedDeploymentTarget } = state;
+    let selectedPlatformName;
+    let selectedDeviceName;
+    if (selectedDeploymentTarget) {
+      selectedPlatformName = selectedDeploymentTarget.platform.name;
+      selectedDeviceName = selectedDeploymentTarget.device ? selectedDeploymentTarget.device.name : null;
+    } else {
+      // In case the user quits before the session is restored, forward the session restoration.
+      selectedPlatformName = state.lastSessionPlatformName;
+      selectedDeviceName = state.lastSessionDeviceName;
+    }
+
+    return {
+      buildTarget,
+      taskSettings,
+      selectedPlatformName,
+      selectedDeviceName };
   }
 
-  _runTaskType(taskType, buckRoot, buildTarget, settings, isInstallable, deviceUdid) {
+  runSubcommand(subcommand, buildTarget, additionalSettings, isDebug, udid) {
     // Clear Buck diagnostics every time we run build.
     this._diagnosticInvalidations.next({ scope: 'all' });
+    const { buckRoot, taskSettings } = this._getStore().getState();
 
     if (buckRoot == null || buildTarget == null) {
       // All tasks should have been disabled.
@@ -412,7 +391,7 @@ class BuckBuildSystem {
 
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-console:toggle', { visible: true });
 
-    const subcommand = getSubcommand(taskType, isInstallable);
+    const settings = Object.assign({}, taskSettings, additionalSettings);
     let argString = '';
     if (settings.arguments != null && settings.arguments.length > 0) {
       argString = ' ' + (0, (_shellQuote || _load_shellQuote()).quote)(settings.arguments);
@@ -432,8 +411,7 @@ class BuckBuildSystem {
         this._logOutput('Enable httpserver in your .buckconfig for better output.', 'warning');
       }
 
-      const isDebug = taskType === 'debug';
-      const processMessages = runBuckCommand(buckService, buckRoot, buildTarget, subcommand, settings.arguments || [], isDebug, deviceUdid).share();
+      const processMessages = runBuckCommand(buckService, buckRoot, buildTarget, subcommand, settings.arguments || [], isDebug, udid).share();
       const processEvents = (0, (_BuckEventStream || _load_BuckEventStream()).getEventsFromProcess)(processMessages).share();
 
       let mergedEvents;
@@ -545,6 +523,8 @@ function runBuckCommand(buckService, buckRoot, buildTarget, subcommand, args, de
     return buckService.buildWithOutput(buckRoot, [buildTarget], args).refCount();
   } else if (subcommand === 'test') {
     return buckService.testWithOutput(buckRoot, [buildTarget], args).refCount();
+  } else if (subcommand === 'run') {
+    return buckService.runWithOutput(buckRoot, [buildTarget], args).refCount();
   } else {
     throw Error(`Unknown subcommand: ${subcommand}`);
   }

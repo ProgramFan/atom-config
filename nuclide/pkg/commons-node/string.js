@@ -11,6 +11,8 @@ exports.shellParse = shellParse;
 exports.removeCommonPrefix = removeCommonPrefix;
 exports.removeCommonSuffix = removeCommonSuffix;
 exports.shorten = shorten;
+exports.splitOnce = splitOnce;
+exports.indent = indent;
 
 var _shellQuote;
 
@@ -136,4 +138,19 @@ function removeCommonSuffix(a, b) {
 
 function shorten(str, maxLength, suffix) {
   return str.length < maxLength ? str : str.slice(0, maxLength) + (suffix || '');
+}
+
+/**
+ * Like String.split, but only splits once.
+ */
+function splitOnce(str, separator) {
+  const index = str.indexOf(separator);
+  return index === -1 ? [str, null] : [str.slice(0, index), str.slice(index + separator.length)];
+}
+
+/**
+ * Indents each line by the specified number of characters.
+ */
+function indent(str, level = 2, char = ' ') {
+  return str.replace(/^([^\n])/gm, char.repeat(level) + '$1');
 }

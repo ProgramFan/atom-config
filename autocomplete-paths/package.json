@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11718-5367-ofzpwx/package.tgz",
+        "raw": "/tmp/d-117120-5383-11ks6xw/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11718-5367-ofzpwx/package.tgz",
-        "spec": "/tmp/d-11718-5367-ofzpwx/package.tgz",
+        "rawSpec": "/tmp/d-117120-5383-11ks6xw/package.tgz",
+        "spec": "/tmp/d-117120-5383-11ks6xw/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11718-5367-1tca7rm"
+      "/tmp/apm-install-dir-117120-5383-rxuoa5"
     ]
   ],
-  "_from": "../d-11718-5367-ofzpwx/package.tgz",
+  "_from": "../d-117120-5383-11ks6xw/package.tgz",
   "_id": "autocomplete-paths@1.0.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-paths",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11718-5367-ofzpwx/package.tgz",
+    "raw": "/tmp/d-117120-5383-11ks6xw/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11718-5367-ofzpwx/package.tgz",
-    "spec": "/tmp/d-11718-5367-ofzpwx/package.tgz",
+    "rawSpec": "/tmp/d-117120-5383-11ks6xw/package.tgz",
+    "spec": "/tmp/d-117120-5383-11ks6xw/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-5367-ofzpwx/package.tgz",
+  "_resolved": "file:../d-117120-5383-11ks6xw/package.tgz",
   "_shasum": "5e7067c0992d19e7b54a35bb07aacb154e38442c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11718-5367-ofzpwx/package.tgz",
-  "_where": "/tmp/apm-install-dir-11718-5367-1tca7rm",
+  "_spec": "/tmp/d-117120-5383-11ks6xw/package.tgz",
+  "_where": "/tmp/apm-install-dir-117120-5383-rxuoa5",
   "bugs": {
     "url": "https://github.com/atom-community/autocomplete-paths/issues"
   },

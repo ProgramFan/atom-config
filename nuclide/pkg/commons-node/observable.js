@@ -61,8 +61,15 @@ function splitStream(input) {
   });
 }
 
-// TODO: We used to use `stream.buffer(stream.filter(...))` for this but it doesn't work in RxJS 5.
-//  See https://github.com/ReactiveX/rxjs/issues/1610
+/**
+ * Buffers until the predicate matches an element, then opens a new buffer.
+ *
+ * @param stream - The observable to buffer
+ * @param predicate - A function that will be called every time an element is emitted from the
+ *     source. The predicate is passed the current element as well as the buffer at that point
+ *     (which includes the element). IMPORTANT: DO NOT MUTATE THE BUFFER. It returns a boolean
+ *     specifying whether to complete the buffer (and begin a new one).
+ */
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -89,7 +96,7 @@ function bufferUntil(stream, condition) {
         buffer = [];
       }
       buffer.push(x);
-      if (condition(x)) {
+      if (condition(x, buffer)) {
         flush();
       }
     }, err => {

@@ -120,20 +120,24 @@ function _load_Completions() {
   return _Completions = require('./Completions');
 }
 
+var _autocomplete;
+
+function _load_autocomplete() {
+  return _autocomplete = require('../../nuclide-hack-common/lib/autocomplete');
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // From https://reviews.facebook.net/diffusion/HHVM/browse/master/hphp/hack/src/utils/exit_status.ml
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-const HACK_SERVER_ALREADY_EXISTS_EXIT_CODE = 77;
+const HACK_SERVER_ALREADY_EXISTS_EXIT_CODE = 77; /**
+                                                  * Copyright (c) 2015-present, Facebook, Inc.
+                                                  * All rights reserved.
+                                                  *
+                                                  * This source code is licensed under the license found in the LICENSE file in
+                                                  * the root directory of this source tree.
+                                                  *
+                                                  * 
+                                                  */
 
 let serviceRegistry = null;
 
@@ -145,7 +149,7 @@ function getServiceRegistry() {
 }
 
 function logMessage(direction, message) {
-  (_hackConfig || _load_hackConfig()).logger.logInfo(`Hack Connection message ${direction}: '${message}'`);
+  (_hackConfig || _load_hackConfig()).logger.logTrace(`Hack Connection message ${direction}: '${message}'`);
 }
 
 class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
@@ -219,7 +223,7 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
 
     return (0, _asyncToGenerator.default)(function* () {
       const filePath = fileVersion.filePath;
-      (_hackConfig || _load_hackConfig()).logger.logTrace(`Attempting Hack Autocomplete: ${filePath}, ${position.toString()}`);
+      (_hackConfig || _load_hackConfig()).logger.log(`Attempting Hack Autocomplete: ${filePath}, ${position.toString()}`);
       const buffer = yield _this2.getBufferAtVersion(fileVersion);
       if (buffer == null) {
         return [];
@@ -227,16 +231,16 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
       const contents = buffer.getText();
       const offset = buffer.characterIndexForPosition(position);
 
-      const replacementPrefix = (0, (_Completions || _load_Completions()).findHackPrefix)(buffer, position);
+      const replacementPrefix = (0, (_autocomplete || _load_autocomplete()).findHackPrefix)(buffer, position);
       if (replacementPrefix === '' && !(0, (_Completions || _load_Completions()).hasPrefix)(buffer, position)) {
-        return [];
+        return null;
       }
 
       const line = position.row + 1;
       const column = position.column + 1;
       const service = _this2.getConnectionService();
 
-      (_hackConfig || _load_hackConfig()).logger.logTrace('Got Hack Service');
+      (_hackConfig || _load_hackConfig()).logger.log('Got Hack Service');
       return (0, (_Completions || _load_Completions()).convertCompletions)(contents, offset, replacementPrefix, (
       // TODO: Include version number to ensure agreement on file version.
       yield service.getCompletions(filePath, { line, column })));
@@ -247,7 +251,7 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
     if (!this.isDisposed()) {
       // Atempt to send disconnect message before shutting down connection
       try {
-        (_hackConfig || _load_hackConfig()).logger.logTrace('Attempting to disconnect cleanly from HackProcess');
+        (_hackConfig || _load_hackConfig()).logger.log('Attempting to disconnect cleanly from HackProcess');
         this.getConnectionService().disconnect();
       } catch (e) {
         // Failing to send the shutdown is not fatal...

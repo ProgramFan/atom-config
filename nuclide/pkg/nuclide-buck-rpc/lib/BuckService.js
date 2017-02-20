@@ -417,6 +417,7 @@ exports.install = install;
 exports.buildWithOutput = buildWithOutput;
 exports.testWithOutput = testWithOutput;
 exports.installWithOutput = installWithOutput;
+exports.runWithOutput = runWithOutput;
 exports.getWebSocketStream = getWebSocketStream;
 
 var _process;
@@ -576,6 +577,15 @@ function installWithOutput(rootPath, buildTargets, extraArguments, simulator, ru
   }).publish();
 }
 
+function runWithOutput(rootPath, buildTargets, extraArguments, simulator, runOptions) {
+  return _buildWithOutput(rootPath, buildTargets, {
+    run: true,
+    simulator,
+    runOptions,
+    extraArguments
+  }).publish();
+}
+
 /**
  * Does a build/install.
  * @return An Observable that returns output from buck, as described by the
@@ -602,16 +612,19 @@ function _translateOptionsToBuckBuildArgs(options) {
   } = options;
   const {
     install: doInstall,
+    run,
     simulator,
     test,
     extraArguments
   } = baseOptions;
   const runOptions = baseOptions.runOptions || { run: false };
 
-  let args = [test ? 'test' : doInstall ? 'install' : 'build'];
+  let args = [test ? 'test' : doInstall ? 'install' : run ? 'run' : 'build'];
   args = args.concat(buildTargets, CLIENT_ID_ARGS);
 
-  args.push('--keep-going');
+  if (!run) {
+    args.push('--keep-going');
+  }
   if (pathToBuildReport) {
     args = args.concat(['--build-report', pathToBuildReport]);
   }

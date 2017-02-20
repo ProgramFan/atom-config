@@ -3,6 +3,20 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getJavaProcesses = undefined;
+
+var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+
+let getJavaProcesses = exports.getJavaProcesses = (() => {
+  var _ref = (0, _asyncToGenerator.default)(function* (adbPath, device) {
+    return (_ADB || _load_ADB()).getJavaProcesses(adbPath, device);
+  });
+
+  return function getJavaProcesses(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+})();
+
 exports.startServer = startServer;
 exports.getDeviceList = getDeviceList;
 exports.getDeviceArchitecture = getDeviceArchitecture;
@@ -22,6 +36,8 @@ function _load_ADB() {
 }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
