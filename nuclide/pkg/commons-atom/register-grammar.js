@@ -56,4 +56,3 @@ function registerGrammar(scopeName, extensions) {
 
   return false;
 }
-module.exports = exports['default'];

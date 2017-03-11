@@ -2,6 +2,14 @@
 
 _`linter-clang` follows [semantic versioning](http://semver.org/)_
 
+## v3.4.8
+
+-   Fix package dependency specification
+
+## v3.4.7
+
+-   Dependency updates
+
 ## v3.4.6
 
 -   Fix linting valid files

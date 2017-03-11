@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getServerLogAppenderConfig = exports.FileAppender = exports.getPathToLogFile = exports.getDefaultConfig = undefined;
+exports.getAdditionalLogFiles = exports.addAdditionalLogFile = exports.getServerLogAppenderConfig = exports.FileAppender = exports.getPathToLogFile = exports.getDefaultConfig = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -61,6 +61,8 @@ exports.getDefaultConfig = (_config || _load_config()).getDefaultConfig;
 exports.getPathToLogFile = (_config || _load_config()).getPathToLogFile;
 exports.FileAppender = (_config || _load_config()).FileAppender;
 exports.getServerLogAppenderConfig = (_config || _load_config()).getServerLogAppenderConfig;
+exports.addAdditionalLogFile = (_config || _load_config()).addAdditionalLogFile;
+exports.getAdditionalLogFiles = (_config || _load_config()).getAdditionalLogFiles;
 
 /* Listed in order of severity. */
 

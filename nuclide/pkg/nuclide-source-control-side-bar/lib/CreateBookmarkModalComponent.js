@@ -20,6 +20,18 @@ function _load_featureConfig() {
   return _featureConfig = _interopRequireDefault(require('../../commons-atom/featureConfig'));
 }
 
+var _Button;
+
+function _load_Button() {
+  return _Button = require('../../nuclide-ui/Button');
+}
+
+var _ButtonGroup;
+
+function _load_ButtonGroup() {
+  return _ButtonGroup = require('../../nuclide-ui/ButtonGroup');
+}
+
 var _constants;
 
 function _load_constants() {
@@ -38,7 +50,9 @@ class CreateBookmarkModal extends _reactForAtom.React.Component {
   }
 
   componentDidMount() {
-    this.disposables.add(atom.commands.add(_reactForAtom.ReactDOM.findDOMNode(this), 'core:confirm', this._handleCreateClick), (_featureConfig || _load_featureConfig()).default.observe((_constants || _load_constants()).STACKED_CONFIG_KEY, () => this.forceUpdate()));
+    this.disposables.add(
+    // $FlowFixMe
+    atom.commands.add(_reactForAtom.ReactDOM.findDOMNode(this), 'core:confirm', this._handleCreateClick), (_featureConfig || _load_featureConfig()).default.observe((_constants || _load_constants()).STACKED_CONFIG_KEY, () => this.forceUpdate()));
     this.refs.atomTextEditor.focus();
   }
 
@@ -78,17 +92,17 @@ class CreateBookmarkModal extends _reactForAtom.React.Component {
         'div',
         { className: 'text-right' },
         _reactForAtom.React.createElement(
-          'div',
-          { className: 'btn-group btn-group-sm' },
+          (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
+          { size: (_ButtonGroup || _load_ButtonGroup()).ButtonGroupSizes.SMALL },
           _reactForAtom.React.createElement(
-            'button',
-            { className: 'btn', onClick: this.props.onCancel },
+            (_Button || _load_Button()).Button,
+            { onClick: this.props.onCancel },
             'Cancel'
           ),
           _reactForAtom.React.createElement(
-            'button',
+            (_Button || _load_Button()).Button,
             {
-              className: 'btn btn-primary',
+              buttonType: (_Button || _load_Button()).ButtonTypes.PRIMARY,
               onClick: this._handleCreateClick },
             'Create'
           )
@@ -106,5 +120,3 @@ exports.default = CreateBookmarkModal; /**
                                         *
                                         * 
                                         */
-
-module.exports = exports['default'];

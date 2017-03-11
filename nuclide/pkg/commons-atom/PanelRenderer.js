@@ -67,4 +67,3 @@ function addPanel(location, options) {
       throw new Error(`Invalid location: ${location}`);
   }
 }
-module.exports = exports['default'];

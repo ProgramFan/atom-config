@@ -203,4 +203,3 @@ function prettyPrintTypes(str, max = 40) {
   }
   return printGroups(str, rootGroup, max);
 }
-module.exports = exports['default'];

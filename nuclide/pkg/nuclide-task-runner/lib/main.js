@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _syncAtomCommands;
 
 function _load_syncAtomCommands() {
@@ -162,7 +158,7 @@ class Activation {
       return taskRunnersAndTasks;
     }), ([taskRunner, taskMeta]) => ({
       'atom-workspace': {
-        [`nuclide-task-runner:${taskRunner.name.toLowerCase()}-${taskMeta.type}`]: () => {
+        [`nuclide-task-runner:${taskRunner.name.toLowerCase().replace(' ', '-')}-${taskMeta.type}`]: () => {
           this._actionCreators.runTask(Object.assign({}, taskMeta, { taskRunner }));
         }
       }
@@ -312,8 +308,7 @@ class Activation {
   }
 }
 
-exports.default = (0, (_createPackage || _load_createPackage()).default)(Activation);
-
+(0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);
 
 function activateInitialPackagesObservable() {
   if (atom.packages.hasActivatedInitialPackages) {
@@ -339,4 +334,3 @@ function getInitialVisibility(serializedState, preferencesForWorkingRoots) {
     return lastEntry.value.visible;
   }
 }
-module.exports = exports['default'];

@@ -244,11 +244,35 @@ class WatchmanClient {
     })();
   }
 
-  _watchList() {
+  /**
+   * List all (watched) files in the given directory.
+   * Paths will be relative.
+   */
+  listFiles(entryPath, options = {}) {
     var _this7 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const { roots } = yield _this7._command('watch-list');
+      const { watch, relative_path } = yield _this7._watchProject(entryPath);
+      const result = yield _this7._command('query', watch, Object.assign({
+        expression: ['allof', ['type', 'f'], // all files
+        ['exists']],
+        // Providing `path` will let watchman use path generator, and will perform
+        // a tree walk with respect to the relative_root and path provided.
+        // Path generator will do less work unless the root path of the repository
+        // is passed in as an entry path.
+        path: [''],
+        fields: ['name'], // names only
+        relative_root: relative_path
+      }, options));
+      return result.files;
+    })();
+  }
+
+  _watchList() {
+    var _this8 = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      const { roots } = yield _this8._command('watch-list');
       return roots;
     })();
   }
@@ -258,10 +282,10 @@ class WatchmanClient {
   }
 
   _watch(directoryPath) {
-    var _this8 = this;
+    var _this9 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const response = yield _this8._command('watch', directoryPath);
+      const response = yield _this9._command('watch', directoryPath);
       if (response.warning) {
         logger.error('watchman warning: ', response.warning);
       }
@@ -269,14 +293,14 @@ class WatchmanClient {
   }
 
   _watchProject(directoryPath) {
-    var _this9 = this;
+    var _this10 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const watchmanVersion = yield _this9._watchmanVersionPromise;
+      const watchmanVersion = yield _this10._watchmanVersionPromise;
       if (!watchmanVersion || watchmanVersion < '3.1.0') {
         throw new Error('Watchman version: ' + watchmanVersion + ' does not support watch-project');
       }
-      const response = yield _this9._command('watch-project', directoryPath);
+      const response = yield _this10._command('watch-project', directoryPath);
       if (response.warning) {
         logger.error('watchman warning: ', response.warning);
       }
@@ -285,19 +309,19 @@ class WatchmanClient {
   }
 
   _clock(directoryPath) {
-    var _this10 = this;
+    var _this11 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const { clock } = yield _this10._command('clock', directoryPath);
+      const { clock } = yield _this11._command('clock', directoryPath);
       return clock;
     })();
   }
 
   version() {
-    var _this11 = this;
+    var _this12 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const { version } = yield _this11._command('version');
+      const { version } = yield _this12._command('version');
       return version;
     })();
   }
@@ -318,4 +342,3 @@ class WatchmanClient {
   }
 }
 exports.default = WatchmanClient;
-module.exports = exports['default'];

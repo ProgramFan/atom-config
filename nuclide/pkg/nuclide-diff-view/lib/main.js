@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 var _createPackage;
@@ -112,6 +108,12 @@ function _load_goToLocation() {
   return _goToLocation = require('../../commons-atom/go-to-location');
 }
 
+var _passesGK;
+
+function _load_passesGK() {
+  return _passesGK = _interopRequireDefault(require('../../commons-node/passesGK'));
+}
+
 var _createEmptyAppState;
 
 function _load_createEmptyAppState() {
@@ -176,16 +178,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 // Redux store
-const NUCLIDE_DIFF_VIEW_URI = 'atom://nuclide/diff-view'; /**
-                                                           * Copyright (c) 2015-present, Facebook, Inc.
-                                                           * All rights reserved.
-                                                           *
-                                                           * This source code is licensed under the license found in the LICENSE file in
-                                                           * the root directory of this source tree.
-                                                           *
-                                                           * 
-                                                           */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
+const NUCLIDE_DIFF_VIEW_URI = 'atom://nuclide/diff-view';
 const DIFF_VIEW_FILE_TREE_CONTEXT_MENU_PRIORITY = 1000;
 const COMMIT_FILE_TREE_CONTEXT_MENU_PRIORITY = 1100;
 const AMEND_FILE_TREE_CONTEXT_MENU_PRIORITY = 1200;
@@ -278,6 +281,16 @@ class Activation {
       return stream;
     });
 
+    Promise.all((_constants || _load_constants()).GatedFeatureList.map(feature => (0, (_passesGK || _load_passesGK()).default)(feature))).then(isFeaturesEnabled => {
+      const enabledFeatures = new Set();
+      for (let i = 0; i < (_constants || _load_constants()).GatedFeatureList.length; i++) {
+        if (isFeaturesEnabled[i]) {
+          enabledFeatures.add((_constants || _load_constants()).GatedFeatureList[i]);
+        }
+      }
+      this._actionCreators.setEnabledFeatures(enabledFeatures);
+    });
+
     this._store = (0, (_redux || _load_redux()).createStore)((_Reducers || _load_Reducers()).rootReducer, initialState, (0, (_redux || _load_redux()).applyMiddleware)((0, (_reduxObservable || _load_reduxObservable()).createEpicMiddleware)(rootEpic)));
     const states = _rxjsBundlesRxMinJs.Observable.from(this._store).share();
     this._appState = new _rxjsBundlesRxMinJs.BehaviorSubject(initialState);
@@ -319,6 +332,11 @@ class Activation {
         readOnlyEditor.destroy();
       } else {
         atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-diff-view:open');
+      }
+    }), atom.commands.add('atom-workspace', 'nuclide-diff-view:split', () => {
+      const { activeRepository } = this._store.getState();
+      if (activeRepository) {
+        this._actionCreators.splitRevision(this._progressUpdates, activeRepository);
       }
     }),
 
@@ -662,5 +680,4 @@ class Activation {
   }
 }
 
-exports.default = (0, (_createPackage || _load_createPackage()).default)(Activation);
-module.exports = exports['default'];
+(0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);

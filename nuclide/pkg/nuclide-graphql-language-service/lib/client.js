@@ -122,4 +122,3 @@ function performOutline(filePath, queryText) {
   }
   return GRAPHQL_SUCCESS_CODE;
 }
-module.exports = exports['default'];

@@ -14,6 +14,12 @@ function _load_hyperclickUtils() {
   return _hyperclickUtils = require('./hyperclick-utils');
 }
 
+var _showTriggerConflictWarning;
+
+function _load_showTriggerConflictWarning() {
+  return _showTriggerConflictWarning = _interopRequireDefault(require('./showTriggerConflictWarning'));
+}
+
 var _nuclideAnalytics;
 
 function _load_nuclideAnalytics() {
@@ -28,12 +34,6 @@ function _load_nuclideLogging() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
-
-/**
- * Construct this object to enable Hyperclick in a text editor.
- * Call `dispose` to disable the feature.
- */
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -44,6 +44,16 @@ const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
  * 
  */
 
+/* global localStorage */
+
+const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
+
+const WARN_ABOUT_TRIGGER_CONFLICT_KEY = 'hyperclick.warnAboutTriggerConflict';
+
+/**
+ * Construct this object to enable Hyperclick in a text editor.
+ * Call `dispose` to disable the feature.
+ */
 class HyperclickForTextEditor {
 
   constructor(textEditor, hyperclick) {
@@ -181,7 +191,18 @@ class HyperclickForTextEditor {
 
   _onMouseDown(event) {
     const mouseEvent = event;
-    if (!this._isHyperclickEvent(mouseEvent) || !this._isMouseAtLastSuggestion()) {
+    const isHyperclickEvent = this._isHyperclickEvent(mouseEvent);
+
+    // If hyperclick and multicursor are using the same trigger, prevent multicursor.
+    if (isHyperclickEvent && isMulticursorEvent(mouseEvent)) {
+      mouseEvent.stopPropagation();
+      if (localStorage.getItem(WARN_ABOUT_TRIGGER_CONFLICT_KEY) !== 'false') {
+        localStorage.setItem(WARN_ABOUT_TRIGGER_CONFLICT_KEY, 'false');
+        (0, (_showTriggerConflictWarning || _load_showTriggerConflictWarning()).default)();
+      }
+    }
+
+    if (!isHyperclickEvent || !this._isMouseAtLastSuggestion()) {
       return;
     }
 
@@ -393,5 +414,24 @@ class HyperclickForTextEditor {
     this._subscriptions.dispose();
   }
 }
-exports.default = HyperclickForTextEditor;
-module.exports = exports['default'];
+
+exports.default = HyperclickForTextEditor; /**
+                                            * Determine whether the specified event will trigger Atom's multiple cursors. This is based on (and
+                                            * must be the same as!) [Atom's
+                                            * logic](https://github.com/atom/atom/blob/v1.14.2/src/text-editor-component.coffee#L527).
+                                            */
+
+function isMulticursorEvent(event) {
+  const { platform } = process;
+  const isLeftButton = event.button === 0 || event.button === 1 && platform === 'linux';
+  const { metaKey, ctrlKey } = event;
+
+  if (!isLeftButton) {
+    return false;
+  }
+  if (ctrlKey && platform === 'darwin') {
+    return false;
+  }
+
+  return metaKey || ctrlKey && platform !== 'darwin';
+}

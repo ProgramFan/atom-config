@@ -248,7 +248,7 @@ class NativeDebuggerService extends (_nuclideDebuggerCommon || _load_nuclideDebu
         this.getLogger().logError(`child process(${lldbProcess.pid}) stderr: ${errorMessage}`);
       });
       lldbProcess.on('error', err => {
-        reject(`debugger server error: ${JSON.stringify(err)}`);
+        reject(new Error(`debugger server error: ${JSON.stringify(err)}`));
       });
       lldbProcess.on('exit', (code, signal) => {
         let message = `debugger server exits with code: ${code}`;

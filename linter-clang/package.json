@@ -2,64 +2,76 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4987-2muvy/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5548-135w6vx/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4987-2muvy/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4987-2muvy/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5548-135w6vx/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5548-135w6vx/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-4987-12xfdcz"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5548-f1vs9y"
     ]
   ],
-  "_from": "../d-11718-4987-2muvy/package.tgz",
-  "_id": "linter-clang@3.4.6",
+  "_from": "../d-117211-5548-135w6vx/package.tgz",
+  "_id": "linter-clang@3.4.8",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-clang",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4987-2muvy/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5548-135w6vx/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4987-2muvy/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4987-2muvy/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5548-135w6vx/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5548-135w6vx/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-4987-2muvy/package.tgz",
-  "_shasum": "b72bae02382c751c9d3fe4ed91b61c4b8853dd8a",
+  "_resolved": "file:../d-117211-5548-135w6vx/package.tgz",
+  "_shasum": "69baa145481366632037a88509beef400bc4bcaa",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-4987-2muvy/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-4987-12xfdcz",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5548-135w6vx/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5548-f1vs9y",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-clang/issues"
   },
   "dependencies": {
-    "atom-linter": "^8.0.0",
+    "atom-linter": "^9.0.0",
     "atom-package-deps": "^4.0.1",
     "clang-flags": "^0.2.2"
   },
   "description": "Lint C-based files using clang",
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^3.13.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  },
   "engines": {
     "atom": ">0.50.0"
   },
   "eslintConfig": {
-    "env": {
-      "es6": true,
-      "browser": true,
-      "node": true
-    },
-    "ecmaFeatures": {
-      "modules": true
+    "extends": "airbnb-base",
+    "rules": {
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
     },
     "globals": {
       "atom": true
+    },
+    "env": {
+      "browser": true,
+      "node": true
     }
   },
   "homepage": "https://github.com/AtomLinter/linter-clang#readme",
@@ -67,7 +79,7 @@
   "main": "./lib/main",
   "name": "linter-clang",
   "optionalDependencies": {},
-  "packages-deps": [
+  "package-deps": [
     "linter"
   ],
   "providedServices": {
@@ -83,5 +95,9 @@
     "type": "git",
     "url": "git+https://github.com/AtomLinter/linter-clang.git"
   },
-  "version": "3.4.6"
+  "scripts": {
+    "lint": "eslint .",
+    "test": "apm test"
+  },
+  "version": "3.4.8"
 }

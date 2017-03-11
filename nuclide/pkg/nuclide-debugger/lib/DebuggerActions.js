@@ -98,12 +98,17 @@ class DebuggerActions {
       _this.setError(null);
       _this._handleDebugModeStart();
       _this.setDebuggerMode((_DebuggerStore || _load_DebuggerStore()).DebuggerMode.STARTING);
+      _this.setDebugProcessInfo(processInfo);
       try {
         atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-debugger:show');
         const debuggerInstance = yield processInfo.debug();
         _this._registerConsole();
         const supportThreadsWindow = processInfo.supportThreads() && (yield (0, (_passesGK || _load_passesGK()).default)(GK_DEBUGGER_THREADS_WINDOW)) && (yield _this._allowThreadsForPhp(processInfo));
         _this._store.getSettings().set('SupportThreadsWindow', supportThreadsWindow);
+        if (supportThreadsWindow) {
+          _this._store.getSettings().set('CustomThreadColumns', processInfo.getThreadColumns());
+          _this._store.getSettings().set('threadsComponentTitle', processInfo.getThreadsComponentTitle());
+        }
         const singleThreadStepping = processInfo.supportSingleThreadStepping();
         if (singleThreadStepping) {
           _this._store.getSettings().set('SingleThreadStepping', singleThreadStepping);
@@ -210,16 +215,15 @@ class DebuggerActions {
     });
 
     this.clearInterface();
-
+    this.updateControlButtons([]);
     this.setDebuggerMode((_DebuggerStore || _load_DebuggerStore()).DebuggerMode.STOPPED);
+    this.setDebugProcessInfo(null);
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)(AnalyticsEvents.DEBUGGER_STOP);
     (0, (_AnalyticsHelper || _load_AnalyticsHelper()).endTimerTracking)();
 
     if (!(this._store.getDebuggerInstance() == null)) {
       throw new Error('Invariant violation: "this._store.getDebuggerInstance() == null"');
     }
-
-    atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-debugger:hide');
   }
 
   _registerConsole() {
@@ -582,10 +586,16 @@ class DebuggerActions {
     });
   }
 
+  setDebugProcessInfo(processInfo) {
+    this._dispatcher.dispatch({
+      actionType: (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.SET_DEBUG_PROCESS_INFO,
+      data: processInfo
+    });
+  }
+
   _handleDebugModeStart() {
     // Open the console window if it's not already opened.
     atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-console:toggle', { visible: true });
   }
 }
 exports.default = DebuggerActions;
-module.exports = exports['default'];

@@ -78,4 +78,3 @@ function buildTree(ps, pid) {
     ioBytesStats: ps.ioBytesStats[pid]
   };
 }
-module.exports = exports['default'];

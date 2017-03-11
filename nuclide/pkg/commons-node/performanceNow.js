@@ -29,4 +29,3 @@ exports.default = typeof performance !== 'undefined' ? () => performance.now() :
   const [seconds, nanoseconds] = process.hrtime();
   return seconds * 1000 + nanoseconds / 1000000;
 };
-module.exports = exports['default'];

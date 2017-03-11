@@ -35,8 +35,11 @@ class ExporterView extends View
       @div class: 'splitter'
 
       @div class: 'html-div', =>
-        @label 'CDN (network required)'
         @input class: 'cdn-checkbox', type: 'checkbox'
+        @label 'Use CDN hosted resources'
+        @br()
+        @input class: 'relative-image-path-checkbox', type: 'checkbox'
+        @label 'Use relative image path'
 
       @div class: 'pdf-div', =>
         @label 'Format'
@@ -99,6 +102,9 @@ class ExporterView extends View
         @a class: 'header-footer-config', 'click me to open header and footer config'
         @br()
         @br()
+        @label 'Github style'
+        @input type: 'checkbox', class: 'github-style-checkbox'
+        @br()
         @label 'Open PDF after generation'
         @input type: 'checkbox', class: 'pdf-auto-open-checkbox'
 
@@ -133,7 +139,8 @@ class ExporterView extends View
         @markdownPreview.saveAsPDF dest
       else if $('.document-html', @element).hasClass('selected') # html
         isCDN = $('.cdn-checkbox', @element)[0].checked
-        @markdownPreview.saveAsHTML dest, !isCDN
+        relativeImagePath = $('.relative-image-path-checkbox', @element)[0].checked
+        @markdownPreview.saveAsHTML dest, !isCDN, relativeImagePath
       else if $('.document-phantomjs', @element).hasClass('selected') # phantomjs
         atom.notifications.addInfo('Your document is being prepared', detail: ':)')
         @markdownPreview.phantomJSExport dest
@@ -236,6 +243,8 @@ class ExporterView extends View
 
       $('.phantomjs-div .orientation-select', @element).val atom.config.get('markdown-preview-enhanced.orientation')
 
+      $('.phantomjs-div .github-style-checkbox', @element)[0].checked =   atom.config.get('markdown-preview-enhanced.pdfUseGithub')
+
       $('.phantomjs-div .pdf-auto-open-checkbox', @element)[0].checked = atom.config.get('markdown-preview-enhanced.pdfOpenAutomatically')
 
     ## select
@@ -258,6 +267,9 @@ class ExporterView extends View
       atom.config.set('markdown-preview-enhanced.phantomJSMargin', @marginInput.getText())
 
     ## checkbox
+    $('.phantomjs-div .github-style-checkbox', @element).on 'change', (e)->
+      atom.config.set('markdown-preview-enhanced.pdfUseGithub', e.target.checked)
+
     $('.phantomjs-div .pdf-auto-open-checkbox', @element).on 'change', (e)->
       atom.config.set('markdown-preview-enhanced.pdfOpenAutomatically', e.target.checked)
 
@@ -316,7 +328,7 @@ class ExporterView extends View
     if @documentExportPath.startsWith('/')
       @documentExportPath = path.resolve(markdownPreview.projectDirectoryPath, '.'+@documentExportPath)
     else
-      @documentExportPath = path.resolve(markdownPreview.rootDirectoryPath, @documentExportPath)
+      @documentExportPath = path.resolve(markdownPreview.fileDirectoryPath, @documentExportPath)
 
     @fileNameInput.focus()
     $('.selected', @element).click()

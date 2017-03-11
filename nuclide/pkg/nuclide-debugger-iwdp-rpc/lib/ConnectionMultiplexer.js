@@ -31,12 +31,6 @@ function _load_prelude() {
   return _prelude = require('./prelude');
 }
 
-var _FileCache;
-
-function _load_FileCache() {
-  return _FileCache = require('./FileCache');
-}
-
 var _constants;
 
 function _load_constants() {
@@ -53,16 +47,6 @@ var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 const { log, logError } = (_logger || _load_logger()).logger;
 
 /**
@@ -76,17 +60,28 @@ const { log, logError } = (_logger || _load_logger()).logger;
  * target.
  * 3. The `add` method can be called to add an additonal connection to be managed by the CM.
  */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
 class ConnectionMultiplexer {
-  // Invariant: this._enabledConnection != null, if and only if that connection is paused.
+
   constructor(sendMessageToClient) {
     this._connections = new Set();
     this._sendMessageToClient = message => sendMessageToClient(message);
-    this._fileCache = new (_FileCache || _load_FileCache()).FileCache();
     this._freshConnectionId = 0;
     this._newConnections = new _rxjsBundlesRxMinJs.Subject();
-    this._breakpointManager = new (_BreakpointManager || _load_BreakpointManager()).BreakpointManager(this._fileCache, this._sendMessageToClient.bind(this));
+    this._breakpointManager = new (_BreakpointManager || _load_BreakpointManager()).BreakpointManager(this._sendMessageToClient.bind(this));
     this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._newConnections.subscribe(this._handleNewConnection.bind(this)), this._breakpointManager);
   }
+  // Invariant: this._enabledConnection != null, if and only if that connection is paused.
+
 
   sendCommand(message) {
     const [domain, method] = message.method.split('.');
@@ -130,12 +125,14 @@ class ConnectionMultiplexer {
         case 'setBreakpointByUrl':
           {
             const response = yield _this._breakpointManager.setBreakpointByUrl(message);
+            response.id = message.id;
             _this._sendMessageToClient(response);
             break;
           }
         case 'removeBreakpoint':
           {
             const response = yield _this._breakpointManager.removeBreakpoint(message);
+            response.id = message.id;
             _this._sendMessageToClient(response);
             break;
           }
@@ -167,6 +164,7 @@ class ConnectionMultiplexer {
         case 'setPauseOnExceptions':
           {
             const response = yield _this._breakpointManager.setPauseOnExceptions(message);
+            response.id = message.id;
             _this._sendMessageToClient(response);
             break;
           }
@@ -174,8 +172,7 @@ class ConnectionMultiplexer {
         // Events.  Typically we will just forward these to the client.
         case 'scriptParsed':
           {
-            const clientMessage = yield _this._fileCache.scriptParsed(message);
-            _this._sendMessageToClient(clientMessage);
+            _this._sendMessageToClient(message);
             break;
           }
         case 'paused':
@@ -282,6 +279,7 @@ class ConnectionMultiplexer {
     return (0, _asyncToGenerator.default)(function* () {
       if (_this3._enabledConnection != null) {
         const response = yield _this3._enabledConnection.sendCommand(message);
+        response.id = message.id;
         _this3._sendMessageToClient(response);
       } else {
         _this3._replyWithError(message.id, `${message.method} sent to running connection`);

@@ -121,4 +121,3 @@ const ArcIcon = () => _reactForAtom.React.createElement(
   null,
   'arc'
 );
-module.exports = exports['default'];

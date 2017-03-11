@@ -10,6 +10,12 @@ function _load_addTooltip() {
   return _addTooltip = _interopRequireDefault(require('../../nuclide-ui/add-tooltip'));
 }
 
+var _AtomInput;
+
+function _load_AtomInput() {
+  return _AtomInput = require('../../nuclide-ui/AtomInput');
+}
+
 var _AtomTextEditor;
 
 function _load_AtomTextEditor() {
@@ -70,16 +76,6 @@ function _load_ToolbarRight() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 class DiffCommitView extends _reactForAtom.React.Component {
 
   constructor(props) {
@@ -90,6 +86,8 @@ class DiffCommitView extends _reactForAtom.React.Component {
     this._onClickBack = this._onClickBack.bind(this);
     this._onTogglePrepare = this._onTogglePrepare.bind(this);
     this._onToggleVerbatim = this._onToggleVerbatim.bind(this);
+    this._onLintExcuseChange = this._onLintExcuseChange.bind(this);
+    this._onToggleInteractiveCommit = this._onToggleInteractiveCommit.bind(this);
   }
 
   componentDidMount() {
@@ -166,8 +164,22 @@ class DiffCommitView extends _reactForAtom.React.Component {
       });
     }
 
+    let interactiveOptionElement;
+    if (this.props.hasUncommittedChanges && this.props.enabledFeatures.has((_constants || _load_constants()).DiffViewFeatures.INTERACTIVE)) {
+      interactiveOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+        className: 'padded',
+        checked: this.props.shouldCommitInteractively,
+        disabled: isLoading,
+        label: 'Use interactive mode',
+        onChange: this._onToggleInteractiveCommit,
+        tabIndex: '-1',
+        ref: this._addTooltip('Whether to include all uncommitted changes or to select specific ones')
+      });
+    }
+
     let prepareOptionElement;
     let verbatimeOptionElement;
+    let lintExcuseElement;
     if (this.props.shouldPublishOnCommit) {
       prepareOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         className: 'padded',
@@ -184,7 +196,18 @@ class DiffCommitView extends _reactForAtom.React.Component {
         disabled: isLoading,
         label: 'Verbatim',
         onChange: this._onToggleVerbatim,
-        ref: this._addTooltip('Whether to override the diff\'s' + 'commit message on Phabricator with that of your local commit.')
+        ref: this._addTooltip('Whether to override the diff\'s ' + 'commit message on Phabricator with that of your local commit.')
+      });
+
+      lintExcuseElement = _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+        className: 'nuclide-diff-view-excuse',
+        size: 'sm',
+        ref: this._addTooltip('Leave this box empty to run local lint and unit tests or ' + 'enter an excuse to skip them.'),
+        onDidChange: this._onLintExcuseChange,
+        placeholderText: '(Optional) Excuse',
+        disabled: isLoading,
+        value: this.props.lintExcuse,
+        width: 200
       });
     }
 
@@ -195,16 +218,18 @@ class DiffCommitView extends _reactForAtom.React.Component {
         (_ToolbarLeft || _load_ToolbarLeft()).ToolbarLeft,
         null,
         rebaseOptionElement,
+        interactiveOptionElement,
         _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
           className: 'padded',
           checked: this.props.shouldPublishOnCommit,
           disabled: isLoading,
           label: 'Publish',
           onChange: this._onTogglePublish,
-          ref: this._addTooltip('Whether to automatically publish the revision' + 'to Phabricator after committing or amending it.')
+          ref: this._addTooltip('Whether to automatically publish the revision ' + 'to Phabricator after committing or amending it.')
         }),
         prepareOptionElement,
-        verbatimeOptionElement
+        verbatimeOptionElement,
+        lintExcuseElement
       ),
       _reactForAtom.React.createElement(
         (_ToolbarRight || _load_ToolbarRight()).ToolbarRight,
@@ -269,6 +294,10 @@ class DiffCommitView extends _reactForAtom.React.Component {
     this.props.diffModel.setShouldAmendRebase(isChecked);
   }
 
+  _onToggleInteractiveCommit(isChecked) {
+    this.props.diffModel.setShouldCommitInteractively(isChecked);
+  }
+
   _onTogglePublish(isChecked) {
     this.props.diffModel.setShouldPublishOnCommit(isChecked);
   }
@@ -281,9 +310,20 @@ class DiffCommitView extends _reactForAtom.React.Component {
     this.props.diffModel.setVerbatimModeEnabled(isChecked);
   }
 
+  _onLintExcuseChange(newExcuse) {
+    this.props.diffModel.setLintExcuse(newExcuse);
+  }
+
   componentWillUnmount() {
     this._subscriptions.dispose();
   }
 }
-exports.default = DiffCommitView;
-module.exports = exports['default'];
+exports.default = DiffCommitView; /**
+                                   * Copyright (c) 2015-present, Facebook, Inc.
+                                   * All rights reserved.
+                                   *
+                                   * This source code is licensed under the license found in the LICENSE file in
+                                   * the root directory of this source tree.
+                                   *
+                                   * 
+                                   */

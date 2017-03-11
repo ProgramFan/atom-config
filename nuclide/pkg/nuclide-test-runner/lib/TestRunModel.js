@@ -77,4 +77,3 @@ class TestRunModel {
 }
 exports.default = TestRunModel;
 TestRunModel.Status = Status;
-module.exports = exports['default'];

@@ -116,6 +116,7 @@ class FileTree extends _reactForAtom.React.Component {
     this._initialHeightMeasured = true;
 
     const node = _reactForAtom.ReactDOM.findDOMNode(measuredComponent);
+    // $FlowFixMe
     const elementHeight = node.clientHeight;
     if (elementHeight !== this.state.elementHeight && elementHeight > 0) {
       this.setState({ elementHeight });
@@ -193,7 +194,8 @@ class FileTree extends _reactForAtom.React.Component {
         { className: 'list-tree has-collapsable-children' },
         visibleChildren
       ),
-      _reactForAtom.React.createElement('div', { style: { height: bottomPlaceholderSize + 'px' } })
+      _reactForAtom.React.createElement('div', { style: { height: bottomPlaceholderSize + 'px' } }),
+      _reactForAtom.React.createElement((_ProjectSelection || _load_ProjectSelection()).ProjectSelection, null)
     );
   }
 }

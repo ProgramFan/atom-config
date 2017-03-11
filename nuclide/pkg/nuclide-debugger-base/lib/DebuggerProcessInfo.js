@@ -8,6 +8,16 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
 class DebuggerProcessInfo {
 
   constructor(serviceName, targetUri) {
@@ -21,6 +31,15 @@ class DebuggerProcessInfo {
 
   getTargetUri() {
     return this._targetUri;
+  }
+
+  getThreadsComponentTitle() {
+    return 'Threads';
+  }
+
+  getThreadColumns() {
+    // Use the debugger view's default columns.
+    return null;
   }
 
   // Whether or not this ProcessInfo supports threading or not.
@@ -47,15 +66,7 @@ class DebuggerProcessInfo {
       throw new Error('abstract method');
     })();
   }
-}
-exports.default = DebuggerProcessInfo; /**
-                                        * Copyright (c) 2015-present, Facebook, Inc.
-                                        * All rights reserved.
-                                        *
-                                        * This source code is licensed under the license found in the LICENSE file in
-                                        * the root directory of this source tree.
-                                        *
-                                        * 
-                                        */
 
-module.exports = exports['default'];
+  dispose() {}
+}
+exports.default = DebuggerProcessInfo;

@@ -66,4 +66,3 @@ class Handler {
   }
 }
 exports.default = Handler;
-module.exports = exports['default'];

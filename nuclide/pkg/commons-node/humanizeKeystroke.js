@@ -144,4 +144,3 @@ function humanizeKeystroke(keystroke, platform_) {
   }
   return humanizedKeystrokes.join(' ');
 }
-module.exports = exports['default'];

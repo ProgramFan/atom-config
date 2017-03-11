@@ -313,4 +313,3 @@ class NuclideServer {
   }
 }
 exports.default = NuclideServer;
-module.exports = exports['default'];

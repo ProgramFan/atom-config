@@ -321,4 +321,3 @@ class ConnectionDetailsPrompt extends _reactForAtom.React.Component {
   }
 }
 exports.default = ConnectionDetailsPrompt;
-module.exports = exports['default'];

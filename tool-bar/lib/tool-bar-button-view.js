@@ -6,12 +6,13 @@ let prevFocusedElm = null;
 
 export default class ToolBarButtonView {
 
-  constructor (options) {
+  constructor (options, group) {
     this.element = document.createElement('button');
     this.subscriptions = new CompositeDisposable();
 
     this.priority = options.priority;
     this.options = options;
+    this.group = group;
 
     if (options.tooltip) {
       this.element.title = options.tooltip;
@@ -98,11 +99,15 @@ function getTooltipPlacement () {
 }
 
 function executeCallback ({callback, data}, e) {
-  if (typeof callback === 'object' && callback) {
+  if (typeof callback === 'object' && !Array.isArray(callback) && callback) {
     callback = getCallbackModifier(callback, e);
   }
   if (typeof callback === 'string') {
     atom.commands.dispatch(getPrevFocusedElm(), callback);
+  } else if (Array.isArray(callback)) {
+    for (let i = 0; i < callback.length; i++) {
+      atom.commands.dispatch(getPrevFocusedElm(), callback[i]);
+    }
   } else if (typeof callback === 'function') {
     callback(data, getPrevFocusedElm());
   }

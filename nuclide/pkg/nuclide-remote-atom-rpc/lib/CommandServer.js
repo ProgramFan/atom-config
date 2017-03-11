@@ -76,7 +76,7 @@ class CommandServer {
   static getConnectionDetails() {
     return (0, _asyncToGenerator.default)(function* () {
       const server = CommandServer.getCurrentServer();
-      return server == null ? null : yield (yield CommandServer._ensureServer()).getAddress();
+      return server == null ? null : (yield CommandServer._ensureServer()).getAddress();
     })();
   }
 

@@ -11,28 +11,10 @@ function _load_createPaneContainer() {
   return _createPaneContainer = _interopRequireDefault(require('../../commons-atom/create-pane-container'));
 }
 
-var _PanelRenderer;
-
-function _load_PanelRenderer() {
-  return _PanelRenderer = _interopRequireDefault(require('../../commons-atom/PanelRenderer'));
-}
-
-var _renderReactRoot;
-
-function _load_renderReactRoot() {
-  return _renderReactRoot = require('../../commons-atom/renderReactRoot');
-}
-
 var _event;
 
 function _load_event() {
   return _event = require('../../commons-node/event');
-}
-
-var _observable;
-
-function _load_observable() {
-  return _observable = require('../../commons-node/observable');
 }
 
 var _UniversalDisposable;
@@ -47,16 +29,16 @@ function _load_SimpleModel() {
   return _SimpleModel = require('../../commons-node/SimpleModel');
 }
 
-var _bindObservableAsProps;
-
-function _load_bindObservableAsProps() {
-  return _bindObservableAsProps = require('../../nuclide-ui/bindObservableAsProps');
-}
-
 var _tabBarView;
 
 function _load_tabBarView() {
   return _tabBarView = _interopRequireDefault(require('../../nuclide-ui/VendorLib/atom-tabs/lib/tab-bar-view'));
+}
+
+var _addPanel;
+
+function _load_addPanel() {
+  return _addPanel = _interopRequireDefault(require('./addPanel'));
 }
 
 var _observeAddedPaneItems;
@@ -83,10 +65,10 @@ function _load_PanelLocationIds() {
   return _PanelLocationIds = _interopRequireWildcard(require('./PanelLocationIds'));
 }
 
-var _Panel;
+var _PanelComponent;
 
-function _load_Panel() {
-  return _Panel = require('./ui/Panel');
+function _load_PanelComponent() {
+  return _PanelComponent = require('./ui/PanelComponent');
 }
 
 var _nullthrows;
@@ -102,8 +84,6 @@ var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const HIDE_BUTTON_WRAPPER_CLASS = 'nuclide-workspace-views-panel-location-tabs-hide-button-wrapper';
 
 /**
  * Manages views for an Atom panel.
@@ -126,16 +106,12 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
     const serializedData = serializedState.data || {};
     this._paneContainer = deserializePaneContainer(serializedData.paneContainer);
     this._position = (0, (_nullthrows || _load_nullthrows()).default)(locationsToPosition.get(locationId));
-    this._panelRenderer = new (_PanelRenderer || _load_PanelRenderer()).default({
-      priority: 101, // Use a value higher than the default (100).
-      location: this._position,
-      createItem: this._createItem.bind(this)
-    });
     this._panes = new _rxjsBundlesRxMinJs.BehaviorSubject(new Set());
     this._size = serializedData.size || null;
     this.state = {
       showDropAreas: false,
-      visible: serializedData.visible === true
+      // `visible` check is for legacy compat (<= v0.206)
+      active: serializedData.active === true || serializedData.visible === true
     };
   }
 
@@ -156,9 +132,9 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
       return _rxjsBundlesRxMinJs.Observable.merge(...itemChanges);
     }).share();
 
-    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._panelRenderer, (0, (_observePanes || _load_observePanes()).observePanes)(paneContainer).subscribe(this._panes), (0, (_syncPaneItemVisibility || _load_syncPaneItemVisibility()).syncPaneItemVisibility)(this._panes,
+    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default((0, (_observePanes || _load_observePanes()).observePanes)(paneContainer).subscribe(this._panes), (0, (_syncPaneItemVisibility || _load_syncPaneItemVisibility()).syncPaneItemVisibility)(this._panes,
     // $FlowFixMe: Teach Flow about Symbol.observable
-    _rxjsBundlesRxMinJs.Observable.from(this).map(state => state.visible).distinctUntilChanged()),
+    _rxjsBundlesRxMinJs.Observable.from(this).map(state => state.active).distinctUntilChanged()),
 
     // Add a tab bar to any panes created in the container.
     paneContainer.observePanes(pane => {
@@ -166,55 +142,16 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
       const paneElement = atom.views.getView(pane);
       paneElement.insertBefore(tabBarView.element, paneElement.firstChild);
       tabBarView.element.classList.add('nuclide-workspace-views-panel-location-tabs');
-
-      const hideButtonWrapper = document.createElement('div');
-      hideButtonWrapper.className = HIDE_BUTTON_WRAPPER_CLASS;
-      const hideButton = document.createElement('div');
-      hideButton.className = 'nuclide-workspace-views-panel-location-tabs-hide-button';
-      hideButton.onclick = () => {
-        this.setState({ visible: false });
-      };
-      hideButtonWrapper.appendChild(hideButton);
-      tabBarView.element.appendChild(hideButtonWrapper);
     }),
 
-    // The atom/tabs package identifies the pane item being dragged [based on the child index of
-    // the tab][1]. Since our button shares the same parent as the tabs, the tab indexes won't we
-    // correct unless our button appears after every tab element in the DOM. (It's not enough to
-    // use CSS `order` to visually reposition our button.) Therefore, we need to move our button
-    // to the end every time a pane is added.
-    //
-    // [1]: https://github.com/atom/tabs/blob/v0.103.1/lib/tab-bar-view.coffee#L232
-    paneItemChanges
-    // Since we're observing the pane items (and not the addition of tabs directly), we need to
-    // delay for an animation frame to give the TabBarView a chance to add the tab.
-    .audit(() => (_observable || _load_observable()).nextAnimationFrame).subscribe(() => {
-      const paneContainerEl = atom.views.getView(paneContainer);
-      Array.from(paneContainerEl.getElementsByClassName(HIDE_BUTTON_WRAPPER_CLASS)).forEach(el => {
-        const parent = el.parentElement;
-        if (parent == null) {
-          return;
-        }
-        const buttonIndex = getChildIndex(el);
-        const tabs = parent.querySelectorAll('.tab');
-        const lastTab = tabs[tabs.length - 1];
-        if (lastTab == null) {
-          return;
-        }
-        if (buttonIndex < getChildIndex(lastTab)) {
-          parent.insertBefore(el, lastTab.nextSibling);
-        }
-      });
-    }),
-
-    // If you add an item to a panel (e.g. by drag & drop), make the panel visible.
+    // If you add an item to a panel (e.g. by drag & drop), make the panel active.
     paneItemChanges.startWith(null).map(() => this._paneContainer.getPaneItems().length).pairwise().subscribe(([prev, next]) => {
       // If the last item is removed, hide the panel.
       if (next === 0) {
-        this.setState({ visible: false });
+        this.setState({ active: false });
       } else if (next > prev) {
         // If there are more items now than there were before, show the panel.
-        this.setState({ visible: true });
+        this.setState({ active: true });
       }
     }),
 
@@ -226,29 +163,52 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
     // See https://groups.google.com/a/chromium.org/forum/?fromgroups=#!msg/chromium-bugs/YHs3orFC8Dc/ryT25b7J-NwJ
     .observeOn(_rxjsBundlesRxMinJs.Scheduler.async).subscribe(showDropAreas => {
       this.setState({ showDropAreas });
-    }),
+    }));
 
+    this._disposables.add(
     // $FlowIssue: We need to teach flow about Symbol.observable.
-    _rxjsBundlesRxMinJs.Observable.from(this).subscribe(state => {
-      this._panelRenderer.render({
-        visible: state.showDropAreas || state.visible
-      });
+    _rxjsBundlesRxMinJs.Observable.from(this).subscribeOn(_rxjsBundlesRxMinJs.Scheduler.animationFrame).subscribe(state => {
+      this._render(state);
     }));
   }
 
-  _createItem() {
-    // Create an item to display in the panel. Atom will associate this item with a view via the
-    // view registry (and its `getElement` method). That view will be used to display views for this
-    // panel.
-    // $FlowIssue: We need to teach flow about Symbol.observable.
-    const props = _rxjsBundlesRxMinJs.Observable.from(this).map(state => ({
+  _render(state) {
+    const shouldBeVisible = this.state.active || this.state.showDropAreas;
+    const panel = this._getPanel();
+
+    // Because we want to show something event when the panel is collapsed, we have to show it.
+    if (shouldBeVisible && !panel.isVisible()) {
+      panel.show();
+    }
+
+    const el = panel.getItem();
+    _reactForAtom.ReactDOM.render(_reactForAtom.React.createElement((_PanelComponent || _load_PanelComponent()).PanelComponent, {
+      draggingItem: state.showDropAreas,
+      active: state.active,
       initialSize: this._size,
       paneContainer: this._paneContainer,
       position: this._position,
-      onResize: this._handlePanelResize
-    }));
-    const Component = (0, (_bindObservableAsProps || _load_bindObservableAsProps()).bindObservableAsProps)(props, (_Panel || _load_Panel()).Panel);
-    return { getElement: () => (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_reactForAtom.React.createElement(Component, null)) };
+      onResize: this._handlePanelResize,
+      toggle: () => {
+        this.toggle();
+      }
+    }), el);
+  }
+
+  _getPanel() {
+    if (this._panel == null) {
+      const el = document.createElement('div');
+      const panel = this._panel = (0, (_addPanel || _load_addPanel()).default)(this._position, {
+        item: el,
+        priority: 101 });
+      this._disposables.add(() => {
+        _reactForAtom.ReactDOM.unmountComponentAtNode(el);
+      }, () => {
+        panel.destroy();
+      });
+      this._panel = panel;
+    }
+    return this._panel;
   }
 
   _handlePanelResize(size) {
@@ -257,7 +217,7 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
   }
 
   itemIsVisible(item) {
-    if (!this.state.visible) {
+    if (!this.state.active) {
       return false;
     }
     for (const pane of this._panes.getValue()) {
@@ -292,7 +252,7 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
   }
 
   activate() {
-    this.setState({ visible: true });
+    this.setState({ active: true });
   }
 
   addItem(item) {
@@ -312,7 +272,7 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
   }
 
   /**
-   * Hide the specified item. If the user toggles a visible item, we hide the entire pane.
+   * Hide the specified item. If the user toggles a active item, we hide the entire pane.
    */
   hideItem(item) {
     const itemIsVisible = this._paneContainer.getPanes().some(pane => pane.getActiveItem() === item);
@@ -323,15 +283,15 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
     }
 
     // Otherwise, hide the panel altogether.
-    this.setState({ visible: false });
+    this.setState({ active: false });
   }
 
   isVisible() {
-    return this.state.visible;
+    return this.state.active;
   }
 
   toggle() {
-    this.setState({ visible: !this.state.visible });
+    this.setState({ active: !this.state.active });
   }
 
   serialize() {
@@ -340,7 +300,7 @@ class PanelLocation extends (_SimpleModel || _load_SimpleModel()).SimpleModel {
       data: {
         paneContainer: this._paneContainer == null ? null : this._paneContainer.serialize(),
         size: this._size,
-        visible: this.state.visible
+        active: this.state.active
       }
     };
   }
@@ -370,9 +330,4 @@ function isTab(element) {
     el = el.parentElement;
   }
   return false;
-}
-
-function getChildIndex(el) {
-  const parent = el.parentElement;
-  return parent == null ? -1 : Array.prototype.indexOf.call(parent.children, el);
 }

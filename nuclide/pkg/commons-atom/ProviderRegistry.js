@@ -45,5 +45,3 @@ exports.default = ProviderRegistry; /**
                                      *
                                      * 
                                      */
-
-module.exports = exports["default"];

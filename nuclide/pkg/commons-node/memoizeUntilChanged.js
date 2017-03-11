@@ -67,4 +67,3 @@ function createKeySelector() {
   const hasher = new (_Hasher || _load_Hasher()).default();
   return x => hasher.getHash(x);
 }
-module.exports = exports['default'];

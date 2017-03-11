@@ -193,4 +193,3 @@ class CodeFormatManager {
   }
 }
 exports.default = CodeFormatManager;
-module.exports = exports['default'];

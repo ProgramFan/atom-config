@@ -101,4 +101,3 @@ function patchAtomWorkspaceReplace() {
     workspace.replace = originalReplace;
   });
 }
-module.exports = exports['default'];

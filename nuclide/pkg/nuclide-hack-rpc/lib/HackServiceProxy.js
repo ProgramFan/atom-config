@@ -12,7 +12,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 103
+          line: 104
         },
         kind: "string"
       }
@@ -22,7 +22,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 104
+          line: 105
         },
         kind: "boolean"
       }
@@ -32,7 +32,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 105
+          line: 106
         },
         kind: "named",
         name: "LogLevel"
@@ -43,7 +43,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 106
+          line: 107
         },
         kind: "named",
         name: "FileNotifier"
@@ -55,7 +55,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 107
+          line: 108
         },
         kind: "named",
         name: "HackLanguageService"
@@ -1911,21 +1911,21 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 84
+        line: 85
       },
       name: "SymbolTypeValue",
       definition: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 84
+          line: 85
         },
         kind: "union",
         types: [{
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 84
+            line: 85
           },
           kind: "number-literal",
           value: 0
@@ -1933,7 +1933,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 84
+            line: 85
           },
           kind: "number-literal",
           value: 1
@@ -1941,7 +1941,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 84
+            line: 85
           },
           kind: "number-literal",
           value: 2
@@ -1949,7 +1949,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 84
+            line: 85
           },
           kind: "number-literal",
           value: 3
@@ -1957,7 +1957,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 84
+            line: 85
           },
           kind: "number-literal",
           value: 4
@@ -1969,47 +1969,23 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 86
+        line: 87
       },
       name: "HackTypeAtPosResult",
       definition: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 86
+          line: 87
         },
         kind: "object",
         fields: [{
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 87
-          },
-          name: "type",
-          type: {
-            location: {
-              type: "source",
-              fileName: "HackService.js",
-              line: 87
-            },
-            kind: "nullable",
-            type: {
-              location: {
-                type: "source",
-                fileName: "HackService.js",
-                line: 87
-              },
-              kind: "string"
-            }
-          },
-          optional: false
-        }, {
-          location: {
-            type: "source",
-            fileName: "HackService.js",
             line: 88
           },
-          name: "pos",
+          name: "type",
           type: {
             location: {
               type: "source",
@@ -2022,6 +1998,30 @@ Object.defineProperty(module.exports, "defs", {
                 type: "source",
                 fileName: "HackService.js",
                 line: 88
+              },
+              kind: "string"
+            }
+          },
+          optional: false
+        }, {
+          location: {
+            type: "source",
+            fileName: "HackService.js",
+            line: 89
+          },
+          name: "pos",
+          type: {
+            location: {
+              type: "source",
+              fileName: "HackService.js",
+              line: 89
+            },
+            kind: "nullable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "HackService.js",
+                line: 89
               },
               kind: "named",
               name: "HackRange"
@@ -2036,21 +2036,21 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 91
+        line: 92
       },
       name: "HackHighlightRefsResult",
       definition: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 91
+          line: 92
         },
         kind: "array",
         type: {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 91
+            line: 92
           },
           kind: "named",
           name: "HackRange"
@@ -2062,39 +2062,23 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 93
+        line: 94
       },
       name: "HackFormatSourceResult",
       definition: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 93
+          line: 94
         },
         kind: "object",
         fields: [{
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 94
-          },
-          name: "error_message",
-          type: {
-            location: {
-              type: "source",
-              fileName: "HackService.js",
-              line: 94
-            },
-            kind: "string"
-          },
-          optional: false
-        }, {
-          location: {
-            type: "source",
-            fileName: "HackService.js",
             line: 95
           },
-          name: "result",
+          name: "error_message",
           type: {
             location: {
               type: "source",
@@ -2110,12 +2094,28 @@ Object.defineProperty(module.exports, "defs", {
             fileName: "HackService.js",
             line: 96
           },
-          name: "internal_error",
+          name: "result",
           type: {
             location: {
               type: "source",
               fileName: "HackService.js",
               line: 96
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
+          location: {
+            type: "source",
+            fileName: "HackService.js",
+            line: 97
+          },
+          name: "internal_error",
+          type: {
+            location: {
+              type: "source",
+              fileName: "HackService.js",
+              line: 97
             },
             kind: "boolean"
           },
@@ -2129,13 +2129,13 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 102
+        line: 103
       },
       type: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 102
+          line: 103
         },
         kind: "function",
         argumentTypes: [{
@@ -2144,7 +2144,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 103
+              line: 104
             },
             kind: "string"
           }
@@ -2154,7 +2154,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 104
+              line: 105
             },
             kind: "boolean"
           }
@@ -2164,7 +2164,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 105
+              line: 106
             },
             kind: "named",
             name: "LogLevel"
@@ -2175,7 +2175,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 106
+              line: 107
             },
             kind: "named",
             name: "FileNotifier"
@@ -2185,14 +2185,14 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 107
+            line: 108
           },
           kind: "promise",
           type: {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 107
+              line: 108
             },
             kind: "named",
             name: "HackLanguageService"
@@ -5788,6 +5788,22 @@ Object.defineProperty(module.exports, "defs", {
               },
               kind: "string"
             }
+          },
+          optional: true
+        }, {
+          location: {
+            type: "source",
+            fileName: "LanguageService.js",
+            line: 45
+          },
+          name: "extraData",
+          type: {
+            location: {
+              type: "source",
+              fileName: "LanguageService.js",
+              line: 45
+            },
+            kind: "mixed"
           },
           optional: true
         }]

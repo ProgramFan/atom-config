@@ -53,4 +53,3 @@ class Activation {
   }
 }
 exports.default = Activation;
-module.exports = exports['default'];

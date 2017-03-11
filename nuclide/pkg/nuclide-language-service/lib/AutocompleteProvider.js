@@ -45,7 +45,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 class AutocompleteProvider {
 
-  constructor(name, selector, inclusionPriority, suggestionPriority, disableForSelector, excludeLowerPriority, analyticsEventName, onDidInsertSuggestionAnalyticsEventName, autocompleteCacherConfig, connectionToLanguageService) {
+  constructor(name, selector, inclusionPriority, suggestionPriority, disableForSelector, excludeLowerPriority, analyticsEventName, onDidInsertSuggestion, onDidInsertSuggestionAnalyticsEventName, autocompleteCacherConfig, connectionToLanguageService) {
     this.name = name;
     this.selector = selector;
     this.inclusionPriority = inclusionPriority;
@@ -59,13 +59,18 @@ class AutocompleteProvider {
       this._autocompleteCacher = new (_AutocompleteCacher || _load_AutocompleteCacher()).default(request => this._getSuggestionsFromLanguageService(request), autocompleteCacherConfig);
     }
 
-    this.onDidInsertSuggestion = () => {
+    this._onDidInsertSuggestion = onDidInsertSuggestion;
+
+    this.onDidInsertSuggestion = arg => {
       (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)(onDidInsertSuggestionAnalyticsEventName);
+      if (this._onDidInsertSuggestion != null) {
+        this._onDidInsertSuggestion(arg);
+      }
     };
   }
 
-  static register(name, grammars, config, connectionToLanguageService) {
-    return atom.packages.serviceHub.provide('autocomplete.provider', config.version, new AutocompleteProvider(name, grammars.map(grammar => '.' + grammar).join(', '), config.inclusionPriority, config.suggestionPriority, config.disableForSelector, config.excludeLowerPriority, config.analyticsEventName, config.onDidInsertSuggestionAnalyticsEventName, config.autocompleteCacherConfig, connectionToLanguageService));
+  static register(name, grammars, config, onDidInsertSuggestion, connectionToLanguageService) {
+    return atom.packages.serviceHub.provide('autocomplete.provider', config.version, new AutocompleteProvider(name, grammars.map(grammar => '.' + grammar).join(', '), config.inclusionPriority, config.suggestionPriority, config.disableForSelector, config.excludeLowerPriority, config.analyticsEventName, onDidInsertSuggestion, config.onDidInsertSuggestionAnalyticsEventName, config.autocompleteCacherConfig, connectionToLanguageService));
   }
 
   getSuggestions(request) {

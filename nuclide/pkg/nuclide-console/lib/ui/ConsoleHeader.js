@@ -237,4 +237,3 @@ function MultiSelectLabel(props) {
     label
   );
 }
-module.exports = exports['default'];

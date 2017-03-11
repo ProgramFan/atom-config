@@ -280,6 +280,17 @@ class FileTreeContextMenu {
     return this._addItemToMenu(originalItem, this._contextMenu, TEST_SECTION_PRIORITY + priority);
   }
 
+  /**
+   * @param priority must be an integer in the range [0, 1000).
+   */
+  addItemToProjectMenu(originalItem, priority) {
+    if (priority < 0 || priority >= 1000) {
+      throw Error(`Illegal priority value: ${priority}`);
+    }
+
+    return this._addItemToMenu(originalItem, this._contextMenu, ADD_PROJECT_MENU_PRIORITY + priority);
+  }
+
   addItemToSourceControlMenu(originalItem, priority) {
     return this._addItemToMenu(originalItem, this._sourceControlMenu, priority);
   }
@@ -346,4 +357,3 @@ function generateNextInternalCommand(itemLabel) {
   const cmdName = itemLabel.toLowerCase().replace(/[^\w]+/g, '-') + '-' + nextInternalCommandId++;
   return `nuclide-file-tree:${cmdName}`;
 }
-module.exports = exports['default'];

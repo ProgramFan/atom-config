@@ -8,20 +8,27 @@ exports.setActiveTaskRunnerEpic = setActiveTaskRunnerEpic;
 exports.combineTaskRunnerStatesEpic = combineTaskRunnerStatesEpic;
 exports.updatePreferredVisibilityEpic = updatePreferredVisibilityEpic;
 exports.updatePreferredTaskRunnerEpic = updatePreferredTaskRunnerEpic;
+exports.verifySavedBeforeRunningTaskEpic = verifySavedBeforeRunningTaskEpic;
 exports.runTaskEpic = runTaskEpic;
 exports.stopTaskEpic = stopTaskEpic;
 exports.toggleToolbarVisibilityEpic = toggleToolbarVisibilityEpic;
 
-var _UniversalDisposable;
+var _textBuffer;
 
-function _load_UniversalDisposable() {
-  return _UniversalDisposable = _interopRequireDefault(require('../../../commons-node/UniversalDisposable'));
+function _load_textBuffer() {
+  return _textBuffer = require('../../../commons-atom/text-buffer');
 }
 
 var _tasks;
 
 function _load_tasks() {
   return _tasks = require('../../../commons-node/tasks');
+}
+
+var _UniversalDisposable;
+
+function _load_UniversalDisposable() {
+  return _UniversalDisposable = _interopRequireDefault(require('../../../commons-node/UniversalDisposable'));
 }
 
 var _nuclideLogging;
@@ -48,21 +55,19 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 function setProjectRootEpic(actions, store, options) {
   return actions.ofType((_Actions || _load_Actions()).REGISTER_TASK_RUNNER, (_Actions || _load_Actions()).UNREGISTER_TASK_RUNNER, (_Actions || _load_Actions()).DID_ACTIVATE_INITIAL_PACKAGES)
   // Refreshes everything. Not the most efficient, but good enough
   .map(() => (_Actions || _load_Actions()).setProjectRoot(store.getState().projectRoot));
-}
+} /**
+   * Copyright (c) 2015-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the license found in the LICENSE file in
+   * the root directory of this source tree.
+   *
+   * 
+   */
 
 function setActiveTaskRunnerEpic(actions, store, options) {
   return actions.ofType((_Actions || _load_Actions()).SET_STATES_FOR_TASK_RUNNERS).switchMap(() => {
@@ -91,8 +96,16 @@ function setActiveTaskRunnerEpic(actions, store, options) {
         }
       }
     } else {
-      // This is a new root, try to make as few UI changes as possible
-      visibilityAction = _rxjsBundlesRxMinJs.Observable.empty();
+      const atLeastOneTaskRunnerEnabled = taskRunners.some(runner => {
+        const state = statesForTaskRunners.get(runner);
+        return state && state.enabled;
+      });
+      if (atLeastOneTaskRunnerEnabled) {
+        // Advertise the toolbar if there's a chance it's useful at this new working root.
+        visibilityAction = _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).setToolbarVisibility(true, true));
+      } else {
+        visibilityAction = _rxjsBundlesRxMinJs.Observable.empty();
+      }
       taskRunner = activeTaskRunner;
     }
 
@@ -171,24 +184,53 @@ function updatePreferredTaskRunnerEpic(actions, store, options) {
   }).ignoreElements();
 }
 
+/**
+ * Verifies that all the files are saved prior to running a task.
+ */
+function verifySavedBeforeRunningTaskEpic(actions, store) {
+  return actions.filter(action => action.type === (_Actions || _load_Actions()).RUN_TASK && action.payload.verifySaved === true).switchMap(action => {
+    if (!(action.type === (_Actions || _load_Actions()).RUN_TASK)) {
+      throw new Error('Invariant violation: "action.type === Actions.RUN_TASK"');
+    }
+
+    const { taskMeta } = action.payload;
+    const unsavedEditors = atom.workspace.getTextEditors().filter(editor => editor.getPath() != null && editor.isModified());
+
+    // Everything saved? Run it!
+    if (unsavedEditors.length === 0) {
+      return _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).runTask(taskMeta, false));
+    }
+
+    return promptForShouldSave(taskMeta).switchMap(shouldSave => {
+      if (shouldSave) {
+        const saveAll = _rxjsBundlesRxMinJs.Observable.defer(() => {
+          const stillUnsaved = atom.workspace.getTextEditors().filter(editor => editor.getPath() != null && editor.isModified());
+          return Promise.all(unsavedEditors.filter(editor => stillUnsaved.indexOf(editor) !== -1).map(editor => (0, (_textBuffer || _load_textBuffer()).save)(editor.getBuffer())));
+        });
+        return _rxjsBundlesRxMinJs.Observable.concat(saveAll.ignoreElements(), _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).runTask(taskMeta))).catch(err => {
+          atom.notifications.addError('An unexpected error occurred while saving the files.', { dismissable: true, detail: err.stack.toString() });
+          return _rxjsBundlesRxMinJs.Observable.empty();
+        });
+      }
+      return _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).runTask(taskMeta, false));
+    });
+  });
+}
+
 function runTaskEpic(actions, store) {
-  return actions.ofType((_Actions || _load_Actions()).RUN_TASK).switchMap(action => {
+  return actions.filter(action => action.type === (_Actions || _load_Actions()).RUN_TASK && action.payload.verifySaved === false).switchMap(action => {
     if (!(action.type === (_Actions || _load_Actions()).RUN_TASK)) {
       throw new Error('Invariant violation: "action.type === Actions.RUN_TASK"');
     }
 
     const state = store.getState();
-    // Don't do anything if a task is already running.
-    if (state.runningTask) {
-      return _rxjsBundlesRxMinJs.Observable.empty();
-    }
+    const stopRunningTask = state.runningTask != null;
 
-    const taskMeta = action.payload.taskMeta;
-
+    const { taskMeta } = action.payload;
     const { activeTaskRunner } = state;
     const newTaskRunner = taskMeta.taskRunner;
 
-    return _rxjsBundlesRxMinJs.Observable.concat(activeTaskRunner === newTaskRunner ? _rxjsBundlesRxMinJs.Observable.empty() : _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).selectTaskRunner(newTaskRunner, true)), store.getState().visible ? _rxjsBundlesRxMinJs.Observable.empty() : _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).setToolbarVisibility(true, true)), _rxjsBundlesRxMinJs.Observable.defer(() => {
+    return _rxjsBundlesRxMinJs.Observable.concat(stopRunningTask ? _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).stopTask()) : _rxjsBundlesRxMinJs.Observable.empty(), activeTaskRunner === newTaskRunner ? _rxjsBundlesRxMinJs.Observable.empty() : _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).selectTaskRunner(newTaskRunner, true)), store.getState().visible ? _rxjsBundlesRxMinJs.Observable.empty() : _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).setToolbarVisibility(true, true)), _rxjsBundlesRxMinJs.Observable.defer(() => {
       if (taskMeta.disabled) {
         return _rxjsBundlesRxMinJs.Observable.empty();
       }
@@ -268,7 +310,8 @@ function createTaskObservable(taskMeta, getState) {
     taskFailedNotification.onDidDismiss(() => {
       taskFailedNotification = null;
     });
-    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('Error running task:', taskMeta, error);
+    const taskMetaForLogging = Object.assign({}, taskMeta, { taskRunner: undefined });
+    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('Error running task:', taskMetaForLogging, error);
     return _rxjsBundlesRxMinJs.Observable.of({
       type: (_Actions || _load_Actions()).TASK_ERRORED,
       payload: {
@@ -299,4 +342,49 @@ function getBestEffortTaskRunner(taskRunners, statesForTaskRunners) {
     }
     return memo;
   }, null);
+}
+
+/**
+ * Returns an observable that:
+ *   - prompts for whether the files should be saved before running the given task when subscribed
+ *   - contains 0 or 1 elements:
+ *       - `true` if the file should be saved before running
+ *       - `false` if it shouldn't be
+ *       - nothing if the user decides to cancel
+ *   - dismisses the notification when unsubscribed
+ */
+function promptForShouldSave(taskMeta) {
+  return _rxjsBundlesRxMinJs.Observable.create(observer => {
+    let notification = atom.notifications.addInfo('You have files with unsaved changes.', {
+      dismissable: true,
+      description: `Do you want to save them before running the ${taskMeta.label} task?`,
+      buttons: [{
+        text: `Save All & ${taskMeta.label}`,
+        onDidClick() {
+          observer.next(true);
+          observer.complete();
+        }
+      }, {
+        text: `${taskMeta.label} Without Saving`,
+        onDidClick() {
+          observer.next(false);
+          observer.complete();
+        }
+      }, {
+        text: 'Cancel',
+        className: 'icon icon-circle-slash',
+        onDidClick() {
+          observer.complete();
+        }
+      }]
+    });
+    return () => {
+      if (!(notification != null)) {
+        throw new Error('Invariant violation: "notification != null"');
+      }
+
+      notification.dismiss();
+      notification = null;
+    };
+  });
 }

@@ -15,6 +15,7 @@ exports.provideCodeFormat = provideCodeFormat;
 exports.provideLinter = provideLinter;
 exports.provideOutlineView = provideOutlineView;
 exports.provideRefactoring = provideRefactoring;
+exports.provideRelatedFiles = provideRelatedFiles;
 exports.consumeCompilationDatabase = consumeCompilationDatabase;
 exports.deactivate = deactivate;
 
@@ -208,6 +209,14 @@ function provideRefactoring() {
     },
     refactor(request) {
       return (_Refactoring || _load_Refactoring()).default.refactor(request);
+    }
+  };
+}
+
+function provideRelatedFiles() {
+  return {
+    getRelatedFiles(filePath) {
+      return (0, (_libclang || _load_libclang()).getRelatedSourceOrHeader)(filePath).then(related => related == null ? [] : [related]);
     }
   };
 }

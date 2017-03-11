@@ -360,4 +360,3 @@ class FileSystemActions {
 }
 
 exports.default = new FileSystemActions();
-module.exports = exports['default'];

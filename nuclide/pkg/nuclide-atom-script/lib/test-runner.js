@@ -119,7 +119,12 @@ exports.default = (() => {
 
       // $FlowIgnore
       const handler = require(scriptPath);
-      exitCode = yield handler(scriptArgs);
+      if (handler.__esModule && typeof handler.default === 'function') {
+        // `(0, a.b)` so that `this` is undefined, like babel does.
+        exitCode = yield (0, handler.default)(scriptArgs);
+      } else {
+        exitCode = yield handler(scriptArgs);
+      }
     } catch (e) {
       outputConsole.error(e);
       exitCode = 1;
@@ -134,5 +139,3 @@ exports.default = (() => {
 
   return runTest;
 })();
-
-module.exports = exports['default'];

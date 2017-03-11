@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.loadBufferForUri = undefined;
+exports.save = exports.loadBufferForUri = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -35,6 +35,27 @@ let loadBufferForUri = exports.loadBufferForUri = (() => {
  */
 
 
+/**
+ * Provides an asynchronous interface for saving a buffer, regardless of whether it's an Atom
+ * TextBuffer or NuclideTextBuffer.
+ */
+let save = exports.save = (() => {
+  var _ref2 = (0, _asyncToGenerator.default)(function* (buffer) {
+    const expectedPath = buffer.getPath();
+    const promise = (0, (_event || _load_event()).observableFromSubscribeFunction)(buffer.onDidSave.bind(buffer)).filter(function ({ path }) {
+      return path === expectedPath;
+    }).take(1).ignoreElements().toPromise();
+    // `buffer.save` returns a promise in the case of a NuclideTextBuffer. We'll await it to make sure
+    // we catch any async errors too.
+    yield Promise.resolve(buffer.save());
+    return promise;
+  });
+
+  return function save(_x2) {
+    return _ref2.apply(this, arguments);
+  };
+})();
+
 exports.observeBuffers = observeBuffers;
 exports.observeBufferOpen = observeBufferOpen;
 exports.observeBufferCloseOrRename = observeBufferCloseOrRename;
@@ -65,8 +86,6 @@ function _load_nuclideRemoteConnection() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Once https://github.com/atom/atom/pull/12501 is released, switch to
-// `atom.project.observeBuffers`.
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -78,8 +97,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 function observeBuffers(observeBuffer) {
-  atom.project.getBuffers().filter(buffer => !(_nuclideUri || _load_nuclideUri()).default.isBrokenDeserializedUri(buffer.getPath())).forEach(observeBuffer);
-  return atom.project.onDidAddBuffer(buffer => {
+  return atom.project.observeBuffers(buffer => {
     if (!(_nuclideUri || _load_nuclideUri()).default.isBrokenDeserializedUri(buffer.getPath())) {
       observeBuffer(buffer);
     }

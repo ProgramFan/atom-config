@@ -128,4 +128,3 @@ class HgRepositoryProvider {
   }
 }
 exports.default = HgRepositoryProvider;
-module.exports = exports['default'];

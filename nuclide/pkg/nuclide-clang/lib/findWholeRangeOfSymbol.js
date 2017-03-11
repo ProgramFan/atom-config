@@ -81,4 +81,3 @@ function findWholeRangeOfSymbol(textEditor, text, textRange, spelling, extent) {
     return [textRange];
   }
 }
-module.exports = exports['default'];

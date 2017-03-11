@@ -177,4 +177,3 @@ function RevisionsTimelineComponent(props) {
     )
   );
 }
-module.exports = exports['default'];

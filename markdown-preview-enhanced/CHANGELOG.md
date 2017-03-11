@@ -1,3 +1,84 @@
+## 0.10.8
+* [x] add `pandoc parser` support [#315](https://github.com/shd101wyy/markdown-preview-enhanced/issues/315).
+* [x] fix `ebook` export theme issue.    
+
+## 0.10.7  
+* [x] restore `pdfUseGithub` option.
+* [x] add `mpe-github-syntax` for Github.com style.
+
+## 0.10.6  
+* [x] fix zen mode style issue.  
+* [x] fix preview theme list empty issue.   
+
+## 0.10.4 & 0.10.5  
+* [x] quick fix theme bug.
+* [x] added loading gif, same as the official `markdown preview` package.
+
+## 0.10.3  
+* [x] quick fix theme bug.
+* [x] remove `useGitHubStyle` and `useGitHubSyntaxTheme`.
+
+## 0.10.2  
+* [x] allow user to pick theme when not using `Github.com style theme`. [#297](https://github.com/shd101wyy/markdown-preview-enhanced/issues/297#issuecomment-283619527)  
+* [ ] issue [#298](https://github.com/shd101wyy/markdown-preview-enhanced/issues/298). But this is hard to be supported.   
+* [ ] add blog (jekyll, hexo, etc...) support. But I never used them before, so gonna take a while to figure out how to use them.    
+* [ ] move docs to github wiki.  
+* [x] fix `unsafe eval` issue [#303](https://github.com/shd101wyy/markdown-preview-enhanced/issues/303). As this issue is urgent, I will finish the 3 todos above in the future.    
+
+## 0.10.1
+* [x] `Save as Markdown` code chunk `continue issue`
+* [x] add <code>\`\`\`math</code> [#295](https://github.com/shd101wyy/markdown-preview-enhanced/issues/295)    
+* [x] add `vhdl` and `vhd` for file import [#294](https://github.com/shd101wyy/markdown-preview-enhanced/issues/294)  
+* [ ] ~~fix python3 matplotlib issue.~~ (nvm, it works after I upgrade python3 to `3.6.0`)   
+
+## 0.9.12  
+* [x] fix issue [#255](https://github.com/shd101wyy/markdown-preview-enhanced/issues/255) deprecated call.  
+* [x] add whitelist for protocols [#288](https://github.com/shd101wyy/markdown-preview-enhanced/issues/288).  
+* [x] update docs.   
+* [x] change variable `rootDirectoryPath` to `fileDirectoryPath`.
+
+## 0.9.10
+* [x] support standard code fencing for graphs. [#286](https://github.com/shd101wyy/markdown-preview-enhanced/issues/286).   
+
+## 0.9.9  
+* [x] enhance code chunk. Now support `matplotlib` very well.   [#280](https://github.com/shd101wyy/markdown-preview-enhanced/issues/280).   
+```sh
+matplotlib: true      # enable inline matplotlib plot.  
+continue: true | id   # continue last code chunk or code chunk with id.  
+element: "<canvas id=\"hi\"></canvas>" # element to append.    
+```
+* [x] add `Markdown Preview Enhanced: Toggle Live Update`. And improve scroll sync when live update is disabled.  
+* [x] add `FAQ` section.  
+* [x] add `mathJaxProcessEnvironments` options that allows `processEnvironments` for MathJax.  
+* [ ] add cnpm url for phantomjs.  
+
+## 0.9.8  
+* [x] fix issue [#273](https://github.com/shd101wyy/markdown-preview-enhanced/issues/273). thanks for pull request from `@cuyl`.  
+* [x] added `markdown` output for code chunk.  
+
+
+## 0.9.7  
+* [x] add relative image path option for exporting html. fix issue [#264](https://github.com/shd101wyy/markdown-preview-enhanced/issues/264).  
+* [x] fix zen mode.
+
+## 0.9.6  
+* [x] support external files import. [introduction doc](./docs/doc-imports.md)  
+```javascript
+import "test.csv"
+import "test.jpg"  
+import "test.txt"  
+import "test.md"
+import "test.html"
+import "test.js"
+...
+```
+* [x] use [PapaParse](https://github.com/mholt/PapaParse) to parse `csv` file import.   
+* [x] fix syntax theme issue.  
+* [x] WaveDrom now doesn't require to use strict JSON. javascript code is fine as well.   
+* [x] fix toggle issue.   
+* [x] shrink output html file size.  
+* [ ] zen mode is broken...
+
 ## 0.9.5  
 * [x] upgrade `mermaid` to `7.0.0`, but class diagram still doesn't work.  
 * [x] upgrade `reveal.js` to `1.4.1`.
@@ -5,11 +86,11 @@
 * [x] upgrade `plantuml` to version `8054`.
 * [x] upgrade `viz.js` to version `1.7.0`, could be buggy though.
 * [x] partially fixed issue [#248](https://github.com/shd101wyy/markdown-preview-enhanced/issues/248). But can't navigate to anchor.   
-* [x] better support for zen mode. 
+* [x] better support for zen mode.
 
 ## 0.9.4  
-* [x] fix non-github syntax color issue [243](https://github.com/shd101wyy/markdown-preview-enhanced/issues/243)  
-* [x] fix vertical slides issue [241](https://github.com/shd101wyy/markdown-preview-enhanced/issues/241)  
+* [x] fix non-github syntax color issue [#243](https://github.com/shd101wyy/markdown-preview-enhanced/issues/243)  
+* [x] fix vertical slides issue [#241](https://github.com/shd101wyy/markdown-preview-enhanced/issues/241)  
 
 ## 0.9.3
 * [x] fix issue, 中文，日文 file image path error. [#236](https://github.com/shd101wyy/markdown-preview-enhanced/issues/236)

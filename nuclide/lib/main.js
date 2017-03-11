@@ -346,7 +346,7 @@ function serialize() {
 
 function safeDeactivate(name, suppressSerialization) {
   try {
-    const pack = atom.packages.getActivePackage(name);
+    const pack = atom.packages.getLoadedPackage(name);
     if (pack != null) {
       atom.packages.deactivatePackage(name, suppressSerialization);
     }

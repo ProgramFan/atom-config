@@ -103,5 +103,3 @@ exports.default = HandlesTableComponent; /**
                                           *
                                           * 
                                           */
-
-module.exports = exports["default"];

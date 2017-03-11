@@ -140,4 +140,3 @@ class CodeHighlightManager {
   }
 }
 exports.default = CodeHighlightManager;
-module.exports = exports['default'];

@@ -75,7 +75,7 @@ class ProjectStore {
 
   _isFileHHVMProject(fileUri) {
     return (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)('toolbar.isFileHHVMProject', (0, _asyncToGenerator.default)(function* () {
-      return fileUri != null && (_nuclideUri || _load_nuclideUri()).default.isRemote(fileUri) && (yield (0, (_HackLanguage || _load_HackLanguage()).isFileInHackProject)(fileUri));
+      return fileUri != null && (_nuclideUri || _load_nuclideUri()).default.isRemote(fileUri) && (0, (_HackLanguage || _load_HackLanguage()).isFileInHackProject)(fileUri);
     }));
   }
 
@@ -150,5 +150,3 @@ exports.default = ProjectStore; /**
                                  *
                                  * 
                                  */
-
-module.exports = exports['default'];

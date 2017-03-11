@@ -47,15 +47,17 @@ function _load_nuclideLogging() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const SESSION_END_EVENT = 'session-end-event'; /**
-                                                * Copyright (c) 2015-present, Facebook, Inc.
-                                                * All rights reserved.
-                                                *
-                                                * This source code is licensed under the license found in the LICENSE file in
-                                                * the root directory of this source tree.
-                                                *
-                                                * 
-                                                */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
+const SESSION_END_EVENT = 'session-end-event';
 
 class DebuggerInstanceBase {
 
@@ -108,7 +110,16 @@ class DebuggerInstance extends DebuggerInstanceBase {
   }
 
   _registerServerHandlers() {
-    this._disposables.add(new (_UniversalDisposable || _load_UniversalDisposable()).default(this._rpcService.getServerMessageObservable().refCount().subscribe(this._handleServerMessage.bind(this), this._handleServerError.bind(this), this._handleSessionEnd.bind(this))));
+    const disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._rpcService.getServerMessageObservable().refCount().subscribe(this._handleServerMessage.bind(this), this._handleServerError.bind(this), this._handleSessionEnd.bind(this)));
+    if (rpcServiceSupportsAtomNotifications(this._rpcService)) {
+      disposables.add(this._rpcService.getAtomNotificationObservable().refCount().subscribe(this._handleAtomNotification.bind(this)));
+    }
+    this._disposables.add(disposables);
+  }
+
+  _handleAtomNotification(notification) {
+    const { type, message } = notification;
+    atom.notifications.add(type, message);
   }
 
   getWebsocketAddress() {
@@ -227,4 +238,8 @@ class DebuggerInstance extends DebuggerInstanceBase {
     this._disposables.dispose();
   }
 }
+
 exports.DebuggerInstance = DebuggerInstance;
+function rpcServiceSupportsAtomNotifications(service) {
+  return typeof service.getAtomNotificationObservable === 'function';
+}

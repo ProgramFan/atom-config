@@ -55,12 +55,14 @@ class DebuggerInspector extends _reactForAtom.React.PureComponent {
 
   _handleClickClose() {
     this.props.stopDebugging();
+    hideDebuggerPane();
   }
 
   _handleClickDevTools() {
     this.props.openDevTools();
   }
 }
+
 exports.default = DebuggerInspector; /**
                                       * Copyright (c) 2015-present, Facebook, Inc.
                                       * All rights reserved.
@@ -71,4 +73,6 @@ exports.default = DebuggerInspector; /**
                                       * 
                                       */
 
-module.exports = exports['default'];
+function hideDebuggerPane() {
+  atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-debugger:hide');
+}

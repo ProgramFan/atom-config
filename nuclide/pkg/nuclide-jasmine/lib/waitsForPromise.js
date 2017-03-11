@@ -55,5 +55,3 @@ function waitsForPromise(...args) {
    *
    * 
    */
-
-module.exports = exports['default'];

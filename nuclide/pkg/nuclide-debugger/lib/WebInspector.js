@@ -22,4 +22,3 @@ if (!(global.WebInspector != null)) {
 }
 
 exports.default = global.WebInspector;
-module.exports = exports['default'];

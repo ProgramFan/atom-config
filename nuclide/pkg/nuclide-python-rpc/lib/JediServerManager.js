@@ -13,7 +13,8 @@ let getServerArgs = (() => {
       // Override the python path and additional sys paths
       // if override script is present.
       // $FlowFB
-      overrides = yield require('./fb/find-jedi-server-args')(src);
+      const findJediServerArgs = require('./fb/find-jedi-server-args').default;
+      overrides = yield findJediServerArgs(src);
     } catch (e) {}
     // Ignore.
 
@@ -184,4 +185,3 @@ class JediServerManager {
   }
 }
 exports.default = JediServerManager;
-module.exports = exports['default'];

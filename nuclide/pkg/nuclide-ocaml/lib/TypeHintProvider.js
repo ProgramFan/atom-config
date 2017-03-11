@@ -61,4 +61,3 @@ class TypeHintProvider {
   }
 }
 exports.default = TypeHintProvider;
-module.exports = exports['default'];

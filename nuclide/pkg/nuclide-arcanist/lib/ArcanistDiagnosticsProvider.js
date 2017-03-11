@@ -29,12 +29,6 @@ function _load_nuclideAnalytics() {
   return _nuclideAnalytics = require('../../nuclide-analytics');
 }
 
-var _onWillDestroyTextBuffer;
-
-function _load_onWillDestroyTextBuffer() {
-  return _onWillDestroyTextBuffer = _interopRequireDefault(require('../../commons-atom/on-will-destroy-text-buffer'));
-}
-
 var _string;
 
 function _load_string() {
@@ -78,21 +72,12 @@ class ArcanistDiagnosticsProvider {
     this._providerBase = new (_nuclideDiagnosticsProviderBase || _load_nuclideDiagnosticsProviderBase()).DiagnosticsProviderBase(baseOptions);
     this._subscriptions.add(this._providerBase);
     this._runningProcess = new Map();
-    this._subscriptions.add((0, (_onWillDestroyTextBuffer || _load_onWillDestroyTextBuffer()).default)(buffer => {
-      const path = buffer.getPath();
-      if (!path) {
-        return;
-      }
-      const runningProcess = this._runningProcess.get(path);
-      if (runningProcess != null) {
-        runningProcess.complete();
-      }
-      this._providerBase.publishMessageInvalidation({ scope: 'file', filePaths: [path] });
-    }));
+    this._bufferSubs = new Map();
   }
 
   dispose() {
     this._subscriptions.dispose();
+    this._bufferSubs.forEach((sub, path, _) => sub.dispose());
   }
 
   /** The returned Promise will resolve when results have been published. */
@@ -101,7 +86,36 @@ class ArcanistDiagnosticsProvider {
     if (path == null) {
       return Promise.resolve();
     }
+
+    const textBuffer = textEditor.getBuffer();
+    this._subscribeToBuffer(textBuffer);
+
     return this._busySignalProvider.reportBusy(`Waiting for arc lint results for \`${textEditor.getTitle()}\``, () => this._runLint(textEditor), { onlyForFile: path });
+  }
+
+  _subscribeToBuffer(textBuffer) {
+    const path = textBuffer.getPath();
+    if (path != null && !this._bufferSubs.has(path)) {
+      this._bufferSubs.set(path, textBuffer.onDidDestroy(() => this._handleBufferDidDestroy(path)));
+    }
+  }
+
+  _handleBufferDidDestroy(path) {
+    const sub = this._bufferSubs.get(path);
+
+    if (!(sub != null)) {
+      throw new Error('Missing TextBufffer subscription for ' + path);
+    }
+
+    sub.dispose();
+    this._bufferSubs.delete(path);
+
+    const runningProcess = this._runningProcess.get(path);
+    if (runningProcess != null) {
+      runningProcess.complete();
+    }
+
+    this._providerBase.publishMessageInvalidation({ scope: 'file', filePaths: [path] });
   }
 
   /** Do not call this directly -- call _runLintWithBusyMessage */

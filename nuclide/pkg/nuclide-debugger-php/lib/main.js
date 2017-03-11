@@ -46,7 +46,7 @@ function createDebuggerProvider() {
     name: 'hhvm',
     getLaunchAttachProvider(connection) {
       if ((_nuclideUri || _load_nuclideUri()).default.isRemote(connection)) {
-        return new (_HhvmLaunchAttachProvider || _load_HhvmLaunchAttachProvider()).HhvmLaunchAttachProvider('PHP', connection);
+        return new (_HhvmLaunchAttachProvider || _load_HhvmLaunchAttachProvider()).HhvmLaunchAttachProvider('PHP / Hack', connection);
       }
       return null;
     }

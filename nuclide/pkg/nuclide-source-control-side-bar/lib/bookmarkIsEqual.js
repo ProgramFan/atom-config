@@ -18,5 +18,3 @@ function bookmarkIsEqual(a, b) {
    *
    * 
    */
-
-module.exports = exports['default'];

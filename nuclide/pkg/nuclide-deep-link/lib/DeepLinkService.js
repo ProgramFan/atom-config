@@ -69,4 +69,3 @@ class DeepLinkService {
   }
 }
 exports.default = DeepLinkService;
-module.exports = exports['default'];

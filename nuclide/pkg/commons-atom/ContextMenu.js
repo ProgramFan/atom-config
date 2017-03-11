@@ -187,4 +187,3 @@ exports.default = ContextMenu; /** Comparator used to sort menu items by priorit
 function compareInternalItems(a, b) {
   return a.priority - b.priority;
 }
-module.exports = exports['default'];

@@ -685,7 +685,11 @@ class HgService {
     })();
   }
 
-  _commitCode(message, args) {
+  _commitCode(message, args, isInteractive) {
+    if (isInteractive) {
+      args.push('--interactive');
+    }
+
     let tempFile = null;
     let editMergeConfigs;
 
@@ -718,8 +722,8 @@ class HgService {
    * Commit code to version control.
    * @param message Commit message.
    */
-  commit(message) {
-    return this._commitCode(message, ['commit']).publish();
+  commit(message, isInteractive = false) {
+    return this._commitCode(message, ['commit'], isInteractive).publish();
   }
 
   /**
@@ -730,7 +734,7 @@ class HgService {
    *  Rebase to amend and rebase the stacked diffs.
    *  Fixup to fix the stacked commits, rebasing them on top of this commit.
    */
-  amend(message, amendMode) {
+  amend(message, amendMode, isInteractive = false) {
     const args = ['amend'];
     switch (amendMode) {
       case (_hgConstants || _load_hgConstants()).AmendMode.CLEAN:
@@ -744,7 +748,24 @@ class HgService {
       default:
         throw new Error('Unexpected AmendMode');
     }
-    return this._commitCode(message, args).publish();
+    return this._commitCode(message, args, isInteractive).publish();
+  }
+
+  splitRevision() {
+    let editMergeConfigs;
+    return _rxjsBundlesRxMinJs.Observable.fromPromise((0, _asyncToGenerator.default)(function* () {
+      editMergeConfigs = yield (0, (_hgUtils || _load_hgUtils()).getEditMergeConfigs)();
+    })()).switchMap(() => {
+      if (!(editMergeConfigs != null)) {
+        throw new Error('editMergeConfigs cannot be null');
+      }
+
+      const execOptions = {
+        cwd: this._workingDirectory,
+        HGEDITOR: editMergeConfigs.hgEditor
+      };
+      return this._hgObserveExecution([...editMergeConfigs.args, 'split'], execOptions);
+    }).publish();
   }
 
   revert(filePaths, toRevision) {
@@ -801,6 +822,13 @@ class HgService {
    */
   purge() {
     return this._runSimpleInWorkingDirectory('purge', []);
+  }
+
+  /**
+   * Undoes the effect of a local commit, specifically the working directory parent.
+   */
+  uncommit() {
+    return this._runSimpleInWorkingDirectory('uncommit', []);
   }
 
   /**
@@ -971,7 +999,7 @@ class HgService {
       });
       const origBackupPath = yield _this20._getOrigBackupPath();
       const conflicts = yield Promise.all(conflictedFiles.map((() => {
-        var _ref3 = (0, _asyncToGenerator.default)(function* (conflictedFile) {
+        var _ref4 = (0, _asyncToGenerator.default)(function* (conflictedFile) {
           let message;
           // Heuristic: If the `.orig` file doesn't exist, then it's deleted by the rebasing commit.
           if (yield _this20._checkOrigFile(origBackupPath, conflictedFile.path)) {
@@ -986,7 +1014,7 @@ class HgService {
         });
 
         return function (_x2) {
-          return _ref3.apply(this, arguments);
+          return _ref4.apply(this, arguments);
         };
       })()));
       return conflicts;

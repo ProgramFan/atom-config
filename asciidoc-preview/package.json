@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5194-1u6ad9n/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5194-1u6ad9n/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5194-1u6ad9n/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5194-j1h2ab"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5756-13bts53"
     ]
   ],
-  "_from": "../d-11718-5194-1u6ad9n/package.tgz",
-  "_id": "asciidoc-preview@2.7.1",
+  "_from": "../d-117211-5756-1kcl92s/package.tgz",
+  "_id": "asciidoc-preview@2.7.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5194-1u6ad9n/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5194-1u6ad9n/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5194-1u6ad9n/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-5194-1u6ad9n/package.tgz",
-  "_shasum": "b2be0f5db29f55f5d49678bda956d351a2c7f398",
+  "_resolved": "file:../d-117211-5756-1kcl92s/package.tgz",
+  "_shasum": "71ffdcfcd21047a83350a9b48bf8299cbefbf63f",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5194-1u6ad9n/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5194-j1h2ab",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5756-13bts53",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },
@@ -181,10 +181,10 @@
   "dependencies": {
     "asciidoctor.js": "1.5.5-1",
     "atom-space-pen-views": "~2.2.0",
-    "cheerio": "~0.20.0",
-    "font-awesome": "^4.6.3",
-    "fs-plus": "~2.8.2",
-    "mustache": "~2.2.1",
+    "cheerio": "~0.22.0",
+    "font-awesome": "^4.7.0",
+    "fs-plus": "~2.9.3",
+    "mustache": "~2.3.0",
     "opn": "^4.0.2",
     "underscore-plus": "~1.6.6"
   },
@@ -218,5 +218,5 @@
     "font-awesome",
     "asciidoc-preview"
   ],
-  "version": "2.7.1"
+  "version": "2.7.2"
 }

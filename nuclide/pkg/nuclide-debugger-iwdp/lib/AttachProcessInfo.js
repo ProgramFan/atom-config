@@ -52,6 +52,10 @@ class AttachProcessInfo extends (_nuclideDebuggerBase || _load_nuclideDebuggerBa
     return true;
   }
 
+  getThreadsComponentTitle() {
+    return 'Scripts';
+  }
+
   _getRpcService() {
     const service = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getIwdpDebuggerServiceByNuclideUri)(this.getTargetUri());
     return new service.IwdpDebuggerService();

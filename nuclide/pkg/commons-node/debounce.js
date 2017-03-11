@@ -32,9 +32,9 @@ function debounce(func, wait, immediate = false) {
     }
   };
 
-  const debounced = function () {
+  const debounced = function (...args_) {
     context = this;
-    args = arguments;
+    args = args_;
     timestamp = Date.now();
     const callNow = immediate && !timeout;
     if (!timeout) {
@@ -65,5 +65,3 @@ function debounce(func, wait, immediate = false) {
    *
    * 
    */
-
-module.exports = exports['default'];

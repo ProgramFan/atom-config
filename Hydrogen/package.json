@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5471-34npy1/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6046-m65rlp/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5471-34npy1/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5471-34npy1/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6046-m65rlp/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6046-m65rlp/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5471-rs8iqa"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-6046-1i7fdjz"
     ]
   ],
-  "_from": "../d-11718-5471-34npy1/package.tgz",
-  "_id": "Hydrogen@1.5.5",
+  "_from": "../d-117211-6046-m65rlp/package.tgz",
+  "_id": "Hydrogen@1.6.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/Hydrogen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5471-34npy1/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6046-m65rlp/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5471-34npy1/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5471-34npy1/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6046-m65rlp/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6046-m65rlp/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11718-5471-34npy1/package.tgz",
-  "_shasum": "a71bafb411240c5f0f750b15bbc6607ad8e4f61f",
+  "_resolved": "file:../d-117211-6046-m65rlp/package.tgz",
+  "_shasum": "fcc6379c299018f1bba7894aecb5819a2253727d",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-11718-5471-34npy1/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-11718-5471-rs8iqa",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6046-m65rlp/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-6046-1i7fdjz",
   "activationCommands": {
     "atom-text-editor": [
       "hydrogen:select-kernel",
@@ -63,7 +63,7 @@
     }
   },
   "dependencies": {
-    "@jupyterlab/services": "^0.36.0",
+    "@jupyterlab/services": "^0.39.0",
     "atom-message-panel": "^1.2.4",
     "atom-space-pen-views": "^2.0.5",
     "escape-string-regexp": "^1.0.5",
@@ -129,5 +129,5 @@
     "fix": "eslint . --fix",
     "lint": "eslint ."
   },
-  "version": "1.5.5"
+  "version": "1.6.0"
 }

@@ -14,10 +14,19 @@ exports.default = createPackage;
  * invoking any other package methods while a package is not activated. Therefore, it makes more
  * sense to build packages as instances, constructed when a package is activated and destroyed when
  * the package is deactivated.
+ *
+ * Atom uses a plain `require` to load the module, and not babel's `require` interop. So if
+ * `createPackage` were used as `export default createPackage(..)`, then Atom wouldn't be
+ * able to find any package methods because the ES Module transform would output
+ * `module.exports.default = {..};`. To workaround this, the module's `module.exports` is passed
+ * to `createPackage` so we can attach whatever properties to it.
+ *
+ * It was a conscious decision to use `createPackage(module.exports, Activation)` instead of
+ * `module.exports = createPackage(Activation)`, to avoid code style misunderstandings wrt
+ * CommonJS vs ES Modules.
  */
-function createPackage(Activation) {
+function createPackage(moduleExports, Activation) {
   let activation = null;
-  const pkg = {};
 
   // Proxy method calls on the package to the activation object.
   for (const property of getPropertyList(Activation.prototype)) {
@@ -27,49 +36,46 @@ function createPackage(Activation) {
     if (property === 'constructor') {
       continue;
     }
-    if (property === 'activate') {
-      throw new Error('Your activation class contains an "activate" method, but that work should be done in the' + ' constructor.');
+    if (property === 'initialize') {
+      throw new Error('Your activation class contains an "initialize" method, but that work should be done in the' + ' constructor.');
     }
     if (property === 'deactivate') {
       throw new Error('Your activation class contains an "deactivate" method. Please use "dispose" instead.');
     }
 
-    pkg[property] = function (...args) {
+    moduleExports[property] = function (...args) {
       if (!(activation != null)) {
-        throw new Error('Package not activated');
+        throw new Error('Package not initialized');
       }
 
       return activation[property](...args);
     };
   }
 
-  return Object.assign({}, pkg, {
-
-    /**
-     * Calling `activate()` creates a new instance.
-     */
-    activate(initialState) {
-      if (!(activation == null)) {
-        throw new Error('Package already activated');
-      }
-
-      activation = new Activation(initialState);
-    },
-
-    /**
-     * The `deactivate()` method is special-cased to null our activation instance reference.
-     */
-    deactivate() {
-      if (!(activation != null)) {
-        throw new Error('Package not activated');
-      }
-
-      if (typeof activation.dispose === 'function') {
-        activation.dispose();
-      }
-      activation = null;
+  /**
+   * Calling `initialize()` creates a new instance.
+   */
+  moduleExports.initialize = initialState => {
+    if (!(activation == null)) {
+      throw new Error('Package already initialized');
     }
-  });
+
+    activation = new Activation(initialState);
+  };
+
+  /**
+   * The `deactivate()` method is special-cased to null our activation instance reference.
+   */
+  moduleExports.deactivate = () => {
+    if (!(activation != null)) {
+      throw new Error('Package not initialized');
+    }
+
+    if (typeof activation.dispose === 'function') {
+      activation.dispose();
+    }
+    activation = null;
+  };
 } /**
    * Copyright (c) 2015-present, Facebook, Inc.
    * All rights reserved.
@@ -106,4 +112,3 @@ function getPropertyList(prototype) {
   }
   return properties;
 }
-module.exports = exports['default'];

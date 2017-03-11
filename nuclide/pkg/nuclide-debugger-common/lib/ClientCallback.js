@@ -6,21 +6,35 @@ Object.defineProperty(exports, "__esModule", {
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
-class ClientCallback {
-  // For user visible output messages.
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
+class ClientCallback {
+  // For server messages.
   constructor() {
     this._serverMessageObservable = new _rxjsBundlesRxMinJs.Subject();
     this._userOutputObservable = new _rxjsBundlesRxMinJs.Subject();
-  } // For server messages.
+    this._atomNotificationObservable = new _rxjsBundlesRxMinJs.Subject();
+  } // For user visible output messages.
 
 
   getServerMessageObservable() {
-    return this._serverMessageObservable;
+    return this._serverMessageObservable.asObservable();
   }
 
   getOutputWindowObservable() {
-    return this._userOutputObservable;
+    return this._userOutputObservable.asObservable();
+  }
+
+  getAtomNotificationObservable() {
+    return this._atomNotificationObservable.asObservable();
   }
 
   sendChromeMessage(message) {
@@ -31,19 +45,13 @@ class ClientCallback {
     this._userOutputObservable.next(message);
   }
 
+  sendAtomNotification(type, message) {
+    this._atomNotificationObservable.next({ type, message });
+  }
+
   dispose() {
     this._serverMessageObservable.complete();
     this._userOutputObservable.complete();
   }
 }
-exports.default = ClientCallback; /**
-                                   * Copyright (c) 2015-present, Facebook, Inc.
-                                   * All rights reserved.
-                                   *
-                                   * This source code is licensed under the license found in the LICENSE file in
-                                   * the root directory of this source tree.
-                                   *
-                                   * 
-                                   */
-
-module.exports = exports['default'];
+exports.default = ClientCallback;

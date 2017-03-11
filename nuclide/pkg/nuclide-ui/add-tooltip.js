@@ -41,7 +41,11 @@ function addTooltip(options) {
       // keybinding. By deferring it to the end of the event loop, it is now
       // in the DOM and has the proper keybinding.
       immediate = setImmediate(() => {
-        prevRefDisposable = atom.tooltips.add(node, Object.assign({
+        prevRefDisposable = atom.tooltips.add(
+        // $FlowFixMe
+        node,
+        // $FlowFixMe
+        Object.assign({
           keyBindingTarget: node
         }, options));
       });
@@ -56,5 +60,3 @@ function addTooltip(options) {
    *
    * 
    */
-
-module.exports = exports['default'];

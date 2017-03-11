@@ -92,4 +92,3 @@ class JediServer {
   }
 }
 exports.default = JediServer;
-module.exports = exports['default'];

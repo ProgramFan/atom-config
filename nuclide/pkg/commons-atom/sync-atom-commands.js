@@ -42,4 +42,3 @@ function syncAtomCommands(source, project, hash) {
     return new _atom.CompositeDisposable(...disposables);
   }, hash);
 }
-module.exports = exports['default'];

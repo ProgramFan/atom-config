@@ -117,4 +117,3 @@ function isEditableArray(array) {
   }
   return true;
 }
-module.exports = exports['default'];

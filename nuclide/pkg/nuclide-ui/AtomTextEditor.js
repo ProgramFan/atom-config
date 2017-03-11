@@ -13,12 +13,6 @@ function _load_classnames() {
 
 var _reactForAtom = require('react-for-atom');
 
-var _semver;
-
-function _load_semver() {
-  return _semver = _interopRequireDefault(require('semver'));
-}
-
 var _atom = require('atom');
 
 var _textEditor;
@@ -35,15 +29,17 @@ function _load_UniversalDisposable() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const doNothing = () => {}; /**
-                             * Copyright (c) 2015-present, Facebook, Inc.
-                             * All rights reserved.
-                             *
-                             * This source code is licensed under the license found in the LICENSE file in
-                             * the root directory of this source tree.
-                             *
-                             * 
-                             */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
+const doNothing = () => {};
 
 function setupTextEditor(props) {
   const textBuffer = props.textBuffer || new _atom.TextBuffer();
@@ -116,15 +112,10 @@ class AtomTextEditor extends _reactForAtom.React.Component {
     // $FlowFixMe
     atom.views.views.set(textEditor, textEditorElement);
     // Attach to DOM.
+    // $FlowFixMe
     container.innerHTML = '';
+    // $FlowFixMe
     container.appendChild(textEditorElement);
-
-    // The following is a hack to work around the broken atom-text-editor auto-sizing in Atom 1.9.x
-    // See https://github.com/atom/atom/issues/12441 to follow the proper fix.
-    // TODO @jxg remove once atom-text-editor is fixed.
-    if ((_semver || _load_semver()).default.lt(atom.getVersion(), '1.9.0')) {
-      return;
-    }
 
     if (this.props.correctContainerWidth) {
       this._editorDisposables.add(textEditorElement.onDidAttach(() => {
@@ -133,6 +124,7 @@ class AtomTextEditor extends _reactForAtom.React.Component {
           return;
         }
         const { width } = correctlySizedElement.style;
+        // $FlowFixMe
         container.style.width = width;
       }));
     }

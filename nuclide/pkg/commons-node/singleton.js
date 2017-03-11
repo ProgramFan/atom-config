@@ -54,4 +54,3 @@ exports.default = {
   clear,
   reset
 };
-module.exports = exports['default'];

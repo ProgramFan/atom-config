@@ -27,5 +27,3 @@ exports.default = IndeterminateProgressBar; /**
                                              *
                                              * 
                                              */
-
-module.exports = exports["default"];

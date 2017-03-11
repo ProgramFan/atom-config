@@ -92,6 +92,16 @@ class ScopesComponent extends _reactForAtom.React.Component {
   _renderScopeSection(fetchChildren, scope) {
     // Non-local scopes should be collapsed by default since users typically care less about them.
     const collapsedByDefault = scope.name !== 'Locals';
+    const noLocals = scope.name !== 'Locals' || scope.scopeVariables.length > 0 ? null : _reactForAtom.React.createElement(
+      'div',
+      { className: 'nuclide-debugger-expression-value-row' },
+      _reactForAtom.React.createElement(
+        'span',
+        { className: 'nuclide-debugger-expression-value-content' },
+        '(no variables)'
+      )
+    );
+
     return _reactForAtom.React.createElement(
       (_Section || _load_Section()).Section,
       {
@@ -99,6 +109,7 @@ class ScopesComponent extends _reactForAtom.React.Component {
         headline: scope.name,
         size: 'small',
         collapsedByDefault: collapsedByDefault },
+      noLocals,
       scope.scopeVariables.map(this._renderExpression.bind(this, fetchChildren))
     );
   }

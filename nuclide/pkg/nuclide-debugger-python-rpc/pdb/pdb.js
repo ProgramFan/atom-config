@@ -115,5 +115,3 @@ function interact(observable, commander) {
   });
 }
 /* eslint-enable no-console */
-
-module.exports = exports['default'];

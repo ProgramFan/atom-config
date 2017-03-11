@@ -151,21 +151,22 @@ class Activation {
         title: 'Diagnostics',
         icon: 'law',
         description: 'Displays diagnostics, errors, and lint warnings for your files and projects.',
-        command: 'nuclide-diagnostics-ui:show-table'
+        command: () => {
+          atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-diagnostics-ui:toggle-table', { visible: true });
+        }
       },
       priority: 4
     };
   }
 
   _createDiagnosticsPanelModel() {
-    return new (_DiagnosticsPanelModel || _load_DiagnosticsPanelModel()).DiagnosticsPanelModel(this._diagnosticUpdaters.switchMap(updater => updater == null ? _rxjsBundlesRxMinJs.Observable.of([]) : updater.allMessageUpdates), this._state.filterByActiveTextEditor,
-    // https://github.com/gajus/eslint-plugin-flowtype/pull/131
-    // eslint-disable-next-line flowtype/space-after-type-colon
-    (_featureConfig || _load_featureConfig()).default.observeAsStream('nuclide-diagnostics-ui.showDiagnosticTraces'), disableLinter, filterByActiveTextEditor => {
+    return new (_DiagnosticsPanelModel || _load_DiagnosticsPanelModel()).DiagnosticsPanelModel(this._diagnosticUpdaters.switchMap(updater => updater == null ? _rxjsBundlesRxMinJs.Observable.of([]) : updater.allMessageUpdates), (_featureConfig || _load_featureConfig()).default.observeAsStream('nuclide-diagnostics-ui.showDiagnosticTraces'), showTraces => {
+      (_featureConfig || _load_featureConfig()).default.set('nuclide-diagnostics-ui.showDiagnosticTraces', showTraces);
+    }, disableLinter, observeLinterPackageEnabled(), this._state.filterByActiveTextEditor, filterByActiveTextEditor => {
       if (this._state != null) {
         this._state.filterByActiveTextEditor = filterByActiveTextEditor;
       }
-    }, observeLinterPackageEnabled());
+    });
   }
 
   consumeWorkspaceViewsService(api) {
@@ -378,4 +379,4 @@ function observeLinterPackageEnabled() {
   return _rxjsBundlesRxMinJs.Observable.merge(_rxjsBundlesRxMinJs.Observable.of(atom.packages.isPackageActive(LINTER_PACKAGE)), (0, (_event || _load_event()).observableFromSubscribeFunction)(atom.packages.onDidActivatePackage.bind(atom.packages)).filter(pkg => pkg.name === LINTER_PACKAGE).mapTo(true), (0, (_event || _load_event()).observableFromSubscribeFunction)(atom.packages.onDidDeactivatePackage.bind(atom.packages)).filter(pkg => pkg.name === LINTER_PACKAGE).mapTo(false));
 }
 
-module.exports = (0, (_createPackage || _load_createPackage()).default)(Activation);
+(0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);

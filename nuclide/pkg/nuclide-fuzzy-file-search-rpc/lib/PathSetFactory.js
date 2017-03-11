@@ -14,17 +14,13 @@ function _load_split() {
   return _split = _interopRequireDefault(require('split'));
 }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _nuclideWatchmanHelpers;
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+function _load_nuclideWatchmanHelpers() {
+  return _nuclideWatchmanHelpers = require('../../nuclide-watchman-helpers');
+}
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getFilesFromCommand(command, args, localDirectory, transform) {
   return new Promise((resolve, reject) => {
@@ -59,7 +55,15 @@ function getFilesFromCommand(command, args, localDirectory, transform) {
       }
     });
   });
-}
+} /**
+   * Copyright (c) 2015-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the license found in the LICENSE file in
+   * the root directory of this source tree.
+   *
+   * 
+   */
 
 function getTrackedHgFiles(localDirectory) {
   return getFilesFromCommand('hg', ['locate', '--fullpath', '--include', '.'], localDirectory, filePath => filePath.slice(localDirectory.length + 1));
@@ -129,12 +133,24 @@ function getAllFiles(localDirectory) {
   filePath => filePath.substring(2));
 }
 
+function getAllFilesFromWatchman( // eslint-disable-line no-unused-vars
+localDirectory) {
+  const client = new (_nuclideWatchmanHelpers || _load_nuclideWatchmanHelpers()).WatchmanClient();
+  try {
+    return client.listFiles(localDirectory);
+  } finally {
+    client.dispose();
+  }
+}
+
 function getPaths(localDirectory) {
   // Attempts to get a list of files relative to `localDirectory`, hopefully from
   // a fast source control index.
   // TODO (williamsc) once ``{HG|Git}Repository` is working in nuclide-server,
   // use those instead to determine VCS.
-  return getFilesFromHg(localDirectory).catch(() => getFilesFromGit(localDirectory)).catch(() => getAllFiles(localDirectory)).catch(() => {
+  return getFilesFromHg(localDirectory).catch(() => getFilesFromGit(localDirectory))
+  // .catch(() => getAllFilesFromWatchman(localDirectory))
+  .catch(() => getAllFiles(localDirectory)).catch(() => {
     throw new Error(`Failed to populate FileSearch for ${localDirectory}`);
   });
 }

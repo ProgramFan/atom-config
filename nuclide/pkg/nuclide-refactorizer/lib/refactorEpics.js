@@ -10,23 +10,20 @@ let getRefactorings = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (providers) {
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('nuclide-refactorizer:get-refactorings');
     const editor = atom.workspace.getActiveTextEditor();
-    if (editor == null) {
-      return (_refactorActions || _load_refactorActions()).gotRefactoringsError();
-    }
-    if (editor.getPath() == null) {
-      return (_refactorActions || _load_refactorActions()).gotRefactoringsError();
+    if (editor == null || editor.getPath() == null) {
+      return (_refactorActions || _load_refactorActions()).error('get-refactorings', Error('Must be run from a saved file.'));
     }
     const cursor = editor.getLastCursor();
     const provider = providers.getProviderForEditor(editor);
     if (provider == null) {
-      return (_refactorActions || _load_refactorActions()).gotRefactoringsError();
+      return (_refactorActions || _load_refactorActions()).error('get-refactorings', Error('No providers found.'));
     }
     try {
       const cursorPosition = cursor.getBufferPosition();
       const availableRefactorings = yield provider.refactoringsAtPoint(editor, cursorPosition);
       return (_refactorActions || _load_refactorActions()).gotRefactorings(editor, cursorPosition, provider, availableRefactorings);
     } catch (e) {
-      return (_refactorActions || _load_refactorActions()).gotRefactoringsError();
+      return (_refactorActions || _load_refactorActions()).error('get-refactorings', e);
     }
   });
 
@@ -42,8 +39,7 @@ let executeRefactoring = (() => {
     try {
       response = yield provider.refactor(refactoring);
     } catch (e) {
-      // TODO use an error action here
-      return (_refactorActions || _load_refactorActions()).close();
+      return (_refactorActions || _load_refactorActions()).error('execute', e);
     }
     if (response == null) {
       // TODO use an error action here
@@ -94,6 +90,12 @@ function _load_nuclideAnalytics() {
   return _nuclideAnalytics = require('../../nuclide-analytics');
 }
 
+var _nuclideLogging;
+
+function _load_nuclideLogging() {
+  return _nuclideLogging = require('../../nuclide-logging');
+}
+
 var _nuclideTextedit;
 
 function _load_nuclideTextedit() {
@@ -110,16 +112,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 function getEpics(providers) {
   return [function getRefactoringsEpic(actions) {
     return actions.ofType('open').switchMap(() => {
@@ -135,16 +127,24 @@ function getEpics(providers) {
       return _rxjsBundlesRxMinJs.Observable.fromPromise(executeRefactoring(action)).takeUntil(actions);
     });
   }, function handleErrors(actions) {
-    return actions
-    // This is weird but Flow won't accept `action.error` or even `Boolean(action.error)`
-    .filter(action => action.error ? true : false)
-    // TODO provide some feedback to the user that an error has occurred
-    .map(action => {
-      if (!action.error) {
-        throw new Error('Invariant violation: "action.error"');
+    return actions.ofType('error').map(action => {
+      if (!(action.type === 'error')) {
+        throw new Error('Invariant violation: "action.type === \'error\'"');
       }
 
+      const { source, error } = action.payload;
+      const sourceName = source === 'got-refactorings' ? 'getting refactors' : 'executing refactor';
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error ${sourceName}:`, error);
+      atom.notifications.addError(`Error ${sourceName}`, { detail: error.stack, dismissable: true });
       return (_refactorActions || _load_refactorActions()).close();
     });
   }];
-}
+} /**
+   * Copyright (c) 2015-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the license found in the LICENSE file in
+   * the root directory of this source tree.
+   *
+   * 
+   */

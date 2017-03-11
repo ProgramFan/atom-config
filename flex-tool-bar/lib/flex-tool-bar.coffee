@@ -47,16 +47,16 @@ module.exports =
     @configFilePath = atom.config.get 'flex-tool-bar.toolBarConfigurationFilePath'
 
     # Default directory
-    @configFilePath = process.env.ATOM_HOME unless @configFilePath
+    @configFilePath = atom.configDirPath unless @configFilePath
 
-    # If configFilePath is a folder, check for `toolbar.(json|cson|json5)` file
+    # If configFilePath is a folder, check for `toolbar.(json|cson|json5|js|coffee)` file
     unless fs.isFileSync(@configFilePath)
-      @configFilePath = fs.resolve @configFilePath, 'toolbar', ['cson', 'json5', 'json']
+      @configFilePath = fs.resolve @configFilePath, 'toolbar', ['cson', 'json5', 'json', 'js', 'coffee']
 
     return true if @configFilePath
 
     unless @configFilePath
-      @configFilePath = path.join process.env.ATOM_HOME, 'toolbar.cson'
+      @configFilePath = path.join atom.configDirPath, 'toolbar.cson'
       defaultConfig = '''
 # This file is used by Flex Tool Bar to create buttons on your Tool Bar.
 # For more information how to use this package and create your own buttons,
@@ -94,7 +94,7 @@ module.exports =
       while count < projectCount
         pathToCheck = atom.project.getPaths()[count]
         if editor.buffer.file.getParent().path.includes(pathToCheck)
-          @projectToolbarConfigPath = fs.resolve pathToCheck, 'toolbar', ['cson', 'json5', 'json']
+          @projectToolbarConfigPath = fs.resolve pathToCheck, 'toolbar', ['cson', 'json5', 'json', 'js', 'coffee']
         count++
 
     if @projectToolbarConfigPath is @configFilePath
@@ -150,6 +150,10 @@ module.exports =
     @toolBar = toolBar 'flex-toolBar'
     @reloadToolbar(false)
 
+  getToolbarView: ->
+    # This is an undocumented API that moved in tool-bar@1.1.0
+    @toolBar.toolBarView || @toolBar.toolBar
+
   reloadToolbar: (withNotification=false) ->
     return unless @toolBar?
     try
@@ -165,10 +169,10 @@ module.exports =
       console.error error
 
   fixToolBarHeight: ->
-    @toolBar.toolBar.element.style.height = "#{@toolBar.toolBar.element.offsetHeight}px"
+    @getToolbarView().element.style.height = "#{@getToolbarView().element.offsetHeight}px"
 
   unfixToolBarHeight: ->
-    @toolBar.toolBar.element.style.height = null
+    @getToolbarView().element.style.height = null
 
   addButtons: (toolBarButtons) ->
     if toolBarButtons?
@@ -188,6 +192,11 @@ module.exports =
           for propName, v of btn.style
             button.element.style[changeCase.camelCase(propName)] = v
 
+        if btn.className?
+          ary = btn.className.split ","
+          for val in ary
+            button.element.classList.add val.trim()
+
         if ( btn.disable? && @grammarCondition(btn.disable) ) or ( btn.enable? && !@grammarCondition(btn.enable) )
           button.setEnabled false
 
@@ -195,6 +204,10 @@ module.exports =
     ext = path.extname @configFilePath
 
     switch ext
+      when '.js', '.coffee'
+        config = require(@configFilePath)
+        delete require.cache[@configFilePath]
+
       when '.json'
         config = require @configFilePath
         delete require.cache[@configFilePath]
@@ -212,6 +225,10 @@ module.exports =
       ext = path.extname @projectToolbarConfigPath
 
       switch ext
+        when '.js', '.coffee'
+          projConfig = require(@projectToolbarConfigPath)
+          delete require.cache[@projectToolbarConfigPath]
+
         when '.json'
           projConfig = require @projectToolbarConfigPath
           delete require.cache[@projectToolbarConfigPath]

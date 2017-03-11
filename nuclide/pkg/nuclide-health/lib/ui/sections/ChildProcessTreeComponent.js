@@ -72,4 +72,3 @@ function flatten(handles, process, level) {
   handles.push({ process, level });
   process.children.forEach(child => flatten(handles, child, level + 1));
 }
-module.exports = exports['default'];

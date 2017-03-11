@@ -68,6 +68,7 @@ class Checkbox extends _reactForAtom.React.PureComponent {
    * @see https://www.w3.org/TR/html5/forms.html#the-input-element
    */
   _setIndeterminate() {
+    // $FlowFixMe
     _reactForAtom.ReactDOM.findDOMNode(this.refs.input).indeterminate = this.props.indeterminate;
   }
 
@@ -80,7 +81,8 @@ class Checkbox extends _reactForAtom.React.PureComponent {
       indeterminate, // exclude `indeterminate` from `remainingProps`
       label,
       onClick,
-      tooltip
+      tooltip,
+      title
     } = this.props;
 
     const ref = tooltip ? (0, (_addTooltip || _load_addTooltip()).default)(tooltip) : null;
@@ -97,7 +99,8 @@ class Checkbox extends _reactForAtom.React.PureComponent {
           'nuclide-ui-checkbox-disabled': disabled
         }),
         ref: ref,
-        onClick: onClick && (0, (_ignoreTextSelectionEvents || _load_ignoreTextSelectionEvents()).default)(onClick) },
+        onClick: onClick && (0, (_ignoreTextSelectionEvents || _load_ignoreTextSelectionEvents()).default)(onClick),
+        title: title },
       _reactForAtom.React.createElement('input', {
         checked: checked,
         className: 'input-checkbox nuclide-ui-checkbox',

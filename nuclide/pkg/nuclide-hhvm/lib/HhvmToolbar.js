@@ -133,4 +133,3 @@ class HhvmToolbar extends _reactForAtom.React.Component {
   }
 }
 exports.default = HhvmToolbar;
-module.exports = exports['default'];

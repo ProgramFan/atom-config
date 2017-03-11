@@ -50,12 +50,13 @@ function getReplacementPrefix(originalPrefix) {
   return JAVASCRIPT_WHOLE_STRING_IDENTIFIER_REGEX.test(originalPrefix) ? originalPrefix : '';
 }
 
-function shouldFilter(lastRequest, currentRequest) {
+function shouldFilter(lastRequest, currentRequest, charsSinceLastRequest) {
   const prefixIsIdentifier = JAVASCRIPT_WHOLE_STRING_IDENTIFIER_REGEX.test(currentRequest.prefix);
   const previousPrefixIsDot = /^\s*\.\s*$/.test(lastRequest.prefix);
-  const currentPrefixIsSingleChar = currentRequest.prefix.length === 1;
-  const startsWithPrevious = currentRequest.prefix.length - 1 === lastRequest.prefix.length && currentRequest.prefix.startsWith(lastRequest.prefix);
-  return prefixIsIdentifier && (previousPrefixIsDot && currentPrefixIsSingleChar || startsWithPrevious);
+  const prefixLengthDifference = currentRequest.prefix.length - lastRequest.prefix.length;
+  const startsWithPrevious = currentRequest.prefix.startsWith(lastRequest.prefix);
+
+  return prefixIsIdentifier && (previousPrefixIsDot && currentRequest.prefix.length === charsSinceLastRequest || startsWithPrevious && prefixLengthDifference === charsSinceLastRequest);
 }
 
 function filterResultsByPrefix(prefix, results) {

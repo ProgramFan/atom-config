@@ -4,16 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = refactorReducers;
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 function refactorReducers(state_, action) {
   let state = state_;
   if (state == null) {
@@ -40,7 +30,15 @@ function refactorReducers(state_, action) {
     default:
       return state;
   }
-}
+} /**
+   * Copyright (c) 2015-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the license found in the LICENSE file in
+   * the root directory of this source tree.
+   *
+   * 
+   */
 
 function open(state, action) {
   if (!(state.type === 'closed')) {
@@ -99,19 +97,37 @@ function pickedRefactor(state, action) {
     throw new Error('Invariant violation: "state.phase.type === \'pick\'"');
   }
 
-  const refactoring = action.payload.refactoring;
-  const { editor, originalPoint } = state.phase;
   return {
     type: 'open',
     ui: state.ui,
-    phase: {
-      type: 'rename',
-      provider: state.phase.provider,
-      originalPoint,
-      symbolAtPoint: refactoring.symbolAtPoint,
-      editor
-    }
+    phase: getRefactoringPhase(action.payload.refactoring, state.phase)
   };
+}
+
+function getRefactoringPhase(refactoring, { provider, editor, originalPoint }) {
+  switch (refactoring.kind) {
+    case 'rename':
+      return {
+        type: 'rename',
+        provider,
+        editor,
+        originalPoint,
+        symbolAtPoint: refactoring.symbolAtPoint
+      };
+    case 'freeform':
+      return {
+        type: 'freeform',
+        provider,
+        editor,
+        originalPoint,
+        refactoring
+      };
+    default:
+      if (!false) {
+        throw new Error(`Unexpected refactoring kind ${refactoring.kind}`);
+      }
+
+  }
 }
 
 function executeRefactor(state, action) {
@@ -127,4 +143,3 @@ function executeRefactor(state, action) {
     }
   };
 }
-module.exports = exports['default'];

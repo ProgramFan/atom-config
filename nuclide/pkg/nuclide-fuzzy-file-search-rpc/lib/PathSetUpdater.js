@@ -163,4 +163,3 @@ class PathSetUpdater {
   }
 }
 exports.default = PathSetUpdater;
-module.exports = exports['default'];

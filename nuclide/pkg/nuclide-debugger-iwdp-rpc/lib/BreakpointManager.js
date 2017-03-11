@@ -36,9 +36,8 @@ const BREAKPOINT_ID_PREFIX = 'NUCLIDE';
 
 class BreakpointManager {
 
-  constructor(fileCache, sendMessageToClient) {
+  constructor(sendMessageToClient) {
     this._breakpoints = new Map();
-    this._fileCache = fileCache;
     this._connections = new Set();
     this._sendMessageToClient = sendMessageToClient;
     this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(() => this._connections.clear());
@@ -64,12 +63,9 @@ class BreakpointManager {
     return (0, _asyncToGenerator.default)(function* () {
       const responsePromises = [];
       for (const breakpoint of _this._breakpoints.values()) {
-        const { params } = breakpoint;
         const responsePromise = connection.sendCommand({
           method: 'Debugger.setBreakpointByUrl',
-          params: Object.assign({}, params, {
-            url: _this._fileCache.getUrlFromFilePath(params.url)
-          })
+          params: breakpoint.params
         });
         if (breakpoint.resolved) {
           responsePromises.push(responsePromise);
@@ -101,7 +97,9 @@ class BreakpointManager {
     }
     return connection.sendCommand({
       method: 'Debugger.setPauseOnExceptions',
-      params: this._setPauseOnExceptionsState
+      params: {
+        state: this._setPauseOnExceptionsState
+      }
     });
   }
 
@@ -182,12 +180,7 @@ class BreakpointManager {
         resolved: true
       };
       _this4._breakpoints.set(nuclideId, breakpoint);
-      const targetMessage = Object.assign({}, message, {
-        params: Object.assign({}, message.params, {
-          url: _this4._fileCache.getUrlFromFilePath(message.params.url)
-        })
-      });
-      const responses = yield _this4._sendMessageToAllTargets(targetMessage);
+      const responses = yield _this4._sendMessageToAllTargets(message);
       log(`setBreakpointByUrl yielded: ${JSON.stringify(responses)}`);
       for (const response of responses) {
         // We will receive multiple responses, so just send the first non-error one.

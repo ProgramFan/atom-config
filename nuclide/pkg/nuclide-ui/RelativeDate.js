@@ -79,4 +79,3 @@ RelativeDate.defaultProps = {
   shorten: false,
   withToolip: false
 };
-module.exports = exports['default'];

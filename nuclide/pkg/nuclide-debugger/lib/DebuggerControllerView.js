@@ -131,4 +131,3 @@ class DebuggerControllerView extends _reactForAtom.React.Component {
   }
 }
 exports.default = DebuggerControllerView;
-module.exports = exports['default'];

@@ -24,11 +24,7 @@ class QuickOpenProviderRegistry {
   }
 
   getProviders() {
-    return [
-    // $FlowIssue: Iterator is spreadable.
-    ...this._globalProviders.values(),
-    // $FlowIssue: Iterator is spreadable.
-    ...this._directoryProviders.values()];
+    return [...this._globalProviders.values(), ...this._directoryProviders.values()];
   }
 
   getGlobalProviders() {
@@ -96,5 +92,3 @@ exports.default = QuickOpenProviderRegistry; /**
                                               *
                                               * 
                                               */
-
-module.exports = exports['default'];

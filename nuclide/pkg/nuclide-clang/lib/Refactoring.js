@@ -111,4 +111,3 @@ class RefactoringHelpers {
   }
 }
 exports.default = RefactoringHelpers;
-module.exports = exports['default'];

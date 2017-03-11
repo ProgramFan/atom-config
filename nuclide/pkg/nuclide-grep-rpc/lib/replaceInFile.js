@@ -108,5 +108,3 @@ function replaceInFile(path, regex, replacement) {
    *
    * 
    */
-
-module.exports = exports['default'];

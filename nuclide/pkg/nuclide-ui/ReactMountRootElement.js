@@ -43,4 +43,3 @@ class ReactMountRootElement extends HTMLElement {
 exports.default = document.registerElement('nuclide-react-mount-root', {
   prototype: ReactMountRootElement.prototype
 });
-module.exports = exports['default'];

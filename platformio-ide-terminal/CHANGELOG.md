@@ -1,3 +1,21 @@
+## 2.4.0 - PlatformIO
+
+* Add terminal focus command and keybinding
+* Fix issue when running `electron` command
+
+## 2.3.1 - PlatformIO
+
+* Use /bin/bash shell by default if process.env.SHELL is not defined
+
+## 2.3.0 - PlatformIO
+
+* New option: Copy text to clipboard on selection (enabled by default)
+
+## 2.2.3 - PlatformIO
+
+* Add Christmas and One-Dark themes
+* Add compatibility for Atom 1.14 and Windows x64
+
 ## 2.2.2 - PlatformIO
 
 * Fix "Uncaught TypeError: Cannot read property 'focus' of null" ([issue #29](https://github.com/platformio/platformio-atom-ide-terminal/issues/29))

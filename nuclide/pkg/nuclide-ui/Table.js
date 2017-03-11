@@ -120,6 +120,7 @@ class Table extends _reactForAtom.React.Component {
     document.addEventListener('mousemove', this._handleResizerGlobalMouseMove);
     document.addEventListener('mouseup', this._handleResizerGlobalMouseUp);
     this._resizeStartX = event.pageX;
+    // $FlowFixMe
     this._tableWidth = _reactForAtom.ReactDOM.findDOMNode(this.refs.table).getBoundingClientRect().width;
     this._columnBeingResized = key;
     this._globalEventsDisposable = new _atom.Disposable(() => {

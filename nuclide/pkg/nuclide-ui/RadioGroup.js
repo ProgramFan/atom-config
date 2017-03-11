@@ -68,4 +68,3 @@ RadioGroup.defaultProps = {
   onSelectedChange: selectedIndex => {},
   selectedIndex: 0
 };
-module.exports = exports['default'];

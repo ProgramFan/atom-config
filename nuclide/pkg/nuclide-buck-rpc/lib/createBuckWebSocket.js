@@ -81,4 +81,3 @@ function createBuckWebSocket(httpPort) {
     };
   });
 }
-module.exports = exports['default'];

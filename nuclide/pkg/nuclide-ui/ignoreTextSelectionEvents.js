@@ -46,4 +46,3 @@ const ignoreTextSelectionEvents = cb => {
 };
 
 exports.default = ignoreTextSelectionEvents;
-module.exports = exports['default'];

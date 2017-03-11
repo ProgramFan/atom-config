@@ -614,4 +614,3 @@ class FileTreeActions {
   }
 }
 exports.default = FileTreeActions;
-module.exports = exports['default'];

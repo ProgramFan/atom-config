@@ -65,7 +65,15 @@ class Combobox extends _reactForAtom.React.Component {
 
   componentDidMount() {
     const node = _reactForAtom.ReactDOM.findDOMNode(this);
-    this._subscriptions.add(atom.commands.add(node, 'core:move-up', this._handleMoveUp), atom.commands.add(node, 'core:move-down', this._handleMoveDown), atom.commands.add(node, 'core:cancel', this._handleCancel), atom.commands.add(node, 'core:confirm', this._handleConfirm), this.refs.freeformInput.onDidChange(this._handleTextInputChange));
+    this._subscriptions.add(
+    // $FlowFixMe
+    atom.commands.add(node, 'core:move-up', this._handleMoveUp),
+    // $FlowFixMe
+    atom.commands.add(node, 'core:move-down', this._handleMoveDown),
+    // $FlowFixMe
+    atom.commands.add(node, 'core:cancel', this._handleCancel),
+    // $FlowFixMe
+    atom.commands.add(node, 'core:confirm', this._handleConfirm), this.refs.freeformInput.onDidChange(this._handleTextInputChange));
     this.requestUpdate(this.state.textInput);
   }
 
@@ -192,6 +200,7 @@ class Combobox extends _reactForAtom.React.Component {
 
   _handleInputFocus() {
     this.requestUpdate(this.state.textInput);
+    // $FlowFixMe
     const boundingRect = _reactForAtom.ReactDOM.findDOMNode(this).getBoundingClientRect();
     this.setState({
       optionsVisible: true,
@@ -226,6 +235,7 @@ class Combobox extends _reactForAtom.React.Component {
       // <select> behavior by keeping focus in the form being edited.
       const input = _reactForAtom.ReactDOM.findDOMNode(this.refs.freeformInput);
       if (input) {
+        // $FlowFixMe
         input.focus();
         // Focusing usually shows the options, so hide them immediately.
         setImmediate(() => this.setState({ optionsVisible: false }));
@@ -265,6 +275,7 @@ class Combobox extends _reactForAtom.React.Component {
   _scrollSelectedOptionIntoViewIfNeeded() {
     const selectedOption = _reactForAtom.ReactDOM.findDOMNode(this.refs.selectedOption);
     if (selectedOption) {
+      // $FlowFixMe
       selectedOption.scrollIntoViewIfNeeded();
     }
   }

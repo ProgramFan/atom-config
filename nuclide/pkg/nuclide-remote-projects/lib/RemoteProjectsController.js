@@ -162,4 +162,3 @@ class RemoteProjectsController {
   }
 }
 exports.default = RemoteProjectsController;
-module.exports = exports['default'];

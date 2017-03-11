@@ -43,7 +43,6 @@ const DEBUGGER_MODE_CHANGE_EVENT = 'debugger mode change';
  */
 class DebuggerStore {
 
-  // Stored values
   constructor(dispatcher, model) {
     this._dispatcher = dispatcher;
     this._model = model;
@@ -62,10 +61,14 @@ class DebuggerStore {
     this._registerExecutor = null;
     this._consoleDisposable = null;
     this._customControlButtons = [];
+    this._debugProcessInfo = null;
     this.loaderBreakpointResumePromise = new Promise(resolve => {
       this._onLoaderBreakpointResume = resolve;
     });
   }
+
+  // Stored values
+
 
   dispose() {
     this._emitter.dispose();
@@ -76,6 +79,9 @@ class DebuggerStore {
       // because the dispatcher for this store is now unregistered.
       this._debuggerInstance = null;
       debuggerInstance.dispose();
+    }
+    if (this._debugProcessInfo != null) {
+      this._debugProcessInfo.dispose();
     }
   }
 
@@ -213,6 +219,12 @@ class DebuggerStore {
         break;
       case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.UPDATE_CUSTOM_CONTROL_BUTTONS:
         this._customControlButtons = payload.data;
+        break;
+      case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.SET_DEBUG_PROCESS_INFO:
+        if (this._debugProcessInfo != null) {
+          this._debugProcessInfo.dispose();
+        }
+        this._debugProcessInfo = payload.data;
         break;
       default:
         return;

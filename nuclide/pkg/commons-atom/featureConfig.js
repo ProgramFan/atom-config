@@ -123,4 +123,3 @@ exports.default = {
   unset,
   isFeatureDisabled
 };
-module.exports = exports['default'];

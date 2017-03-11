@@ -42,7 +42,7 @@ function syncPaneItemVisibility(panesStream, visibilityStream) {
     const panes = Array.from(panes_);
     const activeItemChanges = panes.map(pane => (0, (_event || _load_event()).observableFromSubscribeFunction)(pane.observeActiveItem.bind(pane)));
     return _rxjsBundlesRxMinJs.Observable.merge(...activeItemChanges).map(() => new Set((0, (_collection || _load_collection()).arrayCompact)(panes.map(pane => pane.getActiveItem()))));
-  }).share();
+  }).publishReplay(1);
 
   return new (_UniversalDisposable || _load_UniversalDisposable()).default(
   // Whenever an item becomes active, `setItemVisibility(true)`
@@ -65,7 +65,7 @@ function syncPaneItemVisibility(panesStream, visibilityStream) {
         setItemVisibility(item, false);
       }
     });
-  }));
+  }), activeItemsStream.connect());
 }
 
 function setItemVisibility(item, visible) {

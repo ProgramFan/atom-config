@@ -141,4 +141,3 @@ class JumpToRelatedFile {
   }
 }
 exports.default = JumpToRelatedFile;
-module.exports = exports['default'];

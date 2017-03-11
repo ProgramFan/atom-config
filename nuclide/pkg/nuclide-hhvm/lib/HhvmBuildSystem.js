@@ -120,5 +120,3 @@ exports.default = HhvmBuildSystem; /**
                                     *
                                     * 
                                     */
-
-module.exports = exports['default'];

@@ -33,7 +33,9 @@ class View extends _reactForAtom.React.Component {
 
     // Remove the current children.
     const container = _reactForAtom.ReactDOM.findDOMNode(this);
+    // $FlowFixMe
     while (container.lastChild != null) {
+      // $FlowFixMe
       container.removeChild(container.lastChild);
     }
 
@@ -42,6 +44,7 @@ class View extends _reactForAtom.React.Component {
       return;
     }
     const el = atom.views.getView(item);
+    // $FlowFixMe
     container.appendChild(el);
   }
 

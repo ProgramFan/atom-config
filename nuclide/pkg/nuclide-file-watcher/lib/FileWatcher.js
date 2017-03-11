@@ -124,4 +124,3 @@ class FileWatcher {
   }
 }
 exports.default = FileWatcher;
-module.exports = exports['default'];

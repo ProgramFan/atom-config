@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _asyncToGenerator = _interopRequireDefault(require("async-to-generator"));
+var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 let getNewFirstResult = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (firstResultPromise, resultFromLanguageService) {
@@ -21,17 +21,13 @@ let getNewFirstResult = (() => {
   };
 })();
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _passesGK;
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+function _load_passesGK() {
+  return _passesGK = _interopRequireDefault(require('../commons-node/passesGK'));
+}
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 class AutocompleteCacher {
 
@@ -41,9 +37,27 @@ class AutocompleteCacher {
   getSuggestions, config) {
     this._getSuggestions = getSuggestions;
     this._config = config;
+    this._setEnabled();
+  }
+
+  _setEnabled() {
+    var _this = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      const gk = _this._config.gatekeeper;
+      if (gk == null) {
+        _this._enabled = true;
+      } else {
+        _this._enabled = false;
+        _this._enabled = yield (0, (_passesGK || _load_passesGK()).default)(gk);
+      }
+    })();
   }
 
   getSuggestions(request) {
+    if (!this._enabled) {
+      return this._getSuggestions(request);
+    }
     const session = this._session;
     if (session != null && this._canMaybeFilterResults(session, request)) {
       // We need to send this request speculatively because if firstResult resolves to `null`, we'll
@@ -69,12 +83,12 @@ class AutocompleteCacher {
   }
 
   _filterSuggestionsIfPossible(request, firstResultPromise, resultFromLanguageService) {
-    var _this = this;
+    var _this2 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
       const firstResult = yield firstResultPromise;
       if (firstResult != null) {
-        return _this._config.updateResults(request, firstResult);
+        return _this2._config.updateResults(request, firstResult);
       } else {
         return resultFromLanguageService;
       }
@@ -86,16 +100,23 @@ class AutocompleteCacher {
   _canMaybeFilterResults(session, currentRequest) {
     const { lastRequest } = session;
     const shouldFilter = this._config.shouldFilter != null ? this._config.shouldFilter : defaultShouldFilter;
-    return lastRequest.bufferPosition.row === currentRequest.bufferPosition.row && lastRequest.bufferPosition.column + 1 === currentRequest.bufferPosition.column && shouldFilter(lastRequest, currentRequest);
+    const charsSinceLastRequest = currentRequest.bufferPosition.column - lastRequest.bufferPosition.column;
+    return lastRequest.bufferPosition.row === currentRequest.bufferPosition.row && charsSinceLastRequest > 0 && shouldFilter(lastRequest, currentRequest, charsSinceLastRequest);
   }
 }
 
-exports.default = AutocompleteCacher;
+exports.default = AutocompleteCacher; /**
+                                       * Copyright (c) 2015-present, Facebook, Inc.
+                                       * All rights reserved.
+                                       *
+                                       * This source code is licensed under the license found in the LICENSE file in
+                                       * the root directory of this source tree.
+                                       *
+                                       * 
+                                       */
 
+const IDENTIFIER_REGEX = /^[a-zA-Z_]+$/;
 
-const IDENTIFIER_CHAR_REGEX = /[a-zA-Z_]/;
-
-function defaultShouldFilter(lastRequest, currentRequest) {
-  return currentRequest.prefix.startsWith(lastRequest.prefix) && IDENTIFIER_CHAR_REGEX.test(currentRequest.prefix.charAt(currentRequest.prefix.length - 1));
+function defaultShouldFilter(lastRequest, currentRequest, charsSinceLastRequest) {
+  return currentRequest.prefix.startsWith(lastRequest.prefix) && currentRequest.prefix.length === lastRequest.prefix.length + charsSinceLastRequest && IDENTIFIER_REGEX.test(currentRequest.prefix);
 }
-module.exports = exports["default"];

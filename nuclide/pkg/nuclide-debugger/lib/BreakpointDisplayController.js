@@ -235,5 +235,3 @@ exports.default = BreakpointDisplayController; /**
                                                 *
                                                 * 
                                                 */
-
-module.exports = exports['default'];

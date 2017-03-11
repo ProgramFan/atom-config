@@ -220,6 +220,20 @@ function stripExtension(uri) {
   return uri.slice(0, -1 * ext.length);
 }
 
+function _isWindowsPath(path) {
+  return _pathModuleFor(path) === _path.default.win32;
+}
+
+function _getWindowsPathFromWindowsFileUri(uri) {
+  const prefix = 'file://';
+  if (!uri.startsWith(prefix)) {
+    return null;
+  }
+
+  const path = uri.substr(prefix.length);
+  return _isWindowsPath(path) ? path : null;
+}
+
 /**
  * uri is either a file: uri, or a nuclide: uri.
  * must convert file: uri's to just a path for atom.
@@ -227,6 +241,15 @@ function stripExtension(uri) {
  * Returns null if not a valid file: URI.
  */
 function uriToNuclideUri(uri) {
+  const windowsPathFromUri = _getWindowsPathFromWindowsFileUri(uri);
+  if (windowsPathFromUri) {
+    // If the specified URI is a local file:// URI to a Windows path,
+    // handle specially first. url.parse() gets confused by the "X:"
+    // part of the Windows path and thinks the X is the name of a remote
+    // host.
+    return windowsPathFromUri;
+  }
+
   const urlParts = _url.default.parse(_escapeSpecialCharacters(uri), false);
   if (urlParts.protocol === 'file:' && urlParts.path) {
     // only handle real files for now.

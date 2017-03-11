@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.__BABEL_CJS_COMPAT__ = undefined;
 exports.convertValue = convertValue;
 
 var _utils;
@@ -195,6 +194,3 @@ function toBool(value) {
       return 'Unexpected bool value: ' + value;
   }
 }
-
-// Fake export to avoid babel's commonjs compat
-const __BABEL_CJS_COMPAT__ = exports.__BABEL_CJS_COMPAT__ = {};

@@ -77,4 +77,3 @@ function tryReadFileSync(filename) {
     return null;
   }
 }
-module.exports = exports['default'];

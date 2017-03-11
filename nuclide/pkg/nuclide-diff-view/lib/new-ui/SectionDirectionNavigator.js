@@ -93,5 +93,3 @@ exports.default = SectionDirectionNavigator; /**
                                               *
                                               * 
                                               */
-
-module.exports = exports['default'];

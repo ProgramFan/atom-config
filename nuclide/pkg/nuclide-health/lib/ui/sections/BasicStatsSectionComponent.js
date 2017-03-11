@@ -117,5 +117,3 @@ exports.default = BasicStatsSectionComponent; /**
                                                *
                                                * 
                                                */
-
-module.exports = exports['default'];

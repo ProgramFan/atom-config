@@ -104,5 +104,3 @@ exports.default = DefinitionHelpers; /**
                                       *
                                       * 
                                       */
-
-module.exports = exports['default'];

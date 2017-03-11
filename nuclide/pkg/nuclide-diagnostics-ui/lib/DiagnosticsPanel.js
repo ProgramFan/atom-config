@@ -63,6 +63,7 @@ class DiagnosticsPanel extends _reactForAtom.React.Component {
 
   constructor(props) {
     super(props);
+    this._onShowTracesChange = this._onShowTracesChange.bind(this);
     this._onFilterByActiveTextEditorChange = this._onFilterByActiveTextEditorChange.bind(this);
     this._openAllFilesWithErrors = this._openAllFilesWithErrors.bind(this);
   }
@@ -151,6 +152,15 @@ class DiagnosticsPanel extends _reactForAtom.React.Component {
             'span',
             { className: 'inline-block' },
             _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+              checked: this.props.showTraces,
+              label: 'Show full diagnostic traces',
+              onChange: this._onShowTracesChange
+            })
+          ),
+          _reactForAtom.React.createElement(
+            'span',
+            { className: 'inline-block' },
+            _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
               checked: this.props.filterByActiveTextEditor,
               label: 'Show only diagnostics for current file',
               onChange: this._onFilterByActiveTextEditorChange
@@ -176,6 +186,11 @@ class DiagnosticsPanel extends _reactForAtom.React.Component {
     );
   }
 
+  _onShowTracesChange(isChecked) {
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('diagnostics-panel-toggle-show-traces', { isChecked: isChecked.toString() });
+    this.props.onShowTracesChange.call(null, isChecked);
+  }
+
   _onFilterByActiveTextEditorChange(isChecked) {
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('diagnostics-panel-toggle-current-file', { isChecked: isChecked.toString() });
     this.props.onFilterByActiveTextEditorChange.call(null, isChecked);
@@ -194,5 +209,3 @@ exports.default = DiagnosticsPanel; /**
                                      *
                                      * 
                                      */
-
-module.exports = exports['default'];

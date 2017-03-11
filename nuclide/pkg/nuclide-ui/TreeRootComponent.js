@@ -110,6 +110,7 @@ class TreeRootComponent extends _reactForAtom.React.Component {
     if (!prevState || this.state.selectedKeys !== prevState.selectedKeys) {
       const firstSelectedDescendant = this.refs[FIRST_SELECTED_DESCENDANT_REF];
       if (firstSelectedDescendant !== undefined) {
+        // $FlowFixMe
         _reactForAtom.ReactDOM.findDOMNode(firstSelectedDescendant).scrollIntoViewIfNeeded(false);
       }
     }
@@ -425,7 +426,7 @@ class TreeRootComponent extends _reactForAtom.React.Component {
         this._rejectDidUpdateListenerPromise = null;
       }
       this._rejectDidUpdateListenerPromise = () => {
-        reject(undefined);
+        reject(new Error());
         didUpdateDisposable.dispose();
       };
     });
@@ -505,7 +506,7 @@ class TreeRootComponent extends _reactForAtom.React.Component {
    */
   selectNodeKey(nodeKey) {
     if (!this.getNodeForKey(nodeKey)) {
-      return Promise.reject();
+      return Promise.reject(new Error());
     }
 
     // We have to create the listener before setting the state so it can pick

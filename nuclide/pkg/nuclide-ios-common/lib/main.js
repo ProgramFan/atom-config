@@ -3,9 +3,10 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getDevices = undefined;
-exports.parseDevicesFromSimctlOutput = parseDevicesFromSimctlOutput;
+exports.getSimulators = exports.getFbsimctlSimulators = undefined;
+exports.getFbsimctlDevices = getFbsimctlDevices;
 exports.getActiveDeviceIndex = getActiveDeviceIndex;
+exports.parseSimulatorsFromSimctlOutput = parseSimulatorsFromSimctlOutput;
 
 var _process;
 
@@ -23,35 +24,10 @@ var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function parseDevicesFromSimctlOutput(output) {
-  const devices = [];
-  let currentOS = null;
-
-  output.split('\n').forEach(line => {
-    const section = line.match(/^-- (.+) --$/);
-    if (section) {
-      const header = section[1].match(/^iOS (.+)$/);
-      if (header) {
-        currentOS = header[1];
-      } else {
-        currentOS = null;
-      }
-      return;
-    }
-
-    const device = line.match(/^[ ]*([^()]+) \(([^()]+)\) \((Creating|Booting|Shutting Down|Shutdown|Booted)\)/);
-    if (device && currentOS) {
-      const [, name, udid, state] = device;
-      devices.push({
-        name,
-        udid,
-        state: validateState(state),
-        os: currentOS
-      });
-    }
-  });
-
-  return devices;
+function getFbsimctlDevices() {
+  return (0, (_process || _load_process()).runCommand)('fbsimctl', ['--json', '--devices', '--name', '--udid', '--arch', 'list']).map(parseDevicesFromFbsimctlOutput).catch(error =>
+  // Users may not have fbsimctl installed. If the command failed, just return an empty list.
+  _rxjsBundlesRxMinJs.Observable.of([])).share();
 } /**
    * Copyright (c) 2015-present, Facebook, Inc.
    * All rights reserved.
@@ -62,35 +38,13 @@ function parseDevicesFromSimctlOutput(output) {
    * 
    */
 
-function validateState(rawState) {
-  switch (rawState) {
-    case 'Creating':
-      return 'CREATING';
-    case 'Booting':
-      return 'BOOTING';
-    case 'Shutting Down':
-      return 'SHUTTING_DOWN';
-    case 'Shutdown':
-      return 'SHUT_DOWN';
-    case 'Booted':
-      return 'BOOTED';
-    default:
-      return null;
-  }
-}
+const getFbsimctlSimulators = exports.getFbsimctlSimulators = (0, (_lodash || _load_lodash()).default)(() => (0, (_process || _load_process()).runCommand)('fbsimctl', ['--json', '--simulators', '--name', '--udid', '--state', '--os', '--arch', 'list']).map(parseSimulatorsFromFbsimctlOutput).catch(error =>
+// Users may not have fbsimctl installed. Fall back to xcrun simctl in that case.
+getSimulators()).share());
 
-const getDevices = exports.getDevices = (0, (_lodash || _load_lodash()).default)(() => (0, (_process || _load_process()).observeProcess)(() => (0, (_process || _load_process()).safeSpawn)('xcrun', ['simctl', 'list', 'devices'])).map(event => {
-  // Throw errors.
-  if (event.kind === 'error') {
-    const error = new Error();
-    error.name = 'XcrunError';
-    throw error;
-  }
-  return event;
-}).reduce((acc, event) => event.kind === 'stdout' ? acc + event.data : acc, '').map(parseDevicesFromSimctlOutput).catch(error =>
-// Users may not have xcrun installed, particularly if they are using Buck for non-iOS
-// projects. If the command failed, just return an empty list.
-error.name === 'XcrunError' ? _rxjsBundlesRxMinJs.Observable.of([]) : _rxjsBundlesRxMinJs.Observable.throw(error)).share());
+const getSimulators = exports.getSimulators = (0, (_lodash || _load_lodash()).default)(() => (0, (_process || _load_process()).runCommand)('xcrun', ['simctl', 'list', 'devices']).map(parseSimulatorsFromSimctlOutput).catch(error =>
+// Users may not have xcrun installed. If the command failed, just return an empty list.
+_rxjsBundlesRxMinJs.Observable.of([])).share());
 
 function getActiveDeviceIndex(devices) {
   const bootedDeviceIndex = devices.findIndex(device => device.state === 'BOOTED');
@@ -109,4 +63,114 @@ function getActiveDeviceIndex(devices) {
     }
   });
   return defaultDeviceIndex;
+}
+
+function parseSimulatorsFromFbsimctlOutput(output) {
+  const simulators = [];
+
+  output.split('\n').forEach(line => {
+    let event;
+    try {
+      event = JSON.parse(line);
+    } catch (e) {
+      return;
+    }
+    if (!event || !event.event_name || event.event_name !== 'list' || !event.subject) {
+      return;
+    }
+    const simulator = event.subject;
+    const { state, os, name, udid, arch } = simulator;
+    if (!state || !os || !name || !udid || !arch) {
+      return;
+    }
+
+    if (!simulator.os.match(/^iOS (.+)$/)) {
+      return;
+    }
+
+    simulators.push({
+      name,
+      udid,
+      state: validateState(state),
+      os,
+      arch
+    });
+  });
+
+  return simulators;
+}
+
+function parseDevicesFromFbsimctlOutput(output) {
+  const devices = [];
+
+  output.split('\n').forEach(line => {
+    let event;
+    try {
+      event = JSON.parse(line);
+    } catch (e) {
+      return;
+    }
+    if (!event || !event.event_name || event.event_name !== 'list' || !event.subject) {
+      return;
+    }
+    const device = event.subject;
+    const { name, udid, arch } = device;
+    if (!name || !udid || !arch) {
+      return;
+    }
+
+    devices.push({ name, udid, arch });
+  });
+
+  return devices;
+}
+
+function parseSimulatorsFromSimctlOutput(output) {
+  const simulators = [];
+  let currentOS = null;
+
+  output.split('\n').forEach(line => {
+    const section = line.match(/^-- (.+) --$/);
+    if (section) {
+      const header = section[1].match(/^iOS (.+)$/);
+      if (header) {
+        currentOS = header[1];
+      } else {
+        currentOS = null;
+      }
+      return;
+    }
+
+    const simulator = line.match(/^[ ]*([^()]+) \(([^()]+)\) \((Creating|Booting|Shutting Down|Shutdown|Booted)\)/);
+    if (simulator && currentOS) {
+      const [, name, udid, state] = simulator;
+      const arch = name.match(/^(iPhone (5$|5C|4)|iPad Retina)/) ? 'i386' : 'x86_64';
+      simulators.push({
+        name,
+        udid,
+        state: validateState(state),
+        os: currentOS,
+        arch
+      });
+    }
+  });
+
+  return simulators;
+}
+
+function validateState(rawState) {
+  switch (rawState) {
+    case 'Creating':
+      return 'CREATING';
+    case 'Booting':
+      return 'BOOTING';
+    case 'Shutting Down':
+      return 'SHUTTING_DOWN';
+    case 'Shutdown':
+      return 'SHUT_DOWN';
+    case 'Booted':
+      return 'BOOTED';
+    default:
+      return null;
+  }
 }

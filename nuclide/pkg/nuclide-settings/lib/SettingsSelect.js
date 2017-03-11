@@ -90,5 +90,3 @@ exports.default = SettingsSelect; /**
                                    *
                                    * 
                                    */
-
-module.exports = exports['default'];

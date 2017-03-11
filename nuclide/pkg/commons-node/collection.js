@@ -9,6 +9,7 @@ exports.arrayCompact = arrayCompact;
 exports.arrayFindLastIndex = arrayFindLastIndex;
 exports.mapUnion = mapUnion;
 exports.mapFilter = mapFilter;
+exports.mapTransform = mapTransform;
 exports.mapEqual = mapEqual;
 exports.areSetsEqual = areSetsEqual;
 exports.every = every;
@@ -101,6 +102,14 @@ function mapFilter(map, selector) {
     }
   }
   return selected;
+}
+
+function mapTransform(src, transform) {
+  const result = new Map();
+  for (const [key, value] of src) {
+    result.set(key, transform(value, key));
+  }
+  return result;
 }
 
 function mapEqual(map1, map2, equalComparator) {

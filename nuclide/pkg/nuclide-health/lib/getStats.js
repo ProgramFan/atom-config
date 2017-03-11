@@ -81,4 +81,3 @@ function getActiveRequests() {
   // $FlowFixMe: Private method.
   return process._getActiveRequests();
 }
-module.exports = exports['default'];

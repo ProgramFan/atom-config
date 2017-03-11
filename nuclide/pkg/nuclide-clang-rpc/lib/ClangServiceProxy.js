@@ -461,7 +461,7 @@ module.exports = _client => {
     });
   };
 
-  remoteModule.getOutline = function (arg0, arg1, arg2, arg3) {
+  remoteModule.getRelatedSourceOrHeader = function (arg0, arg1) {
     return _client.marshalArguments(Array.from(arguments), [{
       name: "src",
       type: {
@@ -474,18 +474,28 @@ module.exports = _client => {
         name: "NuclideUri"
       }
     }, {
-      name: "contents",
+      name: "compilationDBFile",
       type: {
         location: {
           type: "source",
           fileName: "ClangService.js",
           line: 193
         },
-        kind: "string"
+        kind: "nullable",
+        type: {
+          location: {
+            type: "source",
+            fileName: "ClangService.js",
+            line: 193
+          },
+          kind: "named",
+          name: "NuclideUri"
+        }
       }
-    }, {
-      name: "compilationDBFile",
-      type: {
+    }]).then(args => {
+      return _client.callRemoteFunction("ClangService/getRelatedSourceOrHeader", "promise", args);
+    }).then(value => {
+      return _client.unmarshal(value, {
         location: {
           type: "source",
           fileName: "ClangService.js",
@@ -501,6 +511,50 @@ module.exports = _client => {
           kind: "named",
           name: "NuclideUri"
         }
+      });
+    });
+  };
+
+  remoteModule.getOutline = function (arg0, arg1, arg2, arg3) {
+    return _client.marshalArguments(Array.from(arguments), [{
+      name: "src",
+      type: {
+        location: {
+          type: "source",
+          fileName: "ClangService.js",
+          line: 199
+        },
+        kind: "named",
+        name: "NuclideUri"
+      }
+    }, {
+      name: "contents",
+      type: {
+        location: {
+          type: "source",
+          fileName: "ClangService.js",
+          line: 200
+        },
+        kind: "string"
+      }
+    }, {
+      name: "compilationDBFile",
+      type: {
+        location: {
+          type: "source",
+          fileName: "ClangService.js",
+          line: 201
+        },
+        kind: "nullable",
+        type: {
+          location: {
+            type: "source",
+            fileName: "ClangService.js",
+            line: 201
+          },
+          kind: "named",
+          name: "NuclideUri"
+        }
       }
     }, {
       name: "defaultFlags",
@@ -508,21 +562,21 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 195
+          line: 202
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 195
+            line: 202
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 195
+              line: 202
             },
             kind: "string"
           }
@@ -535,21 +589,21 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 196
+          line: 203
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 196
+            line: 203
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 196
+              line: 203
             },
             kind: "named",
             name: "ClangOutlineTree"
@@ -566,7 +620,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 204
+          line: 211
         },
         kind: "named",
         name: "NuclideUri"
@@ -577,7 +631,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 205
+          line: 212
         },
         kind: "string"
       }
@@ -587,7 +641,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 206
+          line: 213
         },
         kind: "number"
       }
@@ -597,7 +651,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 207
+          line: 214
         },
         kind: "number"
       }
@@ -607,14 +661,14 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 208
+          line: 215
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 208
+            line: 215
           },
           kind: "named",
           name: "NuclideUri"
@@ -626,21 +680,21 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 209
+          line: 216
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 209
+            line: 216
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 209
+              line: 216
             },
             kind: "string"
           }
@@ -653,14 +707,14 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 210
+          line: 217
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 210
+            line: 217
           },
           kind: "named",
           name: "ClangLocalReferences"
@@ -676,7 +730,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 218
+          line: 225
         },
         kind: "named",
         name: "NuclideUri"
@@ -687,7 +741,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 219
+          line: 226
         },
         kind: "string"
       }
@@ -697,7 +751,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 220
+          line: 227
         },
         kind: "number"
       }
@@ -707,14 +761,14 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 221
+          line: 228
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 221
+            line: 228
           },
           kind: "number"
         }
@@ -725,14 +779,14 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 222
+          line: 229
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 222
+            line: 229
           },
           kind: "number"
         }
@@ -744,21 +798,21 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 223
+          line: 230
         },
         kind: "object",
         fields: [{
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 223
+            line: 230
           },
           name: "newCursor",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 223
+              line: 230
             },
             kind: "number"
           },
@@ -767,14 +821,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 223
+            line: 230
           },
           name: "formatted",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 223
+              line: 230
             },
             kind: "string"
           },
@@ -791,14 +845,14 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 250
+          line: 257
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 250
+            line: 257
           },
           kind: "named",
           name: "NuclideUri"
@@ -1413,9 +1467,9 @@ Object.defineProperty(module.exports, "defs", {
         }
       }
     },
-    getOutline: {
+    getRelatedSourceOrHeader: {
       kind: "function",
-      name: "getOutline",
+      name: "getRelatedSourceOrHeader",
       location: {
         type: "source",
         fileName: "ClangService.js",
@@ -1440,17 +1494,32 @@ Object.defineProperty(module.exports, "defs", {
             name: "NuclideUri"
           }
         }, {
-          name: "contents",
+          name: "compilationDBFile",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
               line: 193
             },
-            kind: "string"
+            kind: "nullable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "ClangService.js",
+                line: 193
+              },
+              kind: "named",
+              name: "NuclideUri"
+            }
           }
-        }, {
-          name: "compilationDBFile",
+        }],
+        returnType: {
+          location: {
+            type: "source",
+            fileName: "ClangService.js",
+            line: 194
+          },
+          kind: "promise",
           type: {
             location: {
               type: "source",
@@ -1468,27 +1537,85 @@ Object.defineProperty(module.exports, "defs", {
               name: "NuclideUri"
             }
           }
-        }, {
-          name: "defaultFlags",
+        }
+      }
+    },
+    getOutline: {
+      kind: "function",
+      name: "getOutline",
+      location: {
+        type: "source",
+        fileName: "ClangService.js",
+        line: 198
+      },
+      type: {
+        location: {
+          type: "source",
+          fileName: "ClangService.js",
+          line: 198
+        },
+        kind: "function",
+        argumentTypes: [{
+          name: "src",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 195
+              line: 199
+            },
+            kind: "named",
+            name: "NuclideUri"
+          }
+        }, {
+          name: "contents",
+          type: {
+            location: {
+              type: "source",
+              fileName: "ClangService.js",
+              line: 200
+            },
+            kind: "string"
+          }
+        }, {
+          name: "compilationDBFile",
+          type: {
+            location: {
+              type: "source",
+              fileName: "ClangService.js",
+              line: 201
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 195
+                line: 201
+              },
+              kind: "named",
+              name: "NuclideUri"
+            }
+          }
+        }, {
+          name: "defaultFlags",
+          type: {
+            location: {
+              type: "source",
+              fileName: "ClangService.js",
+              line: 202
+            },
+            kind: "nullable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "ClangService.js",
+                line: 202
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "ClangService.js",
-                  line: 195
+                  line: 202
                 },
                 kind: "string"
               }
@@ -1499,28 +1626,28 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 196
+            line: 203
           },
           kind: "promise",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 196
+              line: 203
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 196
+                line: 203
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "ClangService.js",
-                  line: 196
+                  line: 203
                 },
                 kind: "named",
                 name: "ClangOutlineTree"
@@ -1536,13 +1663,13 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "ClangService.js",
-        line: 203
+        line: 210
       },
       type: {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 203
+          line: 210
         },
         kind: "function",
         argumentTypes: [{
@@ -1551,7 +1678,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 204
+              line: 211
             },
             kind: "named",
             name: "NuclideUri"
@@ -1562,7 +1689,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 205
+              line: 212
             },
             kind: "string"
           }
@@ -1572,7 +1699,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 206
+              line: 213
             },
             kind: "number"
           }
@@ -1582,7 +1709,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 207
+              line: 214
             },
             kind: "number"
           }
@@ -1592,14 +1719,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 208
+              line: 215
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 208
+                line: 215
               },
               kind: "named",
               name: "NuclideUri"
@@ -1611,21 +1738,21 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 209
+              line: 216
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 209
+                line: 216
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "ClangService.js",
-                  line: 209
+                  line: 216
                 },
                 kind: "string"
               }
@@ -1636,21 +1763,21 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 210
+            line: 217
           },
           kind: "promise",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 210
+              line: 217
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 210
+                line: 217
               },
               kind: "named",
               name: "ClangLocalReferences"
@@ -1665,13 +1792,13 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "ClangService.js",
-        line: 217
+        line: 224
       },
       type: {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 217
+          line: 224
         },
         kind: "function",
         argumentTypes: [{
@@ -1680,7 +1807,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 218
+              line: 225
             },
             kind: "named",
             name: "NuclideUri"
@@ -1691,7 +1818,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 219
+              line: 226
             },
             kind: "string"
           }
@@ -1701,7 +1828,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 220
+              line: 227
             },
             kind: "number"
           }
@@ -1711,14 +1838,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 221
+              line: 228
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 221
+                line: 228
               },
               kind: "number"
             }
@@ -1729,14 +1856,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 222
+              line: 229
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 222
+                line: 229
               },
               kind: "number"
             }
@@ -1746,28 +1873,28 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 223
+            line: 230
           },
           kind: "promise",
           type: {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 223
+              line: 230
             },
             kind: "object",
             fields: [{
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 223
+                line: 230
               },
               name: "newCursor",
               type: {
                 location: {
                   type: "source",
                   fileName: "ClangService.js",
-                  line: 223
+                  line: 230
                 },
                 kind: "number"
               },
@@ -1776,14 +1903,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 223
+                line: 230
               },
               name: "formatted",
               type: {
                 location: {
                   type: "source",
                   fileName: "ClangService.js",
-                  line: 223
+                  line: 230
                 },
                 kind: "string"
               },
@@ -1799,13 +1926,13 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "ClangService.js",
-        line: 250
+        line: 257
       },
       type: {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 250
+          line: 257
         },
         kind: "function",
         argumentTypes: [{
@@ -1814,14 +1941,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "ClangService.js",
-              line: 250
+              line: 257
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "ClangService.js",
-                line: 250
+                line: 257
               },
               kind: "named",
               name: "NuclideUri"
@@ -1832,7 +1959,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 250
+            line: 257
           },
           kind: "void"
         }
@@ -1844,13 +1971,13 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "ClangService.js",
-        line: 254
+        line: 261
       },
       type: {
         location: {
           type: "source",
           fileName: "ClangService.js",
-          line: 254
+          line: 261
         },
         kind: "function",
         argumentTypes: [],
@@ -1858,7 +1985,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "ClangService.js",
-            line: 254
+            line: 261
           },
           kind: "void"
         }

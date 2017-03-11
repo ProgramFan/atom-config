@@ -77,7 +77,9 @@ class ResizableFlexContainer extends _reactForAtom.React.Component {
     const { direction } = props;
     this._paneContainer = (0, (_createPaneContainer || _load_createPaneContainer()).default)();
     const containerNode = _reactForAtom.ReactDOM.findDOMNode(this.refs.flexContainer);
+    // $FlowFixMe
     containerNode.innerHTML = '';
+    // $FlowFixMe
     containerNode.appendChild(atom.views.getView(this._paneContainer));
     const startingPane = this._paneContainer.getActivePane();
     let lastPane = startingPane;

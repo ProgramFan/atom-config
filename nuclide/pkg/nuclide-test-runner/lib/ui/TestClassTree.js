@@ -133,4 +133,3 @@ class TestClassTree extends _reactForAtom.React.Component {
   }
 }
 exports.default = TestClassTree;
-module.exports = exports['default'];

@@ -33,16 +33,6 @@ function _load_nuclideLogging() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 class DebuggerRpcServiceBase {
 
   constructor(debuggerRpcServiceName) {
@@ -67,6 +57,10 @@ class DebuggerRpcServiceBase {
     return this._clientCallback.getOutputWindowObservable().publish();
   }
 
+  getAtomNotificationObservable() {
+    return this._clientCallback.getAtomNotificationObservable().publish();
+  }
+
   getServerMessageObservable() {
     return this._clientCallback.getServerMessageObservable().publish();
   }
@@ -80,6 +74,15 @@ class DebuggerRpcServiceBase {
 exports.DebuggerRpcServiceBase = DebuggerRpcServiceBase; // TODO: make this transportation plugable.
 /**
  * Debugger base rpc service using WebSocket protocol to communicate with backend.
+ */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
  */
 
 class DebuggerRpcWebSocketService extends DebuggerRpcServiceBase {

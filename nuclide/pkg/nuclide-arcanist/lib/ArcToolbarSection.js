@@ -124,4 +124,3 @@ class ArcToolbarSection extends _reactForAtom.React.Component {
   }
 }
 exports.default = ArcToolbarSection;
-module.exports = exports['default'];

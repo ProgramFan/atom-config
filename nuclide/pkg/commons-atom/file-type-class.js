@@ -49,4 +49,3 @@ function fileTypeClass(filename) {
 
   return typeClass;
 }
-module.exports = exports['default'];

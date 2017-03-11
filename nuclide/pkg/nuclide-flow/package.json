@@ -53,13 +53,25 @@
         "title": "Enable Type Hints",
         "type": "boolean",
         "default": true,
-        "description": "Display tooltips with Flow types"
+        "description": "Display tooltips with Flow types (requires restart to take effect)"
       },
       "warnOnNotInstalled": {
         "title": "Warn when Flow is not found",
         "type": "boolean",
         "default": true,
         "description": "If a .flowconfig file is found, but Flow itself cannot be found, pop up a warning explaining how to install Flow"
+      },
+      "enablePushDiagnostics": {
+        "title": "Receive push diagnostics over a persistent connection",
+        "type": "boolean",
+        "default": false,
+        "description": "EXPERIMENTAL: This feature is in very early development. Restart required for this setting to take effect."
+      },
+      "functionSnippetShouldIncludeArguments": {
+        "title": "Autocompleted function snippets will include calling parens and arguments.",
+        "type": "boolean",
+        "default": true,
+        "description": "If unchecked, functions will autocomplete as only their name, and not include their calling parens and arguments."
       }
     },
     "packageType": "Atom",
@@ -69,22 +81,5 @@
     "language-babel:grammar-used",
     "language-javascript-jsx:grammar-used",
     "language-javascript:grammar-used"
-  ],
-  "providedServices": {
-    "nuclide-type-hint.provider": {
-      "versions": {
-        "0.0.0": "createTypeHintProvider"
-      }
-    },
-    "nuclide-evaluation-expression.provider": {
-      "versions": {
-        "0.0.0": "createEvaluationExpressionProvider"
-      }
-    },
-    "nuclide-busy-signal": {
-      "versions": {
-        "0.1.0": "provideBusySignal"
-      }
-    }
-  }
+  ]
 }

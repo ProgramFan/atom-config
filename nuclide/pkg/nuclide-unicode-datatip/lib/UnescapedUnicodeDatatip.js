@@ -63,5 +63,3 @@ exports.default = (() => {
 
   return unescapedUnicodeDatatip;
 })();
-
-module.exports = exports['default'];

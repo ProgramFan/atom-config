@@ -162,5 +162,3 @@ exports.default = RevisionTimelineNode; /**
                                          *
                                          * 
                                          */
-
-module.exports = exports['default'];

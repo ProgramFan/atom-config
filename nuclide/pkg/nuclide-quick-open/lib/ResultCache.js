@@ -131,4 +131,3 @@ class ResultCache {
   }
 }
 exports.default = ResultCache;
-module.exports = exports['default'];

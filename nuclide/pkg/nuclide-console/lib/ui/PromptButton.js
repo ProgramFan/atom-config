@@ -60,4 +60,3 @@ class PromptButton extends _reactForAtom.React.Component {
   }
 }
 exports.default = PromptButton;
-module.exports = exports['default'];

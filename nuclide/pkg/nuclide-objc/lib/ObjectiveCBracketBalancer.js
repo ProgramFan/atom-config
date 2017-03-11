@@ -156,4 +156,3 @@ class ObjectiveCBracketBalancer {
   }
 }
 exports.default = ObjectiveCBracketBalancer;
-module.exports = exports['default'];

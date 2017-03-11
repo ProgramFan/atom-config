@@ -289,4 +289,3 @@ function lex(lexRules, stream) {
     }
   }
 }
-module.exports = exports['default'];

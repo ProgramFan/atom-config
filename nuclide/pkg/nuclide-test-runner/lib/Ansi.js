@@ -20,4 +20,3 @@ exports.default = Object.freeze({
   RESET: '\u001B[39m',
   YELLOW: '\u001B[33m'
 });
-module.exports = exports['default'];

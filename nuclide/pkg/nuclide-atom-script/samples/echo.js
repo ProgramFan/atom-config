@@ -48,5 +48,3 @@ exports.default = (() => {
  */
 
 /* eslint-disable no-console */
-
-module.exports = exports['default'];

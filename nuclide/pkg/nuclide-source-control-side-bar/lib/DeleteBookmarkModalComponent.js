@@ -6,6 +6,18 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactForAtom = require('react-for-atom');
 
+var _Button;
+
+function _load_Button() {
+  return _Button = require('../../nuclide-ui/Button');
+}
+
+var _ButtonGroup;
+
+function _load_ButtonGroup() {
+  return _ButtonGroup = require('../../nuclide-ui/ButtonGroup');
+}
+
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -57,16 +69,16 @@ class DeleteBookmarkModalComponent extends _reactForAtom.React.Component {
         'div',
         { className: 'text-right' },
         _reactForAtom.React.createElement(
-          'div',
-          { className: 'btn-group btn-group-sm' },
+          (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
+          { size: (_ButtonGroup || _load_ButtonGroup()).ButtonGroupSizes.SMALL },
           _reactForAtom.React.createElement(
-            'button',
-            { className: 'btn', onClick: this.props.onCancel, ref: 'cancelButton' },
+            (_Button || _load_Button()).Button,
+            { onClick: this.props.onCancel, ref: 'cancelButton' },
             'Cancel'
           ),
           _reactForAtom.React.createElement(
-            'button',
-            { className: 'btn btn-error', onClick: this._handleDeleteClick },
+            (_Button || _load_Button()).Button,
+            { buttonType: (_Button || _load_Button()).ButtonTypes.ERROR, onClick: this._handleDeleteClick },
             'Delete'
           )
         )
@@ -75,4 +87,3 @@ class DeleteBookmarkModalComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = DeleteBookmarkModalComponent;
-module.exports = exports['default'];

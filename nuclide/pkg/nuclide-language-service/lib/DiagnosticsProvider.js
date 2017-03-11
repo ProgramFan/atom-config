@@ -277,35 +277,47 @@ class ObservableDiagnosticProvider {
     this._connectionToLanguageService = connectionToLanguageService;
     this.updates = this._connectionToLanguageService.observeEntries().mergeMap(([connection, languageService]) => {
       const connectionName = (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).ServerConnection.toDebugString(connection);
-      this._logger.logTrace(`Starting observing diagnostics ${connectionName}, ${this._analyticsEventName}`);
-      return _rxjsBundlesRxMinJs.Observable.fromPromise(languageService).catch(error => _rxjsBundlesRxMinJs.Observable.empty()).mergeMap(language => {
-        this._logger.logTrace(`Observing diagnostics ${connectionName}, ${this._analyticsEventName}`);
-        return (0, (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ensureInvalidations)(this._logger, language.observeDiagnostics().refCount().catch(error => _rxjsBundlesRxMinJs.Observable.empty()));
+      this._logger.log(`Starting observing diagnostics ${connectionName}, ${this._analyticsEventName}`);
+      return _rxjsBundlesRxMinJs.Observable.fromPromise(languageService).catch(error => {
+        this._logger.logError(`Error: languageService, ${this._analyticsEventName} ${error}`);
+        return _rxjsBundlesRxMinJs.Observable.empty();
+      }).mergeMap(language => {
+        this._logger.log(`Observing diagnostics ${connectionName}, ${this._analyticsEventName}`);
+        return (0, (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ensureInvalidations)(this._logger, language.observeDiagnostics().refCount().catch(error => {
+          this._logger.logError(`Error: observeDiagnostics, ${this._analyticsEventName} ${error}`);
+          return _rxjsBundlesRxMinJs.Observable.empty();
+        }));
       }).map(update => {
         const { filePath, messages } = update;
         (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)(this._analyticsEventName);
         const fileCache = this._connectionToFiles.get(connection);
         if (messages.length === 0) {
-          this._logger.logTrace(`Observing diagnostics: removing ${filePath}, ${this._analyticsEventName}`);
+          this._logger.log(`Observing diagnostics: removing ${filePath}, ${this._analyticsEventName}`);
           fileCache.delete(filePath);
         } else {
-          this._logger.logTrace(`Observing diagnostics: adding ${filePath}, ${this._analyticsEventName}`);
+          this._logger.log(`Observing diagnostics: adding ${filePath}, ${this._analyticsEventName}`);
           fileCache.add(filePath);
         }
         return {
           filePathToMessages: new Map([[filePath, messages]])
         };
       });
+    }).catch(error => {
+      this._logger.logError(`Error: observeEntries, ${this._analyticsEventName} ${error}`);
+      throw error;
     });
 
     this.invalidations = (0, (_event || _load_event()).observableFromSubscribeFunction)((_nuclideRemoteConnection || _load_nuclideRemoteConnection()).ServerConnection.onDidCloseServerConnection).map(connection => {
-      this._logger.logTrace(`Diagnostics closing ${connection.getRemoteHostname()}, ${this._analyticsEventName}`);
+      this._logger.log(`Diagnostics closing ${connection.getRemoteHostname()}, ${this._analyticsEventName}`);
       const files = Array.from(this._connectionToFiles.get(connection));
       this._connectionToFiles.delete(connection);
       return {
         scope: 'file',
         filePaths: files
       };
+    }).catch(error => {
+      this._logger.logError(`Error: invalidations, ${this._analyticsEventName} ${error}`);
+      throw error;
     });
   }
 }

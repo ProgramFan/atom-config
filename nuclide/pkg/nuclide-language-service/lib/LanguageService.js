@@ -1,6 +1,6 @@
 'use strict';
 
-// These assertions ensure that Completion and atom$AutocompleteSuggestion are kept in sync. If you
+// This assertion ensures that atom$AutocompleteSuggestion is a strict subset of Completion. If you
 // are getting errors here, you have probably just updated one without updating the other.
 ({});
 
@@ -15,5 +15,3 @@
  *
  * 
  */
-
-({});

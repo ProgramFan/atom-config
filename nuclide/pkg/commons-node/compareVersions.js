@@ -33,4 +33,3 @@ function compareVersions(a, b) {
   }
   return 0;
 }
-module.exports = exports['default'];

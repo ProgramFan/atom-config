@@ -332,4 +332,3 @@ class GutterElement extends _reactForAtom.React.Component {
     );
   }
 }
-module.exports = exports['default'];

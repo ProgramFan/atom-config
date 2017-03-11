@@ -389,4 +389,3 @@ exports.default = DiagnosticStore; /**
 function notifyFixFailed() {
   atom.notifications.addWarning('Failed to apply fix. Try saving to get fresh results and then try again.');
 }
-module.exports = exports['default'];

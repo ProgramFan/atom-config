@@ -110,5 +110,3 @@ exports.default = UncommittedChangesTimelineNode; /**
                                                    *
                                                    * 
                                                    */
-
-module.exports = exports['default'];

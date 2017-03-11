@@ -255,4 +255,3 @@ class DiagnosticsPane extends _reactForAtom.React.Component {
   }
 }
 exports.default = DiagnosticsPane;
-module.exports = exports['default'];

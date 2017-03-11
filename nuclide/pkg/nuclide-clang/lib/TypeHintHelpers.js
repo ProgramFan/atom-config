@@ -51,4 +51,3 @@ class TypeHintHelpers {
   }
 }
 exports.default = TypeHintHelpers;
-module.exports = exports['default'];

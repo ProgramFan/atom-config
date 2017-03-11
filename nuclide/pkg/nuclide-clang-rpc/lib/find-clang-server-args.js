@@ -38,7 +38,7 @@ exports.default = (() => {
       fbFindClangServerArgs = null;
       try {
         // $FlowFB
-        fbFindClangServerArgs = require('./fb/find-clang-server-args');
+        fbFindClangServerArgs = require('./fb/find-clang-server-args').default;
       } catch (e) {
         // Ignore.
       }
@@ -84,5 +84,3 @@ exports.default = (() => {
 
   return findClangServerArgs;
 })();
-
-module.exports = exports['default'];

@@ -72,4 +72,3 @@ class SwiftPMAutocompletionProvider {
   }
 }
 exports.default = SwiftPMAutocompletionProvider;
-module.exports = exports['default'];

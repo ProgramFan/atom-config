@@ -19,12 +19,6 @@ function _load_UniversalDisposable() {
   return _UniversalDisposable = _interopRequireDefault(require('../../commons-node/UniversalDisposable'));
 }
 
-var _addTooltip;
-
-function _load_addTooltip() {
-  return _addTooltip = _interopRequireDefault(require('../../nuclide-ui/add-tooltip'));
-}
-
 var _WorkingSetSelectionComponent;
 
 function _load_WorkingSetSelectionComponent() {
@@ -55,7 +49,29 @@ function _load_nuclideWorkingSetsCommon() {
   return _nuclideWorkingSetsCommon = require('../../nuclide-working-sets-common');
 }
 
+var _Button;
+
+function _load_Button() {
+  return _Button = require('../../nuclide-ui/Button');
+}
+
+var _ButtonGroup;
+
+function _load_ButtonGroup() {
+  return _ButtonGroup = require('../../nuclide-ui/ButtonGroup');
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
 class FileTreeToolbarComponent extends _reactForAtom.React.Component {
 
@@ -110,6 +126,11 @@ class FileTreeToolbarComponent extends _reactForAtom.React.Component {
   }
 
   render() {
+    const workingSetsStore = this._store.getWorkingSetsStore();
+    let shouldShowButtonLabel;
+    if (workingSetsStore != null) {
+      shouldShowButtonLabel = workingSetsStore.getDefinitions().length === 0;
+    }
     const workingSet = this._store.getWorkingSet();
     const editedWorkingSetIsEmpty = this._store.isEditedWorkingSetEmpty();
     const isEditingWorkingSet = this._store.isEditingWorkingSet();
@@ -117,9 +138,9 @@ class FileTreeToolbarComponent extends _reactForAtom.React.Component {
     let selectWorkingSetButton;
     if (!this.state.definitionsAreEmpty && !isEditingWorkingSet) {
       selectWorkingSetButton = _reactForAtom.React.createElement(SelectWorkingSetButton, {
-        highlight: !workingSet.isEmpty(),
         onClick: this._toggleWorkingSetsSelector,
-        onFocus: this._checkIfClosingSelector
+        onFocus: this._checkIfClosingSelector,
+        isWorkingSetEmpty: workingSet.isEmpty()
       });
     }
 
@@ -142,11 +163,13 @@ class FileTreeToolbarComponent extends _reactForAtom.React.Component {
           'nuclide-file-tree-toolbar-fader': workingSet.isEmpty() && !this.state.selectionIsActive && !this._store.isEditingWorkingSet()
         }) },
       _reactForAtom.React.createElement(
-        'div',
-        { className: 'btn-group pull-right' },
+        (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
+        { className: 'pull-right', size: (_ButtonGroup || _load_ButtonGroup()).ButtonGroupSizes.SMALL },
         selectWorkingSetButton,
         _reactForAtom.React.createElement(DefineWorkingSetButton, {
           isActive: isEditingWorkingSet,
+          isWorkingSetEmpty: workingSet.isEmpty(),
+          shouldShowLabel: shouldShowButtonLabel,
           onClick: this._toggleWorkingSetEditMode
         })
       ),
@@ -256,37 +279,30 @@ class FileTreeToolbarComponent extends _reactForAtom.React.Component {
   }
 }
 
-exports.FileTreeToolbarComponent = FileTreeToolbarComponent; /**
-                                                              * Copyright (c) 2015-present, Facebook, Inc.
-                                                              * All rights reserved.
-                                                              *
-                                                              * This source code is licensed under the license found in the LICENSE file in
-                                                              * the root directory of this source tree.
-                                                              *
-                                                              * 
-                                                              */
-
+exports.FileTreeToolbarComponent = FileTreeToolbarComponent;
 class SelectWorkingSetButton extends _reactForAtom.React.Component {
 
   render() {
     const {
-      highlight,
+      isWorkingSetEmpty,
       onClick,
       onFocus
     } = this.props;
     return _reactForAtom.React.createElement(
-      'button',
+      (_Button || _load_Button()).Button,
       {
-        className: (0, (_classnames || _load_classnames()).default)('btn', { selected: highlight }),
-        ref: (0, (_addTooltip || _load_addTooltip()).default)({
-          title: 'Select Working Sets',
-          delay: 500,
-          placement: 'bottom',
-          keyBindingCommand: 'working-sets:select-active'
-        }),
+        icon: 'pencil',
         onClick: onClick,
-        onFocus: onFocus },
-      _reactForAtom.React.createElement('span', { className: 'icon icon-list-unordered nuclide-file-tree-toolbar-icon' })
+        onFocus: onFocus,
+        selected: !isWorkingSetEmpty,
+        size: (_Button || _load_Button()).ButtonSizes.SMALL,
+        tooltip: {
+          title: 'Select Working Sets',
+          delay: 300,
+          placement: 'top',
+          keyBindingCommand: 'working-sets:select-active'
+        } },
+      'Working Sets...'
     );
   }
 }
@@ -296,26 +312,22 @@ class DefineWorkingSetButton extends _reactForAtom.React.Component {
   render() {
     const {
       isActive,
+      isWorkingSetEmpty,
+      shouldShowLabel,
       onClick
     } = this.props;
     return _reactForAtom.React.createElement(
-      'button',
+      (_Button || _load_Button()).Button,
       {
-        className: (0, (_classnames || _load_classnames()).default)('btn', { selected: isActive }),
-        ref: (0, (_addTooltip || _load_addTooltip()).default)({
+        icon: isActive ? undefined : 'plus',
+        size: (_Button || _load_Button()).ButtonSizes.SMALL,
+        tooltip: {
           title: isActive ? 'Cancel' : 'Define a Working Set',
-          delay: 500,
-          placement: 'bottom'
-        }),
+          delay: 300,
+          placement: 'top'
+        },
         onClick: onClick },
-      _reactForAtom.React.createElement('span', {
-        className: (0, (_classnames || _load_classnames()).default)({
-          'icon': true,
-          'icon-plus': !isActive,
-          'icon-dash': isActive,
-          'nuclide-file-tree-toolbar-icon': true
-        })
-      })
+      isActive ? 'Cancel selection' : isWorkingSetEmpty && shouldShowLabel ? 'Working Set...' : null
     );
   }
 }

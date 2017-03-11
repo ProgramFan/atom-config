@@ -13,6 +13,12 @@ function _load_Button() {
   return _Button = require('../../../nuclide-ui/Button');
 }
 
+var _FreeformRefactorComponent;
+
+function _load_FreeformRefactorComponent() {
+  return _FreeformRefactorComponent = require('./FreeformRefactorComponent');
+}
+
 var _PickRefactorComponent;
 
 function _load_PickRefactorComponent() {
@@ -32,16 +38,6 @@ function _load_refactorActions() {
 }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
 
 class MainRefactorComponent extends _reactForAtom.React.Component {
   render() {
@@ -105,6 +101,8 @@ class MainRefactorComponent extends _reactForAtom.React.Component {
         return _reactForAtom.React.createElement((_PickRefactorComponent || _load_PickRefactorComponent()).PickRefactorComponent, { pickPhase: phase, store: this.props.store });
       case 'rename':
         return _reactForAtom.React.createElement((_RenameComponent || _load_RenameComponent()).RenameComponent, { phase: phase, store: this.props.store });
+      case 'freeform':
+        return _reactForAtom.React.createElement((_FreeformRefactorComponent || _load_FreeformRefactorComponent()).FreeformRefactorComponent, { phase: phase, store: this.props.store });
       case 'execute':
         return _reactForAtom.React.createElement(
           'div',
@@ -116,4 +114,12 @@ class MainRefactorComponent extends _reactForAtom.React.Component {
     }
   }
 }
-exports.MainRefactorComponent = MainRefactorComponent;
+exports.MainRefactorComponent = MainRefactorComponent; /**
+                                                        * Copyright (c) 2015-present, Facebook, Inc.
+                                                        * All rights reserved.
+                                                        *
+                                                        * This source code is licensed under the license found in the LICENSE file in
+                                                        * the root directory of this source tree.
+                                                        *
+                                                        * 
+                                                        */

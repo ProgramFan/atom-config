@@ -56,16 +56,6 @@ function _load_addTooltip() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 class BuckToolbar extends _reactForAtom.React.Component {
 
   constructor(props) {
@@ -201,7 +191,11 @@ class BuckToolbar extends _reactForAtom.React.Component {
       disabled: true
     };
 
-    const selectableOptions = platform.devices.map(device => {
+    if (!(platform.deviceGroups.length === 1)) {
+      throw new Error('Invariant violation: "platform.deviceGroups.length === 1"');
+    }
+
+    const selectableOptions = platform.deviceGroups[0].devices.map(device => {
       return {
         label: `  ${device.name}`,
         selectedLabel: device.name,
@@ -218,28 +212,55 @@ class BuckToolbar extends _reactForAtom.React.Component {
       disabled: true
     };
 
-    const selectableOptions = platformGroup.platforms.map(platform => {
-      if (platform.devices.length) {
-        return {
+    const selectableOptions = [];
+
+    for (const platform of platformGroup.platforms) {
+      if (platform.deviceGroups.length) {
+        const submenu = [];
+
+        for (const deviceGroup of platform.deviceGroups) {
+          if (deviceGroup.name) {
+            submenu.push({
+              label: deviceGroup.name,
+              value: deviceGroup.name,
+              disabled: true
+            });
+          }
+
+          for (const device of deviceGroup.devices) {
+            submenu.push({
+              label: `  ${device.name}`,
+              selectedLabel: `${platform.name}: ${device.name}`,
+              value: { platform, device }
+            });
+          }
+
+          submenu.push({ type: 'separator' });
+        }
+
+        selectableOptions.push({
           type: 'submenu',
           label: `  ${platform.name}`,
-          submenu: platform.devices.map(device => ({
-            label: device.name,
-            selectedLabel: `${device.name}`,
-            value: { platform, device }
-          }))
-        };
+          submenu
+        });
       } else {
-        return {
+        selectableOptions.push({
           label: `  ${platform.name}`,
           selectedLabel: platform.name,
           value: { platform, device: null }
-        };
+        });
       }
-    });
+    }
 
     return { header, selectableOptions };
   }
 }
-exports.default = BuckToolbar;
-module.exports = exports['default'];
+exports.default = BuckToolbar; /**
+                                * Copyright (c) 2015-present, Facebook, Inc.
+                                * All rights reserved.
+                                *
+                                * This source code is licensed under the license found in the LICENSE file in
+                                * the root directory of this source tree.
+                                *
+                                * 
+                                */

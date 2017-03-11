@@ -66,5 +66,3 @@ exports.default = BreakpointManager; /**
                                       *
                                       * 
                                       */
-
-module.exports = exports['default'];

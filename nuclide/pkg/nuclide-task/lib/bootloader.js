@@ -160,4 +160,3 @@ class Task {
   }
 }
 exports.default = Task;
-module.exports = exports['default'];

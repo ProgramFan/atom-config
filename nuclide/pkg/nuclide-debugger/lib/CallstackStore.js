@@ -18,7 +18,23 @@ function _load_DebuggerDispatcher() {
   return _DebuggerDispatcher = require('./DebuggerDispatcher');
 }
 
+var _debounce;
+
+function _load_debounce() {
+  return _debounce = _interopRequireDefault(require('../../commons-node/debounce'));
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
 class CallstackStore {
 
@@ -31,6 +47,11 @@ class CallstackStore {
     this._selectedCallFrameIndex = 0;
     this._selectedCallFrameMarker = null;
     this._emitter = new _atom.Emitter();
+
+    // Debounce calls to _openPathInEditor to work around an Atom bug that causes
+    // two editor windows to be opened if multiple calls to atom.workspace.open
+    // are made close together, even if {searchAllPanes: true} is set.
+    this._openPathInEditor = (0, (_debounce || _load_debounce()).default)(this._openPathInEditor, 100, true);
   }
 
   _handlePayload(payload) {
@@ -73,11 +94,18 @@ class CallstackStore {
       // only handle real files for now.
       // This should be goToLocation instead but since the searchAllPanes option is correctly
       // provided it's not urgent.
-      // eslint-disable-next-line nuclide-internal/atom-apis
-      atom.workspace.open(path, { searchAllPanes: true }).then(editor => {
+      this._openPathInEditor(path).then(editor => {
         this._nagivateToLocation(editor, lineNumber);
       });
     }
+  }
+
+  _openPathInEditor(path) {
+    // eslint-disable-next-line nuclide-internal/atom-apis
+    return atom.workspace.open(path, {
+      searchAllPanes: true,
+      pending: true
+    });
   }
 
   _nagivateToLocation(editor, line) {
@@ -99,8 +127,7 @@ class CallstackStore {
         // only handle real files for now
         // This should be goToLocation instead but since the searchAllPanes option is correctly
         // provided it's not urgent.
-        // eslint-disable-next-line nuclide-internal/atom-apis
-        atom.workspace.open(path, { searchAllPanes: true }).then(editor => {
+        this._openPathInEditor(path).then(editor => {
           this._clearSelectedCallFrameMarker();
           this._highlightCallFrameLine(editor, lineNumber);
           this._nagivateToLocation(editor, lineNumber);
@@ -144,14 +171,4 @@ class CallstackStore {
     this._disposables.dispose();
   }
 }
-exports.default = CallstackStore; /**
-                                   * Copyright (c) 2015-present, Facebook, Inc.
-                                   * All rights reserved.
-                                   *
-                                   * This source code is licensed under the license found in the LICENSE file in
-                                   * the root directory of this source tree.
-                                   *
-                                   * 
-                                   */
-
-module.exports = exports['default'];
+exports.default = CallstackStore;

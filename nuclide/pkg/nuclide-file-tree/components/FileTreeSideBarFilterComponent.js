@@ -44,4 +44,3 @@ class FileTreeSidebarFilterComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = FileTreeSidebarFilterComponent;
-module.exports = exports['default'];

@@ -56,7 +56,7 @@ function fetchChildren(nodeKey) {
 
   return new Promise((resolve, reject) => {
     if (directory == null) {
-      reject(`Directory "${nodeKey}" not found or is inaccessible.`);
+      reject(new Error(`Directory "${nodeKey}" not found or is inaccessible.`));
       return;
     }
 
@@ -178,4 +178,3 @@ exports.default = {
   buildHashKey,
   updatePathInOpenedEditors
 };
-module.exports = exports['default'];

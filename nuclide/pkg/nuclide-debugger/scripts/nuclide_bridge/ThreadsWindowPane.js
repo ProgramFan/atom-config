@@ -258,4 +258,3 @@ class ThreadsWindowPane extends (_WebInspector || _load_WebInspector()).default.
   reset() {}
 }
 exports.default = ThreadsWindowPane;
-module.exports = exports['default'];

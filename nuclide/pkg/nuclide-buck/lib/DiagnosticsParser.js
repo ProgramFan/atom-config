@@ -180,4 +180,3 @@ class DiagnosticsParser {
   }
 }
 exports.default = DiagnosticsParser;
-module.exports = exports['default'];

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getLastCommandInfo = exports.queryWithArgs = exports.query = exports.getHTTPServerPort = exports.buildRuleTypeFor = exports.showOutput = exports.resolveAlias = exports.listFlavors = exports.listAliases = exports.getBuckConfig = exports.getOwners = exports.getBuildFile = exports.MULTIPLE_TARGET_RULE_TYPE = undefined;
+exports.getLastCommandInfo = exports.resolveBuildTargetName = exports.queryWithArgs = exports.query = exports.getHTTPServerPort = exports.buildRuleTypeFor = exports.showOutput = exports.resolveAlias = exports.listFlavors = exports.listAliases = exports.getBuckConfig = exports.getOwners = exports.getBuildFile = exports.MULTIPLE_TARGET_RULE_TYPE = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -248,7 +248,7 @@ let listFlavors = exports.listFlavors = (() => {
 
 let resolveAlias = exports.resolveAlias = (() => {
   var _ref10 = (0, _asyncToGenerator.default)(function* (rootPath, aliasOrTarget) {
-    const args = ['targets', '--resolve-alias', aliasOrTarget];
+    const args = ['query', aliasOrTarget];
     const result = yield _runBuckCommandFromProjectRoot(rootPath, args);
     return result.stdout.trim();
   });
@@ -281,17 +281,7 @@ let showOutput = exports.showOutput = (() => {
 
 let buildRuleTypeFor = exports.buildRuleTypeFor = (() => {
   var _ref12 = (0, _asyncToGenerator.default)(function* (rootPath, aliasOrTarget) {
-    let canonicalName = aliasOrTarget;
-    // The leading "//" can be omitted for build/test/etc, but not for query.
-    // Don't prepend this for aliases though (aliases will not have colons or .)
-    if ((canonicalName.indexOf(':') !== -1 || canonicalName.indexOf('.') !== -1) && !canonicalName.startsWith('//')) {
-      canonicalName = '//' + canonicalName;
-    }
-    // Buck query does not support flavors.
-    const flavorIndex = canonicalName.indexOf('#');
-    if (flavorIndex !== -1) {
-      canonicalName = canonicalName.substr(0, flavorIndex);
-    }
+    const canonicalName = _normalizeNameForBuckQuery(aliasOrTarget);
     const args = ['query', canonicalName, '--json', '--output-attributes', 'buck.type'];
     const result = yield _runBuckCommandFromProjectRoot(rootPath, args);
     const json = JSON.parse(result.stdout);
@@ -312,6 +302,9 @@ let buildRuleTypeFor = exports.buildRuleTypeFor = (() => {
     return _ref12.apply(this, arguments);
   };
 })();
+
+// Buck query doesn't allow omitting // or adding # for flavors, this needs to be fixed in buck.
+
 
 let getHTTPServerPort = exports.getHTTPServerPort = (() => {
   var _ref13 = (0, _asyncToGenerator.default)(function* (rootPath) {
@@ -374,12 +367,31 @@ let queryWithArgs = exports.queryWithArgs = (() => {
   };
 })();
 
+let resolveBuildTargetName = exports.resolveBuildTargetName = (() => {
+  var _ref16 = (0, _asyncToGenerator.default)(function* (buckRoot, nameOrAlias) {
+    const canonicalName = _normalizeNameForBuckQuery(nameOrAlias);
+    const qualifiedName = yield resolveAlias(buckRoot, canonicalName);
+    let flavors;
+    if (nameOrAlias.includes('#')) {
+      const nameComponents = nameOrAlias.split('#');
+      flavors = nameComponents.length === 2 ? nameComponents[1].split(',') : [];
+    } else {
+      flavors = [];
+    }
+    return { qualifiedName, flavors };
+  });
+
+  return function resolveBuildTargetName(_x32, _x33) {
+    return _ref16.apply(this, arguments);
+  };
+})();
+
 // TODO: Nuclide's RPC framework won't allow BuckWebSocketMessage here unless we cover
 // all possible message types. For now, we'll manually typecast at the callsite.
 
 
 let getLastCommandInfo = exports.getLastCommandInfo = (() => {
-  var _ref16 = (0, _asyncToGenerator.default)(function* (rootPath) {
+  var _ref17 = (0, _asyncToGenerator.default)(function* (rootPath) {
     const logFile = (_nuclideUri || _load_nuclideUri()).default.join(rootPath, LOG_PATH);
     if (yield (_fsPromise || _load_fsPromise()).default.exists(logFile)) {
       const result = yield (0, (_process || _load_process()).asyncExecute)('head', ['-n', '1', logFile]);
@@ -406,8 +418,8 @@ let getLastCommandInfo = exports.getLastCommandInfo = (() => {
     return null;
   });
 
-  return function getLastCommandInfo(_x32) {
-    return _ref16.apply(this, arguments);
+  return function getLastCommandInfo(_x34) {
+    return _ref17.apply(this, arguments);
   };
 })();
 
@@ -417,6 +429,7 @@ exports.install = install;
 exports.buildWithOutput = buildWithOutput;
 exports.testWithOutput = testWithOutput;
 exports.installWithOutput = installWithOutput;
+exports.runWithOutput = runWithOutput;
 exports.getWebSocketStream = getWebSocketStream;
 
 var _process;
@@ -533,8 +546,8 @@ function getRootForPath(file) {
  * @param simulator The UDID of the simulator to install the binary on.
  * @return Promise that resolves to a build report.
  */
-function install(rootPath, buildTargets, simulator, runOptions) {
-  return _build(rootPath, buildTargets, { install: true, simulator, runOptions });
+function install(rootPath, buildTargets, simulator, run, debug) {
+  return _build(rootPath, buildTargets, { install: true, simulator, run, debug });
 }
 
 function buildWithOutput(rootPath, buildTargets, extraArguments) {
@@ -552,8 +565,8 @@ function buildWithOutput(rootPath, buildTargets, extraArguments) {
  *     from stderr.
  *   onCompleted: Only called if the build completes successfully.
  */
-function testWithOutput(rootPath, buildTargets, extraArguments) {
-  return _buildWithOutput(rootPath, buildTargets, { test: true, extraArguments }).publish();
+function testWithOutput(rootPath, buildTargets, extraArguments, debug) {
+  return _buildWithOutput(rootPath, buildTargets, { test: true, extraArguments, debug }).publish();
 }
 
 /**
@@ -567,11 +580,20 @@ function testWithOutput(rootPath, buildTargets, extraArguments) {
  *     from stderr.
  *   onCompleted: Only called if the install completes successfully.
  */
-function installWithOutput(rootPath, buildTargets, extraArguments, simulator, runOptions) {
+function installWithOutput(rootPath, buildTargets, extraArguments, simulator, run, debug) {
   return _buildWithOutput(rootPath, buildTargets, {
     install: true,
     simulator,
-    runOptions,
+    run,
+    debug,
+    extraArguments
+  }).publish();
+}
+
+function runWithOutput(rootPath, buildTargets, extraArguments, simulator) {
+  return _buildWithOutput(rootPath, buildTargets, {
+    run: true,
+    simulator,
     extraArguments
   }).publish();
 }
@@ -586,7 +608,15 @@ function _buildWithOutput(rootPath, buildTargets, options) {
     baseOptions: Object.assign({}, options),
     buildTargets
   });
-  return _rxjsBundlesRxMinJs.Observable.fromPromise(_getBuckCommandAndOptions(rootPath)).switchMap(({ pathToBuck, buckCommandOptions }) => (0, (_process || _load_process()).observeProcess)(() => (0, (_process || _load_process()).safeSpawn)(pathToBuck, args, buckCommandOptions)));
+  return _rxjsBundlesRxMinJs.Observable.fromPromise(_getBuckCommandAndOptions(rootPath)).switchMap(({ pathToBuck, buckCommandOptions }) => (0, (_process || _load_process()).observeProcess)(() => (0, (_process || _load_process()).safeSpawn)(pathToBuck, args, buckCommandOptions)).startWith({
+    kind: 'stdout',
+    data: `Starting "${pathToBuck} ${_getArgsStringSkipClientId(args)}"`
+  }));
+}
+
+function _getArgsStringSkipClientId(args) {
+  const skipped = args.findIndex(arg => arg === 'client.id=nuclide');
+  return args.filter((arg, index) => index !== skipped && index !== skipped - 1).join(' ');
 }
 
 /**
@@ -602,16 +632,19 @@ function _translateOptionsToBuckBuildArgs(options) {
   } = options;
   const {
     install: doInstall,
+    run,
     simulator,
     test,
+    debug,
     extraArguments
   } = baseOptions;
-  const runOptions = baseOptions.runOptions || { run: false };
 
-  let args = [test ? 'test' : doInstall ? 'install' : 'build'];
+  let args = [test ? 'test' : doInstall ? 'install' : run ? 'run' : 'build'];
   args = args.concat(buildTargets, CLIENT_ID_ARGS);
 
-  args.push('--keep-going');
+  if (!run) {
+    args.push('--keep-going');
+  }
   if (pathToBuildReport) {
     args = args.concat(['--build-report', pathToBuildReport]);
   }
@@ -621,17 +654,35 @@ function _translateOptionsToBuckBuildArgs(options) {
       args.push(simulator);
     }
 
-    if (runOptions.run) {
+    if (run) {
       args.push('--run');
-      if (runOptions.debug) {
+      if (debug) {
         args.push('--wait-for-debugger');
       }
+    }
+  } else if (test) {
+    if (debug) {
+      args.push('--debug');
     }
   }
   if (extraArguments != null) {
     args = args.concat(extraArguments);
   }
   return args;
+}
+
+function _normalizeNameForBuckQuery(aliasOrTarget) {
+  let canonicalName = aliasOrTarget;
+  // Don't prepend // for aliases (aliases will not have colons or .)
+  if ((canonicalName.indexOf(':') !== -1 || canonicalName.indexOf('.') !== -1) && !canonicalName.startsWith('//')) {
+    canonicalName = '//' + canonicalName;
+  }
+  // Strip flavor string
+  const flavorIndex = canonicalName.indexOf('#');
+  if (flavorIndex !== -1) {
+    canonicalName = canonicalName.substr(0, flavorIndex);
+  }
+  return canonicalName;
 }
 
 function getWebSocketStream(rootPath, httpPort) {

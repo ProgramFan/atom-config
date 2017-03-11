@@ -88,4 +88,3 @@ class RevisionsCache {
   }
 }
 exports.default = RevisionsCache;
-module.exports = exports['default'];

@@ -77,4 +77,3 @@ function applyToBuffer(buffer, edit) {
   buffer.setTextInRange(edit.oldRange, edit.newText);
   return true;
 }
-module.exports = exports['default'];

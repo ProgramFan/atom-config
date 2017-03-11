@@ -197,4 +197,3 @@ function convertToRpcMessage(type, id, response) {
     id
   }, responseObj);
 }
-module.exports = exports['default'];

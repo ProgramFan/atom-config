@@ -182,6 +182,7 @@ class AtomInput extends _reactForAtom.React.Component {
   }
 
   getTextEditorElement() {
+    // $FlowFixMe
     return _reactForAtom.ReactDOM.findDOMNode(this);
   }
 

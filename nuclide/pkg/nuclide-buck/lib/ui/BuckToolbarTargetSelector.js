@@ -133,4 +133,3 @@ class BuckToolbarTargetSelector extends _reactForAtom.React.Component {
   }
 }
 exports.default = BuckToolbarTargetSelector;
-module.exports = exports['default'];
