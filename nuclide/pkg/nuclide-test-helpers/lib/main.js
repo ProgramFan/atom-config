@@ -24,7 +24,7 @@ let expectAsyncFailure = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (promise, verify) {
     try {
       yield promise;
-      return Promise.reject('Promise should have failed, but did not.');
+      return Promise.reject(new Error('Promise should have failed, but did not.'));
     } catch (e) {
       verify(e);
     }

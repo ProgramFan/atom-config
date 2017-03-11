@@ -128,4 +128,3 @@ class SimpleValueComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = SimpleValueComponent;
-module.exports = exports['default'];

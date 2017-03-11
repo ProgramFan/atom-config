@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getJavaProcesses = exports.getPidFromPackageName = exports.getDeviceList = undefined;
+exports.getJavaProcesses = exports.getPidFromPackageName = exports.getAPIVersion = exports.getDeviceList = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -46,8 +46,28 @@ let getDeviceList = exports.getDeviceList = (() => {
   };
 })();
 
+let getAPIVersion = exports.getAPIVersion = (() => {
+  var _ref3 = (0, _asyncToGenerator.default)(function* (adbPath, device) {
+    if (adbPath.endsWith('sdb')) {
+      let version;
+      try {
+        version = yield getTizenModelConfigKey(adbPath, device, 'tizen.org/feature/platform.core.api.version');
+      } catch (e) {
+        version = yield getTizenModelConfigKey(adbPath, device, 'tizen.org/feature/platform.native.api.version');
+      }
+      return version;
+    } else {
+      return getAndroidProp(adbPath, device, 'ro.build.version.sdk').toPromise();
+    }
+  });
+
+  return function getAPIVersion(_x3, _x4) {
+    return _ref3.apply(this, arguments);
+  };
+})();
+
 let getPidFromPackageName = exports.getPidFromPackageName = (() => {
-  var _ref3 = (0, _asyncToGenerator.default)(function* (adbPath, device, packageName) {
+  var _ref4 = (0, _asyncToGenerator.default)(function* (adbPath, device, packageName) {
     const pidLine = (yield runShortAdbCommand(adbPath, device, ['shell', 'ps', '|', 'grep', '-i', packageName]).toPromise()).split(_os.EOL)[0];
     if (pidLine == null) {
       throw new Error(`Can not find a running process with package name: ${packageName}`);
@@ -56,13 +76,13 @@ let getPidFromPackageName = exports.getPidFromPackageName = (() => {
     return parseInt(pidLine.trim().split(/\s+/)[1], /* radix */10);
   });
 
-  return function getPidFromPackageName(_x3, _x4, _x5) {
-    return _ref3.apply(this, arguments);
+  return function getPidFromPackageName(_x5, _x6, _x7) {
+    return _ref4.apply(this, arguments);
   };
 })();
 
 let getJavaProcesses = exports.getJavaProcesses = (() => {
-  var _ref4 = (0, _asyncToGenerator.default)(function* (adbPath, device) {
+  var _ref5 = (0, _asyncToGenerator.default)(function* (adbPath, device) {
     const allProcesses = yield runShortAdbCommand(adbPath, device, ['shell', 'ps']).map(function (stdout) {
       const psOutput = stdout.trim();
       return parsePsTableOutput(psOutput, ['user', 'pid', 'name']);
@@ -86,15 +106,14 @@ let getJavaProcesses = exports.getJavaProcesses = (() => {
     }).toPromise();
   });
 
-  return function getJavaProcesses(_x6, _x7) {
-    return _ref4.apply(this, arguments);
+  return function getJavaProcesses(_x8, _x9) {
+    return _ref5.apply(this, arguments);
   };
 })();
 
 exports.startServer = startServer;
 exports.getDeviceArchitecture = getDeviceArchitecture;
 exports.getDeviceModel = getDeviceModel;
-exports.getAPIVersion = getAPIVersion;
 exports.installPackage = installPackage;
 exports.uninstallPackage = uninstallPackage;
 exports.forwardJdwpPortToPid = forwardJdwpPortToPid;
@@ -167,7 +186,7 @@ function getDeviceArchitecture(adbPath, device) {
   // SDB is a tool similar to ADB used with Tizen devices. `getprop` doesn't
   // exist on Tizen, so we have to rely on uname instead.
   if (adbPath.endsWith('sdb')) {
-    return runShortAdbCommand(adbPath, device, ['shell', 'uname', '-m']).toPromise();
+    return runShortAdbCommand(adbPath, device, ['shell', 'uname', '-m']).map(s => s.trim()).toPromise();
   } else {
     return getAndroidProp(adbPath, device, 'ro.product.cpu.abi').toPromise();
   }
@@ -181,20 +200,17 @@ function getDeviceModel(adbPath, device) {
   }
 }
 
-function getAPIVersion(adbPath, device) {
-  if (adbPath.endsWith('sdb')) {
-    return getTizenModelConfigKey(adbPath, device, 'tizen.org/feature/platform.core.api.version');
-  } else {
-    return getAndroidProp(adbPath, device, 'ro.build.version.sdk').toPromise();
-  }
-}
-
 function installPackage(adbPath, device, packagePath) {
   if (!!(_nuclideUri || _load_nuclideUri()).default.isRemote(packagePath)) {
     throw new Error('Invariant violation: "!nuclideUri.isRemote(packagePath)"');
   }
 
-  return runLongAdbCommand(adbPath, device, ['install', packagePath]);
+  if (adbPath.endsWith('adb')) {
+    // SDB overwrites existing packages by default, ADB needs the '-r' option
+    return runLongAdbCommand(adbPath, device, ['install', '-r', packagePath]);
+  } else {
+    return runLongAdbCommand(adbPath, device, ['install', packagePath]);
+  }
 }
 
 function uninstallPackage(adbPath, device, packageName) {

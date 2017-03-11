@@ -26,12 +26,17 @@ function accumulateState(state, action) {
         isLoadingBuckProject: false
       });
     case (_Actions || _load_Actions()).SET_BUILD_TARGET:
+      // We are nulling out the deployment target while platforms are loaded
+      // Let's remember what we had selected in the last session field
+      const preference = getDeploymentTargetPreference(state);
       return Object.assign({}, state, {
         buildRuleType: null,
         platformGroups: [],
         selectedDeploymentTarget: null,
         buildTarget: action.buildTarget,
-        isLoadingRule: true
+        isLoadingRule: true,
+        lastSessionPlatformName: preference.platformName,
+        lastSessionDeviceName: preference.deviceName
       });
     case (_Actions || _load_Actions()).SET_RULE_TYPE:
       return Object.assign({}, state, {
@@ -41,16 +46,8 @@ function accumulateState(state, action) {
       });
     case (_Actions || _load_Actions()).SET_PLATFORM_GROUPS:
       const { platformGroups } = action;
-      let currentPlatformName;
-      let currentDeviceName;
-      if (state.selectedDeploymentTarget) {
-        currentPlatformName = state.selectedDeploymentTarget.platform.name;
-        currentDeviceName = state.selectedDeploymentTarget.device ? state.selectedDeploymentTarget.device.name : null;
-      } else {
-        currentPlatformName = state.lastSessionPlatformName;
-        currentDeviceName = state.lastSessionDeviceName;
-      }
-      const selectedDeploymentTarget = selectValidDeploymentTarget(currentPlatformName, currentDeviceName, platformGroups);
+      const { platformName, deviceName } = getDeploymentTargetPreference(state);
+      const selectedDeploymentTarget = selectValidDeploymentTarget(platformName, deviceName, platformGroups);
       return Object.assign({}, state, {
         platformGroups,
         selectedDeploymentTarget,
@@ -78,22 +75,37 @@ function accumulateState(state, action) {
    * 
    */
 
-function selectValidDeploymentTarget(currentPlatformName, currentDeviceName, platformGroups) {
+function getDeploymentTargetPreference(state) {
+  // If a deployment target exists, that's our first choice, otherwise look at the last session
+  if (state.selectedDeploymentTarget) {
+    return {
+      platformName: state.selectedDeploymentTarget.platform.name,
+      deviceName: state.selectedDeploymentTarget.device ? state.selectedDeploymentTarget.device.name : null
+    };
+  } else {
+    return {
+      platformName: state.lastSessionPlatformName,
+      deviceName: state.lastSessionDeviceName
+    };
+  }
+}
+
+function selectValidDeploymentTarget(preferredPlatformName, preferredDeviceName, platformGroups) {
   if (!platformGroups.length) {
     return null;
   }
 
   let existingDevice = null;
   let existingPlatform = null;
-  if (currentPlatformName) {
+  if (preferredPlatformName) {
     for (const platformGroup of platformGroups) {
       for (const platform of platformGroup.platforms) {
-        if (platform.name === currentPlatformName) {
+        if (platform.name === preferredPlatformName) {
           existingPlatform = platform;
-          if (currentDeviceName) {
+          if (preferredDeviceName) {
             for (const deviceGroup of platform.deviceGroups) {
               for (const device of deviceGroup.devices) {
-                if (device.name === currentDeviceName) {
+                if (device.name === preferredDeviceName) {
                   existingDevice = device;
                   break;
                 }
@@ -124,4 +136,3 @@ function selectValidDeploymentTarget(currentPlatformName, currentDeviceName, pla
 
   return { platform: existingPlatform, device: existingDevice };
 }
-module.exports = exports['default'];

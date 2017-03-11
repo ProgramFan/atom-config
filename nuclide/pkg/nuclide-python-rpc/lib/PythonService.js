@@ -44,7 +44,8 @@ let getDiagnostics = exports.getDiagnostics = (() => {
     let result;
     try {
       // $FlowFB
-      result = yield require('./fb/run-flake8')(src, contents, configPath);
+      const runFlake8 = require('./fb/run-flake8').default;
+      result = yield runFlake8(src, contents, configPath);
     } catch (e) {
       // Ignore.
     }
@@ -328,7 +329,8 @@ function getFormatterPath() {
 
   try {
     // $FlowFB
-    const overridePath = require('./fb/find-formatter-path')();
+    const findFormatterPath = require('./fb/find-formatter-path').default;
+    const overridePath = findFormatterPath();
     if (overridePath) {
       formatterPath = overridePath;
     }

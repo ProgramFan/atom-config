@@ -175,4 +175,3 @@ class ClangLinter {
   }
 }
 exports.default = ClangLinter;
-module.exports = exports['default'];

@@ -41,7 +41,9 @@ class MultiSelectList extends _reactForAtom.React.Component {
       this._commandsDisposables.dispose();
     }
     const el = this.props.commandScope || _reactForAtom.ReactDOM.findDOMNode(this);
-    this._commandsDisposables = new _atom.CompositeDisposable(atom.commands.add(el, {
+    this._commandsDisposables = new _atom.CompositeDisposable(atom.commands.add(
+    // $FlowFixMe
+    el, {
       'core:move-up': () => {
         this._moveSelectionIndex(-1);
       },

@@ -35,7 +35,7 @@ class PickRefactorComponent extends _reactForAtom.React.Component {
 
     const elements = availableRefactorings.map((r, i) => _reactForAtom.React.createElement(
       'div',
-      { key: i },
+      { key: i, className: 'nuclide-refactorizer-refactor-option' },
       this._renderRefactorOption(r)
     ));
     // Class used to identify this element in integration tests
@@ -62,6 +62,23 @@ class PickRefactorComponent extends _reactForAtom.React.Component {
               this._pickRefactor(refactoring);
             } },
           'Rename'
+        );
+      case 'freeform':
+        // TODO: Make sure the buttons are aligned.
+        return _reactForAtom.React.createElement(
+          'div',
+          null,
+          _reactForAtom.React.createElement(
+            (_Button || _load_Button()).Button,
+            {
+              className: 'nuclide-refactorizer-pick-freeform',
+              onClick: () => {
+                this._pickRefactor(refactoring);
+              },
+              disabled: refactoring.disabled },
+            refactoring.name
+          ),
+          refactoring.description
         );
       default:
         throw new Error(`Unknown refactoring kind ${refactoring.kind}`);

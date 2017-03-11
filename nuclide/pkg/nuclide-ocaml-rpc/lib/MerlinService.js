@@ -42,7 +42,7 @@ let pushNewBuffer = exports.pushNewBuffer = (() => {
 let locate = exports.locate = (() => {
   var _ref3 = (0, _asyncToGenerator.default)(function* (path, line, col, kind) {
     const instance = yield (0, (_MerlinProcess || _load_MerlinProcess()).getInstance)(path);
-    return instance ? yield instance.locate(path, line, col, kind) : null;
+    return instance ? instance.locate(path, line, col, kind) : null;
   });
 
   return function locate(_x4, _x5, _x6, _x7) {
@@ -59,7 +59,7 @@ let locate = exports.locate = (() => {
 let enclosingType = exports.enclosingType = (() => {
   var _ref4 = (0, _asyncToGenerator.default)(function* (path, line, col) {
     const instance = yield (0, (_MerlinProcess || _load_MerlinProcess()).getInstance)(path);
-    return instance ? yield instance.enclosingType(path, line, col) : null;
+    return instance ? instance.enclosingType(path, line, col) : null;
   });
 
   return function enclosingType(_x8, _x9, _x10) {

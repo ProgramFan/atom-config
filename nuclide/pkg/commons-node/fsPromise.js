@@ -497,4 +497,3 @@ exports.default = {
   symlink,
   unlink
 };
-module.exports = exports['default'];

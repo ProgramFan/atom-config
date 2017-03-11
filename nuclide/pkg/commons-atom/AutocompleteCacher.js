@@ -100,7 +100,8 @@ class AutocompleteCacher {
   _canMaybeFilterResults(session, currentRequest) {
     const { lastRequest } = session;
     const shouldFilter = this._config.shouldFilter != null ? this._config.shouldFilter : defaultShouldFilter;
-    return lastRequest.bufferPosition.row === currentRequest.bufferPosition.row && lastRequest.bufferPosition.column + 1 === currentRequest.bufferPosition.column && shouldFilter(lastRequest, currentRequest);
+    const charsSinceLastRequest = currentRequest.bufferPosition.column - lastRequest.bufferPosition.column;
+    return lastRequest.bufferPosition.row === currentRequest.bufferPosition.row && charsSinceLastRequest > 0 && shouldFilter(lastRequest, currentRequest, charsSinceLastRequest);
   }
 }
 
@@ -114,9 +115,8 @@ exports.default = AutocompleteCacher; /**
                                        * 
                                        */
 
-const IDENTIFIER_CHAR_REGEX = /[a-zA-Z_]/;
+const IDENTIFIER_REGEX = /^[a-zA-Z_]+$/;
 
-function defaultShouldFilter(lastRequest, currentRequest) {
-  return currentRequest.prefix.startsWith(lastRequest.prefix) && IDENTIFIER_CHAR_REGEX.test(currentRequest.prefix.charAt(currentRequest.prefix.length - 1));
+function defaultShouldFilter(lastRequest, currentRequest, charsSinceLastRequest) {
+  return currentRequest.prefix.startsWith(lastRequest.prefix) && currentRequest.prefix.length === lastRequest.prefix.length + charsSinceLastRequest && IDENTIFIER_REGEX.test(currentRequest.prefix);
 }
-module.exports = exports['default'];

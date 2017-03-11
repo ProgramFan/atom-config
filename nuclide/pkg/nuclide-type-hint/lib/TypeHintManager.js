@@ -117,4 +117,3 @@ class TypeHintManager {
   }
 }
 exports.default = TypeHintManager;
-module.exports = exports['default'];

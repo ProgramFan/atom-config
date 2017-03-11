@@ -79,4 +79,3 @@ class CommandsSectionComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = CommandsSectionComponent;
-module.exports = exports['default'];

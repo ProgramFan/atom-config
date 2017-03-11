@@ -70,4 +70,3 @@ class RemoteControlService {
   }
 }
 exports.default = RemoteControlService;
-module.exports = exports['default'];

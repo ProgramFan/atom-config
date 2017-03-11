@@ -45,9 +45,8 @@ function lookup(host, family) {
       } else if (address != null) {
         resolve(address);
       } else {
-        reject('One of error or address must be set.');
+        reject(new Error('One of error or address must be set.'));
       }
     });
   });
 }
-module.exports = exports['default'];

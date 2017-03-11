@@ -11,6 +11,7 @@ exports.diffFileEpic = diffFileEpic;
 exports.setViewModeEpic = setViewModeEpic;
 exports.commit = commit;
 exports.publishDiff = publishDiff;
+exports.splitRevision = splitRevision;
 
 var _ActionTypes;
 
@@ -133,6 +134,23 @@ function trackComplete(eventName, operation) {
       }
     });
   });
+}
+
+class ConsoleClient {
+
+  constructor(processName, progressUpdates) {
+    this._processName = processName;
+    this._progressUpdates = progressUpdates;
+    this._consoleShown = false;
+  }
+
+  enableAndPipeProcessMessagesToConsole(processMessage) {
+    (0, (_streamProcessToConsoleMessages || _load_streamProcessToConsoleMessages()).pipeProcessMessagesToConsole)(this._processName, this._progressUpdates, processMessage);
+    if (!this._consoleShown && SHOW_CONSOLE_ON_PROCESS_EVENTS.includes(processMessage.kind)) {
+      (0, (_streamProcessToConsoleMessages || _load_streamProcessToConsoleMessages()).dispatchConsoleToggle)(true);
+      this._consoleShown = true;
+    }
+  }
 }
 
 function notifyCwdMismatch(newRepository, cwdApi, filePath) {
@@ -536,14 +554,20 @@ function commit(actions, store) {
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('diff-view-commit');
     const { message, repository, publishUpdates, bookmarkName } = action.payload;
     const {
+      activeRepositoryState: { dirtyFiles },
       commit: { mode },
       isPrepareMode,
       lintExcuse,
       publish,
+      shouldCommitInteractively,
       shouldPublishOnCommit,
       shouldRebaseOnAmend
     } = store.getState();
-    let consoleShown = false;
+    const consoleClient = new ConsoleClient(mode, publishUpdates);
+
+    // Trying to amend a commit interactively with no uncommitted changes
+    // will instantly return and not allow the commit message to update
+    const isInteractive = shouldCommitInteractively && dirtyFiles.size > 0;
 
     // If the commit/amend and publish option are chosen
     function getPublishActions() {
@@ -576,30 +600,23 @@ function commit(actions, store) {
       switch (mode) {
         case (_constants || _load_constants()).CommitMode.COMMIT:
           (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('diff-view-commit-commit');
-          return _rxjsBundlesRxMinJs.Observable.concat(bookmarkName != null && bookmarkName.length > 0 ? _rxjsBundlesRxMinJs.Observable.fromPromise(repository.createBookmark(bookmarkName)).ignoreElements() : _rxjsBundlesRxMinJs.Observable.empty(), repository.commit(message));
+          return _rxjsBundlesRxMinJs.Observable.concat(bookmarkName != null && bookmarkName.length > 0 ? _rxjsBundlesRxMinJs.Observable.fromPromise(repository.createBookmark(bookmarkName)).ignoreElements() : _rxjsBundlesRxMinJs.Observable.empty(), repository.commit(message, isInteractive));
         case (_constants || _load_constants()).CommitMode.AMEND:
           (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('diff-view-commit-amend');
-          return repository.amend(message, (0, (_utils || _load_utils()).getAmendMode)(shouldRebaseOnAmend));
+          return repository.amend(message, (0, (_utils || _load_utils()).getAmendMode)(shouldRebaseOnAmend), isInteractive);
         default:
           return _rxjsBundlesRxMinJs.Observable.throw(new Error(`Invalid Commit Mode ${mode}`));
       }
-    })).do(processMessage => {
-      (0, (_streamProcessToConsoleMessages || _load_streamProcessToConsoleMessages()).pipeProcessMessagesToConsole)(mode, publishUpdates, processMessage);
-      if (!consoleShown && SHOW_CONSOLE_ON_PROCESS_EVENTS.includes(processMessage.kind)) {
-        (0, (_streamProcessToConsoleMessages || _load_streamProcessToConsoleMessages()).dispatchConsoleToggle)(true);
-        consoleShown = true;
-      }
-    }).switchMap(processMessage => {
+    })).do(processMessage => consoleClient.enableAndPipeProcessMessagesToConsole(processMessage)).switchMap(processMessage => {
       if (processMessage.kind !== 'exit') {
         return _rxjsBundlesRxMinJs.Observable.empty();
       } else if (processMessage.exitCode !== 0) {
         return _rxjsBundlesRxMinJs.Observable.of(resetCommitAction);
       }
-      const resetFromCommitViewActions = _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).setViewMode((_constants || _load_constants()).DiffMode.BROWSE_MODE), (_Actions || _load_Actions()).updateCommitState((0, (_createEmptyAppState || _load_createEmptyAppState()).getEmptyCommitState)()));
       if (shouldPublishOnCommit) {
-        return resetFromCommitViewActions.concat(getPublishActions());
+        return getPublishActions();
       } else {
-        return resetFromCommitViewActions;
+        return _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).setViewMode((_constants || _load_constants()).DiffMode.BROWSE_MODE), (_Actions || _load_Actions()).updateCommitState((0, (_createEmptyAppState || _load_createEmptyAppState()).getEmptyCommitState)()));
       }
     }).catch(error => {
       atom.notifications.addError('Couldn\'t commit code', {
@@ -669,6 +686,31 @@ function publishDiff(actions, store) {
         state: (_constants || _load_constants()).PublishModeState.PUBLISH_ERROR
       }));
     }));
+  });
+}
+
+function splitRevision(actions, store) {
+  return actions.ofType((_ActionTypes || _load_ActionTypes()).SPLIT_REVISION).switchMap(action => {
+    if (!(action.type === (_ActionTypes || _load_ActionTypes()).SPLIT_REVISION)) {
+      throw new Error('Invariant violation: "action.type === ActionTypes.SPLIT_REVISION"');
+    }
+
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('diff-view-split');
+    const {
+      publishUpdates,
+      repository
+    } = action.payload;
+    const {
+      commit: { mode }
+    } = store.getState();
+    const consoleClient = new ConsoleClient(mode, publishUpdates);
+
+    return trackComplete('diff-view-split', _rxjsBundlesRxMinJs.Observable.defer(() => repository.splitRevision())).do(processMessage => consoleClient.enableAndPipeProcessMessagesToConsole(processMessage)).switchMap(processMessage => _rxjsBundlesRxMinJs.Observable.empty()).catch(error => {
+      atom.notifications.addError('Couldn\'t split revision', {
+        detail: error
+      });
+      return _rxjsBundlesRxMinJs.Observable.empty();
+    });
   });
 }
 

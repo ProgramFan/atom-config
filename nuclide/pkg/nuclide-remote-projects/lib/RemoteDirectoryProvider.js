@@ -46,4 +46,3 @@ class RemoteDirectoryProvider {
   }
 }
 exports.default = RemoteDirectoryProvider;
-module.exports = exports['default'];

@@ -83,4 +83,3 @@ class AuthenticationPrompt extends _reactForAtom.React.Component {
   }
 }
 exports.default = AuthenticationPrompt;
-module.exports = exports['default'];

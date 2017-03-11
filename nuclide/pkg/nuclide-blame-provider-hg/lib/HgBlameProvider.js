@@ -88,4 +88,3 @@ exports.default = {
   getBlameForEditor,
   getUrlForRevision
 };
-module.exports = exports['default'];

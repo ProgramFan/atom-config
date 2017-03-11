@@ -18,15 +18,21 @@ function _load_nuclideIosCommon() {
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-let disposable = null; /**
-                        * Copyright (c) 2015-present, Facebook, Inc.
-                        * All rights reserved.
-                        *
-                        * This source code is licensed under the license found in the LICENSE file in
-                        * the root directory of this source tree.
-                        *
-                        * 
-                        */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
+let disposable = null;
+
+const RUNNABLE_RULE_TYPES = new Set(['apple_bundle']);
+
+const SUPPORTED_RULE_TYPES = new Set([...RUNNABLE_RULE_TYPES, 'apple_test']);
 
 function deactivate() {
   if (disposable != null) {
@@ -40,11 +46,12 @@ function consumePlatformService(service) {
 }
 
 function provideIosDevices(buckRoot, ruleType, buildTarget) {
-  if (ruleType !== 'apple_bundle') {
+  if (!SUPPORTED_RULE_TYPES.has(ruleType)) {
     return _rxjsBundlesRxMinJs.Observable.of(null);
   }
-  return (_nuclideIosCommon || _load_nuclideIosCommon()).getDevices().map(devices => {
-    if (!devices.length) {
+
+  return (_nuclideIosCommon || _load_nuclideIosCommon()).getFbsimctlSimulators().map(simulators => {
+    if (!simulators.length) {
       return null;
     }
 
@@ -52,13 +59,14 @@ function provideIosDevices(buckRoot, ruleType, buildTarget) {
       name: 'iOS Simulators',
       platforms: [{
         name: 'iOS Simulators',
-        tasks: new Set(['build', 'run', 'test', 'debug']),
-        runTask,
+        tasks: getTasks(ruleType),
+        runTask: (builder, taskType, target, device) => _runTask(builder, taskType, ruleType, target, device),
         deviceGroups: [{
           name: 'iOS Simulators',
-          devices: devices.map(device => ({
-            name: `${device.name} (${device.os})`,
-            udid: device.udid
+          devices: simulators.map(simulator => ({
+            name: `${simulator.name} (${simulator.os})`,
+            udid: simulator.udid,
+            arch: simulator.arch
           }))
         }]
       }]
@@ -66,24 +74,55 @@ function provideIosDevices(buckRoot, ruleType, buildTarget) {
   });
 }
 
-function runTask(builder, taskType, buildTarget, device) {
-  let subcommand = taskType;
+function getTasks(ruleType) {
+  const tasks = new Set(['build', 'test', 'debug']);
+  if (RUNNABLE_RULE_TYPES.has(ruleType)) {
+    tasks.add('run');
+  }
+  return tasks;
+}
 
+function _runTask(builder, taskType, ruleType, buildTarget, device) {
   if (!device) {
     throw new Error('Invariant violation: "device"');
+  }
+
+  if (!device.arch) {
+    throw new Error('Invariant violation: "device.arch"');
   }
 
   if (!device.udid) {
     throw new Error('Invariant violation: "device.udid"');
   }
 
-  if (!(typeof device.udid === 'string')) {
-    throw new Error('Invariant violation: "typeof device.udid === \'string\'"');
+  const udid = device.udid;
+  const arch = device.arch;
+
+  if (!(typeof arch === 'string')) {
+    throw new Error('Invariant violation: "typeof arch === \'string\'"');
   }
 
-  if (subcommand === 'run' || subcommand === 'debug') {
-    subcommand = 'install';
+  if (!(typeof udid === 'string')) {
+    throw new Error('Invariant violation: "typeof udid === \'string\'"');
   }
 
-  return builder.runSubcommand(subcommand, buildTarget, {}, taskType === 'debug', device.udid);
+  const subcommand = _getSubcommand(taskType, ruleType);
+  const flavor = `iphonesimulator-${arch}`;
+  const newTarget = Object.assign({}, buildTarget, { flavors: buildTarget.flavors.concat([flavor]) });
+
+  return builder.runSubcommand(subcommand, newTarget, {}, taskType === 'debug', udid);
+}
+
+function _getSubcommand(taskType, ruleType) {
+  if (taskType !== 'run' && taskType !== 'debug') {
+    return taskType;
+  }
+  switch (ruleType) {
+    case 'apple_bundle':
+      return 'install';
+    case 'apple_test':
+      return 'test';
+    default:
+      throw new Error('Unsupported rule type');
+  }
 }

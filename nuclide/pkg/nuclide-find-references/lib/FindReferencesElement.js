@@ -47,4 +47,3 @@ class FindReferencesElement extends HTMLElement {
 exports.default = document.registerElement('nuclide-find-references-view', {
   prototype: FindReferencesElement.prototype
 });
-module.exports = exports['default'];

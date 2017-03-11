@@ -258,4 +258,3 @@ class SideBarComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = SideBarComponent;
-module.exports = exports['default'];

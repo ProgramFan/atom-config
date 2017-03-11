@@ -109,4 +109,3 @@ exports.default = Activation;
  */
 
 const isNoEntError = err => err.code === 'ENOENT';
-module.exports = exports['default'];

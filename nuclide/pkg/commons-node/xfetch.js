@@ -45,4 +45,3 @@ Object.defineProperty(exports, "__esModule", {
 // real `fetch`.
 
 exports.default = typeof global.fetch === 'function' ? global.fetch : require('node-fetch');
-module.exports = exports['default'];

@@ -50,7 +50,7 @@ class Service {
 
     return (0, _asyncToGenerator.default)(function* () {
       const provider = _this._providers.getProviderForEditor(editor);
-      return provider == null ? null : yield provider.getDefinition(editor, position);
+      return provider == null ? null : provider.getDefinition(editor, position);
     })();
   }
 

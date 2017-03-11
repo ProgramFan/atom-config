@@ -35,4 +35,3 @@ function parseLogcatMetadata(line) {
     tag
   };
 }
-module.exports = exports['default'];

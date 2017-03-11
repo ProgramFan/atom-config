@@ -3,27 +3,19 @@
 import ToolBarManager from './tool-bar-manager';
 import ToolBarView from './tool-bar-view';
 
-let toolBar = null;
+let toolBarView = null;
 
 export function activate () {
-  toolBar = new ToolBarView();
+  toolBarView = new ToolBarView();
 }
 
 export function deactivate () {
-  toolBar.destroy();
-  toolBar = null;
+  toolBarView.destroy();
+  toolBarView = null;
 }
 
 export function provideToolBar () {
-  return (group) => new ToolBarManager(group, toolBar);
-}
-
-export function provideToolBarLegacy () {
-  return (group) => {
-    const Grim = require('grim');
-    Grim.deprecate('Please update to the latest tool-bar provider service.');
-    return new ToolBarManager(group, toolBar, true);
-  };
+  return (group) => new ToolBarManager(group, toolBarView);
 }
 
 export const config = {
@@ -50,7 +42,3 @@ export const config = {
     order: 4
   }
 };
-
-if (typeof atom.workspace.addHeaderPanel !== 'function') {
-  delete config.fullWidth;
-}

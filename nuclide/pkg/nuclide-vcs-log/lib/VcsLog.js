@@ -231,4 +231,3 @@ function parseDifferentialRevision(logEntry) {
     return null;
   }
 }
-module.exports = exports['default'];

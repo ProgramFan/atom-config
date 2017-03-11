@@ -44,5 +44,3 @@ exports.default = Emitter; /**
                             *
                             * 
                             */
-
-module.exports = exports['default'];

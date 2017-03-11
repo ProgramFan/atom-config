@@ -297,7 +297,11 @@ class FileTreeEntryComponent extends _reactForAtom.React.Component {
     }
 
     const node = this.props.node;
-    return node.isContainer && _reactForAtom.ReactDOM.findDOMNode(this.refs.arrowContainer).contains(event.target) && event.clientX < _reactForAtom.ReactDOM.findDOMNode(this._pathContainer).getBoundingClientRect().left;
+    return node.isContainer
+    // $FlowFixMe
+    && _reactForAtom.ReactDOM.findDOMNode(this.refs.arrowContainer).contains(event.target)
+    // $FlowFixMe
+    && event.clientX < _reactForAtom.ReactDOM.findDOMNode(this._pathContainer).getBoundingClientRect().left;
   }
 
   _onMouseDown(event) {

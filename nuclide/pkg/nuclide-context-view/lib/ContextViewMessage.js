@@ -41,4 +41,3 @@ ContextViewMessage.NOT_LOGGED_IN = _reactForAtom.React.createElement(
     'You need to log in to see this data!'
   )
 );
-module.exports = exports['default'];

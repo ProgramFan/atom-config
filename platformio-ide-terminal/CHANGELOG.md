@@ -1,3 +1,16 @@
+## 2.4.0 - PlatformIO
+
+* Add terminal focus command and keybinding
+* Fix issue when running `electron` command
+
+## 2.3.1 - PlatformIO
+
+* Use /bin/bash shell by default if process.env.SHELL is not defined
+
+## 2.3.0 - PlatformIO
+
+* New option: Copy text to clipboard on selection (enabled by default)
+
 ## 2.2.3 - PlatformIO
 
 * Add Christmas and One-Dark themes

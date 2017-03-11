@@ -87,5 +87,3 @@ exports.default = RemoteProjectsService; /**
                                           *
                                           * 
                                           */
-
-module.exports = exports['default'];

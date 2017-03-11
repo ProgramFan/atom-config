@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.activate = activate;
+exports.consumeRelatedFilesProvider = consumeRelatedFilesProvider;
 exports.deactivate = deactivate;
 
 var _atom = require('atom');
@@ -12,6 +13,12 @@ var _JumpToRelatedFile;
 
 function _load_JumpToRelatedFile() {
   return _JumpToRelatedFile = _interopRequireDefault(require('./JumpToRelatedFile'));
+}
+
+var _RelatedFileFinder;
+
+function _load_RelatedFileFinder() {
+  return _RelatedFileFinder = _interopRequireDefault(require('./RelatedFileFinder'));
 }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -41,7 +48,11 @@ function activate() {
         return editor != null && GRAMMARS_WITH_HEADER_FILES.has(editor.getGrammar().scopeName);
       }
     }, { type: 'separator' }]
-  }));
+  }), (_RelatedFileFinder || _load_RelatedFileFinder()).default.getRelatedFilesProvidersDisposable());
+}
+
+function consumeRelatedFilesProvider(provider) {
+  return (_RelatedFileFinder || _load_RelatedFileFinder()).default.registerRelatedFilesProvider(provider);
 }
 
 function deactivate() {

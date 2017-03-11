@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-6940-oiq53k/package.tgz",
+        "raw": "/tmp/d-117211-6955-8wli1g/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-6940-oiq53k/package.tgz",
-        "spec": "/tmp/d-117120-6940-oiq53k/package.tgz",
+        "rawSpec": "/tmp/d-117211-6955-8wli1g/package.tgz",
+        "spec": "/tmp/d-117211-6955-8wli1g/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-6940-8gwzno"
+      "/tmp/apm-install-dir-117211-6955-rph5qj"
     ]
   ],
-  "_from": "../d-117120-6940-oiq53k/package.tgz",
-  "_id": "git-plus@7.3.0",
+  "_from": "../d-117211-6955-8wli1g/package.tgz",
+  "_id": "git-plus@7.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/git-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-6940-oiq53k/package.tgz",
+    "raw": "/tmp/d-117211-6955-8wli1g/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-6940-oiq53k/package.tgz",
-    "spec": "/tmp/d-117120-6940-oiq53k/package.tgz",
+    "rawSpec": "/tmp/d-117211-6955-8wli1g/package.tgz",
+    "spec": "/tmp/d-117211-6955-8wli1g/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-6940-oiq53k/package.tgz",
-  "_shasum": "cd8c6cf37f5360254fd4350a72bbdb54536310d2",
+  "_resolved": "file:../d-117211-6955-8wli1g/package.tgz",
+  "_shasum": "f86741aeff7dc3a3e53addb961a56cafcc30cd0b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-6940-oiq53k/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-6940-8gwzno",
+  "_spec": "/tmp/d-117211-6955-8wli1g/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-6955-rph5qj",
   "bugs": {
     "url": "https://github.com/akonwi/git-plus/issues"
   },
@@ -57,10 +57,7 @@
     "atom-space-pen-views": "^2.0.3",
     "fs-plus": "^2.2.0",
     "fuzzaldrin": "^1.2.0",
-    "underscore": "^1.8.3",
-    "underscore-plus": "^1.6.6",
-    "universal-analytics": "^0.4.8",
-    "uuid": "^3.0.1"
+    "underscore-plus": "^1.6.6"
   },
   "description": "Do git things without the terminal",
   "devDependencies": {
@@ -91,5 +88,5 @@
     "type": "git",
     "url": "git+https://github.com/akonwi/git-plus.git"
   },
-  "version": "7.3.0"
+  "version": "7.3.3"
 }

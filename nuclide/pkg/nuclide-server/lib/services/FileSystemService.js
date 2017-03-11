@@ -192,7 +192,7 @@ let readFile = exports.readFile = (() => {
 
 let copyFilePermissions = (() => {
   var _ref8 = (0, _asyncToGenerator.default)(function* (sourcePath, destinationPath) {
-    let permissions = null;
+    let permissions;
     try {
       permissions = (yield (_fsPromise || _load_fsPromise()).default.stat(sourcePath)).mode;
     } catch (e) {
@@ -200,10 +200,11 @@ let copyFilePermissions = (() => {
       if (e.code !== 'ENOENT') {
         throw e;
       }
+      // For new files, use the default process file creation mask.
+      // $FlowIssue: umask argument is optional
+      permissions = 0o666 & ~process.umask(); // eslint-disable-line no-bitwise
     }
-    if (permissions != null) {
-      yield (_fsPromise || _load_fsPromise()).default.chmod(destinationPath, permissions);
-    }
+    yield (_fsPromise || _load_fsPromise()).default.chmod(destinationPath, permissions);
   });
 
   return function copyFilePermissions(_x11, _x12) {
@@ -229,16 +230,26 @@ let writeFile = exports.writeFile = (() => {
     try {
       yield (_fsPromise || _load_fsPromise()).default.writeFile(tempFilePath, data, options);
 
+      // Expand the target path in case it contains symlinks.
+      let realPath = path;
+      try {
+        realPath = yield resolveRealPath(path);
+      } catch (e) {}
+      // Fallback to using the specified path if it cannot be expanded.
+      // Note: this is expected in cases where the remote file does not
+      // actually exist.
+
+
       // Ensure file still has original permissions:
       // https://github.com/facebook/nuclide/issues/157
       // We update the mode of the temp file rather than the destination file because
       // if we did the mv() then the chmod(), there would be a brief period between
       // those two operations where the destination file might have the wrong permissions.
-      yield copyFilePermissions(path, tempFilePath);
+      yield copyFilePermissions(realPath, tempFilePath);
 
       // TODO(mikeo): put renames into a queue so we don't write older save over new save.
       // Use mv as fs.rename doesn't work across partitions.
-      yield mvPromise(tempFilePath, path);
+      yield mvPromise(tempFilePath, realPath);
       complete = true;
     } finally {
       if (!complete) {

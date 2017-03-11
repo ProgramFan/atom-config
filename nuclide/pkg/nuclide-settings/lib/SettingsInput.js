@@ -148,4 +148,3 @@ class SettingsInput extends _reactForAtom.React.Component {
   }
 }
 exports.default = SettingsInput;
-module.exports = exports['default'];

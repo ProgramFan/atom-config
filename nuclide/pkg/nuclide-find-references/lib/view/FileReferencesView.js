@@ -152,5 +152,3 @@ exports.default = FileReferencesView; /**
                                        *
                                        * 
                                        */
-
-module.exports = exports['default'];

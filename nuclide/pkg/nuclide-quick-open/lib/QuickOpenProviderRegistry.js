@@ -92,5 +92,3 @@ exports.default = QuickOpenProviderRegistry; /**
                                               *
                                               * 
                                               */
-
-module.exports = exports['default'];

@@ -68,4 +68,3 @@ class HyperclickProviderHelpers {
   }
 }
 exports.default = HyperclickProviderHelpers;
-module.exports = exports['default'];

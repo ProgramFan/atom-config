@@ -45,7 +45,9 @@ class RenameBookmarkModal extends _reactForAtom.React.Component {
   }
 
   componentDidMount() {
-    this._disposables.add(atom.commands.add(_reactForAtom.ReactDOM.findDOMNode(this), 'core:confirm', this._handleRenameClick));
+    this._disposables.add(
+    // $FlowFixMe
+    atom.commands.add(_reactForAtom.ReactDOM.findDOMNode(this), 'core:confirm', this._handleRenameClick));
     this.refs.atomTextEditor.focus();
   }
 
@@ -103,4 +105,3 @@ class RenameBookmarkModal extends _reactForAtom.React.Component {
   }
 }
 exports.default = RenameBookmarkModal;
-module.exports = exports['default'];

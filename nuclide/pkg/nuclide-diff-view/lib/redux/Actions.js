@@ -20,6 +20,7 @@ exports.setCommitMode = setCommitMode;
 exports.updateCommitState = updateCommitState;
 exports.updateSuggestedReviewers = updateSuggestedReviewers;
 exports.updatePublishState = updatePublishState;
+exports.setShouldCommitInteractively = setShouldCommitInteractively;
 exports.setShouldRebaseOnAmend = setShouldRebaseOnAmend;
 exports.commit = commit;
 exports.publishDiff = publishDiff;
@@ -36,6 +37,8 @@ exports.setShouldPublishOnCommit = setShouldPublishOnCommit;
 exports.setIsPrepareMode = setIsPrepareMode;
 exports.setVerbatimModeEnabled = setVerbatimModeEnabled;
 exports.updateShouldUseTextBasedForm = updateShouldUseTextBasedForm;
+exports.setEnabledFeatures = setEnabledFeatures;
+exports.splitRevision = splitRevision;
 
 var _ActionTypes;
 
@@ -219,6 +222,15 @@ function updatePublishState(publish) {
   };
 }
 
+function setShouldCommitInteractively(shouldCommitInteractively) {
+  return {
+    type: (_ActionTypes || _load_ActionTypes()).SET_SHOULD_COMMIT_INTERACTIVELY,
+    payload: {
+      shouldCommitInteractively
+    }
+  };
+}
+
 function setShouldRebaseOnAmend(shouldRebaseOnAmend) {
   return {
     type: (_ActionTypes || _load_ActionTypes()).SET_SHOULD_REBASE_ON_AMEND,
@@ -364,6 +376,25 @@ function updateShouldUseTextBasedForm(shouldUseTextBasedForm) {
     type: (_ActionTypes || _load_ActionTypes()).SET_TEXT_BASED_FORM,
     payload: {
       shouldUseTextBasedForm
+    }
+  };
+}
+
+function setEnabledFeatures(enabledFeatures) {
+  return {
+    type: (_ActionTypes || _load_ActionTypes()).SET_ENABLED_FEATURES,
+    payload: {
+      enabledFeatures
+    }
+  };
+}
+
+function splitRevision(publishUpdates, repository) {
+  return {
+    type: (_ActionTypes || _load_ActionTypes()).SPLIT_REVISION,
+    payload: {
+      publishUpdates,
+      repository
     }
   };
 }

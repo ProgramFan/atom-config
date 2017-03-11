@@ -177,4 +177,3 @@ function getDefaultEventSources() {
     }
   };
 }
-module.exports = exports['default'];

@@ -37,6 +37,9 @@ let hgAsyncExecute = exports.hgAsyncExecute = (() => {
 let getHgExecParams = (() => {
   var _ref2 = (0, _asyncToGenerator.default)(function* (args_, options_) {
     let args = args_;
+    // Disabling ssh keyboard input so all commands that prompt for interaction
+    // fail instantly rather than just wait for an input that will never arrive
+    args.push('--config', 'ui.ssh=ssh -oBatchMode=yes -oControlMaster=no');
     const options = Object.assign({}, options_, {
       env: Object.assign({}, (yield (0, (_process || _load_process()).getOriginalEnvironment)()), {
         ATOM_BACKUP_EDITOR: 'false'
@@ -91,7 +94,7 @@ let getEditMergeConfigs = exports.getEditMergeConfigs = (() => {
     // Atom RPC needs to agree with the Atom process / nuclide server on the address and port.
     const hgEditor = getAtomRpcScriptPath() + ` -f ${connectionDetails.family} -p ${connectionDetails.port} --wait`;
     return {
-      args: ['--config', 'merge-tools.editmerge.check=conflicts', '--config', 'ui.merge=editmerge'],
+      args: ['--config', 'merge-tools.editmerge.check=conflicts', '--config', 'ui.merge=editmerge', '--config', 'ui.interactive=no', '--config', 'ui.interface.chunkselector=editor'],
       hgEditor
     };
   });

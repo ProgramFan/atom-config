@@ -162,4 +162,3 @@ class ObjectiveCColonIndenter {
   }
 }
 exports.default = ObjectiveCColonIndenter;
-module.exports = exports['default'];

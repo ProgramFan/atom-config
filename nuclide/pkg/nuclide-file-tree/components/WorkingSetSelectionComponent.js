@@ -70,8 +70,11 @@ class WorkingSetSelectionComponent extends _reactForAtom.React.Component {
 
   componentDidMount() {
     const node = _reactForAtom.ReactDOM.findDOMNode(this);
+    // $FlowFixMe
     node.focus();
-    this._disposables.add(atom.commands.add(node, {
+    this._disposables.add(atom.commands.add(
+    // $FlowFixMe
+    node, {
       'core:move-up': () => this._moveSelectionIndex(-1),
       'core:move-down': () => this._moveSelectionIndex(1),
       'core:confirm': () => {
@@ -100,6 +103,7 @@ class WorkingSetSelectionComponent extends _reactForAtom.React.Component {
 
   componentDidUpdate() {
     const node = _reactForAtom.ReactDOM.findDOMNode(this);
+    // $FlowFixMe
     node.focus();
   }
 
@@ -171,6 +175,7 @@ class WorkingSetSelectionComponent extends _reactForAtom.React.Component {
     const node = _reactForAtom.ReactDOM.findDOMNode(this);
     // If the next active element (`event.relatedTarget`) is not a descendant of this modal, close
     // the modal.
+    // $FlowFixMe
     if (!node.contains(event.relatedTarget)) {
       this.props.onClose();
     }

@@ -102,5 +102,3 @@ exports.default = Commands; /**
                              *
                              * 
                              */
-
-module.exports = exports['default'];

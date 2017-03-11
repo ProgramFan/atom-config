@@ -34,8 +34,11 @@ class Webview extends _reactForAtom.React.Component {
     // have a callback for it and 2) needing to add explicit support for each event type we want to
     // support. However, those costs aren't great enough to justify a new abstraction for managing
     // it at this time.
+    // $FlowFixMe
     element.addEventListener('did-finish-load', this._handleDidFinishLoad);
-    this._disposables.add(new _atom.Disposable(() => element.removeEventListener('did-finish-load', this._handleDidFinishLoad)));
+    this._disposables.add(new _atom.Disposable(
+    // $FlowFixMe
+    () => element.removeEventListener('did-finish-load', this._handleDidFinishLoad)));
 
     this.updateAttributes({});
   }
@@ -67,6 +70,7 @@ class Webview extends _reactForAtom.React.Component {
       const prevValue = prevProps[prop];
       const valueChanged = value !== prevValue;
       if (valueChanged) {
+        // $FlowFixMe
         element[prop] = value;
       }
     });

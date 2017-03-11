@@ -1,3 +1,5 @@
+os = require 'os'
+path = require 'path'
 {CompositeDisposable, Emitter} = require 'atom'
 
 [Metrics, Logger] = []
@@ -150,6 +152,10 @@ module.exports =
       Logger,
       StateController
     } = require 'kite-installer'
+
+    if atom.config.get('kite.loggingLevel')
+      Logger.LEVEL = Logger.LEVELS[atom.config.get('kite.loggingLevel').toUpperCase()]
+
     AccountManager.initClient 'alpha.kite.com', -1, true
     atom.views.addViewProvider Installation, (m) -> m.element
     editorCfg =
@@ -186,8 +192,17 @@ module.exports =
           @track "flow aborted"
           atom.config.set 'autocomplete-python.useKite', false
         )
-        installer = new Installer(atom.project.getPaths())
-        installer.init @installation.flow
+        [projectPath] = atom.project.getPaths()
+        root = if projectPath? and path.relative(os.homedir(), projectPath).indexOf('..') is 0
+          path.parse(projectPath).root
+        else
+          os.homedir()
+
+        installer = new Installer([root])
+        installer.init @installation.flow, ->
+          Logger.verbose('in onFinish')
+          atom.packages.activatePackage('kite')
+
         pane = atom.workspace.getActivePane()
         @installation.flow.onSkipInstall () =>
           atom.config.set 'autocomplete-python.useKite', false

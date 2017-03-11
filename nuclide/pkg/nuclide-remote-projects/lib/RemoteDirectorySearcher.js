@@ -111,5 +111,3 @@ exports.default = RemoteDirectorySearcher; /**
                                             *
                                             * 
                                             */
-
-module.exports = exports['default'];

@@ -42,4 +42,3 @@ class TestClassTreeNode extends (_LazyTreeNode || _load_LazyTreeNode()).LazyTree
   }
 }
 exports.default = TestClassTreeNode;
-module.exports = exports['default'];

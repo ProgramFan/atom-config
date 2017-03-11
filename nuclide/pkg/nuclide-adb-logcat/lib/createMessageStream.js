@@ -129,4 +129,3 @@ function filter(messages) {
     return tags.some(tag => pattern.test(tag));
   }).map(([message, pattern]) => message);
 }
-module.exports = exports['default'];

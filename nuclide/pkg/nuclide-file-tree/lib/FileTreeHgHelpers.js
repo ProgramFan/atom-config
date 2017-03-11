@@ -274,4 +274,3 @@ function resetIsMoving() {
   moveNodes,
   deleteNodes
 };
-module.exports = exports['default'];

@@ -22,42 +22,24 @@ export default class ZMQKernel extends Kernel {
     if (this.kernelProcess) {
       log('ZMQKernel: @kernelProcess:', this.kernelProcess);
 
-      const getKernelNotificationsRegExp = () => {
-        try {
-          const pattern = atom.config.get('Hydrogen.kernelNotifications');
-          const flags = 'im';
-          return new RegExp(pattern, flags);
-        } catch (err) {
-          return null;
-        }
-      };
-
       this.kernelProcess.stdout.on('data', (data) => {
         data = data.toString();
 
-        log('ZMQKernel: stdout:', data);
-
-        const regexp = getKernelNotificationsRegExp();
-        if (regexp && regexp.test(data)) {
+        if (atom.config.get('Hydrogen.kernelNotifications')) {
           atom.notifications.addInfo(this.kernelSpec.display_name, {
             description: data,
             dismissable: true,
           });
+        } else {
+          log('ZMQKernel: stdout:', data);
         }
       });
 
       this.kernelProcess.stderr.on('data', (data) => {
-        data = data.toString();
-
-        log('ZMQKernel: stderr:', data);
-
-        const regexp = getKernelNotificationsRegExp();
-        if (regexp && regexp.test(data)) {
-          atom.notifications.addError(this.kernelSpec.display_name, {
-            description: data,
-            dismissable: true,
-          });
-        }
+        atom.notifications.addError(this.kernelSpec.display_name, {
+          description: data.toString(),
+          dismissable: true,
+        });
       });
     } else {
       log('ZMQKernel: connectionFile:', this.connectionFile);

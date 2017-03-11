@@ -64,6 +64,11 @@ module.exports = {
     return new _atom.Disposable(() => compilationDatabaseProviders.delete(provider));
   },
 
+  getRelatedSourceOrHeader(src) {
+    const service = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).getClangServiceByNuclideUri)(src);
+    return getCompilationDatabaseFile(src).then(compilationDBFile => service.getRelatedSourceOrHeader(src, compilationDBFile));
+  },
+
   getDiagnostics(editor) {
     return (0, _asyncToGenerator.default)(function* () {
       const src = editor.getPath();

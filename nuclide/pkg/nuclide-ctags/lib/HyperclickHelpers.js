@@ -133,4 +133,3 @@ class HyperclickHelpers {
   }
 }
 exports.default = HyperclickHelpers;
-module.exports = exports['default'];

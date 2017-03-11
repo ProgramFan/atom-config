@@ -39,5 +39,3 @@ exports.default = TestSuiteModel; /**
                                    *
                                    * 
                                    */
-
-module.exports = exports['default'];

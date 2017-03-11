@@ -103,4 +103,3 @@ function accumulateState(state, action) {
 
   return state;
 }
-module.exports = exports['default'];

@@ -102,6 +102,7 @@ class TreeNodeComponent extends _reactForAtom.React.PureComponent {
   }
 
   _onClick(event) {
+    // $FlowFixMe
     if (_reactForAtom.ReactDOM.findDOMNode(this.refs.arrow).contains(event.target)) {
       this.props.onClickArrow(event, this.props.node);
     } else {

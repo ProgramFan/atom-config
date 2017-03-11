@@ -68,32 +68,45 @@ const ButtonTypeClassnames = Object.freeze({
 /**
  * Generic Button wrapper.
  */
-const Button = props => {
-  const {
-    icon,
-    buttonType,
-    selected,
-    size,
-    children,
-    className,
-    wrapperElement,
-    tooltip
-  } = props,
-        remainingProps = _objectWithoutProperties(props, ['icon', 'buttonType', 'selected', 'size', 'children', 'className', 'wrapperElement', 'tooltip']);
-  const sizeClassname = size == null ? '' : ButtonSizeClassnames[size] || '';
-  const buttonTypeClassname = buttonType == null ? '' : ButtonTypeClassnames[buttonType] || '';
-  const ref = tooltip ? (0, (_addTooltip || _load_addTooltip()).default)(tooltip) : null;
-  const newClassName = (0, (_classnames || _load_classnames()).default)(className, 'btn', {
-    [`icon icon-${(0, (_string || _load_string()).maybeToString)(icon)}`]: icon != null,
-    [sizeClassname]: size != null,
-    selected,
-    [buttonTypeClassname]: buttonType != null
-  });
-  const Wrapper = wrapperElement == null ? 'button' : wrapperElement;
-  return _reactForAtom.React.createElement(
-    Wrapper,
-    Object.assign({ className: newClassName, ref: ref }, remainingProps),
-    children
-  );
-};
+class Button extends _reactForAtom.React.Component {
+
+  focus() {
+    const node = _reactForAtom.ReactDOM.findDOMNode(this);
+    if (node == null) {
+      return;
+    }
+    // $FlowFixMe
+    node.focus();
+  }
+
+  render() {
+    const _props = this.props,
+          {
+      icon,
+      buttonType,
+      selected,
+      size,
+      children,
+      className,
+      wrapperElement,
+      tooltip
+    } = _props,
+          remainingProps = _objectWithoutProperties(_props, ['icon', 'buttonType', 'selected', 'size', 'children', 'className', 'wrapperElement', 'tooltip']);
+    const sizeClassname = size == null ? '' : ButtonSizeClassnames[size] || '';
+    const buttonTypeClassname = buttonType == null ? '' : ButtonTypeClassnames[buttonType] || '';
+    const ref = tooltip ? (0, (_addTooltip || _load_addTooltip()).default)(tooltip) : null;
+    const newClassName = (0, (_classnames || _load_classnames()).default)(className, 'btn', {
+      [`icon icon-${(0, (_string || _load_string()).maybeToString)(icon)}`]: icon != null,
+      [sizeClassname]: size != null,
+      selected,
+      [buttonTypeClassname]: buttonType != null
+    });
+    const Wrapper = wrapperElement == null ? 'button' : wrapperElement;
+    return _reactForAtom.React.createElement(
+      Wrapper,
+      Object.assign({ className: newClassName, ref: ref }, remainingProps),
+      children
+    );
+  }
+}
 exports.Button = Button;

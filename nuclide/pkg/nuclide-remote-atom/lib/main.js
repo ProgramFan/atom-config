@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 var _nuclideRemoteConnection;
@@ -141,5 +137,4 @@ function openFile(uri, line, column, isWaiting) {
   })).switchMap(editor => _rxjsBundlesRxMinJs.Observable.merge(_rxjsBundlesRxMinJs.Observable.of('open'), (0, (_textEditor || _load_textEditor()).observeEditorDestroy)(editor).map(value => 'close'))).publish();
 }
 
-exports.default = (0, (_createPackage || _load_createPackage()).default)(Activation);
-module.exports = exports['default'];
+(0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);

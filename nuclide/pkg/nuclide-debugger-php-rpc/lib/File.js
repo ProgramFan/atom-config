@@ -59,5 +59,3 @@ exports.default = File; /**
                          *
                          * 
                          */
-
-module.exports = exports['default'];

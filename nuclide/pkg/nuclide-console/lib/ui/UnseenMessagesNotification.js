@@ -43,4 +43,3 @@ class NewMessagesNotification extends _reactForAtom.React.Component {
   }
 }
 exports.default = NewMessagesNotification;
-module.exports = exports['default'];

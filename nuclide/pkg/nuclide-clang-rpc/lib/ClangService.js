@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.formatCode = exports.getLocalReferences = exports.getOutline = exports.getDeclarationInfo = exports.getDeclaration = exports.getCompletions = exports.ClangCursorTypes = exports.ClangCursorToDeclarationTypes = undefined;
+exports.formatCode = exports.getLocalReferences = exports.getOutline = exports.getRelatedSourceOrHeader = exports.getDeclarationInfo = exports.getDeclaration = exports.getCompletions = exports.ClangCursorTypes = exports.ClangCursorToDeclarationTypes = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -79,34 +79,44 @@ let getDeclarationInfo = exports.getDeclarationInfo = (() => {
   };
 })();
 
+let getRelatedSourceOrHeader = exports.getRelatedSourceOrHeader = (() => {
+  var _ref6 = (0, _asyncToGenerator.default)(function* (src, compilationDBFile) {
+    return serverManager.getClangFlagsManager().getRelatedSrcFileForHeader(src, compilationDBFile);
+  });
+
+  return function getRelatedSourceOrHeader(_x26, _x27) {
+    return _ref6.apply(this, arguments);
+  };
+})();
+
 let getOutline = exports.getOutline = (() => {
-  var _ref6 = (0, _asyncToGenerator.default)(function* (src, contents, compilationDBFile, defaultFlags) {
+  var _ref7 = (0, _asyncToGenerator.default)(function* (src, contents, compilationDBFile, defaultFlags) {
     const service = yield getClangService(src, contents, compilationDBFile, defaultFlags, true);
     if (service != null) {
       return service.get_outline(contents);
     }
   });
 
-  return function getOutline(_x26, _x27, _x28, _x29) {
-    return _ref6.apply(this, arguments);
+  return function getOutline(_x28, _x29, _x30, _x31) {
+    return _ref7.apply(this, arguments);
   };
 })();
 
 let getLocalReferences = exports.getLocalReferences = (() => {
-  var _ref7 = (0, _asyncToGenerator.default)(function* (src, contents, line, column, compilationDBFile, defaultFlags) {
+  var _ref8 = (0, _asyncToGenerator.default)(function* (src, contents, line, column, compilationDBFile, defaultFlags) {
     const service = yield getClangService(src, contents, compilationDBFile, defaultFlags, true);
     if (service != null) {
       return service.get_local_references(contents, line, column);
     }
   });
 
-  return function getLocalReferences(_x30, _x31, _x32, _x33, _x34, _x35) {
-    return _ref7.apply(this, arguments);
+  return function getLocalReferences(_x32, _x33, _x34, _x35, _x36, _x37) {
+    return _ref8.apply(this, arguments);
   };
 })();
 
 let formatCode = exports.formatCode = (() => {
-  var _ref8 = (0, _asyncToGenerator.default)(function* (src, contents, cursor, offset, length) {
+  var _ref9 = (0, _asyncToGenerator.default)(function* (src, contents, cursor, offset, length) {
     const args = ['-style=file', `-assume-filename=${src}`, `-cursor=${cursor}`];
     if (offset != null) {
       args.push(`-offset=${offset}`);
@@ -124,8 +134,8 @@ let formatCode = exports.formatCode = (() => {
     };
   });
 
-  return function formatCode(_x36, _x37, _x38, _x39, _x40) {
-    return _ref8.apply(this, arguments);
+  return function formatCode(_x38, _x39, _x40, _x41, _x42) {
+    return _ref9.apply(this, arguments);
   };
 })();
 

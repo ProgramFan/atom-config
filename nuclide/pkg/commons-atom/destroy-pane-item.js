@@ -25,4 +25,3 @@ function destroyPaneItemWithTitle(title) {
     }
   }
 }
-module.exports = exports["default"];

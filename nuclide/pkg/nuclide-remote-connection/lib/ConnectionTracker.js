@@ -83,4 +83,3 @@ class ConnectionTracker {
   }
 }
 exports.default = ConnectionTracker;
-module.exports = exports['default'];

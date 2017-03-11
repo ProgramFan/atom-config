@@ -311,4 +311,3 @@ class BreakpointStore {
   }
 }
 exports.default = BreakpointStore;
-module.exports = exports['default'];

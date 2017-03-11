@@ -217,9 +217,9 @@ class NuclideTextBuffer extends _atom.TextBuffer {
       throw new Error('Cannot subscribe to no-file');
     }
 
-    this.fileSubscriptions = new _atom.CompositeDisposable();
+    const fileSubscriptions = new _atom.CompositeDisposable();
 
-    this.fileSubscriptions.add(file.onDidChange((0, _asyncToGenerator.default)(function* () {
+    fileSubscriptions.add(file.onDidChange((0, _asyncToGenerator.default)(function* () {
       const isModified = _this3._isModified();
       _this3.emitModifiedStatusChanged(isModified);
       if (isModified) {
@@ -245,25 +245,41 @@ class NuclideTextBuffer extends _atom.TextBuffer {
       }
     })));
 
-    this.fileSubscriptions.add(file.onDidDelete(() => {
+    fileSubscriptions.add(file.onDidDelete(() => {
       this._exists = false;
       const modified = this.getText() !== this.cachedDiskContents;
       this.wasModifiedBeforeRemove = modified;
       if (modified) {
         this.updateCachedDiskContents();
       } else {
-        this.destroy();
+        this._maybeDestroy();
       }
     }));
 
     // TODO: Not supported by RemoteFile.
-    // this.fileSubscriptions.add(file.onDidRename(() => {
+    // fileSubscriptions.add(file.onDidRename(() => {
     //   this.emitter.emit('did-change-path', this.getPath());
     // }));
 
-    this.fileSubscriptions.add(file.onWillThrowWatchError(errorObject => {
+    fileSubscriptions.add(file.onWillThrowWatchError(errorObject => {
       this.emitter.emit('will-throw-watch-error', errorObject);
     }));
+
+    this.fileSubscriptions = fileSubscriptions;
+  }
+
+  _maybeDestroy() {
+    if (this.shouldDestroyOnFileDelete == null || this.shouldDestroyOnFileDelete()) {
+      this.destroy();
+    } else {
+      if (this.fileSubscriptions != null) {
+        // Soft delete the file.
+        this.fileSubscriptions.dispose();
+      }
+      this.conflict = false;
+      this.cachedDiskContents = null;
+      this.emitModifiedStatusChanged(!this.isEmpty());
+    }
   }
 
   _isModified() {
@@ -282,4 +298,3 @@ class NuclideTextBuffer extends _atom.TextBuffer {
   }
 }
 exports.default = NuclideTextBuffer;
-module.exports = exports['default'];

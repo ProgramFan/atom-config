@@ -69,5 +69,3 @@ exports.default = DebuggerActionsStore; /**
                                          *
                                          * 
                                          */
-
-module.exports = exports['default'];

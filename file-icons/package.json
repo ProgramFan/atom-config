@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-6900-yh3t9i/package.tgz",
+        "raw": "/tmp/d-117211-6916-1mv6dff/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
-        "spec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
+        "rawSpec": "/tmp/d-117211-6916-1mv6dff/package.tgz",
+        "spec": "/tmp/d-117211-6916-1mv6dff/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-6900-5n9jp0"
+      "/tmp/apm-install-dir-117211-6916-ojkhe2"
     ]
   ],
-  "_from": "../d-117120-6900-yh3t9i/package.tgz",
-  "_id": "file-icons@2.0.15",
+  "_from": "../d-117211-6916-1mv6dff/package.tgz",
+  "_id": "file-icons@2.0.17",
   "_inCache": true,
   "_installable": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-6900-yh3t9i/package.tgz",
+    "raw": "/tmp/d-117211-6916-1mv6dff/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
-    "spec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
+    "rawSpec": "/tmp/d-117211-6916-1mv6dff/package.tgz",
+    "spec": "/tmp/d-117211-6916-1mv6dff/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-6900-yh3t9i/package.tgz",
-  "_shasum": "19d9ae7f35bddb2c339c4cbce43b6f806eb402d1",
+  "_resolved": "file:../d-117211-6916-1mv6dff/package.tgz",
+  "_shasum": "79b7a480572155316cef6c0efc61a2edfb591e71",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-6900-yh3t9i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-6900-5n9jp0",
+  "_spec": "/tmp/d-117211-6916-1mv6dff/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-6916-ojkhe2",
   "atomTestRunner": "atom-mocha",
   "bugs": {
     "url": "https://github.com/file-icons/atom/issues"
@@ -151,5 +151,5 @@
     "type": "git",
     "url": "git+https://github.com/file-icons/atom.git"
   },
-  "version": "2.0.15"
+  "version": "2.0.17"
 }

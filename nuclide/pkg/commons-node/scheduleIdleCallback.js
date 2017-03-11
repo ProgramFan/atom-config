@@ -66,5 +66,3 @@ function scheduleIdleCallback(callback, options) {
  * are 49ms available for me to do work". It was can take multiple loops around
  * `requestIdleCallback` for so much time to become available.
  */
-
-module.exports = exports['default'];

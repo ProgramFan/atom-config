@@ -58,4 +58,3 @@ function formatEnoentNotification(options) {
     }
   };
 }
-module.exports = exports['default'];

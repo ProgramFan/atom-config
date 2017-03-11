@@ -32,5 +32,3 @@ exports.default = props => _reactForAtom.React.createElement(
   props,
   LOGO
 );
-
-module.exports = exports["default"];

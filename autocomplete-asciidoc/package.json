@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-5262-1a5v028/package.tgz",
+        "raw": "/tmp/d-117211-5278-b3bms0/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-5262-1a5v028/package.tgz",
-        "spec": "/tmp/d-117120-5262-1a5v028/package.tgz",
+        "rawSpec": "/tmp/d-117211-5278-b3bms0/package.tgz",
+        "spec": "/tmp/d-117211-5278-b3bms0/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-5262-1dam97c"
+      "/tmp/apm-install-dir-117211-5278-14yo9w6"
     ]
   ],
-  "_from": "../d-117120-5262-1a5v028/package.tgz",
+  "_from": "../d-117211-5278-b3bms0/package.tgz",
   "_id": "autocomplete-asciidoc@0.1.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-5262-1a5v028/package.tgz",
+    "raw": "/tmp/d-117211-5278-b3bms0/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-5262-1a5v028/package.tgz",
-    "spec": "/tmp/d-117120-5262-1a5v028/package.tgz",
+    "rawSpec": "/tmp/d-117211-5278-b3bms0/package.tgz",
+    "spec": "/tmp/d-117211-5278-b3bms0/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-5262-1a5v028/package.tgz",
+  "_resolved": "file:../d-117211-5278-b3bms0/package.tgz",
   "_shasum": "9c601b019325b09cce7ffec374adfdbfb2f46e92",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-5262-1a5v028/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-5262-1dam97c",
+  "_spec": "/tmp/d-117211-5278-b3bms0/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-5278-14yo9w6",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-autocomplete-asciidoc/issues"
   },

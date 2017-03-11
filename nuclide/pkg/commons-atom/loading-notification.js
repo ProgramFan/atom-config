@@ -37,5 +37,3 @@ function loadingNotification(promise, message, delayMs = 100, options = {}) {
    *
    * 
    */
-
-module.exports = exports['default'];

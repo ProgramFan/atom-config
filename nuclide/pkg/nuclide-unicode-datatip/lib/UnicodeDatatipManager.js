@@ -51,5 +51,3 @@ exports.default = UnicodeDatatipManager; /**
                                           *
                                           * 
                                           */
-
-module.exports = exports['default'];

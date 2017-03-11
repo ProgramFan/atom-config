@@ -21,4 +21,3 @@ const DEBUGGER_LOGGER_CATEGORY = 'nuclide-debugger-node-rpc'; /**
                                                                */
 
 exports.default = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)(DEBUGGER_LOGGER_CATEGORY);
-module.exports = exports['default'];

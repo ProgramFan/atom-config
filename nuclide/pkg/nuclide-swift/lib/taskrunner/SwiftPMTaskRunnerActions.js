@@ -29,13 +29,6 @@ class SwiftPMTaskRunnerActions {
     });
   }
 
-  updateChdir(chdir) {
-    this._dispatcher.dispatch({
-      actionType: (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_CHDIR,
-      chdir
-    });
-  }
-
   updateSettings(configuration, Xcc, Xlinker, Xswiftc, buildPath) {
     this._dispatcher.dispatch({
       actionType: (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_SETTINGS,
@@ -75,5 +68,3 @@ exports.default = SwiftPMTaskRunnerActions; /**
                                              *
                                              * 
                                              */
-
-module.exports = exports['default'];

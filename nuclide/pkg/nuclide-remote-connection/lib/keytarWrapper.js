@@ -35,9 +35,15 @@ function getApmNodeModulesPath() {
   return (_nuclideUri || _load_nuclideUri()).default.normalize((_nuclideUri || _load_nuclideUri()).default.join(apmDir, '..', 'node_modules'));
 }
 
-function runScriptInApmNode(script) {
+function runScriptInApmNode(script, service, account, password) {
   const args = ['-e', script];
-  const options = { env: { NODE_PATH: getApmNodeModulesPath() } };
+  const options = {
+    // The newline is important so we can use readline's line event.
+    input: JSON.stringify({ service, account, password }) + '\n',
+    env: Object.assign({}, process.env, {
+      NODE_PATH: getApmNodeModulesPath()
+    })
+  };
   const output = _child_process.default.spawnSync(getApmNodePath(), args, options);
   return output.stdout.toString();
 }
@@ -45,25 +51,32 @@ function runScriptInApmNode(script) {
 exports.default = {
   getPassword(service, account) {
     const script = `
+      var readline = require('readline');
       var keytar = require('keytar');
-      var service = ${JSON.stringify(service)};
-      var account = ${JSON.stringify(account)};
-      var password = keytar.getPassword(service, account);
-      console.log(JSON.stringify(password));
+      var rl = readline.createInterface({input: process.stdin});
+      rl.on('line', function(input) {
+        var data = JSON.parse(input);
+        var password = keytar.getPassword(data.service, data.account);
+        console.log(JSON.stringify(password));
+        rl.close();
+      });
     `;
-    return JSON.parse(runScriptInApmNode(script));
+    return JSON.parse(runScriptInApmNode(script, service, account));
   },
 
   replacePassword(service, account, password) {
     const script = `
+      var readline = require('readline');
       var keytar = require('keytar');
-      var service = ${JSON.stringify(service)};
-      var account = ${JSON.stringify(account)};
-      var password = ${JSON.stringify(password)};
-      var result = keytar.replacePassword(service, account, password);
-      console.log(JSON.stringify(result));
+      var rl = readline.createInterface({input: process.stdin});
+      rl.on('line', function(input) {
+        var data = JSON.parse(input);
+        var result = keytar.replacePassword(data.service, data.account, data.password);
+        console.log(JSON.stringify(result));
+        rl.close();
+      });
     `;
-    return JSON.parse(runScriptInApmNode(script));
+    return JSON.parse(runScriptInApmNode(script, service, account, password));
   }
 };
 const __TEST__ = exports.__TEST__ = {

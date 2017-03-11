@@ -84,4 +84,3 @@ if (atom.inSpecMode()) {
     }
   };
 }
-module.exports = exports['default'];

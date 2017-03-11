@@ -424,4 +424,3 @@ class Bridge {
   }
 }
 exports.default = Bridge;
-module.exports = exports['default'];

@@ -240,4 +240,3 @@ class Dispatcher {
   }
 }
 exports.default = Dispatcher;
-module.exports = exports['default'];

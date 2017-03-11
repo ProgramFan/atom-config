@@ -22,6 +22,12 @@ function _load_HR() {
   return _HR = require('../../nuclide-ui/HR');
 }
 
+var _Button;
+
+function _load_Button() {
+  return _Button = require('../../nuclide-ui/Button');
+}
+
 var _MultiRootChangedFilesView;
 
 function _load_MultiRootChangedFilesView() {
@@ -42,17 +48,16 @@ var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+const ACTIVE_BOOKMARK_TITLE = 'Active bookmark'; /**
+                                                  * Copyright (c) 2015-present, Facebook, Inc.
+                                                  * All rights reserved.
+                                                  *
+                                                  * This source code is licensed under the license found in the LICENSE file in
+                                                  * the root directory of this source tree.
+                                                  *
+                                                  * 
+                                                  */
 
-const ACTIVE_BOOKMARK_TITLE = 'Active bookmark';
 const LOADING_BOOKMARK_TITLE = 'Loading...';
 
 class RepositorySectionComponent extends _reactForAtom.React.Component {
@@ -122,8 +127,9 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
     if (repository != null) {
       if (repository.getType() === 'hg') {
         bookmarksBranchesHeader = 'BOOKMARKS';
-        createButton = _reactForAtom.React.createElement('button', {
-          className: 'btn btn-sm icon icon-plus',
+        createButton = _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+          size: (_Button || _load_Button()).ButtonSizes.SMALL,
+          icon: 'plus',
           onClick: this._handleRepoGearClick,
           style: { marginTop: '6px', position: 'absolute', right: '10px' },
           title: 'Create bookmark...'
@@ -289,4 +295,3 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = RepositorySectionComponent;
-module.exports = exports['default'];

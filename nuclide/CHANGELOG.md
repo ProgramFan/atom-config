@@ -1,5 +1,71 @@
 # Nuclide Changelog
 
+## v0.209.0
+
+### Debugger
+
+* Switched to using an Atom preview window when opening source due to clicking on call stack frames during debugging rather than opening a new text editor tab for every frame clicked.
+* Breakpoints section of debugger now remains visible in the debugger, even when no target is attached so breakpoints can still be added and removed while not debugging.
+* UX improvements to breakpoint section.
+* UX improvements to indicate when new thread stacks are being loaded from the debugger backend.
+
+### Misc
+
+* Diagnostic Datatips are now available to everyone.
+* Remote files will now stay open when deleted in Atom 1.15+.
+* Fixed rare server crash when log directory gets deleted.
+
+## v0.208.0
+
+### Highlights
+
+* The session key is now correctly stored in the keyring on Linux, only requiring one authentication per session.
+* Improve Flow client-side autocomplete filtering heuristic to filter fast in more scenarios.
+
+### Hack
+
+* Filter out errors with empty paths, which crash the RPC connection.
+
+### Debugger
+
+* Show `(no variables)` in the Scopes window for frames with no local variables.
+* Changed debug type for `PHP` to `PHP / Hack` in the debugger launch window.
+
+### Misc
+
+* Fixed bug whereby tools would sometimes not fill entire panel until resized.
+* Fixed `nuclideUri.uriToNuclideUri` which used to return malformed file paths on Windows.
+* Fixed Quick Open remembering undo history across invocations.
+* Fixed switching between header and source.
+* Nuclide server start-up performance improvements due to the V8 compile cache.
+* Fixed bug where buck targets with `...` wouldn't build.
+* Fixed `Package already activated` error.
+* `atom://` URL handler is updated to work for Atom 1.15+.
+
+
+## v0.207.0
+
+### Highlights
+
+* Lots of Workspace View improvements! This greatly improves UX when (re)-arranging the pane layout, e.g. via drag-and-drop.
+
+### Debugger
+
+* The threads window is now sortable.
+
+### Languages
+
+* Hack Grammar: Fix variable capture in lambdas.
+* Hack: Fix errors disappearing after restarting the Hack server.
+* Flow: Highlight typehints according to the exact range returned from Flow.
+
+### Misc bug fixes & improvements
+
+* Fixed a bug that caused Nuclide to overwrite the symlink itself instead of the target file when editing a remote file that is a symlink.
+* Prevent spawning multiple cursors whenever it conflicts with hyperclick.
+* Fixed the styling of links in the console.
+
+
 ## v0.206.0
 
 ### Highlights

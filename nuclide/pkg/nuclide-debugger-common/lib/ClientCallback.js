@@ -55,4 +55,3 @@ class ClientCallback {
   }
 }
 exports.default = ClientCallback;
-module.exports = exports['default'];

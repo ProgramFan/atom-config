@@ -74,4 +74,3 @@ class HealthPaneItemComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = HealthPaneItemComponent;
-module.exports = exports['default'];

@@ -608,7 +608,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "FileSystemService.js",
-          line: 293
+          line: 294
         },
         kind: "string"
       }
@@ -618,7 +618,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "FileSystemService.js",
-          line: 293
+          line: 294
         },
         kind: "string"
       }
@@ -628,28 +628,28 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "FileSystemService.js",
-          line: 294
+          line: 295
         },
         kind: "nullable",
         type: {
           location: {
             type: "source",
             fileName: "FileSystemService.js",
-            line: 294
+            line: 295
           },
           kind: "object",
           fields: [{
             location: {
               type: "source",
               fileName: "FileSystemService.js",
-              line: 294
+              line: 295
             },
             name: "encoding",
             type: {
               location: {
                 type: "source",
                 fileName: "FileSystemService.js",
-                line: 294
+                line: 295
               },
               kind: "string"
             },
@@ -658,14 +658,14 @@ module.exports = _client => {
             location: {
               type: "source",
               fileName: "FileSystemService.js",
-              line: 294
+              line: 295
             },
             name: "mode",
             type: {
               location: {
                 type: "source",
                 fileName: "FileSystemService.js",
-                line: 294
+                line: 295
               },
               kind: "number"
             },
@@ -674,14 +674,14 @@ module.exports = _client => {
             location: {
               type: "source",
               fileName: "FileSystemService.js",
-              line: 294
+              line: 295
             },
             name: "flag",
             type: {
               location: {
                 type: "source",
                 fileName: "FileSystemService.js",
-                line: 294
+                line: 295
               },
               kind: "string"
             },
@@ -696,7 +696,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "FileSystemService.js",
-          line: 294
+          line: 295
         },
         kind: "void"
       });
@@ -1807,13 +1807,13 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "FileSystemService.js",
-        line: 293
+        line: 294
       },
       type: {
         location: {
           type: "source",
           fileName: "FileSystemService.js",
-          line: 293
+          line: 294
         },
         kind: "function",
         argumentTypes: [{
@@ -1822,7 +1822,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "FileSystemService.js",
-              line: 293
+              line: 294
             },
             kind: "string"
           }
@@ -1832,7 +1832,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "FileSystemService.js",
-              line: 293
+              line: 294
             },
             kind: "string"
           }
@@ -1842,28 +1842,28 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "FileSystemService.js",
-              line: 294
+              line: 295
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "FileSystemService.js",
-                line: 294
+                line: 295
               },
               kind: "object",
               fields: [{
                 location: {
                   type: "source",
                   fileName: "FileSystemService.js",
-                  line: 294
+                  line: 295
                 },
                 name: "encoding",
                 type: {
                   location: {
                     type: "source",
                     fileName: "FileSystemService.js",
-                    line: 294
+                    line: 295
                   },
                   kind: "string"
                 },
@@ -1872,14 +1872,14 @@ Object.defineProperty(module.exports, "defs", {
                 location: {
                   type: "source",
                   fileName: "FileSystemService.js",
-                  line: 294
+                  line: 295
                 },
                 name: "mode",
                 type: {
                   location: {
                     type: "source",
                     fileName: "FileSystemService.js",
-                    line: 294
+                    line: 295
                   },
                   kind: "number"
                 },
@@ -1888,14 +1888,14 @@ Object.defineProperty(module.exports, "defs", {
                 location: {
                   type: "source",
                   fileName: "FileSystemService.js",
-                  line: 294
+                  line: 295
                 },
                 name: "flag",
                 type: {
                   location: {
                     type: "source",
                     fileName: "FileSystemService.js",
-                    line: 294
+                    line: 295
                   },
                   kind: "string"
                 },
@@ -1908,14 +1908,14 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "FileSystemService.js",
-            line: 294
+            line: 295
           },
           kind: "promise",
           type: {
             location: {
               type: "source",
               fileName: "FileSystemService.js",
-              line: 294
+              line: 295
             },
             kind: "void"
           }

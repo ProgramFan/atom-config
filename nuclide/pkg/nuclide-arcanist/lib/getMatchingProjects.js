@@ -68,5 +68,3 @@ exports.default = (() => {
 
   return getMatchingProjects;
 })();
-
-module.exports = exports['default'];

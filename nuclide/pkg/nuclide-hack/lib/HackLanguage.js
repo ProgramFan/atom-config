@@ -9,7 +9,7 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 let getUseIdeConnection = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* () {
-    return (0, (_config || _load_config()).getConfig)().useIdeConnection || (yield (0, (_passesGK || _load_passesGK()).default)('nuclide_hack_use_persistent_connection'));
+    return (0, (_config || _load_config()).getConfig)().useIdeConnection || (0, (_passesGK || _load_passesGK()).default)('nuclide_hack_use_persistent_connection');
   });
 
   return function getUseIdeConnection() {
@@ -106,7 +106,7 @@ let createLanguageService = (() => {
       diagnostics: diagnosticsConfig
     };
 
-    return new (_nuclideLanguageService || _load_nuclideLanguageService()).AtomLanguageService(connectionToHackService, atomConfig, (_config || _load_config()).logger);
+    return new (_nuclideLanguageService || _load_nuclideLanguageService()).AtomLanguageService(connectionToHackService, atomConfig, null, (_config || _load_config()).logger);
   });
 
   return function createLanguageService() {

@@ -23,4 +23,3 @@ function createPaneContainer() {
     deserializerManager: atom.deserializers
   });
 }
-module.exports = exports["default"];

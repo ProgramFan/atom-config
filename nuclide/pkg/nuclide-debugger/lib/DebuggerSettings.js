@@ -9,7 +9,8 @@ class DebuggerSettings {
     this._settings = {
       SupportThreadsWindow: false,
       SingleThreadStepping: false,
-      CustomThreadColumns: []
+      CustomThreadColumns: [],
+      threadsComponentTitle: 'Threads'
     };
   }
 

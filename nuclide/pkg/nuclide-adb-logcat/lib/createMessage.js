@@ -53,4 +53,3 @@ function priorityToLevel(priority) {
       return 'info';
   }
 }
-module.exports = exports['default'];

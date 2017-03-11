@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-5027-1mstp0x/package.tgz",
+        "raw": "/tmp/d-117211-5043-z19rog/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-5027-1mstp0x/package.tgz",
-        "spec": "/tmp/d-117120-5027-1mstp0x/package.tgz",
+        "rawSpec": "/tmp/d-117211-5043-z19rog/package.tgz",
+        "spec": "/tmp/d-117211-5043-z19rog/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-5027-111yvie"
+      "/tmp/apm-install-dir-117211-5043-rim0bh"
     ]
   ],
-  "_from": "../d-117120-5027-1mstp0x/package.tgz",
+  "_from": "../d-117211-5043-z19rog/package.tgz",
   "_id": "language-dot@1.6.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-dot",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-5027-1mstp0x/package.tgz",
+    "raw": "/tmp/d-117211-5043-z19rog/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-5027-1mstp0x/package.tgz",
-    "spec": "/tmp/d-117120-5027-1mstp0x/package.tgz",
+    "rawSpec": "/tmp/d-117211-5043-z19rog/package.tgz",
+    "spec": "/tmp/d-117211-5043-z19rog/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-5027-1mstp0x/package.tgz",
+  "_resolved": "file:../d-117211-5043-z19rog/package.tgz",
   "_shasum": "3a50d1573a6ed00491832f2d67a4c0d0deecd5a5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-5027-1mstp0x/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-5027-111yvie",
+  "_spec": "/tmp/d-117211-5043-z19rog/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-5043-rim0bh",
   "bugs": {
     "url": "https://github.com/AdoPi/language-dot/issues"
   },

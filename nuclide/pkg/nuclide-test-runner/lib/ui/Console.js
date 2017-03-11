@@ -31,5 +31,3 @@ exports.default = Console; /**
                             *
                             * 
                             */
-
-module.exports = exports['default'];

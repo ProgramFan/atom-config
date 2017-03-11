@@ -79,5 +79,3 @@ exports.default = StatusBarTile; /**
                                   *
                                   * 
                                   */
-
-module.exports = exports['default'];

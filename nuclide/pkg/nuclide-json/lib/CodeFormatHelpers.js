@@ -28,5 +28,3 @@ exports.default = CodeFormatHelpers; /**
                                       *
                                       * 
                                       */
-
-module.exports = exports['default'];

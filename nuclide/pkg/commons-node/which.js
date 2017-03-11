@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.__BABEL_CJS_COMPAT__ = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -50,8 +49,3 @@ exports.default = (() => {
 
   return which;
 })();
-
-// Fake export to avoid babel's commonjs compat
-
-
-const __BABEL_CJS_COMPAT__ = exports.__BABEL_CJS_COMPAT__ = {};

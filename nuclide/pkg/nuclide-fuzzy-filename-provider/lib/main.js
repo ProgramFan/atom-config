@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 var _atom = require('atom');
@@ -167,5 +163,4 @@ class Activation {
   }
 }
 
-exports.default = (0, (_createPackage || _load_createPackage()).default)(Activation);
-module.exports = exports['default'];
+(0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);

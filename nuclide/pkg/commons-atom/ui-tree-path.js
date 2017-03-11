@@ -32,4 +32,3 @@ function uiTreePath(event) {
 
   return nameElement.getAttribute(TREE_API_DATA_PATH);
 }
-module.exports = exports['default'];

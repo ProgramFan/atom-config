@@ -83,4 +83,3 @@ class TopScores {
   }
 }
 exports.default = TopScores;
-module.exports = exports['default'];

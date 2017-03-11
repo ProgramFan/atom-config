@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createPackage;
 
 function _load_createPackage() {
@@ -194,5 +190,4 @@ function createPackageStore(rawState) {
   return store;
 }
 
-exports.default = (0, (_createPackage || _load_createPackage()).default)(Activation);
-module.exports = exports['default'];
+(0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);

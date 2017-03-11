@@ -1296,33 +1296,17 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "types.js",
-        line: 17
+        line: 18
       },
       name: "ThreadColumn",
       definition: {
         location: {
           type: "source",
           fileName: "types.js",
-          line: 17
+          line: 18
         },
         kind: "object",
         fields: [{
-          location: {
-            type: "source",
-            fileName: "types.js",
-            line: 18
-          },
-          name: "key",
-          type: {
-            location: {
-              type: "source",
-              fileName: "types.js",
-              line: 18
-            },
-            kind: "string"
-          },
-          optional: false
-        }, {
           location: {
             type: "source",
             fileName: "types.js",
@@ -1338,6 +1322,54 @@ Object.defineProperty(module.exports, "defs", {
             kind: "string"
           },
           optional: false
+        }, {
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 20
+          },
+          name: "key",
+          type: {
+            location: {
+              type: "source",
+              fileName: "types.js",
+              line: 20
+            },
+            kind: "string"
+          },
+          optional: false
+        }, {
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 22
+          },
+          name: "width",
+          type: {
+            location: {
+              type: "source",
+              fileName: "types.js",
+              line: 22
+            },
+            kind: "number"
+          },
+          optional: true
+        }, {
+          location: {
+            type: "source",
+            fileName: "types.js",
+            line: 25
+          },
+          name: "component",
+          type: {
+            location: {
+              type: "source",
+              fileName: "types.js",
+              line: 25
+            },
+            kind: "any"
+          },
+          optional: true
         }]
       }
     }

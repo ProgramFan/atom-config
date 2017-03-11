@@ -40,9 +40,9 @@ function _load_process2() {
  */
 
 class PerConnectionLanguageService extends (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).MultiProjectLanguageService {
-  constructor(logger, fileCache, command, projectFileName, fileExtensions) {
+  constructor(logger, fileCache, command, args, projectFileName, fileExtensions) {
     const languageServiceFactory = projectDir => {
-      return (_process || _load_process()).LanguageServerProtocolProcess.create(logger, fileCache, () => (0, (_process2 || _load_process2()).safeSpawn)(command), // TODO: current dir, options?
+      return (_process || _load_process()).LanguageServerProtocolProcess.create(logger, fileCache, () => (0, (_process2 || _load_process2()).safeSpawn)(command, args), // TODO: current dir?
       projectDir, fileExtensions);
     };
     super(logger, fileCache, projectFileName, fileExtensions, languageServiceFactory);

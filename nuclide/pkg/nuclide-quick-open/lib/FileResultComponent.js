@@ -97,4 +97,3 @@ class FileResultComponent {
   }
 }
 exports.default = FileResultComponent;
-module.exports = exports['default'];

@@ -224,16 +224,13 @@ function runTaskEpic(actions, store) {
     }
 
     const state = store.getState();
-    // Don't do anything if a task is already running.
-    if (state.runningTask) {
-      return _rxjsBundlesRxMinJs.Observable.empty();
-    }
+    const stopRunningTask = state.runningTask != null;
 
     const { taskMeta } = action.payload;
     const { activeTaskRunner } = state;
     const newTaskRunner = taskMeta.taskRunner;
 
-    return _rxjsBundlesRxMinJs.Observable.concat(activeTaskRunner === newTaskRunner ? _rxjsBundlesRxMinJs.Observable.empty() : _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).selectTaskRunner(newTaskRunner, true)), store.getState().visible ? _rxjsBundlesRxMinJs.Observable.empty() : _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).setToolbarVisibility(true, true)), _rxjsBundlesRxMinJs.Observable.defer(() => {
+    return _rxjsBundlesRxMinJs.Observable.concat(stopRunningTask ? _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).stopTask()) : _rxjsBundlesRxMinJs.Observable.empty(), activeTaskRunner === newTaskRunner ? _rxjsBundlesRxMinJs.Observable.empty() : _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).selectTaskRunner(newTaskRunner, true)), store.getState().visible ? _rxjsBundlesRxMinJs.Observable.empty() : _rxjsBundlesRxMinJs.Observable.of((_Actions || _load_Actions()).setToolbarVisibility(true, true)), _rxjsBundlesRxMinJs.Observable.defer(() => {
       if (taskMeta.disabled) {
         return _rxjsBundlesRxMinJs.Observable.empty();
       }
@@ -313,7 +310,8 @@ function createTaskObservable(taskMeta, getState) {
     taskFailedNotification.onDidDismiss(() => {
       taskFailedNotification = null;
     });
-    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('Error running task:', taskMeta, error);
+    const taskMetaForLogging = Object.assign({}, taskMeta, { taskRunner: undefined });
+    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('Error running task:', taskMetaForLogging, error);
     return _rxjsBundlesRxMinJs.Observable.of({
       type: (_Actions || _load_Actions()).TASK_ERRORED,
       payload: {

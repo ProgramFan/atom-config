@@ -3,64 +3,33 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.flowFindRefs = exports.flowGetCoverage = exports.flowGetType = exports.initialize = undefined;
+exports.initialize = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 let initialize = exports.initialize = (() => {
-  var _ref = (0, _asyncToGenerator.default)(function* (fileNotifier) {
-    return new (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ServerLanguageService(fileNotifier, new FlowSingleFileLanguageService(fileNotifier));
+  var _ref = (0, _asyncToGenerator.default)(function* (fileNotifier, config) {
+    if (!(fileNotifier instanceof (_nuclideOpenFilesRpc || _load_nuclideOpenFilesRpc()).FileCache)) {
+      throw new Error('Invariant violation: "fileNotifier instanceof FileCache"');
+    }
+
+    const fileCache = fileNotifier;
+    return new FlowLanguageService(fileCache, config);
   });
 
-  return function initialize(_x) {
+  return function initialize(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 })();
 
-let flowGetType = exports.flowGetType = (() => {
-  var _ref2 = (0, _asyncToGenerator.default)(function* (file, currentContents, line, column) {
-    return getState().getRootContainer().runWithRoot(file, function (root) {
-      return root.flowGetType(file, currentContents, line, column);
-    });
-  });
-
-  return function flowGetType(_x2, _x3, _x4, _x5) {
-    return _ref2.apply(this, arguments);
-  };
-})();
-
-let flowGetCoverage = exports.flowGetCoverage = (() => {
-  var _ref3 = (0, _asyncToGenerator.default)(function* (file) {
-    return getState().getRootContainer().runWithRoot(file, function (root) {
-      return root.flowGetCoverage(file);
-    });
-  });
-
-  return function flowGetCoverage(_x6) {
-    return _ref3.apply(this, arguments);
-  };
-})();
-
-let flowFindRefs = exports.flowFindRefs = (() => {
-  var _ref4 = (0, _asyncToGenerator.default)(function* (file, currentContents, position) {
-    return getState().getRootContainer().runWithRoot(file, function (root) {
-      return root.flowFindRefs(file, currentContents, position);
-    });
-  });
-
-  return function flowFindRefs(_x7, _x8, _x9) {
-    return _ref4.apply(this, arguments);
-  };
-})();
-
 exports.dispose = dispose;
-exports.getServerStatusUpdates = getServerStatusUpdates;
-exports.flowFindDefinition = flowFindDefinition;
-exports.flowFindDiagnostics = flowFindDiagnostics;
-exports.flowGetAutocompleteSuggestions = flowGetAutocompleteSuggestions;
-exports.flowGetOutline = flowGetOutline;
 exports.flowGetAst = flowGetAst;
-exports.allowServerRestart = allowServerRestart;
+
+var _config;
+
+function _load_config() {
+  return _config = require('./config');
+}
 
 var _nuclideLanguageServiceRpc;
 
@@ -68,22 +37,22 @@ function _load_nuclideLanguageServiceRpc() {
   return _nuclideLanguageServiceRpc = require('../../nuclide-language-service-rpc');
 }
 
-var _range;
+var _nuclideOpenFilesRpc;
 
-function _load_range() {
-  return _range = require('../../commons-node/range');
+function _load_nuclideOpenFilesRpc() {
+  return _nuclideOpenFilesRpc = require('../../nuclide-open-files-rpc');
 }
 
-var _nuclideFlowCommon;
+var _nuclideLogging;
 
-function _load_nuclideFlowCommon() {
-  return _nuclideFlowCommon = require('../../nuclide-flow-common');
+function _load_nuclideLogging() {
+  return _nuclideLogging = require('../../nuclide-logging');
 }
 
-var _FlowRoot;
+var _FlowSingleProjectLanguageService;
 
-function _load_FlowRoot() {
-  return _FlowRoot = require('./FlowRoot');
+function _load_FlowSingleProjectLanguageService() {
+  return _FlowSingleProjectLanguageService = require('./FlowSingleProjectLanguageService');
 }
 
 var _FlowServiceState;
@@ -96,15 +65,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // If types are added here, make sure to also add them to FlowConstants.js. This needs to be the
 // canonical type definition so that we can use these in the service framework.
-let state = null; /**
-                   * Copyright (c) 2015-present, Facebook, Inc.
-                   * All rights reserved.
-                   *
-                   * This source code is licensed under the license found in the LICENSE file in
-                   * the root directory of this source tree.
-                   *
-                   * 
-                   */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
+let state = null;
 
 function getState() {
   if (state == null) {
@@ -120,121 +91,61 @@ function dispose() {
   }
 }
 
-class FlowSingleFileLanguageService {
-  constructor(fileNotifier) {}
-
-  dispose() {}
-
-  getDiagnostics(filePath, buffer) {
-    return flowFindDiagnostics(filePath, null);
+class FlowLanguageService extends (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).MultiProjectLanguageService {
+  constructor(fileCache, config) {
+    const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)('Flow');
+    super(logger, fileCache, '.flowconfig', ['.js', '.jsx'], projectDir => {
+      const execInfoContainer = getState().getExecInfoContainer();
+      const singleProjectLS = new (_FlowSingleProjectLanguageService || _load_FlowSingleProjectLanguageService()).FlowSingleProjectLanguageService(projectDir, execInfoContainer);
+      const languageService = new (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ServerLanguageService(fileCache, singleProjectLS);
+      return Promise.resolve(languageService);
+    });
+    for (const key of Object.keys(config)) {
+      (0, (_config || _load_config()).setConfig)(key, config[key]);
+    }
   }
 
-  observeDiagnostics() {
-    throw new Error('Not Yet Implemented');
-  }
+  getOutline(fileVersion) {
+    var _this = this;
 
-  getAutocompleteSuggestions(filePath, buffer, position, activatedManually, prefix) {
     return (0, _asyncToGenerator.default)(function* () {
-      const results = yield flowGetAutocompleteSuggestions(filePath, buffer.getText(), position, activatedManually, prefix);
-      return (0, (_nuclideFlowCommon || _load_nuclideFlowCommon()).filterResultsByPrefix)(prefix, results);
-    })();
-  }
-
-  getDefinition(filePath, buffer, position) {
-    return (0, _asyncToGenerator.default)(function* () {
-      const match = (0, (_range || _load_range()).wordAtPositionFromBuffer)(buffer, position, (_nuclideFlowCommon || _load_nuclideFlowCommon()).JAVASCRIPT_WORD_REGEX);
-      if (match == null) {
-        return null;
+      const ls = yield _this.getLanguageServiceForFile(fileVersion.filePath);
+      if (ls != null) {
+        return ls.getOutline(fileVersion);
+      } else {
+        const buffer = yield (0, (_nuclideOpenFilesRpc || _load_nuclideOpenFilesRpc()).getBufferAtVersion)(fileVersion);
+        if (buffer == null) {
+          return null;
+        }
+        return (_FlowSingleProjectLanguageService || _load_FlowSingleProjectLanguageService()).FlowSingleProjectLanguageService.getOutline(fileVersion.filePath, buffer, null, getState().getExecInfoContainer());
       }
-      const loc = yield flowFindDefinition(filePath, buffer.getText(), position.row + 1, position.column + 1);
-      if (loc == null) {
-        return null;
-      }
-      return {
-        queryRange: [match.range],
-        definitions: [{
-          path: loc.file,
-          position: loc.point,
-          language: 'Flow'
-        }]
-      };
     })();
   }
 
-  getDefinitionById(file, id) {
-    throw new Error('Not Yet Implemented');
+  getServerStatusUpdates() {
+    return this.observeLanguageServices().mergeMap(languageService => {
+      const singleProjectLS = languageService.getSingleFileLanguageService();
+      const pathToRoot = singleProjectLS.getPathToRoot();
+      return singleProjectLS.getServerStatusUpdates().map(status => ({ pathToRoot, status }));
+    }).publish();
   }
 
-  findReferences(filePath, buffer, position) {
-    throw new Error('Not Yet Implemented');
-  }
+  allowServerRestart() {
+    var _this2 = this;
 
-  getCoverage(filePath) {
-    return flowGetCoverage(filePath);
-  }
-
-  getOutline(filePath, buffer) {
-    return flowGetOutline(filePath, buffer.getText());
-  }
-
-  typeHint(filePath, buffer, position) {
-    throw new Error('Not Yet Implemented');
-  }
-
-  highlight(filePath, buffer, position) {
-    return flowFindRefs(filePath, buffer.getText(), position);
-  }
-
-  formatSource(filePath, buffer, range) {
-    throw new Error('Not Yet Implemented');
-  }
-
-  formatEntireFile(filePath, buffer, range) {
-    throw new Error('Not implemented');
-  }
-
-  getEvaluationExpression(filePath, buffer, position) {
-    throw new Error('Not Yet Implemented');
-  }
-
-  getProjectRoot(fileUri) {
     return (0, _asyncToGenerator.default)(function* () {
-      const flowRoot = yield getState().getRootContainer().getRootForPath(fileUri);
-      return flowRoot == null ? null : flowRoot.getPathToRoot();
+      const languageServices = yield _this2.getAllLanguageServices();
+      const flowLanguageServices = languageServices.map(function (ls) {
+        return ls.getSingleFileLanguageService();
+      });
+      flowLanguageServices.forEach(function (ls) {
+        return ls.allowServerRestart();
+      });
     })();
   }
-
-  isFileInProject(fileUri) {
-    throw new Error('Not Yet Implemented');
-  }
 }
 
-function getServerStatusUpdates() {
-  return getState().getRootContainer().getServerStatusUpdates().publish();
-}
-
-function flowFindDefinition(file, currentContents, line, column) {
-  return getState().getRootContainer().runWithRoot(file, root => root.flowFindDefinition(file, currentContents, line, column));
-}
-
-function flowFindDiagnostics(file, currentContents) {
-  return getState().getRootContainer().runWithRoot(file, root => root.flowFindDiagnostics(file, currentContents));
-}
-
-function flowGetAutocompleteSuggestions(file, currentContents, position, activatedManually, prefix) {
-  return getState().getRootContainer().runWithRoot(file, root => root.flowGetAutocompleteSuggestions(file, currentContents, position, activatedManually, prefix));
-}
-
-function flowGetOutline(file, currentContents) {
-  return getState().getRootContainer().runWithOptionalRoot(file, root => (_FlowRoot || _load_FlowRoot()).FlowRoot.flowGetOutline(root, currentContents, getState().getExecInfoContainer()));
-}
-
+// Unfortunately we have to duplicate a lot of things here to make FlowLanguageService remotable.
 function flowGetAst(file, currentContents) {
-  return getState().getRootContainer().runWithOptionalRoot(file, root => (_FlowRoot || _load_FlowRoot()).FlowRoot.flowGetAst(root, currentContents, getState().getExecInfoContainer()));
-}
-
-function allowServerRestart() {
-  for (const root of getState().getRootContainer().getAllRoots()) {
-    root.allowServerRestart();
-  }
+  return (_FlowSingleProjectLanguageService || _load_FlowSingleProjectLanguageService()).FlowSingleProjectLanguageService.flowGetAst(null, currentContents, getState().getExecInfoContainer());
 }

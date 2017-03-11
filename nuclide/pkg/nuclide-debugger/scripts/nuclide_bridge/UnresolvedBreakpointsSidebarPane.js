@@ -138,4 +138,3 @@ class UnresolvedBreakpointsSidebarPane extends (_WebInspector || _load_WebInspec
   reset() {}
 }
 exports.default = UnresolvedBreakpointsSidebarPane;
-module.exports = exports['default'];

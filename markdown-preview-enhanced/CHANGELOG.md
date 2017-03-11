@@ -1,3 +1,45 @@
+## 0.10.8
+* [x] add `pandoc parser` support [#315](https://github.com/shd101wyy/markdown-preview-enhanced/issues/315).
+* [x] fix `ebook` export theme issue.    
+
+## 0.10.7  
+* [x] restore `pdfUseGithub` option.
+* [x] add `mpe-github-syntax` for Github.com style.
+
+## 0.10.6  
+* [x] fix zen mode style issue.  
+* [x] fix preview theme list empty issue.   
+
+## 0.10.4 & 0.10.5  
+* [x] quick fix theme bug.
+* [x] added loading gif, same as the official `markdown preview` package.
+
+## 0.10.3  
+* [x] quick fix theme bug.
+* [x] remove `useGitHubStyle` and `useGitHubSyntaxTheme`.
+
+## 0.10.2  
+* [x] allow user to pick theme when not using `Github.com style theme`. [#297](https://github.com/shd101wyy/markdown-preview-enhanced/issues/297#issuecomment-283619527)  
+* [ ] issue [#298](https://github.com/shd101wyy/markdown-preview-enhanced/issues/298). But this is hard to be supported.   
+* [ ] add blog (jekyll, hexo, etc...) support. But I never used them before, so gonna take a while to figure out how to use them.    
+* [ ] move docs to github wiki.  
+* [x] fix `unsafe eval` issue [#303](https://github.com/shd101wyy/markdown-preview-enhanced/issues/303). As this issue is urgent, I will finish the 3 todos above in the future.    
+
+## 0.10.1
+* [x] `Save as Markdown` code chunk `continue issue`
+* [x] add <code>\`\`\`math</code> [#295](https://github.com/shd101wyy/markdown-preview-enhanced/issues/295)    
+* [x] add `vhdl` and `vhd` for file import [#294](https://github.com/shd101wyy/markdown-preview-enhanced/issues/294)  
+* [ ] ~~fix python3 matplotlib issue.~~ (nvm, it works after I upgrade python3 to `3.6.0`)   
+
+## 0.9.12  
+* [x] fix issue [#255](https://github.com/shd101wyy/markdown-preview-enhanced/issues/255) deprecated call.  
+* [x] add whitelist for protocols [#288](https://github.com/shd101wyy/markdown-preview-enhanced/issues/288).  
+* [x] update docs.   
+* [x] change variable `rootDirectoryPath` to `fileDirectoryPath`.
+
+## 0.9.10
+* [x] support standard code fencing for graphs. [#286](https://github.com/shd101wyy/markdown-preview-enhanced/issues/286).   
+
 ## 0.9.9  
 * [x] enhance code chunk. Now support `matplotlib` very well.   [#280](https://github.com/shd101wyy/markdown-preview-enhanced/issues/280).   
 ```sh

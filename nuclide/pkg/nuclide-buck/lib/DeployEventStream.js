@@ -91,12 +91,22 @@ let debugAndroidActivity = (() => {
 
     const debuggerService = yield getDebuggerService();
     try {
+      (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('fb-java-debugger-start', {
+        startType: 'buck-toolbar',
+        target: buckProjectPath,
+        targetType: 'android',
+        targetClass: androidActivity
+      });
+
       /* eslint-disable nuclide-internal/no-cross-atom-imports */
       // $FlowFB
       const procInfo = require('../../fb-debugger-java/lib/AdbProcessInfo');
-      debuggerService.startDebugging(new procInfo.AdbProcessInfo(buckProjectPath, androidActivity));
+      debuggerService.startDebugging(new procInfo.AdbProcessInfo(buckProjectPath, null, null, androidActivity));
       /* eslint-enable nuclide-internal/no-cross-atom-imports */
     } catch (e) {
+      (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('fb-java-debugger-unavailable', {
+        error: e.toString()
+      });
       throw new Error('Java debugger service is not available.');
     }
   });
@@ -130,6 +140,7 @@ let _getAttachProcessInfoFromPid = (() => {
 
 exports.getDeployBuildEvents = getDeployBuildEvents;
 exports.getDeployInstallEvents = getDeployInstallEvents;
+exports.getDeployTestEvents = getDeployTestEvents;
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
@@ -175,8 +186,16 @@ function _load_nuclideRemoteConnection() {
   return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
 }
 
+var _nuclideAnalytics;
+
+function _load_nuclideAnalytics() {
+  return _nuclideAnalytics = require('../../nuclide-analytics');
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// eslint-disable-next-line nuclide-internal/no-cross-atom-imports
+const LLDB_PROCESS_ID_REGEX = /lldb -p ([0-9]+)/;
 // eslint-disable-next-line nuclide-internal/no-cross-atom-imports
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
@@ -188,9 +207,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 
  */
 
-const LLDB_PROCESS_ID_REGEX = /lldb -p ([0-9]+)/;
-// eslint-disable-next-line nuclide-internal/no-cross-atom-imports
-
 const ANDROID_ACTIVITY_REGEX = /Starting activity (.*)\/(.*)\.\.\./;
 const ANDROID_TARGET_REGEX = /OK +(.+\.apk)/;
 const LLDB_TARGET_TYPE = 'LLDB';
@@ -200,18 +216,18 @@ function getDeployBuildEvents(processStream, buckService, buckRoot, buildTarget,
   return processStream.filter(message => message.kind === 'exit' && message.exitCode === 0).switchMap(() => {
     return _rxjsBundlesRxMinJs.Observable.fromPromise(debugBuckTarget(buckService, buckRoot, buildTarget, runArguments)).map(path => ({
       type: 'log',
-      message: `Launched LLDB debugger with ${path}`,
+      message: `Launched debugger with ${path}`,
       level: 'info'
     })).catch(err => {
-      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Failed to launch LLDB debugger for ${buildTarget}`, err);
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Failed to launch debugger for ${buildTarget}`, err);
       return _rxjsBundlesRxMinJs.Observable.of({
         type: 'log',
-        message: `Failed to launch LLDB debugger: ${err.message}`,
+        message: `Failed to launch debugger: ${err.message}`,
         level: 'error'
       });
     }).startWith({
       type: 'log',
-      message: `Launching LLDB debugger for ${buildTarget}...`,
+      message: `Launching debugger for ${buildTarget}...`,
       level: 'log'
     }, {
       type: 'progress',
@@ -258,6 +274,25 @@ function getDeployInstallEvents(processStream, buckRoot) {
       }
 
       return _rxjsBundlesRxMinJs.Observable.throw(new Error('Unexpected target type'));
+    });
+  });
+}
+
+function getDeployTestEvents(processStream, buckRoot) {
+  return processStream.flatMap(message => {
+    if (message.kind !== 'stderr') {
+      return _rxjsBundlesRxMinJs.Observable.empty();
+    }
+    const pidMatch = message.data.match(LLDB_PROCESS_ID_REGEX);
+    if (pidMatch == null) {
+      return _rxjsBundlesRxMinJs.Observable.empty();
+    }
+    return _rxjsBundlesRxMinJs.Observable.of(pidMatch[1]);
+  }).switchMap(pid => {
+    return _rxjsBundlesRxMinJs.Observable.fromPromise(debugPidWithLLDB(parseInt(pid, 10), buckRoot)).ignoreElements().startWith({
+      type: 'log',
+      message: `Attaching LLDB debugger to pid ${pid}...`,
+      level: 'info'
     });
   });
 }

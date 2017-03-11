@@ -89,12 +89,6 @@ function _load_Icon() {
   return _Icon = require('../../../nuclide-ui/Icon');
 }
 
-var _shallowequal;
-
-function _load_shallowequal() {
-  return _shallowequal = _interopRequireDefault(require('shallowequal'));
-}
-
 var _nullthrows;
 
 function _load_nullthrows() {
@@ -127,6 +121,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Actions are routed to the store via a Flux.Dispatcher (instantiated by
  * SwiftPMTaskRunner).
  */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
 class SwiftPMTaskRunner {
 
   constructor(initialState) {
@@ -135,11 +139,7 @@ class SwiftPMTaskRunner {
     this._initialState = initialState;
     this._outputMessages = new _rxjsBundlesRxMinJs.Subject();
     this._projectRoot = new _rxjsBundlesRxMinJs.Subject();
-    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._outputMessages, this._projectRoot.do(path => this._getFlux().actions.updateProjectRoot(path)).switchMap(path => this._packageFileExistsAtPath(path, '')).subscribe(fileExists => {
-      if (fileExists) {
-        this._getFlux().actions.updateChdir('');
-      }
-    }));
+    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._outputMessages, this._projectRoot.subscribe(path => this._getFlux().actions.updateProjectRoot(path)));
   }
 
   dispose() {
@@ -168,7 +168,7 @@ class SwiftPMTaskRunner {
 
   runTask(taskName) {
     const store = this._getFlux().store;
-    const chdir = (_nuclideUri || _load_nuclideUri()).default.join((0, (_nullthrows || _load_nullthrows()).default)(store.getProjectRoot()), store.getChdir());
+    const chdir = (0, (_nullthrows || _load_nullthrows()).default)(store.getProjectRoot());
     const configuration = store.getConfiguration();
     const buildPath = store.getBuildPath();
 
@@ -231,13 +231,14 @@ class SwiftPMTaskRunner {
 
     const storeReady = (0, (_event || _load_event()).observableFromSubscribeFunction)(this._getFlux().store.subscribe.bind(this._getFlux().store)).map(() => this._getFlux().store).startWith(this._getFlux().store).filter(store => store.getProjectRoot() === path).share();
 
-    const enabledObservable = storeReady.map(store => store.getProjectRoot()).map(root => root != null && !(_nuclideUri || _load_nuclideUri()).default.isRemote(root)).distinctUntilChanged();
+    const enabledObservable = storeReady.map(store => store.getProjectRoot()).distinctUntilChanged().switchMap(root => {
+      if (!root || (_nuclideUri || _load_nuclideUri()).default.isRemote(root)) {
+        return _rxjsBundlesRxMinJs.Observable.of(false);
+      }
+      return this._packageFileExistsAtPath(root);
+    }).distinctUntilChanged();
 
-    const tasksObservable = storeReady.map(store => [store.getProjectRoot(), store.getChdir()]).distinctUntilChanged((_shallowequal || _load_shallowequal()).default).switchMap(([root, chdir]) => this._packageFileExistsAtPath(root, chdir)).map(enabled => {
-      return (_SwiftPMTaskRunnerTaskMetadata || _load_SwiftPMTaskRunnerTaskMetadata()).SwiftPMTaskRunnerTaskMetadata.map(task => Object.assign({}, task, {
-        disabled: !enabled
-      }));
-    });
+    const tasksObservable = storeReady.map(store => (_SwiftPMTaskRunnerTaskMetadata || _load_SwiftPMTaskRunnerTaskMetadata()).SwiftPMTaskRunnerTaskMetadata);
 
     const subscription = _rxjsBundlesRxMinJs.Observable.combineLatest(enabledObservable, tasksObservable).subscribe(([enabled, tasks]) => callback(enabled, tasks));
 
@@ -246,12 +247,9 @@ class SwiftPMTaskRunner {
     return new (_UniversalDisposable || _load_UniversalDisposable()).default(subscription);
   }
 
-  _packageFileExistsAtPath(path, chdir) {
+  _packageFileExistsAtPath(path) {
     return (0, _asyncToGenerator.default)(function* () {
-      if (!path) {
-        return false;
-      }
-      return (_fsPromise || _load_fsPromise()).default.exists((_nuclideUri || _load_nuclideUri()).default.join(path, chdir, 'Package.swift'));
+      return (_fsPromise || _load_fsPromise()).default.exists((_nuclideUri || _load_nuclideUri()).default.join(path, 'Package.swift'));
     })();
   }
 
@@ -270,12 +268,4 @@ class SwiftPMTaskRunner {
     return this._flux;
   }
 }
-exports.SwiftPMTaskRunner = SwiftPMTaskRunner; /**
-                                                * Copyright (c) 2015-present, Facebook, Inc.
-                                                * All rights reserved.
-                                                *
-                                                * This source code is licensed under the license found in the LICENSE file in
-                                                * the root directory of this source tree.
-                                                *
-                                                * 
-                                                */
+exports.SwiftPMTaskRunner = SwiftPMTaskRunner;

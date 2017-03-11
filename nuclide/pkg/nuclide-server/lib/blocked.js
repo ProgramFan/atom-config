@@ -34,4 +34,3 @@ function blocked(fn, intervalMs = 100, thresholdMs = 50) {
     start = Date.now();
   }, intervalMs);
 }
-module.exports = exports["default"];

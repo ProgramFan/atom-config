@@ -45,17 +45,16 @@ function _load_utils2() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+const { logInfo } = (_utils || _load_utils()).default; /**
+                                                        * Copyright (c) 2015-present, Facebook, Inc.
+                                                        * All rights reserved.
+                                                        *
+                                                        * This source code is licensed under the license found in the LICENSE file in
+                                                        * the root directory of this source tree.
+                                                        *
+                                                        * 
+                                                        */
 
-const { logInfo } = (_utils || _load_utils()).default;
 class AttachProcessInfo extends (_nuclideDebuggerBase || _load_nuclideDebuggerBase()).DebuggerProcessInfo {
   constructor(targetUri) {
     super('hhvm', targetUri);
@@ -98,6 +97,26 @@ class AttachProcessInfo extends (_nuclideDebuggerBase || _load_nuclideDebuggerBa
 
   supportThreads() {
     return true;
+  }
+
+  getThreadsComponentTitle() {
+    return 'Requests';
+  }
+
+  getThreadColumns() {
+    return [{
+      key: 'id',
+      title: 'ID',
+      width: 0.15
+    }, {
+      key: 'address',
+      title: 'Location',
+      width: 0.55
+    }, {
+      key: 'stopReason',
+      title: 'Stop Reason',
+      width: 0.25
+    }];
   }
 
   supportSingleThreadStepping() {

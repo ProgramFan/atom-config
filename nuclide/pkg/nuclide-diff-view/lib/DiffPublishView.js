@@ -340,4 +340,3 @@ class DiffPublishView extends _reactForAtom.React.Component {
   }
 }
 exports.default = DiffPublishView;
-module.exports = exports['default'];

@@ -13,6 +13,7 @@ exports.removeCommonSuffix = removeCommonSuffix;
 exports.shorten = shorten;
 exports.splitOnce = splitOnce;
 exports.indent = indent;
+exports.pluralize = pluralize;
 
 var _shellQuote;
 
@@ -153,4 +154,8 @@ function splitOnce(str, separator) {
  */
 function indent(str, level = 2, char = ' ') {
   return str.replace(/^([^\n])/gm, char.repeat(level) + '$1');
+}
+
+function pluralize(noun, count) {
+  return count === 1 ? noun : noun + 's';
 }

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.open = open;
 exports.gotRefactorings = gotRefactorings;
-exports.gotRefactoringsError = gotRefactoringsError;
+exports.error = error;
 exports.pickedRefactor = pickedRefactor;
 exports.execute = execute;
 exports.close = close;
@@ -38,10 +38,13 @@ function gotRefactorings(editor, originalPoint, provider, availableRefactorings)
   };
 }
 
-function gotRefactoringsError() {
+function error(source, err) {
   return {
-    type: 'got-refactorings',
-    error: true
+    type: 'error',
+    payload: {
+      source,
+      error: err
+    }
   };
 }
 

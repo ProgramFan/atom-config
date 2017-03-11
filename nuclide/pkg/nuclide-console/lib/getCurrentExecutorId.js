@@ -20,5 +20,3 @@ function getCurrentExecutorId(state) {
    *
    * 
    */
-
-module.exports = exports['default'];

@@ -5,10 +5,22 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PanelComponent = undefined;
 
+var _UniversalDisposable;
+
+function _load_UniversalDisposable() {
+  return _UniversalDisposable = _interopRequireDefault(require('../../../commons-node/UniversalDisposable'));
+}
+
 var _observable;
 
 function _load_observable() {
   return _observable = require('../../../commons-node/observable');
+}
+
+var _rectContainsPoint;
+
+function _load_rectContainsPoint() {
+  return _rectContainsPoint = _interopRequireDefault(require('../../../commons-node/rectContainsPoint'));
 }
 
 var _View;
@@ -17,9 +29,23 @@ function _load_View() {
   return _View = require('../../../nuclide-ui/View');
 }
 
-var _atom = require('atom');
+var _ToggleButton;
+
+function _load_ToggleButton() {
+  return _ToggleButton = require('./ToggleButton');
+}
+
+var _classnames;
+
+function _load_classnames() {
+  return _classnames = _interopRequireDefault(require('classnames'));
+}
 
 var _reactForAtom = require('react-for-atom');
+
+var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
@@ -33,8 +59,9 @@ var _reactForAtom = require('react-for-atom');
 
 /* global getComputedStyle */
 
-const MINIMUM_LENGTH = 100;
+const MINIMUM_SIZE = 100;
 const DEFAULT_INITIAL_SIZE = 300;
+const HANDLE_SIZE = 4;
 
 /**
  * A container for centralizing the logic for making panels resizable.
@@ -44,32 +71,73 @@ class PanelComponent extends _reactForAtom.React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isResizing: false,
-      size: this.props.initialSize
+      resizing: false,
+      size: this.props.initialSize,
+      shouldAnimate: props.draggingItem,
+      showDropTarget: false,
+      showToggleButton: false
     };
 
     // Bind main events to this object. _updateSize is only ever bound within these.
-    this._handleMouseDown = this._handleMouseDown.bind(this);
+    this._handleResizeHandleDragStart = this._handleResizeHandleDragStart.bind(this);
     this._handleMouseMove = this._handleMouseMove.bind(this);
     this._handleMouseUp = this._handleMouseUp.bind(this);
+    this._handleDragLeave = this._handleDragLeave.bind(this);
+    this._handleToggleButton = this._handleToggleButton.bind(this);
+    this._revealDropTarget = this._revealDropTarget.bind(this);
+
+    this._activeChanges = new _rxjsBundlesRxMinJs.Subject();
   }
 
   componentDidMount() {
+    const panelContainerEl = document.querySelector(`atom-panel-container.${this.props.position}`);
+    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(
     // Note: This method is called via `requestAnimationFrame` rather than `process.nextTick` like
     // Atom's tree-view does because this does not have a guarantee a paint will have already
     // happened when `componentDidMount` gets called the first time.
-    this._animationFrameRequestSubscription = (_observable || _load_observable()).nextAnimationFrame.subscribe(() => {
+    (_observable || _load_observable()).nextAnimationFrame.subscribe(() => {
       this._repaint();
-    });
+    }));
+
+    // The panel container should always be in the DOM, but in tests it may not be. In those cases
+    // we just don't add the listeners. This is an ugly hack, but we should easily notice if it
+    // breaks.
+    if (panelContainerEl == null) {
+      return;
+    }
+
+    const { position } = this.props;
+    this._disposables.add(
+    // In order to provide as large of a mouse target as possible, we use the entire panel
+    // container. When detecting whether the mouse has left the area, we also include the space
+    // taken up by the toggle button.
+    _rxjsBundlesRxMinJs.Observable.fromEvent(panelContainerEl, 'mouseenter').switchMap(enterEvent => _rxjsBundlesRxMinJs.Observable.concat(_rxjsBundlesRxMinJs.Observable.of(enterEvent), _rxjsBundlesRxMinJs.Observable.merge(
+    // We want to include the toggle button area when determining whether we've left, so we
+    // need to use "move" events. We only start caring about them after the first leave
+    // event, though, so we're doing as little work as possible. BUT...
+    _rxjsBundlesRxMinJs.Observable.fromEvent(panelContainerEl, 'mouseleave').take(1).switchMap(event => _rxjsBundlesRxMinJs.Observable.fromEvent(window, 'mousemove').startWith(event)).filter(event => shouldHideToggleButton(event, panelContainerEl, position)),
+    // ...mouseleave won't be triggered if you're dragging, so listen for dragend too...
+    _rxjsBundlesRxMinJs.Observable.fromEvent(window, 'dragend').filter(event => shouldHideToggleButton(event, panelContainerEl, position)),
+    // ...nor is it triggered when the pane is hidden (using a command or by removing the
+    // last item), so we listen to that too.
+    this._activeChanges.distinctUntilChanged().filter(active => !active)).take(1))).map(event => event.type === 'mouseenter' ? true : false).distinctUntilChanged().subscribe(showToggleButton => {
+      this.setState({ showToggleButton });
+    }));
   }
 
   componentWillUnmount() {
-    if (this._resizeSubscriptions != null) {
-      this._resizeSubscriptions.dispose();
+    if (this._resizeDisposable != null) {
+      this._resizeDisposable.dispose();
     }
-    if (this._animationFrameRequestSubscription != null) {
-      this._animationFrameRequestSubscription.unsubscribe();
+    if (this._dropTargetDisposable != null) {
+      this._dropTargetDisposable.dispose();
     }
+
+    if (!(this._disposables != null)) {
+      throw new Error('Invariant violation: "this._disposables != null"');
+    }
+
+    this._disposables.dispose();
   }
 
   /**
@@ -80,76 +148,132 @@ class PanelComponent extends _reactForAtom.React.Component {
    */
   _repaint() {
     const element = _reactForAtom.ReactDOM.findDOMNode(this);
+    // $FlowFixMe
     const isVisible = getComputedStyle(element).getPropertyValue('visibility');
 
     if (isVisible) {
       // Force a redraw so the scrollbars are styled correctly based on the theme
+      // $FlowFixMe
       element.style.display = 'none';
+      // $FlowFixMe
       element.offsetWidth;
+      // $FlowFixMe
       element.style.display = '';
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    // Update the `shouldAnimate` state. This needs to be written to the DOM before updating the
+    // class that changes the animated property. Normally we'd have to defer the class change a
+    // frame to ensure the property is animated (or not) appropriately, however we luck out in this
+    // case because the drag start always happens before the item is dragged into the toggle button.
+    if (nextProps.active !== this.props.active) {
+      // Never animate toggling visiblity...
+      this.setState({ shouldAnimate: false });
+    } else if (!nextProps.active && nextProps.draggingItem && !this.props.draggingItem) {
+      // ...but do animate if you start dragging while the panel is hidden.
+      this.setState({ shouldAnimate: true });
+    }
+
+    if (nextProps.active !== this.props.active) {
+      this._activeChanges.next(nextProps.active);
+    }
+  }
+
   render() {
-    // We create an overlay to always display the resize cursor while the user
-    // is resizing the panel, even if their mouse leaves the handle.
-    let resizeCursorOverlay = null;
-    if (this.state.isResizing) {
-      const className = `nuclide-ui-panel-component-resize-cursor-overlay ${this.props.position}`;
-      resizeCursorOverlay = _reactForAtom.React.createElement('div', { className: className });
-    }
+    const size = Math.max(MINIMUM_SIZE, this.state.size == null ? this._getInitialSize() : this.state.size);
+    const open = this.props.active || this.state.showDropTarget;
+    const widthOrHeight = getWidthOrHeight(this.props.position);
 
-    const size = this.state.size == null ? this._getInitialSize() : this.state.size;
+    const wrapperClassName = (0, (_classnames || _load_classnames()).default)('nuclide-workspace-views-panel-wrapper', this.props.position, {
+      'nuclide-panel-active': this.props.active
+    });
+    const className = (0, (_classnames || _load_classnames()).default)('nuclide-workspace-views-panel', this.props.position);
+    const maskClassName = (0, (_classnames || _load_classnames()).default)('nuclide-workspace-views-panel-mask', { 'nuclide-panel-should-animate': this.state.shouldAnimate });
 
-    let containerStyle;
-    if (this.props.position === 'left' || this.props.position === 'right') {
-      containerStyle = {
-        width: size,
-        minWidth: MINIMUM_LENGTH
-      };
-    } else if (this.props.position === 'top' || this.props.position === 'bottom') {
-      containerStyle = {
-        height: size,
-        minHeight: MINIMUM_LENGTH
-      };
-    }
+    // Obviously we need to render the contents if the panels open. But we also need to render them
+    // if it's not open but animating.
+    // TODO: Track whether animation is in progress and use that instead of `shouldAnimate`.
+    const contents = open || this.state.shouldAnimate ? _reactForAtom.React.createElement(
+      'div',
+      { className: 'nuclide-workspace-views-panel-content' },
+      _reactForAtom.React.createElement((_View || _load_View()).View, { item: this.props.paneContainer })
+    ) : null;
+
+    const handle = _reactForAtom.React.createElement(Handle, {
+      position: this.props.position,
+      mode: open ? 'resize' : 'open',
+      onResizeStart: this._handleResizeHandleDragStart,
+      toggle: this.props.toggle
+    });
 
     return _reactForAtom.React.createElement(
       'div',
-      { className: 'nuclide-workspace-views-panel' },
+      { className: wrapperClassName },
       _reactForAtom.React.createElement(
         'div',
-        {
-          className: `nuclide-ui-panel-component ${this.props.position}`,
-          style: containerStyle },
-        _reactForAtom.React.createElement('div', { className: `nuclide-ui-panel-component-resize-handle ${this.props.position}`,
-          ref: 'handle',
-          onMouseDown: this._handleMouseDown
-        }),
+        { className: maskClassName, style: { [widthOrHeight]: open ? size : HANDLE_SIZE } },
         _reactForAtom.React.createElement(
           'div',
-          { className: 'nuclide-ui-panel-component-content' },
-          _reactForAtom.React.createElement((_View || _load_View()).View, { ref: 'child', item: this.props.paneContainer })
-        ),
-        resizeCursorOverlay
-      )
+          { className: className, style: { [widthOrHeight]: size } },
+          handle,
+          contents,
+          _reactForAtom.React.createElement(ResizeCursorOverlay, { position: this.props.position, resizing: this.state.resizing })
+        )
+      ),
+      _reactForAtom.React.createElement((_ToggleButton || _load_ToggleButton()).ToggleButton, {
+        ref: this._handleToggleButton,
+        onDragEnter: this._revealDropTarget,
+        visible: this.state.showToggleButton || this.props.draggingItem && !open,
+        position: this.props.position,
+        open: open,
+        toggle: this.props.toggle
+      })
     );
   }
 
-  _handleMouseDown(event) {
-    if (this._resizeSubscriptions != null) {
-      this._resizeSubscriptions.dispose();
+  _revealDropTarget() {
+    if (this._dropTargetDisposable != null) {
+      this._dropTargetDisposable.dispose();
     }
+    this.setState({ showDropTarget: true });
+    this._dropTargetDisposable = new (_UniversalDisposable || _load_UniversalDisposable()).default(
+    // When we start showing the drop target, listen for when the mouse leaves in order to hide
+    // it. We should be able to use `onDragLeave` but for some reason, that's only being triggered
+    // sporadically with the correct target.
+    _rxjsBundlesRxMinJs.Observable.merge(_rxjsBundlesRxMinJs.Observable.fromEvent(window, 'drag').filter(event => {
+      const toggleButtonEl = this._toggleButtonEl;
+      const el = _reactForAtom.ReactDOM.findDOMNode(this);
+      if (el == null || toggleButtonEl == null) {
+        return false;
+      }
+      // $FlowFixMe
+      const panelArea = el.getBoundingClientRect();
+      const toggleButtonArea = toggleButtonEl.getBoundingClientRect();
+      const mousePosition = { x: event.pageX, y: event.pageY };
+      return !(0, (_rectContainsPoint || _load_rectContainsPoint()).default)(panelArea, mousePosition) && !(0, (_rectContainsPoint || _load_rectContainsPoint()).default)(toggleButtonArea, mousePosition);
+    }), _rxjsBundlesRxMinJs.Observable.fromEvent(window, 'dragend')).subscribe(this._handleDragLeave));
+  }
 
-    window.addEventListener('mousemove', this._handleMouseMove);
-    window.addEventListener('mouseup', this._handleMouseUp);
-    this._resizeSubscriptions = new _atom.CompositeDisposable({ dispose: () => {
-        window.removeEventListener('mousemove', this._handleMouseMove);
-      } }, { dispose: () => {
-        window.removeEventListener('mouseup', this._handleMouseUp);
-      } });
+  _handleToggleButton(toggleButton) {
+    // $FlowFixMe
+    this._toggleButtonEl = toggleButton == null ? null : _reactForAtom.ReactDOM.findDOMNode(toggleButton);
+  }
 
-    this.setState({ isResizing: true });
+  _handleDragLeave() {
+    if (this._dropTargetDisposable != null) {
+      this._dropTargetDisposable.dispose();
+      this._dropTargetDisposable = null;
+    }
+    this.setState({ showDropTarget: false });
+  }
+
+  _handleResizeHandleDragStart() {
+    if (this._resizeDisposable != null) {
+      this._resizeDisposable.dispose();
+    }
+    this._resizeDisposable = new (_UniversalDisposable || _load_UniversalDisposable()).default(_rxjsBundlesRxMinJs.Observable.fromEvent(window, 'mousemove').subscribe(this._handleMouseMove), _rxjsBundlesRxMinJs.Observable.fromEvent(window, 'mouseup').subscribe(this._handleMouseUp));
+    this.setState({ resizing: true });
   }
 
   _handleMouseMove(event) {
@@ -163,15 +287,19 @@ class PanelComponent extends _reactForAtom.React.Component {
     let size = 0;
     switch (this.props.position) {
       case 'left':
+        // $FlowFixMe
         size = event.pageX - containerEl.getBoundingClientRect().left;
         break;
       case 'top':
+        // $FlowFixMe
         size = event.pageY - containerEl.getBoundingClientRect().top;
         break;
       case 'bottom':
+        // $FlowFixMe
         size = containerEl.getBoundingClientRect().bottom - event.pageY;
         break;
       case 'right':
+        // $FlowFixMe
         size = containerEl.getBoundingClientRect().right - event.pageX;
         break;
     }
@@ -179,10 +307,10 @@ class PanelComponent extends _reactForAtom.React.Component {
   }
 
   _handleMouseUp(event) {
-    if (this._resizeSubscriptions) {
-      this._resizeSubscriptions.dispose();
+    if (this._resizeDisposable) {
+      this._resizeDisposable.dispose();
     }
-    this.setState({ isResizing: false });
+    this.setState({ resizing: false });
   }
 
   // Whether this is width or height depends on the orientation of this panel.
@@ -222,4 +350,62 @@ function getPreferredInitialSize(item, position) {
     default:
       throw new Error(`Invalid position: ${position}`);
   }
+}
+
+function ResizeCursorOverlay(props) {
+  // We create an overlay to always display the resize cursor while the user is resizing the panel,
+  // even if their mouse leaves the handle.
+  return props.resizing ? _reactForAtom.React.createElement('div', { className: `nuclide-workspace-views-panel-resize-cursor-overlay ${props.position}` }) : null;
+}
+
+function Handle(props) {
+  const widthOrHeight = getWidthOrHeight(props.position);
+  const className = (0, (_classnames || _load_classnames()).default)('nuclide-workspace-views-panel-handle', props.position, {
+    'nuclide-workspace-views-panel-handle-resize': props.mode === 'resize',
+    'nuclide-workspace-views-panel-handle-open': props.mode === 'open'
+  });
+  return _reactForAtom.React.createElement('div', {
+    className: className,
+    style: { [widthOrHeight]: HANDLE_SIZE },
+    onMouseDown: props.mode === 'resize' ? props.onResizeStart : null,
+    onClick: props.mode === 'open' ? props.toggle : null
+  });
+}
+
+function getWidthOrHeight(position) {
+  return position === 'left' || position === 'right' ? 'width' : 'height';
+}
+
+function shouldHideToggleButton(event, panelContainerEl, position) {
+  const panelContainerBounds = panelContainerEl.getBoundingClientRect();
+  const affordance = 20;
+  const toggleButtonSize = 50 / 2; // This needs to match the value in the CSS.
+  const bounds = {
+    top: panelContainerBounds.top,
+    right: panelContainerBounds.right,
+    bottom: panelContainerBounds.bottom,
+    left: panelContainerBounds.left
+  };
+  switch (position) {
+    case 'top':
+      bounds.bottom += toggleButtonSize + affordance;
+      bounds.top = 0; // We want to include the header.
+      break;
+    case 'right':
+      bounds.left -= toggleButtonSize + affordance;
+      break;
+    case 'bottom':
+      bounds.top -= toggleButtonSize + affordance;
+
+      if (!(document.body != null)) {
+        throw new Error('Invariant violation: "document.body != null"');
+      }
+
+      bounds.bottom = document.body.clientHeight; // We want to include the footer.
+      break;
+    case 'left':
+      bounds.right += toggleButtonSize + affordance;
+      break;
+  }
+  return !(0, (_rectContainsPoint || _load_rectContainsPoint()).default)(bounds, { x: event.pageX, y: event.pageY });
 }

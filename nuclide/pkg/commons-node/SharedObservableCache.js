@@ -54,5 +54,3 @@ exports.default = SharedObservableCache; /**
                                           *
                                           * 
                                           */
-
-module.exports = exports['default'];

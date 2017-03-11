@@ -165,4 +165,3 @@ class QuickOpenHelpers {
   }
 }
 exports.default = QuickOpenHelpers;
-module.exports = exports['default'];

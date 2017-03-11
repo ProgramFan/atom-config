@@ -3,16 +3,14 @@ Markdown Preview Enhanced
 Still Beta Version!    
 [![](https://img.shields.io/github/tag/shd101wyy/markdown-preview-enhanced.svg)](https://github.com/shd101wyy/markdown-preview-enhanced/releases) ![](https://img.shields.io/apm/dm/markdown-preview-enhanced.svg)  [![](https://img.shields.io/github/stars/shd101wyy/markdown-preview-enhanced.svg?style=social&label=Star)](https://github.com/shd101wyy/markdown-preview-enhanced)  
 
-[中文文档](./docs/README_CN.md)   
+[中文文档](./docs/README_CN.md)    
+[Wiki](https://github.com/shd101wyy/markdown-preview-enhanced/wiki) (not done yet)
 
-From version `0.9.9`, **markdown-preview-enhanced** supports more **powerful code chunk**.   
-You can now use python `matplotlib` very easily to make plots and even create interactive figures powered by [mpld3](mpld3.github.io).   
-JavaScript code chunk (not node.js but browser javascript) is also supported so that you can use libraries like [Char.js](http://www.chartjs.org/), [d3js](https://d3js.org/), [plotly](https://plot.ly/) to draw graphs.  
-[Code Chunk (beta) Doc](./docs/code-chunk.md) is also updated.        
+---
 
-**Here is a  [demo](https://cdn.rawgit.com/shd101wyy/markdown-preview-enhanced/f83acb43/test/code-chunks-test.html), and its [raw file](https://raw.githubusercontent.com/shd101wyy/markdown-preview-enhanced/master/test/code-chunks-test.md).**  
+Version `0.10.8` supports `pandoc parser` now, check [this doc](./docs/advanced-export.md).
 
----  
+---
 
 [language-gfm-enhanced](https://atom.io/packages/language-gfm-enhanced) is recommended to be installed to work with markdown-preview-enhanced.  
 
@@ -64,22 +62,22 @@ You can choose [MathJax](https://github.com/mathjax/MathJax) or [KaTeX](https://
 - [remarkable](https://github.com/jonschlinkert/remarkable) to convert markdown to html.
 - [KaTeX](https://github.com/Khan/KaTeX) or [MathJax](https://github.com/mathjax/MathJax) to render math expressions. ([KaTeX Supported functions/symbols](https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX)) (MathJax is incompatible with `preview-inline` package)
   - expression within `$...$` will be rendered normally.  
-  - expression within `$$...$$` will be rendered in displayMode.   
+  - expression within `$$...$$` and code block <code>\`\`\`math</code> will be rendered in displayMode.   
   - if you want to enable math highlighting, try [language-gfm-enhanced](https://atom.io/packages/language-gfm-enhanced) package.  
   - You can choose your math rendering method from [settings panel](#settings-panel).   
 		**MathJax** supports more symbols, but it has slower rendering speed compared to **KaTeX**.
   - <img src="https://cloud.githubusercontent.com/assets/1908863/14398210/0e408954-fda8-11e5-9eb4-562d7c0ca431.gif">
 - [mermaid](https://github.com/knsv/mermaid) to render flowchart and sequence diagram.  
-	- code block with `@mermaid` notation will be rendered by [mermaid](https://github.com/knsv/mermaid)  
+	- code block with `mermaid` (or `@mermaid`) notation will be rendered by [mermaid](https://github.com/knsv/mermaid)  
 	- check [mermaid doc](http://knsv.github.io/mermaid/#flowcharts-basic-syntax) for more information about how to create flowchart and sequence diagram   
-	- ![mermaid](https://cloud.githubusercontent.com/assets/1908863/22724073/622549ac-ed89-11e6-9a3e-6f35dd3f1c81.gif)
+	- ![mermaid](https://cloud.githubusercontent.com/assets/1908863/23383956/5c8cb37e-fd0e-11e6-8a22-f3946841bbbd.gif)
 - [PlantUML](http://plantuml.com/) to create multiple kinds of graph. (**Java** is required)  
 	- You can install [Graphviz](http://www.graphviz.org/) (not required) to generate all diagram types.
-	- code block with `@puml` or `@plantuml` notation will be rendered by [PlantUML](http://plantuml.com/).  
+	- code block with `puml` or `plantuml` or (`@puml` or `@plantuml`) notation will be rendered by [PlantUML](http://plantuml.com/).  
 - [WaveDrom](http://wavedrom.com/) to create digital timing diagram.  
-	- code block with `@wavedrom` notation will be rendered by [wavedrom](https://github.com/drom/wavedrom).
+	- code block with `wavedrom` (or `@wavedrom`) notation will be rendered by [wavedrom](https://github.com/drom/wavedrom).
 - [Viz.js](https://github.com/mdaines/viz.js) to render [dot language](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) graph.  
-	- code block with `@viz` notation will be rendered by [Viz.js](https://github.com/mdaines/viz.js).
+	- code block with `viz` (or `@viz`) notation will be rendered by [Viz.js](https://github.com/mdaines/viz.js).
     - add `engine:[engine_name]` at the first line of code block to choose different render engine. For example `engine:dot`. Engine `circo`, `dot`, `neato`, `osage`, or `twopi` are supported. Default engine is `dot`.   
 - [reveal.js](https://github.com/hakimel/reveal.js) to render beautiful presentations.
 	- [Click here](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html) to see the introduction.
@@ -156,12 +154,17 @@ Please make sure you have `Use CDN hosted resources` checked when exporting.
 3. **I exported a presentation html file, and I want to put it on my Github Page or deploy remotely?**  
 Please check the last question.  
 4. **How do I get dark style preview?**  
-If you want the style of the preview to be consistent with your atom editor, go to settings of this package, then uncheck `Github.com style` and `Use Github.com syntax theme`. [#281](https://github.com/shd101wyy/markdown-preview-enhanced/issues/281).  
+If you want the style of the preview to be consistent with your atom editor, go to settings of this package, then change the `Preview Theme`.  
 Or you can run `Markdown Preview Enhanced: Customize Css` command, then modify the `style.less` file.  [#68](https://github.com/shd101wyy/markdown-preview-enhanced/issues/68), [#89](https://github.com/shd101wyy/markdown-preview-enhanced/issues/89).
 5. **The preview is super super lagging?**  
 This might happen when your markdown file is too big, or you are using too many math or graphs.  
 Therefore I would like to recommend you to disable `Live Update` functionality.  
 You can run `Markdown Preview Enhanced: Toggle Live Update` to disable it.  
+6. **Do you need a job? (Huh... is this question really related to FAQ???)**  
+Yes, I am looking for job. `(*/ω＼*)` (Any country (region) should be fine for me. I can also work remotely.)     
+I am an international student from China currently studying at University of Illinois at Urbana-Champaign. I am a CS major student and I will get my BS/MCS degree this May (2017).  
+I am personally very interested in game development and front-end web development. If you are willing to offer me a job opportunity, please contact me by my school email `ywang189@illinois.edu` or my personal email `shd101wyy@(sina|gmail).com`. (plz don't be mad if you don't get any response from me because I might be busy working on my homework `(✿◡‿◡)).      
+Thank you very much :)  
 
 ## Credits  
 * [remarkable](https://github.com/jonschlinkert/remarkable) - Markdown parser, done right. Commonmark support, extensions, syntax plugins, high speed - all in one. Gulp and metalsmith plugins are also available.  

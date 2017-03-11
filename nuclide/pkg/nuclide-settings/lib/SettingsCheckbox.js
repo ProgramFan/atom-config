@@ -66,5 +66,3 @@ exports.default = SettingsCheckbox; /**
                                      *
                                      * 
                                      */
-
-module.exports = exports['default'];

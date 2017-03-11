@@ -182,4 +182,3 @@ function getProviderName(provider) {
     return 'unnamed-hyperclick-provider';
   }
 }
-module.exports = exports['default'];

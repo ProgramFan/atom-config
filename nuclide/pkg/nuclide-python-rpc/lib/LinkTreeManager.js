@@ -125,4 +125,3 @@ class LinkTreeManager {
   dispose() {}
 }
 exports.default = LinkTreeManager;
-module.exports = exports['default'];

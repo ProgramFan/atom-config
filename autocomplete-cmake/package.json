@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-5500-62hpin/package.tgz",
+        "raw": "/tmp/d-117211-5516-p0bwk2/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-5500-62hpin/package.tgz",
-        "spec": "/tmp/d-117120-5500-62hpin/package.tgz",
+        "rawSpec": "/tmp/d-117211-5516-p0bwk2/package.tgz",
+        "spec": "/tmp/d-117211-5516-p0bwk2/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-5500-105dd93"
+      "/tmp/apm-install-dir-117211-5516-422ha5"
     ]
   ],
-  "_from": "../d-117120-5500-62hpin/package.tgz",
+  "_from": "../d-117211-5516-p0bwk2/package.tgz",
   "_id": "autocomplete-cmake@0.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-5500-62hpin/package.tgz",
+    "raw": "/tmp/d-117211-5516-p0bwk2/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-5500-62hpin/package.tgz",
-    "spec": "/tmp/d-117120-5500-62hpin/package.tgz",
+    "rawSpec": "/tmp/d-117211-5516-p0bwk2/package.tgz",
+    "spec": "/tmp/d-117211-5516-p0bwk2/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-5500-62hpin/package.tgz",
+  "_resolved": "file:../d-117211-5516-p0bwk2/package.tgz",
   "_shasum": "2e4ac86b870796f919ad14821ba1efc209968943",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-5500-62hpin/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-5500-105dd93",
+  "_spec": "/tmp/d-117211-5516-p0bwk2/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-5516-422ha5",
   "bugs": {
     "url": "https://github.com/NealRame/autocomplete-cmake/issues"
   },

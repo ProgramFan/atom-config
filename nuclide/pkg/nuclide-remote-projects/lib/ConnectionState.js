@@ -19,4 +19,3 @@ exports.default = Object.freeze({
   CONNECTED: 2,
   DISCONNECTED: 3
 });
-module.exports = exports["default"];

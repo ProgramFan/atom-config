@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-5957-zbbeon/package.tgz",
+        "raw": "/tmp/d-117211-5973-cidnvc/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-5957-zbbeon/package.tgz",
-        "spec": "/tmp/d-117120-5957-zbbeon/package.tgz",
+        "rawSpec": "/tmp/d-117211-5973-cidnvc/package.tgz",
+        "spec": "/tmp/d-117211-5973-cidnvc/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-5957-4gx860"
+      "/tmp/apm-install-dir-117211-5973-16cpfp5"
     ]
   ],
-  "_from": "../d-117120-5957-zbbeon/package.tgz",
+  "_from": "../d-117211-5973-cidnvc/package.tgz",
   "_id": "markdown-writer@2.6.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-5957-zbbeon/package.tgz",
+    "raw": "/tmp/d-117211-5973-cidnvc/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-5957-zbbeon/package.tgz",
-    "spec": "/tmp/d-117120-5957-zbbeon/package.tgz",
+    "rawSpec": "/tmp/d-117211-5973-cidnvc/package.tgz",
+    "spec": "/tmp/d-117211-5973-cidnvc/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-5957-zbbeon/package.tgz",
+  "_resolved": "file:../d-117211-5973-cidnvc/package.tgz",
   "_shasum": "8a7c4f3b5e7c10df24b31be2441fe6c293879ca0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-5957-zbbeon/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-5957-4gx860",
+  "_spec": "/tmp/d-117211-5973-cidnvc/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-5973-16cpfp5",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",

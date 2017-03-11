@@ -72,4 +72,3 @@ class PageHandler extends (_Handler || _load_Handler()).default {
   }
 }
 exports.default = PageHandler;
-module.exports = exports['default'];

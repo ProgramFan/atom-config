@@ -152,4 +152,3 @@ function getPackage(start) {
     }
   }
 }
-module.exports = exports['default'];

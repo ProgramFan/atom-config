@@ -26,4 +26,3 @@ const ChromeActionRegistryActions = Object.freeze({
 });
 
 exports.default = ChromeActionRegistryActions;
-module.exports = exports['default'];

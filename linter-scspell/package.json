@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-5702-1k0e5d0/package.tgz",
+        "raw": "/tmp/d-117211-5718-hvytjt/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-5702-1k0e5d0/package.tgz",
-        "spec": "/tmp/d-117120-5702-1k0e5d0/package.tgz",
+        "rawSpec": "/tmp/d-117211-5718-hvytjt/package.tgz",
+        "spec": "/tmp/d-117211-5718-hvytjt/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-5702-j7m60o"
+      "/tmp/apm-install-dir-117211-5718-14ojbc1"
     ]
   ],
-  "_from": "../d-117120-5702-1k0e5d0/package.tgz",
+  "_from": "../d-117211-5718-hvytjt/package.tgz",
   "_id": "linter-scspell@2.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-scspell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-5702-1k0e5d0/package.tgz",
+    "raw": "/tmp/d-117211-5718-hvytjt/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-5702-1k0e5d0/package.tgz",
-    "spec": "/tmp/d-117120-5702-1k0e5d0/package.tgz",
+    "rawSpec": "/tmp/d-117211-5718-hvytjt/package.tgz",
+    "spec": "/tmp/d-117211-5718-hvytjt/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-5702-1k0e5d0/package.tgz",
+  "_resolved": "file:../d-117211-5718-hvytjt/package.tgz",
   "_shasum": "6173f4a5c67b63e58ab5400dbb2869c3e547e4fb",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-5702-1k0e5d0/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-5702-j7m60o",
+  "_spec": "/tmp/d-117211-5718-hvytjt/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-5718-14ojbc1",
   "bugs": {
     "url": "https://github.com/spockNinja/linter-scspell/issues"
   },

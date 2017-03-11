@@ -71,4 +71,3 @@ class FileCache {
   }
 }
 exports.default = FileCache;
-module.exports = exports['default'];

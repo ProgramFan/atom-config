@@ -220,15 +220,16 @@ class RemoteConnection {
       logger.info(`Watcher Features Initialized for project: ${rootDirectoryUri}`, watchUpdate);
     }, (() => {
       var _ref = (0, _asyncToGenerator.default)(function* (error) {
-        let warningMessageToUser = 'You just connected to a remote project ' + `\`${rootDirectoryPath}\` without Watchman support, which means that ` + 'crucial features such as synced remote file editing, file search, ' + 'and Mercurial-related updates will not work.<br/><br/>' + 'A possible workaround is to create an empty `.watchmanconfig` file ' + 'in the remote folder, which will enable Watchman if you have it installed.<br/><br/>';
-
-        const loggedErrorMessage = error.message || error;
-        logger.error(`Watcher failed to start - watcher features disabled! Error: ${loggedErrorMessage}`);
-
+        let warningMessageToUser = '';
         const FileSystemService = _this3.getService(FILE_SYSTEM_SERVICE);
         if (yield FileSystemService.isNfs(rootDirectoryPath)) {
-          warningMessageToUser += `This project directory: \`${rootDirectoryPath}\` is on <b>\`NFS\`</b> filesystem. ` + 'Nuclide works best with local (non-NFS) root directory.' + 'e.g. `/data/users/$USER`';
+          warningMessageToUser += `This project directory: \`${rootDirectoryPath}\` is on <b>\`NFS\`</b> filesystem. ` + 'Nuclide works best with local (non-NFS) root directory.' + 'e.g. `/data/users/$USER`' + 'features such as synced remote file editing, file search, ' + 'and Mercurial-related updates will not work.<br/>';
         } else {
+          warningMessageToUser += 'You just connected to a remote project ' + `\`${rootDirectoryPath}\` without Watchman support, which means that ` + 'crucial features such as synced remote file editing, file search, ' + 'and Mercurial-related updates will not work.<br/><br/>' + 'A possible workaround is to create an empty `.watchmanconfig` file ' + 'in the remote folder, which will enable Watchman if you have it installed.<br/><br/>';
+
+          const loggedErrorMessage = error.message || error;
+          logger.error(`Watcher failed to start - watcher features disabled! Error: ${loggedErrorMessage}`);
+
           warningMessageToUser += '<b><a href="https://facebook.github.io/watchman/">Watchman</a> Error:</b>' + loggedErrorMessage;
         }
         // Add a persistent warning message to make sure the user sees it before dismissing.

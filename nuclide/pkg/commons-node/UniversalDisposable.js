@@ -78,4 +78,3 @@ function assertTeardown(teardown) {
   }
   throw new TypeError('Arguments to UniversalDisposable.add must be disposable');
 }
-module.exports = exports['default'];

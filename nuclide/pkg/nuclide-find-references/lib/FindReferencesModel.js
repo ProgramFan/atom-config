@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 let readFileContents = (() => {
@@ -213,5 +217,4 @@ class FindReferencesModel {
     })();
   }
 }
-
-module.exports = FindReferencesModel;
+exports.default = FindReferencesModel;

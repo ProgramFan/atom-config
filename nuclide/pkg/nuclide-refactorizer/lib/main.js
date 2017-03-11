@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _atom = require('atom');
 
 var _ProviderRegistry;
@@ -58,25 +54,19 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Will be a union type when we add more
-
-
-// Will be a union type when we add more
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+const CONTEXT_MENU_CLASS = 'enable-nuclide-refactorizer'; /**
+                                                           * Copyright (c) 2015-present, Facebook, Inc.
+                                                           * All rights reserved.
+                                                           *
+                                                           * This source code is licensed under the license found in the LICENSE file in
+                                                           * the root directory of this source tree.
+                                                           *
+                                                           * 
+                                                           */
 
 /*
  * WARNING: This package is still experimental and in early development. Use it at your own risk.
  */
-
-const CONTEXT_MENU_CLASS = 'enable-nuclide-refactorizer';
 
 class Activation {
 
@@ -149,5 +139,4 @@ class Activation {
   }
 }
 
-exports.default = (0, (_createPackage || _load_createPackage()).default)(Activation);
-module.exports = exports['default'];
+(0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);

@@ -191,4 +191,3 @@ class SwiftPMSettingsModal extends _reactForAtom.React.Component {
   }
 }
 exports.default = SwiftPMSettingsModal;
-module.exports = exports['default'];

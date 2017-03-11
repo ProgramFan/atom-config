@@ -171,4 +171,3 @@ ClangServer.Status = Object.freeze({
   READY: 'ready',
   COMPILING: 'compiling'
 });
-module.exports = exports['default'];

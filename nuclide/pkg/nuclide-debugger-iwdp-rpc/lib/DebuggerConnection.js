@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DebuggerConnection = undefined;
 
+var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+
 var _UniversalDisposable;
 
 function _load_UniversalDisposable() {
@@ -31,7 +33,23 @@ function _load_Socket() {
   return _Socket = require('./Socket');
 }
 
+var _FileCache;
+
+function _load_FileCache() {
+  return _FileCache = require('./FileCache');
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
 const { log } = (_logger || _load_logger()).logger;
 
@@ -47,16 +65,6 @@ const { log } = (_logger || _load_logger()).logger;
  * `Debugger.paused` events.  Interested parties can subscribe to these events via the
  * `subscribeToEvents` API, which accepts a callback called when events are emitted from the target.
  */
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
 class DebuggerConnection {
 
   constructor(connectionId, deviceInfo) {
@@ -64,6 +72,7 @@ class DebuggerConnection {
     this._connectionId = connectionId;
     this._events = new _rxjsBundlesRxMinJs.Subject();
     this._status = new _rxjsBundlesRxMinJs.BehaviorSubject((_constants || _load_constants()).RUNNING);
+    this._fileCache = new (_FileCache || _load_FileCache()).FileCache(this._getScriptSource.bind(this));
     const { webSocketDebuggerUrl } = deviceInfo;
     this._socket = new (_Socket || _load_Socket()).Socket(webSocketDebuggerUrl, this._handleChromeEvent.bind(this), () => this._status.next((_constants || _load_constants()).ENDED));
     this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._socket);
@@ -71,23 +80,58 @@ class DebuggerConnection {
   }
 
   sendCommand(message) {
-    return this._socket.sendCommand(message);
+    switch (message.method) {
+      case 'Debugger.setBreakpointByUrl':
+        {
+          const { params } = message;
+          const translatedMessage = {
+            method: 'Debugger.setBreakpointByUrl',
+            params: Object.assign({}, params, {
+              url: this._fileCache.getUrlFromFilePath(params.url)
+            })
+          };
+          return this._socket.sendCommand(translatedMessage);
+        }
+      default:
+        {
+          return this._socket.sendCommand(message);
+        }
+    }
+  }
+
+  _getScriptSource(scriptId) {
+    return this.sendCommand({
+      method: 'Debugger.getScriptSource',
+      params: {
+        scriptId
+      }
+    });
   }
 
   _handleChromeEvent(message) {
-    switch (message.method) {
-      case 'Debugger.paused':
-        {
-          this._status.next((_constants || _load_constants()).PAUSED);
-          break;
-        }
-      case 'Debugger.resumed':
-        {
-          this._status.next((_constants || _load_constants()).RUNNING);
-          break;
-        }
-    }
-    this._events.next(message);
+    var _this = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      switch (message.method) {
+        case 'Debugger.paused':
+          {
+            _this._status.next((_constants || _load_constants()).PAUSED);
+            break;
+          }
+        case 'Debugger.resumed':
+          {
+            _this._status.next((_constants || _load_constants()).RUNNING);
+            break;
+          }
+        case 'Debugger.scriptParsed':
+          {
+            const clientMessage = yield _this._fileCache.scriptParsed(message);
+            _this._events.next(clientMessage);
+            return;
+          }
+      }
+      _this._events.next(message);
+    })();
   }
 
   subscribeToEvents(toFrontend) {

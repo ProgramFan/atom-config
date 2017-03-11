@@ -307,7 +307,11 @@ function execArcLand(cwd) {
 }
 
 function execArcPatch(cwd, differentialRevision) {
-  const args = ['patch', differentialRevision];
+  const args = ['patch'];
+  if (differentialRevision.match(/^[0-9]+$/)) {
+    args.push('--diff');
+  }
+  args.push(differentialRevision);
   return _rxjsBundlesRxMinJs.Observable.fromPromise(getArcExecOptions(cwd)).switchMap(opts => (0, (_process || _load_process()).observeProcess)(() => (0, (_process || _load_process()).safeSpawn)('arc', args, opts))).publish();
 }
 

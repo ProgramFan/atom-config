@@ -887,16 +887,34 @@ module.exports = _client => {
       });
     }
 
-    commit(arg0) {
+    commit(arg0, arg1) {
       return Observable.fromPromise(_client.marshalArguments(Array.from(arguments), [{
         name: "message",
         type: {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 797
+            line: 803
           },
           kind: "string"
+        }
+      }, {
+        name: "isInteractive",
+        type: {
+          location: {
+            type: "source",
+            fileName: "HgService.js",
+            line: 804
+          },
+          kind: "nullable",
+          type: {
+            location: {
+              type: "source",
+              fileName: "HgService.js",
+              line: 804
+            },
+            kind: "boolean"
+          }
         }
       }]).then(args => {
         return _client.marshal(this, {
@@ -915,7 +933,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 797
+            line: 805
           },
           kind: "named",
           name: "ProcessMessage"
@@ -923,21 +941,21 @@ module.exports = _client => {
       }).publish();
     }
 
-    amend(arg0, arg1) {
+    amend(arg0, arg1, arg2) {
       return Observable.fromPromise(_client.marshalArguments(Array.from(arguments), [{
         name: "message",
         type: {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 809
+            line: 818
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 809
+              line: 818
             },
             kind: "string"
           }
@@ -948,10 +966,28 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 809
+            line: 819
           },
           kind: "named",
           name: "AmendModeValue"
+        }
+      }, {
+        name: "isInteractive",
+        type: {
+          location: {
+            type: "source",
+            fileName: "HgService.js",
+            line: 820
+          },
+          kind: "nullable",
+          type: {
+            location: {
+              type: "source",
+              fileName: "HgService.js",
+              line: 820
+            },
+            kind: "boolean"
+          }
         }
       }]).then(args => {
         return _client.marshal(this, {
@@ -970,7 +1006,33 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 809
+            line: 821
+          },
+          kind: "named",
+          name: "ProcessMessage"
+        });
+      }).publish();
+    }
+
+    splitRevision() {
+      return Observable.fromPromise(_client.marshalArguments(Array.from(arguments), []).then(args => {
+        return _client.marshal(this, {
+          kind: "named",
+          location: {
+            type: "source",
+            fileName: "HgService.js",
+            line: 211
+          },
+          name: "HgService"
+        }).then(id => {
+          return _client.callRemoteMethod(id, "splitRevision", "observable", args);
+        });
+      })).concatMap(id => id).concatMap(value => {
+        return _client.unmarshal(value, {
+          location: {
+            type: "source",
+            fileName: "HgService.js",
+            line: 838
           },
           kind: "named",
           name: "ProcessMessage"
@@ -985,14 +1047,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 826
+            line: 858
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 826
+              line: 858
             },
             kind: "named",
             name: "NuclideUri"
@@ -1004,14 +1066,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 826
+            line: 858
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 826
+              line: 858
             },
             kind: "string"
           }
@@ -1033,7 +1095,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 826
+            line: 858
           },
           kind: "void"
         });
@@ -1047,7 +1109,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 862
+            line: 894
           },
           kind: "string"
         }
@@ -1057,7 +1119,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 863
+            line: 895
           },
           kind: "boolean"
         }
@@ -1067,14 +1129,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 864
+            line: 896
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 864
+              line: 896
             },
             kind: "named",
             name: "CheckoutOptions"
@@ -1097,7 +1159,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 865
+            line: 897
           },
           kind: "void"
         });
@@ -1111,7 +1173,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 873
+            line: 905
           },
           kind: "number"
         }
@@ -1132,7 +1194,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 873
+            line: 905
           },
           kind: "named",
           name: "RevisionShowInfo"
@@ -1158,7 +1220,32 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 888
+            line: 920
+          },
+          kind: "void"
+        });
+      });
+    }
+
+    uncommit() {
+      return _client.marshalArguments(Array.from(arguments), []).then(args => {
+        return _client.marshal(this, {
+          kind: "named",
+          location: {
+            type: "source",
+            fileName: "HgService.js",
+            line: 211
+          },
+          name: "HgService"
+        }).then(id => {
+          return _client.callRemoteMethod(id, "uncommit", "promise", args);
+        });
+      }).then(value => {
+        return _client.unmarshal(value, {
+          location: {
+            type: "source",
+            fileName: "HgService.js",
+            line: 927
           },
           kind: "void"
         });
@@ -1172,7 +1259,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 895
+            line: 934
           },
           kind: "string"
         }
@@ -1193,7 +1280,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 895
+            line: 934
           },
           kind: "void"
         });
@@ -1218,7 +1305,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 903
+            line: 942
           },
           kind: "void"
         });
@@ -1232,14 +1319,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 925
+            line: 964
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 925
+              line: 964
             },
             kind: "named",
             name: "NuclideUri"
@@ -1251,7 +1338,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 926
+            line: 965
           },
           kind: "named",
           name: "NuclideUri"
@@ -1262,14 +1349,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 927
+            line: 966
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 927
+              line: 966
             },
             kind: "boolean"
           }
@@ -1291,7 +1378,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 928
+            line: 967
           },
           kind: "void"
         });
@@ -1305,14 +1392,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 951
+            line: 990
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 951
+              line: 990
             },
             kind: "named",
             name: "NuclideUri"
@@ -1324,14 +1411,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 951
+            line: 990
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 951
+              line: 990
             },
             kind: "boolean"
           }
@@ -1353,7 +1440,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 951
+            line: 990
           },
           kind: "void"
         });
@@ -1367,14 +1454,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 972
+            line: 1011
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 972
+              line: 1011
             },
             kind: "named",
             name: "NuclideUri"
@@ -1397,7 +1484,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 972
+            line: 1011
           },
           kind: "void"
         });
@@ -1422,14 +1509,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 976
+            line: 1015
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 976
+              line: 1015
             },
             kind: "string"
           }
@@ -1455,14 +1542,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 992
+            line: 1031
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 992
+              line: 1031
             },
             kind: "string"
           }
@@ -1477,14 +1564,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1012
+            line: 1051
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1012
+              line: 1051
             },
             kind: "named",
             name: "NuclideUri"
@@ -1496,14 +1583,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1012
+            line: 1051
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1012
+              line: 1051
             },
             kind: "number"
           }
@@ -1525,7 +1612,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1012
+            line: 1051
           },
           kind: "named",
           name: "VcsLogResponse"
@@ -1551,14 +1638,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1029
+            line: 1068
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1029
+              line: 1068
             },
             kind: "named",
             name: "MergeConflict"
@@ -1574,7 +1661,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1074
+            line: 1113
           },
           kind: "named",
           name: "NuclideUri"
@@ -1596,7 +1683,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1074
+            line: 1113
           },
           kind: "void"
         });
@@ -1621,7 +1708,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1078
+            line: 1117
           },
           kind: "void"
         });
@@ -1646,7 +1733,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1082
+            line: 1121
           },
           kind: "void"
         });
@@ -1660,7 +1747,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1087
+            line: 1126
           },
           kind: "string"
         }
@@ -1670,14 +1757,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1088
+            line: 1127
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1088
+              line: 1127
             },
             kind: "string"
           }
@@ -1699,7 +1786,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1089
+            line: 1128
           },
           kind: "named",
           name: "ProcessMessage"
@@ -1714,14 +1801,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1109
+            line: 1148
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1109
+              line: 1148
             },
             kind: "string"
           }
@@ -1743,7 +1830,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1109
+            line: 1148
           },
           kind: "named",
           name: "ProcessMessage"
@@ -1758,14 +1845,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1127
+            line: 1166
           },
           kind: "array",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1127
+              line: 1166
             },
             kind: "named",
             name: "NuclideUri"
@@ -1777,7 +1864,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1128
+            line: 1167
           },
           kind: "named",
           name: "NuclideUri"
@@ -1788,14 +1875,14 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1129
+            line: 1168
           },
           kind: "nullable",
           type: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1129
+              line: 1168
             },
             kind: "boolean"
           }
@@ -1817,7 +1904,7 @@ module.exports = _client => {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1130
+            line: 1169
           },
           kind: "void"
         });
@@ -4189,7 +4276,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 797
+            line: 802
           },
           kind: "function",
           argumentTypes: [{
@@ -4198,23 +4285,41 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 797
+                line: 803
               },
               kind: "string"
+            }
+          }, {
+            name: "isInteractive",
+            type: {
+              location: {
+                type: "source",
+                fileName: "HgService.js",
+                line: 804
+              },
+              kind: "nullable",
+              type: {
+                location: {
+                  type: "source",
+                  fileName: "HgService.js",
+                  line: 804
+                },
+                kind: "boolean"
+              }
             }
           }],
           returnType: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 797
+              line: 805
             },
             kind: "observable",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 797
+                line: 805
               },
               kind: "named",
               name: "ProcessMessage"
@@ -4225,7 +4330,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 809
+            line: 817
           },
           kind: "function",
           argumentTypes: [{
@@ -4234,14 +4339,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 809
+                line: 818
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 809
+                  line: 818
                 },
                 kind: "string"
               }
@@ -4252,24 +4357,68 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 809
+                line: 819
               },
               kind: "named",
               name: "AmendModeValue"
+            }
+          }, {
+            name: "isInteractive",
+            type: {
+              location: {
+                type: "source",
+                fileName: "HgService.js",
+                line: 820
+              },
+              kind: "nullable",
+              type: {
+                location: {
+                  type: "source",
+                  fileName: "HgService.js",
+                  line: 820
+                },
+                kind: "boolean"
+              }
             }
           }],
           returnType: {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 809
+              line: 821
             },
             kind: "observable",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 809
+                line: 821
+              },
+              kind: "named",
+              name: "ProcessMessage"
+            }
+          }
+        },
+        splitRevision: {
+          location: {
+            type: "source",
+            fileName: "HgService.js",
+            line: 838
+          },
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "HgService.js",
+              line: 838
+            },
+            kind: "observable",
+            type: {
+              location: {
+                type: "source",
+                fileName: "HgService.js",
+                line: 838
               },
               kind: "named",
               name: "ProcessMessage"
@@ -4280,7 +4429,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 826
+            line: 858
           },
           kind: "function",
           argumentTypes: [{
@@ -4289,14 +4438,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 826
+                line: 858
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 826
+                  line: 858
                 },
                 kind: "named",
                 name: "NuclideUri"
@@ -4308,14 +4457,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 826
+                line: 858
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 826
+                  line: 858
                 },
                 kind: "string"
               }
@@ -4325,14 +4474,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 826
+              line: 858
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 826
+                line: 858
               },
               kind: "void"
             }
@@ -4342,7 +4491,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 861
+            line: 893
           },
           kind: "function",
           argumentTypes: [{
@@ -4351,7 +4500,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 862
+                line: 894
               },
               kind: "string"
             }
@@ -4361,7 +4510,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 863
+                line: 895
               },
               kind: "boolean"
             }
@@ -4371,14 +4520,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 864
+                line: 896
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 864
+                  line: 896
                 },
                 kind: "named",
                 name: "CheckoutOptions"
@@ -4389,14 +4538,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 865
+              line: 897
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 865
+                line: 897
               },
               kind: "void"
             }
@@ -4406,7 +4555,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 873
+            line: 905
           },
           kind: "function",
           argumentTypes: [{
@@ -4415,7 +4564,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 873
+                line: 905
               },
               kind: "number"
             }
@@ -4424,14 +4573,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 873
+              line: 905
             },
             kind: "observable",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 873
+                line: 905
               },
               kind: "named",
               name: "RevisionShowInfo"
@@ -4442,7 +4591,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 888
+            line: 920
           },
           kind: "function",
           argumentTypes: [],
@@ -4450,14 +4599,39 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 888
+              line: 920
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 888
+                line: 920
+              },
+              kind: "void"
+            }
+          }
+        },
+        uncommit: {
+          location: {
+            type: "source",
+            fileName: "HgService.js",
+            line: 927
+          },
+          kind: "function",
+          argumentTypes: [],
+          returnType: {
+            location: {
+              type: "source",
+              fileName: "HgService.js",
+              line: 927
+            },
+            kind: "promise",
+            type: {
+              location: {
+                type: "source",
+                fileName: "HgService.js",
+                line: 927
               },
               kind: "void"
             }
@@ -4467,7 +4641,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 895
+            line: 934
           },
           kind: "function",
           argumentTypes: [{
@@ -4476,7 +4650,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 895
+                line: 934
               },
               kind: "string"
             }
@@ -4485,14 +4659,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 895
+              line: 934
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 895
+                line: 934
               },
               kind: "void"
             }
@@ -4502,7 +4676,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 903
+            line: 942
           },
           kind: "function",
           argumentTypes: [],
@@ -4510,14 +4684,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 903
+              line: 942
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 903
+                line: 942
               },
               kind: "void"
             }
@@ -4527,7 +4701,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 924
+            line: 963
           },
           kind: "function",
           argumentTypes: [{
@@ -4536,14 +4710,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 925
+                line: 964
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 925
+                  line: 964
                 },
                 kind: "named",
                 name: "NuclideUri"
@@ -4555,7 +4729,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 926
+                line: 965
               },
               kind: "named",
               name: "NuclideUri"
@@ -4566,14 +4740,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 927
+                line: 966
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 927
+                  line: 966
                 },
                 kind: "boolean"
               }
@@ -4583,14 +4757,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 928
+              line: 967
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 928
+                line: 967
               },
               kind: "void"
             }
@@ -4600,7 +4774,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 951
+            line: 990
           },
           kind: "function",
           argumentTypes: [{
@@ -4609,14 +4783,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 951
+                line: 990
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 951
+                  line: 990
                 },
                 kind: "named",
                 name: "NuclideUri"
@@ -4628,14 +4802,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 951
+                line: 990
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 951
+                  line: 990
                 },
                 kind: "boolean"
               }
@@ -4645,14 +4819,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 951
+              line: 990
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 951
+                line: 990
               },
               kind: "void"
             }
@@ -4662,7 +4836,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 972
+            line: 1011
           },
           kind: "function",
           argumentTypes: [{
@@ -4671,14 +4845,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 972
+                line: 1011
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 972
+                  line: 1011
                 },
                 kind: "named",
                 name: "NuclideUri"
@@ -4689,14 +4863,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 972
+              line: 1011
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 972
+                line: 1011
               },
               kind: "void"
             }
@@ -4706,7 +4880,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 976
+            line: 1015
           },
           kind: "function",
           argumentTypes: [],
@@ -4714,21 +4888,21 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 976
+              line: 1015
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 976
+                line: 1015
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 976
+                  line: 1015
                 },
                 kind: "string"
               }
@@ -4739,7 +4913,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 992
+            line: 1031
           },
           kind: "function",
           argumentTypes: [],
@@ -4747,21 +4921,21 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 992
+              line: 1031
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 992
+                line: 1031
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 992
+                  line: 1031
                 },
                 kind: "string"
               }
@@ -4772,7 +4946,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1012
+            line: 1051
           },
           kind: "function",
           argumentTypes: [{
@@ -4781,14 +4955,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1012
+                line: 1051
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 1012
+                  line: 1051
                 },
                 kind: "named",
                 name: "NuclideUri"
@@ -4800,14 +4974,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1012
+                line: 1051
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 1012
+                  line: 1051
                 },
                 kind: "number"
               }
@@ -4817,14 +4991,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1012
+              line: 1051
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1012
+                line: 1051
               },
               kind: "named",
               name: "VcsLogResponse"
@@ -4835,7 +5009,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1029
+            line: 1068
           },
           kind: "function",
           argumentTypes: [],
@@ -4843,21 +5017,21 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1029
+              line: 1068
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1029
+                line: 1068
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 1029
+                  line: 1068
                 },
                 kind: "named",
                 name: "MergeConflict"
@@ -4869,7 +5043,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1074
+            line: 1113
           },
           kind: "function",
           argumentTypes: [{
@@ -4878,7 +5052,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1074
+                line: 1113
               },
               kind: "named",
               name: "NuclideUri"
@@ -4888,14 +5062,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1074
+              line: 1113
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1074
+                line: 1113
               },
               kind: "void"
             }
@@ -4905,7 +5079,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1078
+            line: 1117
           },
           kind: "function",
           argumentTypes: [],
@@ -4913,14 +5087,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1078
+              line: 1117
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1078
+                line: 1117
               },
               kind: "void"
             }
@@ -4930,7 +5104,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1082
+            line: 1121
           },
           kind: "function",
           argumentTypes: [],
@@ -4938,14 +5112,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1082
+              line: 1121
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1082
+                line: 1121
               },
               kind: "void"
             }
@@ -4955,7 +5129,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1086
+            line: 1125
           },
           kind: "function",
           argumentTypes: [{
@@ -4964,7 +5138,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1087
+                line: 1126
               },
               kind: "string"
             }
@@ -4974,14 +5148,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1088
+                line: 1127
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 1088
+                  line: 1127
                 },
                 kind: "string"
               }
@@ -4991,14 +5165,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1089
+              line: 1128
             },
             kind: "observable",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1089
+                line: 1128
               },
               kind: "named",
               name: "ProcessMessage"
@@ -5009,7 +5183,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1109
+            line: 1148
           },
           kind: "function",
           argumentTypes: [{
@@ -5018,14 +5192,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1109
+                line: 1148
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 1109
+                  line: 1148
                 },
                 kind: "string"
               }
@@ -5035,14 +5209,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1109
+              line: 1148
             },
             kind: "observable",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1109
+                line: 1148
               },
               kind: "named",
               name: "ProcessMessage"
@@ -5053,7 +5227,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HgService.js",
-            line: 1126
+            line: 1165
           },
           kind: "function",
           argumentTypes: [{
@@ -5062,14 +5236,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1127
+                line: 1166
               },
               kind: "array",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 1127
+                  line: 1166
                 },
                 kind: "named",
                 name: "NuclideUri"
@@ -5081,7 +5255,7 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1128
+                line: 1167
               },
               kind: "named",
               name: "NuclideUri"
@@ -5092,14 +5266,14 @@ Object.defineProperty(module.exports, "defs", {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1129
+                line: 1168
               },
               kind: "nullable",
               type: {
                 location: {
                   type: "source",
                   fileName: "HgService.js",
-                  line: 1129
+                  line: 1168
                 },
                 kind: "boolean"
               }
@@ -5109,14 +5283,14 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HgService.js",
-              line: 1130
+              line: 1169
             },
             kind: "promise",
             type: {
               location: {
                 type: "source",
                 fileName: "HgService.js",
-                line: 1130
+                line: 1169
               },
               kind: "void"
             }

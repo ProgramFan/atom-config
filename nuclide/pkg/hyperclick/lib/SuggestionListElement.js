@@ -92,8 +92,10 @@ class SuggestionList extends _reactForAtom.React.Component {
 
     // Prevent scrolling the editor when scrolling the suggestion list.
     const stopPropagation = event => event.stopPropagation();
+    // $FlowFixMe
     _reactForAtom.ReactDOM.findDOMNode(this.refs.scroller).addEventListener('mousewheel', stopPropagation);
     this._subscriptions.add(new _atom.Disposable(() => {
+      // $FlowFixMe
       _reactForAtom.ReactDOM.findDOMNode(this.refs.scroller).removeEventListener('mousewheel', stopPropagation);
     }));
 
@@ -205,7 +207,9 @@ class SuggestionList extends _reactForAtom.React.Component {
 
   _updateScrollPosition() {
     const listNode = _reactForAtom.ReactDOM.findDOMNode(this.refs.selectionList);
+    // $FlowFixMe
     const selectedNode = listNode.getElementsByClassName('selected')[0];
+    // $FlowFixMe
     selectedNode.scrollIntoViewIfNeeded(false);
   }
 }
@@ -213,4 +217,3 @@ class SuggestionList extends _reactForAtom.React.Component {
 exports.default = document.registerElement('hyperclick-suggestion-list', {
   prototype: SuggestionListElement.prototype
 });
-module.exports = exports['default'];

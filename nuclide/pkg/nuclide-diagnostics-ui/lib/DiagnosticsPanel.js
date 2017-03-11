@@ -209,5 +209,3 @@ exports.default = DiagnosticsPanel; /**
                                      *
                                      * 
                                      */
-
-module.exports = exports['default'];

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-6472-ru51a2/package.tgz",
+        "raw": "/tmp/d-117211-6481-yvti51/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-6472-ru51a2/package.tgz",
-        "spec": "/tmp/d-117120-6472-ru51a2/package.tgz",
+        "rawSpec": "/tmp/d-117211-6481-yvti51/package.tgz",
+        "spec": "/tmp/d-117211-6481-yvti51/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-6472-1px09n7"
+      "/tmp/apm-install-dir-117211-6481-18xz9ui"
     ]
   ],
-  "_from": "../d-117120-6472-ru51a2/package.tgz",
-  "_id": "build-cmake@0.8.3",
+  "_from": "../d-117211-6481-yvti51/package.tgz",
+  "_id": "build-cmake@0.9.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/build-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-6472-ru51a2/package.tgz",
+    "raw": "/tmp/d-117211-6481-yvti51/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-6472-ru51a2/package.tgz",
-    "spec": "/tmp/d-117120-6472-ru51a2/package.tgz",
+    "rawSpec": "/tmp/d-117211-6481-yvti51/package.tgz",
+    "spec": "/tmp/d-117211-6481-yvti51/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-6472-ru51a2/package.tgz",
-  "_shasum": "1323edb024be7a774368ebbea2b63071b7115bdc",
+  "_resolved": "file:../d-117211-6481-yvti51/package.tgz",
+  "_shasum": "fe5791e65ed9730a5e1f36f7777802131d50484f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-6472-ru51a2/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-6472-1px09n7",
+  "_spec": "/tmp/d-117211-6481-yvti51/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-6481-18xz9ui",
   "bugs": {
     "url": "https://github.com/siegelaaron94/atom-build-cmake/issues"
   },
@@ -72,5 +72,5 @@
     "type": "git",
     "url": "git+https://github.com/siegelaaron94/atom-build-cmake.git"
   },
-  "version": "0.8.3"
+  "version": "0.9.1"
 }

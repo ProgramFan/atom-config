@@ -67,5 +67,3 @@ exports.default = ScopesStore; /**
                                 *
                                 * 
                                 */
-
-module.exports = exports['default'];

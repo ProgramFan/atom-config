@@ -62,4 +62,3 @@ class SuggestionList {
   }
 }
 exports.default = SuggestionList;
-module.exports = exports['default'];

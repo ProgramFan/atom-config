@@ -71,4 +71,3 @@ class LintHelpers {
   }
 }
 exports.default = LintHelpers;
-module.exports = exports['default'];

@@ -61,6 +61,7 @@ function hackMessageToTrace(traceError) {
 }
 
 function hackMessageToDiagnosticMessage(hackMessages) {
+  // This is verified to be non-empty string by the caller in HackService
   const causeMessage = hackMessages[0];
 
   if (!(causeMessage.path != null)) {
@@ -79,7 +80,12 @@ function hackMessageToDiagnosticMessage(hackMessages) {
   // When the message is an array with multiple elements, the second element
   // onwards comprise the trace for the error.
   if (hackMessages.length > 1) {
-    diagnosticMessage.trace = hackMessages.slice(1).map(hackMessageToTrace);
+    diagnosticMessage.trace = hackMessages.slice(1)
+    // Skip traces without position since they are not useful, and would crash
+    // the RPC connection. See comment in HackService.
+    .filter(x => {
+      return x.path !== '';
+    }).map(hackMessageToTrace);
   }
 
   return diagnosticMessage;

@@ -25,7 +25,6 @@ class SwiftPMTaskRunnerStore {
     this._emitter = new _atom.Emitter();
 
     if (initialState) {
-      this._chdir = initialState.chdir ? initialState.chdir : '';
       this._configuration = initialState.configuration ? initialState.configuration : 'debug';
       this._buildPath = initialState.buildPath ? initialState.buildPath : '';
       this._Xcc = initialState.Xcc ? initialState.Xcc : '';
@@ -33,7 +32,6 @@ class SwiftPMTaskRunnerStore {
       this._Xswiftc = initialState.Xswiftc ? initialState.Xswiftc : '';
       this._compileCommands = initialState.compileCommands ? new Map((0, (_collection || _load_collection()).objectEntries)(initialState.compileCommands)) : new Map();
     } else {
-      this._chdir = '';
       this._configuration = 'debug';
       this._buildPath = '';
       this._Xcc = '';
@@ -46,9 +44,6 @@ class SwiftPMTaskRunnerStore {
       switch (action.actionType) {
         case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_PROJECT_ROOT:
           this._projectRoot = action.projectRoot;
-          break;
-        case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_CHDIR:
-          this._chdir = action.chdir;
           break;
         case (_SwiftPMTaskRunnerDispatcher || _load_SwiftPMTaskRunnerDispatcher()).ActionTypes.UPDATE_SETTINGS:
           this._configuration = action.configuration;
@@ -71,7 +66,6 @@ class SwiftPMTaskRunnerStore {
 
   serialize() {
     return {
-      chdir: this.getChdir(),
       configuration: this.getConfiguration(),
       buildPath: this.getBuildPath(),
       Xcc: this.getXcc(),
@@ -87,10 +81,6 @@ class SwiftPMTaskRunnerStore {
 
   emitChange() {
     this._emitter.emit('change');
-  }
-
-  getChdir() {
-    return this._chdir;
   }
 
   getConfiguration() {
@@ -134,5 +124,3 @@ exports.default = SwiftPMTaskRunnerStore; /**
                                            *
                                            * 
                                            */
-
-module.exports = exports['default'];

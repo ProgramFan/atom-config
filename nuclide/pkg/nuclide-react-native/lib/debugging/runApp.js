@@ -42,7 +42,7 @@ function runApp(executorResults) {
 
   return websockets.switchMap(ws => _rxjsBundlesRxMinJs.Observable.merge(
   // The messages from the RN app.
-  _rxjsBundlesRxMinJs.Observable.fromEvent(ws, 'message').map(JSON.parse),
+  _rxjsBundlesRxMinJs.Observable.fromEvent(ws, 'message').map(event => JSON.parse(event.data)),
 
   // Send the executor results to the RN app.
   executorResults.do(response => {

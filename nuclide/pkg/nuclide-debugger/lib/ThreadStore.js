@@ -34,18 +34,25 @@ function _load_passesGK() {
   return _passesGK = _interopRequireDefault(require('../../commons-node/passesGK'));
 }
 
+var _DebuggerStore;
+
+function _load_DebuggerStore() {
+  return _DebuggerStore = require('./DebuggerStore');
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const GK_THREAD_SWITCH_UI = 'nuclide_debugger_thread_switch_ui'; /**
-                                                                  * Copyright (c) 2015-present, Facebook, Inc.
-                                                                  * All rights reserved.
-                                                                  *
-                                                                  * This source code is licensed under the license found in the LICENSE file in
-                                                                  * the root directory of this source tree.
-                                                                  *
-                                                                  * 
-                                                                  */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
+const GK_THREAD_SWITCH_UI = 'nuclide_debugger_thread_switch_ui';
 const GK_TIMEOUT = 5000;
 
 class ThreadStore {
@@ -61,6 +68,8 @@ class ThreadStore {
     this._owningProcessId = 0;
     this._selectedThreadId = 0;
     this._stopThreadId = 0;
+    this._threadsReloading = false;
+    this._debuggerMode = (_DebuggerStore || _load_DebuggerStore()).DebuggerMode.STOPPED;
   }
 
   setDatatipService(service) {
@@ -74,10 +83,12 @@ class ThreadStore {
         this._emitter.emit('change');
         break;
       case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.UPDATE_THREADS:
+        this._threadsReloading = false;
         this._updateThreads(payload.data.threadData);
         this._emitter.emit('change');
         break;
       case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.UPDATE_THREAD:
+        this._threadsReloading = false;
         this._updateThread(payload.data.thread);
         this._emitter.emit('change');
         break;
@@ -87,6 +98,15 @@ class ThreadStore {
         break;
       case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.NOTIFY_THREAD_SWITCH:
         this._notifyThreadSwitch(payload.data.sourceURL, payload.data.lineNumber, payload.data.message);
+        break;
+      case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.DEBUGGER_MODE_CHANGE:
+        if (this._debuggerMode === (_DebuggerStore || _load_DebuggerStore()).DebuggerMode.RUNNING && payload.data === (_DebuggerStore || _load_DebuggerStore()).DebuggerMode.PAUSED) {
+          // If the debugger just transitioned from running to paused, the debug server should
+          // be sending updated thread stacks. This may take a moment.
+          this._threadsReloading = true;
+        }
+        this._debuggerMode = payload.data;
+        this._emitter.emit('change');
         break;
       default:
         return;
@@ -98,6 +118,7 @@ class ThreadStore {
     this._owningProcessId = threadData.owningProcessId;
     this._stopThreadId = threadData.stopThreadId;
     this._selectedThreadId = threadData.stopThreadId;
+    this._threadsReloading = false;
     threadData.threads.forEach(thread => this._threadMap.set(Number(thread.id), thread));
   }
 
@@ -168,6 +189,10 @@ class ThreadStore {
     return this._selectedThreadId;
   }
 
+  getThreadsReloading() {
+    return this._threadsReloading;
+  }
+
   onChange(callback) {
     return this._emitter.on('change', callback);
   }
@@ -187,4 +212,3 @@ class ThreadStore {
   }
 }
 exports.default = ThreadStore;
-module.exports = exports['default'];

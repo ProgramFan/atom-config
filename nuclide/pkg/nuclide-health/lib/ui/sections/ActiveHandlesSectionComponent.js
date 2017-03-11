@@ -67,5 +67,3 @@ exports.default = ActiveHandlesSectionComponent; /**
                                                   *
                                                   * 
                                                   */
-
-module.exports = exports['default'];

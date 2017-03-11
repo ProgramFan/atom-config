@@ -183,7 +183,21 @@ class QuickSelectionComponent extends _reactForAtom.React.Component {
 
   componentDidMount() {
     const modalNode = _reactForAtom.ReactDOM.findDOMNode(this);
-    this._subscriptions.add(atom.commands.add(modalNode, 'core:move-to-bottom', this._handleMoveToBottom), atom.commands.add(modalNode, 'core:move-to-top', this._handleMoveToTop), atom.commands.add(modalNode, 'core:move-down', this._handleMoveDown), atom.commands.add(modalNode, 'core:move-up', this._handleMoveUp), atom.commands.add(modalNode, 'core:confirm', this._select), atom.commands.add(modalNode, 'pane:show-previous-item', this._handleMovePreviousTab), atom.commands.add(modalNode, 'pane:show-next-item', this._handleMoveNextTab), atom.commands.add('body', 'core:cancel', () => {
+    this._subscriptions.add(
+    // $FlowFixMe
+    atom.commands.add(modalNode, 'core:move-to-bottom', this._handleMoveToBottom),
+    // $FlowFixMe
+    atom.commands.add(modalNode, 'core:move-to-top', this._handleMoveToTop),
+    // $FlowFixMe
+    atom.commands.add(modalNode, 'core:move-down', this._handleMoveDown),
+    // $FlowFixMe
+    atom.commands.add(modalNode, 'core:move-up', this._handleMoveUp),
+    // $FlowFixMe
+    atom.commands.add(modalNode, 'core:confirm', this._select),
+    // $FlowFixMe
+    atom.commands.add(modalNode, 'pane:show-previous-item', this._handleMovePreviousTab),
+    // $FlowFixMe
+    atom.commands.add(modalNode, 'pane:show-next-item', this._handleMoveNextTab), atom.commands.add('body', 'core:cancel', () => {
       this.props.onCancellation();
     }), _rxjsBundlesRxMinJs.Observable.fromEvent(document, 'mousedown').subscribe(this._handleDocumentMouseDown), (0, (_event || _load_event()).observableFromSubscribeFunction)(cb => this._getTextEditor().onDidChange(cb))
     // $FlowFixMe: Missing def for debounce and timer.
@@ -400,11 +414,13 @@ class QuickSelectionComponent extends _reactForAtom.React.Component {
       return;
     }
     const listNode = _reactForAtom.ReactDOM.findDOMNode(this.refs.selectionList);
+    // $FlowFixMe
     const selectedNode = listNode.getElementsByClassName('selected')[0];
     // false is passed for @centerIfNeeded parameter, which defaults to true.
     // Passing false causes the minimum necessary scroll to occur, so the selection sticks to the
     // top/bottom.
     if (selectedNode) {
+      // $FlowFixMe
       selectedNode.scrollIntoViewIfNeeded(false);
     }
   }
@@ -462,6 +478,7 @@ class QuickSelectionComponent extends _reactForAtom.React.Component {
   }
 
   _getInputTextEditor() {
+    // $FlowFixMe
     return _reactForAtom.ReactDOM.findDOMNode(this.refs.queryInput);
   }
 
@@ -698,4 +715,3 @@ class QuickSelectionComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = QuickSelectionComponent;
-module.exports = exports['default'];

@@ -230,7 +230,7 @@ class BuckToolbar extends _reactForAtom.React.Component {
           for (const device of deviceGroup.devices) {
             submenu.push({
               label: `  ${device.name}`,
-              selectedLabel: `${device.name} @ ${platform.name}`,
+              selectedLabel: `${platform.name}: ${device.name}`,
               value: { platform, device }
             });
           }
@@ -264,5 +264,3 @@ exports.default = BuckToolbar; /**
                                 *
                                 * 
                                 */
-
-module.exports = exports['default'];

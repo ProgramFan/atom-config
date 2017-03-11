@@ -83,4 +83,3 @@ const UnescapedUnicodeDatatipComponent = props => {
   );
   return result;
 };
-module.exports = exports['default'];

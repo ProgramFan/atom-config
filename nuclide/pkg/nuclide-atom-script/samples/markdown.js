@@ -136,4 +136,3 @@ function resolvePath(fileName) {
     return fileName;
   }
 }
-module.exports = exports['default'];

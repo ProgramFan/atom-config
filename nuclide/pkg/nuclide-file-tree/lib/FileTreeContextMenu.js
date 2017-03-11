@@ -357,4 +357,3 @@ function generateNextInternalCommand(itemLabel) {
   const cmdName = itemLabel.toLowerCase().replace(/[^\w]+/g, '-') + '-' + nextInternalCommandId++;
   return `nuclide-file-tree:${cmdName}`;
 }
-module.exports = exports['default'];

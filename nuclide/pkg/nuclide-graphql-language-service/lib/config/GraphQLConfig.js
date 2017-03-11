@@ -14,7 +14,7 @@ let getGraphQLConfig = exports.getGraphQLConfig = (() => {
         if (error) {
           // eslint-disable-next-line no-console
           console.error('.graphqlrc file is not available in the provided config ' + `directory: ${configDir}\nPlease check the config directory ` + 'path and try again.');
-          reject();
+          reject(new Error());
         }
         resolve(response);
       });

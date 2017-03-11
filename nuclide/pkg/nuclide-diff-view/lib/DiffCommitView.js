@@ -87,6 +87,7 @@ class DiffCommitView extends _reactForAtom.React.Component {
     this._onTogglePrepare = this._onTogglePrepare.bind(this);
     this._onToggleVerbatim = this._onToggleVerbatim.bind(this);
     this._onLintExcuseChange = this._onLintExcuseChange.bind(this);
+    this._onToggleInteractiveCommit = this._onToggleInteractiveCommit.bind(this);
   }
 
   componentDidMount() {
@@ -163,6 +164,19 @@ class DiffCommitView extends _reactForAtom.React.Component {
       });
     }
 
+    let interactiveOptionElement;
+    if (this.props.hasUncommittedChanges && this.props.enabledFeatures.has((_constants || _load_constants()).DiffViewFeatures.INTERACTIVE)) {
+      interactiveOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+        className: 'padded',
+        checked: this.props.shouldCommitInteractively,
+        disabled: isLoading,
+        label: 'Use interactive mode',
+        onChange: this._onToggleInteractiveCommit,
+        tabIndex: '-1',
+        ref: this._addTooltip('Whether to include all uncommitted changes or to select specific ones')
+      });
+    }
+
     let prepareOptionElement;
     let verbatimeOptionElement;
     let lintExcuseElement;
@@ -204,6 +218,7 @@ class DiffCommitView extends _reactForAtom.React.Component {
         (_ToolbarLeft || _load_ToolbarLeft()).ToolbarLeft,
         null,
         rebaseOptionElement,
+        interactiveOptionElement,
         _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
           className: 'padded',
           checked: this.props.shouldPublishOnCommit,
@@ -279,6 +294,10 @@ class DiffCommitView extends _reactForAtom.React.Component {
     this.props.diffModel.setShouldAmendRebase(isChecked);
   }
 
+  _onToggleInteractiveCommit(isChecked) {
+    this.props.diffModel.setShouldCommitInteractively(isChecked);
+  }
+
   _onTogglePublish(isChecked) {
     this.props.diffModel.setShouldPublishOnCommit(isChecked);
   }
@@ -308,5 +327,3 @@ exports.default = DiffCommitView; /**
                                    *
                                    * 
                                    */
-
-module.exports = exports['default'];

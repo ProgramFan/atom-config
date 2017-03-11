@@ -66,5 +66,3 @@ exports.default = RecentFilesService; /**
                                        *
                                        * 
                                        */
-
-module.exports = exports['default'];

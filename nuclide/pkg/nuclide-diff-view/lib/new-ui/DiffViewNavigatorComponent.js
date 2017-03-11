@@ -197,5 +197,3 @@ exports.default = DiffViewNavigatorComponent; /**
                                                *
                                                * 
                                                */
-
-module.exports = exports['default'];

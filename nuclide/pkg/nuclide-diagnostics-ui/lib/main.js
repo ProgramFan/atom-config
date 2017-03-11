@@ -379,4 +379,4 @@ function observeLinterPackageEnabled() {
   return _rxjsBundlesRxMinJs.Observable.merge(_rxjsBundlesRxMinJs.Observable.of(atom.packages.isPackageActive(LINTER_PACKAGE)), (0, (_event || _load_event()).observableFromSubscribeFunction)(atom.packages.onDidActivatePackage.bind(atom.packages)).filter(pkg => pkg.name === LINTER_PACKAGE).mapTo(true), (0, (_event || _load_event()).observableFromSubscribeFunction)(atom.packages.onDidDeactivatePackage.bind(atom.packages)).filter(pkg => pkg.name === LINTER_PACKAGE).mapTo(false));
 }
 
-module.exports = (0, (_createPackage || _load_createPackage()).default)(Activation);
+(0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);

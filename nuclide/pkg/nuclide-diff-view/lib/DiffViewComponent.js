@@ -143,12 +143,15 @@ function renderCommitView(diffModel) {
     commit: { message, mode, state },
     isPrepareMode,
     lintExcuse,
+    shouldCommitInteractively,
     shouldPublishOnCommit,
     shouldRebaseOnAmend,
     shouldUseTextBasedForm,
     suggestedReviewers,
-    verbatimModeEnabled
+    verbatimModeEnabled,
+    enabledFeatures
   } = diffModel.getState();
+  const hasUncomittedChanges = diffModel.getDirtyFileChangesCount() > 0;
 
   const CommitComponent = getCommitComponent(shouldUseTextBasedForm);
   return _reactForAtom.React.createElement(CommitComponent, {
@@ -156,14 +159,17 @@ function renderCommitView(diffModel) {
     commitMessage: message,
     commitMode: mode,
     commitModeState: state,
+    hasUncommittedChanges: hasUncomittedChanges,
     isPrepareMode: isPrepareMode,
     lintExcuse: lintExcuse,
+    shouldCommitInteractively: shouldCommitInteractively,
     shouldPublishOnCommit: shouldPublishOnCommit,
     shouldRebaseOnAmend: shouldRebaseOnAmend
     // `diffModel` is acting as the action creator for commit view and needs to be passed so
     // methods can be called on it.
     , diffModel: diffModel,
-    verbatimModeEnabled: verbatimModeEnabled
+    verbatimModeEnabled: verbatimModeEnabled,
+    enabledFeatures: enabledFeatures
   });
 }
 

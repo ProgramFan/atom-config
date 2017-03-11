@@ -185,4 +185,3 @@ class DiffViewEditor {
   }
 }
 exports.default = DiffViewEditor;
-module.exports = exports['default'];

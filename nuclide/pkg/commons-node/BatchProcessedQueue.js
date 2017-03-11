@@ -48,5 +48,3 @@ exports.default = BatchProcessedQueue; /**
                                         *
                                         * 
                                         */
-
-module.exports = exports["default"];

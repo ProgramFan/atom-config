@@ -37,5 +37,3 @@ exports.default = WatchmanSubscription; /**
                                          *
                                          * 
                                          */
-
-module.exports = exports['default'];

@@ -41,4 +41,3 @@ class QuickSelectionActions {
   }
 }
 exports.default = QuickSelectionActions;
-module.exports = exports['default'];

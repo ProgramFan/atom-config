@@ -55,7 +55,9 @@ class FileDialogComponent extends _reactForAtom.React.Component {
 
   componentDidMount() {
     const input = this.refs.input;
-    this._disposables.add(atom.commands.add(_reactForAtom.ReactDOM.findDOMNode(input), {
+    this._disposables.add(atom.commands.add(
+    // $FlowFixMe
+    _reactForAtom.ReactDOM.findDOMNode(input), {
       'core:confirm': this._confirm,
       'core:cancel': this._close
     }));
@@ -155,4 +157,3 @@ exports.default = FileDialogComponent; /**
 FileDialogComponent.defaultProps = {
   additionalOptions: {}
 };
-module.exports = exports['default'];

@@ -160,4 +160,3 @@ class BuckToolbarSettings extends _reactForAtom.React.Component {
   }
 }
 exports.default = BuckToolbarSettings;
-module.exports = exports['default'];

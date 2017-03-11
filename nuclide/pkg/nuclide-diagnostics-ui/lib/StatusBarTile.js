@@ -173,4 +173,3 @@ class StatusBarTileComponent extends _reactForAtom.React.Component {
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('diagnostics-show-table-from-status-bar');
   }
 }
-module.exports = exports['default'];

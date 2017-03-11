@@ -2,47 +2,44 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-6614-oftqto/package.tgz",
+        "raw": "/tmp/d-117211-6630-18vamjt/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-6614-oftqto/package.tgz",
-        "spec": "/tmp/d-117120-6614-oftqto/package.tgz",
+        "rawSpec": "/tmp/d-117211-6630-18vamjt/package.tgz",
+        "spec": "/tmp/d-117211-6630-18vamjt/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-6614-xbu8c1"
+      "/tmp/apm-install-dir-117211-6630-qv12bp"
     ]
   ],
-  "_from": "../d-117120-6614-oftqto/package.tgz",
-  "_id": "tool-bar@1.0.1",
+  "_from": "../d-117211-6630-18vamjt/package.tgz",
+  "_id": "tool-bar@1.1.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-6614-oftqto/package.tgz",
+    "raw": "/tmp/d-117211-6630-18vamjt/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-6614-oftqto/package.tgz",
-    "spec": "/tmp/d-117120-6614-oftqto/package.tgz",
+    "rawSpec": "/tmp/d-117211-6630-18vamjt/package.tgz",
+    "spec": "/tmp/d-117211-6630-18vamjt/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-6614-oftqto/package.tgz",
-  "_shasum": "20fd58e53b6e0bcecf09baa0653dc791c0a0199f",
+  "_resolved": "file:../d-117211-6630-18vamjt/package.tgz",
+  "_shasum": "94b5074753ee1b1322459844b70727fec5acdb6f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-6614-oftqto/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-6614-xbu8c1",
+  "_spec": "/tmp/d-117211-6630-18vamjt/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-6630-qv12bp",
   "bugs": {
     "url": "https://github.com/suda/tool-bar/issues"
   },
-  "dependencies": {
-    "grim": "^2.0.0",
-    "jquery": "^3.0.0"
-  },
+  "dependencies": {},
   "description": "Package providing customisable tool bar",
   "devDependencies": {
     "babel-eslint": "^6.0.4",
@@ -54,7 +51,7 @@
     "remark-lint": "^3.0.0"
   },
   "engines": {
-    "atom": ">=1.0.0"
+    "atom": ">=1.6.0"
   },
   "homepage": "https://github.com/suda/tool-bar#readme",
   "keywords": [
@@ -70,7 +67,6 @@
     "tool-bar": {
       "description": "A container for buttons at workspace edge",
       "versions": {
-        "0.1.0": "provideToolBarLegacy",
         "1.0.0": "provideToolBar"
       }
     }
@@ -83,5 +79,5 @@
   "scripts": {
     "lint": "eslint --format tap . && remark ."
   },
-  "version": "1.0.1"
+  "version": "1.1.0"
 }

@@ -90,7 +90,7 @@ const DID_CHANGE_CONFLICT_STATE = 'did-change-conflict-state';
 function getRevisionStatusCache(revisionsCache, workingDirectoryPath) {
   try {
     // $FlowFB
-    const FbRevisionStatusCache = require('./fb/RevisionStatusCache');
+    const FbRevisionStatusCache = require('./fb/RevisionStatusCache').default;
     return new FbRevisionStatusCache(revisionsCache, workingDirectoryPath);
   } catch (e) {
     return {
@@ -137,16 +137,16 @@ class HgRepositoryClient {
     this._emitter = new _atom.Emitter();
     this._subscriptions = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._emitter, this._service);
 
-    this._hgStatusCache = {};
+    this._hgStatusCache = new Map();
 
-    this._hgDiffCache = {};
+    this._hgDiffCache = new Map();
     this._hgDiffCacheFilesUpdating = new Set();
     this._hgDiffCacheFilesToClear = new Set();
 
     const diffStatsSubscription = (_featureConfig || _load_featureConfig()).default.observeAsStream('nuclide-hg-repository.enableDiffStats').switchMap(enableDiffStats => {
       if (!enableDiffStats) {
         // TODO(most): rewrite fetching structures avoiding side effects
-        this._hgDiffCache = {};
+        this._hgDiffCache = new Map();
         this._emitter.emit('did-change-statuses');
         return _rxjsBundlesRxMinJs.Observable.empty();
       }
@@ -187,7 +187,7 @@ class HgRepositoryClient {
       (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('HgService cannot fetch statuses', error);
       return _rxjsBundlesRxMinJs.Observable.empty();
     })).subscribe(statuses => {
-      this._hgStatusCache = (0, (_collection || _load_collection()).objectFromMap)(statuses);
+      this._hgStatusCache = (0, (_collection || _load_collection()).mapTransform)(statuses, (v, k) => (_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[v]);
       this._emitter.emit('did-change-statuses');
     });
 
@@ -361,11 +361,11 @@ class HgRepositoryClient {
     if (!filePath) {
       return false;
     }
-    const cachedPathStatus = this._hgStatusCache[filePath];
+    const cachedPathStatus = this._hgStatusCache.get(filePath);
     if (!cachedPathStatus) {
       return false;
     } else {
-      return this.isStatusModified((_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[cachedPathStatus]);
+      return this.isStatusModified(cachedPathStatus);
     }
   }
 
@@ -375,11 +375,11 @@ class HgRepositoryClient {
     if (!filePath) {
       return false;
     }
-    const cachedPathStatus = this._hgStatusCache[filePath];
+    const cachedPathStatus = this._hgStatusCache.get(filePath);
     if (!cachedPathStatus) {
       return false;
     } else {
-      return this.isStatusNew((_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[cachedPathStatus]);
+      return this.isStatusNew(cachedPathStatus);
     }
   }
 
@@ -387,11 +387,11 @@ class HgRepositoryClient {
     if (!filePath) {
       return false;
     }
-    const cachedPathStatus = this._hgStatusCache[filePath];
+    const cachedPathStatus = this._hgStatusCache.get(filePath);
     if (!cachedPathStatus) {
       return false;
     } else {
-      return this.isStatusAdded((_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[cachedPathStatus]);
+      return this.isStatusAdded(cachedPathStatus);
     }
   }
 
@@ -399,11 +399,11 @@ class HgRepositoryClient {
     if (!filePath) {
       return false;
     }
-    const cachedPathStatus = this._hgStatusCache[filePath];
+    const cachedPathStatus = this._hgStatusCache.get(filePath);
     if (!cachedPathStatus) {
       return false;
     } else {
-      return this.isStatusUntracked((_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[cachedPathStatus]);
+      return this.isStatusUntracked(cachedPathStatus);
     }
   }
 
@@ -418,11 +418,11 @@ class HgRepositoryClient {
     // because the repo does not track itself.
     // We want to represent the fact that it's not part of the tracked contents,
     // so we manually add an exception for it via the _isPathWithinHgRepo check.
-    const cachedPathStatus = this._hgStatusCache[filePath];
+    const cachedPathStatus = this._hgStatusCache.get(filePath);
     if (!cachedPathStatus) {
       return this._isPathWithinHgRepo(filePath);
     } else {
-      return this.isStatusIgnored((_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[cachedPathStatus]);
+      return this.isStatusIgnored(cachedPathStatus);
     }
   }
 
@@ -455,17 +455,17 @@ class HgRepositoryClient {
     if (!filePath) {
       return (_hgConstants || _load_hgConstants()).StatusCodeNumber.CLEAN;
     }
-    const cachedStatus = this._hgStatusCache[filePath];
+    const cachedStatus = this._hgStatusCache.get(filePath);
     if (cachedStatus) {
-      return (_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[cachedStatus];
+      return cachedStatus;
     }
     return (_hgConstants || _load_hgConstants()).StatusCodeNumber.CLEAN;
   }
 
   getAllPathStatuses() {
     const pathStatuses = Object.create(null);
-    for (const filePath in this._hgStatusCache) {
-      pathStatuses[filePath] = (_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[this._hgStatusCache[filePath]];
+    for (const [filePath, status] of this._hgStatusCache) {
+      pathStatuses[filePath] = status;
     }
     return pathStatuses;
   }
@@ -505,7 +505,7 @@ class HgRepositoryClient {
     if (!filePath) {
       return cleanStats;
     }
-    const cachedData = this._hgDiffCache[filePath];
+    const cachedData = this._hgDiffCache.get(filePath);
     return cachedData ? { added: cachedData.added, deleted: cachedData.deleted } : cleanStats;
   }
 
@@ -522,7 +522,7 @@ class HgRepositoryClient {
     if (!filePath) {
       return [];
     }
-    const diffInfo = this._hgDiffCache[filePath];
+    const diffInfo = this._hgDiffCache.get(filePath);
     return diffInfo ? diffInfo.lineDiffs : [];
   }
 
@@ -566,13 +566,13 @@ class HgRepositoryClient {
       const pathsToDiffInfo = yield _this._service.fetchDiffInfo(pathsToFetch);
       if (pathsToDiffInfo) {
         for (const [filePath, diffInfo] of pathsToDiffInfo) {
-          _this._hgDiffCache[filePath] = diffInfo;
+          _this._hgDiffCache.set(filePath, diffInfo);
         }
       }
 
       // Remove files marked for deletion.
       _this._hgDiffCacheFilesToClear.forEach(function (fileToClear) {
-        delete _this._hgDiffCache[fileToClear];
+        _this._hgDiffCache.delete(fileToClear);
       });
       _this._hgDiffCacheFilesToClear.clear();
 
@@ -639,6 +639,10 @@ class HgRepositoryClient {
 
   stripReference(reference) {
     return this._service.strip(reference);
+  }
+
+  uncommit() {
+    return this._service.uncommit();
   }
 
   checkoutForkBase() {
@@ -827,16 +831,20 @@ class HgRepositoryClient {
     return this._service.add(filePaths);
   }
 
-  commit(message) {
-    return this._service.commit(message).refCount().do(this._clearOnSuccessExit.bind(this));
+  commit(message, isInteractive = false) {
+    return this._service.commit(message, isInteractive).refCount().do(this._clearOnSuccessExit.bind(this, isInteractive));
   }
 
-  amend(message, amendMode) {
-    return this._service.amend(message, amendMode).refCount().do(this._clearOnSuccessExit.bind(this));
+  amend(message, amendMode, isInteractive = false) {
+    return this._service.amend(message, amendMode, isInteractive).refCount().do(this._clearOnSuccessExit.bind(this, isInteractive));
   }
 
-  _clearOnSuccessExit(message) {
-    if (message.kind === 'exit' && message.exitCode === 0) {
+  splitRevision() {
+    return this._service.splitRevision().refCount();
+  }
+
+  _clearOnSuccessExit(isInteractive, message) {
+    if (!isInteractive && message.kind === 'exit' && message.exitCode === 0) {
       this._clearClientCache();
     }
   }
@@ -869,8 +877,8 @@ class HgRepositoryClient {
   }
 
   _clearClientCache() {
-    this._hgDiffCache = {};
-    this._hgStatusCache = {};
+    this._hgDiffCache = new Map();
+    this._hgStatusCache = new Map();
     this._emitter.emit('did-change-statuses');
   }
 }

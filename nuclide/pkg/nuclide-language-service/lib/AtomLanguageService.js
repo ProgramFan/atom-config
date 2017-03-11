@@ -97,8 +97,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 class AtomLanguageService {
 
-  constructor(languageServiceFactory, config, logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)('nuclide-language-service')) {
+  constructor(languageServiceFactory, config, onDidInsertSuggestion, logger = (0, (_nuclideLogging || _load_nuclideLogging()).getCategoryLogger)('nuclide-language-service')) {
     this._config = config;
+    this._onDidInsertSuggestion = onDidInsertSuggestion;
     this._logger = logger;
     this._subscriptions = new (_UniversalDisposable || _load_UniversalDisposable()).default();
     const lazy = true;
@@ -156,7 +157,7 @@ class AtomLanguageService {
 
     const autocompleteConfig = this._config.autocomplete;
     if (autocompleteConfig != null) {
-      this._subscriptions.add((_AutocompleteProvider || _load_AutocompleteProvider()).AutocompleteProvider.register(this._config.name, this._config.grammars, autocompleteConfig, this._connectionToLanguageService));
+      this._subscriptions.add((_AutocompleteProvider || _load_AutocompleteProvider()).AutocompleteProvider.register(this._config.name, this._config.grammars, autocompleteConfig, this._onDidInsertSuggestion, this._connectionToLanguageService));
     }
 
     const diagnosticsConfig = this._config.diagnostics;
@@ -169,8 +170,7 @@ class AtomLanguageService {
     var _this = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      const result = _this._connectionToLanguageService.getForUri(fileUri);
-      return result == null ? null : yield result;
+      return _this._connectionToLanguageService.getForUri(fileUri);
     })();
   }
 

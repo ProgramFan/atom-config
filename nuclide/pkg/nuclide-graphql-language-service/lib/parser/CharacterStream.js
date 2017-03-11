@@ -173,5 +173,3 @@ exports.default = CharacterStream; /**
  *        is supplied.
  *
  */
-
-module.exports = exports['default'];

@@ -155,7 +155,7 @@ class ConnectionDialog extends _reactForAtom.React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.state.mode !== prevState.mode) {
       this._focus();
-    } else if (this.state.mode === REQUEST_CONNECTION_DETAILS && this.state.indexOfSelectedConnectionProfile === prevState.indexOfSelectedConnectionProfile && !this.state.isDirty && prevState.isDirty) {
+    } else if (this.state.mode === REQUEST_CONNECTION_DETAILS && this.state.indexOfSelectedConnectionProfile === prevState.indexOfSelectedConnectionProfile && !this.state.isDirty && prevState.isDirty && this.refs.okButton != null) {
       // When editing a profile and clicking "Save", the Save button disappears. Focus the primary
       // button after re-rendering so focus is on a logical element.
       this.refs.okButton.focus();
@@ -165,7 +165,11 @@ class ConnectionDialog extends _reactForAtom.React.Component {
   _focus() {
     const content = this.refs.content;
     if (content == null) {
-      _reactForAtom.ReactDOM.findDOMNode(this.refs.cancelButton).focus();
+      const { cancelButton } = this.refs;
+      if (cancelButton == null) {
+        return;
+      }
+      cancelButton.focus();
     } else {
       content.focus();
     }
@@ -276,14 +280,14 @@ class ConnectionDialog extends _reactForAtom.React.Component {
           (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
           null,
           _reactForAtom.React.createElement(
-            'button',
-            { className: 'btn', onClick: this.cancel, ref: 'cancelButton' },
+            (_Button || _load_Button()).Button,
+            { onClick: this.cancel, ref: 'cancelButton' },
             'Cancel'
           ),
           _reactForAtom.React.createElement(
-            'button',
+            (_Button || _load_Button()).Button,
             {
-              className: 'btn btn-primary',
+              buttonType: (_Button || _load_Button()).ButtonTypes.PRIMARY,
               disabled: isOkDisabled,
               onClick: this.ok,
               ref: 'okButton' },
@@ -422,4 +426,3 @@ exports.default = ConnectionDialog;
 ConnectionDialog.defaultProps = {
   indexOfInitiallySelectedConnectionProfile: -1
 };
-module.exports = exports['default'];

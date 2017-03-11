@@ -733,4 +733,3 @@ function getIpcExpansionResult(properties) {
 }
 
 exports.default = new NuclideBridge();
-module.exports = exports['default'];

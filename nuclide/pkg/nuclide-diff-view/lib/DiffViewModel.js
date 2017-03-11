@@ -116,6 +116,10 @@ class DiffViewModel {
     this._actionCreators.setShouldRebaseOnAmend(shouldRebaseOnAmend);
   }
 
+  setShouldCommitInteractively(shouldCommitInteractively) {
+    this._actionCreators.setShouldCommitInteractively(shouldCommitInteractively);
+  }
+
   setShouldPublishOnCommit(shoulPublishOnCommit) {
     this._actionCreators.setShouldPublishOnCommit(shoulPublishOnCommit);
   }
@@ -139,4 +143,3 @@ class DiffViewModel {
   }
 }
 exports.default = DiffViewModel;
-module.exports = exports['default'];

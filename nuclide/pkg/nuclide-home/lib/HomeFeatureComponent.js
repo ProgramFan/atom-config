@@ -73,4 +73,3 @@ class HomeFeatureComponent extends _reactForAtom.React.Component {
   }
 }
 exports.default = HomeFeatureComponent;
-module.exports = exports['default'];

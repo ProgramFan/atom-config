@@ -211,4 +211,3 @@ function getLinesFromCommand(command, args, localDirectoryPath) {
     };
   });
 }
-module.exports = exports['default'];

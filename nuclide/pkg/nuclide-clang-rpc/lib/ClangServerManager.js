@@ -99,6 +99,10 @@ class ClangServerManager {
     this._checkMemoryUsage = (0, (_promise || _load_promise()).serializeAsyncCall)(this._checkMemoryUsageImpl.bind(this));
   }
 
+  getClangFlagsManager() {
+    return this._flagsManager;
+  }
+
   /**
    * Spawn one Clang server per translation unit (i.e. source file).
    * This allows working on multiple files at once, and simplifies per-file state handling.
@@ -228,4 +232,3 @@ class ClangServerManager {
   }
 }
 exports.default = ClangServerManager;
-module.exports = exports['default'];

@@ -653,4 +653,3 @@ class FileTreeController {
   }
 }
 exports.default = FileTreeController;
-module.exports = exports['default'];

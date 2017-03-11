@@ -170,11 +170,11 @@ class HackLanguageServiceImpl extends (_nuclideLanguageServiceRpc || _load_nucli
 
     return (0, _asyncToGenerator.default)(function* () {
       if (_this._useIdeConnection) {
-        const process = yield (0, (_HackProcess || _load_HackProcess()).getHackProcess)(_this._fileCache, fileVersion.filePath);
-        if (process == null) {
-          return null;
-        } else {
+        try {
+          const process = yield (0, (_HackProcess || _load_HackProcess()).getHackProcess)(_this._fileCache, fileVersion.filePath);
           return process.getAutocompleteSuggestions(fileVersion, position, activatedManually);
+        } catch (e) {
+          return null;
         }
       } else {
         // Babel workaround: w/o the es2015-classes transform, async functions can't call `super`.
@@ -242,6 +242,12 @@ class HackSingleFileLanguageService {
       return (0, (_nuclideLanguageServiceRpc || _load_nuclideLanguageServiceRpc()).ensureInvalidations)((_hackConfig || _load_hackConfig()).logger, connection.notifyDiagnostics().refCount().catch(error => {
         (_hackConfig || _load_hackConfig()).logger.logError(`Error: notifyDiagnostics ${error}`);
         return _rxjsBundlesRxMinJs.Observable.empty();
+      }).filter(hackDiagnostics => {
+        // This is passed over RPC as NuclideUri, which is not allowed
+        // to be an empty string. It's better to silently skip a
+        // (most likely) useless error, than crash the entire connection.
+        // TODO: figure out a better way to display those errors
+        return hackDiagnostics.filename !== '';
       }).map(hackDiagnostics => {
         (_hackConfig || _load_hackConfig()).logger.log(`Got hack error in ${hackDiagnostics.filename}`);
         return {

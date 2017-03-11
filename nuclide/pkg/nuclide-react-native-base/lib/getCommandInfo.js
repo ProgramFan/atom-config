@@ -29,7 +29,7 @@ let getCommandInfo = exports.getCommandInfo = (() => {
       return null;
     }
 
-    return (yield getCommandFromNodePackage(projectRootPath)) || (yield getCommandFromBuck(projectRootPath));
+    return (yield getCommandFromNodePackage(projectRootPath)) || getCommandFromBuck(projectRootPath);
   });
 
   return function getCommandInfo(_x) {
@@ -39,7 +39,7 @@ let getCommandInfo = exports.getCommandInfo = (() => {
 
 let getCommandFromNodePackage = (() => {
   var _ref2 = (0, _asyncToGenerator.default)(function* (dir) {
-    return (yield getCommandFromNodeModules(dir)) || (yield getCommandFromReactNative(dir));
+    return (yield getCommandFromNodeModules(dir)) || getCommandFromReactNative(dir);
   });
 
   return function getCommandFromNodePackage(_x2) {

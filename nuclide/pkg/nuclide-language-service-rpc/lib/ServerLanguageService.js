@@ -34,6 +34,10 @@ class ServerLanguageService {
     this._service = service;
   }
 
+  getSingleFileLanguageService() {
+    return this._service;
+  }
+
   getDiagnostics(fileVersion) {
     var _this = this;
 

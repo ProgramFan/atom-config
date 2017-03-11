@@ -57,4 +57,3 @@ function createServiceConfigObject(basedir, jsonConfig) {
     };
   });
 }
-module.exports = exports['default'];

@@ -68,4 +68,3 @@ class Hasher {
   }
 }
 exports.default = Hasher;
-module.exports = exports['default'];

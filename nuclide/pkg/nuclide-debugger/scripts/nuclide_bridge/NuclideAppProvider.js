@@ -106,4 +106,3 @@ class NuclideAppProvider extends (_WebInspector || _load_WebInspector()).default
   }
 }
 exports.default = NuclideAppProvider;
-module.exports = exports['default'];

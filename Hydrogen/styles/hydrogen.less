@@ -77,8 +77,7 @@
         .bubble-output-container {
             border-radius: 3px 0 0 3px;
             padding: 3px;
-            padding-right: 7px;
-            overflow: overlay;
+            overflow: auto;
         }
 
         .rich-close-button::before {
@@ -137,10 +136,6 @@
 
         video, img, svg {
             display: block;
-            max-height: 500px !important;
-            max-width: 100% !important;
-            width: unset !important;
-            height: unset !important;
         }
 
         td, th {
@@ -398,8 +393,9 @@
             }
 
             video, img, svg {
-                height: 100%;
-                width: 100%;
+                width: unset !important;
+                height: unset !important;
+                max-width: 100% !important;
                 max-height: 350px !important;
             }
         }

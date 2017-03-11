@@ -137,12 +137,6 @@ class Toolbar extends _reactForAtom.React.Component {
     }
 
     return state.tasks.filter(task => task.hidden !== true).map(task => {
-      const taskAction = () => {
-        if (this.props.taskIsRunning) {
-          this.props.stopRunningTask();
-        }
-        this.props.runTask(Object.assign({}, task, { taskRunner: activeTaskRunner }));
-      };
       return _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
         className: 'nuclide-task-button',
         key: task.type,
@@ -150,7 +144,7 @@ class Toolbar extends _reactForAtom.React.Component {
         icon: task.icon,
         tooltip: tooltip(task.label),
         disabled: task.disabled || this.props.runningTaskIsCancelable === false,
-        onClick: taskAction
+        onClick: () => this.props.runTask(Object.assign({}, task, { taskRunner: activeTaskRunner }))
       });
     });
   }

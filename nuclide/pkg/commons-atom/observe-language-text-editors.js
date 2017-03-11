@@ -104,4 +104,3 @@ function observeLanguageTextEditors(grammarScopes, fn, cleanupFn) {
   subscriptions.add(listener.observeLanguageTextEditors(fn, cleanupFn || (() => {})));
   return subscriptions;
 }
-module.exports = exports['default'];

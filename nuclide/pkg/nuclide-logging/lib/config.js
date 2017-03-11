@@ -76,6 +76,8 @@ let getDefaultConfig = exports.getDefaultConfig = (() => {
 })();
 
 exports.getPathToLogFile = getPathToLogFile;
+exports.addAdditionalLogFile = addAdditionalLogFile;
+exports.getAdditionalLogFiles = getAdditionalLogFiles;
 
 var _ScribeProcess;
 
@@ -121,6 +123,8 @@ const LOG_FILE_PATH = exports.LOG_FILE_PATH = (_nuclideUri || _load_nuclideUri()
 let logDirectoryInitialized = false;
 const scribeAppenderPath = (_nuclideUri || _load_nuclideUri()).default.join(__dirname, '../fb/scribeAppender.js');
 
+const additionalLogFiles = [];
+
 const MAX_LOG_SIZE = 1024 * 1024;
 const MAX_LOG_BACKUPS = 10;
 
@@ -140,3 +144,19 @@ const FileAppender = exports.FileAppender = {
     pattern: `%d{ISO8601} %p (pid:${process.pid}) %c - %m`
   }
 };
+
+function addAdditionalLogFile(title, filename) {
+  const filePath = (_nuclideUri || _load_nuclideUri()).default.join(LOG_DIRECTORY, filename);
+  const logFile = {
+    title,
+    filename: filePath
+  };
+
+  if (additionalLogFiles.filter(entry => entry.filename === filename && entry.title === title).length === 0) {
+    additionalLogFiles.push(logFile);
+  }
+}
+
+function getAdditionalLogFiles() {
+  return additionalLogFiles;
+}

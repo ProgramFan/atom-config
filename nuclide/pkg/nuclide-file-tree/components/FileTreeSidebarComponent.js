@@ -217,6 +217,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
     // Delegate focus to the FileTree component if this component gains focus because the FileTree
     // matches the selectors targeted by themes to show the containing panel has focus.
     if (event.target === _reactForAtom.ReactDOM.findDOMNode(this)) {
+      // $FlowFixMe
       _reactForAtom.ReactDOM.findDOMNode(this.refs.fileTree).focus();
     }
   }
@@ -383,6 +384,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
     if (el == null) {
       return;
     }
+    // $FlowFixMe
     this.setState({ scrollerHeight: el.clientHeight });
   }
 
@@ -392,6 +394,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
     }
     this._scrollWasTriggeredProgrammatically = false;
     const node = _reactForAtom.ReactDOM.findDOMNode(this.refs.scroller);
+    // $FlowFixMe
     const { scrollTop } = node;
     if (scrollTop !== this.state.scrollerScrollTop) {
       this.setState({ scrollerScrollTop: scrollTop });
@@ -414,6 +417,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
       try {
         // For the rather unlikely chance that the node is already gone from the DOM
         this._scrollWasTriggeredProgrammatically = true;
+        // $FlowFixMe
         node.scrollTop = newTop;
         this.setState({ scrollerScrollTop: newTop });
       } catch (e) {}
@@ -433,6 +437,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
     if (el == null) {
       return;
     }
+    // $FlowFixMe
     el.focus();
   }
 
@@ -523,4 +528,3 @@ function showMenuForEvent(event, menuTemplate) {
   atom.contextMenu.showForEvent(event);
   return new (_UniversalDisposable || _load_UniversalDisposable()).default(restore);
 }
-module.exports = exports['default'];

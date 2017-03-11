@@ -45,5 +45,3 @@ exports.default = ConsoleHandler; /**
                                    *
                                    * 
                                    */
-
-module.exports = exports['default'];

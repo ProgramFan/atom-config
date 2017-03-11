@@ -5790,6 +5790,22 @@ Object.defineProperty(module.exports, "defs", {
             }
           },
           optional: true
+        }, {
+          location: {
+            type: "source",
+            fileName: "LanguageService.js",
+            line: 45
+          },
+          name: "extraData",
+          type: {
+            location: {
+              type: "source",
+              fileName: "LanguageService.js",
+              line: 45
+            },
+            kind: "mixed"
+          },
+          optional: true
         }]
       }
     },

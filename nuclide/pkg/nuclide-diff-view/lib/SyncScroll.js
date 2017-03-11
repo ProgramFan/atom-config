@@ -60,5 +60,3 @@ exports.default = SyncScroll; /**
                                *
                                * 
                                */
-
-module.exports = exports['default'];

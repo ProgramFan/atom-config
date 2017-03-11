@@ -12,24 +12,23 @@ function _load_simpleTextBuffer() {
   return _simpleTextBuffer = require('simple-text-buffer');
 }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+var _config;
+
+function _load_config() {
+  return _config = require('./config');
+}
 
 function getStopFlowOnExit() {
-  // $UPFixMe: This should use nuclide-features-config
-  // Does not currently do so because this is an npm module that may run on the server.
-  if (global.atom) {
-    return global.atom.config.get('nuclide.nuclide-flow.stopFlowOnExit');
-  }
-  return true;
-}
+  return Boolean((0, (_config || _load_config()).getConfig)('stopFlowOnExit'));
+} /**
+   * Copyright (c) 2015-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the license found in the LICENSE file in
+   * the root directory of this source tree.
+   *
+   * 
+   */
 
 function flowCoordsToAtomCoords(flowCoords) {
   return new (_simpleTextBuffer || _load_simpleTextBuffer()).Range([flowCoords.start.line - 1, flowCoords.start.column - 1], [flowCoords.end.line - 1,

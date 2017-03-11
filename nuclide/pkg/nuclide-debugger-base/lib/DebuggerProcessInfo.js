@@ -33,6 +33,10 @@ class DebuggerProcessInfo {
     return this._targetUri;
   }
 
+  getThreadsComponentTitle() {
+    return 'Threads';
+  }
+
   getThreadColumns() {
     // Use the debugger view's default columns.
     return null;
@@ -62,6 +66,7 @@ class DebuggerProcessInfo {
       throw new Error('abstract method');
     })();
   }
+
+  dispose() {}
 }
 exports.default = DebuggerProcessInfo;
-module.exports = exports['default'];

@@ -68,4 +68,3 @@ class OutputTable extends _reactForAtom.React.Component {
   }
 }
 exports.default = OutputTable;
-module.exports = exports['default'];

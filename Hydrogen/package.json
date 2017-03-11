@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117120-7018-24hcgz/package.tgz",
+        "raw": "/tmp/d-117211-7034-1bkcyy6/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117120-7018-24hcgz/package.tgz",
-        "spec": "/tmp/d-117120-7018-24hcgz/package.tgz",
+        "rawSpec": "/tmp/d-117211-7034-1bkcyy6/package.tgz",
+        "spec": "/tmp/d-117211-7034-1bkcyy6/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117120-7018-qjp5im"
+      "/tmp/apm-install-dir-117211-7034-16j0cra"
     ]
   ],
-  "_from": "../d-117120-7018-24hcgz/package.tgz",
-  "_id": "Hydrogen@1.5.5",
+  "_from": "../d-117211-7034-1bkcyy6/package.tgz",
+  "_id": "Hydrogen@1.6.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/Hydrogen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117120-7018-24hcgz/package.tgz",
+    "raw": "/tmp/d-117211-7034-1bkcyy6/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117120-7018-24hcgz/package.tgz",
-    "spec": "/tmp/d-117120-7018-24hcgz/package.tgz",
+    "rawSpec": "/tmp/d-117211-7034-1bkcyy6/package.tgz",
+    "spec": "/tmp/d-117211-7034-1bkcyy6/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117120-7018-24hcgz/package.tgz",
-  "_shasum": "a71bafb411240c5f0f750b15bbc6607ad8e4f61f",
+  "_resolved": "file:../d-117211-7034-1bkcyy6/package.tgz",
+  "_shasum": "fcc6379c299018f1bba7894aecb5819a2253727d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117120-7018-24hcgz/package.tgz",
-  "_where": "/tmp/apm-install-dir-117120-7018-qjp5im",
+  "_spec": "/tmp/d-117211-7034-1bkcyy6/package.tgz",
+  "_where": "/tmp/apm-install-dir-117211-7034-16j0cra",
   "activationCommands": {
     "atom-text-editor": [
       "hydrogen:select-kernel",
@@ -63,7 +63,7 @@
     }
   },
   "dependencies": {
-    "@jupyterlab/services": "^0.36.0",
+    "@jupyterlab/services": "^0.39.0",
     "atom-message-panel": "^1.2.4",
     "atom-space-pen-views": "^2.0.5",
     "escape-string-regexp": "^1.0.5",
@@ -129,5 +129,5 @@
     "fix": "eslint . --fix",
     "lint": "eslint ."
   },
-  "version": "1.5.5"
+  "version": "1.6.0"
 }

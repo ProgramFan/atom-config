@@ -76,5 +76,3 @@ exports.default = (() => {
 
   return runCommand;
 })();
-
-module.exports = exports['default'];

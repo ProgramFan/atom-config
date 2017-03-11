@@ -50,38 +50,39 @@ function _load_featureConfig() {
   return _featureConfig = _interopRequireDefault(require('../../commons-atom/featureConfig'));
 }
 
-var _FlowServiceFactory;
+var _nuclideRemoteConnection;
 
-function _load_FlowServiceFactory() {
-  return _FlowServiceFactory = require('./FlowServiceFactory');
+function _load_nuclideRemoteConnection() {
+  return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
 }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-const WARN_NOT_INSTALLED_CONFIG = 'nuclide-flow.warnOnNotInstalled';
+const WARN_NOT_INSTALLED_CONFIG = 'nuclide-flow.warnOnNotInstalled'; /**
+                                                                      * Copyright (c) 2015-present, Facebook, Inc.
+                                                                      * All rights reserved.
+                                                                      *
+                                                                      * This source code is licensed under the license found in the LICENSE file in
+                                                                      * the root directory of this source tree.
+                                                                      *
+                                                                      * 
+                                                                      */
 
 class FlowServiceWatcher {
 
-  constructor() {
+  constructor(connectionCache) {
     this._subscription = new _rxjsBundlesRxMinJs.Subscription();
 
-    const serverStatusUpdates = (0, (_FlowServiceFactory || _load_FlowServiceFactory()).getServerStatusUpdates)();
+    const flowLanguageServices = connectionCache.observeValues().mergeMap(p => _rxjsBundlesRxMinJs.Observable.fromPromise(p));
+    const serverStatusUpdates = flowLanguageServices.mergeMap(ls => {
+      return ls.getServerStatusUpdates().refCount();
+    }).share();
 
     this._subscription.add(serverStatusUpdates.filter(({ status }) => status === 'failed').subscribe(({ pathToRoot }) => {
       handleFailure(pathToRoot);
     }));
 
-    this._subscription.add(serverStatusUpdates.filter(({ status }) => status === 'not installed').first().subscribe(({ pathToRoot }) => {
+    this._subscription.add(serverStatusUpdates.filter(({ status }) => status === 'not installed').take(1).subscribe(({ pathToRoot }) => {
       handleNotInstalled(pathToRoot);
     }));
   }

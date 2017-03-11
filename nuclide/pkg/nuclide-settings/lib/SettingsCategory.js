@@ -97,4 +97,3 @@ function getSortedSettingsArray(settings, pkgName) {
   settingsArray.sort().sort((a, b) => settings[a].order - settings[b].order);
   return settingsArray;
 }
-module.exports = exports['default'];

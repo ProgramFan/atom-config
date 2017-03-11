@@ -150,4 +150,3 @@ class ChangedFilesList extends _reactForAtom.React.Component {
   }
 }
 exports.default = ChangedFilesList;
-module.exports = exports['default'];

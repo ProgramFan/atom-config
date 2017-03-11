@@ -94,4 +94,3 @@ Tabs.defaultProps = {
   closeable: false,
   triggeringEvent: 'onClick'
 };
-module.exports = exports['default'];
