@@ -507,12 +507,13 @@ class NuclideBridge {
   }
 
   _getIPCBreakpointFromEvent(event) {
-    const { breakpoint, uiLocation } = event.data;
+    const { breakpoint, uiLocation, resolved } = event.data;
     return {
       sourceURL: uiLocation.uiSourceCode.uri(),
       lineNumber: uiLocation.lineNumber,
       condition: breakpoint.condition(),
-      enabled: breakpoint.enabled()
+      enabled: breakpoint.enabled(),
+      resolved: resolved || false
     };
   }
 

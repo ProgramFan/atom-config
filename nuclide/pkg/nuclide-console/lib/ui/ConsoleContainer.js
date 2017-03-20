@@ -47,7 +47,7 @@ function _load_escapeStringRegexp() {
   return _escapeStringRegexp = _interopRequireDefault(require('escape-string-regexp'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
@@ -68,7 +68,7 @@ const WORKSPACE_VIEW_URI = exports.WORKSPACE_VIEW_URI = 'atom://nuclide/console'
  * 
  */
 
-class ConsoleContainer extends _reactForAtom.React.Component {
+class ConsoleContainer extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -147,7 +147,7 @@ class ConsoleContainer extends _reactForAtom.React.Component {
   }
 
   copy() {
-    return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_reactForAtom.React.createElement(ConsoleContainer, {
+    return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_react.default.createElement(ConsoleContainer, {
       store: this.props.store,
       initialFilterText: this.state.filterText,
       initialEnableRegExpFilter: this.state.enableRegExpFilter,
@@ -175,7 +175,7 @@ class ConsoleContainer extends _reactForAtom.React.Component {
 
   render() {
     if (!this.state.ready) {
-      return _reactForAtom.React.createElement('span', null);
+      return _react.default.createElement('span', null);
     }
 
     const actionCreators = this._getBoundActionCreators();
@@ -187,7 +187,7 @@ class ConsoleContainer extends _reactForAtom.React.Component {
     const records = filterRecords(this.state.records, selectedSourceIds, pattern, this.state.sources.length !== selectedSourceIds.length);
 
     // TODO(matthewwithanm): serialize and restore `initialSelectedSourceId`
-    return _reactForAtom.React.createElement((_Console || _load_Console()).default, {
+    return _react.default.createElement((_Console || _load_Console()).default, {
       invalidFilterInput: !isValid,
       execute: actionCreators.execute,
       selectExecutor: actionCreators.selectExecutor,

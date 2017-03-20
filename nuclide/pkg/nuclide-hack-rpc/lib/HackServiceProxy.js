@@ -5,26 +5,16 @@ let Observable;
 module.exports = _client => {
   const remoteModule = {};
 
-  remoteModule.initialize = function (arg0, arg1, arg2, arg3) {
+  remoteModule.initialize = function (arg0, arg1, arg2) {
     return _client.marshalArguments(Array.from(arguments), [{
       name: "hackCommand",
       type: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 104
+          line: 91
         },
         kind: "string"
-      }
-    }, {
-      name: "useIdeConnection",
-      type: {
-        location: {
-          type: "source",
-          fileName: "HackService.js",
-          line: 105
-        },
-        kind: "boolean"
       }
     }, {
       name: "logLevel",
@@ -32,7 +22,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 106
+          line: 92
         },
         kind: "named",
         name: "LogLevel"
@@ -43,7 +33,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 107
+          line: 93
         },
         kind: "named",
         name: "FileNotifier"
@@ -55,7 +45,7 @@ module.exports = _client => {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 108
+          line: 94
         },
         kind: "named",
         name: "HackLanguageService"
@@ -1911,21 +1901,21 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 85
+        line: 75
       },
       name: "SymbolTypeValue",
       definition: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 85
+          line: 75
         },
         kind: "union",
         types: [{
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 85
+            line: 75
           },
           kind: "number-literal",
           value: 0
@@ -1933,7 +1923,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 85
+            line: 75
           },
           kind: "number-literal",
           value: 1
@@ -1941,7 +1931,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 85
+            line: 75
           },
           kind: "number-literal",
           value: 2
@@ -1949,7 +1939,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 85
+            line: 75
           },
           kind: "number-literal",
           value: 3
@@ -1957,7 +1947,7 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 85
+            line: 75
           },
           kind: "number-literal",
           value: 4
@@ -1969,35 +1959,35 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 87
+        line: 77
       },
       name: "HackTypeAtPosResult",
       definition: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 87
+          line: 77
         },
         kind: "object",
         fields: [{
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 88
+            line: 78
           },
           name: "type",
           type: {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 88
+              line: 78
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "HackService.js",
-                line: 88
+                line: 78
               },
               kind: "string"
             }
@@ -2007,21 +1997,21 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 89
+            line: 79
           },
           name: "pos",
           type: {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 89
+              line: 79
             },
             kind: "nullable",
             type: {
               location: {
                 type: "source",
                 fileName: "HackService.js",
-                line: 89
+                line: 79
               },
               kind: "named",
               name: "HackRange"
@@ -2036,21 +2026,21 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 92
+        line: 82
       },
       name: "HackHighlightRefsResult",
       definition: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 92
+          line: 82
         },
         kind: "array",
         type: {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 92
+            line: 82
           },
           kind: "named",
           name: "HackRange"
@@ -2062,28 +2052,28 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 94
+        line: 84
       },
       name: "HackFormatSourceResult",
       definition: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 94
+          line: 84
         },
         kind: "object",
         fields: [{
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 95
+            line: 85
           },
           name: "error_message",
           type: {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 95
+              line: 85
             },
             kind: "string"
           },
@@ -2092,14 +2082,14 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 96
+            line: 86
           },
           name: "result",
           type: {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 96
+              line: 86
             },
             kind: "string"
           },
@@ -2108,14 +2098,14 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 97
+            line: 87
           },
           name: "internal_error",
           type: {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 97
+              line: 87
             },
             kind: "boolean"
           },
@@ -2129,13 +2119,13 @@ Object.defineProperty(module.exports, "defs", {
       location: {
         type: "source",
         fileName: "HackService.js",
-        line: 103
+        line: 90
       },
       type: {
         location: {
           type: "source",
           fileName: "HackService.js",
-          line: 103
+          line: 90
         },
         kind: "function",
         argumentTypes: [{
@@ -2144,19 +2134,9 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 104
+              line: 91
             },
             kind: "string"
-          }
-        }, {
-          name: "useIdeConnection",
-          type: {
-            location: {
-              type: "source",
-              fileName: "HackService.js",
-              line: 105
-            },
-            kind: "boolean"
           }
         }, {
           name: "logLevel",
@@ -2164,7 +2144,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 106
+              line: 92
             },
             kind: "named",
             name: "LogLevel"
@@ -2175,7 +2155,7 @@ Object.defineProperty(module.exports, "defs", {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 107
+              line: 93
             },
             kind: "named",
             name: "FileNotifier"
@@ -2185,14 +2165,14 @@ Object.defineProperty(module.exports, "defs", {
           location: {
             type: "source",
             fileName: "HackService.js",
-            line: 108
+            line: 94
           },
           kind: "promise",
           type: {
             location: {
               type: "source",
               fileName: "HackService.js",
-              line: 108
+              line: 94
             },
             kind: "named",
             name: "HackLanguageService"

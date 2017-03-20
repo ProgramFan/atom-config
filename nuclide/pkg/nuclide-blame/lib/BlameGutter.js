@@ -28,7 +28,9 @@ function _load_nuclideVcsLog() {
   return _nuclideVcsLog = require('../../nuclide-vcs-log');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _classnames;
 
@@ -38,7 +40,6 @@ function _load_classnames() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const BLAME_DECORATION_CLASS = 'blame-decoration';
 // eslint-disable-next-line nuclide-internal/no-cross-atom-imports
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
@@ -49,6 +50,8 @@ const BLAME_DECORATION_CLASS = 'blame-decoration';
  *
  * 
  */
+
+const BLAME_DECORATION_CLASS = 'blame-decoration';
 
 let Avatar;
 try {
@@ -244,7 +247,7 @@ class BlameGutter {
       decoration = this._editor.decorateMarker(marker, decorationProperties);
       this._bufferLineToDecoration.set(bufferLine, decoration);
     } else {
-      _reactForAtom.ReactDOM.unmountComponentAtNode(decoration.getProperties().item);
+      _reactDom.default.unmountComponentAtNode(decoration.getProperties().item);
       decoration.setProperties(decorationProperties);
     }
   }
@@ -254,7 +257,7 @@ class BlameGutter {
     if (!blameDecoration) {
       return;
     }
-    _reactForAtom.ReactDOM.unmountComponentAtNode(blameDecoration.getProperties().item);
+    _reactDom.default.unmountComponentAtNode(blameDecoration.getProperties().item);
     // The recommended way of destroying a decoration is by destroying its marker.
     blameDecoration.getMarker().destroy();
     this._bufferLineToDecoration.delete(bufferLine);
@@ -267,7 +270,7 @@ class BlameGutter {
       this._onClick(blameInfo);
     });
 
-    _reactForAtom.ReactDOM.render(_reactForAtom.React.createElement(GutterElement, {
+    _reactDom.default.render(_react.default.createElement(GutterElement, {
       revision: blameInfo,
       isFirstLine: isFirstLine,
       isLastLine: isLastLine,
@@ -281,7 +284,7 @@ class BlameGutter {
 exports.default = BlameGutter;
 
 
-class GutterElement extends _reactForAtom.React.Component {
+class GutterElement extends _react.default.Component {
 
   render() {
     const { oldest, newest, revision, isLastLine, isFirstLine } = this.props;
@@ -298,37 +301,37 @@ class GutterElement extends _reactForAtom.React.Component {
         placement: 'right'
       };
 
-      return _reactForAtom.React.createElement(
+      return _react.default.createElement(
         'div',
         {
           className: 'nuclide-blame-row nuclide-blame-content',
           ref: (0, (_addTooltip || _load_addTooltip()).default)(tooltip) },
-        !isLastLine ? _reactForAtom.React.createElement('div', {
+        !isLastLine ? _react.default.createElement('div', {
           className: 'nuclide-blame-vertical-bar nuclide-blame-vertical-bar-first'
         }) : null,
-        Avatar ? _reactForAtom.React.createElement(Avatar, {
+        Avatar ? _react.default.createElement(Avatar, {
           size: 16,
           unixname: unixname
         }) : unixname + ': ',
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'span',
           null,
           revision.title
         ),
-        _reactForAtom.React.createElement('div', { style: { opacity }, className: 'nuclide-blame-border-age' })
+        _react.default.createElement('div', { style: { opacity }, className: 'nuclide-blame-border-age' })
       );
     }
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-blame-row' },
-      _reactForAtom.React.createElement('div', {
+      _react.default.createElement('div', {
         className: (0, (_classnames || _load_classnames()).default)('nuclide-blame-vertical-bar', {
           'nuclide-blame-vertical-bar-last': isLastLine,
           'nuclide-blame-vertical-bar-middle': !isLastLine
         })
       }),
-      _reactForAtom.React.createElement('div', { style: { opacity }, className: 'nuclide-blame-border-age' })
+      _react.default.createElement('div', { style: { opacity }, className: 'nuclide-blame-border-age' })
     );
   }
 }

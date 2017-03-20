@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _Checkbox;
 
@@ -40,7 +42,17 @@ function _load_constants() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class CreateBookmarkModal extends _reactForAtom.React.Component {
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
+class CreateBookmarkModal extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -52,7 +64,7 @@ class CreateBookmarkModal extends _reactForAtom.React.Component {
   componentDidMount() {
     this.disposables.add(
     // $FlowFixMe
-    atom.commands.add(_reactForAtom.ReactDOM.findDOMNode(this), 'core:confirm', this._handleCreateClick), (_featureConfig || _load_featureConfig()).default.observe((_constants || _load_constants()).STACKED_CONFIG_KEY, () => this.forceUpdate()));
+    atom.commands.add(_reactDom.default.findDOMNode(this), 'core:confirm', this._handleCreateClick), (_featureConfig || _load_featureConfig()).default.observe((_constants || _load_constants()).STACKED_CONFIG_KEY, () => this.forceUpdate()));
     this.refs.atomTextEditor.focus();
   }
 
@@ -65,41 +77,41 @@ class CreateBookmarkModal extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       null,
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'h6',
         { style: { marginTop: 0 } },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'strong',
           null,
           'Create bookmark'
         )
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'label',
         null,
         'Bookmark name:'
       ),
-      _reactForAtom.React.createElement('atom-text-editor', { mini: true, ref: 'atomTextEditor', tabIndex: '0' }),
-      _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+      _react.default.createElement('atom-text-editor', { mini: true, ref: 'atomTextEditor', tabIndex: '0' }),
+      _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         label: 'Stack the feature on top of the current one',
         checked: (_featureConfig || _load_featureConfig()).default.get((_constants || _load_constants()).STACKED_CONFIG_KEY),
         onChange: stacked => (_featureConfig || _load_featureConfig()).default.set((_constants || _load_constants()).STACKED_CONFIG_KEY, stacked)
       }),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'text-right' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
           { size: (_ButtonGroup || _load_ButtonGroup()).ButtonGroupSizes.SMALL },
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             { onClick: this.props.onCancel },
             'Cancel'
           ),
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             {
               buttonType: (_Button || _load_Button()).ButtonTypes.PRIMARY,
@@ -111,12 +123,4 @@ class CreateBookmarkModal extends _reactForAtom.React.Component {
     );
   }
 }
-exports.default = CreateBookmarkModal; /**
-                                        * Copyright (c) 2015-present, Facebook, Inc.
-                                        * All rights reserved.
-                                        *
-                                        * This source code is licensed under the license found in the LICENSE file in
-                                        * the root directory of this source tree.
-                                        *
-                                        * 
-                                        */
+exports.default = CreateBookmarkModal;

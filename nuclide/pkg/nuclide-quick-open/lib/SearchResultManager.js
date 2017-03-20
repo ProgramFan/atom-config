@@ -19,7 +19,7 @@ function _load_nuclideLogging() {
   return _nuclideLogging = require('../../nuclide-logging');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _atom = require('atom');
 

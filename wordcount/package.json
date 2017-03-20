@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117211-6753-11mhoqf/package.tgz",
+        "raw": "/tmp/d-117220-6778-1w6u1gz/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117211-6753-11mhoqf/package.tgz",
-        "spec": "/tmp/d-117211-6753-11mhoqf/package.tgz",
+        "rawSpec": "/tmp/d-117220-6778-1w6u1gz/package.tgz",
+        "spec": "/tmp/d-117220-6778-1w6u1gz/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117211-6753-13fxuhl"
+      "/tmp/apm-install-dir-117220-6778-1gw6uua"
     ]
   ],
-  "_from": "../d-117211-6753-11mhoqf/package.tgz",
+  "_from": "../d-117220-6778-1w6u1gz/package.tgz",
   "_id": "wordcount@2.10.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/wordcount",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117211-6753-11mhoqf/package.tgz",
+    "raw": "/tmp/d-117220-6778-1w6u1gz/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117211-6753-11mhoqf/package.tgz",
-    "spec": "/tmp/d-117211-6753-11mhoqf/package.tgz",
+    "rawSpec": "/tmp/d-117220-6778-1w6u1gz/package.tgz",
+    "spec": "/tmp/d-117220-6778-1w6u1gz/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-6753-11mhoqf/package.tgz",
+  "_resolved": "file:../d-117220-6778-1w6u1gz/package.tgz",
   "_shasum": "ffb2505806c0b1429a012913097c5d77d2a1ea1a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117211-6753-11mhoqf/package.tgz",
-  "_where": "/tmp/apm-install-dir-117211-6753-13fxuhl",
+  "_spec": "/tmp/d-117220-6778-1w6u1gz/package.tgz",
+  "_where": "/tmp/apm-install-dir-117220-6778-1gw6uua",
   "bugs": {
     "url": "https://github.com/nesQuick/atom-wordcount/issues"
   },

@@ -123,7 +123,7 @@ function getEventsFromProcess(processStream) {
           return {
             type: 'log',
             message: logMessage,
-            level: 'success'
+            level: 'info'
           };
         }
         return {
@@ -159,12 +159,10 @@ function combineEventStreams(subcommand, socketEvents, processEvents) {
   // Despite the docs, takeUntil doesn't respond to completion.
   .concat(_rxjsBundlesRxMinJs.Observable.of(null))).share();
   let mergedEvents = _rxjsBundlesRxMinJs.Observable.merge(finiteSocketEvents,
-
   // Take all process output until the first socket message.
   // There's a slight risk of output duplication if the socket message is late,
   // but this is pretty rare.
   processEvents.takeUntil(finiteSocketEvents).takeWhile(isRegularLogMessage),
-
   // Error/info logs from the process represent exit/error conditions, so always take them.
   // We ensure that error/info logs will not duplicate messages from the websocket.
   processEvents.skipWhile(isRegularLogMessage));

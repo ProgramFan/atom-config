@@ -46,7 +46,7 @@ function _load_constants() {
   return _constants = require('./constants');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _Button;
 
@@ -86,14 +86,14 @@ function _load_featureConfig() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class DiffRevisionView extends _reactForAtom.React.Component {
+class DiffRevisionView extends _react.default.Component {
 
   render() {
     const { commitMessage } = this.props;
     const commitTitle = commitMessage.split(/\n/)[0];
     const revision = (0, (_utils || _load_utils()).getPhabricatorRevisionFromCommitMessage)(commitMessage);
 
-    return revision == null ? _reactForAtom.React.createElement('span', null) : _reactForAtom.React.createElement(
+    return revision == null ? _react.default.createElement('span', null) : _react.default.createElement(
       'a',
       { href: revision.url, title: commitTitle },
       revision.name
@@ -109,7 +109,7 @@ class DiffRevisionView extends _reactForAtom.React.Component {
    * 
    */
 
-class DiffPublishView extends _reactForAtom.React.Component {
+class DiffPublishView extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -151,7 +151,7 @@ class DiffPublishView extends _reactForAtom.React.Component {
   __getStatusEditor() {
     const { publishModeState } = this.props;
     const isBusy = publishModeState === (_constants || _load_constants()).PublishModeState.LOADING_PUBLISH_MESSAGE || publishModeState === (_constants || _load_constants()).PublishModeState.AWAITING_PUBLISH;
-    return _reactForAtom.React.createElement((_AtomTextEditor || _load_AtomTextEditor()).AtomTextEditor, {
+    return _react.default.createElement((_AtomTextEditor || _load_AtomTextEditor()).AtomTextEditor, {
       grammar: atom.grammars.grammarForScopeName('source.fb-arcanist-editor'),
       ref: 'message',
       softWrapped: true,
@@ -173,7 +173,7 @@ class DiffPublishView extends _reactForAtom.React.Component {
     } = this.props;
     let revisionView;
     if (headCommitMessage != null) {
-      revisionView = _reactForAtom.React.createElement(DiffRevisionView, { commitMessage: headCommitMessage });
+      revisionView = _react.default.createElement(DiffRevisionView, { commitMessage: headCommitMessage });
     }
     let isBusy;
     let publishMessage;
@@ -202,7 +202,7 @@ class DiffPublishView extends _reactForAtom.React.Component {
         throw new Error('Invalid publish mode!');
     }
 
-    const publishButton = _reactForAtom.React.createElement(
+    const publishButton = _react.default.createElement(
       (_Button || _load_Button()).Button,
       {
         className: (0, (_classnames || _load_classnames()).default)({ 'btn-progress': isBusy }),
@@ -213,13 +213,13 @@ class DiffPublishView extends _reactForAtom.React.Component {
       publishMessage
     );
 
-    const toggleDockButton = _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+    const toggleDockButton = _react.default.createElement((_Button || _load_Button()).Button, {
       icon: shouldDockPublishView ? 'move-up' : 'move-down',
       onClick: this._toggleDockPublishConfig,
       title: 'Dock or Popup view'
     });
 
-    const backButton = shouldDockPublishView ? _reactForAtom.React.createElement(
+    const backButton = shouldDockPublishView ? _react.default.createElement(
       (_Button || _load_Button()).Button,
       {
         size: (_Button || _load_Button()).ButtonSizes.SMALL,
@@ -229,7 +229,7 @@ class DiffPublishView extends _reactForAtom.React.Component {
 
     let prepareOptionElement;
     if (publishMode === (_constants || _load_constants()).PublishMode.CREATE) {
-      prepareOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+      prepareOptionElement = _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         checked: isPrepareMode,
         className: 'padded',
         label: 'Prepare',
@@ -245,7 +245,7 @@ class DiffPublishView extends _reactForAtom.React.Component {
 
     let verbatimeOptionElement;
     if (publishMode === (_constants || _load_constants()).PublishMode.UPDATE) {
-      verbatimeOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+      verbatimeOptionElement = _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         className: 'padded',
         checked: verbatimModeEnabled,
         label: 'Verbatim',
@@ -258,7 +258,7 @@ class DiffPublishView extends _reactForAtom.React.Component {
       });
     }
 
-    const lintExcuseElement = _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+    const lintExcuseElement = _react.default.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
       className: 'nuclide-diff-view-excuse',
       size: 'sm',
       ref: (0, (_addTooltip || _load_addTooltip()).default)({
@@ -272,13 +272,13 @@ class DiffPublishView extends _reactForAtom.React.Component {
       width: 200
     });
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'publish-toolbar-wrapper' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_Toolbar || _load_Toolbar()).Toolbar,
         { location: 'bottom' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ToolbarLeft || _load_ToolbarLeft()).ToolbarLeft,
           { className: 'nuclide-diff-view-publish-toolbar-left' },
           revisionView,
@@ -286,10 +286,10 @@ class DiffPublishView extends _reactForAtom.React.Component {
           prepareOptionElement,
           lintExcuseElement
         ),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ToolbarRight || _load_ToolbarRight()).ToolbarRight,
           null,
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
             { size: (_ButtonGroup || _load_ButtonGroup()).ButtonGroupSizes.SMALL },
             backButton,
@@ -302,10 +302,10 @@ class DiffPublishView extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-diff-mode' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'message-editor-wrapper' },
         this.__getStatusEditor()

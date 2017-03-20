@@ -16,7 +16,7 @@ function _load_constants() {
   return _constants = require('../constants');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _DiffViewComponent;
 
@@ -44,7 +44,7 @@ function _load_notifications() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
+class DiffViewNavigatorComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -56,21 +56,21 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       (_ResizableFlexContainer || _load_ResizableFlexContainer()).ResizableFlexContainer,
       {
         className: 'nuclide-diff-view-navigator-root',
         direction: (_ResizableFlexContainer || _load_ResizableFlexContainer()).FlexDirections.HORIZONTAL },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_ResizableFlexContainer || _load_ResizableFlexContainer()).ResizableFlexItem,
         { initialFlexScale: 1 },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'div',
           { className: 'nuclide-diff-view-navigator-timeline-container' },
           this._renderNavigationState()
         )
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_ResizableFlexContainer || _load_ResizableFlexContainer()).ResizableFlexItem,
         { initialFlexScale: 0.5 },
         this._renderFileChanges()
@@ -86,27 +86,27 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
 
     let sectionNavigator;
     if (isLoadingFileDiff) {
-      sectionNavigator = _reactForAtom.React.createElement(
+      sectionNavigator = _react.default.createElement(
         'div',
         { className: 'padded' },
         'Loading Changes ...'
       );
     } else if (navigationSections.length === 0) {
-      sectionNavigator = _reactForAtom.React.createElement(
+      sectionNavigator = _react.default.createElement(
         'div',
         { className: 'padded' },
         'No active diff changes'
       );
     } else {
-      sectionNavigator = _reactForAtom.React.createElement(
+      sectionNavigator = _react.default.createElement(
         'div',
         { className: 'padded' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'span',
           null,
           'Changed Sections: '
         ),
-        _reactForAtom.React.createElement((_SectionDirectionNavigator || _load_SectionDirectionNavigator()).default, {
+        _react.default.createElement((_SectionDirectionNavigator || _load_SectionDirectionNavigator()).default, {
           commandTarget: `.${(_constants || _load_constants()).DIFF_EDITOR_MARKER_CLASS}`,
           filePath: filePath,
           navigationSections: navigationSections,
@@ -116,10 +116,10 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
       );
     }
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-diff-view-navigator-file-changes-container' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         null,
         sectionNavigator
@@ -169,14 +169,14 @@ class DiffViewNavigatorComponent extends _reactForAtom.React.Component {
       }
 
       const modalMaxHeight = document.body.clientHeight - 100;
-      return _reactForAtom.React.createElement(
+      return _react.default.createElement(
         'div',
         null,
         (0, (_DiffViewComponent || _load_DiffViewComponent()).renderTimelineView)(diffModel),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_Modal || _load_Modal()).Modal,
           { onDismiss: dismissHandler },
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             'div',
             {
               style: { maxHeight: modalMaxHeight },

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117211-5757-10p580v/package.tgz",
+        "raw": "/tmp/d-117220-5775-9p06ff/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117211-5757-10p580v/package.tgz",
-        "spec": "/tmp/d-117211-5757-10p580v/package.tgz",
+        "rawSpec": "/tmp/d-117220-5775-9p06ff/package.tgz",
+        "spec": "/tmp/d-117220-5775-9p06ff/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117211-5757-kinlmm"
+      "/tmp/apm-install-dir-117220-5775-1l9fr37"
     ]
   ],
-  "_from": "../d-117211-5757-10p580v/package.tgz",
-  "_id": "linter-spell@0.12.6",
+  "_from": "../d-117220-5775-9p06ff/package.tgz",
+  "_id": "linter-spell@0.13.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-spell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117211-5757-10p580v/package.tgz",
+    "raw": "/tmp/d-117220-5775-9p06ff/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117211-5757-10p580v/package.tgz",
-    "spec": "/tmp/d-117211-5757-10p580v/package.tgz",
+    "rawSpec": "/tmp/d-117220-5775-9p06ff/package.tgz",
+    "spec": "/tmp/d-117220-5775-9p06ff/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5757-10p580v/package.tgz",
-  "_shasum": "68b4da600164e0458859b66b21533d9c1629e651",
+  "_resolved": "file:../d-117220-5775-9p06ff/package.tgz",
+  "_shasum": "d14804023175e376e028f02aa94583b841940d9e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117211-5757-10p580v/package.tgz",
-  "_where": "/tmp/apm-install-dir-117211-5757-kinlmm",
+  "_spec": "/tmp/d-117220-5775-9p06ff/package.tgz",
+  "_where": "/tmp/apm-install-dir-117220-5775-1l9fr37",
   "author": {
     "name": "Tarn Burton",
     "email": "twburton@gmail.com"
@@ -109,11 +109,6 @@
         "1.0.0": "consumeDictionary"
       }
     },
-    "linter-plus-self": {
-      "versions": {
-        "0.1.0": "consumeLinter"
-      }
-    },
     "status-bar": {
       "versions": {
         "^1.0.0": "consumeStatusBar"
@@ -121,19 +116,19 @@
     }
   },
   "dependencies": {
-    "atom-package-deps": "^4.0.0",
+    "atom-package-deps": "^4.4.1",
     "atom-space-pen-views": "^2.2.0",
-    "language-tags": "^1.0.0",
+    "language-tags": "^1.0.5",
     "linter-spell-word-list": "^0.4.1",
-    "lodash": "^4.13.0",
-    "natural": "^0.4.0",
+    "lodash": "^4.17.4",
+    "natural": "^0.5.0",
     "os-locale": "^2.0.0"
   },
   "description": "Multilingual grammar-specific spell checking using Ispell-interface such as Aspell or Hunspell.",
   "devDependencies": {
     "jsonfile": "^2.3.0",
     "semver": "^5.3.0",
-    "xml2js": "^0.4.0"
+    "xml2js": "^0.4.17"
   },
   "engines": {
     "atom": ">=1.0.0"
@@ -150,8 +145,7 @@
   "name": "linter-spell",
   "optionalDependencies": {},
   "package-deps": [
-    "linter",
-    "intentions"
+    "linter"
   ],
   "providedServices": {
     "linter-spell-grammar": {
@@ -164,14 +158,9 @@
         "1.0.0": "provideDictionary"
       }
     },
-    "intentions:list": {
-      "versions": {
-        "1.0.0": "provideIntentions"
-      }
-    },
     "linter": {
       "versions": {
-        "1.0.0": "provideLinter"
+        "2.0.0": "provideLinter"
       }
     }
   },
@@ -200,5 +189,5 @@
       "HTMLDivElement"
     ]
   },
-  "version": "0.12.6"
+  "version": "0.13.0"
 }

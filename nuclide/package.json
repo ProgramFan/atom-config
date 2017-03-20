@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117211-7632-1xyknu7/package.tgz",
+        "raw": "/tmp/d-117220-7660-1hingbl/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117211-7632-1xyknu7/package.tgz",
-        "spec": "/tmp/d-117211-7632-1xyknu7/package.tgz",
+        "rawSpec": "/tmp/d-117220-7660-1hingbl/package.tgz",
+        "spec": "/tmp/d-117220-7660-1hingbl/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117211-7632-nbnbfw"
+      "/tmp/apm-install-dir-117220-7660-wrc5pe"
     ]
   ],
-  "_from": "../d-117211-7632-1xyknu7/package.tgz",
-  "_id": "nuclide@0.209.0",
+  "_from": "../d-117220-7660-1hingbl/package.tgz",
+  "_id": "nuclide@0.210.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/nuclide",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117211-7632-1xyknu7/package.tgz",
+    "raw": "/tmp/d-117220-7660-1hingbl/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117211-7632-1xyknu7/package.tgz",
-    "spec": "/tmp/d-117211-7632-1xyknu7/package.tgz",
+    "rawSpec": "/tmp/d-117220-7660-1hingbl/package.tgz",
+    "spec": "/tmp/d-117220-7660-1hingbl/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-7632-1xyknu7/package.tgz",
-  "_shasum": "31e23d596a033b2f4b73e2f2fe28145c3ea77d30",
+  "_resolved": "file:../d-117220-7660-1hingbl/package.tgz",
+  "_shasum": "51c47a176f871ad7e064b4121f257f29582b33ed",
   "_shrinkwrap": {
     "name": "nuclide",
-    "version": "0.209.0",
+    "version": "0.210.0",
     "dependencies": {
       "adm-zip": {
         "version": "0.4.7",
@@ -934,9 +934,9 @@
         "resolved": "https://registry.npmjs.org/punycode/-/punycode-1.4.1.tgz"
       },
       "qs": {
-        "version": "6.3.1",
+        "version": "6.3.2",
         "from": "qs@>=6.3.0 <6.4.0",
-        "resolved": "https://registry.npmjs.org/qs/-/qs-6.3.1.tgz"
+        "resolved": "https://registry.npmjs.org/qs/-/qs-6.3.2.tgz"
       },
       "random-seed": {
         "version": "0.2.0",
@@ -948,51 +948,6 @@
         "from": "react@15.3.1",
         "resolved": "https://registry.npmjs.org/react/-/react-15.3.1.tgz"
       },
-      "react-addons-create-fragment": {
-        "version": "15.3.1",
-        "from": "react-addons-create-fragment@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-create-fragment/-/react-addons-create-fragment-15.3.1.tgz"
-      },
-      "react-addons-css-transition-group": {
-        "version": "15.3.1",
-        "from": "react-addons-css-transition-group@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-15.3.1.tgz"
-      },
-      "react-addons-linked-state-mixin": {
-        "version": "15.3.1",
-        "from": "react-addons-linked-state-mixin@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-linked-state-mixin/-/react-addons-linked-state-mixin-15.3.1.tgz"
-      },
-      "react-addons-perf": {
-        "version": "15.3.1",
-        "from": "react-addons-perf@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-perf/-/react-addons-perf-15.3.1.tgz"
-      },
-      "react-addons-pure-render-mixin": {
-        "version": "15.3.1",
-        "from": "react-addons-pure-render-mixin@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-pure-render-mixin/-/react-addons-pure-render-mixin-15.3.1.tgz"
-      },
-      "react-addons-shallow-compare": {
-        "version": "15.3.1",
-        "from": "react-addons-shallow-compare@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-shallow-compare/-/react-addons-shallow-compare-15.3.1.tgz"
-      },
-      "react-addons-test-utils": {
-        "version": "15.3.1",
-        "from": "react-addons-test-utils@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-test-utils/-/react-addons-test-utils-15.3.1.tgz"
-      },
-      "react-addons-transition-group": {
-        "version": "15.3.1",
-        "from": "react-addons-transition-group@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-transition-group/-/react-addons-transition-group-15.3.1.tgz"
-      },
-      "react-addons-update": {
-        "version": "15.3.1",
-        "from": "react-addons-update@15.3.1",
-        "resolved": "https://registry.npmjs.org/react-addons-update/-/react-addons-update-15.3.1.tgz"
-      },
       "react-devtools-core": {
         "version": "2.0.8",
         "from": "react-devtools-core@2.0.8",
@@ -1002,11 +957,6 @@
         "version": "15.3.1",
         "from": "react-dom@15.3.1",
         "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.3.1.tgz"
-      },
-      "react-for-atom": {
-        "version": "15.3.1-0",
-        "from": "react-for-atom@15.3.1-0",
-        "resolved": "https://registry.npmjs.org/react-for-atom/-/react-for-atom-15.3.1-0.tgz"
       },
       "readable-stream": {
         "version": "2.2.3",
@@ -1291,9 +1241,9 @@
         "resolved": "https://registry.npmjs.org/vscode-jsonrpc/-/vscode-jsonrpc-3.0.3.tgz"
       },
       "whatwg-fetch": {
-        "version": "2.0.2",
+        "version": "2.0.3",
         "from": "whatwg-fetch@>=0.10.0",
-        "resolved": "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-2.0.2.tgz"
+        "resolved": "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz"
       },
       "window-size": {
         "version": "0.1.4",
@@ -1359,8 +1309,8 @@
       }
     }
   },
-  "_spec": "/tmp/d-117211-7632-1xyknu7/package.tgz",
-  "_where": "/tmp/apm-install-dir-117211-7632-nbnbfw",
+  "_spec": "/tmp/d-117220-7660-1hingbl/package.tgz",
+  "_where": "/tmp/apm-install-dir-117220-7660-wrc5pe",
   "atomTestRunner": "./lib/test-runner-entry.js",
   "bin": {
     "nuclide-start-server": "./pkg/nuclide-server/nuclide-start-server"
@@ -1408,7 +1358,6 @@
     "react": "15.3.1",
     "react-devtools-core": "2.0.8",
     "react-dom": "15.3.1",
-    "react-for-atom": "15.3.1-0",
     "redux": "3.6.0",
     "request": "2.79.0",
     "resolve-from": "2.0.0",
@@ -1458,12 +1407,13 @@
     "fs-extra": "2.0.0",
     "jasmine-node": "1.14.5",
     "mock-spawn": "0.2.6",
+    "react-addons-test-utils": "15.3.1",
     "sabor": "0.8.0",
     "touch": "1.0.0",
     "webfonts-generator": "0.3.5"
   },
   "engines": {
-    "atom": ">=1.14.1",
+    "atom": ">=1.15.0",
     "node": ">=6.5.0"
   },
   "homepage": "https://nuclide.io/",
@@ -1519,23 +1469,23 @@
     "test": "npm run lint-all && npm run flow"
   },
   "urlMain": "./lib/url-main-entry.js",
-  "version": "0.209.0",
+  "version": "0.210.0",
   "warnings": [
     {
       "code": "ENOTSUP",
       "required": {
-        "atom": ">=1.14.1",
+        "atom": ">=1.15.0",
         "node": ">=6.5.0"
       },
-      "pkgid": "nuclide@0.209.0"
+      "pkgid": "nuclide@0.210.0"
     },
     {
       "code": "ENOTSUP",
       "required": {
-        "atom": ">=1.14.1",
+        "atom": ">=1.15.0",
         "node": ">=6.5.0"
       },
-      "pkgid": "nuclide@0.209.0"
+      "pkgid": "nuclide@0.210.0"
     }
   ]
 }

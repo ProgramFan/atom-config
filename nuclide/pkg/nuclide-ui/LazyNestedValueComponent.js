@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.LazyNestedValueComponent = undefined;
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _bindObservableAsProps;
 
@@ -70,10 +70,10 @@ function isObjectValue(result) {
 }
 
 function TreeItemWithLoadingSpinner() {
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     (_Tree || _load_Tree()).TreeItem,
     null,
-    _reactForAtom.React.createElement((_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinner, { size: 'EXTRA_SMALL', delay: SPINNER_DELAY })
+    _react.default.createElement((_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinner, { size: 'EXTRA_SMALL', delay: SPINNER_DELAY })
   );
 }
 
@@ -99,13 +99,13 @@ const LoadableValueComponent = props => {
   if (shouldCacheChildren) {
     setCachedChildren(path, children);
   }
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     'span',
     null,
-    children.map(child => _reactForAtom.React.createElement(
+    children.map(child => _react.default.createElement(
       (_Tree || _load_Tree()).TreeItem,
       { key: child.name },
-      _reactForAtom.React.createElement(ValueComponent, {
+      _react.default.createElement(ValueComponent, {
         evaluationResult: child.value,
         fetchChildren: fetchChildren,
         expression: child.name,
@@ -124,17 +124,17 @@ const LoadableValueComponent = props => {
 // TODO allow passing action components (edit button, pin button) here
 function renderValueLine(expression, value) {
   if (expression == null) {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-ui-lazy-nested-value-container' },
       value
     );
   } else {
     // TODO @jxg use a text editor to apply proper syntax highlighting for expressions (t11408154)
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-ui-lazy-nested-value-container' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'span',
         { className: (_ValueComponentClassNames || _load_ValueComponentClassNames()).ValueComponentClassNames.identifier },
         expression
@@ -149,7 +149,7 @@ function renderValueLine(expression, value) {
  * A component that knows how to render recursive, interactive expression/evaluationResult pairs.
  * The rendering of non-expandable "leaf" values is delegated to the SimpleValueComponent.
  */
-class ValueComponent extends _reactForAtom.React.Component {
+class ValueComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -237,12 +237,12 @@ class ValueComponent extends _reactForAtom.React.Component {
       return renderValueLine(expression, NOT_AVAILABLE_MESSAGE);
     }
     if (!isObjectValue(evaluationResult)) {
-      const simpleValueElement = _reactForAtom.React.createElement(SimpleValueComponent, {
+      const simpleValueElement = _react.default.createElement(SimpleValueComponent, {
         expression: expression,
         evaluationResult: evaluationResult,
         simpleValueComponent: SimpleValueComponent
       });
-      return isRoot ? simpleValueElement : _reactForAtom.React.createElement(
+      return isRoot ? simpleValueElement : _react.default.createElement(
         (_Tree || _load_Tree()).TreeItem,
         null,
         simpleValueElement
@@ -257,7 +257,7 @@ class ValueComponent extends _reactForAtom.React.Component {
     if (isExpanded) {
       const cachedChildren = getCachedChildren(path);
       if (shouldCacheChildren && cachedChildren != null) {
-        childListElement = _reactForAtom.React.createElement(LoadableValueComponent, {
+        childListElement = _react.default.createElement(LoadableValueComponent, {
           children: cachedChildren,
           fetchChildren: fetchChildren,
           path: path,
@@ -269,10 +269,10 @@ class ValueComponent extends _reactForAtom.React.Component {
           setCachedChildren: setCachedChildren
         });
       } else if (children == null) {
-        childListElement = _reactForAtom.React.createElement(TreeItemWithLoadingSpinner, null);
+        childListElement = _react.default.createElement(TreeItemWithLoadingSpinner, null);
       } else {
         const ChildrenComponent = (0, (_bindObservableAsProps || _load_bindObservableAsProps()).bindObservableAsProps)(children.map(childrenValue => ({ children: childrenValue })).startWith({ children: null }), LoadableValueComponent);
-        childListElement = _reactForAtom.React.createElement(ChildrenComponent, {
+        childListElement = _react.default.createElement(ChildrenComponent, {
           fetchChildren: fetchChildren,
           path: path,
           expandedValuePaths: expandedValuePaths,
@@ -285,10 +285,10 @@ class ValueComponent extends _reactForAtom.React.Component {
       }
     }
     const title = renderValueLine(expression, description);
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       (_Tree || _load_Tree()).TreeList,
       { showArrows: true, className: 'nuclide-ui-lazy-nested-value-treelist' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_Tree || _load_Tree()).NestedTreeItem,
         {
           collapsed: !this.state.isExpanded,
@@ -308,7 +308,7 @@ const expansionStates = new WeakMap();
  * is necessary to preserve the expansion state while the values are temporarily unavailable, such
  * as after stepping in the debugger, which triggers a recursive re-fetch.
  */
-class TopLevelLazyNestedValueComponent extends _reactForAtom.React.Component {
+class TopLevelLazyNestedValueComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -360,10 +360,10 @@ class TopLevelLazyNestedValueComponent extends _reactForAtom.React.Component {
       // Note(vjeux): the following line should probably be `: true`
       'nuclide-ui-lazy-nested-value': this.props.className == null
     });
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'span',
       { className: className, tabIndex: -1 },
-      _reactForAtom.React.createElement(ValueComponent, Object.assign({}, this.props, {
+      _react.default.createElement(ValueComponent, Object.assign({}, this.props, {
         isRoot: true,
         expandedValuePaths: this.getExpandedValuePaths(),
         onExpandedStateChange: this.handleExpansionChange,

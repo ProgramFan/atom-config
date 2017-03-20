@@ -16,7 +16,7 @@ function _load_utils() {
   return _utils = require('../../nuclide-arcanist-rpc/lib/utils');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _nuclideAnalytics;
 
@@ -26,7 +26,7 @@ function _load_nuclideAnalytics() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class RevisionTimelineNode extends _reactForAtom.React.Component {
+class RevisionTimelineNode extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -57,7 +57,7 @@ class RevisionTimelineNode extends _reactForAtom.React.Component {
     const commitAuthor = (0, (_utils || _load_utils()).getCommitAuthorFromAuthorEmail)(author);
     let commitAuthorElement;
     if (commitAuthor != null) {
-      commitAuthorElement = _reactForAtom.React.createElement(
+      commitAuthorElement = _react.default.createElement(
         'span',
         { className: 'inline-block' },
         commitAuthor
@@ -67,13 +67,13 @@ class RevisionTimelineNode extends _reactForAtom.React.Component {
     const phabricatorRevision = (0, (_utils || _load_utils()).getPhabricatorRevisionFromCommitMessage)(description);
     let phabricatorRevisionElement;
     if (phabricatorRevision != null) {
-      phabricatorRevisionElement = _reactForAtom.React.createElement(
+      phabricatorRevisionElement = _react.default.createElement(
         'a',
         {
           className: 'inline-block',
           href: phabricatorRevision.url,
           onClick: this._handlePhabricatorRevisionClick },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'strong',
           null,
           phabricatorRevision.name
@@ -83,7 +83,7 @@ class RevisionTimelineNode extends _reactForAtom.React.Component {
 
     let revisionStatusElement;
     if (revisionStatus != null) {
-      revisionStatusElement = _reactForAtom.React.createElement(
+      revisionStatusElement = _react.default.createElement(
         'span',
         { className: (0, (_classnames || _load_classnames()).default)('inline-block', revisionStatus.className) },
         revisionStatus.name
@@ -96,7 +96,7 @@ class RevisionTimelineNode extends _reactForAtom.React.Component {
       const diffUtils = require('../../commons-node/fb-vcs-utils.js');
       const taskIds = diffUtils.getFbCommitTaskInfoFromCommitMessage(description);
       associatedExtraElement = taskIds.map(task => {
-        return _reactForAtom.React.createElement(
+        return _react.default.createElement(
           'a',
           { key: task.id, className: 'inline-block', href: task.url },
           task.name
@@ -116,24 +116,24 @@ class RevisionTimelineNode extends _reactForAtom.React.Component {
 
     let bookmarksElement;
     if (bookmarksToRender.length > 0) {
-      bookmarksElement = _reactForAtom.React.createElement(
+      bookmarksElement = _react.default.createElement(
         'span',
         { className: 'inline-block text-success' },
         bookmarksToRender.join(' ')
       );
     }
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       {
         className: revisionClassName,
         onClick: this.props.onSelectionChange,
         title: tooltip },
-      _reactForAtom.React.createElement('div', { className: 'revision-bubble' }),
-      _reactForAtom.React.createElement(
+      _react.default.createElement('div', { className: 'revision-bubble' }),
+      _react.default.createElement(
         'div',
         { className: 'revision-label text-monospace' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'span',
           { className: 'inline-block' },
           hash.substr(0, 7)
@@ -143,8 +143,8 @@ class RevisionTimelineNode extends _reactForAtom.React.Component {
         revisionStatusElement,
         associatedExtraElement,
         bookmarksElement,
-        _reactForAtom.React.createElement('br', null),
-        _reactForAtom.React.createElement(
+        _react.default.createElement('br', null),
+        _react.default.createElement(
           'span',
           { className: 'revision-title' },
           title

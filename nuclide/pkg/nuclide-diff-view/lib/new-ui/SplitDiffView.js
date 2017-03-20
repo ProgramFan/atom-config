@@ -155,7 +155,7 @@ function _load_DiffViewComponent() {
   return _DiffViewComponent = require('../DiffViewComponent');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _DiffNavigationBar;
 
@@ -316,7 +316,7 @@ function renderNavigationBarAtGutter(diffEditors, fileDiffs, dimesionsUpdates) {
     });
   }), (_DiffNavigationBar || _load_DiffNavigationBar()).DiffNavigationBar);
 
-  const navigationElement = (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_reactForAtom.React.createElement(BoundNavigationBarComponent, null));
+  const navigationElement = (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_react.default.createElement(BoundNavigationBarComponent, null));
   navigationElement.className = 'nuclide-diff-view-split-navigation-gutter';
   navigationGutterView.style.position = 'relative';
   navigationGutterView.appendChild(navigationElement);
@@ -360,7 +360,7 @@ function updateEditorLoadingIndicator(editorElement, isLoading) {
   if (isLoading) {
     // Fade the editor and show the loading spinner with delay.
     editorElement.classList.add(NUCLIDE_DIFF_EDITOR_LOADING_CLASSNAME);
-    const loadingElement = (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_reactForAtom.React.createElement((_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinner, { delay: DIFF_SPINNER_DELAY_MS, size: (_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinnerSizes.LARGE }));
+    const loadingElement = (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_react.default.createElement((_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinner, { delay: DIFF_SPINNER_DELAY_MS, size: (_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinnerSizes.LARGE }));
     loadingElement.classList.add(NUCLIDE_DIFF_LOADING_INDICATOR_CLASSNAME);
     editorParent.appendChild(loadingElement);
   }

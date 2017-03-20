@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117211-5797-1gl63l8/package.tgz",
+        "raw": "/tmp/d-117220-5814-1ga3gjy/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117211-5797-1gl63l8/package.tgz",
-        "spec": "/tmp/d-117211-5797-1gl63l8/package.tgz",
+        "rawSpec": "/tmp/d-117220-5814-1ga3gjy/package.tgz",
+        "spec": "/tmp/d-117220-5814-1ga3gjy/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117211-5797-14drbq3"
+      "/tmp/apm-install-dir-117220-5814-128lgzu"
     ]
   ],
-  "_from": "../d-117211-5797-1gl63l8/package.tgz",
+  "_from": "../d-117220-5814-1ga3gjy/package.tgz",
   "_id": "linter-spell-latex@0.9.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-spell-latex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117211-5797-1gl63l8/package.tgz",
+    "raw": "/tmp/d-117220-5814-1ga3gjy/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117211-5797-1gl63l8/package.tgz",
-    "spec": "/tmp/d-117211-5797-1gl63l8/package.tgz",
+    "rawSpec": "/tmp/d-117220-5814-1ga3gjy/package.tgz",
+    "spec": "/tmp/d-117220-5814-1ga3gjy/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5797-1gl63l8/package.tgz",
+  "_resolved": "file:../d-117220-5814-1ga3gjy/package.tgz",
   "_shasum": "d289276630a57ffd8f4207be6b39bfc79d3f3515",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117211-5797-1gl63l8/package.tgz",
-  "_where": "/tmp/apm-install-dir-117211-5797-14drbq3",
+  "_spec": "/tmp/d-117220-5814-1ga3gjy/package.tgz",
+  "_where": "/tmp/apm-install-dir-117220-5814-128lgzu",
   "activationHooks": [
     "language-latex:grammar-used",
     "language-tex:grammar-used"

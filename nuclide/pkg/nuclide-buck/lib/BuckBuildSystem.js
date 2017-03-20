@@ -133,7 +133,7 @@ function _load_observeBuildCommands() {
   return _observeBuildCommands = _interopRequireDefault(require('./observeBuildCommands'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -194,7 +194,7 @@ class BuckBuildSystem {
   }
 
   getIcon() {
-    return () => _reactForAtom.React.createElement((_Icon || _load_Icon()).Icon, { icon: 'nuclicon-buck', className: 'nuclide-buck-task-runner-icon' });
+    return () => _react.default.createElement((_Icon || _load_Icon()).Icon, { icon: 'nuclicon-buck', className: 'nuclide-buck-task-runner-icon' });
   }
 
   getOutputMessages() {
@@ -293,7 +293,12 @@ class BuckBuildSystem {
     }
 
     const state = this._getStore().getState();
-    const { buckRoot, buildRuleType, buildTarget, selectedDeploymentTarget } = state;
+    const {
+      buckRoot,
+      buildRuleType,
+      buildTarget,
+      selectedDeploymentTarget
+    } = state;
 
     if (!buckRoot) {
       throw new Error('Invariant violation: "buckRoot"');
@@ -308,10 +313,13 @@ class BuckBuildSystem {
     } else {
       // This is not strictly the qualified name, as that'd be a list of names
       // Passing the input is good enough since the deployment target is guaranteed to be null
-      resolvedBuildTarget = _rxjsBundlesRxMinJs.Observable.of({ qualifiedName: buildTarget, flavors: [] });
+      resolvedBuildTarget = _rxjsBundlesRxMinJs.Observable.of({
+        qualifiedName: buildTarget,
+        flavors: []
+      });
     }
-
-    const task = (0, (_tasks || _load_tasks()).taskFromObservable)(resolvedBuildTarget.switchMap(resolvedTarget => {
+    const capitalizedTaskType = taskType.slice(0, 1).toUpperCase() + taskType.slice(1);
+    const task = (0, (_tasks || _load_tasks()).taskFromObservable)(_rxjsBundlesRxMinJs.Observable.concat(resolvedBuildTarget.switchMap(resolvedTarget => {
       if (selectedDeploymentTarget) {
         const { platform, device } = selectedDeploymentTarget;
         return platform.runTask(this, taskType, resolvedTarget, device);
@@ -319,11 +327,14 @@ class BuckBuildSystem {
         const subcommand = taskType === 'debug' ? 'build' : taskType;
         return this.runSubcommand(subcommand, resolvedTarget, {}, taskType === 'debug', null);
       }
-    }));
+    }), _rxjsBundlesRxMinJs.Observable.defer(() => {
+      this._logOutput(`${capitalizedTaskType} succeeded.`, 'success');
+      return _rxjsBundlesRxMinJs.Observable.empty();
+    })));
 
     return Object.assign({}, task, {
       cancel: () => {
-        this._logOutput('Build cancelled.', 'warning');
+        this._logOutput(`${capitalizedTaskType} stopped.`, 'warning');
         task.cancel();
       },
       getTrackingData: () => ({
@@ -345,7 +356,6 @@ class BuckBuildSystem {
     const targetString = getCommandStringForResolvedBuildTarget(target);
 
     const task = (0, (_tasks || _load_tasks()).taskFromObservable)(_rxjsBundlesRxMinJs.Observable.concat(this.runSubcommand('build', target, {}, false, null),
-
     // Don't complete until we've determined the artifact path.
     _rxjsBundlesRxMinJs.Observable.defer(() => buckService.showOutput(root, targetString)).do(output => {
       let outputPath;
@@ -360,10 +370,6 @@ class BuckBuildSystem {
       pathToArtifact = (_nuclideUri || _load_nuclideUri()).default.join(root, outputPath);
     }).ignoreElements()));
     return Object.assign({}, task, {
-      cancel: () => {
-        this._logOutput('Build cancelled.', 'warning');
-        task.cancel();
-      },
       getPathToBuildArtifact() {
         if (pathToArtifact == null) {
           throw new Error('No build artifact!');
@@ -399,7 +405,8 @@ class BuckBuildSystem {
       buildTarget,
       taskSettings,
       selectedPlatformName,
-      selectedDeviceName };
+      selectedDeviceName
+    };
   }
 
   runSubcommand(subcommand, buildTarget, additionalSettings, isDebug, udid) {
@@ -493,7 +500,9 @@ class BuckBuildSystem {
       }
     })
     // Let progress events flow through to the task runner.
-    .map(event => event.type === 'progress' ? event : null).finally(() => {
+    .map(event => {
+      return event.type === 'progress' ? event : null;
+    }).finally(() => {
       if (fileDiagnostics.size > 0) {
         this._logOutput('Compilation errors detected: open the Diagnostics pane to jump to them.', 'info');
       }

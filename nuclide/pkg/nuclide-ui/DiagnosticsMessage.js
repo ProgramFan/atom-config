@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DiagnosticsMessageNoHeader = exports.DiagnosticsMessage = undefined;
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _Button;
 
@@ -95,26 +95,26 @@ function diagnosticHeader(props) {
     };
     const speculative = message.fix.speculative === true;
     const buttonType = speculative ? undefined : (_Button || _load_Button()).ButtonTypes.SUCCESS;
-    fixButton = _reactForAtom.React.createElement(
+    fixButton = _react.default.createElement(
       (_Button || _load_Button()).Button,
       { buttonType: buttonType, size: 'EXTRA_SMALL', onClick: applyFix },
       'Fix'
     );
   }
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     'div',
     { className: 'nuclide-diagnostics-gutter-ui-popup-header' },
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
       null,
       fixButton,
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_Button || _load_Button()).Button,
         { size: 'EXTRA_SMALL', onClick: copy },
         'Copy'
       )
     ),
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       'span',
       { className: providerClassName },
       message.providerName
@@ -127,7 +127,7 @@ function traceElements(props) {
     message,
     goToLocation
   } = props;
-  return message.trace ? message.trace.map((traceItem, i) => _reactForAtom.React.createElement((_DiagnosticsTraceItem || _load_DiagnosticsTraceItem()).DiagnosticsTraceItem, {
+  return message.trace ? message.trace.map((traceItem, i) => _react.default.createElement((_DiagnosticsTraceItem || _load_DiagnosticsTraceItem()).DiagnosticsTraceItem, {
     key: i,
     trace: traceItem,
     goToLocation: goToLocation
@@ -138,14 +138,14 @@ function traceElements(props) {
  * Visually groups Buttons passed in as children.
  */
 const DiagnosticsMessage = exports.DiagnosticsMessage = props => {
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     'div',
     null,
     diagnosticHeader(props),
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       'div',
       { className: 'nuclide-diagnostics-gutter-ui-popup-message' },
-      _reactForAtom.React.createElement((_DiagnosticsMessageText || _load_DiagnosticsMessageText()).DiagnosticsMessageText, { message: props.message })
+      _react.default.createElement((_DiagnosticsMessageText || _load_DiagnosticsMessageText()).DiagnosticsMessageText, { message: props.message })
     ),
     traceElements(props)
   );
@@ -155,10 +155,10 @@ const DiagnosticsMessage = exports.DiagnosticsMessage = props => {
  * Visually groups Buttons passed in as children.
  */
 const DiagnosticsMessageNoHeader = exports.DiagnosticsMessageNoHeader = props => {
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     'div',
     null,
-    _reactForAtom.React.createElement((_DiagnosticsMessageText || _load_DiagnosticsMessageText()).DiagnosticsMessageText, { message: props.message }),
+    _react.default.createElement((_DiagnosticsMessageText || _load_DiagnosticsMessageText()).DiagnosticsMessageText, { message: props.message }),
     traceElements(props)
   );
 };

@@ -8,7 +8,7 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _Icon;
 
@@ -198,10 +198,10 @@ class ThreadStore {
   }
 
   _createAlertComponentClass(message) {
-    return () => _reactForAtom.React.createElement(
+    return () => _react.default.createElement(
       'div',
       { className: 'nuclide-debugger-thread-switch-alert' },
-      _reactForAtom.React.createElement((_Icon || _load_Icon()).Icon, { icon: 'alert' }),
+      _react.default.createElement((_Icon || _load_Icon()).Icon, { icon: 'alert' }),
       message
     );
   }

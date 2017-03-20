@@ -11,7 +11,7 @@ function _load_nuclideDebuggerBase() {
   return _nuclideDebuggerBase = require('../../nuclide-debugger-base');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _AtomInput;
 
@@ -36,6 +36,8 @@ var _ButtonGroup;
 function _load_ButtonGroup() {
   return _ButtonGroup = require('../../nuclide-ui/ButtonGroup');
 }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
@@ -86,7 +88,7 @@ function getCompareFunction(sortedColumn, sortDescending) {
   return () => 0;
 }
 
-class AttachUIComponent extends _reactForAtom.React.Component {
+class AttachUIComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -171,16 +173,16 @@ class AttachUIComponent extends _reactForAtom.React.Component {
       }
       return row;
     });
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'block' },
-      _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+      _react.default.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
         placeholderText: 'Search...',
         initialValue: this.state.filterText,
         onDidChange: this._handleFilterTextChange,
         size: 'sm'
       }),
-      _reactForAtom.React.createElement((_Table || _load_Table()).Table, {
+      _react.default.createElement((_Table || _load_Table()).Table, {
         columns: getColumns(),
         fixedHeader: true,
         maxBodyHeight: '30em',
@@ -194,18 +196,18 @@ class AttachUIComponent extends _reactForAtom.React.Component {
         onSelect: this._handleSelectTableRow,
         collapsable: true
       }),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'nuclide-debugger-native-launch-attach-actions' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
           null,
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             { onClick: this._handleCancelButtonClick },
             'Cancel'
           ),
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             {
               buttonType: (_Button || _load_Button()).ButtonTypes.PRIMARY,

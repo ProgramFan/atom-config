@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _Button;
 
@@ -18,6 +18,8 @@ function _load_ButtonGroup() {
   return _ButtonGroup = require('../../nuclide-ui/ButtonGroup');
 }
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -28,7 +30,7 @@ function _load_ButtonGroup() {
  * 
  */
 
-class DeleteBookmarkModalComponent extends _reactForAtom.React.Component {
+class DeleteBookmarkModalComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -44,13 +46,13 @@ class DeleteBookmarkModalComponent extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       null,
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'h6',
         { style: { marginTop: 0 } },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'strong',
           null,
           'Delete bookmark ',
@@ -58,25 +60,25 @@ class DeleteBookmarkModalComponent extends _reactForAtom.React.Component {
           '?'
         )
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'block' },
         'Are you sure you want to delete the bookmark ',
         this.props.bookmark.bookmark,
         '? This can not be undone.'
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'text-right' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
           { size: (_ButtonGroup || _load_ButtonGroup()).ButtonGroupSizes.SMALL },
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             { onClick: this.props.onCancel, ref: 'cancelButton' },
             'Cancel'
           ),
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             { buttonType: (_Button || _load_Button()).ButtonTypes.ERROR, onClick: this._handleDeleteClick },
             'Delete'

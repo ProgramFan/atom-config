@@ -77,7 +77,7 @@ function _load_vcs() {
   return _vcs = require('../../commons-atom/vcs');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -155,7 +155,7 @@ class SourceControlSideBar {
       uncommittedChanges: state.uncommittedChanges
     }));
     const BoundSideBarComponent = (0, (_bindObservableAsProps || _load_bindObservableAsProps()).bindObservableAsProps)(props, (_SideBarComponent || _load_SideBarComponent()).default);
-    return (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_reactForAtom.React.createElement(BoundSideBarComponent, null));
+    return (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_react.default.createElement(BoundSideBarComponent, null));
   }
 
   getDefaultLocation() {

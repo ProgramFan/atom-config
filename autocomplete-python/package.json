@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117211-5477-zbnrjd/package.tgz",
+        "raw": "/tmp/d-117220-5494-1tpflvr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117211-5477-zbnrjd/package.tgz",
-        "spec": "/tmp/d-117211-5477-zbnrjd/package.tgz",
+        "rawSpec": "/tmp/d-117220-5494-1tpflvr/package.tgz",
+        "spec": "/tmp/d-117220-5494-1tpflvr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117211-5477-ybe77h"
+      "/tmp/apm-install-dir-117220-5494-qyh5po"
     ]
   ],
-  "_from": "../d-117211-5477-zbnrjd/package.tgz",
-  "_id": "autocomplete-python@1.8.60",
+  "_from": "../d-117220-5494-1tpflvr/package.tgz",
+  "_id": "autocomplete-python@1.8.61",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-python",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117211-5477-zbnrjd/package.tgz",
+    "raw": "/tmp/d-117220-5494-1tpflvr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117211-5477-zbnrjd/package.tgz",
-    "spec": "/tmp/d-117211-5477-zbnrjd/package.tgz",
+    "rawSpec": "/tmp/d-117220-5494-1tpflvr/package.tgz",
+    "spec": "/tmp/d-117220-5494-1tpflvr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5477-zbnrjd/package.tgz",
-  "_shasum": "f053588433aac3bd9587af4f5ceec2e9681a5afb",
+  "_resolved": "file:../d-117220-5494-1tpflvr/package.tgz",
+  "_shasum": "2a08223ded8f9a9d09f81b89106b59c2e1e53358",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117211-5477-zbnrjd/package.tgz",
-  "_where": "/tmp/apm-install-dir-117211-5477-ybe77h",
+  "_spec": "/tmp/d-117220-5494-1tpflvr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117220-5494-qyh5po",
   "bugs": {
     "url": "https://github.com/autocomplete-python/autocomplete-python/issues"
   },
@@ -100,5 +100,5 @@
     "type": "git",
     "url": "git+https://github.com/autocomplete-python/autocomplete-python.git"
   },
-  "version": "1.8.60"
+  "version": "1.8.61"
 }

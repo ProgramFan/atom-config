@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117211-5122-wdbfvm/package.tgz",
+        "raw": "/tmp/d-117220-5138-1sjr8tv/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117211-5122-wdbfvm/package.tgz",
-        "spec": "/tmp/d-117211-5122-wdbfvm/package.tgz",
+        "rawSpec": "/tmp/d-117220-5138-1sjr8tv/package.tgz",
+        "spec": "/tmp/d-117220-5138-1sjr8tv/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117211-5122-wukq3w"
+      "/tmp/apm-install-dir-117220-5138-1irsa75"
     ]
   ],
-  "_from": "../d-117211-5122-wdbfvm/package.tgz",
-  "_id": "language-markdown@0.19.1",
+  "_from": "../d-117220-5138-1sjr8tv/package.tgz",
+  "_id": "language-markdown@0.20.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-markdown",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117211-5122-wdbfvm/package.tgz",
+    "raw": "/tmp/d-117220-5138-1sjr8tv/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117211-5122-wdbfvm/package.tgz",
-    "spec": "/tmp/d-117211-5122-wdbfvm/package.tgz",
+    "rawSpec": "/tmp/d-117220-5138-1sjr8tv/package.tgz",
+    "spec": "/tmp/d-117220-5138-1sjr8tv/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5122-wdbfvm/package.tgz",
-  "_shasum": "ee9de2258e915fcc0f50e9eb75f89d0b9a361ad3",
+  "_resolved": "file:../d-117220-5138-1sjr8tv/package.tgz",
+  "_shasum": "7ae4ff1ab98c0dd293af6c74fe31ad43eaee6247",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117211-5122-wdbfvm/package.tgz",
-  "_where": "/tmp/apm-install-dir-117211-5122-wukq3w",
+  "_spec": "/tmp/d-117220-5138-1sjr8tv/package.tgz",
+  "_where": "/tmp/apm-install-dir-117220-5138-1irsa75",
   "bugs": {
     "url": "https://github.com/burodepeper/language-markdown/issues"
   },
@@ -78,5 +78,5 @@
     "type": "git",
     "url": "git+https://github.com/burodepeper/language-markdown.git"
   },
-  "version": "0.19.1"
+  "version": "0.20.0"
 }

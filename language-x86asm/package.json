@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117211-5082-1nftrhm/package.tgz",
+        "raw": "/tmp/d-117220-5099-1w81z8x/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117211-5082-1nftrhm/package.tgz",
-        "spec": "/tmp/d-117211-5082-1nftrhm/package.tgz",
+        "rawSpec": "/tmp/d-117220-5099-1w81z8x/package.tgz",
+        "spec": "/tmp/d-117220-5099-1w81z8x/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117211-5082-1gdpbs9"
+      "/tmp/apm-install-dir-117220-5099-14tdmut"
     ]
   ],
-  "_from": "../d-117211-5082-1nftrhm/package.tgz",
+  "_from": "../d-117220-5099-1w81z8x/package.tgz",
   "_id": "language-x86asm@0.9.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-x86asm",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117211-5082-1nftrhm/package.tgz",
+    "raw": "/tmp/d-117220-5099-1w81z8x/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117211-5082-1nftrhm/package.tgz",
-    "spec": "/tmp/d-117211-5082-1nftrhm/package.tgz",
+    "rawSpec": "/tmp/d-117220-5099-1w81z8x/package.tgz",
+    "spec": "/tmp/d-117220-5099-1w81z8x/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5082-1nftrhm/package.tgz",
+  "_resolved": "file:../d-117220-5099-1w81z8x/package.tgz",
   "_shasum": "e3b0b4c7422c0c4f534f4d83b3ff09d71a79958c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117211-5082-1nftrhm/package.tgz",
-  "_where": "/tmp/apm-install-dir-117211-5082-1gdpbs9",
+  "_spec": "/tmp/d-117220-5099-1w81z8x/package.tgz",
+  "_where": "/tmp/apm-install-dir-117220-5099-14tdmut",
   "bugs": {
     "url": "https://github.com/SWW13/language-x86asm/issues"
   },

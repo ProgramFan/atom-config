@@ -5,13 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DatatipComponent = exports.DATATIP_ACTIONS = undefined;
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _string;
 
 function _load_string() {
   return _string = require('../../commons-node/string');
 }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; } /**
                                                                                                                                                                                                                               * Copyright (c) 2015-present, Facebook, Inc.
@@ -33,7 +35,7 @@ const IconsForAction = {
   [DATATIP_ACTIONS.CLOSE]: 'x'
 };
 
-class DatatipComponent extends _reactForAtom.React.Component {
+class DatatipComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -57,18 +59,18 @@ class DatatipComponent extends _reactForAtom.React.Component {
     let actionButton;
     if (action != null && IconsForAction[action] != null) {
       const actionIcon = IconsForAction[action];
-      actionButton = _reactForAtom.React.createElement('div', {
+      actionButton = _react.default.createElement('div', {
         className: `nuclide-datatip-pin-button icon-${actionIcon}`,
         onClick: this.handleActionClick,
         title: actionTitle
       });
     }
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       Object.assign({
         className: `${(0, (_string || _load_string()).maybeToString)(className)} nuclide-datatip-container`
       }, props),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'nuclide-datatip-content' },
         children

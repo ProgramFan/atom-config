@@ -54,7 +54,7 @@ function _load_ConsoleContainer() {
   return _ConsoleContainer = require('./ui/ConsoleContainer');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _redux;
 
@@ -126,7 +126,7 @@ class Activation {
   consumeWorkspaceViewsService(api) {
     this._disposables.add(api.addOpener(uri => {
       if (uri === (_ConsoleContainer || _load_ConsoleContainer()).WORKSPACE_VIEW_URI) {
-        return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_reactForAtom.React.createElement((_ConsoleContainer || _load_ConsoleContainer()).ConsoleContainer, { store: this._getStore() }));
+        return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_react.default.createElement((_ConsoleContainer || _load_ConsoleContainer()).ConsoleContainer, { store: this._getStore() }));
       }
     }), () => api.destroyWhere(item => item instanceof (_ConsoleContainer || _load_ConsoleContainer()).ConsoleContainer), atom.commands.add('atom-workspace', 'nuclide-console:toggle', event => {
       api.toggle((_ConsoleContainer || _load_ConsoleContainer()).WORKSPACE_VIEW_URI, event.detail);
@@ -134,7 +134,7 @@ class Activation {
   }
 
   deserializeConsoleContainer() {
-    return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_reactForAtom.React.createElement((_ConsoleContainer || _load_ConsoleContainer()).ConsoleContainer, { store: this._getStore() }));
+    return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_react.default.createElement((_ConsoleContainer || _load_ConsoleContainer()).ConsoleContainer, { store: this._getStore() }));
   }
 
   provideOutputService() {

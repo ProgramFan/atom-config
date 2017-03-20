@@ -15,7 +15,9 @@ function _load_Ansi() {
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _TestRunModel;
 
@@ -57,17 +59,15 @@ function _load_nuclideLogging() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
+const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)(); /**
+                                                                              * Copyright (c) 2015-present, Facebook, Inc.
+                                                                              * All rights reserved.
+                                                                              *
+                                                                              * This source code is licensed under the license found in the LICENSE file in
+                                                                              * the root directory of this source tree.
+                                                                              *
+                                                                              * 
+                                                                              */
 
 const WORKSPACE_VIEW_URI = exports.WORKSPACE_VIEW_URI = 'atom://nuclide/test-runner';
 
@@ -109,7 +109,7 @@ class TestRunnerController {
 
   destroy() {
     this._stopListening();
-    _reactForAtom.ReactDOM.unmountComponentAtNode(this._root);
+    _reactDom.default.unmountComponentAtNode(this._root);
   }
 
   didUpdateTestRunners() {
@@ -341,7 +341,7 @@ class TestRunnerController {
       progressValue = 100;
     }
     this._root.style.display = 'flex';
-    const component = _reactForAtom.ReactDOM.render(_reactForAtom.React.createElement((_TestRunnerPanel || _load_TestRunnerPanel()).default, {
+    const component = _reactDom.default.render(_react.default.createElement((_TestRunnerPanel || _load_TestRunnerPanel()).default, {
       attachDebuggerBeforeRunning: this._attachDebuggerBeforeRunning,
       buffer: this._buffer,
       executionState: this._executionState,

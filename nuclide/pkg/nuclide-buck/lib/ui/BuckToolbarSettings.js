@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _shellQuote;
 
@@ -42,6 +42,8 @@ function _load_Modal() {
   return _Modal = require('../../../nuclide-ui/Modal');
 }
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -52,7 +54,7 @@ function _load_Modal() {
  * 
  */
 
-class BuckToolbarSettings extends _reactForAtom.React.Component {
+class BuckToolbarSettings extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -64,50 +66,50 @@ class BuckToolbarSettings extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       (_Modal || _load_Modal()).Modal,
       { onDismiss: this.props.onDismiss },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'block' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'div',
           { className: 'block' },
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             'label',
             null,
             'Current Buck root:'
           ),
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             'p',
             null,
-            _reactForAtom.React.createElement(
+            _react.default.createElement(
               'code',
               null,
               this.props.currentBuckRoot || 'No Buck project found.'
             )
           ),
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             'label',
             null,
             'Buck Arguments:'
           ),
-          _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+          _react.default.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
             tabIndex: '0',
             initialValue: this.state.arguments,
             placeholderText: 'Extra arguments to Buck (e.g. --num-threads 4)',
             onDidChange: this._onArgsChange.bind(this),
             onConfirm: this._onSave.bind(this)
           }),
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             'div',
             null,
-            _reactForAtom.React.createElement(
+            _react.default.createElement(
               'label',
               null,
               'Run Arguments:'
             ),
-            _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+            _react.default.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
               tabIndex: '0',
               initialValue: this.state.runArguments,
               placeholderText: 'Custom command-line arguments to pass to the app/binary',
@@ -116,18 +118,18 @@ class BuckToolbarSettings extends _reactForAtom.React.Component {
             })
           )
         ),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'div',
           { style: { display: 'flex', justifyContent: 'flex-end' } },
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
             null,
-            _reactForAtom.React.createElement(
+            _react.default.createElement(
               (_Button || _load_Button()).Button,
               { onClick: this.props.onDismiss },
               'Cancel'
             ),
-            _reactForAtom.React.createElement(
+            _react.default.createElement(
               (_Button || _load_Button()).Button,
               {
                 buttonType: (_Button || _load_Button()).ButtonTypes.PRIMARY,

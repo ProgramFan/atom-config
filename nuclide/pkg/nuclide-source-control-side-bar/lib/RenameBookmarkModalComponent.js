@@ -24,19 +24,13 @@ function _load_ButtonGroup() {
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
-class RenameBookmarkModal extends _reactForAtom.React.Component {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class RenameBookmarkModal extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -47,7 +41,7 @@ class RenameBookmarkModal extends _reactForAtom.React.Component {
   componentDidMount() {
     this._disposables.add(
     // $FlowFixMe
-    atom.commands.add(_reactForAtom.ReactDOM.findDOMNode(this), 'core:confirm', this._handleRenameClick));
+    atom.commands.add(_reactDom.default.findDOMNode(this), 'core:confirm', this._handleRenameClick));
     this.refs.atomTextEditor.focus();
   }
 
@@ -60,41 +54,41 @@ class RenameBookmarkModal extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       null,
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'h6',
         { style: { marginTop: 0 } },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'strong',
           null,
           'Rename bookmark'
         )
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'label',
         null,
         'New name for bookmark \'',
         this.props.bookmark.bookmark,
         '\':'
       ),
-      _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+      _react.default.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
         initialValue: this.props.bookmark.bookmark,
         ref: 'atomTextEditor'
       }),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { style: { display: 'flex', flexDirection: 'row-reverse' } },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
           { size: 'SMALL' },
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             { onClick: this.props.onCancel },
             'Cancel'
           ),
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             { buttonType: 'PRIMARY', onClick: this._handleRenameClick },
             'Rename'
@@ -104,4 +98,12 @@ class RenameBookmarkModal extends _reactForAtom.React.Component {
     );
   }
 }
-exports.default = RenameBookmarkModal;
+exports.default = RenameBookmarkModal; /**
+                                        * Copyright (c) 2015-present, Facebook, Inc.
+                                        * All rights reserved.
+                                        *
+                                        * This source code is licensed under the license found in the LICENSE file in
+                                        * the root directory of this source tree.
+                                        *
+                                        * 
+                                        */

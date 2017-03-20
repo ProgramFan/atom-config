@@ -4,7 +4,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
@@ -114,19 +116,20 @@ var _electron = require('electron');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const SHOW_OPEN_FILE_CONFIG_KEY = 'nuclide-file-tree.showOpenFiles'; /**
-                                                                      * Copyright (c) 2015-present, Facebook, Inc.
-                                                                      * All rights reserved.
-                                                                      *
-                                                                      * This source code is licensed under the license found in the LICENSE file in
-                                                                      * the root directory of this source tree.
-                                                                      *
-                                                                      * 
-                                                                      */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
+const SHOW_OPEN_FILE_CONFIG_KEY = 'nuclide-file-tree.showOpenFiles';
 const SHOW_UNCOMMITTED_CHANGES_CONFIG_KEY = 'nuclide-file-tree.showUncommittedChanges';
 
-class FileTreeSidebarComponent extends _reactForAtom.React.Component {
+class FileTreeSidebarComponent extends _react.default.Component {
 
   constructor() {
     super();
@@ -170,7 +173,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
     }),
 
     // Customize the context menu to remove items that match the 'atom-pane' selector.
-    _rxjsBundlesRxMinJs.Observable.fromEvent(_reactForAtom.ReactDOM.findDOMNode(this), 'contextmenu').switchMap(event => {
+    _rxjsBundlesRxMinJs.Observable.fromEvent(_reactDom.default.findDOMNode(this), 'contextmenu').switchMap(event => {
       if (event.button !== 2) {
         return _rxjsBundlesRxMinJs.Observable.never();
       }
@@ -216,9 +219,9 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
   _handleFocus(event) {
     // Delegate focus to the FileTree component if this component gains focus because the FileTree
     // matches the selectors targeted by themes to show the containing panel has focus.
-    if (event.target === _reactForAtom.ReactDOM.findDOMNode(this)) {
+    if (event.target === _reactDom.default.findDOMNode(this)) {
       // $FlowFixMe
-      _reactForAtom.ReactDOM.findDOMNode(this.refs.fileTree).focus();
+      _reactDom.default.findDOMNode(this.refs.fileTree).focus();
     }
   }
 
@@ -226,15 +229,15 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
     const workingSetsStore = this._store.getWorkingSetsStore();
     let toolbar;
     if (this.state.shouldRenderToolbar && workingSetsStore != null) {
-      toolbar = _reactForAtom.React.createElement(
+      toolbar = _react.default.createElement(
         'div',
         { className: 'nuclide-file-tree-fixed' },
-        _reactForAtom.React.createElement((_FileTreeSideBarFilterComponent || _load_FileTreeSideBarFilterComponent()).default, {
+        _react.default.createElement((_FileTreeSideBarFilterComponent || _load_FileTreeSideBarFilterComponent()).default, {
           key: 'filter',
           filter: this._store.getFilter(),
           found: this._store.getFilterFound()
         }),
-        _reactForAtom.React.createElement((_FileTreeToolbarComponent || _load_FileTreeToolbarComponent()).FileTreeToolbarComponent, {
+        _react.default.createElement((_FileTreeToolbarComponent || _load_FileTreeToolbarComponent()).FileTreeToolbarComponent, {
           key: 'toolbar',
           workingSetsStore: workingSetsStore
         })
@@ -243,10 +246,10 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
 
     let uncommittedChangesSection;
     if (this.state.showUncommittedChanges && this.state.hasUncommittedChanges) {
-      const uncommittedChangesList = _reactForAtom.React.createElement(
+      const uncommittedChangesList = _react.default.createElement(
         'div',
         { className: 'nuclide-file-tree-sidebar-uncommitted-changes' },
-        _reactForAtom.React.createElement((_MultiRootChangedFilesView || _load_MultiRootChangedFilesView()).MultiRootChangedFilesView, {
+        _react.default.createElement((_MultiRootChangedFilesView || _load_MultiRootChangedFilesView()).MultiRootChangedFilesView, {
           commandPrefix: 'file-tree-sidebar',
           fileChanges: (0, (_vcs || _load_vcs()).filterMultiRootFileChanges)(this.state.uncommittedFileChanges),
           selectedFile: this.state.activeUri,
@@ -255,7 +258,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
         })
       );
 
-      uncommittedChangesSection = _reactForAtom.React.createElement(
+      uncommittedChangesSection = _react.default.createElement(
         (_Section || _load_Section()).Section,
         {
           className: 'nuclide-file-tree-section-caption',
@@ -272,13 +275,13 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
     let openFilesList = null;
     if (this.state.showOpenFiles && this.state.openFilesUris.length > 0) {
       if (this._store.openFilesExpanded) {
-        openFilesList = _reactForAtom.React.createElement((_OpenFilesListComponent || _load_OpenFilesListComponent()).OpenFilesListComponent, {
+        openFilesList = _react.default.createElement((_OpenFilesListComponent || _load_OpenFilesListComponent()).OpenFilesListComponent, {
           uris: this.state.openFilesUris,
           modifiedUris: this.state.modifiedUris,
           activeUri: this.state.activeUri
         });
       }
-      openFilesSection = _reactForAtom.React.createElement(
+      openFilesSection = _react.default.createElement(
         (_Section || _load_Section()).Section,
         {
           className: 'nuclide-file-tree-section-caption',
@@ -293,11 +296,11 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
 
     let foldersCaption;
     if (uncommittedChangesSection != null || openFilesSection != null) {
-      foldersCaption = _reactForAtom.React.createElement((_Section || _load_Section()).Section, { className: 'nuclide-file-tree-section-caption', headline: 'FOLDERS', size: 'small' });
+      foldersCaption = _react.default.createElement((_Section || _load_Section()).Section, { className: 'nuclide-file-tree-section-caption', headline: 'FOLDERS', size: 'small' });
     }
 
     // Include `tabIndex` so this component can be focused by calling its native `focus` method.
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       {
         className: 'nuclide-file-tree-toolbar-container',
@@ -307,12 +310,12 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
       openFilesSection,
       foldersCaption,
       toolbar,
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_PanelComponentScroller || _load_PanelComponentScroller()).PanelComponentScroller,
         {
           ref: 'scroller',
           onScroll: this._handleScroll },
-        _reactForAtom.React.createElement((_FileTree || _load_FileTree()).FileTree, {
+        _react.default.createElement((_FileTree || _load_FileTree()).FileTree, {
           ref: 'fileTree',
           containerHeight: this.state.scrollerHeight,
           containerScrollTop: this.state.scrollerScrollTop,
@@ -380,7 +383,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
     if (component == null) {
       return;
     }
-    const el = _reactForAtom.ReactDOM.findDOMNode(component);
+    const el = _reactDom.default.findDOMNode(component);
     if (el == null) {
       return;
     }
@@ -393,7 +396,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
       this._actions.clearTrackedNode();
     }
     this._scrollWasTriggeredProgrammatically = false;
-    const node = _reactForAtom.ReactDOM.findDOMNode(this.refs.scroller);
+    const node = _reactDom.default.findDOMNode(this.refs.scroller);
     // $FlowFixMe
     const { scrollTop } = node;
     if (scrollTop !== this.state.scrollerScrollTop) {
@@ -408,7 +411,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
       return; // Already in the view
     }
 
-    const node = _reactForAtom.ReactDOM.findDOMNode(this.refs.scroller);
+    const node = _reactDom.default.findDOMNode(this.refs.scroller);
     if (node == null) {
       return;
     }
@@ -425,7 +428,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
   }
 
   isFocused() {
-    const el = _reactForAtom.ReactDOM.findDOMNode(this.refs.fileTree);
+    const el = _reactDom.default.findDOMNode(this.refs.fileTree);
     if (el == null) {
       return false;
     }
@@ -433,7 +436,7 @@ class FileTreeSidebarComponent extends _reactForAtom.React.Component {
   }
 
   focus() {
-    const el = _reactForAtom.ReactDOM.findDOMNode(this.refs.fileTree);
+    const el = _reactDom.default.findDOMNode(this.refs.fileTree);
     if (el == null) {
       return;
     }

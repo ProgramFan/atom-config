@@ -9,7 +9,7 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _UniversalDisposable;
 
@@ -152,9 +152,9 @@ class SwiftPMTaskRunner {
 
   getExtraUi() {
     const { store, actions } = this._getFlux();
-    return class ExtraUi extends _reactForAtom.React.Component {
+    return class ExtraUi extends _react.default.Component {
       render() {
-        return _reactForAtom.React.createElement((_SwiftPMTaskRunnerToolbar || _load_SwiftPMTaskRunnerToolbar()).default, {
+        return _react.default.createElement((_SwiftPMTaskRunnerToolbar || _load_SwiftPMTaskRunnerToolbar()).default, {
           store: store,
           actions: actions
         });
@@ -163,7 +163,7 @@ class SwiftPMTaskRunner {
   }
 
   getIcon() {
-    return () => _reactForAtom.React.createElement((_Icon || _load_Icon()).Icon, { icon: 'nuclicon-swift', className: 'nuclide-swift-task-runner-icon' });
+    return () => _react.default.createElement((_Icon || _load_Icon()).Icon, { icon: 'nuclicon-swift', className: 'nuclide-swift-task-runner-icon' });
   }
 
   runTask(taskName) {

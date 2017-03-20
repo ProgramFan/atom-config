@@ -208,7 +208,6 @@ const LLDB_PROCESS_ID_REGEX = /lldb -p ([0-9]+)/;
  */
 
 const ANDROID_ACTIVITY_REGEX = /Starting activity (.*)\/(.*)\.\.\./;
-const ANDROID_TARGET_REGEX = /OK +(.+\.apk)/;
 const LLDB_TARGET_TYPE = 'LLDB';
 const ANDROID_TARGET_TYPE = 'android';
 
@@ -240,16 +239,10 @@ function getDeployInstallEvents(processStream, buckRoot) {
   let targetType = LLDB_TARGET_TYPE;
   return (0, (_observable || _load_observable()).compact)(processStream.map(message => {
     if (message.kind === 'stdout' || message.kind === 'stderr') {
-      const androidTypeMatch = message.data.match(ANDROID_TARGET_REGEX);
-      if (androidTypeMatch != null) {
+      const activity = message.data.match(ANDROID_ACTIVITY_REGEX);
+      if (activity != null) {
         targetType = ANDROID_TARGET_TYPE;
-      }
-
-      if (targetType === ANDROID_TARGET_TYPE) {
-        const activity = message.data.match(ANDROID_ACTIVITY_REGEX);
-        if (activity != null) {
-          return { targetType, targetApp: activity[1] };
-        }
+        return { targetType, targetApp: activity[1] };
       }
 
       const pidMatch = message.data.match(LLDB_PROCESS_ID_REGEX);

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117211-7200-ajxdj2/package.tgz",
+        "raw": "/tmp/d-117220-7228-1s961fj/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117211-7200-ajxdj2/package.tgz",
-        "spec": "/tmp/d-117211-7200-ajxdj2/package.tgz",
+        "rawSpec": "/tmp/d-117220-7228-1s961fj/package.tgz",
+        "spec": "/tmp/d-117220-7228-1s961fj/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117211-7200-1mfik6g"
+      "/tmp/apm-install-dir-117220-7228-1mb77o7"
     ]
   ],
-  "_from": "../d-117211-7200-ajxdj2/package.tgz",
-  "_id": "atom-commander@0.8.7",
+  "_from": "../d-117220-7228-1s961fj/package.tgz",
+  "_id": "atom-commander@0.8.8",
   "_inCache": true,
   "_installable": true,
   "_location": "/atom-commander",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117211-7200-ajxdj2/package.tgz",
+    "raw": "/tmp/d-117220-7228-1s961fj/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117211-7200-ajxdj2/package.tgz",
-    "spec": "/tmp/d-117211-7200-ajxdj2/package.tgz",
+    "rawSpec": "/tmp/d-117220-7228-1s961fj/package.tgz",
+    "spec": "/tmp/d-117220-7228-1s961fj/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-7200-ajxdj2/package.tgz",
-  "_shasum": "2c8b4799049e3a4ab88a8b5fe081b6e03229144a",
+  "_resolved": "file:../d-117220-7228-1s961fj/package.tgz",
+  "_shasum": "40c62a30e55807c7153a5b1a8531645612a1245c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117211-7200-ajxdj2/package.tgz",
-  "_where": "/tmp/apm-install-dir-117211-7200-1mfik6g",
+  "_spec": "/tmp/d-117220-7228-1s961fj/package.tgz",
+  "_where": "/tmp/apm-install-dir-117220-7228-1mb77o7",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/morassman/atom-commander/issues"
@@ -93,5 +93,5 @@
     "type": "git",
     "url": "git+https://github.com/morassman/atom-commander.git"
   },
-  "version": "0.8.7"
+  "version": "0.8.8"
 }

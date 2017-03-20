@@ -5,13 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.WORKSPACE_VIEW_URI = undefined;
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _nuclideAnalytics;
 
 function _load_nuclideAnalytics() {
   return _nuclideAnalytics = require('../../../nuclide-analytics');
 }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const WORKSPACE_VIEW_URI = exports.WORKSPACE_VIEW_URI = 'atom://nuclide/diff-view-navigator'; /**
                                                                                                * Copyright (c) 2015-present, Facebook, Inc.
@@ -23,7 +25,7 @@ const WORKSPACE_VIEW_URI = exports.WORKSPACE_VIEW_URI = 'atom://nuclide/diff-vie
                                                                                                * 
                                                                                                */
 
-class DiffViewNavigatorGadget extends _reactForAtom.React.Component {
+class DiffViewNavigatorGadget extends _react.default.Component {
 
   getTitle() {
     return 'Source Control Navigator';
@@ -52,7 +54,7 @@ class DiffViewNavigatorGadget extends _reactForAtom.React.Component {
 
   render() {
     const { component: Component } = this.props;
-    return _reactForAtom.React.createElement(Component, null);
+    return _react.default.createElement(Component, null);
   }
 
   serialize() {
