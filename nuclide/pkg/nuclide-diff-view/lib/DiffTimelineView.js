@@ -18,7 +18,7 @@ function _load_nuclideHgRpc() {
   return _nuclideHgRpc = require('../../nuclide-hg-rpc');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _RevisionTimelineNode;
 
@@ -46,7 +46,7 @@ function _load_Button() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class DiffTimelineView extends _reactForAtom.React.Component {
+class DiffTimelineView extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -77,7 +77,7 @@ class DiffTimelineView extends _reactForAtom.React.Component {
         revisionStatuses,
         headToForkBaseRevisions
       } = activeRepositoryState;
-      content = _reactForAtom.React.createElement(RevisionsTimelineComponent, {
+      content = _react.default.createElement(RevisionsTimelineComponent, {
         diffModel: diffModel,
         compareRevisionId: compareRevisionId || headRevision.id,
         dirtyFileCount: diffModel.getDirtyFileChangesCount(),
@@ -88,7 +88,7 @@ class DiffTimelineView extends _reactForAtom.React.Component {
       });
     }
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-diff-timeline padded' },
       content
@@ -129,10 +129,10 @@ function RevisionsTimelineComponent(props) {
     title: 'Publish your last commit to a Phabricator differential revision.'
   };
 
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     'div',
     { className: 'revision-timeline-wrap' },
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       (_Button || _load_Button()).Button,
       {
         className: 'pull-right',
@@ -142,18 +142,18 @@ function RevisionsTimelineComponent(props) {
         onClick: props.onClickPublish },
       'Publish to Phabricator'
     ),
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       'h5',
       { style: { marginTop: 0 } },
       'Compare Revisions'
     ),
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       'div',
       { className: 'revision-selector' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'revisions' },
-        _reactForAtom.React.createElement((_UncommittedChangesTimelineNode || _load_UncommittedChangesTimelineNode()).default, {
+        _react.default.createElement((_UncommittedChangesTimelineNode || _load_UncommittedChangesTimelineNode()).default, {
           selectedIndex: selectedIndex,
           diffModel: props.diffModel,
           dirtyFileCount: props.dirtyFileCount,
@@ -162,7 +162,7 @@ function RevisionsTimelineComponent(props) {
             props.onSelectionChange(latestToOldestRevisions[0]);
           }
         }),
-        latestToOldestRevisions.slice(0, -1).map((revision, i) => _reactForAtom.React.createElement((_RevisionTimelineNode || _load_RevisionTimelineNode()).default, {
+        latestToOldestRevisions.slice(0, -1).map((revision, i) => _react.default.createElement((_RevisionTimelineNode || _load_RevisionTimelineNode()).default, {
           index: i,
           key: revision.hash,
           selectedIndex: selectedIndex,

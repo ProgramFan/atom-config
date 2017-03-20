@@ -87,7 +87,7 @@ class BreakpointStore {
         this._deleteBreakpoint(payload.data.path, payload.data.line, false);
         break;
       case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.BIND_BREAKPOINT_IPC:
-        this._bindBreakpoint(payload.data.path, payload.data.line, payload.data.condition, payload.data.enabled);
+        this._bindBreakpoint(payload.data.path, payload.data.line, payload.data.condition, payload.data.enabled, payload.data.resolved);
         break;
       case (_DebuggerDispatcher || _load_DebuggerDispatcher()).ActionTypes.DEBUGGER_MODE_CHANGE:
         this._handleDebuggerModeChange(payload.data);
@@ -213,9 +213,8 @@ class BreakpointStore {
     }
   }
 
-  _bindBreakpoint(path, line, condition, enabled) {
-    this._addBreakpoint(path, line, condition, true, // resolved
-    false, // userAction
+  _bindBreakpoint(path, line, condition, enabled, resolved) {
+    this._addBreakpoint(path, line, condition, resolved, false, // userAction
     enabled);
   }
 

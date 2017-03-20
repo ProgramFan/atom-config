@@ -10,7 +10,7 @@ function _load_classnames() {
   return _classnames = _interopRequireDefault(require('classnames'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _Button;
 
@@ -26,7 +26,7 @@ function _load_constants() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class UncommittedChangesTimelineNode extends _reactForAtom.React.Component {
+class UncommittedChangesTimelineNode extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -49,23 +49,23 @@ class UncommittedChangesTimelineNode extends _reactForAtom.React.Component {
       'selected-revision-last': revisionsCount === 1
     });
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       {
         className: revisionClassName,
         onClick: () => {
           this.props.onSelectionChange();
         } },
-      _reactForAtom.React.createElement('div', { className: 'revision-bubble revision-bubble--uncommitted' }),
-      _reactForAtom.React.createElement(
+      _react.default.createElement('div', { className: 'revision-bubble revision-bubble--uncommitted' }),
+      _react.default.createElement(
         'div',
         { className: 'revision-label' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'span',
           { className: 'revision-title text-monospace' },
           filesMessage
         ),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_Button || _load_Button()).Button,
           {
             className: 'nuclide-diff-rev-side-button',
@@ -74,7 +74,7 @@ class UncommittedChangesTimelineNode extends _reactForAtom.React.Component {
             onClick: this._handleClickCommit },
           'Commit'
         ),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_Button || _load_Button()).Button,
           {
             className: 'nuclide-diff-rev-side-button',

@@ -42,7 +42,7 @@ function _load_constants() {
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _Button;
 
@@ -76,7 +76,7 @@ function _load_ToolbarRight() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class DiffCommitView extends _reactForAtom.React.Component {
+class DiffCommitView extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -153,7 +153,7 @@ class DiffCommitView extends _reactForAtom.React.Component {
 
     let rebaseOptionElement = null;
     if (this.props.commitMode === (_constants || _load_constants()).CommitMode.AMEND) {
-      rebaseOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+      rebaseOptionElement = _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         className: 'padded',
         checked: this.props.shouldRebaseOnAmend,
         disabled: isLoading,
@@ -166,7 +166,7 @@ class DiffCommitView extends _reactForAtom.React.Component {
 
     let interactiveOptionElement;
     if (this.props.hasUncommittedChanges && this.props.enabledFeatures.has((_constants || _load_constants()).DiffViewFeatures.INTERACTIVE)) {
-      interactiveOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+      interactiveOptionElement = _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         className: 'padded',
         checked: this.props.shouldCommitInteractively,
         disabled: isLoading,
@@ -181,7 +181,7 @@ class DiffCommitView extends _reactForAtom.React.Component {
     let verbatimeOptionElement;
     let lintExcuseElement;
     if (this.props.shouldPublishOnCommit) {
-      prepareOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+      prepareOptionElement = _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         className: 'padded',
         checked: this.props.isPrepareMode,
         disabled: isLoading,
@@ -190,7 +190,7 @@ class DiffCommitView extends _reactForAtom.React.Component {
         ref: this._addTooltip('Whether to mark the new created revision as unpublished.')
       });
 
-      verbatimeOptionElement = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+      verbatimeOptionElement = _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         className: 'padded',
         checked: this.props.verbatimModeEnabled,
         disabled: isLoading,
@@ -199,7 +199,7 @@ class DiffCommitView extends _reactForAtom.React.Component {
         ref: this._addTooltip('Whether to override the diff\'s ' + 'commit message on Phabricator with that of your local commit.')
       });
 
-      lintExcuseElement = _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+      lintExcuseElement = _react.default.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
         className: 'nuclide-diff-view-excuse',
         size: 'sm',
         ref: this._addTooltip('Leave this box empty to run local lint and unit tests or ' + 'enter an excuse to skip them.'),
@@ -211,15 +211,15 @@ class DiffCommitView extends _reactForAtom.React.Component {
       });
     }
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       (_Toolbar || _load_Toolbar()).Toolbar,
       { location: 'bottom' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_ToolbarLeft || _load_ToolbarLeft()).ToolbarLeft,
         null,
         rebaseOptionElement,
         interactiveOptionElement,
-        _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+        _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
           className: 'padded',
           checked: this.props.shouldPublishOnCommit,
           disabled: isLoading,
@@ -231,20 +231,20 @@ class DiffCommitView extends _reactForAtom.React.Component {
         verbatimeOptionElement,
         lintExcuseElement
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_ToolbarRight || _load_ToolbarRight()).ToolbarRight,
         null,
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
           { size: (_ButtonGroup || _load_ButtonGroup()).ButtonGroupSizes.SMALL },
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             {
               size: (_Button || _load_Button()).ButtonSizes.SMALL,
               onClick: this._onClickBack },
             'Back'
           ),
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             (_Button || _load_Button()).Button,
             {
               className: btnClassname,
@@ -260,13 +260,13 @@ class DiffCommitView extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-diff-mode' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'message-editor-wrapper' },
-        _reactForAtom.React.createElement((_AtomTextEditor || _load_AtomTextEditor()).AtomTextEditor, {
+        _react.default.createElement((_AtomTextEditor || _load_AtomTextEditor()).AtomTextEditor, {
           grammar: atom.grammars.grammarForScopeName('source.fb-arcanist-editor'),
           gutterHidden: true,
           path: '.HG_COMMIT_EDITMSG',

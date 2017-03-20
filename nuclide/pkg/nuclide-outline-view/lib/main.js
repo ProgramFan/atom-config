@@ -6,6 +6,18 @@ function _load_ActiveEditorRegistry() {
   return _ActiveEditorRegistry = _interopRequireDefault(require('../../commons-atom/ActiveEditorRegistry'));
 }
 
+var _debounced;
+
+function _load_debounced() {
+  return _debounced = require('../../commons-atom/debounced');
+}
+
+var _textEditor;
+
+function _load_textEditor() {
+  return _textEditor = require('../../commons-atom/text-editor');
+}
+
 var _createPackage;
 
 function _load_createPackage() {
@@ -35,6 +47,8 @@ var _createOutlines;
 function _load_createOutlines() {
   return _createOutlines = require('./createOutlines');
 }
+
+var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -109,7 +123,7 @@ class Activation {
     this._editorService = new (_ActiveEditorRegistry || _load_ActiveEditorRegistry()).default((provider, editor) => {
       (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('nuclide-outline-view-getoutline');
       return provider.getOutline(editor);
-    });
+    }, {}, getActiveEditorRegistryEventSources());
   }
 
   dispose() {
@@ -183,3 +197,19 @@ class Activation {
 }
 
 (0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);
+
+function getActiveEditorRegistryEventSources() {
+  return {
+    activeEditors: (0, (_debounced || _load_debounced()).observeActivePaneItemDebounced)().switchMap(item => {
+      if ((0, (_textEditor || _load_textEditor()).isValidTextEditor)(item)) {
+        // Flow cannot understand the type refinement provided by the isValidTextEditor function,
+        // so we have to cast.
+        return _rxjsBundlesRxMinJs.Observable.of(item);
+      } else if (item instanceof (_OutlineViewPanel || _load_OutlineViewPanel()).OutlineViewPanelState) {
+        // Ignore switching to the outline view.
+        return _rxjsBundlesRxMinJs.Observable.empty();
+      }
+      return _rxjsBundlesRxMinJs.Observable.of(null);
+    }).distinctUntilChanged()
+  };
+}

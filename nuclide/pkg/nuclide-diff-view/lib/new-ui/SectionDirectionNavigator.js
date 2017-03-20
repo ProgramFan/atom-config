@@ -12,9 +12,11 @@ function _load_Button() {
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
-class SectionDirectionNavigator extends _reactForAtom.React.Component {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class SectionDirectionNavigator extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -31,17 +33,17 @@ class SectionDirectionNavigator extends _reactForAtom.React.Component {
     const hasDiffsUp = this._getPreviousNavigationSection() != null;
     const hasDiffsDown = this._getNextNavigationSection() != null;
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'span',
       { className: 'nuclide-diff-view-direction' },
-      _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+      _react.default.createElement((_Button || _load_Button()).Button, {
         disabled: !hasActiveFile || !hasDiffsDown,
         icon: 'arrow-down',
         onClick: this._onClickNavigateDown,
         size: 'SMALL',
         title: 'Jump to next section'
       }),
-      _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+      _react.default.createElement((_Button || _load_Button()).Button, {
         disabled: !hasActiveFile || !hasDiffsUp,
         icon: 'arrow-up',
         onClick: this._onClickNavigateUp,

@@ -58,7 +58,9 @@ function _load_createPaneContainer() {
   return _createPaneContainer = _interopRequireDefault(require('../../../commons-atom/create-pane-container'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _TestClassTree;
 
@@ -68,17 +70,7 @@ function _load_TestClassTree() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-class TestRunnerPanel extends _reactForAtom.React.Component {
+class TestRunnerPanel extends _react.default.Component {
 
   // Bound Functions for use as callbacks.
   constructor(props) {
@@ -110,7 +102,7 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
     this.renderConsole();
 
     // $FlowFixMe
-    _reactForAtom.ReactDOM.findDOMNode(this.refs.paneContainer).appendChild(atom.views.getView(this._paneContainer));
+    _reactDom.default.findDOMNode(this.refs.paneContainer).appendChild(atom.views.getView(this._paneContainer));
   }
 
   componentDidUpdate() {
@@ -127,8 +119,8 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
   }
 
   componentWillUnmount() {
-    _reactForAtom.ReactDOM.unmountComponentAtNode(atom.views.getView(this._rightPane).querySelector('.item-views'));
-    _reactForAtom.ReactDOM.unmountComponentAtNode(atom.views.getView(this._leftPane).querySelector('.item-views'));
+    _reactDom.default.unmountComponentAtNode(atom.views.getView(this._rightPane).querySelector('.item-views'));
+    _reactDom.default.unmountComponentAtNode(atom.views.getView(this._leftPane).querySelector('.item-views'));
     this._paneContainer.destroy();
   }
 
@@ -136,7 +128,7 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
     let runStopButton;
     switch (this.props.executionState) {
       case TestRunnerPanel.ExecutionState.RUNNING:
-        runStopButton = _reactForAtom.React.createElement(
+        runStopButton = _react.default.createElement(
           (_Button || _load_Button()).Button,
           {
             icon: 'primitive-square',
@@ -147,7 +139,7 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
         break;
       case TestRunnerPanel.ExecutionState.STOPPED:
         const initialTest = this.props.path === undefined;
-        runStopButton = _reactForAtom.React.createElement(
+        runStopButton = _react.default.createElement(
           (_Button || _load_Button()).Button,
           {
             icon: initialTest ? 'playback-play' : 'sync',
@@ -175,13 +167,13 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
 
     let runMsg;
     if (this.props.executionState === TestRunnerPanel.ExecutionState.RUNNING) {
-      runMsg = _reactForAtom.React.createElement(
+      runMsg = _react.default.createElement(
         'span',
         { className: 'inline-block' },
         'Running'
       );
     } else if (this.props.runDuration) {
-      runMsg = _reactForAtom.React.createElement(
+      runMsg = _react.default.createElement(
         'span',
         { className: 'inline-block' },
         'Done (in ',
@@ -192,7 +184,7 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
 
     let pathMsg;
     if (this.props.path) {
-      pathMsg = _reactForAtom.React.createElement(
+      pathMsg = _react.default.createElement(
         'span',
         { title: this.props.path },
         (_nuclideUri || _load_nuclideUri()).default.basename(this.props.path)
@@ -201,13 +193,13 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
 
     let dropdown;
     if (this.isDisabled()) {
-      dropdown = _reactForAtom.React.createElement(
+      dropdown = _react.default.createElement(
         'span',
         { className: 'inline-block text-warning' },
         'No registered test runners'
       );
     } else {
-      dropdown = _reactForAtom.React.createElement((_Dropdown || _load_Dropdown()).Dropdown, {
+      dropdown = _react.default.createElement((_Dropdown || _load_Dropdown()).Dropdown, {
         className: 'inline-block nuclide-test-runner__runner-dropdown',
         disabled: this.props.executionState === TestRunnerPanel.ExecutionState.RUNNING,
         options: this.props.testRunners.map((testRunner, index) => ({ label: testRunner.label, value: index })),
@@ -221,26 +213,26 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
 
     let attachDebuggerCheckbox = null;
     if (this.props.attachDebuggerBeforeRunning != null) {
-      attachDebuggerCheckbox = _reactForAtom.React.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
+      attachDebuggerCheckbox = _react.default.createElement((_Checkbox || _load_Checkbox()).Checkbox, {
         checked: this.props.attachDebuggerBeforeRunning,
         label: 'Enable Debugger',
         onChange: this.props.onDebuggerCheckboxChanged
       });
     }
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-test-runner-panel' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         (_Toolbar || _load_Toolbar()).Toolbar,
         { location: 'top' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ToolbarLeft || _load_ToolbarLeft()).ToolbarLeft,
           null,
           dropdown,
           runStopButton,
           attachDebuggerCheckbox,
-          _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+          _react.default.createElement((_Button || _load_Button()).Button, {
             size: (_Button || _load_Button()).ButtonSizes.SMALL,
             icon: 'trashcan',
             className: 'trashcan inline-block',
@@ -250,12 +242,12 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
           }),
           pathMsg
         ),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_ToolbarRight || _load_ToolbarRight()).ToolbarRight,
           null,
           runMsg,
-          _reactForAtom.React.createElement('progress', Object.assign({ className: 'inline-block', max: '100' }, progressAttrs)),
-          _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+          _react.default.createElement('progress', Object.assign({ className: 'inline-block', max: '100' }, progressAttrs)),
+          _react.default.createElement((_Button || _load_Button()).Button, {
             onClick: this.props.onClickClose,
             className: 'inline-block',
             icon: 'x',
@@ -264,7 +256,7 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
           })
         )
       ),
-      _reactForAtom.React.createElement('div', { className: 'nuclide-test-runner-console', ref: 'paneContainer' })
+      _react.default.createElement('div', { className: 'nuclide-test-runner-console', ref: 'paneContainer' })
     );
   }
 
@@ -284,7 +276,7 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
   }
 
   renderTree() {
-    const component = _reactForAtom.ReactDOM.render(_reactForAtom.React.createElement((_TestClassTree || _load_TestClassTree()).default, {
+    const component = _reactDom.default.render(_react.default.createElement((_TestClassTree || _load_TestClassTree()).default, {
       isRunning: this.props.executionState === TestRunnerPanel.ExecutionState.RUNNING,
       testSuiteModel: this.props.testSuiteModel
     }), atom.views.getView(this._leftPane).querySelector('.item-views'));
@@ -297,10 +289,19 @@ class TestRunnerPanel extends _reactForAtom.React.Component {
   }
 
   renderConsole() {
-    _reactForAtom.ReactDOM.render(_reactForAtom.React.createElement((_Console || _load_Console()).default, { textBuffer: this.props.buffer }), atom.views.getView(this._rightPane).querySelector('.item-views'));
+    _reactDom.default.render(_react.default.createElement((_Console || _load_Console()).default, { textBuffer: this.props.buffer }), atom.views.getView(this._rightPane).querySelector('.item-views'));
   }
 }
-exports.default = TestRunnerPanel;
+exports.default = TestRunnerPanel; /**
+                                    * Copyright (c) 2015-present, Facebook, Inc.
+                                    * All rights reserved.
+                                    *
+                                    * This source code is licensed under the license found in the LICENSE file in
+                                    * the root directory of this source tree.
+                                    *
+                                    * 
+                                    */
+
 TestRunnerPanel.ExecutionState = Object.freeze({
   RUNNING: 0,
   STOPPED: 1

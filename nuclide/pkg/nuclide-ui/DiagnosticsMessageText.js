@@ -6,9 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 exports.DiagnosticsMessageText = undefined;
 exports.separateUrls = separateUrls;
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _electron = require('electron');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Exported for testing.
 function separateUrls(message) {
@@ -56,7 +58,7 @@ function renderTextWithLinks(message) {
       const openUrl = () => {
         _electron.shell.openExternal(part.url);
       };
-      return _reactForAtom.React.createElement(
+      return _react.default.createElement(
         'a',
         { href: '#', key: index, onClick: openUrl },
         part.url
@@ -64,7 +66,7 @@ function renderTextWithLinks(message) {
     }
   });
 
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     'span',
     null,
     parts
@@ -76,15 +78,15 @@ const DiagnosticsMessageText = exports.DiagnosticsMessageText = props => {
     message
   } = props;
   if (message.html != null) {
-    return _reactForAtom.React.createElement('span', { dangerouslySetInnerHTML: { __html: message.html } });
+    return _react.default.createElement('span', { dangerouslySetInnerHTML: { __html: message.html } });
   } else if (message.text != null) {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'span',
       null,
       renderTextWithLinks(message.text)
     );
   } else {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'span',
       null,
       'Diagnostic lacks message.'

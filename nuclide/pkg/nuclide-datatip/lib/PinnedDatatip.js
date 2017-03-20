@@ -7,7 +7,9 @@ exports.PinnedDatatip = undefined;
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
@@ -17,17 +19,17 @@ function _load_DatatipComponent() {
   return _DatatipComponent = require('./DatatipComponent');
 }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const LINE_END_MARGIN = 20;
+const LINE_END_MARGIN = 20; /**
+                             * Copyright (c) 2015-present, Facebook, Inc.
+                             * All rights reserved.
+                             *
+                             * This source code is licensed under the license found in the LICENSE file in
+                             * the root directory of this source tree.
+                             *
+                             * 
+                             */
 
 let _mouseMove$;
 function documentMouseMove$() {
@@ -170,7 +172,7 @@ class PinnedDatatip {
       _isHovering
     } = this;
     this._updateHostElementPosition();
-    _reactForAtom.ReactDOM.render(_reactForAtom.React.createElement(
+    _reactDom.default.render(_react.default.createElement(
       (_DatatipComponent || _load_DatatipComponent()).DatatipComponent,
       {
         action: (_DatatipComponent || _load_DatatipComponent()).DATATIP_ACTIONS.CLOSE,
@@ -179,7 +181,7 @@ class PinnedDatatip {
         onActionClick: this._boundDispose,
         onMouseDown: this._boundHandleMouseDown,
         onClickCapture: this._boundHandleCapturedClick },
-      _reactForAtom.React.createElement(ProvidedComponent, null)
+      _react.default.createElement(ProvidedComponent, null)
     ), _hostElement);
 
     let rangeClassname = 'nuclide-datatip-highlight-region';
@@ -222,7 +224,7 @@ class PinnedDatatip {
     if (this._mouseSubscription != null) {
       this._mouseSubscription.unsubscribe();
     }
-    _reactForAtom.ReactDOM.unmountComponentAtNode(this._hostElement);
+    _reactDom.default.unmountComponentAtNode(this._hostElement);
     this._hostElement.remove();
     this._subscriptions.dispose();
   }

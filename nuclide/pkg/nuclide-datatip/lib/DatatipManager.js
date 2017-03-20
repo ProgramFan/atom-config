@@ -74,7 +74,9 @@ let fetchDatatip = (() => {
   };
 })();
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _debounce;
 
@@ -140,17 +142,19 @@ function _load_performanceNow() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)(); /**
-                                                                              * Copyright (c) 2015-present, Facebook, Inc.
-                                                                              * All rights reserved.
-                                                                              *
-                                                                              * This source code is licensed under the license found in the LICENSE file in
-                                                                              * the root directory of this source tree.
-                                                                              *
-                                                                              * 
-                                                                              */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
 
 /* global performance */
+
+const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
 
 const CUMULATIVE_WHEELX_THRESHOLD = 20;
 const DEFAULT_DATATIP_DEBOUNCE_DELAY = 1000;
@@ -209,14 +213,14 @@ function renderProvider(datatip, editor, providerName, onPinClick) {
     actionTitle = 'Pin this Datatip';
   }
 
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     (_DatatipComponent || _load_DatatipComponent()).DatatipComponent,
     {
       action: action,
       actionTitle: actionTitle,
       onActionClick: () => onPinClick(editor, datatip),
       key: providerName },
-    _reactForAtom.React.createElement(ProvidedComponent, null)
+    _react.default.createElement(ProvidedComponent, null)
   );
 }
 
@@ -224,7 +228,7 @@ function renderDatatip(editor, element, { range, renderedProvider }) {
   // Transform the matched element range to the hint range.
   const marker = editor.markBufferRange(range, { invalidate: 'never' });
 
-  _reactForAtom.ReactDOM.render(renderedProvider, element);
+  _reactDom.default.render(renderedProvider, element);
   element.style.display = 'block';
 
   editor.decorateMarker(marker, {
@@ -416,7 +420,7 @@ class DatatipManagerForEditor {
       this._marker = null;
     }
     this._range = null;
-    _reactForAtom.ReactDOM.unmountComponentAtNode(this._datatipElement);
+    _reactDom.default.unmountComponentAtNode(this._datatipElement);
     this._datatipElement.style.display = 'none';
   }
 

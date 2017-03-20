@@ -14,7 +14,7 @@ function _load_utils() {
   return _utils = require('./utils');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _url = _interopRequireDefault(require('url'));
 
@@ -520,7 +520,7 @@ class Activation {
       feature: {
         title: 'Diff View',
         icon: 'diff',
-        description: _reactForAtom.React.createElement(
+        description: _react.default.createElement(
           'span',
           null,
           'Launches an editable side-by-side compare view across mercurial dirty and commits changes, allowing committing and pushing changes to phabricator.'
@@ -661,7 +661,7 @@ class Activation {
       tryTriggerNux: this.tryTriggerNux.bind(this, (_diffViewNux || _load_diffViewNux()).NUX_DIFF_VIEW_ID)
     })), (_DiffViewNavigatorComponent || _load_DiffViewNavigatorComponent()).default);
 
-    return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_reactForAtom.React.createElement((_DiffViewNavigatorGadget || _load_DiffViewNavigatorGadget()).default, {
+    return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_react.default.createElement((_DiffViewNavigatorGadget || _load_DiffViewNavigatorGadget()).default, {
       actionCreators: actionCreators,
       component: boundComponent
     }));

@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _BreakpointStore;
 
@@ -54,7 +54,7 @@ function getStateFromStore(store) {
   };
 }
 
-class DebuggerControllerView extends _reactForAtom.React.Component {
+class DebuggerControllerView extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -91,28 +91,28 @@ class DebuggerControllerView extends _reactForAtom.React.Component {
 
   render() {
     if (this.state.processSocket) {
-      return _reactForAtom.React.createElement((_DebuggerInspector || _load_DebuggerInspector()).default, {
+      return _react.default.createElement((_DebuggerInspector || _load_DebuggerInspector()).default, {
         breakpointStore: this.props.breakpointStore,
         openDevTools: this.props.openDevTools,
         stopDebugging: this.props.stopDebugging
       });
     }
     if (this.props.store.getDebuggerMode() === 'starting') {
-      return _reactForAtom.React.createElement(
+      return _react.default.createElement(
         'div',
         { className: 'padded' },
-        _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+        _react.default.createElement((_Button || _load_Button()).Button, {
           title: 'Close',
           icon: 'x',
           className: 'nuclide-debugger-root-close-button',
           onClick: this._handleClickClose
         }),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'p',
           null,
           'Starting Debugger'
         ),
-        _reactForAtom.React.createElement('progress', { className: 'starting' })
+        _react.default.createElement('progress', { className: 'starting' })
       );
     }
     return null;

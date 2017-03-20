@@ -18,27 +18,27 @@ function _load_constants() {
   return _constants = require('./constants');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
 
 function clickEventToScrollLineNumber(sectionLineNumber, sectionLineCount, e) {
   const targetRectangle = e.target.getBoundingClientRect();
   const lineHeight = (e.clientY - targetRectangle.top) / targetRectangle.height;
   return sectionLineNumber + Math.floor(sectionLineCount * lineHeight);
-}
+} /**
+   * Copyright (c) 2015-present, Facebook, Inc.
+   * All rights reserved.
+   *
+   * This source code is licensed under the license found in the LICENSE file in
+   * the root directory of this source tree.
+   *
+   * 
+   */
 
-class DiffNavigationBar extends _reactForAtom.React.Component {
+class DiffNavigationBar extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -53,7 +53,7 @@ class DiffNavigationBar extends _reactForAtom.React.Component {
     } = this.props;
 
     const jumpTargets = navigationSections.map(navigationSection => {
-      return _reactForAtom.React.createElement(NavigatonBarJumpTarget, {
+      return _react.default.createElement(NavigatonBarJumpTarget, {
         navigationScale: navigationScale,
         navigationSection: navigationSection,
         key: navigationSection.status + navigationSection.lineNumber,
@@ -62,7 +62,7 @@ class DiffNavigationBar extends _reactForAtom.React.Component {
       });
     });
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-diff-view-navigation-bar' },
       jumpTargets
@@ -91,7 +91,7 @@ function sectionStatusToClassName(statusType) {
   }
 }
 
-class NavigatonBarJumpTarget extends _reactForAtom.React.Component {
+class NavigatonBarJumpTarget extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -119,7 +119,7 @@ class NavigatonBarJumpTarget extends _reactForAtom.React.Component {
 
   componentDidMount() {
     const { navigationSection: { status, lineNumber, lineCount } } = this.props;
-    const domElement = _reactForAtom.ReactDOM.findDOMNode(this);
+    const domElement = _reactDom.default.findDOMNode(this);
     // $FlowFixMe
     domElement.setAttribute('nav-status', status);
     // $FlowFixMe
@@ -144,7 +144,7 @@ class NavigatonBarJumpTarget extends _reactForAtom.React.Component {
       [lineChangeClass]: true
     });
 
-    return _reactForAtom.React.createElement('div', {
+    return _react.default.createElement('div', {
       className: targetClassName,
       style: targetStyle,
       onClick: this._handleClick

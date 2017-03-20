@@ -19,7 +19,7 @@ function _load_nuclideUri() {
   return _nuclideUri = _interopRequireDefault(require('../../commons-node/nuclideUri'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -100,19 +100,19 @@ const HackSymbolProvider = exports.HackSymbolProvider = {
 
     const icon = bestIconForItem(item);
     const symbolClasses = `file icon ${icon}`;
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { title: item.additionalInfo || '' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'span',
         { className: symbolClasses },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'code',
           null,
           name
         )
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'span',
         { className: 'omnisearch-symbol-result-filename' },
         filename

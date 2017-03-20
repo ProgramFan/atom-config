@@ -2,45 +2,45 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5385-1psrn0m/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5508-51outb/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5385-1psrn0m/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5385-1psrn0m/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5508-51outb/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5508-51outb/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5385-1m3kajx"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-5508-3449fn"
     ]
   ],
-  "_from": "../d-117211-5385-1psrn0m/package.tgz",
-  "_id": "language-asciidoc@1.7.0",
+  "_from": "../d-117220-5508-51outb/package.tgz",
+  "_id": "language-asciidoc@1.8.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5385-1psrn0m/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5508-51outb/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5385-1psrn0m/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5385-1psrn0m/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5508-51outb/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5508-51outb/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5385-1psrn0m/package.tgz",
-  "_shasum": "276815db3eb61a1a8a12284c8ec18e56e4f86bfc",
+  "_resolved": "file:../d-117220-5508-51outb/package.tgz",
+  "_shasum": "7a59928a47688f7814ce16cf9584b111cd5c0cb3",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5385-1psrn0m/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5385-1m3kajx",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5508-51outb/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-5508-3449fn",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },
   "dependencies": {
-    "season": "^5.3"
+    "season": "^5.4.1"
   },
   "description": "Syntax highlighting and snippets for AsciiDoc (with Asciidoctor flavor).",
   "devDependencies": {
@@ -65,5 +65,5 @@
     "type": "git",
     "url": "git+https://github.com/asciidoctor/atom-language-asciidoc.git"
   },
-  "version": "1.7.0"
+  "version": "1.8.0"
 }

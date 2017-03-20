@@ -11,7 +11,7 @@ function _load_classnames() {
   return _classnames = _interopRequireDefault(require('classnames'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _nuclideUri;
 
@@ -49,7 +49,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 
  */
 
-class DebuggerCallstackComponent extends _reactForAtom.React.Component {
+class DebuggerCallstackComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -91,15 +91,15 @@ class DebuggerCallstackComponent extends _reactForAtom.React.Component {
       // lldb://asm/0x1234. These are not valid paths that can be used to
       // construct a nuclideUri so we need to skip the protocol prefix.
       const path = (_nuclideUri || _load_nuclideUri()).default.basename(location.path.replace(/^[a-zA-Z]+:\/\//, ''));
-      const content = _reactForAtom.React.createElement(
+      const content = _react.default.createElement(
         'div',
         { className: 'nuclide-debugger-callstack-item', key: i },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'span',
           { className: 'nuclide-debugger-callstack-name' },
           name
         ),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'span',
           null,
           path,
@@ -110,7 +110,7 @@ class DebuggerCallstackComponent extends _reactForAtom.React.Component {
       const itemClassNames = (0, (_classnames || _load_classnames()).default)({
         'nuclide-debugger-callstack-item-selected': this.state.selectedCallFrameIndex === i
       });
-      return _reactForAtom.React.createElement(
+      return _react.default.createElement(
         (_ListView || _load_ListView()).ListViewItem,
         {
           key: i,
@@ -119,11 +119,11 @@ class DebuggerCallstackComponent extends _reactForAtom.React.Component {
         content
       );
     });
-    return callstack == null ? _reactForAtom.React.createElement(
+    return callstack == null ? _react.default.createElement(
       'span',
       null,
       '(callstack unavailable)'
-    ) : _reactForAtom.React.createElement(
+    ) : _react.default.createElement(
       (_ListView || _load_ListView()).ListView,
       {
         alternateBackground: true,

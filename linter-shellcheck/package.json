@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5575-1sk67qv/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5696-xwlfv4/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5575-1sk67qv/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5575-1sk67qv/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5696-xwlfv4/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5696-xwlfv4/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5575-1f0h90u"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-5696-mjzerx"
     ]
   ],
-  "_from": "../d-117211-5575-1sk67qv/package.tgz",
-  "_id": "linter-shellcheck@1.4.3",
+  "_from": "../d-117220-5696-xwlfv4/package.tgz",
+  "_id": "linter-shellcheck@1.4.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5575-1sk67qv/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5696-xwlfv4/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5575-1sk67qv/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5575-1sk67qv/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5696-xwlfv4/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5696-xwlfv4/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5575-1sk67qv/package.tgz",
-  "_shasum": "b513d833989fa12c14ea3dc80820fb89a243f4f0",
+  "_resolved": "file:../d-117220-5696-xwlfv4/package.tgz",
+  "_shasum": "d297a23b15118a7ba53d1d6d76d5d63b69018b68",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5575-1sk67qv/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5575-1f0h90u",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5696-xwlfv4/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-5696-mjzerx",
   "activationHooks": [
     "language-shellscript:grammar-used"
   ],
@@ -61,7 +61,7 @@
     }
   },
   "dependencies": {
-    "atom-linter": "^8.0.0",
+    "atom-linter": "^9.0.0",
     "atom-package-deps": "^4.3.1"
   },
   "description": "Lint Bash on the fly, using shellcheck",
@@ -119,5 +119,5 @@
     "lint": "eslint .",
     "test": "apm test"
   },
-  "version": "1.4.3"
+  "version": "1.4.4"
 }

@@ -2,44 +2,51 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5878-ubwkvv/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5878-ubwkvv/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5878-ubwkvv/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5756-13bts53"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-5878-787c73"
     ]
   ],
-  "_from": "../d-117211-5756-1kcl92s/package.tgz",
-  "_id": "asciidoc-preview@2.7.2",
+  "_from": "../d-117220-5878-ubwkvv/package.tgz",
+  "_id": "asciidoc-preview@2.9.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5878-ubwkvv/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5878-ubwkvv/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5878-ubwkvv/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5756-1kcl92s/package.tgz",
-  "_shasum": "71ffdcfcd21047a83350a9b48bf8299cbefbf63f",
+  "_resolved": "file:../d-117220-5878-ubwkvv/package.tgz",
+  "_shasum": "7f5602028b25e128e4f3b3a884d69564387e822b",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5756-1kcl92s/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5756-13bts53",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5878-ubwkvv/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-5878-787c73",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },
   "configSchema": {
+    "scrollMode": {
+      "title": "Synchronize the preview pane",
+      "description": "If set, synchronize the preview pane with the AsciiDoc source pane.<br>WARNING: The scroll position on the preview pane does not automatically scroll the AsciiDoc source pane.",
+      "type": "boolean",
+      "default": true,
+      "order": 0
+    },
     "renderOnSaveOnly": {
       "title": "Render on save only",
       "type": "boolean",
@@ -164,15 +171,45 @@
       "collapsed": true,
       "properties": {
         "enabled": {
-          "title": "Use asciidoctor-pdf",
-          "description": "[asciidoctor-pdf](https://github.com/asciidoctor/asciidoctor-pdf) must be installed in your system.",
+          "title": "Enable PDF export using Asciidoctor PDF.",
+          "description": "The [asciidoctor-pdf](https://github.com/asciidoctor/asciidoctor-pdf) command must be available on your `PATH`.",
           "type": "boolean",
-          "default": false
+          "default": false,
+          "order": 1
         },
         "openWithExternal": {
           "title": "Automatically open the PDF after generation with the default PDF viewer.",
           "type": "boolean",
-          "default": true
+          "default": true,
+          "order": 2
+        },
+        "pdfStyle": {
+          "title": "Style (-a pdf-style=)",
+          "description": "The name of the YAML theme file to load. <br> https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc#applying-your-theme",
+          "type": "string",
+          "default": "",
+          "order": 3
+        },
+        "pdfStylesDir": {
+          "title": "Styles directory (-a pdf-stylesdir=)",
+          "description": "The directory where the theme file is located. _Specifying an absolute path is recommended._",
+          "type": "string",
+          "default": "",
+          "order": 4
+        },
+        "pdfFontsDir": {
+          "title": "Fonts directory (-a pdf-fontsdir=)",
+          "description": "The directory where the fonts used by your theme, if any, are located. _Specifying an absolute path is recommended._",
+          "type": "string",
+          "default": "",
+          "order": 5
+        },
+        "arguments": {
+          "title": "Command line additional arguments",
+          "description": "ex: `-a pdf-page-size=Letter`",
+          "type": "string",
+          "default": "",
+          "order": 6
         }
       },
       "order": 14
@@ -208,7 +245,7 @@
   "main": "./lib/main",
   "name": "asciidoc-preview",
   "optionalDependencies": {},
-  "readme": "# AsciiDoc Preview package\n\n[![Atom Package](https://img.shields.io/apm/v/asciidoc-preview.svg)](https://atom.io/packages/asciidoc-preview)\n[![Atom Package Downloads](https://img.shields.io/apm/dm/asciidoc-preview.svg)](https://atom.io/packages/asciidoc-preview)\n[![Build Status (Linux)](https://travis-ci.org/asciidoctor/atom-asciidoc-preview.svg?branch=master)](https://travis-ci.org/asciidoctor/atom-asciidoc-preview)\n[![Build Status (Windows)](https://ci.appveyor.com/api/projects/status/a7240elaip2dkd16?svg=true)](https://ci.appveyor.com/project/asciidoctor/atom-asciidoc-preview)\n[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/asciidoctor/atom-asciidoc-preview/blob/master/LICENSE.md)\n\nShows the rendered HTML of the AsciiDoc content in current editor using <kbd>ctrl-shift-a</kbd> or <kbd>cmd-shift-a</kbd>.\n\nIt can be activated from the editor using the <kbd>ctrl-shift-a</kbd> or <kbd>cmd-shift-a</kbd> key-binding and is currently enabled for `.adoc`, `.asciidoc`, `.ad`, `.asc`, `.adoc.txt`, `.txt` files.\n\n**Note:** since 1.0.0, the autocompletions have been migrated to a new package: [autocomplete-asciidoc](https://atom.io/packages/autocomplete-asciidoc)\n\nYou can install this module from the command-line by typing `apm install asciidoc-preview`.\n\nYou can toggle the preview pane, which appears to the right of the editor, using the key combination <kbd>ctrl-shift-a</kbd> or <kbd>cmd-shift-a</kbd>.\n\nMore options are accessible by right-clicking on the preview.\n\n![AsciiDoc Preview demo](https://cloud.githubusercontent.com/assets/5674651/15512720/96199b06-21e1-11e6-9eab-56826356a4e9.gif)\n\nThanks to @kevinsawicki! I just adapted [markdown-preview](https://github.com/atom/markdown-preview) and used [Asciidoctor.js](https://github.com/asciidoctor/asciidoctor.js).\n",
+  "readme": "# AsciiDoc Preview package\n\n[![Atom Package](https://img.shields.io/apm/v/asciidoc-preview.svg)](https://atom.io/packages/asciidoc-preview)\n[![Atom Package Downloads](https://img.shields.io/apm/dm/asciidoc-preview.svg)](https://atom.io/packages/asciidoc-preview)\n[![Build Status (Linux)](https://travis-ci.org/asciidoctor/atom-asciidoc-preview.svg?branch=master)](https://travis-ci.org/asciidoctor/atom-asciidoc-preview)\n[![Build Status (Windows)](https://ci.appveyor.com/api/projects/status/a7240elaip2dkd16?svg=true)](https://ci.appveyor.com/project/asciidoctor/atom-asciidoc-preview)\n[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/asciidoctor/atom-asciidoc-preview/blob/master/LICENSE.md)\n\nShows the rendered HTML of the AsciiDoc content in current editor.\n\nToggle the preview pane, which appears to the right of the editor, by using the key combination <kbd>ctrl-shift-a</kbd> or <kbd>cmd-shift-a</kbd>.\n\nIt is currently enabled for `.adoc`, `.asciidoc`, `.ad`, `.asc`, `.adoc.txt`, `.txt` files.\n\n**Note:** since 1.0.0, the auto-completions have been migrated to a dedicate package: [autocomplete-asciidoc](https://atom.io/packages/autocomplete-asciidoc).\n\nThis package use [Asciidoctor.js](https://github.com/asciidoctor/asciidoctor.js).\n\n![asciidoc-preview](https://cloud.githubusercontent.com/assets/5674651/23831539/c914762a-0723-11e7-85f6-f7a16dcfa1e9.png)\n\n\n## Options\n\n* Live preview or preview only on save.\n* Choose the position of the preview pane: \"left\", \"right\", \"up\", \"down\" (default: \"right\")\n* Save as HTML: save the document to an HTML file.\n* Export as PDF: create a PDF file and open with your default PDF viewer.\n  * [asciidoctor-pdf](https://github.com/asciidoctor/asciidoctor-pdf) command must be available on your `PATH`.\n  * more styling options are available in the package settings.\n* Synchronize the preview pane: synchronize the preview pane with the AsciiDoc source pane.\n  * **WARNING:** The scroll position on the preview pane does not automatically scroll the AsciiDoc source pane.\n\nMore options are available :\n* in the package settings\n* in the global menu\n* by right-clicking on the preview\n* by right-clicking on an AsciiDoc file.\n\n## Others Atom packages for AsciiDoc\n\n* [language-asciidoc](https://atom.io/packages/language-asciidoc): Syntax highlighting and snippets for AsciiDoc (with Asciidoctor flavor).\n* [asciidoc-preview](https://atom.io/packages/asciidoc-preview): Show an preview for the AsciiDoc content in the current editor.\n* [autocomplete-asciidoc](https://atom.io/packages/autocomplete-asciidoc): AsciiDoc language autocompletions.\n* [asciidoc-image-helper](https://atom.io/packages/asciidoc-image-helper): When pasting an image into an Asciidoc document, this package will paste clipboard image data as a file into a folder specified by the user.\n* [asciidoc-assistant](https://atom.io/packages/asciidoc-assistant): install Atom AsciiDoc basic packages with one package.\n\n## More\n\nYou can install this module from the command-line by typing `apm install asciidoc-preview`.\n\n![AsciiDoc Preview demo](https://cloud.githubusercontent.com/assets/5674651/15512720/96199b06-21e1-11e6-9eab-56826356a4e9.gif)\n\nThanks to [@kevinsawicki](https://github.com/kevinsawicki) for inspiration [markdown-preview](https://github.com/atom/markdown-preview).\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -218,5 +255,5 @@
     "font-awesome",
     "asciidoc-preview"
   ],
-  "version": "2.7.2"
+  "version": "2.9.0"
 }

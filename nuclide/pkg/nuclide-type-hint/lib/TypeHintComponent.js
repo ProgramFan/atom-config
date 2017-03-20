@@ -7,13 +7,15 @@ exports.makeTypeHintComponent = makeTypeHintComponent;
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _AtomTextEditor;
 
 function _load_AtomTextEditor() {
   return _AtomTextEditor = require('../../nuclide-ui/AtomTextEditor');
 }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Complex types can end up being super long. Truncate them.
 // TODO(hansonw): we could parse these into hint trees
@@ -30,10 +32,10 @@ function _load_AtomTextEditor() {
 const MAX_LENGTH = 100;
 
 function makeTypeHintComponent(content, grammar) {
-  return () => _reactForAtom.React.createElement(TypeHintComponent, { content: content, grammar: grammar });
+  return () => _react.default.createElement(TypeHintComponent, { content: content, grammar: grammar });
 }
 
-class TypeHintComponent extends _reactForAtom.React.Component {
+class TypeHintComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -47,7 +49,7 @@ class TypeHintComponent extends _reactForAtom.React.Component {
     const shouldTruncate = value.length > MAX_LENGTH && !this.state.isPrimitiveExpanded;
     const buffer = new _atom.TextBuffer(shouldTruncate ? value.substr(0, MAX_LENGTH) + '...' : value);
     const { grammar } = this.props;
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       {
         className: 'nuclide-type-hint-text-editor-container',
@@ -55,7 +57,7 @@ class TypeHintComponent extends _reactForAtom.React.Component {
           this.setState({ isPrimitiveExpanded: !this.state.isPrimitiveExpanded });
           e.stopPropagation();
         } },
-      _reactForAtom.React.createElement((_AtomTextEditor || _load_AtomTextEditor()).AtomTextEditor, {
+      _react.default.createElement((_AtomTextEditor || _load_AtomTextEditor()).AtomTextEditor, {
         className: 'nuclide-type-hint-text-editor',
         gutterHidden: true,
         readOnly: true,
@@ -84,22 +86,22 @@ class TypeHintComponent extends _reactForAtom.React.Component {
     }
     const children = tree.children.map(child => this.renderHierarchical(child));
     const isExpanded = this.state.expandedNodes.has(tree);
-    const childrenList = isExpanded ? _reactForAtom.React.createElement(
+    const childrenList = isExpanded ? _react.default.createElement(
       'ul',
       { className: 'list-tree' },
       children
     ) : null;
     const className = 'icon nuclide-type-hint-expandable-chevron ' + `icon-chevron-${isExpanded ? 'down' : 'right'}`;
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'li',
       { className: 'list-nested-item' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'list-item' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'span',
           null,
-          _reactForAtom.React.createElement('span', {
+          _react.default.createElement('span', {
             className: className,
             onClick: this.handleChevronClick.bind(this, tree)
           }),
@@ -115,7 +117,7 @@ class TypeHintComponent extends _reactForAtom.React.Component {
     if (typeof content === 'string') {
       return this.renderPrimitive(content);
     }
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'ul',
       { className: 'list-tree' },
       this.renderHierarchical(content)

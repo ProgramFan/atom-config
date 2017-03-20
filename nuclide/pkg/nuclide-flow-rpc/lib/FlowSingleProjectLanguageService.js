@@ -28,6 +28,8 @@ function _load_config() {
   return _config = require('./config');
 }
 
+var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
+
 var _nuclideFlowCommon;
 
 function _load_nuclideFlowCommon() {
@@ -275,7 +277,43 @@ class FlowSingleProjectLanguageService {
   }
 
   observeDiagnostics() {
-    throw new Error('Not Yet Implemented');
+    const ideConnections = this._process.getIDEConnections();
+    return ideConnections.switchMap(ideConnection => {
+      if (ideConnection != null) {
+        return ideConnection.observeDiagnostics().map(diagnosticsJson => {
+          const diagnostics = (0, (_diagnosticsParser || _load_diagnosticsParser()).flowStatusOutputToDiagnostics)(diagnosticsJson);
+          const filePathToMessages = new Map();
+
+          for (const diagnostic of diagnostics) {
+            const path = diagnostic.filePath;
+            let diagnosticArray = filePathToMessages.get(path);
+            if (!diagnosticArray) {
+              diagnosticArray = [];
+              filePathToMessages.set(path, diagnosticArray);
+            }
+            diagnosticArray.push(diagnostic);
+          }
+          return filePathToMessages;
+        });
+      } else {
+        // if ideConnection is null, it means there is currently no connection. So, invalidate the
+        // current diagnostics so we don't display stale data.
+        return _rxjsBundlesRxMinJs.Observable.of(new Map());
+      }
+    }).scan((oldDiagnostics, newDiagnostics) => {
+      for (const [filePath, diagnostics] of oldDiagnostics) {
+        if (diagnostics.length > 0 && !newDiagnostics.has(filePath)) {
+          newDiagnostics.set(filePath, []);
+        }
+      }
+      return newDiagnostics;
+    }, new Map()).concatMap(filePathToMessages => {
+      const fileDiagnosticUpdates = [...filePathToMessages.entries()].map(([filePath, messages]) => ({ filePath, messages }));
+      return _rxjsBundlesRxMinJs.Observable.from(fileDiagnosticUpdates);
+    }).catch(err => {
+      logger.error(err);
+      throw err;
+    });
   }
 
   getAutocompleteSuggestions(filePath, buffer, position, activatedManually, prefix) {

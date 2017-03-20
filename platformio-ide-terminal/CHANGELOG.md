@@ -1,3 +1,9 @@
+## 2.5.0 - PlatformIO
+
+* New PlatformIO IDE Terminal API Provider
+* Load terminal after Atom shell-environment is loaded
+* Fix status bar alignment problem on native-ui theme
+
 ## 2.4.0 - PlatformIO
 
 * Add terminal focus command and keybinding

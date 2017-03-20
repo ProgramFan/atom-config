@@ -688,8 +688,12 @@ class HgService {
   _commitCode(message, args, isInteractive) {
     if (isInteractive) {
       args.push('--interactive');
+    } else {
+      // Currently if amend leads to a  merge conflict that requires user input
+      // nuclide just freezes doing nothing. This flag will prevent that behavior
+      // and will break out leaving the files unresolved.
+      args.push('--noninteractive');
     }
-
     let tempFile = null;
     let editMergeConfigs;
 
@@ -986,7 +990,11 @@ class HgService {
     })();
   }
 
-  fetchMergeConflicts() {
+  /*
+   * Setting fetchResolved will return all resolved and unresolved conflicts,
+   * the default would only fetch the current unresolved conflicts.
+   */
+  fetchMergeConflicts(fetchResolved) {
     var _this20 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
@@ -994,8 +1002,16 @@ class HgService {
         cwd: _this20._workingDirectory
       });
       const fileListStatuses = JSON.parse(stdout);
+      const resolvedFiles = fetchResolved ? fileListStatuses.filter(function (fileStatus) {
+        return fileStatus.status === (_hgConstants || _load_hgConstants()).MergeConflictFileStatus.RESOLVED;
+      }).map(function (fileStatus) {
+        return {
+          path: fileStatus.path,
+          message: (_hgConstants || _load_hgConstants()).MergeConflictStatus.RESOLVED
+        };
+      }) : [];
       const conflictedFiles = fileListStatuses.filter(function (fileStatus) {
-        return fileStatus.status === (_hgConstants || _load_hgConstants()).StatusCodeId.UNRESOLVED;
+        return fileStatus.status === (_hgConstants || _load_hgConstants()).MergeConflictFileStatus.UNRESOLVED;
       });
       const origBackupPath = yield _this20._getOrigBackupPath();
       const conflicts = yield Promise.all(conflictedFiles.map((() => {
@@ -1017,7 +1033,7 @@ class HgService {
           return _ref4.apply(this, arguments);
         };
       })()));
-      return conflicts;
+      return [...conflicts, ...resolvedFiles];
     })();
   }
 
@@ -1048,11 +1064,19 @@ class HgService {
   }
 
   resolveConflictedFile(filePath) {
-    return this._runSimpleInWorkingDirectory('resolve', ['-m', filePath]);
+    const args = ['resolve', '-m', filePath];
+    const execOptions = {
+      cwd: this._workingDirectory
+    };
+    return this._hgObserveExecution(args, execOptions).switchMap((_hgUtils || _load_hgUtils()).processExitCodeAndThrow).publish();
   }
 
   continueRebase() {
-    return this._runSimpleInWorkingDirectory('rebase', ['--continue']);
+    const args = ['rebase', '--continue', '--noninteractive'];
+    const execOptions = {
+      cwd: this._workingDirectory
+    };
+    return this._hgObserveExecution(args, execOptions).switchMap((_hgUtils || _load_hgUtils()).processExitCodeAndThrow).publish();
   }
 
   abortRebase() {
@@ -1060,18 +1084,15 @@ class HgService {
   }
 
   rebase(destination, source) {
-    return _rxjsBundlesRxMinJs.Observable.fromPromise((0, (_hgUtils || _load_hgUtils()).getEditMergeConfigs)()).switchMap(editMergeConfigs => {
-      const args = [...editMergeConfigs.args, 'rebase', '-d', destination];
-      if (source != null) {
-        args.push('-s', source);
-      }
-      const execOptions = {
-        cwd: this._workingDirectory,
-        HGEDITOR: editMergeConfigs.hgEditor
-      };
-
-      return this._hgObserveExecution(args, execOptions);
-    }).publish();
+    const args = ['rebase', '-d', destination];
+    if (source != null) {
+      args.push('-s', source);
+    }
+    args.push('--noninteractive');
+    const execOptions = {
+      cwd: this._workingDirectory
+    };
+    return this._hgObserveExecution(args, execOptions).publish();
   }
 
   pull(options) {

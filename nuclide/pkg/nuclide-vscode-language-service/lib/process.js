@@ -232,8 +232,31 @@ class LanguageServerProtocolProcess {
   }
 
   typeHint(fileVersion, position) {
-    this._logger.logError('NYI');
-    return Promise.resolve(null);
+    var _this5 = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      const request = yield _this5.createTextDocumentPositionParams(fileVersion, position);
+      const response = yield _this5._process._connection.hover(request);
+
+      let hint = response.contents;
+      if (Array.isArray(hint)) {
+        hint = hint.length > 0 ? hint[0] : '';
+        // TODO: render multiple hints at once with a thin divider between them
+      }
+      if (typeof hint === 'string') {
+        // TODO: convert markdown to text
+      } else {
+        hint = hint.value;
+        // TODO: colorize code if possible. (is hard without knowing its context)
+      }
+
+      let range = new (_simpleTextBuffer || _load_simpleTextBuffer()).Range(position, position);
+      if (response.range) {
+        range = rangeToAtomRange(response.range);
+      }
+
+      return hint ? { hint, range } : null;
+    })();
   }
 
   highlight(fileVersion, position) {
@@ -311,10 +334,10 @@ class LanguageServerProtocolProcess {
   }
 
   createTextDocumentPositionParams(fileVersion, position) {
-    var _this5 = this;
+    var _this6 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      yield _this5.getBufferAtVersion(fileVersion);
+      yield _this6.getBufferAtVersion(fileVersion);
       return createTextDocumentPositionParams(fileVersion, position);
     })();
   }
@@ -345,7 +368,23 @@ class LspProcess {
       writer = new (_vscodeJsonrpc || _load_vscodeJsonrpc()).StreamMessageWriter(process.stdin);
     }
 
-    const connection = (_vscodeJsonrpc || _load_vscodeJsonrpc()).createMessageConnection(reader, writer);
+    const rpc_logger = {
+      error(message) {
+        logger.logError('JsonRpc ' + message);
+      },
+      warn(message) {
+        logger.logInfo('JsonRpc ' + message);
+      },
+      info(message) {
+        logger.logInfo('JsonRpc ' + message);
+      },
+      log(message) {
+        logger.logInfo('JsonRpc ' + message);
+      }
+    };
+
+    const connection = (_vscodeJsonrpc || _load_vscodeJsonrpc()).createMessageConnection(reader, writer, rpc_logger);
+
     connection.listen();
     // TODO: connection.onNotification(this._onNotification.bind(this));
 

@@ -23,7 +23,7 @@ function _load_nuclideUri() {
   return _nuclideUri = _interopRequireDefault(require('../commons-node/nuclideUri'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _UniversalDisposable;
 
@@ -49,7 +49,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 
  */
 
-class MultiRootChangedFilesView extends _reactForAtom.React.Component {
+class MultiRootChangedFilesView extends _react.default.Component {
 
   componentDidMount() {
     this._subscriptions = new (_UniversalDisposable || _load_UniversalDisposable()).default();
@@ -152,17 +152,17 @@ class MultiRootChangedFilesView extends _reactForAtom.React.Component {
 
   render() {
     if (this.props.fileChanges.size === 0) {
-      return _reactForAtom.React.createElement(
+      return _react.default.createElement(
         'div',
         null,
         'No changes'
       );
     }
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-ui-multi-root-file-tree-container' },
-      Array.from(this.props.fileChanges.entries()).map(([root, fileChanges]) => _reactForAtom.React.createElement((_ChangedFilesList || _load_ChangedFilesList()).default, {
+      Array.from(this.props.fileChanges.entries()).map(([root, fileChanges]) => _react.default.createElement((_ChangedFilesList || _load_ChangedFilesList()).default, {
         key: root,
         fileChanges: fileChanges,
         rootPath: root,

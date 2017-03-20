@@ -10,7 +10,7 @@ function _load_debounce() {
   return _debounce = _interopRequireDefault(require('../../../commons-node/debounce'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _OutputTable;
 
@@ -50,7 +50,7 @@ function _load_shallowequal() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class Console extends _reactForAtom.React.Component {
+class Console extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -84,7 +84,7 @@ class Console extends _reactForAtom.React.Component {
       id: executor.id,
       label: executor.name
     }));
-    return _reactForAtom.React.createElement((_PromptButton || _load_PromptButton()).default, {
+    return _react.default.createElement((_PromptButton || _load_PromptButton()).default, {
       value: currentExecutor.id,
       onChange: this.props.selectExecutor,
       options: options,
@@ -127,10 +127,10 @@ class Console extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-console' },
-      _reactForAtom.React.createElement((_ConsoleHeader || _load_ConsoleHeader()).default, {
+      _react.default.createElement((_ConsoleHeader || _load_ConsoleHeader()).default, {
         clear: this.props.clearRecords,
         invalidFilterInput: this.props.invalidFilterInput,
         enableRegExpFilter: this.props.enableRegExpFilter,
@@ -140,26 +140,26 @@ class Console extends _reactForAtom.React.Component {
         onFilterTextChange: this.props.updateFilterText,
         onSelectedSourcesChange: this.props.selectSources
       }),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'nuclide-console-body' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'div',
           { className: 'nuclide-console-scroll-pane-wrapper' },
-          _reactForAtom.React.createElement(
+          _react.default.createElement(
             'div',
             {
               ref: this._handleScrollPane,
               className: 'nuclide-console-scroll-pane',
               onScroll: this._handleScroll },
-            _reactForAtom.React.createElement((_OutputTable || _load_OutputTable()).default, {
+            _react.default.createElement((_OutputTable || _load_OutputTable()).default, {
               records: this.props.records,
               showSourceLabels: this.props.selectedSourceIds.length > 1,
               getExecutor: this._getExecutor,
               getProvider: this._getProvider
             })
           ),
-          _reactForAtom.React.createElement((_UnseenMessagesNotification || _load_UnseenMessagesNotification()).default, {
+          _react.default.createElement((_UnseenMessagesNotification || _load_UnseenMessagesNotification()).default, {
             visible: this.state.unseenMessages,
             onClick: this._scrollToBottom
           })
@@ -174,11 +174,11 @@ class Console extends _reactForAtom.React.Component {
     if (currentExecutor == null) {
       return;
     }
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-console-prompt' },
       this._renderPromptButton(),
-      _reactForAtom.React.createElement((_InputArea || _load_InputArea()).default, {
+      _react.default.createElement((_InputArea || _load_InputArea()).default, {
         scopeName: currentExecutor.scopeName,
         onSubmit: this.props.execute,
         history: this.props.history

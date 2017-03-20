@@ -10,7 +10,7 @@ function _load_classnames() {
   return _classnames = _interopRequireDefault(require('classnames'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _LazyNestedValueComponent;
 
@@ -48,14 +48,15 @@ const URL_REGEX = /(https?:\/\/[\S]+)/i; /**
                                           * 
                                           */
 
-class RecordView extends _reactForAtom.React.Component {
+const ONE_DAY = 1000 * 60 * 60 * 24;
+class RecordView extends _react.default.Component {
 
   _renderContent(record) {
     if (record.kind === 'request') {
       // TODO: We really want to use a text editor to render this so that we can get syntax
       // highlighting, but they're just too expensive. Figure out a less-expensive way to get syntax
       // highlighting.
-      return _reactForAtom.React.createElement(
+      return _react.default.createElement(
         'pre',
         null,
         record.text || ' '
@@ -69,7 +70,7 @@ class RecordView extends _reactForAtom.React.Component {
     } else {
       // If there's not text, use a space to make sure the row doesn't collapse.
       const text = record.text || ' ';
-      return _reactForAtom.React.createElement(
+      return _react.default.createElement(
         'pre',
         null,
         parseText(text)
@@ -85,7 +86,7 @@ class RecordView extends _reactForAtom.React.Component {
     const getProperties = provider == null ? null : provider.getProperties;
     const type = record.data == null ? null : record.data.type;
     const simpleValueComponent = getComponent(type);
-    return _reactForAtom.React.createElement((_LazyNestedValueComponent || _load_LazyNestedValueComponent()).LazyNestedValueComponent, {
+    return _react.default.createElement((_LazyNestedValueComponent || _load_LazyNestedValueComponent()).LazyNestedValueComponent, {
       className: 'nuclide-console-lazy-nested-value',
       evaluationResult: record.data,
       fetchChildren: getProperties,
@@ -97,30 +98,45 @@ class RecordView extends _reactForAtom.React.Component {
 
   render() {
     const { record } = this.props;
-    const classNames = (0, (_classnames || _load_classnames()).default)('nuclide-console-record', `level-${record.level || 'log'}`, {
-      request: record.kind === 'request',
-      response: record.kind === 'response'
+    const {
+      level,
+      kind,
+      timestamp,
+      sourceId
+    } = record;
+    const classNames = (0, (_classnames || _load_classnames()).default)('nuclide-console-record', `level-${level || 'log'}`, {
+      request: kind === 'request',
+      response: kind === 'response'
     });
 
     const iconName = getIconName(record);
-    const icon = iconName ? _reactForAtom.React.createElement('span', { className: `icon icon-${iconName}` }) : null;
-    const sourceLabel = this.props.showSourceLabel ? _reactForAtom.React.createElement(
+    const icon = iconName ? _react.default.createElement('span', { className: `icon icon-${iconName}` }) : null;
+    const sourceLabel = this.props.showSourceLabel ? _react.default.createElement(
       'span',
       {
-        className: `nuclide-console-record-source-label ${getHighlightClassName(record.level)}` },
-      record.sourceId
+        className: `nuclide-console-record-source-label ${getHighlightClassName(level)}` },
+      sourceId
     ) : null;
-
-    return _reactForAtom.React.createElement(
+    let renderedTimestamp;
+    if (timestamp != null) {
+      const timestampLabel = Date.now() - timestamp > ONE_DAY ? timestamp.toLocaleString() : timestamp.toLocaleTimeString();
+      renderedTimestamp = _react.default.createElement(
+        'div',
+        { className: 'nuclide-console-record-timestamp' },
+        timestampLabel
+      );
+    }
+    return _react.default.createElement(
       'div',
       { className: classNames },
       icon,
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'nuclide-console-record-content-wrapper' },
         this._renderContent(record)
       ),
-      sourceLabel
+      sourceLabel,
+      renderedTimestamp
     );
   }
 }
@@ -177,7 +193,7 @@ function parseText(text) {
   return text.split(URL_REGEX).map((chunk, i) => {
     // Since we're splitting on the URL regex, every other piece will be a URL.
     const isURL = i % 2 !== 0;
-    return isURL ? _reactForAtom.React.createElement(
+    return isURL ? _react.default.createElement(
       'a',
       { key: `d${i}`, href: chunk, target: '_blank' },
       chunk

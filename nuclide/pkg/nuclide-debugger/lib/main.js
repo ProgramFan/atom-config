@@ -64,7 +64,7 @@ function _load_DebuggerDatatip() {
   return _DebuggerDatatip = require('./DebuggerDatatip');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _DebuggerLaunchAttachUI;
 
@@ -131,7 +131,7 @@ const NUX_NEW_DEBUGGER_UI_ID = 4377;
 const GK_NEW_DEBUGGER_UI_NUX = 'mp_nuclide_new_debugger_ui';
 const NUX_NEW_DEBUGGER_UI_NAME = 'nuclide_new_debugger_ui';
 
-class DebuggerView extends _reactForAtom.React.Component {
+class DebuggerView extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -185,13 +185,13 @@ class DebuggerView extends _reactForAtom.React.Component {
       model
     } = this.props;
     const { showOldView } = this.state;
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'nuclide-debugger-root' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: (0, (_classnames || _load_classnames()).default)({ 'nuclide-debugger-container-old-enabled': showOldView }) },
-        _reactForAtom.React.createElement((_DebuggerControllerView || _load_DebuggerControllerView()).default, {
+        _react.default.createElement((_DebuggerControllerView || _load_DebuggerControllerView()).default, {
           store: model.getStore(),
           bridge: model.getBridge(),
           breakpointStore: model.getBreakpointStore(),
@@ -199,7 +199,7 @@ class DebuggerView extends _reactForAtom.React.Component {
           stopDebugging: this._stopDebugging
         })
       ),
-      !showOldView ? _reactForAtom.React.createElement((_NewDebuggerView || _load_NewDebuggerView()).NewDebuggerView, {
+      !showOldView ? _react.default.createElement((_NewDebuggerView || _load_NewDebuggerView()).NewDebuggerView, {
         model: model,
         watchExpressionListStore: model.getWatchExpressionListStore()
       }) : null
@@ -211,7 +211,7 @@ function createDebuggerView(model) {
   if (!(model instanceof (_DebuggerModel || _load_DebuggerModel()).default)) {
     return;
   }
-  const elem = (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_reactForAtom.React.createElement(DebuggerView, { model: model }));
+  const elem = (0, (_renderReactRoot || _load_renderReactRoot()).renderReactRoot)(_react.default.createElement(DebuggerView, { model: model }));
   elem.className = 'nuclide-debugger-container';
   return elem;
 }
@@ -257,6 +257,8 @@ class Activation {
     }), atom.commands.add('atom-workspace', {
       'nuclide-debugger:remove-all-breakpoints': this._deleteAllBreakpoints.bind(this)
     }), atom.commands.add('atom-workspace', {
+      'nuclide-debugger:remove-breakpoint': this._deleteBreakpoint.bind(this)
+    }), atom.commands.add('atom-workspace', {
       'nuclide-debugger:add-to-watch': this._addToWatch.bind(this)
     }), atom.commands.add('atom-workspace', {
       'nuclide-debugger:run-to-location': this._runToLocation.bind(this)
@@ -267,6 +269,9 @@ class Activation {
     // Context Menu Items.
     atom.contextMenu.add({
       '.nuclide-debugger-breakpoint': [{
+        label: 'Remove Breakpoint',
+        command: 'nuclide-debugger:remove-breakpoint'
+      }, {
         label: 'Remove All Breakpoints',
         command: 'nuclide-debugger:remove-all-breakpoints'
       }],
@@ -388,6 +393,17 @@ class Activation {
     }
   }
 
+  _deleteBreakpoint(event) {
+    const actions = this._model.getActions();
+    const target = event.target;
+    const path = target.dataset.path;
+    const line = parseInt(target.dataset.line, 10);
+    if (path == null) {
+      return;
+    }
+    actions.deleteBreakpoint(path, line);
+  }
+
   _deleteAllBreakpoints() {
     const actions = this._model.getActions();
     actions.deleteAllBreakpoints();
@@ -425,7 +441,7 @@ class Activation {
 
   _getLaunchAttachDialog() {
     if (!this._launchAttachDialog) {
-      const component = _reactForAtom.React.createElement((_DebuggerLaunchAttachUI || _load_DebuggerLaunchAttachUI()).DebuggerLaunchAttachUI, {
+      const component = _react.default.createElement((_DebuggerLaunchAttachUI || _load_DebuggerLaunchAttachUI()).DebuggerLaunchAttachUI, {
         store: this._model.getDebuggerProviderStore(),
         debuggerActions: this._model.getActions(),
         emitter: this._model.getLaunchAttachActionEventEmitter()

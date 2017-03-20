@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5561-1x8zfc8/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5684-r22ghw/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5561-1x8zfc8/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5561-1x8zfc8/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5684-r22ghw/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5684-r22ghw/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5561-1urj42u"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-5684-hpzipe"
     ]
   ],
-  "_from": "../d-117211-5561-1x8zfc8/package.tgz",
-  "_id": "linter-pycodestyle@2.0.0",
+  "_from": "../d-117220-5684-r22ghw/package.tgz",
+  "_id": "linter-pycodestyle@2.0.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-pycodestyle",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5561-1x8zfc8/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5684-r22ghw/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5561-1x8zfc8/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5561-1x8zfc8/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5684-r22ghw/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5684-r22ghw/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-5561-1x8zfc8/package.tgz",
-  "_shasum": "425481543a854a9aa2bdbc4572b54a1dddf97304",
+  "_resolved": "file:../d-117220-5684-r22ghw/package.tgz",
+  "_shasum": "96e8c80123e89810ffbe85653551be16138b1688",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-5561-1x8zfc8/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-5561-1urj42u",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-5684-r22ghw/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-5684-hpzipe",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-pycodestyle/issues"
   },
@@ -76,5 +76,5 @@
     "type": "git",
     "url": "git+https://github.com/AtomLinter/linter-pycodestyle.git"
   },
-  "version": "2.0.0"
+  "version": "2.0.1"
 }

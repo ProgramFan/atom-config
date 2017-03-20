@@ -50,7 +50,7 @@ function _load_immutable() {
   return _immutable = _interopRequireDefault(require('immutable'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
 
@@ -107,7 +107,7 @@ function deactivate() {
 function consumeWorkspaceViewsService(api) {
   subscriptions.add(api.addOpener(uri => {
     if (uri === (_HomePaneItem2 || _load_HomePaneItem2()).WORKSPACE_VIEW_URI) {
-      return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_reactForAtom.React.createElement((_HomePaneItem || _load_HomePaneItem()).default, { allHomeFragmentsStream: allHomeFragmentsStream }));
+      return (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_react.default.createElement((_HomePaneItem || _load_HomePaneItem()).default, { allHomeFragmentsStream: allHomeFragmentsStream }));
     }
   }), () => api.destroyWhere(item => item instanceof (_HomePaneItem || _load_HomePaneItem()).default), atom.commands.add('atom-workspace', 'nuclide-home:toggle', event => {
     api.toggle((_HomePaneItem2 || _load_HomePaneItem2()).WORKSPACE_VIEW_URI, event.detail);

@@ -179,7 +179,7 @@ class HgRepositoryClient {
     const fileChanges = this._service.observeFilesDidChange().refCount();
     const repoStateChanges = this._service.observeHgRepoStateDidChange().refCount();
     const activeBookmarkChanges = this._service.observeActiveBookmarkDidChange().refCount();
-    const allBookmarChanges = this._service.observeBookmarksDidChange().refCount();
+    const allBookmarkChanges = this._service.observeBookmarksDidChange().refCount();
     const conflictStateChanges = this._service.observeHgConflictStateDidChange().refCount();
     const commitChanges = this._service.observeHgCommitsDidChange().refCount();
 
@@ -191,9 +191,9 @@ class HgRepositoryClient {
       this._emitter.emit('did-change-statuses');
     });
 
-    const shouldRevisionsUpdate = _rxjsBundlesRxMinJs.Observable.merge(activeBookmarkChanges, allBookmarChanges, commitChanges, repoStateChanges).debounceTime(REVISION_DEBOUNCE_DELAY);
+    const shouldRevisionsUpdate = _rxjsBundlesRxMinJs.Observable.merge(activeBookmarkChanges, allBookmarkChanges, commitChanges, repoStateChanges).debounceTime(REVISION_DEBOUNCE_DELAY);
 
-    this._subscriptions.add(statusChangesSubscription, activeBookmarkChanges.subscribe(this.fetchActiveBookmark.bind(this)), allBookmarChanges.subscribe(() => {
+    this._subscriptions.add(statusChangesSubscription, activeBookmarkChanges.subscribe(this.fetchActiveBookmark.bind(this)), allBookmarkChanges.subscribe(() => {
       this._emitter.emit('did-change-bookmarks');
     }), conflictStateChanges.subscribe(this._conflictStateChanged.bind(this)), shouldRevisionsUpdate.subscribe(() => this._revisionsCache.refreshRevisions()));
   }
@@ -246,6 +246,10 @@ class HgRepositoryClient {
 
   onDidChangeConflictState(callback) {
     return this._emitter.on(DID_CHANGE_CONFLICT_STATE, callback);
+  }
+
+  onDidChangeInteractiveMode(callback) {
+    return this._emitter.on('did-change-interactive-mode', callback);
   }
 
   /**
@@ -589,6 +593,10 @@ class HgRepositoryClient {
     })();
   }
 
+  _updateInteractiveMode(isInteractiveMode) {
+    this._emitter.emit('did-change-interactive-mode', isInteractiveMode);
+  }
+
   /**
   *
   * Section: Retrieving Bookmark (async methods)
@@ -602,12 +610,16 @@ class HgRepositoryClient {
     return this._getShortHeadAsync();
   }
 
-  fetchMergeConflicts() {
-    return this._service.fetchMergeConflicts();
+  /*
+   * Setting fetchResolved will return all resolved and unresolved conflicts,
+   * the default would only fetch the current unresolved conflicts.
+   */
+  fetchMergeConflicts(fetchResolved) {
+    return this._service.fetchMergeConflicts(fetchResolved);
   }
 
   resolveConflictedFile(filePath) {
-    return this._service.resolveConflictedFile(filePath);
+    return this._service.resolveConflictedFile(filePath).refCount();
   }
 
   /**
@@ -832,15 +844,22 @@ class HgRepositoryClient {
   }
 
   commit(message, isInteractive = false) {
-    return this._service.commit(message, isInteractive).refCount().do(this._clearOnSuccessExit.bind(this, isInteractive));
+    if (isInteractive) {
+      this._updateInteractiveMode(true);
+    }
+    return this._service.commit(message, isInteractive).refCount().do(this._clearOnSuccessExit.bind(this, isInteractive)).finally(this._updateInteractiveMode.bind(this, false));
   }
 
   amend(message, amendMode, isInteractive = false) {
-    return this._service.amend(message, amendMode, isInteractive).refCount().do(this._clearOnSuccessExit.bind(this, isInteractive));
+    if (isInteractive) {
+      this._updateInteractiveMode(true);
+    }
+    return this._service.amend(message, amendMode, isInteractive).refCount().do(this._clearOnSuccessExit.bind(this, isInteractive)).finally(this._updateInteractiveMode.bind(this, false));
   }
 
   splitRevision() {
-    return this._service.splitRevision().refCount();
+    this._updateInteractiveMode(true);
+    return this._service.splitRevision().refCount().finally(this._updateInteractiveMode.bind(this, false));
   }
 
   _clearOnSuccessExit(isInteractive, message) {
@@ -861,7 +880,7 @@ class HgRepositoryClient {
   }
 
   continueRebase() {
-    return this._service.continueRebase();
+    return this._service.continueRebase().refCount();
   }
 
   abortRebase() {

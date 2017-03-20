@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _atom = require('atom');
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _collection;
 
@@ -20,30 +22,34 @@ function _load_blockDecorations() {
   return _blockDecorations = require('../../commons-atom/block-decorations');
 }
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ */
+
 function renderLineOffset(lineCount, lineHeight) {
-  return _reactForAtom.React.createElement('div', {
+  return _react.default.createElement('div', {
     className: 'nuclide-diff-view-block-offset',
     style: { minHeight: lineCount * lineHeight }
   });
-} /**
-   * Copyright (c) 2015-present, Facebook, Inc.
-   * All rights reserved.
-   *
-   * This source code is licensed under the license found in the LICENSE file in
-   * the root directory of this source tree.
-   *
-   * 
-   */
+}
 
 function renderInlineOffset(offsetElement) {
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     'div',
     { style: { position: 'relative', width: '100%' } },
-    _reactForAtom.React.createElement('div', {
+    _react.default.createElement('div', {
       className: 'nuclide-diff-view-block-offset',
       style: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 0 }
     }),
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       'div',
       { style: { visibility: 'hidden', pointerEvents: 'none' } },
       offsetElement
@@ -76,7 +82,7 @@ class DiffViewEditor {
     }
     const removedElements = Array.from(this._editorElement.getElementsByClassName('atom--invisible-block-decoration'));
     for (const element of removedElements) {
-      _reactForAtom.ReactDOM.unmountComponentAtNode(element);
+      _reactDom.default.unmountComponentAtNode(element);
     }
   }
 

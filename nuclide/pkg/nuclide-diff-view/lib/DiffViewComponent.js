@@ -18,7 +18,7 @@ function _load_MultiRootChangedFilesView() {
   return _MultiRootChangedFilesView = require('../../nuclide-ui/MultiRootChangedFilesView');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _DiffTimelineView;
 
@@ -124,7 +124,7 @@ function renderPublishView(diffModel) {
     verbatimModeEnabled
   } = diffModel.getState();
   const PublishComponent = getPublishComponent(shouldUseTextBasedForm);
-  return _reactForAtom.React.createElement(PublishComponent, {
+  return _react.default.createElement(PublishComponent, {
     lintExcuse: lintExcuse,
     suggestedReviewers: suggestedReviewers,
     publishModeState: state,
@@ -154,7 +154,7 @@ function renderCommitView(diffModel) {
   const hasUncomittedChanges = diffModel.getDirtyFileChangesCount() > 0;
 
   const CommitComponent = getCommitComponent(shouldUseTextBasedForm);
-  return _reactForAtom.React.createElement(CommitComponent, {
+  return _react.default.createElement(CommitComponent, {
     suggestedReviewers: suggestedReviewers,
     commitMessage: message,
     commitMode: mode,
@@ -175,7 +175,7 @@ function renderCommitView(diffModel) {
 
 function renderTimelineView(diffModel) {
   const onSelectionChange = revision => diffModel.setCompareRevision(revision);
-  return _reactForAtom.React.createElement((_DiffTimelineView || _load_DiffTimelineView()).default, {
+  return _react.default.createElement((_DiffTimelineView || _load_DiffTimelineView()).default, {
     diffModel: diffModel,
     onSelectionChange: onSelectionChange
   });
@@ -194,13 +194,13 @@ function renderFileChanges(diffModel) {
 
   let spinnerElement = null;
   if (isLoadingSelectedFiles) {
-    spinnerElement = _reactForAtom.React.createElement((_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinner, {
+    spinnerElement = _react.default.createElement((_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinner, {
       className: 'inline-block nuclide-diff-view-file-change-spinner',
       size: (_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinnerSizes.EXTRA_SMALL
     });
   }
 
-  const emptyMessage = selectedFiles.size === 0 ? _reactForAtom.React.createElement(
+  const emptyMessage = selectedFiles.size === 0 ? _react.default.createElement(
     'div',
     { className: 'nuclide-diff-view-padded' },
     'No file changes selected'
@@ -223,19 +223,19 @@ function renderFileChanges(diffModel) {
     return compareRevisionId == null ? null : `${compareRevisionId}`;
   };
 
-  return _reactForAtom.React.createElement(
+  return _react.default.createElement(
     'div',
     { className: 'nuclide-diff-view-tree' },
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       'div',
       { className: 'padded' },
       'File Changes',
       spinnerElement
     ),
-    _reactForAtom.React.createElement(
+    _react.default.createElement(
       'div',
       null,
-      _reactForAtom.React.createElement((_MultiRootChangedFilesView || _load_MultiRootChangedFilesView()).MultiRootChangedFilesView, {
+      _react.default.createElement((_MultiRootChangedFilesView || _load_MultiRootChangedFilesView()).MultiRootChangedFilesView, {
         commandPrefix: 'nuclide-diff-view',
         fileChanges: (0, (_vcs || _load_vcs()).getMultiRootFileChanges)(selectedFiles, rootPaths),
         getRevertTargetRevision: getCompareRevision,

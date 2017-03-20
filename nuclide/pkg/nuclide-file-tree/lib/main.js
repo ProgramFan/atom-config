@@ -68,7 +68,7 @@ function _load_Constants() {
   return _Constants = require('./Constants');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -288,7 +288,7 @@ class Activation {
 
   _createView() {
     // Currently, we assume that only one will be created.
-    this._fileTreeComponent = (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_reactForAtom.React.createElement((_FileTreeSidebarComponent || _load_FileTreeSidebarComponent()).default, null));
+    this._fileTreeComponent = (0, (_viewableFromReactElement || _load_viewableFromReactElement()).viewableFromReactElement)(_react.default.createElement((_FileTreeSidebarComponent || _load_FileTreeSidebarComponent()).default, null));
     return this._fileTreeComponent;
   }
 

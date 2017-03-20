@@ -20,7 +20,9 @@ function _load_DeleteBookmarkModalComponent() {
   return _DeleteBookmarkModalComponent = _interopRequireDefault(require('./DeleteBookmarkModalComponent'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
+
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
 var _RenameBookmarkModalComponent;
 
@@ -36,23 +38,21 @@ function _load_RepositorySectionComponent() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-const { remote } = _electron.default;
+const { remote } = _electron.default; /**
+                                       * Copyright (c) 2015-present, Facebook, Inc.
+                                       * All rights reserved.
+                                       *
+                                       * This source code is licensed under the license found in the LICENSE file in
+                                       * the root directory of this source tree.
+                                       *
+                                       * 
+                                       */
 
 if (!(remote != null)) {
   throw new Error('Invariant violation: "remote != null"');
 }
 
-class SideBarComponent extends _reactForAtom.React.Component {
+class SideBarComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -109,7 +109,7 @@ class SideBarComponent extends _reactForAtom.React.Component {
   _destroyActiveModal() {
     const panel = this._activeModalPanel;
     if (panel != null) {
-      _reactForAtom.ReactDOM.unmountComponentAtNode(panel.getItem());
+      _reactDom.default.unmountComponentAtNode(panel.getItem());
       panel.destroy();
       this._activeModalPanel = null;
     }
@@ -126,7 +126,7 @@ class SideBarComponent extends _reactForAtom.React.Component {
       panel = this._activeModalPanel = atom.workspace.addModalPanel({ item });
     }
 
-    _reactForAtom.ReactDOM.render(this.state.activeModalComponent, panel.getItem());
+    _reactDom.default.render(this.state.activeModalComponent, panel.getItem());
   }
 
   _handleBookmarkClick(bookmark, repository) {
@@ -153,7 +153,7 @@ class SideBarComponent extends _reactForAtom.React.Component {
     }, { type: 'separator' }, {
       click: () => {
         this.setState({
-          activeModalComponent: _reactForAtom.React.createElement((_DeleteBookmarkModalComponent || _load_DeleteBookmarkModalComponent()).default, {
+          activeModalComponent: _react.default.createElement((_DeleteBookmarkModalComponent || _load_DeleteBookmarkModalComponent()).default, {
             bookmark: bookmark,
             onCancel: () => {
               this.setState({ activeModalComponent: null });
@@ -167,7 +167,7 @@ class SideBarComponent extends _reactForAtom.React.Component {
     }, {
       click: () => {
         this.setState({
-          activeModalComponent: _reactForAtom.React.createElement((_RenameBookmarkModalComponent || _load_RenameBookmarkModalComponent()).default, {
+          activeModalComponent: _react.default.createElement((_RenameBookmarkModalComponent || _load_RenameBookmarkModalComponent()).default, {
             bookmark: bookmark,
             onCancel: () => {
               this.setState({ activeModalComponent: null });
@@ -202,7 +202,7 @@ class SideBarComponent extends _reactForAtom.React.Component {
 
   _handleRepoGearClick(repo, event) {
     this.setState({
-      activeModalComponent: _reactForAtom.React.createElement((_CreateBookmarkModalComponent || _load_CreateBookmarkModalComponent()).default, {
+      activeModalComponent: _react.default.createElement((_CreateBookmarkModalComponent || _load_CreateBookmarkModalComponent()).default, {
         onCancel: () => {
           this.setState({ activeModalComponent: null });
         },
@@ -213,13 +213,13 @@ class SideBarComponent extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       {
         className: 'focusable-panel',
         style: { flex: 1, overflow: 'auto', position: 'relative', whiteSpace: 'normal' },
         tabIndex: '0' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'ul',
         { className: 'list-unstyled' },
         this.props.projectDirectories.map((directory, index) => {
@@ -239,7 +239,7 @@ class SideBarComponent extends _reactForAtom.React.Component {
             uncommittedChangesForDirectory.set(repository.getPath(), uncommittedChanges.get(directory.getPath()) || new Map());
           }
 
-          return _reactForAtom.React.createElement((_RepositorySectionComponent || _load_RepositorySectionComponent()).default, {
+          return _react.default.createElement((_RepositorySectionComponent || _load_RepositorySectionComponent()).default, {
             bookmarks: bookmarks,
             bookmarksIsLoading: repositoryBookmarksIsLoading,
             hasSeparator: index > 0,

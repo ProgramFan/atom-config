@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.LaunchUiComponent = undefined;
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _AtomInput;
 
@@ -57,7 +57,7 @@ function _load_consumeFirstProvider() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class LaunchUiComponent extends _reactForAtom.React.Component {
+class LaunchUiComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -80,44 +80,44 @@ class LaunchUiComponent extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       { className: 'block' },
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'nuclide-debugger-php-launch-attach-ui-select-project' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           'label',
           null,
           'Selected Project Directory: '
         ),
-        _reactForAtom.React.createElement((_Dropdown || _load_Dropdown()).Dropdown, {
+        _react.default.createElement((_Dropdown || _load_Dropdown()).Dropdown, {
           className: 'inline-block nuclide-debugger-connection-box',
           options: this.state.pathMenuItems,
           onChange: this._handlePathsDropdownChange,
           value: this.state.pathsDropdownIndex
         })
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'label',
         null,
         'Command: '
       ),
-      _reactForAtom.React.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
+      _react.default.createElement((_AtomInput || _load_AtomInput()).AtomInput, {
         ref: 'scriptPath',
         tabIndex: '11',
         placeholderText: '/path/to/my/script.php arg1 arg2',
         initialValue: this._getActiveFilePath()
       }),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'padded text-right' },
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_Button || _load_Button()).Button,
           { onClick: this._handleCancelButtonClick },
           'Cancel'
         ),
-        _reactForAtom.React.createElement(
+        _react.default.createElement(
           (_Button || _load_Button()).Button,
           {
             buttonType: (_Button || _load_Button()).ButtonTypes.PRIMARY,

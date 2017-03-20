@@ -10,7 +10,7 @@ function _load_Hasher() {
   return _Hasher = _interopRequireDefault(require('../../../commons-node/Hasher'));
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _RecordView;
 
@@ -30,7 +30,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * 
  */
 
-class OutputTable extends _reactForAtom.React.Component {
+class OutputTable extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -40,7 +40,7 @@ class OutputTable extends _reactForAtom.React.Component {
   }
 
   render() {
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'div',
       {
         className: 'nuclide-console-table-wrapper native-key-bindings',
@@ -58,7 +58,7 @@ class OutputTable extends _reactForAtom.React.Component {
   }
 
   _renderRow(record, index) {
-    return _reactForAtom.React.createElement((_RecordView || _load_RecordView()).default, {
+    return _react.default.createElement((_RecordView || _load_RecordView()).default, {
       key: this._hasher.getHash(record),
       getExecutor: this._getExecutor,
       getProvider: this._getProvider,

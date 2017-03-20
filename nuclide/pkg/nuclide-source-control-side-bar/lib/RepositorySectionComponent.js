@@ -34,7 +34,7 @@ function _load_MultiRootChangedFilesView() {
   return _MultiRootChangedFilesView = require('../../nuclide-ui/MultiRootChangedFilesView');
 }
 
-var _reactForAtom = require('react-for-atom');
+var _react = _interopRequireDefault(require('react'));
 
 var _Section;
 
@@ -60,7 +60,7 @@ const ACTIVE_BOOKMARK_TITLE = 'Active bookmark'; /**
 
 const LOADING_BOOKMARK_TITLE = 'Loading...';
 
-class RepositorySectionComponent extends _reactForAtom.React.Component {
+class RepositorySectionComponent extends _react.default.Component {
 
   constructor(props) {
     super(props);
@@ -127,7 +127,7 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
     if (repository != null) {
       if (repository.getType() === 'hg') {
         bookmarksBranchesHeader = 'BOOKMARKS';
-        createButton = _reactForAtom.React.createElement((_Button || _load_Button()).Button, {
+        createButton = _react.default.createElement((_Button || _load_Button()).Button, {
           size: (_Button || _load_Button()).ButtonSizes.SMALL,
           icon: 'plus',
           onClick: this._handleRepoGearClick,
@@ -144,13 +144,13 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
         let bookmarksBranchesListItems;
         const repositoryBookmarks = this.props.bookmarks;
         if (repositoryBookmarks == null) {
-          bookmarksBranchesListItems = _reactForAtom.React.createElement(
+          bookmarksBranchesListItems = _react.default.createElement(
             'li',
             { className: 'list-item nuclide-source-control-side-bar--list-item text-subtle' },
             'Loading...'
           );
         } else if (repositoryBookmarks.length === 0) {
-          bookmarksBranchesListItems = _reactForAtom.React.createElement(
+          bookmarksBranchesListItems = _react.default.createElement(
             'li',
             { className: 'list-item nuclide-source-control-side-bar--list-item text-subtle' },
             'None'
@@ -187,7 +187,7 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
 
             let loadingSpinner;
             if (isLoading) {
-              loadingSpinner = _reactForAtom.React.createElement('span', { className: 'loading loading-spinner-tiny inline-block inline-block-tight' });
+              loadingSpinner = _react.default.createElement('span', { className: 'loading loading-spinner-tiny inline-block inline-block-tight' });
             }
 
             // We need to use native event handling so that we can preempt Electron's menu.
@@ -205,7 +205,7 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
               });
             };
 
-            return _reactForAtom.React.createElement(
+            return _react.default.createElement(
               'li',
               {
                 ref: cb,
@@ -213,7 +213,7 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
                 key: bookmark.bookmark,
                 onClick: this._handleBookmarkClick.bind(this, bookmark),
                 title: title },
-              _reactForAtom.React.createElement(
+              _react.default.createElement(
                 'span',
                 { className: iconClassName },
                 loadingSpinner,
@@ -222,7 +222,7 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
             );
           });
         }
-        bookmarksBranchesList = _reactForAtom.React.createElement(
+        bookmarksBranchesList = _react.default.createElement(
           'ul',
           { className: 'list-group' },
           bookmarksBranchesListItems
@@ -230,7 +230,7 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
 
         const uncommittedChanges = this.props.uncommittedChanges.get(repository.getPath());
         if (repository != null && uncommittedChanges != null && uncommittedChanges.size > 0) {
-          uncommittedChangesSection = _reactForAtom.React.createElement(
+          uncommittedChangesSection = _react.default.createElement(
             (_Section || _load_Section()).Section,
             {
               className: 'nuclide-file-tree-section-caption',
@@ -239,10 +239,10 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
               headline: 'UNCOMMITTED CHANGES',
               onChange: this._handleUncommittedFilesExpandedChange,
               size: 'small' },
-            _reactForAtom.React.createElement(
+            _react.default.createElement(
               'div',
               { className: 'nuclide-source-control-side-bar-uncommitted-changes' },
-              _reactForAtom.React.createElement((_MultiRootChangedFilesView || _load_MultiRootChangedFilesView()).MultiRootChangedFilesView, {
+              _react.default.createElement((_MultiRootChangedFilesView || _load_MultiRootChangedFilesView()).MultiRootChangedFilesView, {
                 fileChanges: this.props.uncommittedChanges,
                 rootPath: repository.getPath(),
                 commandPrefix: 'sc-sidebar',
@@ -255,7 +255,7 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
           );
         }
       } else {
-        bookmarksBranchesList = _reactForAtom.React.createElement(
+        bookmarksBranchesList = _react.default.createElement(
           'div',
           { className: 'nuclide-source-control-side-bar--header text-info' },
           'Only Mercurial repositories are supported. \'',
@@ -267,25 +267,25 @@ class RepositorySectionComponent extends _reactForAtom.React.Component {
 
     let separator;
     if (this.props.hasSeparator) {
-      separator = _reactForAtom.React.createElement((_HR || _load_HR()).HR, null);
+      separator = _react.default.createElement((_HR || _load_HR()).HR, null);
     }
 
-    return _reactForAtom.React.createElement(
+    return _react.default.createElement(
       'li',
       null,
       separator,
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'h6',
         { className: 'text-highlight nuclide-source-control-side-bar--repo-header' },
         this.props.title
       ),
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'div',
         { className: 'nuclide-source-control-side-bar--header' },
         uncommittedChangesSection
       ),
       createButton,
-      _reactForAtom.React.createElement(
+      _react.default.createElement(
         'h6',
         { className: 'nuclide-source-control-side-bar--header' },
         bookmarksBranchesHeader

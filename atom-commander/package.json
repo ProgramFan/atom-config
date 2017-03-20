@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6096-1auz5mw/package.tgz",
+        "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-6211-1vhhsy7/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6096-1auz5mw/package.tgz",
-        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6096-1auz5mw/package.tgz",
+        "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-6211-1vhhsy7/package.tgz",
+        "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-6211-1vhhsy7/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-6096-1g9lgom"
+      "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-6211-dcvzuq"
     ]
   ],
-  "_from": "../d-117211-6096-1auz5mw/package.tgz",
-  "_id": "atom-commander@0.8.7",
+  "_from": "../d-117220-6211-1vhhsy7/package.tgz",
+  "_id": "atom-commander@0.8.8",
   "_inCache": true,
   "_installable": true,
   "_location": "/atom-commander",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6096-1auz5mw/package.tgz",
+    "raw": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-6211-1vhhsy7/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6096-1auz5mw/package.tgz",
-    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6096-1auz5mw/package.tgz",
+    "rawSpec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-6211-1vhhsy7/package.tgz",
+    "spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-6211-1vhhsy7/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117211-6096-1auz5mw/package.tgz",
-  "_shasum": "2c8b4799049e3a4ab88a8b5fe081b6e03229144a",
+  "_resolved": "file:../d-117220-6211-1vhhsy7/package.tgz",
+  "_shasum": "40c62a30e55807c7153a5b1a8531645612a1245c",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117211-6096-1auz5mw/package.tgz",
-  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117211-6096-1g9lgom",
+  "_spec": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/d-117220-6211-1vhhsy7/package.tgz",
+  "_where": "/private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/apm-install-dir-117220-6211-dcvzuq",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/morassman/atom-commander/issues"
@@ -93,5 +93,5 @@
     "type": "git",
     "url": "git+https://github.com/morassman/atom-commander.git"
   },
-  "version": "0.8.7"
+  "version": "0.8.8"
 }
