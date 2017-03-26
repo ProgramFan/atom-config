@@ -1,24 +1,60 @@
-'use babel';
+/* @flow */
 
 import { Emitter } from 'atom';
+import { observable, action } from 'mobx';
 
-import StatusView from './status-view';
+import { grammarToLanguage, log } from './utils';
+import store from './store';
+
 import WatchSidebar from './watch-sidebar';
 import HydrogenKernel from './plugin-api/hydrogen-kernel';
-import log from './log';
 
 export default class Kernel {
-  constructor(kernelSpec, grammar) {
+  @observable executionState = 'loading'
+  @observable inspector = {
+    visible: false,
+    HTML: '',
+    height: 240,
+  }
+
+  kernelSpec: Kernelspec;
+  grammar: atom$Grammar;
+  language: string;
+  displayName: string;
+  watchSidebar: WatchSidebar;
+  watchCallbacks: Array<Function> = [];
+  emitter = new Emitter();
+  pluginWrapper: HydrogenKernel | null = null;
+
+  constructor(kernelSpec: Kernelspec, grammar: atom$Grammar) {
     this.kernelSpec = kernelSpec;
     this.grammar = grammar;
-    this.watchCallbacks = [];
-
     this.watchSidebar = new WatchSidebar(this);
-    this.statusView = new StatusView(this.kernelSpec.display_name);
 
-    this.emitter = new Emitter();
+    // $FlowFixMe Since grammar is defined, grammarToLanguage will return a string
+    this.language = grammarToLanguage(grammar);
+    this.displayName = kernelSpec.display_name;
+  }
 
-    this.pluginWrapper = null;
+  @action setExecutionState(state: string) {
+    this.executionState = state;
+  }
+
+  @action setInspectorVisibility(visible: boolean) {
+    this.inspector.visible = visible;
+  }
+
+  @action setInspectorHeight(height: number) {
+    this.inspector.height = height;
+  }
+
+  @action setInspectorResult(HTML: string) {
+    if (this.inspector.visible === true && this.inspector.HTML === HTML) {
+      this.setInspectorVisibility(false);
+    } else if (HTML) {
+      this.inspector.HTML = HTML;
+      this.setInspectorVisibility(true);
+    }
   }
 
   getPluginWrapper() {
@@ -29,7 +65,7 @@ export default class Kernel {
     return this.pluginWrapper;
   }
 
-  addWatchCallback(watchCallback) {
+  addWatchCallback(watchCallback: Function) {
     this.watchCallbacks.push(watchCallback);
   }
 
@@ -43,33 +79,37 @@ export default class Kernel {
     throw new Error('Kernel: interrupt method not implemented');
   }
 
-
+  /* eslint-disable no-unused-vars */
   shutdown() {
     throw new Error('Kernel: shutdown method not implemented');
   }
 
+  restart(onRestarted: ?Function) {
+    throw new Error('Kernel: restart method not implemented');
+  }
 
-  execute() {
+
+  execute(code: string, onResults: Function) {
     throw new Error('Kernel: execute method not implemented');
   }
 
 
-  executeWatch() {
+  executeWatch(code: string, onResults: Function) {
     throw new Error('Kernel: executeWatch method not implemented');
   }
 
 
-  complete() {
+  complete(code: string, onResults: Function) {
     throw new Error('Kernel: complete method not implemented');
   }
 
 
-  inspect() {
+  inspect(code: string, curorPos: number, onResults: Function) {
     throw new Error('Kernel: inspect method not implemented');
   }
 
-
-  _parseIOMessage(message) {
+  /* eslint-enable no-unused-vars */
+  _parseIOMessage(message: Message) {
     let result = this._parseDisplayIOMessage(message);
 
     if (!result) {
@@ -92,7 +132,7 @@ export default class Kernel {
   }
 
 
-  _parseDisplayIOMessage(message) {
+  _parseDisplayIOMessage(message: Message) {
     if (message.header.msg_type === 'display_data') {
       return this._parseDataMime(message.content.data);
     }
@@ -100,7 +140,7 @@ export default class Kernel {
   }
 
   /* eslint-disable camelcase*/
-  _parseResultIOMessage(message) {
+  _parseResultIOMessage(message: Message) {
     const { msg_type } = message.header;
 
     if (msg_type === 'execute_result' || msg_type === 'pyout') {
@@ -111,7 +151,7 @@ export default class Kernel {
   /* eslint-enable camelcase*/
 
 
-  _parseDataMime(data) {
+  _parseDataMime(data: Object) {
     if (!data) {
       return null;
     }
@@ -144,7 +184,7 @@ export default class Kernel {
   }
 
 
-  _getMimeType(data) {
+  _getMimeType(data: Object) {
     const imageMimes = Object.getOwnPropertyNames(data).filter(mime => mime.startsWith('image/'));
 
     let mime;
@@ -168,7 +208,7 @@ export default class Kernel {
   }
 
   /* eslint-disable camelcase*/
-  _parseErrorIOMessage(message) {
+  _parseErrorIOMessage(message: Message) {
     const { msg_type } = message.header;
 
     if (msg_type === 'error' || msg_type === 'pyerr') {
@@ -180,7 +220,7 @@ export default class Kernel {
   /* eslint-enable camelcase*/
 
 
-  _parseErrorMessage(message) {
+  _parseErrorMessage(message: Message) {
     let errorString;
     try {
       errorString = message.content.traceback.join('\n');
@@ -201,7 +241,7 @@ export default class Kernel {
     return result;
   }
 
-  _parseStreamIOMessage(message) {
+  _parseStreamIOMessage(message: Message) {
     let result;
     if (message.header.msg_type === 'stream') {
       result = {
@@ -240,7 +280,7 @@ export default class Kernel {
     return result;
   }
 
-  _parseExecuteInputIOMessage(message) {
+  _parseExecuteInputIOMessage(message: Message) {
     if (message.header.msg_type === 'execute_input') {
       return {
         data: message.content.execution_count,
@@ -254,6 +294,7 @@ export default class Kernel {
 
   destroy() {
     log('Kernel: Destroying base kernel');
+    store.deleteKernel(this.language);
     if (this.pluginWrapper) {
       this.pluginWrapper.destroyed = true;
     }

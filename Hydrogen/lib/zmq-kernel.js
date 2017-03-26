@@ -1,28 +1,55 @@
-'use babel';
+/* @flow */
 
 import fs from 'fs';
-import jmp from 'jmp';
+import { Message, Socket } from 'jmp';
 import v4 from 'uuid/v4';
 
 import Kernel from './kernel';
 import InputView from './input-view';
-import log from './log';
+import kernelManager from './kernel-manager';
+import { log } from './utils';
 
+type Connection = {
+  control_port: number,
+  hb_port: number,
+  iopub_port: number,
+  ip: string,
+  key: string,
+  shell_port: number,
+  signature_scheme: string,
+  stdin_port: number,
+  transport: string,
+  version: number,
+}
+/* eslint-disable camelcase */
 export default class ZMQKernel extends Kernel {
-  constructor(kernelSpec, grammar, connection, connectionFile, kernelProcess) {
+  executionCallbacks: Object = {};
+  connection: Connection;
+  connectionFile: string;
+  kernelProcess: child_process$ChildProcess;
+
+  shellSocket: Socket;
+  controlSocket: Socket;
+  stdinSocket: Socket;
+  ioSocket: Socket;
+
+  constructor(
+    kernelSpec: Kernelspec,
+    grammar: atom$Grammar,
+    connection: Connection,
+    connectionFile: string,
+    kernelProcess: child_process$ChildProcess) {
     super(kernelSpec, grammar);
     this.connection = connection;
     this.connectionFile = connectionFile;
     this.kernelProcess = kernelProcess;
-
-    this.executionCallbacks = {};
 
     this._connect();
 
     if (this.kernelProcess) {
       log('ZMQKernel: @kernelProcess:', this.kernelProcess);
 
-      this.kernelProcess.stdout.on('data', (data) => {
+      this.kernelProcess.stdout.on('data', (data: string | Buffer) => {
         data = data.toString();
 
         if (atom.config.get('Hydrogen.kernelNotifications')) {
@@ -35,7 +62,7 @@ export default class ZMQKernel extends Kernel {
         }
       });
 
-      this.kernelProcess.stderr.on('data', (data) => {
+      this.kernelProcess.stderr.on('data', (data: string | Buffer) => {
         atom.notifications.addError(this.kernelSpec.display_name, {
           description: data.toString(),
           dismissable: true,
@@ -52,10 +79,10 @@ export default class ZMQKernel extends Kernel {
     const scheme = this.connection.signature_scheme.slice('hmac-'.length);
     const { key } = this.connection;
 
-    this.shellSocket = new jmp.Socket('dealer', scheme, key);
-    this.controlSocket = new jmp.Socket('dealer', scheme, key);
-    this.stdinSocket = new jmp.Socket('dealer', scheme, key);
-    this.ioSocket = new jmp.Socket('sub', scheme, key);
+    this.shellSocket = new Socket('dealer', scheme, key);
+    this.controlSocket = new Socket('dealer', scheme, key);
+    this.stdinSocket = new Socket('dealer', scheme, key);
+    this.ioSocket = new Socket('sub', scheme, key);
 
     const id = v4();
     this.shellSocket.identity = `dealer${id}`;
@@ -116,19 +143,32 @@ export default class ZMQKernel extends Kernel {
   }
 
 
-  shutdown(restart = false) {
+  shutdown(restart: ?boolean = false) {
     const requestId = `shutdown_${v4()}`;
     const message = this._createMessage('shutdown_request', requestId);
 
     message.content = { restart };
 
-    this.shellSocket.send(new jmp.Message(message));
+    this.shellSocket.send(new Message(message));
+  }
+
+
+  restart(onRestarted: ?Function) {
+    if (this.kernelProcess) {
+      this.destroy(true);
+      kernelManager.startKernel(this.kernelSpec, this.grammar, onRestarted);
+      return;
+    }
+
+    log('ZMQKernel: restart ignored:', this);
+    atom.notifications.addWarning('Cannot restart this kernel');
+    if (onRestarted) onRestarted(this);
   }
 
 
   // onResults is a callback that may be called multiple times
   // as results come in from the kernel
-  _execute(code, requestId, onResults) {
+  _execute(code: string, requestId: string, onResults: Function) {
     const message = this._createMessage('execute_request', requestId);
 
     message.content = {
@@ -141,11 +181,11 @@ export default class ZMQKernel extends Kernel {
 
     this.executionCallbacks[requestId] = onResults;
 
-    this.shellSocket.send(new jmp.Message(message));
+    this.shellSocket.send(new Message(message));
   }
 
 
-  execute(code, onResults) {
+  execute(code: string, onResults: Function) {
     log('Kernel.execute:', code);
 
     const requestId = `execute_${v4()}`;
@@ -153,7 +193,7 @@ export default class ZMQKernel extends Kernel {
   }
 
 
-  executeWatch(code, onResults) {
+  executeWatch(code: string, onResults: Function) {
     log('Kernel.executeWatch:', code);
 
     const requestId = `watch_${v4()}`;
@@ -161,7 +201,7 @@ export default class ZMQKernel extends Kernel {
   }
 
 
-  complete(code, onResults) {
+  complete(code: string, onResults: Function) {
     log('Kernel.complete:', code);
 
     const requestId = `complete_${v4()}`;
@@ -177,11 +217,11 @@ export default class ZMQKernel extends Kernel {
 
     this.executionCallbacks[requestId] = onResults;
 
-    this.shellSocket.send(new jmp.Message(message));
+    this.shellSocket.send(new Message(message));
   }
 
 
-  inspect(code, cursorPos, onResults) {
+  inspect(code: string, cursorPos: number, onResults: Function) {
     log('Kernel.inspect:', code, cursorPos);
 
     const requestId = `inspect_${v4()}`;
@@ -196,21 +236,21 @@ export default class ZMQKernel extends Kernel {
 
     this.executionCallbacks[requestId] = onResults;
 
-    this.shellSocket.send(new jmp.Message(message));
+    this.shellSocket.send(new Message(message));
   }
 
-  inputReply(input) {
+  inputReply(input: string) {
     const requestId = `input_reply_${v4()}`;
 
     const message = this._createMessage('input_reply', requestId);
 
     message.content = { value: input };
 
-    this.stdinSocket.send(new jmp.Message(message));
+    this.stdinSocket.send(new Message(message));
   }
 
-  /* eslint-disable camelcase*/
-  onShellMessage(message) {
+
+  onShellMessage(message: Message) {
     log('shell message:', message);
 
     if (!this._isValidMessage(message)) {
@@ -260,7 +300,7 @@ export default class ZMQKernel extends Kernel {
   }
 
 
-  onStdinMessage(message) {
+  onStdinMessage(message: Message) {
     log('stdin message:', message);
 
     if (!this._isValidMessage(message)) {
@@ -272,14 +312,14 @@ export default class ZMQKernel extends Kernel {
     if (msg_type === 'input_request') {
       const { prompt } = message.content;
 
-      const inputView = new InputView({ prompt }, input => this.inputReply(input));
+      const inputView = new InputView({ prompt }, (input: string) => this.inputReply(input));
 
       inputView.attach();
     }
   }
 
 
-  onIOMessage(message) {
+  onIOMessage(message: Message) {
     log('IO message:', message);
 
     if (!this._isValidMessage(message)) {
@@ -290,8 +330,7 @@ export default class ZMQKernel extends Kernel {
 
     if (msg_type === 'status') {
       const status = message.content.execution_state;
-      this.statusView.setStatus(status);
-      this.executionState = status;
+      this.setExecutionState(status);
 
       const msg_id = (message.parent_header) ? message.parent_header.msg_id : null;
       if (msg_id && status === 'idle' && msg_id.startsWith('execute')) {
@@ -318,7 +357,7 @@ export default class ZMQKernel extends Kernel {
   /* eslint-enable camelcase*/
 
 
-  _isValidMessage(message) {
+  _isValidMessage(message: Message) {
     if (!message) {
       log('Invalid message: null');
       return false;
@@ -369,10 +408,10 @@ export default class ZMQKernel extends Kernel {
   }
 
 
-  destroy() {
+  destroy(restart: ?boolean = false) {
     log('ZMQKernel: destroy:', this);
 
-    this.shutdown();
+    this.shutdown(restart);
 
     if (this.kernelProcess) {
       this._kill();
@@ -395,7 +434,7 @@ export default class ZMQKernel extends Kernel {
       process.env.USERNAME;
   }
 
-  _createMessage(msgType, msgId = v4()) {
+  _createMessage(msgType: string, msgId: string = v4()) {
     const message = {
       header: {
         username: this._getUsername(),

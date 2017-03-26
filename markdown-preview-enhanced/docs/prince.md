@@ -1,4 +1,4 @@
-# Prince Pdf Export
+# Prince PDF Export
 **Markdown Preview Enhanced** supports [prince](https://www.princexml.com/) pdf export.  
 
 ## Installation  
@@ -39,3 +39,7 @@ For example, to change the page size to `A4 landscape`:
 
 More information can be found at [prince user guide](https://www.princexml.com/doc/).  
 Especially [page styles](https://www.princexml.com/doc/paged/#page-styles).  
+
+
+## Known issues
+* Doesn't work with `KaTeX` and `MathJax`.  

@@ -4,12 +4,13 @@ import { SelectListView } from 'atom-space-pen-views';
 import _ from 'lodash';
 
 import WSKernel from './ws-kernel';
-import log from './log';
+import kernelManager from './kernel-manager';
+import { log } from './utils';
+import store from './store';
 
 // View to display a list of grammars to apply to the current editor.
 export default class SignalListView extends SelectListView {
-  initialize(kernelManager) {
-    this.kernelManager = kernelManager;
+  initialize() {
     super.initialize(...arguments);
 
     this.basicCommands = [{
@@ -52,11 +53,10 @@ export default class SignalListView extends SelectListView {
     this.storeFocusedElement();
     if (!this.panel) { this.panel = atom.workspace.addModalPanel({ item: this }); }
     this.focusFilterEditor();
-    const grammar = this.editor.getGrammar();
-    const language = this.kernelManager.getLanguageFor(grammar);
+    const language = store.language;
 
     // disable all commands if no kernel is running
-    const kernel = this.kernelManager.getRunningKernelFor(language);
+    const kernel = store.kernel;
     if (!kernel) {
       this.setItems([]);
     }
@@ -65,31 +65,23 @@ export default class SignalListView extends SelectListView {
     const basicCommands = this.basicCommands.map(command => ({
       name: this._getCommandName(command.name, kernel.kernelSpec),
       command: command.value,
-      grammar,
-      language,
-      kernel,
     }));
 
     if (kernel instanceof WSKernel) {
       const wsKernelCommands = this.wsKernelCommands.map(command => ({
         name: this._getCommandName(command.name, kernel.kernelSpec),
         command: command.value,
-        grammar,
-        language,
-        kernel,
       }));
       this.setItems(_.union(basicCommands, wsKernelCommands));
     } else {
       // add commands to switch to other kernels
-      this.kernelManager.getAllKernelSpecsFor(language, (kernelSpecs) => {
+      kernelManager.getAllKernelSpecsFor(language, (kernelSpecs) => {
         _.pull(kernelSpecs, kernel.kernelSpec);
 
         const switchCommands = kernelSpecs.map(kernelSpec => ({
           name: this._getCommandName('Switch to', kernelSpec),
           command: 'switch-kernel',
-          grammar,
-          language,
-          kernelSpec,
+          payload: kernelSpec,
         }));
 
         this.setItems(_.union(basicCommands, switchCommands));

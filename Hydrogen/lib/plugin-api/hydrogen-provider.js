@@ -1,5 +1,7 @@
 'use babel';
 
+import store from './../store';
+import { grammarToLanguage } from './../utils';
 /**
  * @version 1.0.0
  *
@@ -38,12 +40,12 @@ export default class HydrogenProvider {
    * @return {Class} `HydrogenKernel`
    */
   getActiveKernel() {
-    if (!this._hydrogen.kernel) {
-      const grammar = this._hydrogen.editor.getGrammar();
-      const language = this._hydrogen.kernelManager.getLanguageFor(grammar);
+    if (!store.kernel) {
+      const grammar = store.editor.getGrammar();
+      const language = grammarToLanguage(grammar);
       throw new Error(`No running kernel for language \`${language}\` found`);
     }
 
-    return this._hydrogen.kernel.getPluginWrapper();
+    return store.kernel.getPluginWrapper();
   }
 }
