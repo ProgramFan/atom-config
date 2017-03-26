@@ -62,4 +62,5 @@ platformio-ide-terminal
 plantuml-viewer
 nuclide
 you-complete-me
+atom-rtags-plus
 latextools
