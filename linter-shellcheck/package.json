@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117220-5697-1rtlzbv/package.tgz",
+        "raw": "/tmp/d-117226-5683-1cgtnvp/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117220-5697-1rtlzbv/package.tgz",
-        "spec": "/tmp/d-117220-5697-1rtlzbv/package.tgz",
+        "rawSpec": "/tmp/d-117226-5683-1cgtnvp/package.tgz",
+        "spec": "/tmp/d-117226-5683-1cgtnvp/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117220-5697-h08ccu"
+      "/tmp/apm-install-dir-117226-5683-vw6a0t"
     ]
   ],
-  "_from": "../d-117220-5697-1rtlzbv/package.tgz",
+  "_from": "../d-117226-5683-1cgtnvp/package.tgz",
   "_id": "linter-shellcheck@1.4.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117220-5697-1rtlzbv/package.tgz",
+    "raw": "/tmp/d-117226-5683-1cgtnvp/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117220-5697-1rtlzbv/package.tgz",
-    "spec": "/tmp/d-117220-5697-1rtlzbv/package.tgz",
+    "rawSpec": "/tmp/d-117226-5683-1cgtnvp/package.tgz",
+    "spec": "/tmp/d-117226-5683-1cgtnvp/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117220-5697-1rtlzbv/package.tgz",
+  "_resolved": "file:../d-117226-5683-1cgtnvp/package.tgz",
   "_shasum": "d297a23b15118a7ba53d1d6d76d5d63b69018b68",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117220-5697-1rtlzbv/package.tgz",
-  "_where": "/tmp/apm-install-dir-117220-5697-h08ccu",
+  "_spec": "/tmp/d-117226-5683-1cgtnvp/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-5683-vw6a0t",
   "activationHooks": [
     "language-shellscript:grammar-used"
   ],

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117220-5455-s1xtfa/package.tgz",
+        "raw": "/tmp/d-117226-5448-1y7sa6l/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117220-5455-s1xtfa/package.tgz",
-        "spec": "/tmp/d-117220-5455-s1xtfa/package.tgz",
+        "rawSpec": "/tmp/d-117226-5448-1y7sa6l/package.tgz",
+        "spec": "/tmp/d-117226-5448-1y7sa6l/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117220-5455-1sc58a5"
+      "/tmp/apm-install-dir-117226-5448-ou9dos"
     ]
   ],
-  "_from": "../d-117220-5455-s1xtfa/package.tgz",
+  "_from": "../d-117226-5448-1y7sa6l/package.tgz",
   "_id": "autocomplete-en-en@0.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-en-en",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117220-5455-s1xtfa/package.tgz",
+    "raw": "/tmp/d-117226-5448-1y7sa6l/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117220-5455-s1xtfa/package.tgz",
-    "spec": "/tmp/d-117220-5455-s1xtfa/package.tgz",
+    "rawSpec": "/tmp/d-117226-5448-1y7sa6l/package.tgz",
+    "spec": "/tmp/d-117226-5448-1y7sa6l/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117220-5455-s1xtfa/package.tgz",
+  "_resolved": "file:../d-117226-5448-1y7sa6l/package.tgz",
   "_shasum": "d72a0a605b97e906dd6247710c2c73766ec0e36b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117220-5455-s1xtfa/package.tgz",
-  "_where": "/tmp/apm-install-dir-117220-5455-1sc58a5",
+  "_spec": "/tmp/d-117226-5448-1y7sa6l/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-5448-ou9dos",
   "author": {
     "name": "Shuai Wu",
     "email": "ws.horton@gmail.com"

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117220-5657-3m1qdy/package.tgz",
+        "raw": "/tmp/d-117226-5644-1wx9506/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117220-5657-3m1qdy/package.tgz",
-        "spec": "/tmp/d-117220-5657-3m1qdy/package.tgz",
+        "rawSpec": "/tmp/d-117226-5644-1wx9506/package.tgz",
+        "spec": "/tmp/d-117226-5644-1wx9506/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117220-5657-1ld8t2j"
+      "/tmp/apm-install-dir-117226-5644-bll6pn"
     ]
   ],
-  "_from": "../d-117220-5657-3m1qdy/package.tgz",
-  "_id": "linter-pycodestyle@2.0.1",
+  "_from": "../d-117226-5644-1wx9506/package.tgz",
+  "_id": "linter-pycodestyle@2.0.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-pycodestyle",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117220-5657-3m1qdy/package.tgz",
+    "raw": "/tmp/d-117226-5644-1wx9506/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117220-5657-3m1qdy/package.tgz",
-    "spec": "/tmp/d-117220-5657-3m1qdy/package.tgz",
+    "rawSpec": "/tmp/d-117226-5644-1wx9506/package.tgz",
+    "spec": "/tmp/d-117226-5644-1wx9506/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117220-5657-3m1qdy/package.tgz",
-  "_shasum": "96e8c80123e89810ffbe85653551be16138b1688",
+  "_resolved": "file:../d-117226-5644-1wx9506/package.tgz",
+  "_shasum": "76cf3f3fb7f020b3baceb267fd62f8ccd25db10f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117220-5657-3m1qdy/package.tgz",
-  "_where": "/tmp/apm-install-dir-117220-5657-1ld8t2j",
+  "_spec": "/tmp/d-117226-5644-1wx9506/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-5644-bll6pn",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-pycodestyle/issues"
   },
@@ -76,5 +76,5 @@
     "type": "git",
     "url": "git+https://github.com/AtomLinter/linter-pycodestyle.git"
   },
-  "version": "2.0.1"
+  "version": "2.0.2"
 }

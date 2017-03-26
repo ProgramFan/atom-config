@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117220-6866-5qjagx/package.tgz",
+        "raw": "/tmp/d-117226-6849-13p8x7h/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117220-6866-5qjagx/package.tgz",
-        "spec": "/tmp/d-117220-6866-5qjagx/package.tgz",
+        "rawSpec": "/tmp/d-117226-6849-13p8x7h/package.tgz",
+        "spec": "/tmp/d-117226-6849-13p8x7h/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117220-6866-wd51iv"
+      "/tmp/apm-install-dir-117226-6849-12heak5"
     ]
   ],
-  "_from": "../d-117220-6866-5qjagx/package.tgz",
+  "_from": "../d-117226-6849-13p8x7h/package.tgz",
   "_id": "dash@1.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/dash",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117220-6866-5qjagx/package.tgz",
+    "raw": "/tmp/d-117226-6849-13p8x7h/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117220-6866-5qjagx/package.tgz",
-    "spec": "/tmp/d-117220-6866-5qjagx/package.tgz",
+    "rawSpec": "/tmp/d-117226-6849-13p8x7h/package.tgz",
+    "spec": "/tmp/d-117226-6849-13p8x7h/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117220-6866-5qjagx/package.tgz",
+  "_resolved": "file:../d-117226-6849-13p8x7h/package.tgz",
   "_shasum": "7fad1f6dccbc4424d70c4ed9573641b34802ab2b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117220-6866-5qjagx/package.tgz",
-  "_where": "/tmp/apm-install-dir-117220-6866-wd51iv",
+  "_spec": "/tmp/d-117226-6849-13p8x7h/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-6849-12heak5",
   "activationCommands": {
     "atom-text-editor": [
       "dash:shortcut",

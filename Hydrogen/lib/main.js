@@ -1,56 +1,48 @@
-'use babel';
+/* @flow */
 
-import { CompositeDisposable, Emitter } from 'atom';
+import { Emitter } from 'atom';
 
 import _ from 'lodash';
+import { autorun } from 'mobx';
+import React from 'react';
 
 import ResultView from './result-view';
 import SignalListView from './signal-list-view';
 import KernelPicker from './kernel-picker';
 import WSKernelPicker from './ws-kernel-picker';
-import CodeManager from './code-manager';
+import * as codeManager from './code-manager';
+
+import StatusBar from './components/status-bar';
+import store from './store';
 
 import Config from './config';
-import KernelManager from './kernel-manager';
-import Inspector from './inspector';
+import kernelManager from './kernel-manager';
+import ZMQKernel from './zmq-kernel';
+import WSKernel from './ws-kernel';
+import Inspector from './components/inspector';
 import AutocompleteProvider from './autocomplete-provider';
 import HydrogenProvider from './plugin-api/hydrogen-provider';
-import log from './log';
+import { log, reactFactory, isMultilanguageGrammar } from './utils';
+
+import type Kernel from './kernel';
 
 const Hydrogen = {
   config: Config.schema,
-  subscriptions: null,
 
-  kernelManager: null,
   inspector: null,
 
-  editor: null,
-  kernel: null,
   markerBubbleMap: null,
-
-  statusBarElement: null,
-  statusBarTile: null,
 
   watchSidebar: null,
   watchSidebarIsVisible: false,
 
   activate() {
     this.emitter = new Emitter();
-    this.kernelManager = new KernelManager();
-    this.codeManager = new CodeManager();
-    this.inspector = new Inspector(this.kernelManager, this.codeManager);
+    this.inspector = new Inspector();
 
     this.markerBubbleMap = {};
 
-    this.statusBarElement = document.createElement('div');
-    this.statusBarElement.classList.add('hydrogen-status', 'inline-block');
-    this.statusBarElement.onclick = this.showKernelCommands.bind(this);
-
-    this.onEditorChanged(atom.workspace.getActiveTextEditor());
-
-    this.subscriptions = new CompositeDisposable();
-
-    this.subscriptions.add(atom.commands.add('atom-text-editor', {
+    store.subscriptions.add(atom.commands.add('atom-text-editor', {
       'hydrogen:run': () => this.run(),
       'hydrogen:run-all': () => this.runAll(),
       'hydrogen:run-all-above': () => this.runAllAbove(),
@@ -68,7 +60,7 @@ const Hydrogen = {
         if (!this.watchSidebarIsVisible) this.toggleWatchSidebar();
         if (this.watchSidebar) this.watchSidebar.removeWatch();
       },
-      'hydrogen:update-kernels': () => this.kernelManager.updateKernelSpecs(),
+      'hydrogen:update-kernels': () => kernelManager.updateKernelSpecs(),
       'hydrogen:toggle-inspector': () => this.inspector.toggle(),
       'hydrogen:interrupt-kernel': () =>
         this.handleKernelCommand({ command: 'interrupt-kernel' }),
@@ -78,23 +70,41 @@ const Hydrogen = {
         this.handleKernelCommand({ command: 'shutdown-kernel' }),
     }));
 
-    this.subscriptions.add(atom.commands.add('atom-workspace', {
+    store.subscriptions.add(atom.commands.add('atom-workspace', {
       'hydrogen:clear-results': () => this.clearResultBubbles() }));
 
-    this.subscriptions.add(atom.workspace.observeActivePaneItem((item) => {
-      if (item && item === atom.workspace.getActiveTextEditor()) {
-        this.onEditorChanged(item);
+    store.subscriptions.add(atom.workspace.observeActivePaneItem((item) => {
+      const currentEditor = atom.workspace.getActiveTextEditor();
+      store.updateEditor((item === currentEditor) ? currentEditor : null);
+    }));
+
+    store.subscriptions.add(atom.workspace.observeTextEditors((editor) => {
+      if (isMultilanguageGrammar(editor.getGrammar())) {
+        const cursorSubscription = editor.onDidChangeCursorPosition(
+          _.debounce(() => { store.setGrammar(editor); }, 75),
+        );
+
+        const editorSubscription = editor.onDidDestroy(() => {
+          cursorSubscription.dispose();
+          editorSubscription.dispose();
+        });
+
+        store.subscriptions.add(cursorSubscription);
+        store.subscriptions.add(editorSubscription);
       }
     }));
 
     this.hydrogenProvider = null;
+
+    autorun(() => {
+      this.setWatchSidebar(store.kernel);
+      this.emitter.emit('did-change-kernel', store.kernel);
+    });
   },
 
 
   deactivate() {
-    this.subscriptions.dispose();
-    this.kernelManager.destroy();
-    this.statusBarTile.destroy();
+    store.dispose();
   },
 
   provideHydrogen() {
@@ -106,75 +116,39 @@ const Hydrogen = {
   },
 
 
-  consumeStatusBar(statusBar) {
-    this.statusBarTile = statusBar.addLeftTile({
-      item: this.statusBarElement,
+  consumeStatusBar(statusBar: atom$StatusBar) {
+    const statusBarElement = document.createElement('div');
+    statusBarElement.className = 'inline-block';
+
+    statusBar.addLeftTile({
+      item: statusBarElement,
       priority: 100,
     });
+
+    const onClick = this.showKernelCommands.bind(this);
+
+    reactFactory(
+      <StatusBar
+        store={store}
+        onClick={onClick}
+      />,
+      statusBarElement,
+    );
+
+    // We should return a disposable here but Atom fails while calling .destroy()
+    // return new Disposable(statusBarTile.destroy);
   },
 
 
   provide() {
     if (atom.config.get('Hydrogen.autocomplete') === true) {
-      return AutocompleteProvider(this.kernelManager);
+      return AutocompleteProvider();
     }
     return null;
   },
 
 
-  onEditorChanged(editor) {
-    this.editor = editor;
-    let kernel;
-    if (this.editor) {
-      const grammar = this.editor.getGrammar();
-      const language = this.kernelManager.getLanguageFor(grammar);
-      kernel = this.kernelManager.getRunningKernelFor(language);
-      this.codeManager.editor = this.editor;
-    }
-
-    if (this.kernel !== kernel) {
-      this.onKernelChanged(kernel);
-    }
-  },
-
-
-  onKernelChanged(kernel) {
-    this.kernel = kernel;
-    this.setStatusBar();
-    this.setWatchSidebar(this.kernel);
-    this.emitter.emit('did-change-kernel', this.kernel);
-  },
-
-
-  setStatusBar() {
-    if (!this.statusBarElement) {
-      console.error('setStatusBar: there is no status bar');
-      return;
-    }
-
-    this.clearStatusBar();
-
-    if (this.kernel) {
-      this.statusBarElement.appendChild(this.kernel.statusView.element);
-    }
-  },
-
-
-  clearStatusBar() {
-    if (!this.statusBarElement) {
-      console.error('clearStatusBar: there is no status bar');
-      return;
-    }
-
-    while (this.statusBarElement.hasChildNodes()) {
-      this.statusBarElement.removeChild(this.statusBarElement.lastChild);
-    }
-  },
-
-
-  setWatchSidebar(kernel) {
-    log('setWatchSidebar:', kernel);
-
+  setWatchSidebar(kernel: Kernel) {
     const sidebar = (kernel) ? kernel.watchSidebar : null;
     if (this.watchSidebar === sidebar) {
       return;
@@ -207,29 +181,28 @@ const Hydrogen = {
 
   showKernelCommands() {
     if (!this.signalListView) {
-      this.signalListView = new SignalListView(this.kernelManager);
-      this.signalListView.onConfirmed = kernelCommand =>
+      this.signalListView = new SignalListView();
+      this.signalListView.onConfirmed = (kernelCommand: {command: string, payload: ?Kernelspec}) =>
         this.handleKernelCommand(kernelCommand);
     }
     this.signalListView.toggle();
   },
 
 
-  handleKernelCommand({ kernel, command, grammar, language, kernelSpec }) {
+  handleKernelCommand({ command, payload }: {command: string, payload: ?Kernelspec}) {
     log('handleKernelCommand:', arguments);
 
-    if (!grammar) {
-      grammar = this.editor.getGrammar();
-    }
-    if (!language) {
-      language = this.kernelManager.getLanguageFor(grammar);
-    }
-    if (!kernel) {
-      kernel = this.kernelManager.getRunningKernelFor(language);
+    const { kernel, grammar, language } = store;
+
+    if (command === 'switch-kernel') {
+      this.clearResultBubbles();
+      if (kernel) kernel.destroy();
+      kernelManager.startKernel(payload, grammar);
+      return;
     }
 
     if (!kernel) {
-      const message = `No running kernel for language \`${language}\` found`;
+      const message = `No running kernel for language \`${language || 'null'}\` found`;
       atom.notifications.addError(message);
       return;
     }
@@ -238,59 +211,53 @@ const Hydrogen = {
       kernel.interrupt();
     } else if (command === 'restart-kernel') {
       this.clearResultBubbles();
-      this.kernelManager.restartRunningKernelFor(grammar, this.onKernelChanged.bind(this));
+      kernel.restart();
     } else if (command === 'shutdown-kernel') {
       this.clearResultBubbles();
       // Note that destroy alone does not shut down a WSKernel
       kernel.shutdown();
-      this.kernelManager.destroyRunningKernelFor(grammar);
-      this.onKernelChanged();
-    } else if (command === 'switch-kernel') {
-      this.clearResultBubbles();
-      this.kernelManager.destroyRunningKernelFor(grammar);
-      this.kernelManager.startKernel(kernelSpec, grammar, this.onKernelChanged.bind(this));
+      kernel.destroy();
     } else if (command === 'rename-kernel' && kernel.promptRename) {
-      kernel.promptRename();
+      // $FlowFixMe Will only be called if remote kernel
+      if (kernel instanceof WSKernel) kernel.promptRename();
     } else if (command === 'disconnect-kernel') {
       this.clearResultBubbles();
-      this.kernelManager.destroyRunningKernelFor(grammar);
-      this.onKernelChanged();
+      kernel.destroy();
     }
   },
 
 
-  createResultBubble(code, row) {
-    if (this.kernel) {
-      this._createResultBubble(this.kernel, code, row);
+  createResultBubble(code: string, row: number) {
+    if (store.kernel) {
+      this._createResultBubble(store.kernel, code, row);
       return;
     }
 
-    this.kernelManager.startKernelFor(this.editor.getGrammar(), (kernel) => {
-      this.onKernelChanged(kernel);
+    kernelManager.startKernelFor(store.grammar, (kernel: Kernel) => {
       this._createResultBubble(kernel, code, row);
     });
   },
 
 
-  _createResultBubble(kernel, code, row) {
-    if (this.watchSidebar.element.contains(document.activeElement)) {
+  _createResultBubble(kernel: Kernel, code: string, row: number) {
+    if (this.watchSidebar && this.watchSidebar.element.contains(document.activeElement)) {
       this.watchSidebar.run();
       return;
     }
 
     this.clearBubblesOnRow(row);
-    const view = this.insertResultBubble(row);
+    const view = this.insertResultBubble(store.editor, row);
     kernel.execute(code, (result) => {
       view.addResult(result);
     });
   },
 
 
-  insertResultBubble(row) {
-    const buffer = this.editor.getBuffer();
+  insertResultBubble(editor: atom$TextEditor, row: number) {
+    const buffer = editor.getBuffer();
     let lineLength = buffer.lineLengthForRow(row);
 
-    const marker = this.editor.markBufferPosition({
+    const marker = editor.markBufferPosition({
       row,
       column: lineLength,
     }, { invalidate: 'touch' });
@@ -299,7 +266,7 @@ const Hydrogen = {
     view.spin();
     const { element } = view;
 
-    const lineHeight = this.editor.getLineHeightInPixels();
+    const lineHeight = editor.getLineHeightInPixels();
     view.spinner.setAttribute('style', `
       width: ${lineHeight + 2}px;
       height: ${lineHeight - 4}px;`);
@@ -307,9 +274,9 @@ const Hydrogen = {
     element.setAttribute('style', `
       margin-left: ${lineLength + 1}ch;
       margin-top: -${lineHeight}px;
-      max-width: ${this.editor.width}px`);
+      max-width: ${editor.width}px`);
 
-    this.editor.decorateMarker(marker, {
+    editor.decorateMarker(marker, {
       type: 'block',
       item: element,
       position: 'after',
@@ -334,14 +301,14 @@ const Hydrogen = {
 
 
   clearResultBubbles() {
-    _.forEach(this.markerBubbleMap, bubble => bubble.destroy());
+    _.forEach(this.markerBubbleMap, (bubble: ResultView) => bubble.destroy());
     this.markerBubbleMap = {};
   },
 
 
-  clearBubblesOnRow(row) {
+  clearBubblesOnRow(row: number) {
     log('clearBubblesOnRow:', row);
-    _.forEach(this.markerBubbleMap, (bubble) => {
+    _.forEach(this.markerBubbleMap, (bubble: ResultView) => {
       const { marker } = bubble;
       const range = marker.getBufferRange();
       if (range.start.row <= row && row <= range.end.row) {
@@ -353,8 +320,8 @@ const Hydrogen = {
   },
 
 
-  run(moveDown = false) {
-    const codeBlock = this.codeManager.findCodeBlock();
+  run(moveDown: boolean = false) {
+    const codeBlock = codeManager.findCodeBlock();
     if (!codeBlock) {
       return;
     }
@@ -362,7 +329,7 @@ const Hydrogen = {
     const [code, row] = codeBlock;
     if (code) {
       if (moveDown === true) {
-        this.codeManager.moveDown(row);
+        codeManager.moveDown(row);
       }
       this.createResultBubble(code, row);
     }
@@ -370,32 +337,43 @@ const Hydrogen = {
 
 
   runAll() {
-    if (this.kernel) {
-      this._runAll(this.kernel);
+    if (!store.editor) return;
+    if (isMultilanguageGrammar(store.editor.getGrammar())) {
+      atom.notifications.addError('"Run All" is not supported for this file type!');
+      return;
+    }
+    if (store.kernel) {
+      this._runAll(store.kernel);
       return;
     }
 
-    this.kernelManager.startKernelFor(this.editor.getGrammar(), (kernel) => {
-      this.onKernelChanged(kernel);
+    kernelManager.startKernelFor(store.grammar, (kernel: Kernel) => {
       this._runAll(kernel);
     });
   },
 
 
-  _runAll(kernel) {
-    const cells = this.codeManager.getCells();
-    _.forEach(cells, ({ start, end }) => {
-      const code = this.codeManager.getTextInRange(start, end);
-      const endRow = this.codeManager.escapeBlankRows(start.row, end.row);
+  _runAll(kernel: Kernel) {
+    const cells = codeManager.getCells();
+    _.forEach(cells, ({ start, end }: { start: atom$Point, end: atom$Point}) => {
+      const code = codeManager.getTextInRange(start, end);
+      const endRow = codeManager.escapeBlankRows(start.row, end.row);
       this._createResultBubble(kernel, code, endRow);
     });
   },
 
 
   runAllAbove() {
-    const cursor = this.editor.getLastCursor();
-    const row = this.codeManager.escapeBlankRows(0, cursor.getBufferRow());
-    const code = this.codeManager.getRows(0, row);
+    const editor = store.editor; // to make flow happy
+    if (!editor) return;
+    if (isMultilanguageGrammar(editor.getGrammar())) {
+      atom.notifications.addError('"Run All Above" is not supported for this file type!');
+      return;
+    }
+
+    const cursor = editor.getLastCursor();
+    const row = codeManager.escapeBlankRows(0, cursor.getBufferRow());
+    const code = codeManager.getRows(0, row);
 
     if (code) {
       this.createResultBubble(code, row);
@@ -403,14 +381,19 @@ const Hydrogen = {
   },
 
 
-  runCell(moveDown = false) {
-    const { start, end } = this.codeManager.getCurrentCell();
-    const code = this.codeManager.getTextInRange(start, end);
-    const endRow = this.codeManager.escapeBlankRows(start.row, end.row);
+  runCell(moveDown: boolean = false) {
+    if (!store.editor) return;
+    if (isMultilanguageGrammar(store.editor.getGrammar())) {
+      atom.notifications.addError('"Run Cell" is not supported for this file type!');
+      return;
+    }
+    const { start, end } = codeManager.getCurrentCell();
+    const code = codeManager.getTextInRange(start, end);
+    const endRow = codeManager.escapeBlankRows(start.row, end.row);
 
     if (code) {
       if (moveDown === true) {
-        this.codeManager.moveDown(endRow);
+        codeManager.moveDown(endRow);
       }
       this.createResultBubble(code, endRow);
     }
@@ -419,16 +402,14 @@ const Hydrogen = {
 
   showKernelPicker() {
     if (!this.kernelPicker) {
-      this.kernelPicker = new KernelPicker((callback) => {
-        const grammar = this.editor.getGrammar();
-        const language = this.kernelManager.getLanguageFor(grammar);
-        this.kernelManager.getAllKernelSpecsFor(language, kernelSpecs =>
+      this.kernelPicker = new KernelPicker((callback: Function) => {
+        kernelManager.getAllKernelSpecsFor(store.language, kernelSpecs =>
           callback(kernelSpecs));
       });
-      this.kernelPicker.onConfirmed = ({ kernelSpec }) =>
+      this.kernelPicker.onConfirmed = ({ kernelSpec }: { kernelSpec: Kernelspec }) =>
         this.handleKernelCommand({
           command: 'switch-kernel',
-          kernelSpec,
+          payload: kernelSpec,
         });
     }
     this.kernelPicker.toggle();
@@ -437,22 +418,17 @@ const Hydrogen = {
 
   showWSKernelPicker() {
     if (!this.wsKernelPicker) {
-      this.wsKernelPicker = new WSKernelPicker((kernel) => {
+      this.wsKernelPicker = new WSKernelPicker((kernel: Kernel) => {
         this.clearResultBubbles();
 
-        const { grammar } = kernel;
-        this.kernelManager.destroyRunningKernelFor(grammar);
+        if (kernel instanceof ZMQKernel) kernel.destroy();
 
-        this.kernelManager.setRunningKernelFor(grammar, kernel);
-        this.onKernelChanged(kernel);
+        store.newKernel(kernel);
       });
     }
 
-    const grammar = this.editor.getGrammar();
-    const language = this.kernelManager.getLanguageFor(grammar);
-
-    this.wsKernelPicker.toggle(grammar, kernelSpec =>
-      this.kernelManager.kernelSpecProvidesLanguage(kernelSpec, language),
+    this.wsKernelPicker.toggle(store.grammar, (kernelSpec: Kernelspec) =>
+      kernelManager.kernelSpecProvidesLanguage(kernelSpec, store.language),
     );
   },
 };

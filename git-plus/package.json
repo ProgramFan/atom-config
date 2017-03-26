@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117220-6983-1tiigrw/package.tgz",
+        "raw": "/tmp/d-117226-6967-1mfdjhz/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117220-6983-1tiigrw/package.tgz",
-        "spec": "/tmp/d-117220-6983-1tiigrw/package.tgz",
+        "rawSpec": "/tmp/d-117226-6967-1mfdjhz/package.tgz",
+        "spec": "/tmp/d-117226-6967-1mfdjhz/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117220-6983-1qfvcm6"
+      "/tmp/apm-install-dir-117226-6967-1hp76nn"
     ]
   ],
-  "_from": "../d-117220-6983-1tiigrw/package.tgz",
+  "_from": "../d-117226-6967-1mfdjhz/package.tgz",
   "_id": "git-plus@7.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/git-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117220-6983-1tiigrw/package.tgz",
+    "raw": "/tmp/d-117226-6967-1mfdjhz/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117220-6983-1tiigrw/package.tgz",
-    "spec": "/tmp/d-117220-6983-1tiigrw/package.tgz",
+    "rawSpec": "/tmp/d-117226-6967-1mfdjhz/package.tgz",
+    "spec": "/tmp/d-117226-6967-1mfdjhz/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117220-6983-1tiigrw/package.tgz",
+  "_resolved": "file:../d-117226-6967-1mfdjhz/package.tgz",
   "_shasum": "f86741aeff7dc3a3e53addb961a56cafcc30cd0b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117220-6983-1tiigrw/package.tgz",
-  "_where": "/tmp/apm-install-dir-117220-6983-1qfvcm6",
+  "_spec": "/tmp/d-117226-6967-1mfdjhz/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-6967-1hp76nn",
   "bugs": {
     "url": "https://github.com/akonwi/git-plus/issues"
   },

@@ -128,7 +128,10 @@ class ChangedFilesList extends _react.default.Component {
                 className: this._getFileClassname(filePath, fileChangeValue),
                 key: filePath,
                 onClick: () => this.props.onFileChosen(filePath) },
-              _react.default.createElement((_Icon || _load_Icon()).Icon, { icon: (_vcs || _load_vcs()).FileChangeStatusToIcon[fileChangeValue] }),
+              _react.default.createElement((_Icon || _load_Icon()).Icon, {
+                className: 'nuclide-file-changes-file-entry-icon',
+                icon: (_vcs || _load_vcs()).FileChangeStatusToIcon[fileChangeValue]
+              }),
               _react.default.createElement(
                 'span',
                 { className: fileClassName },

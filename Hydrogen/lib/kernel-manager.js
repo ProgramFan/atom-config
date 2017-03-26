@@ -7,63 +7,16 @@ import fs from 'fs';
 import path from 'path';
 
 import Config from './config';
-import WSKernel from './ws-kernel';
 import ZMQKernel from './zmq-kernel';
 import KernelPicker from './kernel-picker';
-import log from './log';
+import store from './store';
+import { grammarToLanguage, log } from './utils';
 
-export default class KernelManager {
+
+class KernelManager {
   constructor() {
-    this._runningKernels = {};
     this._kernelSpecs = this.getKernelSpecsFromSettings();
   }
-
-
-  destroy() {
-    _.forEach(this._runningKernels, kernel => kernel.destroy());
-    this._runningKernels = {};
-  }
-
-
-  setRunningKernelFor(grammar, kernel) {
-    const language = this.getLanguageFor(grammar);
-
-    kernel.kernelSpec.language = language;
-
-    this._runningKernels[language] = kernel;
-  }
-
-
-  destroyRunningKernelFor(grammar) {
-    const language = this.getLanguageFor(grammar);
-    const kernel = this._runningKernels[language];
-    delete this._runningKernels[language];
-    if (kernel) kernel.destroy();
-  }
-
-
-  restartRunningKernelFor(grammar, onRestarted) {
-    const language = this.getLanguageFor(grammar);
-    const kernel = this._runningKernels[language];
-
-    if (kernel instanceof WSKernel) {
-      const future = kernel.restart();
-      if (onRestarted) future.then(() => onRestarted(kernel));
-      return;
-    }
-
-    if (kernel instanceof ZMQKernel && kernel.kernelProcess) {
-      const { kernelSpec } = kernel;
-      this.destroyRunningKernelFor(grammar);
-      this.startKernel(kernelSpec, grammar, onRestarted);
-      return;
-    }
-
-    log('KernelManager: restartRunningKernelFor: ignored', kernel);
-    atom.notifications.addWarning('Cannot restart this kernel');
-    if (onRestarted) onRestarted(kernel);
-  }
-
 
   startKernelFor(grammar, onStarted) {
     try {
@@ -83,7 +36,7 @@ export default class KernelManager {
       }
     }
 
-    const language = this.getLanguageFor(grammar);
+    const language = grammarToLanguage(grammar);
     this.getKernelSpecFor(language, (kernelSpec) => {
       if (!kernelSpec) {
         const message = `No kernel for language \`${language}\` found`;
@@ -98,7 +51,7 @@ export default class KernelManager {
 
 
   startExistingKernel(grammar, connection, connectionFile, onStarted) {
-    const language = this.getLanguageFor(grammar);
+    const language = grammarToLanguage(grammar);
 
     log('KernelManager: startExistingKernel: Assuming', language);
 
@@ -111,7 +64,7 @@ export default class KernelManager {
 
     const kernel = new ZMQKernel(kernelSpec, grammar, connection, connectionFile);
 
-    this.setRunningKernelFor(grammar, kernel);
+    store.newKernel(kernel);
 
     this._executeStartupCode(kernel);
 
@@ -120,7 +73,7 @@ export default class KernelManager {
 
 
   startKernel(kernelSpec, grammar, onStarted) {
-    const language = this.getLanguageFor(grammar);
+    const language = grammarToLanguage(grammar);
 
     log('KernelManager: startKernelFor:', language);
 
@@ -135,7 +88,7 @@ export default class KernelManager {
         config, connectionFile,
         spawn,
       );
-      this.setRunningKernelFor(grammar, kernel);
+      store.newKernel(kernel);
 
       this._executeStartupCode(kernel);
 
@@ -152,21 +105,6 @@ export default class KernelManager {
       startupCode = `${startupCode} \n`;
       kernel.execute(startupCode);
     }
-  }
-
-
-  getAllRunningKernels() {
-    return _.clone(this._runningKernels);
-  }
-
-
-  getRunningKernelFor(language) {
-    return this._runningKernels[language];
-  }
-
-
-  getLanguageFor(grammar) {
-    return (grammar) ? grammar.name.toLowerCase() : null;
   }
 
 
@@ -305,3 +243,5 @@ export default class KernelManager {
     });
   }
 }
+
+export default new KernelManager();

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117220-5938-1nkl5uk/package.tgz",
+        "raw": "/tmp/d-117226-5925-s7m6jp/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117220-5938-1nkl5uk/package.tgz",
-        "spec": "/tmp/d-117220-5938-1nkl5uk/package.tgz",
+        "rawSpec": "/tmp/d-117226-5925-s7m6jp/package.tgz",
+        "spec": "/tmp/d-117226-5925-s7m6jp/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117220-5938-uqy6l3"
+      "/tmp/apm-install-dir-117226-5925-6hcmyi"
     ]
   ],
-  "_from": "../d-117220-5938-1nkl5uk/package.tgz",
-  "_id": "markdown-preview-enhanced@0.10.9",
+  "_from": "../d-117226-5925-s7m6jp/package.tgz",
+  "_id": "markdown-preview-enhanced@0.10.10",
   "_inCache": true,
   "_installable": true,
   "_location": "/markdown-preview-enhanced",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117220-5938-1nkl5uk/package.tgz",
+    "raw": "/tmp/d-117226-5925-s7m6jp/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117220-5938-1nkl5uk/package.tgz",
-    "spec": "/tmp/d-117220-5938-1nkl5uk/package.tgz",
+    "rawSpec": "/tmp/d-117226-5925-s7m6jp/package.tgz",
+    "spec": "/tmp/d-117226-5925-s7m6jp/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117220-5938-1nkl5uk/package.tgz",
-  "_shasum": "572c019ee384cff74894a56484101286cc82a0f8",
+  "_resolved": "file:../d-117226-5925-s7m6jp/package.tgz",
+  "_shasum": "27816d6b43185c576e36f1f1c5935cf189c85cd9",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117220-5938-1nkl5uk/package.tgz",
-  "_where": "/tmp/apm-install-dir-117220-5938-uqy6l3",
+  "_spec": "/tmp/d-117226-5925-s7m6jp/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-5925-6hcmyi",
   "bugs": {
     "url": "https://github.com/shd101wyy/markdown-preview-enhanced/issues"
   },
@@ -97,5 +97,5 @@
   "scripts": {
     "build": "nothing happened"
   },
-  "version": "0.10.9"
+  "version": "0.10.10"
 }

@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-117226-7739-jpfkx4/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-117226-7739-jpfkx4/package.tgz",
+        "spec": "/tmp/d-117226-7739-jpfkx4/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-117226-7739-52bz7y"
+    ]
+  ],
+  "_from": "../d-117226-7739-jpfkx4/package.tgz",
+  "_id": "atom-rtags-plus@1.4.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/atom-rtags-plus",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-117226-7739-jpfkx4/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-117226-7739-jpfkx4/package.tgz",
+    "spec": "/tmp/d-117226-7739-jpfkx4/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117226-7739-jpfkx4/package.tgz",
+  "_shasum": "3f60d0003f8cf9e8ba560bda3e466bb794f32126",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-117226-7739-jpfkx4/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-7739-52bz7y",
+  "bugs": {
+    "url": "https://github.com/sphaerophoria/atom-rtags-plus/issues"
+  },
+  "consumedServices": {
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeLinter"
+      }
+    }
+  },
+  "dependencies": {
+    "atom-package-deps": "latest",
+    "atom-space-pen-views": "latest",
+    "fuzzaldrin-plus": "latest",
+    "lazy-req": "latest",
+    "xml2js": "latest"
+  },
+  "description": "Rtags support for Atom Editor",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/sphaerophoria/atom-rtags-plus#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "./lib/atom-rtags",
+  "name": "atom-rtags-plus",
+  "optionalDependencies": {},
+  "package-deps": [
+    "linter",
+    "hyperclick"
+  ],
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "getCompletionProvider"
+      }
+    },
+    "hyperclick.provider": {
+      "versions": {
+        "0.0.0": "getHyperclickProvider"
+      }
+    }
+  },
+  "readme": "# atom-rtags-plus\n\nA package that attempts to make c/c++ development not terrible.\nUses [rtags](https://github.com/Andersbakken/rtags) to provide common IDE usage patterns in atom.\n\n## Features\n* Jump to definition\n* Find references\n* Find symbol by string\n* Find virtuals\n* Code completion\n* Code Linting\n* Refactor\n* Type Info\n* And maybe more!\n\n[See the github page for demos](https://sphaerophoria.github.io/atom-rtags-plus)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sphaerophoria/atom-rtags-plus.git"
+  },
+  "version": "1.4.2"
+}

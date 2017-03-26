@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117220-6310-gxnp32/package.tgz",
+        "raw": "/tmp/d-117226-6296-14sdv5w/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117220-6310-gxnp32/package.tgz",
-        "spec": "/tmp/d-117220-6310-gxnp32/package.tgz",
+        "rawSpec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
+        "spec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117220-6310-ybynv6"
+      "/tmp/apm-install-dir-117226-6296-17f5c88"
     ]
   ],
-  "_from": "../d-117220-6310-gxnp32/package.tgz",
-  "_id": "asciidoc-preview@2.9.0",
+  "_from": "../d-117226-6296-14sdv5w/package.tgz",
+  "_id": "asciidoc-preview@2.9.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117220-6310-gxnp32/package.tgz",
+    "raw": "/tmp/d-117226-6296-14sdv5w/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117220-6310-gxnp32/package.tgz",
-    "spec": "/tmp/d-117220-6310-gxnp32/package.tgz",
+    "rawSpec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
+    "spec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117220-6310-gxnp32/package.tgz",
-  "_shasum": "7f5602028b25e128e4f3b3a884d69564387e822b",
+  "_resolved": "file:../d-117226-6296-14sdv5w/package.tgz",
+  "_shasum": "f7599a9a482930e7ada96220fe55de943d0bd223",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117220-6310-gxnp32/package.tgz",
-  "_where": "/tmp/apm-install-dir-117220-6310-ybynv6",
+  "_spec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-6296-17f5c88",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },
@@ -255,5 +255,5 @@
     "font-awesome",
     "asciidoc-preview"
   ],
-  "version": "2.9.0"
+  "version": "2.9.1"
 }

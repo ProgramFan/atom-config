@@ -1,16 +1,21 @@
-'use babel';
+/* @flow */
 
 import Kernel from './kernel';
 import InputView from './input-view';
-import log from './log';
+import { log } from './utils';
+
+import type { Session } from './jupyter-js-services-shim';
+
 
 export default class WSKernel extends Kernel {
-  constructor(kernelSpec, grammar, session) {
+  session: Session;
+
+  constructor(kernelSpec: Kernelspec, grammar: atom$Grammar, session: Session) {
     super(kernelSpec, grammar);
     this.session = session;
 
-    this.session.statusChanged.connect(() => this._onStatusChange());
-    this._onStatusChange(); // Set initial status correctly
+    this.session.statusChanged.connect(() => this.setExecutionState(this.session.status));
+    this.setExecutionState(this.session.status); // Set initial status correctly
   }
 
   interrupt() {
@@ -21,20 +26,16 @@ export default class WSKernel extends Kernel {
     return this.session.kernel.shutdown();
   }
 
-  restart() {
-    return this.session.kernel.restart();
+  restart(onRestarted: ?Function) {
+    const future = this.session.kernel.restart();
+    // $FlowFixMe
+    if (onRestarted) future.then(() => onRestarted(this.session.kernel));
   }
 
-  _onStatusChange() {
-    const status = this.session.status;
-    this.statusView.setStatus(status);
-    this.executionState = status;
-  }
-
-  _execute(code, callWatches, onResults) {
+  _execute(code: string, callWatches: boolean, onResults: Function) {
     const future = this.session.kernel.requestExecute({ code });
 
-    future.onIOPub = (message) => {
+    future.onIOPub = (message: Message) => {
       if (callWatches &&
         message.header.msg_type === 'status' &&
         message.content.execution_state === 'idle') {
@@ -48,7 +49,7 @@ export default class WSKernel extends Kernel {
       }
     };
 
-    future.onReply = (message) => {
+    future.onReply = (message: Message) => {
       if (message.content.status === 'error') {
         return;
       }
@@ -60,14 +61,14 @@ export default class WSKernel extends Kernel {
       if (onResults) onResults(result);
     };
 
-    future.onStdin = (message) => {
+    future.onStdin = (message: Message) => {
       if (message.header.msg_type !== 'input_request') {
         return;
       }
 
       const { prompt } = message.content;
 
-      const inputView = new InputView({ prompt }, input =>
+      const inputView = new InputView({ prompt }, (input: string) =>
         this.session.kernel.sendInputReply({ value: input }));
 
       inputView.attach();
@@ -75,29 +76,29 @@ export default class WSKernel extends Kernel {
   }
 
 
-  execute(code, onResults) {
+  execute(code: string, onResults: Function) {
     this._execute(code, true, onResults);
   }
 
-  executeWatch(code, onResults) {
+  executeWatch(code: string, onResults: Function) {
     this._execute(code, false, onResults);
   }
 
-  complete(code, onResults) {
+  complete(code: string, onResults: Function) {
     this.session.kernel.requestComplete({
       code,
       cursor_pos: code.length,
     })
-      .then(message => onResults(message.content));
+      .then((message: Message) => onResults(message.content));
   }
 
-  inspect(code, cursorPos, onResults) {
+  inspect(code: string, cursorPos: number, onResults: Function) {
     this.session.kernel.requestInspect({
       code,
       cursor_pos: cursorPos,
       detail_level: 0,
     })
-      .then(message =>
+      .then((message: Message) =>
         onResults({
           data: message.content.data,
           found: message.content.found,
@@ -112,7 +113,7 @@ export default class WSKernel extends Kernel {
         defaultText: this.session.path,
         allowCancel: true,
       },
-      input => this.session.rename(input));
+      (input: string) => this.session.rename(input));
 
     view.attach();
   }

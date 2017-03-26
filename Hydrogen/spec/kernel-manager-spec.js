@@ -1,116 +1,12 @@
 'use babel';
 
-import _ from 'lodash';
-
-import KernelManager from '../lib/kernel-manager';
+import kernelManager from '../lib/kernel-manager';
 
 describe('Kernel manager', () => {
-  let kernelManager = null;
-
-  beforeEach(() => {
-    kernelManager = new KernelManager();
-    atom.config.set('Hydrogen.kernelspec', '');
-  });
-
   describe('constructor', () => {
-    it('should initialize @_runningKernels', () => {
-      expect(kernelManager._runningKernels).toEqual({});
+    it('should call initialize _kernelSpecs', () => {
+      expect(kernelManager._kernelSpecs).toEqual({});
     });
-
-    it('should call @getKernelSpecsFromSettings', () => {
-      spyOn(kernelManager, 'getKernelSpecsFromSettings');
-      kernelManager.constructor();
-      expect(kernelManager.getKernelSpecsFromSettings).toHaveBeenCalled();
-    });
-  });
-
-  describe('handle running kernels', () => {
-    const mockGrammar = { name: 'Kernel1' };
-
-    const mockKernel = {
-      kernelSpec: {
-        language: 'kernel1',
-      },
-      destroy() {},
-    };
-
-    const mockKernel2 = {
-      kernelSpec: {
-        language: 'kernel2',
-      },
-      destroy() {},
-    };
-
-    const mockKernels = {
-      kernel1: mockKernel,
-      kernel2: mockKernel2,
-    };
-
-    describe('destroy', () =>
-      it('should destroy all running kernels', () => {
-        spyOn(mockKernels.kernel1, 'destroy');
-        spyOn(mockKernels.kernel2, 'destroy');
-        kernelManager._runningKernels = mockKernels;
-        kernelManager.destroy();
-        expect(mockKernels.kernel1.destroy).toHaveBeenCalled();
-        expect(mockKernels.kernel2.destroy).toHaveBeenCalled();
-        expect(kernelManager._runningKernels).toEqual({});
-      }),
-    );
-
-    describe('setRunningKernelFor', () =>
-      it('should set the running kernel for a grammar', () => {
-        const grammar = { name: 'grammarLanguage' };
-
-        const kernel = {
-          kernelSpec: {
-            language: 'kernelLanguage',
-          },
-          destroy() {},
-        };
-        kernelManager.setRunningKernelFor(grammar, kernel);
-        expect(kernelManager._runningKernels.grammarlanguage)
-          .not.toBeUndefined();
-        expect(kernelManager._runningKernels.grammarlanguage
-          .kernelSpec.language).toEqual('grammarlanguage');
-      }),
-    );
-
-    describe('destroyRunningKernelFor', () =>
-      it('should destroy a running kernel for a grammar', () => {
-        spyOn(mockKernels.kernel1, 'destroy');
-        spyOn(mockKernels.kernel2, 'destroy');
-        kernelManager._runningKernels = _.clone(mockKernels);
-        kernelManager.destroyRunningKernelFor(mockGrammar);
-
-        expect(mockKernels.kernel1.destroy).toHaveBeenCalled();
-        expect(mockKernels.kernel2.destroy).not.toHaveBeenCalled();
-        expect(kernelManager._runningKernels.kernel2).not.toBeUndefined();
-        expect(kernelManager._runningKernels.kernel1).toBeUndefined();
-      }),
-    );
-
-    describe('getAllRunningKernels', () =>
-      it('should get all running kernels', () => {
-        kernelManager._runningKernels = mockKernels;
-        expect(kernelManager.getAllRunningKernels()).toEqual(mockKernels);
-      }),
-    );
-
-    describe('getRunningKernelFor', () =>
-      it('should get the running kernel for a language', () => {
-        kernelManager._runningKernels = mockKernels;
-        expect(kernelManager.getRunningKernelFor('kernel1'))
-          .toEqual(mockKernel);
-      }),
-    );
-
-    describe('getLanguageFor', () =>
-      it('should read lower case name from grammar', () =>
-        expect(kernelManager.getLanguageFor(mockGrammar))
-        .toEqual('kernel1'),
-      ),
-    );
   });
 
   describe('handle kernelspecs', () => {

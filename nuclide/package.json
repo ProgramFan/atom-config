@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117220-7660-1hingbl/package.tgz",
+        "raw": "/tmp/d-117226-7653-one6ro/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117220-7660-1hingbl/package.tgz",
-        "spec": "/tmp/d-117220-7660-1hingbl/package.tgz",
+        "rawSpec": "/tmp/d-117226-7653-one6ro/package.tgz",
+        "spec": "/tmp/d-117226-7653-one6ro/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117220-7660-wrc5pe"
+      "/tmp/apm-install-dir-117226-7653-1g7xe9r"
     ]
   ],
-  "_from": "../d-117220-7660-1hingbl/package.tgz",
-  "_id": "nuclide@0.210.0",
+  "_from": "../d-117226-7653-one6ro/package.tgz",
+  "_id": "nuclide@0.211.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/nuclide",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117220-7660-1hingbl/package.tgz",
+    "raw": "/tmp/d-117226-7653-one6ro/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117220-7660-1hingbl/package.tgz",
-    "spec": "/tmp/d-117220-7660-1hingbl/package.tgz",
+    "rawSpec": "/tmp/d-117226-7653-one6ro/package.tgz",
+    "spec": "/tmp/d-117226-7653-one6ro/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117220-7660-1hingbl/package.tgz",
-  "_shasum": "51c47a176f871ad7e064b4121f257f29582b33ed",
+  "_resolved": "file:../d-117226-7653-one6ro/package.tgz",
+  "_shasum": "7243aaf5b91f3d562b826e564cbda86d1f9049e0",
   "_shrinkwrap": {
     "name": "nuclide",
-    "version": "0.210.0",
+    "version": "0.211.0",
     "dependencies": {
       "adm-zip": {
         "version": "0.4.7",
@@ -1309,8 +1309,8 @@
       }
     }
   },
-  "_spec": "/tmp/d-117220-7660-1hingbl/package.tgz",
-  "_where": "/tmp/apm-install-dir-117220-7660-wrc5pe",
+  "_spec": "/tmp/d-117226-7653-one6ro/package.tgz",
+  "_where": "/tmp/apm-install-dir-117226-7653-1g7xe9r",
   "atomTestRunner": "./lib/test-runner-entry.js",
   "bin": {
     "nuclide-start-server": "./pkg/nuclide-server/nuclide-start-server"
@@ -1469,7 +1469,7 @@
     "test": "npm run lint-all && npm run flow"
   },
   "urlMain": "./lib/url-main-entry.js",
-  "version": "0.210.0",
+  "version": "0.211.0",
   "warnings": [
     {
       "code": "ENOTSUP",
@@ -1477,7 +1477,7 @@
         "atom": ">=1.15.0",
         "node": ">=6.5.0"
       },
-      "pkgid": "nuclide@0.210.0"
+      "pkgid": "nuclide@0.211.0"
     },
     {
       "code": "ENOTSUP",
@@ -1485,7 +1485,7 @@
         "atom": ">=1.15.0",
         "node": ">=6.5.0"
       },
-      "pkgid": "nuclide@0.210.0"
+      "pkgid": "nuclide@0.211.0"
     }
   ]
 }
