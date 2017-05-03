@@ -43,7 +43,7 @@ linter-ui-default
 busy-signal # linter ui dependency
 intentions # linter ui dependency
 linter-clang
-linter-pep8
+linter-python-pep8
 linter-shellcheck
 linter-scspell
 linter-spell
