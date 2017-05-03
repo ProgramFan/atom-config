@@ -36,7 +36,7 @@ git-time-machine # navigate through time for a file
 build
 build-make
 build-cmake
-busy # build dependency to show progress
+atom-busy-unifier-sb # build dependency to show progress (busy)
 # linter: check errors on the fly
 linter
 linter-ui-default
