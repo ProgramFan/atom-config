@@ -67,3 +67,4 @@ latextools
 hyperclick
 symbols-tree-view
 sync-settings
+highlight-selected
