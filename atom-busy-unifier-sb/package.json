@@ -1,0 +1,78 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+        "spec": "/tmp/d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-11743-6241-144swz0.egypiafw29"
+    ]
+  ],
+  "_from": "../d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+  "_id": "atom-busy-unifier-sb@1.0.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/atom-busy-unifier-sb",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+    "spec": "/tmp/d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+  "_shasum": "d2d8f0c54b1cf7f708f44b5be15b18e6111a4ce2",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-11743-6241-1we1pr0.1wv0nng66r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6241-144swz0.egypiafw29",
+  "bugs": {
+    "url": "https://github.com/rapgenic/atom-busy-unifier-sb/issues"
+  },
+  "consumedServices": {
+    "busy-signal": {
+      "versions": {
+        "1.0.0": "consumeSignal"
+      }
+    }
+  },
+  "dependencies": {},
+  "description": "Bridge between busy and busy-signal (for whom is using steelbrain's busy-signal)",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/rapgenic/atom-busy-unifier-sb#readme",
+  "keywords": [],
+  "license": "GPL-3.0",
+  "main": "./lib/index",
+  "name": "atom-busy-unifier-sb",
+  "optionalDependencies": {},
+  "package-deps": [
+    "busy-signal"
+  ],
+  "providedServices": {
+    "busy": {
+      "versions": {
+        "1.0.0": "provideRegistry"
+      }
+    }
+  },
+  "readme": "# atom-busy-unifier (steelbrain edition)\n\nAt the moment two \"busy\" packages exist:\n\n* [busy](https://github.com/noseglid/atom-busy) by [noseglid](https://github.com/noseglid/)\n* [busy-signal](https://github.com/steelbrain/busy-signal) by [steelbrain](https://github.com/steelbrain/)\n\nThey do exactly the same thing. They have a almost the same API and functionalities. But there are two of them.\n\nThis package (ironically installing another one seems to be the only solution) acts as a bridge between `busy` and `busy-signal`, pretending to be `busy`.\n\n`busy` must not be installed for this package to work\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rapgenic/atom-busy-unifier-sb.git"
+  },
+  "version": "1.0.3"
+}

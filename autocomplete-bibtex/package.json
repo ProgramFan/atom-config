@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7165-11oejh4.jmkv86w29/package.tgz",
+        "raw": "/tmp/d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7165-11oejh4.jmkv86w29/package.tgz",
-        "spec": "/tmp/d-11743-7165-11oejh4.jmkv86w29/package.tgz",
+        "rawSpec": "/tmp/d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
+        "spec": "/tmp/d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7165-llwt4i.9ncy58kt9"
+      "/tmp/apm-install-dir-11743-7167-1mhjcwk.0u8p06bt9"
     ]
   ],
-  "_from": "../d-11743-7165-11oejh4.jmkv86w29/package.tgz",
+  "_from": "../d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
   "_id": "autocomplete-bibtex@0.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-bibtex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7165-11oejh4.jmkv86w29/package.tgz",
+    "raw": "/tmp/d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7165-11oejh4.jmkv86w29/package.tgz",
-    "spec": "/tmp/d-11743-7165-11oejh4.jmkv86w29/package.tgz",
+    "rawSpec": "/tmp/d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
+    "spec": "/tmp/d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7165-11oejh4.jmkv86w29/package.tgz",
+  "_resolved": "file:../d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
   "_shasum": "dc253d754c9d7f3eea772c9d67cbc1406fa6b9cd",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7165-11oejh4.jmkv86w29/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7165-llwt4i.9ncy58kt9",
+  "_spec": "/tmp/d-11743-7167-rz3yoy.9mcdgkqpvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7167-1mhjcwk.0u8p06bt9",
   "author": {
     "name": "apcshields"
   },

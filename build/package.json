@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6121-f2yknr.44glt5u3di/package.tgz",
+        "raw": "/tmp/d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6121-f2yknr.44glt5u3di/package.tgz",
-        "spec": "/tmp/d-11743-6121-f2yknr.44glt5u3di/package.tgz",
+        "rawSpec": "/tmp/d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
+        "spec": "/tmp/d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6121-10o8nva.bqs9zwu3di"
+      "/tmp/apm-install-dir-11743-6115-lo2w19.cub6672e29"
     ]
   ],
-  "_from": "../d-11743-6121-f2yknr.44glt5u3di/package.tgz",
+  "_from": "../d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
   "_id": "build@0.67.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/build",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6121-f2yknr.44glt5u3di/package.tgz",
+    "raw": "/tmp/d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6121-f2yknr.44glt5u3di/package.tgz",
-    "spec": "/tmp/d-11743-6121-f2yknr.44glt5u3di/package.tgz",
+    "rawSpec": "/tmp/d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
+    "spec": "/tmp/d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6121-f2yknr.44glt5u3di/package.tgz",
+  "_resolved": "file:../d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
   "_shasum": "5859204ff5e78c817935727b488d8c0c5d5270a3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6121-f2yknr.44glt5u3di/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6121-10o8nva.bqs9zwu3di",
+  "_spec": "/tmp/d-11743-6115-w6qrvm.jypkyjsjor/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6115-lo2w19.cub6672e29",
   "bugs": {
     "url": "https://github.com/noseglid/atom-build/issues"
   },

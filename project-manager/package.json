@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
+        "raw": "/tmp/d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
-        "spec": "/tmp/d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
+        "rawSpec": "/tmp/d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
+        "spec": "/tmp/d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-5861-1ea1f5y.qw0brl766r"
+      "/tmp/apm-install-dir-11743-5852-1q5va9v.zjij3piudi"
     ]
   ],
-  "_from": "../d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
+  "_from": "../d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
   "_id": "project-manager@3.3.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/project-manager",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
+    "raw": "/tmp/d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
-    "spec": "/tmp/d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
+    "rawSpec": "/tmp/d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
+    "spec": "/tmp/d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
+  "_resolved": "file:../d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
   "_shasum": "8024d0660437b14ca1717e497df63ce9d0684423",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-5861-1b1830a.1dt9m2huxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-5861-1ea1f5y.qw0brl766r",
+  "_spec": "/tmp/d-11743-5852-10g40h2.y6q0kymn29/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-5852-1q5va9v.zjij3piudi",
   "bugs": {
     "url": "https://github.com/danielbrodin/atom-project-manager/issues"
   },

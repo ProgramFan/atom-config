@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
+        "raw": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
-        "spec": "/tmp/d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
+        "rawSpec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+        "spec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6373-806clj.m2bbgzm2t9"
+      "/tmp/apm-install-dir-11743-6368-vec4o3.vkynj3jtt9"
     ]
   ],
-  "_from": "../d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
+  "_from": "../d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
   "_id": "busy-signal@1.4.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/busy-signal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
+    "raw": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
-    "spec": "/tmp/d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
+    "rawSpec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+    "spec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
+  "_resolved": "file:../d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
   "_shasum": "bea1229c77d3ea332466bc878e52ab4a2a394590",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6373-1chxi02.7eqlwel8fr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6373-806clj.m2bbgzm2t9",
+  "_spec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6368-vec4o3.vkynj3jtt9",
   "bugs": {
     "url": "https://github.com/steelbrain/busy-signal/issues"
   },

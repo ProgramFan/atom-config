@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
+        "raw": "/tmp/d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
-        "spec": "/tmp/d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
+        "rawSpec": "/tmp/d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
+        "spec": "/tmp/d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6625-5ho239.au1pccv7vi"
+      "/tmp/apm-install-dir-11743-6627-2o2xve.l2c4hd7vi"
     ]
   ],
-  "_from": "../d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
+  "_from": "../d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
   "_id": "linter-spell@0.13.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-spell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
+    "raw": "/tmp/d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
-    "spec": "/tmp/d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
+    "rawSpec": "/tmp/d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
+    "spec": "/tmp/d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
+  "_resolved": "file:../d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
   "_shasum": "88acfb62b9ea60db041e78ae2678c63f27cb7f58",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6625-4wf4v9.4794ahh0k9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6625-5ho239.au1pccv7vi",
+  "_spec": "/tmp/d-11743-6627-l86oip.9qh7i4quxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6627-2o2xve.l2c4hd7vi",
   "author": {
     "name": "Tarn Burton",
     "email": "twburton@gmail.com"

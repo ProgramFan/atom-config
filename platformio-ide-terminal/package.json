@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
+        "raw": "/tmp/d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
-        "spec": "/tmp/d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
+        "rawSpec": "/tmp/d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
+        "spec": "/tmp/d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-8231-737k6w.ly70newmi"
+      "/tmp/apm-install-dir-11743-8225-j7o0a1.xcbg5019k9"
     ]
   ],
-  "_from": "../d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
+  "_from": "../d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
   "_id": "platformio-ide-terminal@2.5.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/platformio-ide-terminal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
+    "raw": "/tmp/d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
-    "spec": "/tmp/d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
+    "rawSpec": "/tmp/d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
+    "spec": "/tmp/d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
+  "_resolved": "file:../d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
   "_shasum": "99c6ccd7a2300d1194a8677895f5885d436fde76",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-8231-1n7t0wq.fsbapxpqfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-8231-737k6w.ly70newmi",
+  "_spec": "/tmp/d-11743-8225-1fwgwpv.cnomvx6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-8225-j7o0a1.xcbg5019k9",
   "activationHooks": [
     "core:loaded-shell-environment"
   ],

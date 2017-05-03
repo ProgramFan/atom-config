@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
+        "raw": "/tmp/d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
-        "spec": "/tmp/d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
+        "rawSpec": "/tmp/d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
+        "spec": "/tmp/d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7994-w1x0h1.nwuv50zfr"
+      "/tmp/apm-install-dir-11743-7996-16uh9vx.5tn9n97ldi"
     ]
   ],
-  "_from": "../d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
+  "_from": "../d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
   "_id": "autocomplete-python@1.8.63",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-python",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
+    "raw": "/tmp/d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
-    "spec": "/tmp/d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
+    "rawSpec": "/tmp/d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
+    "spec": "/tmp/d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
+  "_resolved": "file:../d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
   "_shasum": "56a72b0026b921b52bac2b575e57f3fbce8d2cbc",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7994-eyk8bq.iar6x647vi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7994-w1x0h1.nwuv50zfr",
+  "_spec": "/tmp/d-11743-7996-h9ewdj.q0t25oecdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7996-16uh9vx.5tn9n97ldi",
   "bugs": {
     "url": "https://github.com/autocomplete-python/autocomplete-python/issues"
   },

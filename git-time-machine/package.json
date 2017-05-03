@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
+        "raw": "/tmp/d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
-        "spec": "/tmp/d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
+        "rawSpec": "/tmp/d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
+        "spec": "/tmp/d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6071-13zt5sb.qn09t3xr"
+      "/tmp/apm-install-dir-11743-6073-czfgxf.sblhknjyvi"
     ]
   ],
-  "_from": "../d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
+  "_from": "../d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
   "_id": "git-time-machine@1.5.9",
   "_inCache": true,
   "_installable": true,
   "_location": "/git-time-machine",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
+    "raw": "/tmp/d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
-    "spec": "/tmp/d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
+    "rawSpec": "/tmp/d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
+    "spec": "/tmp/d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
+  "_resolved": "file:../d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
   "_shasum": "9ed9fa205ab5efc37e2c8298d46e7be7c792863b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6071-n396qi.u7ejw0zfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6071-13zt5sb.qn09t3xr",
+  "_spec": "/tmp/d-11743-6073-dwuhga.w83tcyds4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6073-czfgxf.sblhknjyvi",
   "activationCommands": {
     "atom-workspace": "git-time-machine:toggle"
   },

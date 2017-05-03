@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
+        "raw": "/tmp/d-11743-6823-167nfvz.143d079zfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
-        "spec": "/tmp/d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
+        "rawSpec": "/tmp/d-11743-6823-167nfvz.143d079zfr/package.tgz",
+        "spec": "/tmp/d-11743-6823-167nfvz.143d079zfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6829-18331gg.tenyojemi"
+      "/tmp/apm-install-dir-11743-6823-dyella.x28dea5rk9"
     ]
   ],
-  "_from": "../d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
+  "_from": "../d-11743-6823-167nfvz.143d079zfr/package.tgz",
   "_id": "linter-write-good@0.9.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-write-good",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
+    "raw": "/tmp/d-11743-6823-167nfvz.143d079zfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
-    "spec": "/tmp/d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
+    "rawSpec": "/tmp/d-11743-6823-167nfvz.143d079zfr/package.tgz",
+    "spec": "/tmp/d-11743-6823-167nfvz.143d079zfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
+  "_resolved": "file:../d-11743-6823-167nfvz.143d079zfr/package.tgz",
   "_shasum": "afe974d4391d0d37589c915d9c66ce2976b80fc5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6829-lpkk5x.b27q2xogvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6829-18331gg.tenyojemi",
+  "_spec": "/tmp/d-11743-6823-167nfvz.143d079zfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6823-dyella.x28dea5rk9",
   "activationCommands": [],
   "bugs": {
     "url": "https://github.com/gepoch/linter-write-good/issues"
