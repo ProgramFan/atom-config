@@ -66,3 +66,4 @@ atom-rtags-plus
 latextools
 hyperclick
 symbols-tree-view
+sync-settings
