@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
+        "raw": "/tmp/d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
-        "spec": "/tmp/d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
+        "rawSpec": "/tmp/d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
+        "spec": "/tmp/d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6407-1tlf0io.5zr2kjra4i"
+      "/tmp/apm-install-dir-11743-6400-118nsjv.rprg22o6r"
     ]
   ],
-  "_from": "../d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
+  "_from": "../d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
   "_id": "minimap@4.28.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
+    "raw": "/tmp/d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
-    "spec": "/tmp/d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
+    "rawSpec": "/tmp/d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
+    "spec": "/tmp/d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
+  "_resolved": "file:../d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
   "_shasum": "e2c532e365d46a595010ec9f0b5d324bf0e40ae8",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6407-9jthmn.7zmvn7y14i/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6407-1tlf0io.5zr2kjra4i",
+  "_spec": "/tmp/d-11743-6400-ybooiv.bp6qv0lik9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6400-118nsjv.rprg22o6r",
   "author": {
     "name": "Fangdun Cai",
     "email": "cfddream@gmail.com"

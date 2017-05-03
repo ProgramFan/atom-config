@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
+        "raw": "/tmp/d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
-        "spec": "/tmp/d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
+        "rawSpec": "/tmp/d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
+        "spec": "/tmp/d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7835-1q7knpx.lh361lwhfr"
+      "/tmp/apm-install-dir-11743-7829-3tpywk.9pj2x1or"
     ]
   ],
-  "_from": "../d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
+  "_from": "../d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
   "_id": "golden-ratio@0.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/golden-ratio",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
+    "raw": "/tmp/d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
-    "spec": "/tmp/d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
+    "rawSpec": "/tmp/d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
+    "spec": "/tmp/d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
+  "_resolved": "file:../d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
   "_shasum": "3b2ce4156308afe98454d19d501ba28ce5218689",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7835-116f7iz.tt31cvunmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7835-1q7knpx.lh361lwhfr",
+  "_spec": "/tmp/d-11743-7829-g6bh3f.psjvovquxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7829-3tpywk.9pj2x1or",
   "activationCommands": {
     "atom-workspace": "golden-ratio:toggle"
   },

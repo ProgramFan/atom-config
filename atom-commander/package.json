@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7625-x7shy8.obj5e1att9/package.tgz",
+        "raw": "/tmp/d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7625-x7shy8.obj5e1att9/package.tgz",
-        "spec": "/tmp/d-11743-7625-x7shy8.obj5e1att9/package.tgz",
+        "rawSpec": "/tmp/d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
+        "spec": "/tmp/d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7625-1cjw8ck.mwfkanstt9"
+      "/tmp/apm-install-dir-11743-7618-ywh861.8p18rrudi"
     ]
   ],
-  "_from": "../d-11743-7625-x7shy8.obj5e1att9/package.tgz",
+  "_from": "../d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
   "_id": "atom-commander@0.9.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/atom-commander",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7625-x7shy8.obj5e1att9/package.tgz",
+    "raw": "/tmp/d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7625-x7shy8.obj5e1att9/package.tgz",
-    "spec": "/tmp/d-11743-7625-x7shy8.obj5e1att9/package.tgz",
+    "rawSpec": "/tmp/d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
+    "spec": "/tmp/d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7625-x7shy8.obj5e1att9/package.tgz",
+  "_resolved": "file:../d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
   "_shasum": "f84e549e8ba02b39ad857298e5ee368da5436a34",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7625-x7shy8.obj5e1att9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7625-1cjw8ck.mwfkanstt9",
+  "_spec": "/tmp/d-11743-7618-7va9nx.13z81cq5mi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7618-ywh861.8p18rrudi",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/morassman/atom-commander/issues"

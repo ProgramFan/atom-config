@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
+        "raw": "/tmp/d-11743-6569-1knu7e.op12pxecdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
-        "spec": "/tmp/d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
+        "rawSpec": "/tmp/d-11743-6569-1knu7e.op12pxecdi/package.tgz",
+        "spec": "/tmp/d-11743-6569-1knu7e.op12pxecdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6575-13pnd9t.ntagbq33di"
+      "/tmp/apm-install-dir-11743-6569-70bfcu.da8fuk57b9"
     ]
   ],
-  "_from": "../d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
+  "_from": "../d-11743-6569-1knu7e.op12pxecdi/package.tgz",
   "_id": "minimap-cursorline@0.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-cursorline",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
+    "raw": "/tmp/d-11743-6569-1knu7e.op12pxecdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
-    "spec": "/tmp/d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
+    "rawSpec": "/tmp/d-11743-6569-1knu7e.op12pxecdi/package.tgz",
+    "spec": "/tmp/d-11743-6569-1knu7e.op12pxecdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
+  "_resolved": "file:../d-11743-6569-1knu7e.op12pxecdi/package.tgz",
   "_shasum": "e453900a4e932f1aa23b34a850b19d8cca186207",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6575-rsug3.cyr9h08uxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6575-13pnd9t.ntagbq33di",
+  "_spec": "/tmp/d-11743-6569-1knu7e.op12pxecdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6569-70bfcu.da8fuk57b9",
   "bugs": {
     "url": "https://github.com/atom-minimap/minimap-cursorline/issues"
   },
