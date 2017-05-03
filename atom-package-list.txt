@@ -1,17 +1,47 @@
-language-cmake
-language-dot
-language-x86asm
-language-markdown
-language-asciidoc
-language-latex
-language-plantuml
-autocomplete-asciidoc
-autocomplete-bibtex
-autocomplete-paths
-autocomplete-en-en
-autocomplete-python
-autocomplete-cmake
+#
+# Package list for Atom editor
+#
+
+#
+# 1. Editor UI Enhancements
+#
+# minimap: add a sublime-like minimap
+minimap
+minimap-find-and-replace
+minimap-git-diff
+minimap-cursorline
+minimap-linter
+# tool-bar: add a configurable toolbar
+tool-bar
+flex-tool-bar
+wordcount # add word count to the status bar
+file-icons # beautiful file icons for tree view and tab header
+golden-ratio # automatically resize pane
+Zen # Zen mode
+
+#
+# 2. Editor Function Enhancements
+#
+auto-detect-indentation # detect indentation
+sort-lines # sort lines ascend. or descend.
+open-no-binaries # stop atom from opening binary files
+open-unsupported-files # open unsupported files in external programs
+project-manager # save, load and switch projects
+file-watcher # reload file when changed outside
+remote-sync # allow editing remote files
+atom-commander # better file manager
+git-plus # better git integration
+git-time-machine # navigate through time for a file
+# build: run make/cmake etc. inside atom and display errors
+build
+build-make
+build-cmake
+busy # build dependency to show progress
+# linter: check errors on the fly
 linter
+linter-ui-default
+busy-signal # linter ui dependency
+intentions # linter ui dependency
 linter-clang
 linter-pep8
 linter-shellcheck
@@ -19,52 +49,55 @@ linter-scspell
 linter-spell
 linter-spell-latex
 linter-spell-html
-intentions
+linter-write-good
+
+#
+# 3. Extra syntax highlighters
+# 
+language-cmake
+language-dot
+language-x86asm
+language-markdown # better markdown
+language-asciidoc
+language-latex
+language-plantuml
+
+#
+# 4. Extra completers
+#
+autocomplete-bibtex
+autocomplete-paths
+autocomplete-en-en
+autocomplete-cmake
+
+# 5. Markdown utilities
 markdown-preview-enhanced
-markdown-writer
 markdown-table-formatter
-minimap
-minimap-find-and-replace
-minimap-git-diff
-minimap-highlight-selected
-minimap-cursorline
-minimap-linter
+markdown-writer
+
+# 6. Asciidoc utilities
+autocomplete-asciidoc
 asciidoc-preview
 asciidoc-image-helper
 asciidoctor-preview
-build
-build-make
-build-cmake
-busy
-atom-beautify
-tool-bar
-flex-tool-bar
-sort-lines
-wordcount
-project-manager
-dash
-Zen
-file-icons
-git-plus
-graphviz-preview
-Hydrogen
-git-time-machine
-open-no-binaries
-open-unsupported-files
-atom-commander
-auto-detect-indentation
-file-watcher
-remote-sync
-docblockr
-golden-ratio
+
+# 7. C++ IDE
+docblockr # doxygen style document block
+dash # quick reference to dev. docs
+you-complete-me # dark-powered completer provider
+atom-rtags-plus # rtags based source navigation and more
+hyperclick # jump to definition made easy, atom-rtags-plus dependency
+symbols-tree-view # like tagbar for vim
+
+# 8. Python IDE
 python-tools
-platformio-ide-terminal
-plantuml-viewer
-nuclide
-you-complete-me
-atom-rtags-plus
-latextools
-hyperclick
-symbols-tree-view
-sync-settings
-highlight-selected
+autocomplete-python
+Hydrogen # run jupyter kernel along with code
+
+# 8. Other tools
+atom-beautify # format code/text
+graphviz-preview # preview dot files
+plantuml-viewer # preview plantuml files
+platformio-ide-terminal # terminal in atom
+latextools # latex utils
+sync-settings # sync settings through gist
