@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
+        "raw": "/tmp/d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
-        "spec": "/tmp/d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
+        "rawSpec": "/tmp/d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
+        "spec": "/tmp/d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6317-17emgpv.fsl1ikvs4i"
+      "/tmp/apm-install-dir-11743-7482-acqbkv.h9bresif6r"
     ]
   ],
-  "_from": "../d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
+  "_from": "../d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
   "_id": "markdown-writer@2.6.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
+    "raw": "/tmp/d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
-    "spec": "/tmp/d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
+    "rawSpec": "/tmp/d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
+    "spec": "/tmp/d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
+  "_resolved": "file:../d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
   "_shasum": "8a7c4f3b5e7c10df24b31be2441fe6c293879ca0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6317-udbxwk.8xoj0dx6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6317-17emgpv.fsl1ikvs4i",
+  "_spec": "/tmp/d-11743-7482-1fki627.6vjng0hpvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7482-acqbkv.h9bresif6r",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",

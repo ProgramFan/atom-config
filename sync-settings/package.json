@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
+        "raw": "/tmp/d-11743-8392-mritj4.ymubceg66r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
-        "spec": "/tmp/d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
+        "rawSpec": "/tmp/d-11743-8392-mritj4.ymubceg66r/package.tgz",
+        "spec": "/tmp/d-11743-8392-mritj4.ymubceg66r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-8353-8l4dg9.ka4o1ug14i"
+      "/tmp/apm-install-dir-11743-8392-1sxq0aq.uysabawcdi"
     ]
   ],
-  "_from": "../d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
+  "_from": "../d-11743-8392-mritj4.ymubceg66r/package.tgz",
   "_id": "sync-settings@0.8.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/sync-settings",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
+    "raw": "/tmp/d-11743-8392-mritj4.ymubceg66r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
-    "spec": "/tmp/d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
+    "rawSpec": "/tmp/d-11743-8392-mritj4.ymubceg66r/package.tgz",
+    "spec": "/tmp/d-11743-8392-mritj4.ymubceg66r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
+  "_resolved": "file:../d-11743-8392-mritj4.ymubceg66r/package.tgz",
   "_shasum": "49f86481b9bc8c5a790ad060d5949ead2c3bc2fc",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-8353-36u9ya.ssxci60f6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-8353-8l4dg9.ka4o1ug14i",
+  "_spec": "/tmp/d-11743-8392-mritj4.ymubceg66r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-8392-1sxq0aq.uysabawcdi",
   "bugs": {
     "url": "https://github.com/atom-community/sync-settings/issues"
   },
