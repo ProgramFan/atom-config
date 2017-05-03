@@ -80,7 +80,7 @@ echo "Using Atom version:"
 echo "Using APM version:"
 "$APM_SCRIPT_PATH" -v
 
-INSTALL_PACKAGES="$(cat ./atom-package-list.txt)"
+INSTALL_PACKAGES="$(sed -e 's/#.*//g' ./atom-package-list.txt)"
 
 if [ "$INSTALL_PACKAGES" != "none" ]; then
   echo "Installing atom packages ..."
