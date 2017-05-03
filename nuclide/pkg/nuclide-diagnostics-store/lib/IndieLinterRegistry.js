@@ -77,7 +77,7 @@ class IndieLinterDelegate {
   }
 
   onDidDestroy(callback) {
-    return new (_UniversalDisposable || _load_UniversalDisposable()).default(this._destroyed.take(1).subscribe(callback));
+    return new (_UniversalDisposable || _load_UniversalDisposable()).default(this._destroyed.filter(Boolean).take(1).subscribe(callback));
   }
 
   dispose() {

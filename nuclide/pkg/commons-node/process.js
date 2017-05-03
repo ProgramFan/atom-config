@@ -717,7 +717,12 @@ function createProcessStream(type = 'spawn', commandOrModulePath, args = [], opt
     // on the stdio streams.
     const stdioErrorMonitors = monitorStreamErrors(proc, commandOrModulePath, args, options);
 
-    const errors = _rxjsBundlesRxMinJs.Observable.fromEvent(proc, 'error').flatMap(_rxjsBundlesRxMinJs.Observable.throw);
+    // If we were to connect the error handler as part of the returned observable, unsubscribing
+    // would cause it to be removed. That would leave no attached error handler, so node would
+    // throw, triggering Atom's uncaught exception handler.
+    const errors = _rxjsBundlesRxMinJs.Observable.fromEvent(proc, 'error').flatMap(_rxjsBundlesRxMinJs.Observable.throw).publish();
+    errors.connect();
+
     const exitEvents = _rxjsBundlesRxMinJs.Observable.fromEvent(proc, 'exit', (exitCode, signal) => ({
       kind: 'exit',
       exitCode,

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
+        "raw": "/tmp/d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
-        "spec": "/tmp/d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
+        "rawSpec": "/tmp/d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
+        "spec": "/tmp/d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-5846-ucre4d.gm5xjyk3xr"
+      "/tmp/apm-install-dir-11743-5847-86n9yn.hsm57e3ik9"
     ]
   ],
-  "_from": "../d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
+  "_from": "../d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
   "_id": "linter-clang@4.1.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter-clang",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
+    "raw": "/tmp/d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
-    "spec": "/tmp/d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
+    "rawSpec": "/tmp/d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
+    "spec": "/tmp/d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
+  "_resolved": "file:../d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
   "_shasum": "8a2ed73bc8bec8e174797463af72c75f32ccb450",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-5846-fqm6pk.ry2l04quxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-5846-ucre4d.gm5xjyk3xr",
+  "_spec": "/tmp/d-11743-5847-1w4mwky.4jsymygb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-5847-86n9yn.hsm57e3ik9",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-clang/issues"
   },

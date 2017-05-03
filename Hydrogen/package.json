@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7432-qky24p.4aijgiudi/package.tgz",
+        "raw": "/tmp/d-11743-7448-1spapl7.4centp4x6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7432-qky24p.4aijgiudi/package.tgz",
-        "spec": "/tmp/d-11743-7432-qky24p.4aijgiudi/package.tgz",
+        "rawSpec": "/tmp/d-11743-7448-1spapl7.4centp4x6r/package.tgz",
+        "spec": "/tmp/d-11743-7448-1spapl7.4centp4x6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7432-xhazko.0bvrroogvi"
+      "/tmp/apm-install-dir-11743-7448-i1s5lu.a7fga54s4i"
     ]
   ],
-  "_from": "../d-11743-7432-qky24p.4aijgiudi/package.tgz",
+  "_from": "../d-11743-7448-1spapl7.4centp4x6r/package.tgz",
   "_id": "Hydrogen@1.12.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/Hydrogen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7432-qky24p.4aijgiudi/package.tgz",
+    "raw": "/tmp/d-11743-7448-1spapl7.4centp4x6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7432-qky24p.4aijgiudi/package.tgz",
-    "spec": "/tmp/d-11743-7432-qky24p.4aijgiudi/package.tgz",
+    "rawSpec": "/tmp/d-11743-7448-1spapl7.4centp4x6r/package.tgz",
+    "spec": "/tmp/d-11743-7448-1spapl7.4centp4x6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7432-qky24p.4aijgiudi/package.tgz",
+  "_resolved": "file:../d-11743-7448-1spapl7.4centp4x6r/package.tgz",
   "_shasum": "9f8bf19a9dc4f31e93a1b336ad3df40068ca44a3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7432-qky24p.4aijgiudi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7432-xhazko.0bvrroogvi",
+  "_spec": "/tmp/d-11743-7448-1spapl7.4centp4x6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7448-i1s5lu.a7fga54s4i",
   "activationCommands": {
     "atom-text-editor": [
       "hydrogen:select-kernel",

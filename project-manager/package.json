@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7179-lle1m7.70dmibe29/package.tgz",
+        "raw": "/tmp/d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7179-lle1m7.70dmibe29/package.tgz",
-        "spec": "/tmp/d-11743-7179-lle1m7.70dmibe29/package.tgz",
+        "rawSpec": "/tmp/d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
+        "spec": "/tmp/d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7179-1fthx92.52wbchaor"
+      "/tmp/apm-install-dir-11743-7188-yzchru.0vesbawcdi"
     ]
   ],
-  "_from": "../d-11743-7179-lle1m7.70dmibe29/package.tgz",
+  "_from": "../d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
   "_id": "project-manager@3.3.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/project-manager",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7179-lle1m7.70dmibe29/package.tgz",
+    "raw": "/tmp/d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7179-lle1m7.70dmibe29/package.tgz",
-    "spec": "/tmp/d-11743-7179-lle1m7.70dmibe29/package.tgz",
+    "rawSpec": "/tmp/d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
+    "spec": "/tmp/d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7179-lle1m7.70dmibe29/package.tgz",
+  "_resolved": "file:../d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
   "_shasum": "8024d0660437b14ca1717e497df63ce9d0684423",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7179-lle1m7.70dmibe29/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7179-1fthx92.52wbchaor",
+  "_spec": "/tmp/d-11743-7188-1oc7v1t.h6xhia4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7188-yzchru.0vesbawcdi",
   "bugs": {
     "url": "https://github.com/danielbrodin/atom-project-manager/issues"
   },

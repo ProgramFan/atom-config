@@ -173,7 +173,7 @@ class MultiRootChangedFilesView extends _react.default.PureComponent {
 
   _getStatusCodeForFile(event) {
     // Walk up the DOM tree to the element containing the relevant data- attributes.
-    const target = event.target.closest('.nuclide-file-changes-list-item');
+    const target = event.target.closest('.nuclide-changed-file');
 
     if (!target) {
       throw new Error('Invariant violation: "target"');

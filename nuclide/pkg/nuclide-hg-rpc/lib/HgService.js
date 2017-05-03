@@ -721,6 +721,9 @@ class HgService {
     // TODO(T17463635)
     let editMergeConfigs;
     return _rxjsBundlesRxMinJs.Observable.fromPromise((0, _asyncToGenerator.default)(function* () {
+      // prevent user-specified merge tools from attempting to
+      // open interactive editors
+      args.push('--config', 'ui.merge=:merge');
       if (message == null) {
         return args;
       } else {
@@ -734,10 +737,6 @@ class HgService {
       if (editMergeConfigs != null) {
         execArgs.push(...editMergeConfigs.args);
         execOptions.HGEDITOR = editMergeConfigs.hgEditor;
-      } else {
-        // Setting the editor to a non-existant tool to prevent operations that rely
-        // on the user's default editor from attempting to open up when needed.
-        execOptions.HGEDITOR = 'true';
       }
       return this._hgObserveExecution(execArgs, execOptions);
     });
@@ -1156,10 +1155,12 @@ class HgService {
 
   continueOperation(command) {
     // TODO(T17463635)
-    const args = [command, '--continue'];
+
+    // prevent user-specified merge tools from attempting to
+    // open interactive editors
+    const args = [command, '--continue', '--config', 'ui.merge=:merge'];
     const execOptions = {
-      cwd: this._workingDirectory,
-      HGEDITOR: 'true'
+      cwd: this._workingDirectory
     };
     return this._hgObserveExecution(args, execOptions).switchMap((_hgUtils || _load_hgUtils()).processExitCodeAndThrow).publish();
   }
@@ -1174,15 +1175,15 @@ class HgService {
 
   rebase(destination, source) {
     // TODO(T17463635)
-    const args = ['rebase', '-d', destination];
+
+    // prevent user-specified merge tools from attempting to
+    // open interactive editors
+    const args = ['rebase', '-d', destination, '--config', 'ui.merge=:merge'];
     if (source != null) {
       args.push('-s', source);
     }
     const execOptions = {
-      cwd: this._workingDirectory,
-      // Setting the editor to a non-existant tool to prevent operations that rely
-      // on the user's default editor from attempting to open up when needed.
-      HGEDITOR: 'true'
+      cwd: this._workingDirectory
     };
     return this._hgObserveExecution(args, execOptions).publish();
   }

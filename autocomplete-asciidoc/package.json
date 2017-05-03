@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
+        "raw": "/tmp/d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
-        "spec": "/tmp/d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
+        "rawSpec": "/tmp/d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
+        "spec": "/tmp/d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-5502-yeg1bc.0ya8iio1or"
+      "/tmp/apm-install-dir-11743-5502-1jcuwho.528jzcl3di"
     ]
   ],
-  "_from": "../d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
+  "_from": "../d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
   "_id": "autocomplete-asciidoc@0.1.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
+    "raw": "/tmp/d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
-    "spec": "/tmp/d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
+    "rawSpec": "/tmp/d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
+    "spec": "/tmp/d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
+  "_resolved": "file:../d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
   "_shasum": "bd850af2336aa841202c403968c6c293a3e52186",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-5502-1jiq1ua.waam5qm2t9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-5502-yeg1bc.0ya8iio1or",
+  "_spec": "/tmp/d-11743-5502-yj2acq.lxj19yhkt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-5502-1jcuwho.528jzcl3di",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-autocomplete-asciidoc/issues"
   },

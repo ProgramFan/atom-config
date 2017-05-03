@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
+        "raw": "/tmp/d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
-        "spec": "/tmp/d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
+        "rawSpec": "/tmp/d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
+        "spec": "/tmp/d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-5713-io8nql.drk162yb9"
+      "/tmp/apm-install-dir-11743-5713-1yt6k93.622d5i2j4i"
     ]
   ],
-  "_from": "../d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
+  "_from": "../d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
   "_id": "autocomplete-python@1.8.63",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-python",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
+    "raw": "/tmp/d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
-    "spec": "/tmp/d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
+    "rawSpec": "/tmp/d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
+    "spec": "/tmp/d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
+  "_resolved": "file:../d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
   "_shasum": "56a72b0026b921b52bac2b575e57f3fbce8d2cbc",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-5713-d7ke9k.0opw4s4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-5713-io8nql.drk162yb9",
+  "_spec": "/tmp/d-11743-5713-1g6uyvm.ok7uvxi529/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-5713-1yt6k93.622d5i2j4i",
   "bugs": {
     "url": "https://github.com/autocomplete-python/autocomplete-python/issues"
   },

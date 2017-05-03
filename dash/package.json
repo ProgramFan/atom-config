@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
+        "raw": "/tmp/d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
-        "spec": "/tmp/d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
+        "rawSpec": "/tmp/d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
+        "spec": "/tmp/d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7222-1gxuiuw.hip7ig4x6r"
+      "/tmp/apm-install-dir-11743-7230-1fab3b4.7c114z33di"
     ]
   ],
-  "_from": "../d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
+  "_from": "../d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
   "_id": "dash@1.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/dash",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
+    "raw": "/tmp/d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
-    "spec": "/tmp/d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
+    "rawSpec": "/tmp/d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
+    "spec": "/tmp/d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
+  "_resolved": "file:../d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
   "_shasum": "7fad1f6dccbc4424d70c4ed9573641b34802ab2b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7222-5mec2p.twe3sj1yvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7222-1gxuiuw.hip7ig4x6r",
+  "_spec": "/tmp/d-11743-7230-18xoi75.xz6ydjkyb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7230-1fab3b4.7c114z33di",
   "activationCommands": {
     "atom-text-editor": [
       "dash:shortcut",
