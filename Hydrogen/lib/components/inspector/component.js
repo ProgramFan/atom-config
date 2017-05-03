@@ -1,10 +1,18 @@
 /* @flow */
 
-import React from 'react';
-import { observer } from 'mobx-react';
-import ResizableBox from 'react-resizable-box';
+import React from "react";
+import { observer } from "mobx-react";
+import ResizableBox from "react-resizable-box";
+import { richestMimetype, transforms } from "@nteract/transforms";
+import { List as ImmutableList } from "immutable";
 
-import type Kernel from './../../kernel';
+const displayOrder = new ImmutableList([
+  "text/html",
+  "text/markdown",
+  "text/plain"
+]);
+
+import type Kernel from "./../../kernel";
 
 type Props = { store: { kernel: Kernel }, panel: atom$Panel };
 
@@ -15,6 +23,11 @@ const InspectorComponent = observer(({ store: { kernel }, panel }: Props) => {
     return null;
   }
   panel.show();
+
+  const bundle = kernel.inspector.bundle;
+  const mimetype = richestMimetype(bundle, displayOrder, transforms);
+  // $FlowFixMe React element `Transform`. Expected React component instead of Transform
+  const Transform = transforms.get(mimetype);
   return (
     <ResizableBox
       isResizable={{ top: true }}
@@ -28,14 +41,13 @@ const InspectorComponent = observer(({ store: { kernel }, panel }: Props) => {
           <div
             className="heading-close inline-block icon-x"
             onClick={() => kernel.setInspectorVisibility(false)}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           />
         </div>
       </div>
-      <div
-        className="hydrogen-panel-body"
-        dangerouslySetInnerHTML={{ __html: kernel.inspector.HTML }}
-      />
+      <div className="hydrogen-panel-body">
+        <Transform data={bundle.get(mimetype)} />
+      </div>
     </ResizableBox>
   );
 });

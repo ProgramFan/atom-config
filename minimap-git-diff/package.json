@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117226-6140-jxyvn0/package.tgz",
+        "raw": "/tmp/d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117226-6140-jxyvn0/package.tgz",
-        "spec": "/tmp/d-117226-6140-jxyvn0/package.tgz",
+        "rawSpec": "/tmp/d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
+        "spec": "/tmp/d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117226-6140-9pslan"
+      "/tmp/apm-install-dir-11743-6491-9cw3ok.57phkt9"
     ]
   ],
-  "_from": "../d-117226-6140-jxyvn0/package.tgz",
+  "_from": "../d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
   "_id": "minimap-git-diff@4.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-git-diff",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117226-6140-jxyvn0/package.tgz",
+    "raw": "/tmp/d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117226-6140-jxyvn0/package.tgz",
-    "spec": "/tmp/d-117226-6140-jxyvn0/package.tgz",
+    "rawSpec": "/tmp/d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
+    "spec": "/tmp/d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117226-6140-jxyvn0/package.tgz",
+  "_resolved": "file:../d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
   "_shasum": "351b314abee91e17e3688479ada6b6fd49e94d89",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117226-6140-jxyvn0/package.tgz",
-  "_where": "/tmp/apm-install-dir-117226-6140-9pslan",
+  "_spec": "/tmp/d-11743-6491-1r4fr36.6mut54gqfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6491-9cw3ok.57phkt9",
   "author": {
     "name": "Cédric Néhémie",
     "email": "cedric.nehemie@gmail.com"

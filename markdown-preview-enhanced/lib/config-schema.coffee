@@ -70,6 +70,12 @@ module.exports =
       default: "",
       description: "Comma separated pandoc arguments e.g. `--smart, --filter=/bin/exe`. Please use long argument names."
       order: 18
+    pandocMarkdownFlavor:
+      type: 'string'
+      default: 'markdown-raw_tex+tex_math_single_backslash' # 'markdown-raw_tex+tex_math_dollars'
+      title: 'Pandoc Options: Markdown Flavor'
+      description: 'Enter the pandoc markdown flavor you want'
+      order: 19
     mathRenderingOption:
       type: "string"
       default: "KaTeX"
@@ -104,12 +110,18 @@ module.exports =
       default: true
       description: "Enable Wiki Link syntax support. More information can be found at https://help.github.com/articles/adding-links-to-wikis/"
       order: 30
+    wikiLinkFileExtension:
+      title: "Wiki Link file extension"
+      type: "string"
+      default: ".md"
+      description: "By default, [[test]] will direct to file path `test.md`."
+      order: 31
     useStandardCodeFencingForGraphs:
       title: "Use standard code fencing for graphs"
       type: "boolean"
       default: true
       description: "Use standard code fencing for graphs. For example, code block `mermaid` or `@mermaid` will render mermaid graphs. If this option is disabled, then only `@mermaid` will render mermaid graphs. Works for mermaid, viz, plantuml, and wavedrom."
-      order: 31
+      order: 35
     liveUpdate:
       type: "boolean"
       default: true

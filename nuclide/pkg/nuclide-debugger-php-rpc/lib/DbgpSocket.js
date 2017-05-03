@@ -49,6 +49,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const ConnectionStatus = exports.ConnectionStatus = {
@@ -190,6 +191,20 @@ class DbgpSocket {
       }
       this._handleEvaluationCommand(transactionId, message);
     }
+
+    // If this is a break notification, check to see if its a file-line breakpoint, and if so,
+    // confirm the bp is still installed. Since different requests are totally asynchronous to
+    // the debugger (they're actually served by different processes), it's possible for a request
+    // to hit a breakpoint after the frontend has removed it. When this happens, we should silently
+    // just resume the connection rather than breaking at a stale breakpoint.
+    if (status === ConnectionStatus.Break) {
+      const xdebugMessages = response['xdebug:message'];
+      if (xdebugMessages != null && xdebugMessages.length >= 1) {
+        const breakDetails = xdebugMessages[0].$;
+        this._emitStatus(ConnectionStatus.Break, breakDetails.filename, breakDetails.lineno, breakDetails.exception);
+      }
+    }
+
     this._completeRequest(message, response, call, command, transactionId);
   }
 
@@ -309,7 +324,8 @@ class DbgpSocket {
 
     return (0, _asyncToGenerator.default)(function* () {
       // Pass zero as contextId to search all contexts.
-      return _this4.getPropertiesByFullname(frameIndex, /* contextId */'0', fullname, page);
+      return _this4.getPropertiesByFullname(frameIndex,
+      /* contextId */'0', fullname, page);
     })();
   }
 

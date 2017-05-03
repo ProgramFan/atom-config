@@ -2,6 +2,27 @@
 
 _`linter-clang` follows [semantic versioning](http://semver.org/)_
 
+## v4.1.1
+
+-   Remove usage of `-fdiagnostics-absolute-paths`, fixing `clang` < v4.0.0
+
+## v4.1.0
+
+-   Rewrite the parser engine
+-   Disable on change linting if a `.clang-complete` file is in use
+-   Support suggested fixes
+-   Handle multiple ranges from clang, using a merger of all given
+-   Better support for ranges in other files
+-   Much more complete specs
+
+## v4.0.0
+
+-   Move to Linter v2
+-   Support linting current editor contents
+-   Run `clang` from the directory of the file being linted
+-   Filter out `#pragma once` warnings from header files
+-   Rename the `execPath` setting to `executablePath` to match other providers
+
 ## v3.4.9
 
 -   Fix declaration of member functions

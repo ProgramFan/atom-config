@@ -30,10 +30,10 @@ function _load_Bridge() {
   return _Bridge = _interopRequireDefault(require('./Bridge'));
 }
 
-var _Button;
+var _LoadingSpinner;
 
-function _load_Button() {
-  return _Button = require('../../nuclide-ui/Button');
+function _load_LoadingSpinner() {
+  return _LoadingSpinner = require('../../nuclide-ui/LoadingSpinner');
 }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -46,6 +46,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 function getStateFromStore(store) {
@@ -60,7 +61,6 @@ class DebuggerControllerView extends _react.default.Component {
     super(props);
     this.state = getStateFromStore(props.store);
 
-    this._handleClickClose = this._handleClickClose.bind(this);
     this._updateStateFromStore = this._updateStateFromStore.bind(this);
   }
 
@@ -100,26 +100,20 @@ class DebuggerControllerView extends _react.default.Component {
     if (this.props.store.getDebuggerMode() === 'starting') {
       return _react.default.createElement(
         'div',
-        { className: 'padded' },
-        _react.default.createElement((_Button || _load_Button()).Button, {
-          title: 'Close',
-          icon: 'x',
-          className: 'nuclide-debugger-root-close-button',
-          onClick: this._handleClickClose
-        }),
+        { className: 'nuclide-debugger-starting-message' },
         _react.default.createElement(
-          'p',
+          'div',
           null,
-          'Starting Debugger'
-        ),
-        _react.default.createElement('progress', { className: 'starting' })
+          _react.default.createElement(
+            'span',
+            { className: 'inline-block' },
+            'Starting Debugger...'
+          ),
+          _react.default.createElement((_LoadingSpinner || _load_LoadingSpinner()).LoadingSpinner, { className: 'inline-block', size: 'EXTRA_SMALL' })
+        )
       );
     }
     return null;
-  }
-
-  _handleClickClose() {
-    this.props.stopDebugging();
   }
 
   _updateStateFromStore(store) {

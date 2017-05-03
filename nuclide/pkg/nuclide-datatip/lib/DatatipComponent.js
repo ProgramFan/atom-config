@@ -13,6 +13,12 @@ function _load_string() {
   return _string = require('../../commons-node/string');
 }
 
+var _MarkedStringDatatip;
+
+function _load_MarkedStringDatatip() {
+  return _MarkedStringDatatip = _interopRequireDefault(require('./MarkedStringDatatip'));
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; } /**
@@ -23,6 +29,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
                                                                                                                                                                                                                               * the root directory of this source tree.
                                                                                                                                                                                                                               *
                                                                                                                                                                                                                               * 
+                                                                                                                                                                                                                              * @format
                                                                                                                                                                                                                               */
 
 const DATATIP_ACTIONS = exports.DATATIP_ACTIONS = Object.freeze({
@@ -48,13 +55,8 @@ class DatatipComponent extends _react.default.Component {
 
   render() {
     const _props = this.props,
-          {
-      className,
-      children,
-      action,
-      actionTitle
-    } = _props,
-          props = _objectWithoutProperties(_props, ['className', 'children', 'action', 'actionTitle']);
+          { className, action, actionTitle, datatip } = _props,
+          props = _objectWithoutProperties(_props, ['className', 'action', 'actionTitle', 'datatip']);
     delete props.onActionClick;
     let actionButton;
     if (action != null && IconsForAction[action] != null) {
@@ -65,6 +67,12 @@ class DatatipComponent extends _react.default.Component {
         title: actionTitle
       });
     }
+    let content;
+    if (datatip.component != null) {
+      content = _react.default.createElement(datatip.component, null);
+    } else if (datatip.markedStrings != null) {
+      content = _react.default.createElement((_MarkedStringDatatip || _load_MarkedStringDatatip()).default, { markedStrings: datatip.markedStrings });
+    }
     return _react.default.createElement(
       'div',
       Object.assign({
@@ -73,7 +81,7 @@ class DatatipComponent extends _react.default.Component {
       _react.default.createElement(
         'div',
         { className: 'nuclide-datatip-content' },
-        children
+        content
       ),
       actionButton
     );

@@ -88,6 +88,7 @@ const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)(); /**
                                                                               * the root directory of this source tree.
                                                                               *
                                                                               * 
+                                                                              * @format
                                                                               */
 
 /** Encapsulates all of the state information we need about a specific Flow root */
@@ -146,7 +147,7 @@ class FlowSingleProjectLanguageService {
       // the user's editor rather than what is saved on disk. It would be annoying
       // if the user had to save before using the jump-to-definition feature to
       // ensure he or she got accurate results.
-      options.stdin = buffer.getText();
+      options.input = buffer.getText();
 
       const args = ['get-def', '--json', '--path', filePath, line, column];
       try {
@@ -192,7 +193,7 @@ class FlowSingleProjectLanguageService {
         return null;
       }
 
-      const options = { stdin: buffer.getText() };
+      const options = { input: buffer.getText() };
       const args = ['find-refs', '--json', '--path', filePath, position.row + 1, position.column + 1];
       try {
         const result = yield _this2._process.execFlow(args, options);
@@ -233,7 +234,8 @@ class FlowSingleProjectLanguageService {
       try {
         // Don't log errors if the command returns a nonzero exit code, because status returns nonzero
         // if it is reporting any issues, even when it succeeds.
-        result = yield _this3._process.execFlow(args, options, /* waitForServer */true);
+        result = yield _this3._process.execFlow(args, options,
+        /* waitForServer */true);
         if (!result) {
           return null;
         }
@@ -280,7 +282,13 @@ class FlowSingleProjectLanguageService {
     const ideConnections = this._process.getIDEConnections();
     return ideConnections.switchMap(ideConnection => {
       if (ideConnection != null) {
-        return ideConnection.observeDiagnostics().map(diagnosticsJson => {
+        return ideConnection.observeDiagnostics().filter(msg => msg.kind === 'errors').map(msg => {
+          if (!(msg.kind === 'errors')) {
+            throw new Error('Invariant violation: "msg.kind === \'errors\'"');
+          }
+
+          return msg.errors;
+        }).map(diagnosticsJson => {
           const diagnostics = (0, (_diagnosticsParser || _load_diagnosticsParser()).flowStatusOutputToDiagnostics)(diagnosticsJson);
           const filePathToMessages = new Map();
 
@@ -343,20 +351,23 @@ class FlowSingleProjectLanguageService {
       // Note that Atom coordinates are 0-indexed whereas Flow's are 1-indexed, so we must add 1.
       const args = ['autocomplete', '--json', filePath, position.row + 1, position.column + 1];
 
-      options.stdin = buffer.getText();
+      options.input = buffer.getText();
       try {
         const result = yield _this4._process.execFlow(args, options);
         if (!result) {
-          return [];
+          return { isIncomplete: false, items: [] };
         }
         const json = parseJSON(args, result.stdout);
         const resultsArray = json.result;
         const completions = resultsArray.map(function (item) {
           return processAutocompleteItem(replacementPrefix, item);
         });
-        return (0, (_nuclideFlowCommon || _load_nuclideFlowCommon()).filterResultsByPrefix)(prefix, completions);
+        return (0, (_nuclideFlowCommon || _load_nuclideFlowCommon()).filterResultsByPrefix)(prefix, {
+          isIncomplete: false,
+          items: completions
+        });
       } catch (e) {
-        return [];
+        return { isIncomplete: false, items: [] };
       }
     })();
   }
@@ -365,9 +376,18 @@ class FlowSingleProjectLanguageService {
     var _this5 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
+      // Do not show typehints for whitespace.
+      const character = buffer.getTextInRange([position, {
+        row: position.row,
+        column: position.column + 1
+      }]);
+      if (character.match(/\s/)) {
+        return null;
+      }
+
       const options = {};
 
-      options.stdin = buffer.getText();
+      options.input = buffer.getText();
 
       const line = position.row + 1;
       const column = position.column + 1;
@@ -493,7 +513,7 @@ class FlowSingleProjectLanguageService {
   static flowGetAst(root, currentContents, execInfoContainer) {
     return (0, _asyncToGenerator.default)(function* () {
       const options = {
-        stdin: currentContents
+        input: currentContents
       };
 
       const flowRootPath = root == null ? null : root.getPathToRoot();
@@ -528,23 +548,7 @@ class FlowSingleProjectLanguageService {
   }
 
   getEvaluationExpression(filePath, buffer, position) {
-    // TODO: Replace RegExp with AST-based, more accurate approach.
-    const extractedIdentifier = (0, (_range || _load_range()).wordAtPositionFromBuffer)(buffer, position, (_nuclideFlowCommon || _load_nuclideFlowCommon()).JAVASCRIPT_IDENTIFIER_REGEX);
-    if (extractedIdentifier == null) {
-      return Promise.resolve(null);
-    }
-    const {
-      range,
-      wordMatch
-    } = extractedIdentifier;
-    const [expression] = wordMatch;
-    if (expression == null) {
-      return Promise.resolve(null);
-    }
-    return Promise.resolve({
-      expression,
-      range
-    });
+    throw new Error('Not implemented');
   }
 
   isFileInProject(fileUri) {

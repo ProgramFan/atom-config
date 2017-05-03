@@ -20,6 +20,12 @@ function _load_nuclideAnalytics() {
   return _nuclideAnalytics = require('../../nuclide-analytics');
 }
 
+var _nuclideRpc;
+
+function _load_nuclideRpc() {
+  return _nuclideRpc = require('../../nuclide-rpc');
+}
+
 var _nuclideUri;
 
 function _load_nuclideUri() {
@@ -41,17 +47,16 @@ function _load_loadingNotification() {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Diffing is O(lines^2), so don't bother for files with too many lines.
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-const DIFF_LINE_LIMIT = 10000;
+const DIFF_LINE_LIMIT = 10000; /**
+                                * Copyright (c) 2015-present, Facebook, Inc.
+                                * All rights reserved.
+                                *
+                                * This source code is licensed under the license found in the LICENSE file in
+                                * the root directory of this source tree.
+                                *
+                                * 
+                                * @format
+                                */
 
 class NuclideTextBuffer extends _atom.TextBuffer {
 
@@ -120,7 +125,7 @@ class NuclideTextBuffer extends _atom.TextBuffer {
 
     return (0, _asyncToGenerator.default)(function* () {
       if (!filePath) {
-        throw new Error('Can\'t save buffer with no file path');
+        throw new Error("Can't save buffer with no file path");
       }
 
       let success;
@@ -135,7 +140,8 @@ class NuclideTextBuffer extends _atom.TextBuffer {
         }
 
         _this._pendingSaveContents = toSaveContents;
-        yield (0, (_loadingNotification || _load_loadingNotification()).default)(file.write(toSaveContents), `Saving ${(_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(filePath)}...`, 1000);
+        yield (0, (_loadingNotification || _load_loadingNotification()).default)(file.write(toSaveContents), `Saving ${(_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(filePath)}...`, 1000 /* delay */
+        );
         _this.cachedDiskContents = toSaveContents;
         _this._saveID++;
         _this.conflict = false;
@@ -146,7 +152,7 @@ class NuclideTextBuffer extends _atom.TextBuffer {
         // Timeouts occur quite frequently when the network is unstable.
         // Demote these to 'error' level.
         const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
-        const logFunction = /timeout/i.test(e.message) ? logger.error : logger.fatal;
+        const logFunction = e instanceof (_nuclideRpc || _load_nuclideRpc()).RpcTimeoutError ? logger.error : logger.fatal;
         logFunction('Failed to save remote file.', e);
         let message = e.message;
         // This can happen if the user triggered the save while closing the file.
@@ -174,7 +180,7 @@ class NuclideTextBuffer extends _atom.TextBuffer {
   }
 
   updateCachedDiskContentsSync() {
-    throw new Error('updateCachedDiskContentsSync isn\'t supported in NuclideTextBuffer');
+    throw new Error("updateCachedDiskContentsSync isn't supported in NuclideTextBuffer");
   }
 
   updateCachedDiskContents(flushCache, callback) {

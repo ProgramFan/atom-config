@@ -3,8 +3,8 @@
 path = require 'path'
 fs = require 'fs-plus'
 cheerio = require 'cheerio'
-# No direct dependence with Highlight because it requires a compilation. See #63 and #150 and atom/highlights#36.
-Highlights = require path.join atom.packages.resolvePackagePath('markdown-preview'), '..', 'highlights'
+highlights = require './highlights'
+
 {scopeForFenceName} = require './highlights-helper'
 
 {makeAttributes, makeOptions} = require './configuration-builder'
@@ -135,14 +135,18 @@ tokenizeCodeBlocks = (html, defaultLanguage='text') ->
       if fenceName is defaultLanguage
         preElement.className = ''
       else
-        highlighter ?= new Highlights(registry: atom.grammars)
-        highlightedHtml = highlighter.highlightSync
+        highlightedHtml = highlights
           fileContents: codeBlock.text()
           scopeName: scopeForFenceName(fenceName)
+          lineDivs: true
+          editorDiv: true
+          editorDivTag: 'pre'
+          # The `editor` class messes things up as `.editor` has absolutely positioned lines
+          editorDivClass: 'highlights editor-colors'
 
         highlightedBlock = $(highlightedHtml)
-        # The `editor` class messes things up as `.editor` has absolutely positioned lines
-        highlightedBlock.removeClass('editor').addClass("lang-#{fenceName}")
+
+        highlightedBlock.addClass("lang-#{fenceName}")
         highlightedBlock.insertAfter(preElement)
         preElement.remove()
 

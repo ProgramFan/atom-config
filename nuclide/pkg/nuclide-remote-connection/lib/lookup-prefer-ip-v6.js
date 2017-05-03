@@ -35,15 +35,20 @@ exports.default = (() => {
        * the root directory of this source tree.
        *
        * 
+       * @format
        */
 
 function lookup(host, family) {
   return new Promise((resolve, reject) => {
-    _dns.default.lookup(host, family, (error, address) => {
+    _dns.default.lookup(host, family, (error, address, resultFamily) => {
       if (error) {
         reject(error);
       } else if (address != null) {
-        resolve(address);
+        if (!(resultFamily === 4 || resultFamily === 6)) {
+          throw new Error('Invariant violation: "resultFamily === 4 || resultFamily === 6"');
+        }
+
+        resolve({ address, family: resultFamily });
       } else {
         reject(new Error('One of error or address must be set.'));
       }

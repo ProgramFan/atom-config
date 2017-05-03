@@ -49,6 +49,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
@@ -63,14 +64,13 @@ const FILE_SYSTEM_SERVICE = 'FileSystemService';
 // Nuclide behaves badly when remote directories are opened which are parent/child of each other.
 // And there needn't be a 1:1 relationship between RemoteConnections and hg repos.
 class RemoteConnection {
-
+  // Path to remote directory user should start in upon connection.
   static findOrCreate(config) {
     return (0, _asyncToGenerator.default)(function* () {
       const serverConnection = yield (_ServerConnection || _load_ServerConnection()).ServerConnection.getOrCreate(config);
       return RemoteConnection.findOrCreateFromConnection(serverConnection, config.cwd, config.displayTitle);
     })();
-  } // Path to remote directory user should start in upon connection.
-
+  }
 
   static findOrCreateFromConnection(serverConnection, cwd, displayTitle) {
     const connection = new RemoteConnection(serverConnection, cwd, displayTitle);
@@ -84,6 +84,7 @@ class RemoteConnection {
     this._hgRepositoryDescription = null;
     this._connection = connection;
     this._displayTitle = displayTitle;
+    this._alwaysShutdownIfLast = false;
   }
 
   static _createInsecureConnectionForTesting(cwd, port) {
@@ -233,7 +234,9 @@ class RemoteConnection {
           warningMessageToUser += '<b><a href="https://facebook.github.io/watchman/">Watchman</a> Error:</b>' + loggedErrorMessage;
         }
         // Add a persistent warning message to make sure the user sees it before dismissing.
-        atom.notifications.addWarning(warningMessageToUser, { dismissable: true });
+        atom.notifications.addWarning(warningMessageToUser, {
+          dismissable: true
+        });
       });
 
       return function (_x) {
@@ -281,7 +284,10 @@ class RemoteConnection {
   }
 
   getConfig() {
-    return Object.assign({}, this._connection.getConfig(), { cwd: this._cwd, displayTitle: this._displayTitle });
+    return Object.assign({}, this._connection.getConfig(), {
+      cwd: this._cwd,
+      displayTitle: this._displayTitle
+    });
   }
 
   static onDidAddRemoteConnection(handler) {
@@ -324,6 +330,14 @@ class RemoteConnection {
 
   isOnlyConnection() {
     return this._connection.getConnections().length === 1;
+  }
+
+  setAlwaysShutdownIfLast(alwaysShutdownIfLast) {
+    this._alwaysShutdownIfLast = alwaysShutdownIfLast;
+  }
+
+  alwaysShutdownIfLast() {
+    return this._alwaysShutdownIfLast;
   }
 }
 exports.RemoteConnection = RemoteConnection;

@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.INDEFINITE_END_COLUMN = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
@@ -30,6 +31,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const DIAGNOSTIC_REGEX = /^([^\s:]+):([0-9]+):([0-9]+): (.*)$/gm;
@@ -44,6 +46,11 @@ const DIAGNOSTIC_REGEX = /^([^\s:]+):([0-9]+):([0-9]+): (.*)$/gm;
 const TEST_FAILURE_START_REGEX = /^FAILURE.*: (.*):([0-9]+): (.*)$/gm;
 const TEST_FAILURE_CONTINUED_REGEX = /^([^:]+):([0-9]+): (.*)$/gm;
 
+// It's expensive to get the real length of the lines (we'd have to read each file).
+// Instead, just use a very large number ("infinity"). The diagnostics UI handles this
+// and won't underline any characters past the end of the line.
+const INDEFINITE_END_COLUMN = exports.INDEFINITE_END_COLUMN = 1e9;
+
 // An intermediate step towards creating real diagnostics.
 
 
@@ -57,7 +64,7 @@ function getFileSystemServiceIfNecessary(fileSystemService, root) {
 
 function pushParsedDiagnostic(fileSystemService, promises, root, file, level, text, line, column) {
   if (fileSystemService != null) {
-    const filePath = (_nuclideUri || _load_nuclideUri()).default.join(root, file);
+    const filePath = (_nuclideUri || _load_nuclideUri()).default.resolve(root, file);
     const localPath = (_nuclideUri || _load_nuclideUri()).default.getPath(filePath);
     promises.push(fileSystemService.exists(localPath).then(exists => !exists ? null : {
       level,
@@ -73,7 +80,7 @@ function pushParsedDiagnostic(fileSystemService, promises, root, file, level, te
 
 function pushParsedTestDiagnostic(fileSystemService, promises, root, match) {
   const [, file, strLine, text] = match;
-  pushParsedDiagnostic(fileSystemService, promises, root, file, 'error', text, parseInt(strLine, 10), 0);
+  pushParsedDiagnostic(fileSystemService, promises, root, file, 'error', text, parseInt(strLine, 10), null);
 }
 
 function makeDiagnostic(result) {
@@ -83,12 +90,13 @@ function makeDiagnostic(result) {
     type: result.level === 'error' ? 'Error' : 'Warning',
     filePath: result.filePath,
     text: result.text,
-    range: new _atom.Range([result.line - 1, 0], [result.line, 0])
+    range: result.column == null ? new _atom.Range([result.line - 1, 0], [result.line - 1, INDEFINITE_END_COLUMN]) : // This gets expanded to the containing word at display time.
+    new _atom.Range([result.line - 1, result.column - 1], [result.line - 1, result.column - 1])
   };
 }
 
 function makeTrace(result) {
-  const point = new _atom.Point(result.line - 1, result.column - 1);
+  const point = new _atom.Point(result.line - 1, result.column == null ? 0 : result.column - 1);
   return {
     type: 'Trace',
     text: result.text,

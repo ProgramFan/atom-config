@@ -15,7 +15,8 @@ let createEditorForNuclide = (() => {
     try {
       let buffer;
       try {
-        buffer = yield (0, (_loadingNotification || _load_loadingNotification()).default)((0, (_textBuffer || _load_textBuffer()).loadBufferForUri)(uri), `Opening \`${(_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(uri)}\`...`, 1000);
+        buffer = yield (0, (_loadingNotification || _load_loadingNotification()).default)((0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).loadBufferForUri)(uri), `Opening \`${(_nuclideUri || _load_nuclideUri()).default.nuclideUriToDisplayString(uri)}\`...`, 1000 /* delay */
+        );
       } catch (err) {
         // Suppress ENOENT errors which occur if the file doesn't exist.
         // This is the same thing Atom does when opening a file (given a URI) that doesn't exist.
@@ -28,7 +29,7 @@ let createEditorForNuclide = (() => {
         // as `loaded` and the proper events are fired. The effect of all of this
         // is that files that don't exist remotely anymore are shown as empty
         // unsaved text editors.
-        buffer = (0, (_textBuffer || _load_textBuffer()).bufferForUri)(uri);
+        buffer = (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).bufferForUri)(uri);
         buffer.finishLoading();
       }
       // When in "large file mode", syntax highlighting and line wrapping are
@@ -45,7 +46,11 @@ let createEditorForNuclide = (() => {
       // So when a pane is closed, the call to a non-existent `dispose` throws.
       if (typeof atom.textEditors.build === 'function') {
         // https://github.com/atom/atom/blob/v1.11.0-beta5/src/workspace.coffee#L564
-        const editor = atom.textEditors.build({ buffer, largeFileMode, autoHeight: false });
+        const editor = atom.textEditors.build({
+          buffer,
+          largeFileMode,
+          autoHeight: false
+        });
         return editor;
       } else {
         const editor = atom.workspace.buildTextEditor({ buffer, largeFileMode });
@@ -147,16 +152,16 @@ exports.createRemoteDirectorySearcher = createRemoteDirectorySearcher;
 exports.getHomeFragments = getHomeFragments;
 exports.provideRemoteProjectsService = provideRemoteProjectsService;
 
-var _textBuffer;
-
-function _load_textBuffer() {
-  return _textBuffer = require('../../commons-atom/text-buffer');
-}
-
 var _nuclideLogging;
 
 function _load_nuclideLogging() {
   return _nuclideLogging = require('../../nuclide-logging');
+}
+
+var _nuclideRemoteConnection;
+
+function _load_nuclideRemoteConnection() {
+  return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
 }
 
 var _utils;
@@ -178,12 +183,6 @@ function _load_loadingNotification() {
 }
 
 var _atom = require('atom');
-
-var _nuclideRemoteConnection;
-
-function _load_nuclideRemoteConnection() {
-  return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
-}
 
 var _nuclideAnalytics;
 
@@ -248,6 +247,7 @@ const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 let packageSubscriptions = null;
@@ -309,6 +309,11 @@ function addRemoteFolderToProject(connection) {
       return;
     }
 
+    if (connection.alwaysShutdownIfLast()) {
+      closeConnection(true);
+      return;
+    }
+
     const confirmServerActionOnLastProject = (_featureConfig || _load_featureConfig()).default.get('nuclide-remote-projects.confirmServerActionOnLastProject');
 
     if (!(typeof confirmServerActionOnLastProject === 'boolean')) {
@@ -339,7 +344,7 @@ function addRemoteFolderToProject(connection) {
     }
 
     const choice = atom.confirm({
-      message: 'No more remote projects on the host: \'' + hostname + '\'. Would you like to shutdown Nuclide server there?',
+      message: "No more remote projects on the host: '" + hostname + "'. Would you like to shutdown Nuclide server there?",
       buttons
     });
 
@@ -416,7 +421,7 @@ function shutdownServersAndRestartNuclide() {
           return _ref3.apply(this, arguments);
         };
       })(),
-      'Cancel': () => {}
+      Cancel: () => {}
     }
   });
 }

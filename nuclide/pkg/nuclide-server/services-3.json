@@ -1,6 +1,6 @@
 [
   {
-    "implementation": "../nuclide-adb-rpc/lib/AdbService.js",
+    "implementation": "../nuclide-adb-sdb-rpc/lib/AdbService.js",
     "name": "AdbService"
   },
   {
@@ -91,6 +91,10 @@
   {
     "implementation": "../nuclide-remote-atom-rpc/lib/RemoteCommandService.js",
     "name": "RemoteCommandService"
+  },
+  {
+    "implementation": "../nuclide-adb-sdb-rpc/lib/SdbService.js",
+    "name": "SdbService"
   },
   {
     "implementation": "./lib/services/SourceControlService.js",

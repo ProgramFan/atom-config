@@ -6,14 +6,18 @@ Object.defineProperty(exports, "__esModule", {
 exports.arrayRemove = arrayRemove;
 exports.arrayEqual = arrayEqual;
 exports.arrayCompact = arrayCompact;
+exports.arrayFlatten = arrayFlatten;
+exports.arrayUnique = arrayUnique;
 exports.arrayFindLastIndex = arrayFindLastIndex;
 exports.mapUnion = mapUnion;
 exports.mapFilter = mapFilter;
 exports.mapTransform = mapTransform;
 exports.mapEqual = mapEqual;
+exports.mapGetWithDefault = mapGetWithDefault;
 exports.areSetsEqual = areSetsEqual;
 exports.every = every;
 exports.setIntersect = setIntersect;
+exports.setUnion = setUnion;
 exports.setDifference = setDifference;
 exports.isEmpty = isEmpty;
 exports.keyMirror = keyMirror;
@@ -36,6 +40,7 @@ exports.iterableContains = iterableContains;
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 function arrayRemove(array, element) {
@@ -65,6 +70,26 @@ function arrayCompact(array) {
     }
   }
   return result;
+}
+
+/**
+ * Flattens an Array<Array<T>> into just an Array<T>
+ */
+function arrayFlatten(array) {
+  const result = [];
+  for (const subArray of array) {
+    result.push(...subArray);
+  }
+  return result;
+}
+
+/**
+ * Removes duplicates from Array<T>.
+ * Uses SameValueZero for equality purposes, which is like '===' except it deems
+ * two NaNs equal. http://www.ecma-international.org/ecma-262/6.0/#sec-samevaluezero
+ */
+function arrayUnique(array) {
+  return Array.from(new Set(array));
 }
 
 /**
@@ -125,6 +150,17 @@ function mapEqual(map1, map2, equalComparator) {
   return true;
 }
 
+function mapGetWithDefault(map, key, default_) {
+  if (map.has(key)) {
+    // Cast through `any` since map.get's return is a maybe type. We can't just get the value and
+    // check it against `null`, since null/undefined may inhabit V. We know this is safe since we
+    // just checked that the map has the key.
+    return map.get(key);
+  } else {
+    return default_;
+  }
+}
+
 function areSetsEqual(a, b) {
   return a.size === b.size && every(a, element => b.has(element));
 }
@@ -141,6 +177,16 @@ function every(values, predicate) {
 
 function setIntersect(a, b) {
   return new Set(Array.from(a).filter(e => b.has(e)));
+}
+
+function setUnion(a, b) {
+  // Avoids the extra Array allocations that `new Set([...a, ...b])` would incur. Some quick tests
+  // indicate it would be about 60% slower.
+  const result = new Set(a);
+  b.forEach(x => {
+    result.add(x);
+  });
+  return result;
 }
 
 function setDifference(a, b, hash_) {

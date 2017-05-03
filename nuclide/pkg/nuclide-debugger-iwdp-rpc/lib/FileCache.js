@@ -7,24 +7,11 @@ exports.FileCache = undefined;
 
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
-let createFileData = (() => {
-  var _ref = (0, _asyncToGenerator.default)(function* (url) {
-    // Handle the bundle file.
-    log(`FileCache got url: ${url.toString()}`);
-    const localhostedUrl = url.toString().replace(EMULATOR_LOCALHOST_ADDR, 'localhost');
-    log(`Converted to: ${localhostedUrl}`);
-    const fileResponse = yield (0, (_xfetch || _load_xfetch()).default)(localhostedUrl, {});
-    const basename = (_nuclideUri || _load_nuclideUri()).default.basename(url.pathname);
-    const [fileText, filePath] = yield Promise.all([fileResponse.text(), (_fsPromise || _load_fsPromise()).default.tempfile({ prefix: basename, suffix: '.js' })]);
-    yield (_fsPromise || _load_fsPromise()).default.writeFile(filePath, fileText);
-    const fileSystemUrl = `file://${filePath}`;
-
-    const matches = SOURCE_MAP_REGEX.exec(fileText);
+let getSourceMapFromUrl = (() => {
+  var _ref = (0, _asyncToGenerator.default)(function* (url, bundle) {
+    const matches = SOURCE_MAP_REGEX.exec(bundle);
     if (matches == null) {
-      return {
-        filePath: fileSystemUrl,
-        url: url.toString()
-      };
+      return undefined;
     }
 
     // Handle source maps for the bundle.
@@ -32,14 +19,10 @@ let createFileData = (() => {
     const sourceMapResponse = yield (0, (_xfetch || _load_xfetch()).default)(sourceMapUrl.replace(EMULATOR_LOCALHOST_ADDR, 'localhost'), {});
     const sourceMap = yield sourceMapResponse.text();
     const base64SourceMap = new Buffer(sourceMap).toString('base64');
-    return {
-      filePath: fileSystemUrl,
-      url: url.toString(),
-      sourceMapUrl: `${SOURCE_MAP_PREFIX}${base64SourceMap}`
-    };
+    return `${SOURCE_MAP_PREFIX}${base64SourceMap}`;
   });
 
-  return function createFileData(_x) {
+  return function getSourceMapFromUrl(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 })();
@@ -86,6 +69,7 @@ const { log } = (_logger || _load_logger()).logger;
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const EMULATOR_LOCALHOST_ADDR = /10\.0\.2\.2|10\.0\.3\.2/;
@@ -95,54 +79,129 @@ const SOURCE_MAP_PREFIX = 'data:application/json;base64,';
 
 class FileCache {
 
-  constructor() {
-    this._filePathToFileData = new Map();
-    this._urlToFileData = new Map();
-    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(() => this._filePathToFileData.clear(), () => this._urlToFileData.clear());
+  constructor(getScriptSource, sendAtomNotification) {
+    this._getScriptSource = getScriptSource;
+    this._sendAtomNotification = sendAtomNotification;
+    this._nuclidePathToFileData = new Map();
+    this._targetPathToFileData = new Map();
+    this._disposables = new (_UniversalDisposable || _load_UniversalDisposable()).default(() => this._nuclidePathToFileData.clear(), () => this._targetPathToFileData.clear());
   }
 
   scriptParsed(obj) {
+    const { params } = obj;
+    if (params == null) {
+      return Promise.resolve(obj);
+    }
+    const { url: urlString } = params;
+    if (urlString == null) {
+      return Promise.resolve(obj);
+    }
+    if (urlString.startsWith('http:')) {
+      return this._processScriptParsedWithDownloadableUrl(obj, urlString);
+    }
+    const { sourceMapURL } = params;
+    if (sourceMapURL != null && sourceMapURL !== '') {
+      return this._processScriptParsedWithoutDownloadableUrl(obj, urlString);
+    }
+    return Promise.resolve(obj);
+  }
+
+  // Used to process `Debugger.scriptParsed` messages that have reported a `sourceMapURL` without
+  // a corresponding `url`.
+  _processScriptParsedWithoutDownloadableUrl(obj, urlString) {
     var _this = this;
 
     return (0, _asyncToGenerator.default)(function* () {
       const { params } = obj;
-      if (params == null) {
-        return obj;
-      }
-      const { url: urlString } = params;
-      if (urlString == null || urlString === '') {
-        return obj;
-      }
-      if (!urlString.startsWith('http:')) {
-        return obj;
-      }
-      const url = new URL(urlString);
-      const fileData = _this._urlToFileData.get(urlString);
-      if (fileData != null) {
-        updateMessageObjWithFileData(obj, fileData);
-        return obj;
-      }
-      const newFileData = yield createFileData(url);
-      _this._urlToFileData.set(newFileData.url, newFileData);
-      _this._filePathToFileData.set(newFileData.filePath, newFileData);
+      const { scriptId } = params;
+      const { result } = yield _this._getScriptSource(scriptId);
+      const { scriptSource } = result;
+
+      const filePath = yield (_fsPromise || _load_fsPromise()).default.tempfile({ suffix: '.js' });
+      yield (_fsPromise || _load_fsPromise()).default.writeFile(filePath, scriptSource);
+      const nuclidePath = `file://${filePath}`;
+
+      const newFileData = {
+        nuclidePath,
+        targetPath: urlString,
+        sourceMapUrl: yield _this._getSourceMapFromDisk(scriptSource)
+      };
+      _this._targetPathToFileData.set(newFileData.targetPath, newFileData);
+      _this._nuclidePathToFileData.set(newFileData.nuclidePath, newFileData);
       updateMessageObjWithFileData(obj, newFileData);
       return obj;
     })();
   }
 
-  getUrlFromFilePath(filePath) {
-    const fileData = this._filePathToFileData.get(filePath);
-    if (fileData == null) {
-      return filePath;
-    }
-    return fileData.url;
-  }
-
-  dispose() {
+  // Used to process `Debugger.scriptParsed` messages that have reported a `url` with an http:
+  // prefix, indicating that we need to download our resources.
+  _processScriptParsedWithDownloadableUrl(obj, urlString) {
     var _this2 = this;
 
     return (0, _asyncToGenerator.default)(function* () {
-      _this2._disposables.dispose();
+      const url = new URL(urlString);
+      const fileData = _this2._targetPathToFileData.get(urlString);
+      if (fileData != null) {
+        updateMessageObjWithFileData(obj, fileData);
+        return obj;
+      }
+
+      log(`FileCache got url: ${urlString}`);
+      const localhostedUrl = urlString.replace(EMULATOR_LOCALHOST_ADDR, 'localhost');
+      log(`Converted to: ${localhostedUrl}`);
+      const fileResponse = yield (0, (_xfetch || _load_xfetch()).default)(localhostedUrl, {});
+      const basename = (_nuclideUri || _load_nuclideUri()).default.basename(url.pathname);
+      const [contents, filePath] = yield Promise.all([fileResponse.text(), (_fsPromise || _load_fsPromise()).default.tempfile({ prefix: basename, suffix: '.js' })]);
+      yield (_fsPromise || _load_fsPromise()).default.writeFile(filePath, contents);
+      const nuclidePath = `file://${filePath}`;
+
+      const newFileData = {
+        nuclidePath,
+        targetPath: urlString,
+        sourceMapUrl: yield getSourceMapFromUrl(url, contents)
+      };
+      _this2._targetPathToFileData.set(newFileData.targetPath, newFileData);
+      _this2._nuclidePathToFileData.set(newFileData.nuclidePath, newFileData);
+      updateMessageObjWithFileData(obj, newFileData);
+      return obj;
+    })();
+  }
+
+  _getSourceMapFromDisk(bundle) {
+    var _this3 = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      const matches = SOURCE_MAP_REGEX.exec(bundle);
+      if (matches == null) {
+        return undefined;
+      }
+      // Handle source maps for the bundle.
+      const sourceMapPath = matches[1];
+      try {
+        const sourceMap = yield (_fsPromise || _load_fsPromise()).default.readFile(sourceMapPath);
+        const base64SourceMap = new Buffer(sourceMap).toString('base64');
+        return `${SOURCE_MAP_PREFIX}${base64SourceMap}`;
+      } catch (e) {
+        log(`Mobile JS debugger could not find source map: ${JSON.stringify(e)}`);
+        _this3._sendAtomNotification('warning', `Could not find a source map at \`${sourceMapPath}\`!  Try rebuilding your app.`);
+        return;
+      }
+    })();
+  }
+
+  getUrlFromFilePath(filePath) {
+    const fileData = this._nuclidePathToFileData.get(filePath);
+    if (fileData == null) {
+      return filePath;
+    }
+    return fileData.targetPath;
+  }
+
+  dispose() {
+    var _this4 = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      _this4._disposables.dispose();
     })();
   }
 }
@@ -151,6 +210,6 @@ exports.FileCache = FileCache;
 
 
 function updateMessageObjWithFileData(obj, fileData) {
-  obj.params.url = fileData.filePath;
+  obj.params.url = fileData.nuclidePath;
   obj.params.sourceMapURL = fileData.sourceMapUrl;
 }

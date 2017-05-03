@@ -43,6 +43,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 class Activation {
@@ -78,7 +79,7 @@ class Activation {
     layout.activate();
     this._disposables.add(() => {
       layout.deactivate();
-    }, api.registerLocation({ id: 'pane', create: () => new (_PaneLocation || _load_PaneLocation()).PaneLocation() }), ...(_PanelLocationIds || _load_PanelLocationIds()).default.map(id => api.registerLocation({
+    }, api.registerLocation({ id: 'center', create: () => new (_PaneLocation || _load_PaneLocation()).PaneLocation() }), ...(_PanelLocationIds || _load_PanelLocationIds()).default.map(id => api.registerLocation({
       id,
       create: serializedState_ => {
         const serializedState = serializedState_ == null ? {} : serializedState_;

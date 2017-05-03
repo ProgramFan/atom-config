@@ -141,6 +141,7 @@ exports.PackagerActivation = PackagerActivation; /**
                                                   * the root directory of this source tree.
                                                   *
                                                   * 
+                                                  * @format
                                                   */
 
 class NoReactNativeProjectError extends Error {
@@ -177,7 +178,12 @@ function getPackagerObservable(projectRootPath) {
     if (atom.devMode) {
       editor.push('--dev');
     }
-    return (0, (_process || _load_process()).observeProcess)(() => (0, (_process || _load_process()).safeSpawn)(command, args, { cwd, env: Object.assign({}, process.env, { REACT_EDITOR: (0, (_shellQuote || _load_shellQuote()).quote)(editor) }) }), true);
+    return (0, (_process || _load_process()).observeProcess)(command, args, {
+      cwd,
+      env: Object.assign({}, process.env, { REACT_EDITOR: (0, (_shellQuote || _load_shellQuote()).quote)(editor) }),
+      killTreeWhenDone: true,
+      /* TODO(T17353599) */isExitError: () => false
+    }).catch(error => _rxjsBundlesRxMinJs.Observable.of({ kind: 'error', error })); // TODO(T17463635)
   })
   // Accumulate the stderr so that we can show it to the user if something goes wrong.
   .scan((acc, event) => {
@@ -196,7 +202,13 @@ function getPackagerObservable(projectRootPath) {
         return _rxjsBundlesRxMinJs.Observable.of(event.data);
       case 'exit':
         if (event.exitCode !== 0) {
-          return _rxjsBundlesRxMinJs.Observable.throw(new PackagerError((0, (_process || _load_process()).exitEventToMessage)(event), stderr));
+          // Completely ignore EADDRINUSE errors since the packager is probably already running.
+          if (!stderr.includes('Error: listen EADDRINUSE :::8081')) {
+            atom.notifications.addWarning('Packager failed to start - continuing anyway.', {
+              dismissable: true,
+              detail: stderr.trim() === '' ? undefined : stderr
+            });
+          }
         }
         return _rxjsBundlesRxMinJs.Observable.empty();
       case 'stderr':

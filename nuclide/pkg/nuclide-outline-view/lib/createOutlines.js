@@ -29,6 +29,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const LOADING_DELAY_MS = 500;
@@ -83,6 +84,7 @@ function highlightedOutlines(outline, editor) {
 function treeToUiTree(outlineTree, nameOnly) {
   const shortName = nameOnly && outlineTree.representativeName != null;
   return {
+    icon: nameOnly ? undefined : outlineTree.icon,
     plainText: shortName ? outlineTree.representativeName : outlineTree.plainText,
     tokenizedText: shortName ? undefined : outlineTree.tokenizedText,
     startPosition: outlineTree.startPosition,
@@ -107,12 +109,22 @@ function highlightCurrentNode(outline, cursorLocation) {
 }
 
 function highlightCurrentNodeInTrees(outlineTrees, cursorLocation) {
-  return outlineTrees.map(tree => {
+  // The corresponding UI component uses React.PureComponent.
+  // Minimize the amount of re-rendering per keystroke by only copying on change.
+  let changed = false;
+  const newTrees = outlineTrees.map(tree => {
+    const highlighted = shouldHighlightNode(tree, cursorLocation);
+    const children = highlightCurrentNodeInTrees(tree.children, cursorLocation);
+    if (highlighted === tree.highlighted && children === tree.children) {
+      return tree;
+    }
+    changed = true;
     return Object.assign({}, tree, {
-      highlighted: shouldHighlightNode(tree, cursorLocation),
-      children: highlightCurrentNodeInTrees(tree.children, cursorLocation)
+      highlighted,
+      children
     });
   });
+  return changed ? newTrees : outlineTrees;
 }
 
 function shouldHighlightNode(outlineTree, cursorLocation) {

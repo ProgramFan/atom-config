@@ -1,10 +1,10 @@
-'use babel';
+"use babel";
 
-import { CompositeDisposable } from 'atom';
-import _ from 'lodash';
+import { CompositeDisposable } from "atom";
+import _ from "lodash";
+import SelectListView from "atom-select-list";
 
-import WatchView from './watch-view';
-import WatchesPicker from './watches-picker';
+import WatchView from "./watch-view";
 
 export default class WatchSidebar {
   constructor(kernel) {
@@ -12,45 +12,49 @@ export default class WatchSidebar {
     this.resizeStopped = this.resizeStopped.bind(this);
     this.resizeSidebar = this.resizeSidebar.bind(this);
     this.kernel = kernel;
-    this.element = document.createElement('div');
-    this.element.classList.add('hydrogen', 'watch-sidebar');
+    this.element = document.createElement("div");
+    this.element.classList.add("hydrogen", "watch-sidebar");
 
-    const toolbar = document.createElement('div');
-    toolbar.classList.add('toolbar', 'block');
+    const toolbar = document.createElement("div");
+    toolbar.classList.add("toolbar", "block");
 
-    const languageDisplay = document.createElement('div');
-    languageDisplay.classList.add('language', 'icon', 'icon-eye');
+    const languageDisplay = document.createElement("div");
+    languageDisplay.classList.add("language", "icon", "icon-eye");
     languageDisplay.innerText = this.kernel.kernelSpec.display_name;
 
-    const toggleButton = document.createElement('button');
-    toggleButton.classList.add('btn', 'icon', 'icon-remove-close');
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("btn", "icon", "icon-remove-close");
     toggleButton.onclick = () => {
       const editor = atom.workspace.getActiveTextEditor();
       const editorView = atom.views.getView(editor);
-      atom.commands.dispatch(editorView, 'hydrogen:toggle-watches');
+      atom.commands.dispatch(editorView, "hydrogen:toggle-watches");
     };
 
     const tooltips = new CompositeDisposable();
-    tooltips.add(atom.tooltips.add(toggleButton, { title: 'Toggle Watch Sidebar' }));
+    tooltips.add(
+      atom.tooltips.add(toggleButton, { title: "Toggle Watch Sidebar" })
+    );
 
-    this.watchesContainer = document.createElement('div');
-    _.forEach(this.watchViews, watch => this.watchesContainer.appendChild(watch.element));
+    this.watchesContainer = document.createElement("div");
+    _.forEach(this.watchViews, watch =>
+      this.watchesContainer.appendChild(watch.element)
+    );
 
-    const buttonGroup = document.createElement('div');
-    buttonGroup.classList.add('btn-group');
-    const addButton = document.createElement('button');
-    addButton.classList.add('btn', 'btn-primary', 'icon', 'icon-plus');
-    addButton.innerText = 'Add watch';
+    const buttonGroup = document.createElement("div");
+    buttonGroup.classList.add("btn-group");
+    const addButton = document.createElement("button");
+    addButton.classList.add("btn", "btn-primary", "icon", "icon-plus");
+    addButton.innerText = "Add watch";
     addButton.onclick = () => this.addWatch();
 
-    const removeButton = document.createElement('button');
-    removeButton.classList.add('btn', 'btn-error', 'icon', 'icon-trashcan');
-    removeButton.innerText = 'Remove watch';
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("btn", "btn-error", "icon", "icon-trashcan");
+    removeButton.innerText = "Remove watch";
     removeButton.onclick = () => this.removeWatch();
 
-    const resizeHandle = document.createElement('div');
-    resizeHandle.classList.add('watch-resize-handle');
-    resizeHandle.addEventListener('mousedown', this.resizeStarted);
+    const resizeHandle = document.createElement("div");
+    resizeHandle.classList.add("watch-resize-handle");
+    resizeHandle.addEventListener("mousedown", this.resizeStarted);
 
     toolbar.appendChild(languageDisplay);
     toolbar.appendChild(toggleButton);
@@ -73,7 +77,7 @@ export default class WatchSidebar {
 
   createWatch() {
     let watch = _.last(this.watchViews);
-    if (!watch || watch.getCode().replace(/\s/g, '') !== '') {
+    if (!watch || watch.getCode().replace(/\s/g, "") !== "") {
       watch = new WatchView(this.kernel);
       this.watchViews.push(watch);
       this.watchesContainer.appendChild(watch.element);
@@ -98,17 +102,41 @@ export default class WatchSidebar {
   }
 
   removeWatch() {
-    const watches = this.watchViews.map((v, k) => ({
-      name: v.getCode(),
-      value: k,
-    }));
-    WatchesPicker.onConfirmed = (item) => {
-      this.watchViews[item.value].destroy();
-      this.watchViews.splice(item.value, 1);
-      if (this.watchViews.length === 0) this.addWatch();
-    };
-    WatchesPicker.setItems(watches);
-    WatchesPicker.toggle();
+    const watches = this.watchViews
+      .map((v, k) => ({
+        name: v.getCode(),
+        value: k
+      }))
+      .filter(obj => obj.value !== 0 || obj.name !== "");
+
+    const watchesPicker = new SelectListView({
+      items: watches,
+      elementForItem: watch => {
+        const element = document.createElement("li");
+        element.textContent = watch.name || "<empty>";
+        return element;
+      },
+      didConfirmSelection: watch => {
+        this.watchViews[watch.value].destroy();
+        this.watchViews.splice(watch.value, 1);
+        modalPanel.destroy();
+        watchesPicker.destroy();
+        if (this.watchViews.length === 0) this.addWatch();
+        else previouslyFocusedElement.focus();
+      },
+      filterKeyForItem: watch => watch.name,
+      didCancelSelection: () => {
+        modalPanel.destroy();
+        previouslyFocusedElement.focus();
+        watchesPicker.destroy();
+      },
+      emptyMessage: "There are no watches to remove!"
+    });
+    const previouslyFocusedElement = document.activeElement;
+    const modalPanel = atom.workspace.addModalPanel({
+      item: watchesPicker
+    });
+    watchesPicker.focus();
   }
 
   run() {
@@ -118,13 +146,13 @@ export default class WatchSidebar {
   }
 
   resizeStarted() {
-    document.addEventListener('mousemove', this.resizeSidebar);
-    document.addEventListener('mouseup', this.resizeStopped);
+    document.addEventListener("mousemove", this.resizeSidebar);
+    document.addEventListener("mouseup", this.resizeStopped);
   }
 
   resizeStopped() {
-    document.removeEventListener('mousemove', this.resizeSidebar);
-    document.removeEventListener('mouseup', this.resizeStopped);
+    document.removeEventListener("mousemove", this.resizeSidebar);
+    document.removeEventListener("mouseup", this.resizeStopped);
   }
 
   resizeSidebar({ pageX, which }) {
@@ -135,12 +163,12 @@ export default class WatchSidebar {
   }
 
   show() {
-    this.element.classList.remove('hidden');
+    this.element.classList.remove("hidden");
     this.visible = true;
   }
 
   hide() {
-    this.element.classList.add('hidden');
+    this.element.classList.add("hidden");
     this.visible = false;
   }
 }

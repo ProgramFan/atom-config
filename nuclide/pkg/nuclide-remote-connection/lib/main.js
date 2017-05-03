@@ -3,7 +3,38 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getlocalService = exports.getServiceByNuclideUri = exports.getServiceByConnection = exports.getService = exports.decorateSshConnectionDelegateWithTracking = exports.NuclideTextBuffer = exports.SshHandshake = exports.ConnectionCache = exports.ServerConnection = exports.RemoteFile = exports.RemoteDirectory = exports.RemoteConnection = undefined;
+exports.saveBuffer = exports.loadBufferForUri = exports.existingBufferForUri = exports.bufferForUri = exports.getlocalService = exports.getServiceByNuclideUri = exports.getServiceByConnection = exports.getService = exports.decorateSshConnectionDelegateWithTracking = exports.NuclideTextBuffer = exports.SshHandshake = exports.ConnectionCache = exports.ServerConnection = exports.RemoteFile = exports.RemoteDirectory = exports.RemoteConnection = undefined;
+
+var _remoteTextBuffer;
+
+function _load_remoteTextBuffer() {
+  return _remoteTextBuffer = require('./remote-text-buffer');
+}
+
+Object.defineProperty(exports, 'bufferForUri', {
+  enumerable: true,
+  get: function () {
+    return (_remoteTextBuffer || _load_remoteTextBuffer()).bufferForUri;
+  }
+});
+Object.defineProperty(exports, 'existingBufferForUri', {
+  enumerable: true,
+  get: function () {
+    return (_remoteTextBuffer || _load_remoteTextBuffer()).existingBufferForUri;
+  }
+});
+Object.defineProperty(exports, 'loadBufferForUri', {
+  enumerable: true,
+  get: function () {
+    return (_remoteTextBuffer || _load_remoteTextBuffer()).loadBufferForUri;
+  }
+});
+Object.defineProperty(exports, 'saveBuffer', {
+  enumerable: true,
+  get: function () {
+    return (_remoteTextBuffer || _load_remoteTextBuffer()).saveBuffer;
+  }
+});
 exports.getAdbServiceByNuclideUri = getAdbServiceByNuclideUri;
 exports.getArcanistServiceByNuclideUri = getArcanistServiceByNuclideUri;
 exports.getBuckServiceByNuclideUri = getBuckServiceByNuclideUri;
@@ -26,6 +57,7 @@ exports.getPhpDebuggerServiceByNuclideUri = getPhpDebuggerServiceByNuclideUri;
 exports.getPythonServiceByNuclideUri = getPythonServiceByNuclideUri;
 exports.getReasonServiceByNuclideUri = getReasonServiceByNuclideUri;
 exports.getRemoteCommandServiceByNuclideUri = getRemoteCommandServiceByNuclideUri;
+exports.getSdbServiceByNuclideUri = getSdbServiceByNuclideUri;
 exports.getSourceControlServiceByNuclideUri = getSourceControlServiceByNuclideUri;
 
 var _nullthrows;
@@ -103,6 +135,7 @@ exports.getlocalService = (_serviceManager || _load_serviceManager()).getlocalSe
                                                                                         * the root directory of this source tree.
                                                                                         *
                                                                                         * 
+                                                                                        * @format
                                                                                         */
 
 function getAdbServiceByNuclideUri(uri) {
@@ -191,6 +224,10 @@ function getReasonServiceByNuclideUri(uri) {
 
 function getRemoteCommandServiceByNuclideUri(uri) {
   return (0, (_nullthrows || _load_nullthrows()).default)((0, (_serviceManager || _load_serviceManager()).getServiceByNuclideUri)('RemoteCommandService', uri));
+}
+
+function getSdbServiceByNuclideUri(uri) {
+  return (0, (_nullthrows || _load_nullthrows()).default)((0, (_serviceManager || _load_serviceManager()).getServiceByNuclideUri)('SdbService', uri));
 }
 
 function getSourceControlServiceByNuclideUri(uri) {

@@ -36,10 +36,10 @@ function _load_nuclideUri() {
   return _nuclideUri = _interopRequireDefault(require('../../commons-node/nuclideUri'));
 }
 
-var _vcs;
+var _nuclideVcsBase;
 
-function _load_vcs() {
-  return _vcs = require('../../commons-atom/vcs');
+function _load_nuclideVcsBase() {
+  return _nuclideVcsBase = require('../../nuclide-vcs-base');
 }
 
 var _nuclideAnalytics;
@@ -58,6 +58,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 function getEmptBookShelfState() {
@@ -101,7 +102,7 @@ function getRepoPathToEditors() {
   const reposToEditors = new Map();
   atom.workspace.getTextEditors().filter(textEditor => textEditor.getPath() != null && textEditor.getPath() !== '').map(textEditor => ({
     textEditor,
-    repository: (0, (_vcs || _load_vcs()).repositoryForPath)(textEditor.getPath() || '')
+    repository: (0, (_nuclideVcsBase || _load_nuclideVcsBase()).repositoryForPath)(textEditor.getPath() || '')
   })).filter(({ repository }) => repository != null).forEach(({ repository, textEditor }) => {
     if (!repository) {
       throw new Error('Invariant violation: "repository"');
@@ -121,7 +122,7 @@ function shortHeadChangedNotification(repository, newShortHead, restorePaneItemS
     const newShortHeadDisplayText = newShortHead.length > 0 ? `to \`${newShortHead}\`` : '';
 
     const shortHeadChangeNotification = atom.notifications.addInfo(`\`${workingDirectoryName}\`'s active bookmark has changed ${newShortHeadDisplayText}`, {
-      detail: 'Would you like to open the files you had active then?\n \n' + 'ProTip: Change the default behavior from \'Nuclide Settings>IDE Settings>Book Shelf\'',
+      detail: 'Would you like to open the files you had active then?\n \n' + "ProTip: Change the default behavior from 'Nuclide Settings>IDE Settings>Book Shelf'",
       dismissable: true,
       buttons: [{
         onDidClick: () => {
@@ -152,7 +153,9 @@ function shortHeadChangedNotification(repository, newShortHead, restorePaneItemS
 
 function getShortHeadChangesFromStateStream(states) {
   return states.pairwise().flatMap(([oldBookShelfState, newBookShelfState]) => {
-    const { repositoryPathToState: oldRepositoryPathToState } = oldBookShelfState;
+    const {
+      repositoryPathToState: oldRepositoryPathToState
+    } = oldBookShelfState;
 
     return _rxjsBundlesRxMinJs.Observable.from(Array.from(newBookShelfState.repositoryPathToState.entries()).filter(([repositoryPath, newRepositoryState]) => {
       const oldRepositoryState = oldRepositoryPathToState.get(repositoryPath);

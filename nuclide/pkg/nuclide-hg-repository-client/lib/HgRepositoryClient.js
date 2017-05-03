@@ -9,6 +9,12 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 var _atom = require('atom');
 
+var _observable;
+
+function _load_observable() {
+  return _observable = require('../../commons-node/observable');
+}
+
 var _RevisionsCache;
 
 function _load_RevisionsCache() {
@@ -75,9 +81,12 @@ const STATUS_DEBOUNCE_DELAY_MS = 300; /**
                                        * the root directory of this source tree.
                                        *
                                        * 
+                                       * @format
                                        */
 
 const REVISION_DEBOUNCE_DELAY = 300;
+const BOOKMARKS_DEBOUNCE_DELAY = 200;
+const FETCH_BOOKMARKS_TIMEOUT = 15 * 1000;
 
 /**
  *
@@ -138,6 +147,7 @@ class HgRepositoryClient {
     this._subscriptions = new (_UniversalDisposable || _load_UniversalDisposable()).default(this._emitter, this._service);
 
     this._hgStatusCache = new Map();
+    this._bookmarks = new _rxjsBundlesRxMinJs.BehaviorSubject({ isLoading: true, bookmarks: [] });
 
     this._hgDiffCache = new Map();
     this._hgDiffCacheFilesUpdating = new Set();
@@ -183,19 +193,45 @@ class HgRepositoryClient {
     const conflictStateChanges = this._service.observeHgConflictStateDidChange().refCount();
     const commitChanges = this._service.observeHgCommitsDidChange().refCount();
 
-    const statusChangesSubscription = _rxjsBundlesRxMinJs.Observable.merge(fileChanges, repoStateChanges).debounceTime(STATUS_DEBOUNCE_DELAY_MS).startWith(null).switchMap(() => this._service.fetchStatuses().refCount().catch(error => {
-      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('HgService cannot fetch statuses', error);
-      return _rxjsBundlesRxMinJs.Observable.empty();
-    })).subscribe(statuses => {
-      this._hgStatusCache = (0, (_collection || _load_collection()).mapTransform)(statuses, (v, k) => (_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[v]);
+    this._hgUncommittedStatusChanges = this._observeStatus(fileChanges, repoStateChanges, () => this._service.fetchStatuses());
+
+    this._hgStackStatusChanges = this._observeStatus(fileChanges, repoStateChanges, () => this._service.fetchStackStatuses());
+
+    this._hgHeadStatusChanges = this._observeStatus(fileChanges, repoStateChanges, () => this._service.fetchHeadStatuses());
+
+    const statusChangesSubscription = this._hgUncommittedStatusChanges.statusChanges.subscribe(statuses => {
+      this._hgStatusCache = statuses;
       this._emitter.emit('did-change-statuses');
     });
 
     const shouldRevisionsUpdate = _rxjsBundlesRxMinJs.Observable.merge(activeBookmarkChanges, allBookmarkChanges, commitChanges, repoStateChanges).debounceTime(REVISION_DEBOUNCE_DELAY);
 
-    this._subscriptions.add(statusChangesSubscription, activeBookmarkChanges.subscribe(this.fetchActiveBookmark.bind(this)), allBookmarkChanges.subscribe(() => {
-      this._emitter.emit('did-change-bookmarks');
-    }), conflictStateChanges.subscribe(this._conflictStateChanged.bind(this)), shouldRevisionsUpdate.subscribe(() => this._revisionsCache.refreshRevisions()));
+    const bookmarksUpdates = _rxjsBundlesRxMinJs.Observable.merge(activeBookmarkChanges, allBookmarkChanges).startWith(null).debounceTime(BOOKMARKS_DEBOUNCE_DELAY).switchMap(() => _rxjsBundlesRxMinJs.Observable.defer(() => {
+      return this._service.fetchBookmarks().refCount().timeout(FETCH_BOOKMARKS_TIMEOUT);
+    }).retry(2).catch(error => {
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('failed to fetch bookmarks info:', error);
+      return _rxjsBundlesRxMinJs.Observable.empty();
+    }));
+
+    this._subscriptions.add(statusChangesSubscription, bookmarksUpdates.subscribe(bookmarks => this._bookmarks.next({ isLoading: false, bookmarks })), conflictStateChanges.subscribe(this._conflictStateChanged.bind(this)), shouldRevisionsUpdate.subscribe(() => this._revisionsCache.refreshRevisions()));
+  } // legacy, only for uncommitted
+
+
+  _observeStatus(fileChanges, repoStateChanges, fetchStatuses) {
+    const triggers = _rxjsBundlesRxMinJs.Observable.merge(fileChanges, repoStateChanges).debounceTime(STATUS_DEBOUNCE_DELAY_MS).share().startWith(null);
+    // Share comes before startWith. That's because fileChanges/repoStateChanges
+    // are already hot and can be shared fine. But we want both our subscribers,
+    // statusChanges and isCalculatingChanges, to pick up their own copy of
+    // startWith(null) no matter which order they subscribe.
+
+    const statusChanges = (0, (_observable || _load_observable()).cacheWhileSubscribed)(triggers.switchMap(() => fetchStatuses().refCount().catch(error => {
+      (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('HgService cannot fetch statuses', error);
+      return _rxjsBundlesRxMinJs.Observable.empty();
+    })).map(uriToStatusIds => (0, (_collection || _load_collection()).mapTransform)(uriToStatusIds, (v, k) => (_hgConstants || _load_hgConstants()).StatusCodeIdToNumber[v])));
+
+    const isCalculatingChanges = (0, (_observable || _load_observable()).cacheWhileSubscribed)(_rxjsBundlesRxMinJs.Observable.merge(triggers.map(_ => true), statusChanges.map(_ => false)).distinctUntilChanged());
+
+    return { statusChanges, isCalculatingChanges };
   }
 
   destroy() {
@@ -232,12 +268,28 @@ class HgRepositoryClient {
     return this._emitter.on('did-change-status', callback);
   }
 
+  observeBookmarks() {
+    return this._bookmarks.asObservable().filter(b => !b.isLoading).map(b => b.bookmarks);
+  }
+
   observeRevisionChanges() {
     return this._revisionsCache.observeRevisionChanges();
   }
 
   observeRevisionStatusesChanges() {
     return this._revisionStatusCache.observeRevisionStatusesChanges();
+  }
+
+  observeUncommittedStatusChanges() {
+    return this._hgUncommittedStatusChanges;
+  }
+
+  observeHeadStatusChanges() {
+    return this._hgHeadStatusChanges;
+  }
+
+  observeStackStatusChanges() {
+    return this._hgStackStatusChanges;
   }
 
   onDidChangeStatuses(callback) {
@@ -294,12 +346,7 @@ class HgRepositoryClient {
    * @return The current Hg bookmark.
    */
   getShortHead(filePath) {
-    if (!this._activeBookmark) {
-      // Kick off a fetch to get the current bookmark. This is async.
-      this._getShortHeadAsync();
-      return '';
-    }
-    return this._activeBookmark;
+    return this._bookmarks.getValue().bookmarks.filter(bookmark => bookmark.active).map(bookmark => bookmark.bookmark)[0] || '';
   }
 
   // TODO This is a stub.
@@ -466,6 +513,7 @@ class HgRepositoryClient {
     return (_hgConstants || _load_hgConstants()).StatusCodeNumber.CLEAN;
   }
 
+  // getAllPathStatuses -- this legacy API gets only uncommitted statuses
   getAllPathStatuses() {
     const pathStatuses = Object.create(null);
     for (const [filePath, status] of this._hgStatusCache) {
@@ -597,17 +645,8 @@ class HgRepositoryClient {
     this._emitter.emit('did-change-interactive-mode', isInteractiveMode);
   }
 
-  /**
-  *
-  * Section: Retrieving Bookmark (async methods)
-  *
-  */
-
-  /*
-   * @deprecated Use {#async.getShortHead} instead
-   */
-  fetchActiveBookmark() {
-    return this._getShortHeadAsync();
+  fetchMergeConflictsWithDetails() {
+    return this._service.fetchMergeConflictsWithDetails().refCount();
   }
 
   /*
@@ -618,8 +657,9 @@ class HgRepositoryClient {
     return this._service.fetchMergeConflicts(fetchResolved);
   }
 
-  resolveConflictedFile(filePath) {
-    return this._service.resolveConflictedFile(filePath).refCount();
+  markConflictedFile(filePath, resolved) {
+    // TODO(T17463635)
+    return this._service.markConflictedFile(filePath, resolved).refCount();
   }
 
   /**
@@ -629,16 +669,17 @@ class HgRepositoryClient {
    */
 
   /**
-   * That extends the `GitRepository` implementation which takes a single file path.
-   * Here, it's possible to pass an array of file paths to revert/checkout-head.
-   */
+    * That extends the `GitRepository` implementation which takes a single file path.
+    * Here, it's possible to pass an array of file paths to revert/checkout-head.
+    */
   checkoutHead(filePathsArg) {
     const filePaths = Array.isArray(filePathsArg) ? filePathsArg : [filePathsArg];
     return this._service.revert(filePaths);
   }
 
   checkoutReference(reference, create, options) {
-    return this._service.checkout(reference, create, options);
+    // TODO(T17463635)
+    return this._service.checkout(reference, create, options).refCount();
   }
 
   show(revision) {
@@ -679,38 +720,7 @@ class HgRepositoryClient {
   }
 
   getBookmarks() {
-    return this._service.fetchBookmarks();
-  }
-
-  onDidChangeBookmarks(callback) {
-    return this._emitter.on('did-change-bookmarks', callback);
-  }
-
-  _getShortHeadAsync() {
-    var _this2 = this;
-
-    return (0, _asyncToGenerator.default)(function* () {
-      let newlyFetchedBookmark = '';
-      try {
-        newlyFetchedBookmark = yield _this2._service.fetchActiveBookmark();
-      } catch (e) {
-        // Suppress the error. There are legitimate times when there may be no
-        // current bookmark, such as during a rebase. In this case, we just want
-        // to return an empty string if there is no current bookmark.
-      }
-      if (newlyFetchedBookmark !== _this2._activeBookmark) {
-        _this2._activeBookmark = newlyFetchedBookmark;
-        // The Atom status-bar uses this as a signal to refresh the 'shortHead'.
-        // There is currently no dedicated 'shortHeadDidChange' event.
-        _this2._emitter.emit('did-change-statuses');
-        _this2._emitter.emit('did-change-short-head');
-      }
-      return _this2._activeBookmark || '';
-    })();
-  }
-
-  onDidChangeShortHead(callback) {
-    return this._emitter.on('did-change-short-head', callback);
+    return this._bookmarks.getValue().bookmarks;
   }
 
   /**
@@ -792,7 +802,6 @@ class HgRepositoryClient {
   }
 
   getTemplateCommitMessage() {
-    // TODO(t12228275) This is a stopgap hack, fix it.
     return this._service.getTemplateCommitMessage();
   }
 
@@ -839,31 +848,32 @@ class HgRepositoryClient {
     return this._service.remove(filePaths, after);
   }
 
+  forget(filePaths) {
+    return this._service.forget(filePaths);
+  }
+
   addAll(filePaths) {
     return this._service.add(filePaths);
   }
 
-  commit(message, isInteractive = false) {
-    if (isInteractive) {
-      this._updateInteractiveMode(true);
-    }
-    return this._service.commit(message, isInteractive).refCount().do(this._clearOnSuccessExit.bind(this, isInteractive)).finally(this._updateInteractiveMode.bind(this, false));
+  commit(message) {
+    // TODO(T17463635)
+    return this._service.commit(message).refCount().do(processMessage => this._clearOnSuccessExit(processMessage));
   }
 
-  amend(message, amendMode, isInteractive = false) {
-    if (isInteractive) {
-      this._updateInteractiveMode(true);
-    }
-    return this._service.amend(message, amendMode, isInteractive).refCount().do(this._clearOnSuccessExit.bind(this, isInteractive)).finally(this._updateInteractiveMode.bind(this, false));
+  amend(message, amendMode) {
+    // TODO(T17463635)
+    return this._service.amend(message, amendMode).refCount().do(processMessage => this._clearOnSuccessExit(processMessage));
   }
 
   splitRevision() {
+    // TODO(T17463635)
     this._updateInteractiveMode(true);
     return this._service.splitRevision().refCount().finally(this._updateInteractiveMode.bind(this, false));
   }
 
-  _clearOnSuccessExit(isInteractive, message) {
-    if (!isInteractive && message.kind === 'exit' && message.exitCode === 0) {
+  _clearOnSuccessExit(message) {
+    if (message.kind === 'exit' && message.exitCode === 0) {
       this._clearClientCache();
     }
   }
@@ -879,19 +889,22 @@ class HgRepositoryClient {
     return this._service.log(filePaths, limit);
   }
 
-  continueRebase() {
-    return this._service.continueRebase().refCount();
+  continueOperation(command) {
+    // TODO(T17463635)
+    return this._service.continueOperation(command).refCount();
   }
 
-  abortRebase() {
-    return this._service.abortRebase();
+  abortOperation(command) {
+    return this._service.abortOperation(command).refCount();
   }
 
   rebase(destination, source) {
+    // TODO(T17463635)
     return this._service.rebase(destination, source).refCount();
   }
 
   pull(options = []) {
+    // TODO(T17463635)
     return this._service.pull(options).refCount();
   }
 

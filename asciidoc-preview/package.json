@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117226-6296-14sdv5w/package.tgz",
+        "raw": "/tmp/d-11743-6659-kehsvw.7enmkuik9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
-        "spec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
+        "rawSpec": "/tmp/d-11743-6659-kehsvw.7enmkuik9/package.tgz",
+        "spec": "/tmp/d-11743-6659-kehsvw.7enmkuik9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117226-6296-17f5c88"
+      "/tmp/apm-install-dir-11743-6659-xbbpe.m0kpqa1yvi"
     ]
   ],
-  "_from": "../d-117226-6296-14sdv5w/package.tgz",
-  "_id": "asciidoc-preview@2.9.1",
+  "_from": "../d-11743-6659-kehsvw.7enmkuik9/package.tgz",
+  "_id": "asciidoc-preview@2.10.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117226-6296-14sdv5w/package.tgz",
+    "raw": "/tmp/d-11743-6659-kehsvw.7enmkuik9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
-    "spec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
+    "rawSpec": "/tmp/d-11743-6659-kehsvw.7enmkuik9/package.tgz",
+    "spec": "/tmp/d-11743-6659-kehsvw.7enmkuik9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117226-6296-14sdv5w/package.tgz",
-  "_shasum": "f7599a9a482930e7ada96220fe55de943d0bd223",
+  "_resolved": "file:../d-11743-6659-kehsvw.7enmkuik9/package.tgz",
+  "_shasum": "9ed4f057e99a3cf42f3b2e55249cd86bd18e1ae8",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117226-6296-14sdv5w/package.tgz",
-  "_where": "/tmp/apm-install-dir-117226-6296-17f5c88",
+  "_spec": "/tmp/d-11743-6659-kehsvw.7enmkuik9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6659-xbbpe.m0kpqa1yvi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },
@@ -233,7 +233,7 @@
     "coffeelint": "^1.15.0"
   },
   "engines": {
-    "atom": ">=1.9.0 <2.0.0"
+    "atom": ">=1.13.0 <2.0.0"
   },
   "homepage": "https://github.com/asciidoctor/atom-asciidoc-preview#readme",
   "keywords": [
@@ -255,5 +255,5 @@
     "font-awesome",
     "asciidoc-preview"
   ],
-  "version": "2.9.1"
+  "version": "2.10.1"
 }

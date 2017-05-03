@@ -11,10 +11,10 @@ function _load_tokenizedText() {
   return _tokenizedText = require('../../commons-node/tokenizedText');
 }
 
-var _simpleTextBuffer;
+var _HackHelpers;
 
-function _load_simpleTextBuffer() {
-  return _simpleTextBuffer = require('simple-text-buffer');
+function _load_HackHelpers() {
+  return _HackHelpers = require('./HackHelpers');
 }
 
 // Note that all line/column values are 1-based.
@@ -30,6 +30,7 @@ function outlineFromHackIdeOutline(hackOutline) {
    * the root directory of this source tree.
    *
    * 
+   * @format
    */
 
 function outlineFromHackIdeItem(hackItem) {
@@ -92,12 +93,8 @@ function outlineFromHackIdeItem(hackItem) {
   return {
     tokenizedText,
     representativeName: hackItem.name,
-    startPosition: pointFromHack(hackItem.position.line, hackItem.position.char_start),
-    endPosition: pointFromHack(hackItem.span.line_end, hackItem.span.char_end),
+    startPosition: (0, (_HackHelpers || _load_HackHelpers()).atomPointFromHack)(hackItem.position.line, hackItem.position.char_start),
+    endPosition: (0, (_HackHelpers || _load_HackHelpers()).atomPointFromHack)(hackItem.span.line_end, hackItem.span.char_end),
     children: hackItem.children == null ? [] : hackItem.children.map(outlineFromHackIdeItem)
   };
-}
-
-function pointFromHack(hackLine, hackColumn) {
-  return new (_simpleTextBuffer || _load_simpleTextBuffer()).Point(hackLine - 1, hackColumn - 1);
 }

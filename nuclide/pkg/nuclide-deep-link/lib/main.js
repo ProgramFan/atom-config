@@ -27,9 +27,8 @@ class Activation {
   provideDeepLinkService() {
     // Only expose the public methods of the service.
     return {
-      subscribeToPath: (path, callback) => {
-        return this._service.subscribeToPath(path, callback);
-      }
+      subscribeToPath: this._service.subscribeToPath.bind(this._service),
+      sendDeepLink: this._service.sendDeepLink.bind(this._service)
     };
   }
 } /**
@@ -40,6 +39,7 @@ class Activation {
    * the root directory of this source tree.
    *
    * 
+   * @format
    */
 
 (0, (_createPackage || _load_createPackage()).default)(module.exports, Activation);

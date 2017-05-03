@@ -35,6 +35,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const getGatekeeper = (0, (_once || _load_once()).default)(() => {
@@ -44,10 +45,10 @@ const getGatekeeper = (0, (_once || _load_once()).default)(() => {
     Gatekeeper = require('./fb-gatekeeper').Gatekeeper;
   } catch (e) {
     Gatekeeper = class {
-      isGkEnabled() {
+      isGkEnabled(name) {
         return null;
       }
-      asyncIsGkEnabled() {
+      asyncIsGkEnabled(name, timeout) {
         return Promise.resolve();
       }
       onceGkInitialized(callback) {
@@ -66,7 +67,9 @@ const getGatekeeper = (0, (_once || _load_once()).default)(() => {
  */
 
 exports.default = (() => {
-  var _ref = (0, _asyncToGenerator.default)(function* (name, timeout) {
+  var _ref = (0, _asyncToGenerator.default)(function* (name,
+  // timeout in ms
+  timeout) {
     try {
       return (yield getGatekeeper().asyncIsGkEnabled(name, timeout)) === true;
     } catch (e) {
@@ -91,6 +94,6 @@ function isGkEnabled(name) {
   return getGatekeeper().isGkEnabled(name);
 }
 
-function onceGkInitialized(callback, timeout) {
-  return getGatekeeper().onceGkInitialized(callback, timeout);
+function onceGkInitialized(callback) {
+  return getGatekeeper().onceGkInitialized(callback);
 }

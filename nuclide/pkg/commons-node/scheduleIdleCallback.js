@@ -3,8 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = global.requestIdleCallback ?
-// Using Browser API
+exports.default = typeof requestIdleCallback !== 'undefined' ? // Using Browser API
 // Is guaranteed to resolve after `timeout` milliseconds.
 function scheduleIdleCallback(callback_, options = {}) {
   const afterRemainingTime = options.afterRemainingTime || 49;
@@ -18,31 +17,29 @@ function scheduleIdleCallback(callback_, options = {}) {
         throw new Error('Invariant violation: "callback != null"');
       }
 
-      callback(deadline);
+      callback();
       id = callback = null;
     } else {
-      id = global.requestIdleCallback(fn, {
+      id = requestIdleCallback(fn, {
         timeout: timeout - (Date.now() - startTime)
       });
     }
   }
-  id = global.requestIdleCallback(fn, { timeout });
+  id = requestIdleCallback(fn, { timeout });
   return {
     dispose() {
       if (id != null) {
-        global.cancelIdleCallback(id);
+        cancelIdleCallback(id);
         id = callback = null;
       }
     }
   };
-} :
-
-// Using Node API
+} : // Using Node API
 function scheduleIdleCallback(callback, options) {
-  const id = global.setImmediate(callback);
+  const id = setImmediate(callback);
   return {
     dispose() {
-      global.clearImmediate(id);
+      clearImmediate(id);
     }
   };
 }; /**
@@ -53,7 +50,10 @@ function scheduleIdleCallback(callback, options) {
     * the root directory of this source tree.
     *
     * 
+    * @format
     */
+
+/* global requestIdleCallback, cancelIdleCallback */
 
 /**
  * `scheduleIdleCallback` is a wrapper around `requestIdleCallback` that:

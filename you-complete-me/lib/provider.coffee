@@ -9,9 +9,10 @@ module.exports =
   suggestionPriority: 2
   excludeLowerPriority: false
 
+  name: 'YouCompleteMe'
   grammarScopes: ['*']
   scope: 'file'
-  lintOnFly: true
+  lintsOnChange: true
 
   getSuggestions: (context) ->
     return [] unless utility.isEnabledForScope context.editor.getRootScopeDescriptor()
@@ -24,5 +25,5 @@ module.exports =
 
   getSuggestionForWord: (editor, text, range) ->
     return null unless utility.isEnabledForScope editor.getRootScopeDescriptor()
-    callback = -> command.run 'GoTo', range.start
-    {range, callback}
+    range: range
+    callback: -> command.run 'GoTo', range.start, true

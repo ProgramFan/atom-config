@@ -1,4 +1,5 @@
 {BufferedProcess, CompositeDisposable} = require 'atom'
+dependencyInstaller = require 'atom-package-deps'
 
 module.exports =
   config:
@@ -19,6 +20,8 @@ module.exports =
     @subscriptions.add atom.config.observe 'linter-scspell.overrideDictionary',
       (overrideDictionary) =>
         @overrideDictionary = overrideDictionary
+
+    dependencyInstaller.install 'linter-scspell'
 
   deactivate: ->
     @subscriptions.dispose()
@@ -64,15 +67,16 @@ module.exports =
 
         return new Promise (resolve, reject) =>
           lines = []
+          addLines = (data) ->
+              lines = lines.concat(data.split '\n')
+
           process = new BufferedProcess
             command: @executablePath
             args: parameters
 
-            stdout: (data) ->
-              lines = data.split '\n'
+            stdout: addLines
 
-            stderr: (data) ->
-              lines = data.split '\n'
+            stderr: addLines
 
             exit: (code) ->
               errors = []

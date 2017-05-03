@@ -3,7 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = applyTextEdits;
+exports.applyTextEdits = applyTextEdits;
+exports.applyTextEditsToBuffer = applyTextEditsToBuffer;
 
 var _textEditor;
 
@@ -31,6 +32,7 @@ function _load_textEditor() {
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 function applyTextEdits(path, ...edits) {
@@ -40,7 +42,19 @@ function applyTextEdits(path, ...edits) {
     throw new Error('Invariant violation: "editor != null"');
   }
 
-  const buffer = editor.getBuffer();
+  return applyTextEditsToBuffer(editor.getBuffer(), edits);
+}
+
+function applyTextEditsToBuffer(buffer, edits) {
+  // Special-case whole-buffer changes to minimize disruption.
+  if (edits.length === 1 && edits[0].oldRange.isEqual(buffer.getRange())) {
+    if (edits[0].oldText != null && edits[0].oldText !== buffer.getText()) {
+      return false;
+    }
+    buffer.setTextViaDiff(edits[0].newText);
+    return true;
+  }
+
   const checkpoint = buffer.createCheckpoint();
 
   // Iterate through in reverse order. Edits earlier in the file can move around text later in the

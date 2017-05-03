@@ -48,6 +48,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const { ipcRenderer } = _electron.default;
@@ -68,6 +69,7 @@ class NuclideBridge {
     this._debuggerPausedCount = 0;
     this._suppressBreakpointNotification = false;
     this._settings = {};
+    this._callframeId = -1;
 
     ipcRenderer.on('command', this._handleIpcCommand.bind(this));
 
@@ -108,9 +110,9 @@ class NuclideBridge {
     // $FlowFixMe.
     (_WebInspector || _load_WebInspector()).default.ObjectPropertyTreeElement._populate = function (treeElement, value, skipProto, emptyPlaceholder) {
       /**
-       * @param {?Array.<!WebInspector.RemoteObjectProperty>} properties
-       * @param {?Array.<!WebInspector.RemoteObjectProperty>} internalProperties
-       */
+         * @param {?Array.<!WebInspector.RemoteObjectProperty>} properties
+         * @param {?Array.<!WebInspector.RemoteObjectProperty>} internalProperties
+         */
       function callback(properties, internalProperties) {
         treeElement.removeChildren();
         if (!properties) {
@@ -126,10 +128,10 @@ class NuclideBridge {
     // $FlowFixMe.
     (_WebInspector || _load_WebInspector()).default.ObjectPropertiesSection.prototype.update = function () {
       /**
-       * @param {?Array.<!WebInspector.RemoteObjectProperty>} properties
-       * @param {?Array.<!WebInspector.RemoteObjectProperty>} internalProperties
-       * @this {WebInspector.ObjectPropertiesSection}
-       */
+         * @param {?Array.<!WebInspector.RemoteObjectProperty>} properties
+         * @param {?Array.<!WebInspector.RemoteObjectProperty>} internalProperties
+         * @this {WebInspector.ObjectPropertiesSection}
+         */
       function callback(scopeName, properties, internalProperties) {
         if (!properties) {
           return;
@@ -269,6 +271,7 @@ class NuclideBridge {
       const selectedFrame = target.debuggerModel.callFrames[callframeIndex];
       target.debuggerModel.setSelectedCallFrame(selectedFrame);
       this._updateScopes(selectedFrame);
+      this._callframeId = selectedFrame.id;
     }
   }
 
@@ -321,14 +324,17 @@ class NuclideBridge {
   _convertFramesToIPCFrames(callFrames) {
     return callFrames.map(callFrame => {
       const location = callFrame.location();
+      // If there is a sourcemap available, use it to adjust the column and line numbers.
+      const uiLocation = (_WebInspector || _load_WebInspector()).default.debuggerWorkspaceBinding.rawLocationToUILocation(location);
       /* names anonymous functions "(anonymous function)" */
       const functionName = (_WebInspector || _load_WebInspector()).default.beautifyFunctionName(callFrame.functionName);
       return {
         name: functionName,
         location: {
-          path: callFrame.script.sourceURL,
-          column: location.columnNumber,
-          line: location.lineNumber
+          path: uiLocation.uiSourceCode.uri(),
+          column: uiLocation.columnNumber,
+          line: uiLocation.lineNumber,
+          hasSource: callFrame.hasSource() != null ? callFrame.hasSource() : true
         }
       };
     });
@@ -362,18 +368,30 @@ class NuclideBridge {
     if (mainTarget == null) {
       return;
     }
-    mainTarget.debuggerModel.evaluateOnSelectedCallFrame(expression, objectGroup, false, /* includeCommandLineAPI */
-    true, /* doNotPauseOnExceptionsAndMuteConsole */
-    false, /* returnByValue */
-    false, /* generatePreview */
-    (remoteObject, wasThrown, error) => {
+    mainTarget.debuggerModel.evaluateOnSelectedCallFrame(expression, objectGroup, false /* includeCommandLineAPI */
+    , true /* doNotPauseOnExceptionsAndMuteConsole */
+    , false /* returnByValue */
+    , false /* generatePreview */
+    , (remoteObject, wasThrown, error) => {
       const result = getIpcEvaluationResult(wasThrown, remoteObject);
       ipcRenderer.sendToHost('notification', 'ExpressionEvaluationResponse', {
         result,
-        error: wasThrown ? error : null,
+        error: wasThrown ? error || result : null,
         expression,
         id
       });
+
+      if (!wasThrown) {
+        // Evaluate could have had a side effect. Force a refresh of scopes for the current
+        // frame.
+        mainTarget.debuggerModel.threadStore.getRefreshedThreadStack(callFrames => {
+          const frames = callFrames != null && callFrames.length > 0 ? callFrames : mainTarget.debuggerModel.callFrames;
+
+          const targetFrameId = frames.length === 0 || this._callframeId !== -1 ? this._callframeId : frames[0].id;
+
+          frames.filter(frame => frame.id === targetFrameId).forEach(frame => this._updateScopes(frame));
+        });
+      }
     });
   }
 
@@ -387,11 +405,11 @@ class NuclideBridge {
       return;
     }
     const firstContext = executionContexts[0];
-    firstContext.evaluate(expression, NUCLIDE_DEBUGGER_CONSOLE_OBJECT_GROUP, false, /* includeCommandLineAPI */
-    true, /* doNotPauseOnExceptionsAndMuteConsole */
-    false, /* returnByValue */
-    false, /* generatePreview */
-    (remoteObject, wasThrown, error) => {
+    firstContext.evaluate(expression, NUCLIDE_DEBUGGER_CONSOLE_OBJECT_GROUP, false /* includeCommandLineAPI */
+    , true /* doNotPauseOnExceptionsAndMuteConsole */
+    , false /* returnByValue */
+    , false /* generatePreview */
+    , (remoteObject, wasThrown, error) => {
       const result = getIpcEvaluationResult(wasThrown, remoteObject);
       ipcRenderer.sendToHost('notification', 'ExpressionEvaluationResponse', {
         result,
@@ -543,23 +561,18 @@ class NuclideBridge {
 
   // Synchronizes nuclide BreakpointStore and BreakpointManager
   _syncBreakpoints() {
-    try {
-      this._suppressBreakpointNotification = true;
-      this._parseBreakpointSources();
+    this._parseBreakpointSources();
 
-      // Add the ones that don't.
-      this._unresolvedBreakpoints = new (_collection || _load_collection()).MultiMap();
-      this._allBreakpoints.forEach(breakpoint => {
-        if (!this._addBreakpoint(breakpoint)) {
-          // No API exists for adding breakpoints to source files that are not
-          // yet known, store it locally and try to add them later.
-          this._unresolvedBreakpoints.set(breakpoint.sourceURL, [breakpoint.lineNumber]);
-        }
-      });
-      this._emitter.emit('unresolved-breakpoints-changed', null);
-    } finally {
-      this._suppressBreakpointNotification = false;
-    }
+    // Add the ones that don't.
+    this._unresolvedBreakpoints = new (_collection || _load_collection()).MultiMap();
+    this._allBreakpoints.forEach(breakpoint => {
+      if (!this._addBreakpoint(breakpoint)) {
+        // No API exists for adding breakpoints to source files that are not
+        // yet known, store it locally and try to add them later.
+        this._unresolvedBreakpoints.set(breakpoint.sourceURL, [breakpoint.lineNumber]);
+      }
+    });
+    this._emitter.emit('unresolved-breakpoints-changed', null);
   }
 
   _addBreakpoint(breakpoint) {
@@ -702,7 +715,7 @@ class NuclideBridge {
 }
 
 function getIpcEvaluationResult(wasThrown, remoteObject) {
-  if (wasThrown || remoteObject == null) {
+  if (remoteObject == null) {
     return null;
   }
   return {

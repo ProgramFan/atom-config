@@ -1,10 +1,12 @@
 /* @flow */
 
-import { CompositeDisposable } from 'atom';
-import { observable, computed, action } from 'mobx';
-import { grammarToLanguage, isMultilanguageGrammar } from './../utils';
+import { CompositeDisposable } from "atom";
+import { observable, computed, action } from "mobx";
+import { isMultilanguageGrammar, getEmbeddedScope } from "./../utils";
 
-import type Kernel from './../kernel';
+import Config from "./../config";
+import kernelManager from "./../kernel-manager";
+import type Kernel from "./../kernel";
 
 class Store {
   subscriptions = new CompositeDisposable();
@@ -13,40 +15,26 @@ class Store {
   @observable grammar: ?atom$Grammar;
 
   @computed get kernel(): ?Kernel {
-    return this.runningKernels.get(grammarToLanguage(this.grammar));
-  }
-  @computed get language(): ?string {
-    return grammarToLanguage(this.grammar);
-  }
-
-  @action setGrammar(editor: ?atom$TextEditor) {
-    if (!editor) {
-      this.grammar = null;
-      return;
-    }
-
-    const topLevelGrammar = editor.getGrammar();
-    if (!isMultilanguageGrammar(topLevelGrammar)) {
-      this.grammar = topLevelGrammar;
-    } else {
-      const scopes = editor.getCursorScope().getScopesArray()
-        .filter(s => s.indexOf('source.embedded.') === 0);
-
-      if (scopes.length === 0) {
-        this.grammar = topLevelGrammar;
-      } else {
-        const scope = scopes[0].replace('.embedded', '');
-        this.grammar = atom.grammars.grammarForScopeName(scope);
+    for (let kernel of this.runningKernels.values()) {
+      const kernelSpec = kernel.kernelSpec;
+      if (kernelManager.kernelSpecProvidesGrammar(kernelSpec, this.grammar)) {
+        return kernel;
       }
     }
+    return null;
   }
 
   @action newKernel(kernel: Kernel) {
-    this.runningKernels.set(kernel.language, kernel);
+    const mappedLanguage = Config.getJson("languageMappings")[kernel.language];
+    this.runningKernels.set(mappedLanguage || kernel.language, kernel);
   }
 
-  @action deleteKernel(language: string) {
-    this.runningKernels.delete(language);
+  @action deleteKernel(kernel: Kernel) {
+    for (let [language, runningKernel] of this.runningKernels.entries()) {
+      if (kernel === runningKernel) {
+        this.runningKernels.delete(language);
+      }
+    }
   }
 
   @action dispose() {
@@ -58,6 +46,29 @@ class Store {
   @action updateEditor(editor: ?atom$TextEditor) {
     this.editor = editor;
     this.setGrammar(editor);
+  }
+
+  @action setGrammar(editor: ?atom$TextEditor) {
+    if (!editor) {
+      this.grammar = null;
+      return;
+    }
+
+    let grammar = editor.getGrammar();
+
+    if (isMultilanguageGrammar(grammar)) {
+      const embeddedScope = getEmbeddedScope(
+        editor,
+        editor.getCursorBufferPosition()
+      );
+
+      if (embeddedScope) {
+        const scope = embeddedScope.replace(".embedded", "");
+        grammar = atom.grammars.grammarForScopeName(scope);
+      }
+    }
+
+    this.grammar = grammar;
   }
 }
 

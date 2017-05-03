@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117226-6375-1xw2t0t/package.tgz",
+        "raw": "/tmp/d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117226-6375-1xw2t0t/package.tgz",
-        "spec": "/tmp/d-117226-6375-1xw2t0t/package.tgz",
+        "rawSpec": "/tmp/d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
+        "spec": "/tmp/d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117226-6375-15pz5r1"
+      "/tmp/apm-install-dir-11743-6743-s33gto.8qmgp0hpvi"
     ]
   ],
-  "_from": "../d-117226-6375-1xw2t0t/package.tgz",
+  "_from": "../d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
   "_id": "asciidoctor-preview@0.3.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoctor-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117226-6375-1xw2t0t/package.tgz",
+    "raw": "/tmp/d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117226-6375-1xw2t0t/package.tgz",
-    "spec": "/tmp/d-117226-6375-1xw2t0t/package.tgz",
+    "rawSpec": "/tmp/d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
+    "spec": "/tmp/d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117226-6375-1xw2t0t/package.tgz",
+  "_resolved": "file:../d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
   "_shasum": "8f23f0c05c6fbaeb0362c27ca3832ebcd3edbcee",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117226-6375-1xw2t0t/package.tgz",
-  "_where": "/tmp/apm-install-dir-117226-6375-15pz5r1",
+  "_spec": "/tmp/d-11743-6743-1lsupcu.kwvmwjyvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6743-s33gto.8qmgp0hpvi",
   "bugs": {
     "url": "https://github.com/griffin-stewie/asciidoctor-preview/issues"
   },

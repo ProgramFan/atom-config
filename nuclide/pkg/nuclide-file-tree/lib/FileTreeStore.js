@@ -45,10 +45,10 @@ function _load_immutable() {
 
 var _atom = require('atom');
 
-var _vcs;
+var _nuclideVcsBase;
 
-function _load_vcs() {
-  return _vcs = require('../../commons-atom/vcs');
+function _load_nuclideVcsBase() {
+  return _nuclideVcsBase = require('../../nuclide-vcs-base');
 }
 
 var _FileTreeFilterHelper;
@@ -116,6 +116,7 @@ const VERSION = 1; /**
                     * the root directory of this source tree.
                     *
                     * 
+                    * @format
                     */
 
 const DEFAULT_CONF = exports.DEFAULT_CONF = {
@@ -123,6 +124,7 @@ const DEFAULT_CONF = exports.DEFAULT_CONF = {
   workingSet: new (_nuclideWorkingSetsCommon || _load_nuclideWorkingSetsCommon()).WorkingSet(),
   editedWorkingSet: new (_nuclideWorkingSetsCommon || _load_nuclideWorkingSetsCommon()).WorkingSet(),
   hideIgnoredNames: true,
+  isCalculatingChanges: false,
   excludeVcsIgnoredPaths: true,
   ignoredPatterns: new (_immutable || _load_immutable()).default.Set(),
   usePreviewTabs: false,
@@ -292,6 +294,12 @@ class FileTreeStore {
     });
   }
 
+  _setIsCalculatingChanges(isCalculatingChanges) {
+    this._updateConf(conf => {
+      conf.isCalculatingChanges = isCalculatingChanges;
+    });
+  }
+
   /**
    * Given a list of names to ignore, compile them into minimatch patterns and
    * update the store with them.
@@ -356,6 +364,9 @@ class FileTreeStore {
         break;
       case (_FileTreeDispatcher2 || _load_FileTreeDispatcher2()).ActionTypes.SET_HIDE_IGNORED_NAMES:
         this._setHideIgnoredNames(payload.hideIgnoredNames);
+        break;
+      case (_FileTreeDispatcher2 || _load_FileTreeDispatcher2()).ActionTypes.SET_IS_CALCULATING_CHANGES:
+        this._setIsCalculatingChanges(payload.isCalculatingChanges);
         break;
       case (_FileTreeDispatcher2 || _load_FileTreeDispatcher2()).ActionTypes.SET_IGNORED_NAMES:
         this._setIgnoredNames(payload.ignoredNames);
@@ -646,6 +657,10 @@ class FileTreeStore {
     return this._fileChanges;
   }
 
+  getIsCalculatingChanges() {
+    return this._conf.isCalculatingChanges;
+  }
+
   _invalidateRemovedFolder() {
     const updatedFileChanges = new Map();
     atom.project.getPaths().forEach(projectPath => {
@@ -667,7 +682,7 @@ class FileTreeStore {
     const fileChanges = new Map();
     Object.keys(vcsStatuses).forEach(filePath => {
       const statusCode = vcsStatuses[filePath];
-      fileChanges.set(filePath, (_vcs || _load_vcs()).HgStatusToFileChangeStatus[statusCode]);
+      fileChanges.set(filePath, (_nuclideVcsBase || _load_nuclideVcsBase()).HgStatusToFileChangeStatus[statusCode]);
     });
 
     this._fileChanges = this._fileChanges.set(rootKey, fileChanges);
@@ -875,7 +890,11 @@ class FileTreeStore {
           return node.setIsLoading(false);
         }
 
-        return node.set({ isExpanded: false, isLoading: false, children: new (_immutable || _load_immutable()).default.OrderedMap() });
+        return node.set({
+          isExpanded: false,
+          isLoading: false,
+          children: new (_immutable || _load_immutable()).default.OrderedMap()
+        });
       });
 
       this._clearLoading(nodeKey);
@@ -921,7 +940,12 @@ class FileTreeStore {
         });
       });
 
-      return node.set({ isLoading: false, wasFetched: true, children, subscription });
+      return node.set({
+        isLoading: false,
+        wasFetched: true,
+        children,
+        subscription
+      });
     });
 
     this._clearLoading(nodeKey);
@@ -1135,7 +1159,8 @@ class FileTreeStore {
    */
   _expandNodeDeep(rootKey, nodeKey) {
     // Stop the traversal after 100 nodes were added to the tree
-    const itNodes = new FileTreeStoreBfsIterator(this, rootKey, nodeKey, /* limit */100);
+    const itNodes = new FileTreeStoreBfsIterator(this, rootKey, nodeKey,
+    /* limit */100);
     const promise = new Promise(resolve => {
       const expand = () => {
         const traversedNodeKey = itNodes.traversedNode();
@@ -1181,14 +1206,17 @@ class FileTreeStore {
 
   _collapseNodeDeep(rootKey, nodeKey) {
     this._updateNodeAtRoot(rootKey, nodeKey, node => {
-      return node.setRecursive(
-      /* prePredicate */null, childNode => {
+      return node.setRecursive( /* prePredicate */null, childNode => {
         if (childNode.subscription != null) {
           childNode.subscription.dispose();
         }
 
         if (childNode.uri !== node.uri) {
-          return childNode.set({ isExpanded: false, isSelected: false, subscription: null });
+          return childNode.set({
+            isExpanded: false,
+            isSelected: false,
+            subscription: null
+          });
         } else {
           return childNode.set({ isExpanded: false, subscription: null });
         }
@@ -1285,7 +1313,14 @@ class FileTreeStore {
 
     selectionRange = new (_FileTreeSelectionRange || _load_FileTreeSelectionRange()).SelectionRange((_FileTreeSelectionRange || _load_FileTreeSelectionRange()).RangeKey.of(anchorNode), (_FileTreeSelectionRange || _load_FileTreeSelectionRange()).RangeKey.of(rangeNode));
     this._setSelectionRange(selectionRange);
-    return { selectionRange, anchorNode, rangeNode, anchorIndex, rangeIndex, direction };
+    return {
+      selectionRange,
+      anchorNode,
+      rangeNode,
+      anchorIndex,
+      rangeIndex,
+      direction
+    };
   }
 
   /**
@@ -1651,7 +1686,7 @@ class FileTreeStore {
     this._updateConf(conf => {
       const reposByRoot = {};
       this.roots.forEach(root => {
-        reposByRoot[root.uri] = (0, (_vcs || _load_vcs()).repositoryForPath)(root.uri);
+        reposByRoot[root.uri] = (0, (_nuclideVcsBase || _load_nuclideVcsBase()).repositoryForPath)(root.uri);
       });
       conf.reposByRoot = reposByRoot;
     });
@@ -1664,6 +1699,12 @@ class FileTreeStore {
   }
 
   _setOpenFilesWorkingSet(openFilesWorkingSet) {
+    // Optimization: with an empty working set, we don't need a full tree refresh.
+    if (this._conf.workingSet.isEmpty()) {
+      this._conf.openFilesWorkingSet = openFilesWorkingSet;
+      this._emitChange();
+      return;
+    }
     this._updateConf(conf => {
       conf.openFilesWorkingSet = openFilesWorkingSet;
     });

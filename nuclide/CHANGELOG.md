@@ -1,5 +1,225 @@
 # Nuclide Changelog
 
+## v0.221.0
+
+### Highlights
+
+* Perf: Reduce calls to `hg bookmarks` from O(n) users to O(1) (sharing managed data).
+* Improved reliability of console auto-scrolling.
+* PHP/Hack debugger: stdout from launched scripts is now redirected to the Nuclide console while debugging.
+
+### General
+
+* The Hack and Flow icons will now appear alongside the type coverage indicator in the status bar.
+* Fuzzy file search now strongly prioritizes exact-case matches when the query includes an uppercase character.
+* Fixed some minor flickering issues in Quick Open.
+* Fixed Cmd-F from the file-tree. The directory is auto populated.
+* Fix Ctrl-Click highlighting in the file-tree on Mac.
+* Fixed test runner invocation from the menu.
+* Remove the desktop computer icon in the status bar for local connections.
+* Upgraded the React Developer Tools for a host of improvements (thanks [Dan](https://github.com/gaearon) and [Andres](https://github.com/zertosh)!)
+* Nuclide's Diagnostics now supports (most of) the Linter [Standard and Indie v2 APIs](https://github.com/steelbrain/linter/tree/master/docs). See the [Nuclide Diagnostics README](https://github.com/facebook/nuclide/blob/master/pkg/nuclide-diagnostics-store/README.md) for more info.
+
+### C++
+
+* Fixed edge case causing invalid diagnostic highlighting.
+
+### Source Control
+
+* The “update” button in Interactive Smartlog is now labeled “Check out” to make it more intuitive.
+* Redundant “clean up” buttons on landed stacks are now being grouped as “clean up stack”.
+* Tooltips on uncommitted files now show the file's status and use the shorter, project-relative path.
+* Fix a bug with bookshelf serialization that wouldn’t restore open files when `hg bookmarks` failed.
+* UX: Add editor context menu item for “Open in Phabricator”.
+* Fix “Open in Diff View” editor context menu item.
+* Fix space-separated bookmark handling.
+
+### Debugger
+
+* Cleaned up debugger interface a bit and removed extra “stop” buttons from debugger pane
+* Fixed UX flashing/jitter when rendering a loading spinner in the console while waiting for an expression to be evaluated by the debugger.
+* Fixed several UX jitter issues with pinned data tips.
+* PHP/Hack debugger: added functionality to show exceptions with stack traces when a launched script exits due to an uncaught exception.
+
+### Console
+
+* Hide the "New Messages" button on console clear.
+* Fixed an issue that prevented the console from auto-scrolling after first opening it.
+
+## v0.220.0
+
+**Hotfix from 0.219.0**
+
+* Fix an exception being thrown when dragging files in the file-tree.
+
+## v0.219.0
+
+**Highlights**
+
+* Fuzzy-filename search is ~50% faster.
+* PHP Debugger: Added run to cursor location functionality.
+* New feature: “Open nearest `BUCK` (or `TARGETS`) file.” For the current file, opens the Buck build file that owns it. Use the keyboard shortcut `cmd-shift-k` on OS X (`ctrl-shift-k` on Windows/Linux), or search for “Open Nearest Build File” in the command palette.
+
+**General**
+
+* The number of active “arc lint” processes is now limited to half the number of CPUs.
+* Fixed a bug in “Search in Directory” returning duplicate results in remote Hg repositories.
+* Optimized outline tree rendering (especially for large files).
+* The “Nuclide File Tree: Reveal in File Tree” command has been renamed back to its original name, “Nuclide File Tree: Reveal Active File.”
+* Added support for `file-icons`.
+  * Install the third-party `file-icons` [package](https://atom.io/packages/file-icons) to get extension-specific icons in the file tree, Smartlog, quick-open, and source control sidebar.
+
+**Debuggers**
+
+* Added “Copy” to copy to clipboard in context menu for all variables in the Scopes pane.
+* Fixed a bug causing line numbers in the call stack pane to be off by one in all debuggers.
+* Fix an issue where debugger context menu items would act on wrong line numbers.
+* Fix an error case when deleting a breakpoint.
+* PHP/Hack - Fixed bug causing fatal “cannot find xdebug breakpoint” errors.
+* PHP/Hack - Fixed a bug that caused scopes, watch expressions and data tips not to update if an eval command is executed from the console that causes side effects.
+
+**UI**
+
+* Fixed a bug whereby the contents of the test runner panel would be hidden.
+* Fixed file-tree weird scrolling issues.
+
+## v0.218.0
+
+**Performance**
+
+* Quick Open should feel snappier (default 200ms debounce has been removed).
+* Fuzzy file search indexing is now faster in Hg repositories.
+* Fixed a bug where rebasing remote Hg repositories would flood the Nuclide server connection.
+* Significantly reduced the network/CPU usage of listing directories (e.g. in the file tree).
+
+**General**
+
+* Hyperclick URL matching is more accurate.
+* The Buck toolbar's target typeahead now suggests the owner of the current file at the top.
+
+**C++**
+
+* Language features are now compatible with the [language-cpp14](https://github.com/jbw3/language-cpp14) grammar package.
+
+**Debugger**
+
+* Fixed bugs around setting breakpoints by clicking in the gutter, and issues where clicking a line number to select a line of text sets unwanted breakpoints.
+* PHP/Hack: Fixed bug where debugger doesn't exit when the script being debugged finishes.
+* PHP/Hack: Fixed exceptions that can occur when resolving breakpoints that have already been removed.
+* C++ debugger: Fixed an issue where the child process is launched with an empty set of environment variables.
+* Added scrollbars to datatips so you can see all the content when examining variables that have lots of members.
+* Fixed weird scrolling issues in Watch Expressions pane.
+
+## v0.217.0
+
+**Debugger**
+* Fixed a bug causing fetching native processes on a remote server with many running processes was saturating Nuclide server remote connection and slowing things down.
+
+**Flow**
+* Fix a bug that could break Flow integration when the .flowconfig changed to specify a different Flow version.
+
+**PHP/Hack Debugger**
+
+* UX: Improved wording of several confusing error messages.
+* Fixed issue where the console indicated it was ready for use before it actually was, and attempts to use it resulted in odd behavior.
+* Fixed issue where issuing an eval command caused a breakpoint to be hit in xdebug_includes.php instead of the script being debugged.
+* Requests window now indicates if a thread is stopped due to an Exception vs hitting a breakpoint.
+* Fixed issue where unchecking “Pause on exception” and hitting continue did not stop breaking in on requests hitting exceptions.
+* Launch script window now resolves “~” to your home directory path when launching a script.
+* Added a “recently launched scripts” drop-down to the launch dialog.
+* Debugger now shows an error and exits if it fails to attach to an HHVM instance rather than waiting forever.
+* Debugger now shows an error and exits if an invalid HHVM binary path is specified for launching a script.
+
+**Source Control**
+
+* Remove diff-view and source control sidebar features from the public release of Nuclide.
+
+According to user feedback, these features have enjoyed very low usage outside of Facebook, negatively impact the performance of Nuclide, and generally don't (yet) meet the quality bar we'd like to set for Nuclide.
+
+In order to improve on this, we will be moving these features to a Facebook-internal version of Nuclide for the foreseeable future, allowing us to iterate more quickly, clean up tech debt, and polish the experience.
+
+## v0.216.0
+
+### Hotfix from 0.215.0
+
+* Limit the number of console records serialized to avoid UI freezes.
+
+## v0.215.0
+
+General
+
+* Fixed issue causing flow not to be found when running Nuclide on Windows with the flow-bin npm package installed.
+* This changelog will automatically open when Nuclide updates.
+* Nuclide server certificates now expire after 14 days.
+* .python2 / .python3 files are now respected by the Python linter.
+
+Hack
+
+* You can now use Cmd-/ to toggle <!-- comments --> in XHP.
+
+Debugger
+
+* Added ability to show if breakpoints are unresolved or disabled in the gutter to the left of a source line.
+* Remember if breakpoints are disabled across Nuclide sessions.
+* Added ability to enable/disable breakpoints by right clicking them in the gutter.
+
+PHP / Hack Debugger
+
+* UX: added display of Vector/Map/Set counts.
+* Fixed issue where breakpoints appear to keep hitting after you have removed or disabled them.
+* Fixed issue where “loading” spinner on the Requests debugger pane sometimes spins forever.
+
+## v0.214.0
+
+### Hotfix from 0.213.0
+
+* Fix update to bookmark from source control sidebar failing.
+
+## v0.213.0
+
+### Hotfixes from 0.212.0
+
+* Fixed odd stretching behavior of some panels (Diagnostics, Conflict Resolver)
+* Properly deserialize timestamps in console
+
+## v0.212.0
+
+### GENERAL
+
+* Remote file deletions are now debounced by 1s, so tools like hg revert should no longer mark tabs as modified.
+* Console is now windowed, improving Nuclide performance when there are a lot of entries
+* Fixed exception thrown on Windows when expanding “~” to the user's home directory path in a file path.
+
+### C++
+
+* Faster autocomplete (thanks to Nat's autocomplete cacher).
+* Additionally, autocompletion results are now fuzzily matched.
+* Buck builds from within Nuclide should be significantly (5-10s) faster than before.
+
+### Debugger
+
+* Replaced callstack window with a table, fixed many rendering issues with call stacks
+* Added ability to copy callstack to clipboard by right-clicking the call stack table
+* Fixed issues with multiple nested scrollbars in Threads, Callstack, and Scopes debugger panes
+* Fixed issue causing Threads pane to have a “loading” spinner forever when breaking into a C++ target
+* Fixed large numbers (anything bigger than JavaScript's max int) being truncated or displayed incorrectly in all debuggers. This fixes outputting FBIDs in the PHP/Hack debugger.
+* Breakpoints in the gutter in the Nuclide editor now indicate if the bp is disabled or unresolved
+* Fixed a regression causing all breakpoints to show as unresolved in PHP/Hack debugger
+
+### Source Control
+
+* Increased timeout for updating bookmarks to 5 minutes
+
+### Quality Jam
+
+* Improve console styling for light/dark them combinations
+* Test runner: fix misc. UI issues
+* “Find References” context menu item now uses the right-clicked symbol rather than the editor cursor.
+* Fixed issue where fuzzy filename search would fail if it took more than 60s to index.
+* Flow type-hint tooltips will no longer appear over whitespace.
+* Removed “Context View” toolbar icon (you can still find it in View > Toggle Context View)
+
+
 ## v0.211.0
 
 # Hotfix

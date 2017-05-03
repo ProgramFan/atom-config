@@ -4,6 +4,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.RecentFilesProvider = undefined;
+
+var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+
 exports.setRecentFilesService = setRecentFilesService;
 
 var _nuclideUri;
@@ -32,18 +35,27 @@ function _load_nuclideFuzzyNative() {
   return _nuclideFuzzyNative = require('../../nuclide-fuzzy-native');
 }
 
+var _PathWithFileIcon;
+
+function _load_PathWithFileIcon() {
+  return _PathWithFileIcon = _interopRequireDefault(require('../../nuclide-ui/PathWithFileIcon'));
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Imported from nuclide-files-service, which is an apm package, preventing a direct import.
-let _recentFilesService = null; /**
-                                 * Copyright (c) 2015-present, Facebook, Inc.
-                                 * All rights reserved.
-                                 *
-                                 * This source code is licensed under the license found in the LICENSE file in
-                                 * the root directory of this source tree.
-                                 *
-                                 * 
-                                 */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ * @format
+ */
+
+let _recentFilesService = null;
 
 function getRecentFilesMatching(query) {
   if (_recentFilesService == null) {
@@ -103,7 +115,13 @@ const RecentFilesProvider = exports.RecentFilesProvider = {
     action: 'nuclide-recent-files-provider:toggle-provider'
   },
 
-  executeQuery(query) {
+  isEligibleForDirectories(directories) {
+    return (0, _asyncToGenerator.default)(function* () {
+      return true;
+    })();
+  },
+
+  executeQuery(query, directories) {
     return Promise.resolve(getRecentFilesMatching(query));
   },
 
@@ -122,10 +140,10 @@ const RecentFilesProvider = exports.RecentFilesProvider = {
         'div',
         { className: 'recent-files-provider-filepath-container' },
         _react.default.createElement(
-          'span',
+          (_PathWithFileIcon || _load_PathWithFileIcon()).default,
           {
-            className: 'icon icon-file-text file recent-files-provider-file-path',
-            'data-name': filename },
+            className: 'recent-files-provider-file-path',
+            path: filename },
           filePath
         ),
         _react.default.createElement(

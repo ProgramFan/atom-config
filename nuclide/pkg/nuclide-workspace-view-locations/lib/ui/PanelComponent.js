@@ -57,6 +57,7 @@ const MINIMUM_SIZE = 100; /**
                            * the root directory of this source tree.
                            *
                            * 
+                           * @format
                            */
 
 /* global getComputedStyle */
@@ -190,7 +191,9 @@ class PanelComponent extends _react.default.Component {
       'nuclide-panel-active': this.props.active
     });
     const className = (0, (_classnames || _load_classnames()).default)('nuclide-workspace-views-panel', this.props.position);
-    const maskClassName = (0, (_classnames || _load_classnames()).default)('nuclide-workspace-views-panel-mask', { 'nuclide-panel-should-animate': this.state.shouldAnimate });
+    const maskClassName = (0, (_classnames || _load_classnames()).default)('nuclide-workspace-views-panel-mask', {
+      'nuclide-panel-should-animate': this.state.shouldAnimate
+    });
 
     const handle = _react.default.createElement(Handle, {
       position: this.props.position,
@@ -204,7 +207,9 @@ class PanelComponent extends _react.default.Component {
       { className: wrapperClassName },
       _react.default.createElement(
         'div',
-        { className: maskClassName, style: { [widthOrHeight]: open ? size : HANDLE_SIZE } },
+        {
+          className: maskClassName,
+          style: { [widthOrHeight]: open ? size : HANDLE_SIZE } },
         _react.default.createElement(
           'div',
           { className: className, style: { [widthOrHeight]: size } },
@@ -214,7 +219,10 @@ class PanelComponent extends _react.default.Component {
             { className: 'nuclide-workspace-views-panel-content' },
             _react.default.createElement((_View || _load_View()).View, { item: this.props.paneContainer })
           ),
-          _react.default.createElement(ResizeCursorOverlay, { position: this.props.position, resizing: this.state.resizing })
+          _react.default.createElement(ResizeCursorOverlay, {
+            position: this.props.position,
+            resizing: this.state.resizing
+          })
         )
       ),
       _react.default.createElement((_ToggleButton || _load_ToggleButton()).ToggleButton, {
@@ -324,7 +332,7 @@ class PanelComponent extends _react.default.Component {
       // The item may not have been activated yet. If that's the case, just use the first item.
       const activePaneItem = this.props.paneContainer.getActivePaneItem() || this.props.paneContainer.getPaneItems()[0];
       if (activePaneItem != null) {
-        initialSize = getPreferredInitialSize(activePaneItem, this.props.position);
+        initialSize = getPreferredSize(activePaneItem, this.props.position);
       }
     }
     return initialSize == null ? DEFAULT_INITIAL_SIZE : initialSize;
@@ -335,14 +343,14 @@ exports.PanelComponent = PanelComponent;
 PanelComponent.defaultProps = {
   onResize: width => {}
 };
-function getPreferredInitialSize(item, position) {
+function getPreferredSize(item, position) {
   switch (position) {
     case 'top':
     case 'bottom':
-      return typeof item.getPreferredInitialHeight === 'function' ? item.getPreferredInitialHeight() : null;
+      return typeof item.getPreferredHeight === 'function' ? item.getPreferredHeight() : null;
     case 'left':
     case 'right':
-      return typeof item.getPreferredInitialWidth === 'function' ? item.getPreferredInitialWidth() : null;
+      return typeof item.getPreferredWidth === 'function' ? item.getPreferredWidth() : null;
     default:
       throw new Error(`Invalid position: ${position}`);
   }
@@ -351,7 +359,9 @@ function getPreferredInitialSize(item, position) {
 function ResizeCursorOverlay(props) {
   // We create an overlay to always display the resize cursor while the user is resizing the panel,
   // even if their mouse leaves the handle.
-  return props.resizing ? _react.default.createElement('div', { className: `nuclide-workspace-views-panel-resize-cursor-overlay ${props.position}` }) : null;
+  return props.resizing ? _react.default.createElement('div', {
+    className: `nuclide-workspace-views-panel-resize-cursor-overlay ${props.position}`
+  }) : null;
 }
 
 function Handle(props) {

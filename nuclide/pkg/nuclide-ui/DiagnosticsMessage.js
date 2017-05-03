@@ -31,12 +31,6 @@ function _load_DiagnosticsTraceItem() {
   return _DiagnosticsTraceItem = require('./DiagnosticsTraceItem');
 }
 
-var _nuclideUri;
-
-function _load_nuclideUri() {
-  return _nuclideUri = _interopRequireDefault(require('../commons-node/nuclideUri'));
-}
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -47,47 +41,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
-function plainTextForItem(item) {
-  let mainComponent = undefined;
-  if (item.html != null) {
-    // Quick and dirty way to get an approximation for the plain text from HTML.
-    // This will work in simple cases, anyway.
-    mainComponent = item.html.replace('<br/>', '\n').replace(/<[^>]*>/g, '');
-  } else {
-    if (!(item.text != null)) {
-      throw new Error('Invariant violation: "item.text != null"');
-    }
-
-    mainComponent = item.text;
-  }
-
-  let pathComponent;
-  if (item.filePath == null) {
-    pathComponent = '';
-  } else {
-    const lineComponent = item.range != null ? `:${item.range.start.row + 1}` : '';
-    pathComponent = ': ' + (_nuclideUri || _load_nuclideUri()).default.getPath(item.filePath) + lineComponent;
-  }
-  return mainComponent + pathComponent;
-}
-
-function plainTextForDiagnostic(message) {
-  const trace = message.trace != null ? message.trace : [];
-  return [message, ...trace].map(plainTextForItem).join('\n');
-}
+const PROVIDER_CLASS_NAME = {
+  Error: 'highlight-error',
+  Warning: 'highlight-warning',
+  Info: 'highlight-info'
+};
 
 function diagnosticHeader(props) {
-  const {
-    message,
-    fixer
-  } = props;
-  const providerClassName = message.type === 'Error' ? 'highlight-error' : 'highlight-warning';
-  const copy = () => {
-    const text = plainTextForDiagnostic(message);
-    atom.clipboard.write(text);
-  };
+  const { message, fixer } = props;
+  const providerClassName = PROVIDER_CLASS_NAME[message.type];
   let fixButton = null;
   if (message.fix != null) {
     const applyFix = () => {
@@ -98,7 +63,7 @@ function diagnosticHeader(props) {
     fixButton = _react.default.createElement(
       (_Button || _load_Button()).Button,
       { buttonType: buttonType, size: 'EXTRA_SMALL', onClick: applyFix },
-      'Fix'
+      message.fix.title || 'Fix'
     );
   }
   return _react.default.createElement(
@@ -107,12 +72,7 @@ function diagnosticHeader(props) {
     _react.default.createElement(
       (_ButtonGroup || _load_ButtonGroup()).ButtonGroup,
       null,
-      fixButton,
-      _react.default.createElement(
-        (_Button || _load_Button()).Button,
-        { size: 'EXTRA_SMALL', onClick: copy },
-        'Copy'
-      )
+      fixButton
     ),
     _react.default.createElement(
       'span',
@@ -123,10 +83,7 @@ function diagnosticHeader(props) {
 }
 
 function traceElements(props) {
-  const {
-    message,
-    goToLocation
-  } = props;
+  const { message, goToLocation } = props;
   return message.trace ? message.trace.map((traceItem, i) => _react.default.createElement((_DiagnosticsTraceItem || _load_DiagnosticsTraceItem()).DiagnosticsTraceItem, {
     key: i,
     trace: traceItem,

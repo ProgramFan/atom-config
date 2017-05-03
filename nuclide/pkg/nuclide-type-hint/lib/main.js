@@ -26,6 +26,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const PACKAGE_NAME = 'nuclide-type-hint';
@@ -64,9 +65,7 @@ class Activation {
       inclusionPriority: 1,
       datatip
     };
-    this.datatipService = service;
-    service.addProvider(datatipProvider);
-    const disposable = new _atom.Disposable(() => service.removeProvider(datatipProvider));
+    const disposable = service.addProvider(datatipProvider);
     this._disposables.add(disposable);
     return disposable;
   }

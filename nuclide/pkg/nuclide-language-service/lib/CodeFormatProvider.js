@@ -50,6 +50,7 @@ exports.CodeFormatProvider = CodeFormatProvider; /**
                                                   * the root directory of this source tree.
                                                   *
                                                   * 
+                                                  * @format
                                                   */
 
 class RangeFormatProvider extends CodeFormatProvider {
@@ -72,7 +73,7 @@ class RangeFormatProvider extends CodeFormatProvider {
         }
       }
 
-      return editor.getTextInBufferRange(range);
+      return [];
     }));
   }
 }

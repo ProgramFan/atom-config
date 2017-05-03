@@ -4,12 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _dedent;
-
-function _load_dedent() {
-  return _dedent = _interopRequireDefault(require('dedent'));
-}
-
 var _atom = require('atom');
 
 var _DebuggerDispatcher;
@@ -24,18 +18,18 @@ function _load_DebuggerStore() {
   return _DebuggerStore = require('./DebuggerStore');
 }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ * @format
+ */
 
-const BREAKPOINT_NEED_UI_UPDATE = 'BREAKPOINT_NEED_UI_UPDATE'; /**
-                                                                * Copyright (c) 2015-present, Facebook, Inc.
-                                                                * All rights reserved.
-                                                                *
-                                                                * This source code is licensed under the license found in the LICENSE file in
-                                                                * the root directory of this source tree.
-                                                                *
-                                                                * 
-                                                                */
-
+const BREAKPOINT_NEED_UI_UPDATE = 'BREAKPOINT_NEED_UI_UPDATE';
 const BREAKPOINT_USER_CHANGED = 'breakpoint_user_changed';
 
 const ADDBREAKPOINT_ACTION = 'AddBreakpoint';
@@ -49,11 +43,12 @@ const DELETEBREAKPOINT_ACTION = 'DeleteBreakpoint';
  */
 class BreakpointStore {
 
-  constructor(dispatcher, initialBreakpoints) {
+  constructor(dispatcher, initialBreakpoints, debuggerStore) {
     const dispatcherToken = dispatcher.register(this._handlePayload.bind(this));
     this._disposables = new _atom.CompositeDisposable(new _atom.Disposable(() => {
       dispatcher.unregister(dispatcherToken);
     }));
+    this._debuggerStore = debuggerStore;
     this._breakpointIdSeed = 0;
     this._breakpoints = new Map();
     this._idToBreakpointMap = new Map();
@@ -169,16 +164,9 @@ class BreakpointStore {
 
   _deleteBreakpoint(path, line, userAction = true) {
     const lineMap = this._breakpoints.get(path);
-
-    if (!(lineMap != null)) {
-      throw new Error((_dedent || _load_dedent()).default`
-        Expected a non-null lineMap.
-        path: ${path},
-        line: ${line},
-        userAction: ${userAction}
-      `);
+    if (lineMap == null) {
+      return;
     }
-
     const breakpoint = lineMap.get(line);
     if (lineMap.delete(line)) {
       if (!breakpoint) {
@@ -214,14 +202,33 @@ class BreakpointStore {
   }
 
   _bindBreakpoint(path, line, condition, enabled, resolved) {
+    // The Chrome devtools always bind a new breakpoint as enabled the first time. If this
+    // breakpoint is known to be disabled in the front-end, sync the enabled state with Chrome.
+    const existingBp = this.getBreakpointAtLine(path, line);
+    const updateEnabled = existingBp != null && existingBp.enabled !== enabled;
+
     this._addBreakpoint(path, line, condition, resolved, false, // userAction
     enabled);
+
+    if (updateEnabled) {
+      const updatedBp = this.getBreakpointAtLine(path, line);
+      if (updatedBp != null) {
+        updatedBp.enabled = !enabled;
+        this._updateBreakpoint(updatedBp);
+      }
+    }
   }
 
   _handleDebuggerModeChange(newMode) {
     if (newMode === (_DebuggerStore || _load_DebuggerStore()).DebuggerMode.STOPPED) {
       // All breakpoints should be unresolved after stop debugging.
       this._resetBreakpointUnresolved();
+    } else {
+      for (const breakpoint of this.getAllBreakpoints()) {
+        if (!breakpoint.resolved) {
+          this._emitter.emit(BREAKPOINT_NEED_UI_UPDATE, breakpoint.path);
+        }
+      }
     }
   }
 
@@ -252,7 +259,7 @@ class BreakpointStore {
   getBreakpointAtLine(path, line) {
     const lineMap = this._breakpoints.get(path);
     if (lineMap == null) {
-      return;
+      return null;
     }
     return lineMap.get(line);
   }
@@ -271,20 +278,32 @@ class BreakpointStore {
     const breakpoints = [];
     for (const [path, lineMap] of this._breakpoints) {
       for (const line of lineMap.keys()) {
-        // TODO: serialize condition and enabled states.
+        const breakpoint = lineMap.get(line);
+        if (breakpoint == null) {
+          continue;
+        }
+
         breakpoints.push({
           line,
-          sourceURL: path
+          sourceURL: path,
+          disabled: !breakpoint.enabled,
+          condition: breakpoint.condition
         });
       }
     }
     return breakpoints;
   }
 
+  getDebuggerStore() {
+    return this._debuggerStore;
+  }
+
   _deserializeBreakpoints(breakpoints) {
     for (const breakpoint of breakpoints) {
-      const { line, sourceURL } = breakpoint;
-      this._addBreakpoint(sourceURL, line);
+      const { line, sourceURL, disabled, condition } = breakpoint;
+      this._addBreakpoint(sourceURL, line, condition || '', false, // resolved
+      false, // user action
+      !disabled);
     }
   }
 

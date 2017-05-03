@@ -47,6 +47,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 function getColumns() {
@@ -101,6 +102,7 @@ class AttachUIComponent extends _react.default.Component {
     this._updateAttachTargetList = this._updateAttachTargetList.bind(this);
     this._updateList = this._updateList.bind(this);
     this._handleSort = this._handleSort.bind(this);
+    this._targetListUpdating = false;
     this.state = {
       targetListChangeDisposable: this.props.store.onAttachTargetListChanged(this._updateList),
       attachTargetInfos: [],
@@ -128,6 +130,7 @@ class AttachUIComponent extends _react.default.Component {
 
   _updateList() {
     const newSelectedTarget = this.state.selectedAttachTarget == null ? null : this._getAttachTargetOfPid(this.state.selectedAttachTarget.pid);
+    this._targetListUpdating = false;
     this.setState({
       attachTargetInfos: this.props.store.getAttachTargetInfos(),
       selectedAttachTarget: newSelectedTarget
@@ -152,11 +155,7 @@ class AttachUIComponent extends _react.default.Component {
 
   render() {
     const filterRegex = new RegExp(this.state.filterText, 'i');
-    const {
-      attachTargetInfos,
-      sortedColumn,
-      sortDescending
-    } = this.state;
+    const { attachTargetInfos, sortedColumn, sortDescending } = this.state;
     const compareFn = getCompareFunction(sortedColumn, sortDescending);
     const { selectedAttachTarget } = this.state;
     let selectedIndex = null;
@@ -251,7 +250,10 @@ class AttachUIComponent extends _react.default.Component {
 
   _updateAttachTargetList() {
     // Fire and forget.
-    this.props.actions.updateAttachTargetList();
+    if (!this._targetListUpdating) {
+      this._targetListUpdating = true;
+      this.props.actions.updateAttachTargetList();
+    }
   }
 
   _attachToProcess() {

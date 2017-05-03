@@ -55,6 +55,7 @@ const TAGS_FILENAME = 'tags'; /**
                                * the root directory of this source tree.
                                *
                                * 
+                               * @format
                                */
 
 class CtagsService {
@@ -70,7 +71,7 @@ class CtagsService {
   findTags(query, options) {
     let ctags;
     try {
-      ctags = require('../VendorLib/ctags-prebuilt/lib/ctags');
+      ctags = require('nuclide-prebuilt-libs/ctags');
     } catch (e) {
       (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error('Could not load the ctags package:', e);
       return Promise.resolve([]);

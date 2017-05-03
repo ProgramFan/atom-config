@@ -11,12 +11,13 @@ Object.defineProperty(exports, "__esModule", {
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
-const TOP_PANEL = exports.TOP_PANEL = 'top-panel';
-const RIGHT_PANEL = exports.RIGHT_PANEL = 'right-panel';
-const BOTTOM_PANEL = exports.BOTTOM_PANEL = 'bottom-panel';
-const LEFT_PANEL = exports.LEFT_PANEL = 'left-panel';
+const TOP_PANEL = exports.TOP_PANEL = 'top';
+const RIGHT_PANEL = exports.RIGHT_PANEL = 'right';
+const BOTTOM_PANEL = exports.BOTTOM_PANEL = 'bottom';
+const LEFT_PANEL = exports.LEFT_PANEL = 'left';
 
 // For now, we just show the left, bottom and right panels.
 exports.default = [LEFT_PANEL, RIGHT_PANEL, BOTTOM_PANEL];

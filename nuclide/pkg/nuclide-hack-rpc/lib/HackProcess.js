@@ -78,35 +78,34 @@ let createHackProcess = (() => {
 
     (_hackConfig || _load_hackConfig()).logger.logInfo(`Creating new hack connection for ${configDir}: ${command}`);
     (_hackConfig || _load_hackConfig()).logger.logInfo(`Current PATH: ${(0, (_string || _load_string()).maybeToString)(process.env.PATH)}`);
-    const startServerResult = yield (0, (_process || _load_process()).asyncExecute)(command, ['start', configDir]);
-    (_hackConfig || _load_hackConfig()).logger.logInfo(`Hack connection start server results:\n${JSON.stringify(startServerResult, null, 2)}\n`);
-    const { exitCode } = startServerResult;
-    if (exitCode !== 0 && exitCode !== HACK_SERVER_ALREADY_EXISTS_EXIT_CODE) {
-      throw new Error(`Hack server start failed with code: ${String(exitCode)}`);
+    try {
+      yield (0, (_process || _load_process()).runCommand)(command, ['start', configDir], {
+        isExitError: function ({ exitCode }) {
+          return !(exitCode === 0 || exitCode === HACK_SERVER_ALREADY_EXISTS_EXIT_CODE);
+        }
+      }).toPromise();
+    } catch (err) {
+      if (err.exitCode != null) {
+        throw new Error(`Hack server start failed with code: ${String(err.exitCode)}`);
+      }
+      throw new Error(`Hack server failed with error: ${err.message}`);
     }
-    const createProcess = function () {
-      return (0, (_process || _load_process()).safeSpawn)(command, ['ide', configDir]);
-    };
-    const hackProcess = new HackProcess(fileCache, `HackProcess-${configDir}`, createProcess, configDir);
+    const processStream = (0, (_process || _load_process()).spawn)(command, ['ide', configDir]);
+    const hackProcess = new HackProcess(fileCache, `HackProcess-${configDir}`, processStream, configDir);
 
     // If the process exits unexpectedly, create a new one immediately.
     const startTime = Date.now();
-    hackProcess.observeExitCode().subscribe(function (message) {
-      if (message.exitCode === HACK_IDE_NEW_CLIENT_CONNECTED_EXIT_CODE) {
+    hackProcess.observeExitMessage().subscribe(function (message) {
+      // Dispose the process by removing it from the cache.
+      if (processes.has(fileCache)) {
+        processes.get(fileCache).delete(configDir);
+      }
+      if (message != null && message.exitCode === HACK_IDE_NEW_CLIENT_CONNECTED_EXIT_CODE) {
         (_hackConfig || _load_hackConfig()).logger.logInfo('Not reconnecting Hack process--another client connected');
         return;
       }
-      // This should always be true because the exit code sequence is terminated
-      // immediately after the HackProcess disposes itself, and it removes itself
-      // from the processes cache during disposal.
-
-      if (!(!processes.has(fileCache) || !processes.get(fileCache).has(configDir))) {
-        throw new Error('Attempt to reconnect Hack process when connection already exists');
-      }
       // If the process exited too quickly (possibly due to a crash), don't get
       // stuck in a loop creating and crashing it.
-
-
       const processUptimeMs = Date.now() - startTime;
       if (processUptimeMs < 1000) {
         (_hackConfig || _load_hackConfig()).logger.logError('Hack process exited in <1s; not reconnecting');
@@ -193,17 +192,20 @@ function _load_autocomplete() {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // From hphp/hack/src/utils/exit_status.ml
-const HACK_SERVER_ALREADY_EXISTS_EXIT_CODE = 77; /**
-                                                  * Copyright (c) 2015-present, Facebook, Inc.
-                                                  * All rights reserved.
-                                                  *
-                                                  * This source code is licensed under the license found in the LICENSE file in
-                                                  * the root directory of this source tree.
-                                                  *
-                                                  * 
-                                                  */
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ *
+ * 
+ * @format
+ */
 
+const HACK_SERVER_ALREADY_EXISTS_EXIT_CODE = 77;
 const HACK_IDE_NEW_CLIENT_CONNECTED_EXIT_CODE = 207;
+const MAX_HACK_AUTOCOMPLETE_ITEMS = 100;
 
 let serviceRegistry = null;
 
@@ -218,21 +220,20 @@ function logMessage(direction, message) {
   (_hackConfig || _load_hackConfig()).logger.logTrace(`Hack Connection message ${direction}: '${message}'`);
 }
 
-class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
+class HackProcess {
 
-  constructor(fileCache, name, createProcess, hhconfigPath) {
-    super(name, getServiceRegistry(), createProcess, logMessage);
+  constructor(fileCache, name, processStream, hhconfigPath) {
+    this._process = new (_nuclideRpc || _load_nuclideRpc()).RpcProcess(name, getServiceRegistry(), processStream, logMessage);
     this._fileCache = fileCache;
     this._fileVersionNotifier = new (_nuclideOpenFilesRpc || _load_nuclideOpenFilesRpc()).FileVersionNotifier();
     this._hhconfigPath = hhconfigPath;
 
-    const service = this.getConnectionService();
     this._fileSubscription = fileCache.observeFileEvents()
     // TODO: Filter on hhconfigPath
     .filter(fileEvent => {
       const fileExtension = (_nuclideUri || _load_nuclideUri()).default.extname(fileEvent.fileVersion.filePath);
       return (_hackConfig || _load_hackConfig()).HACK_FILE_EXTENSIONS.indexOf(fileExtension) !== -1;
-    }).subscribe(fileEvent => {
+    }).combineLatest(_rxjsBundlesRxMinJs.Observable.fromPromise(this.getConnectionService())).subscribe(([fileEvent, service]) => {
       const filePath = fileEvent.fileVersion.filePath;
       const version = fileEvent.fileVersion.version;
       switch (fileEvent.kind) {
@@ -261,11 +262,15 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
   }
 
   getConnectionService() {
-    if (!!this.isDisposed()) {
+    if (!!this._process.isDisposed()) {
       throw new Error('getService called on disposed hackProcess');
     }
 
-    return this.getService('HackConnectionService');
+    return this._process.getService('HackConnectionService');
+  }
+
+  observeExitMessage() {
+    return this._process.observeExitMessage();
   }
 
   getBufferAtVersion(fileVersion) {
@@ -289,7 +294,7 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
       (_hackConfig || _load_hackConfig()).logger.log(`Attempting Hack Autocomplete: ${filePath}, ${position.toString()}`);
       const buffer = yield _this2.getBufferAtVersion(fileVersion);
       if (buffer == null) {
-        return [];
+        return { isIncomplete: false, items: [] };
       }
       const contents = buffer.getText();
       const offset = buffer.characterIndexForPosition(position);
@@ -304,32 +309,40 @@ class HackProcess extends (_nuclideRpc || _load_nuclideRpc()).RpcProcess {
       const service = _this2.getConnectionService();
 
       (_hackConfig || _load_hackConfig()).logger.log('Got Hack Service');
-      return (0, (_Completions || _load_Completions()).convertCompletions)(contents, offset, replacementPrefix, (
       // TODO: Include version number to ensure agreement on file version.
-      yield service.getCompletions(filePath, { line, column })));
+      const unfilteredItems = yield (yield service).getCompletions(filePath, { line, column });
+      if (unfilteredItems == null) {
+        return null;
+      }
+      const isIncomplete = unfilteredItems.length === MAX_HACK_AUTOCOMPLETE_ITEMS;
+
+      const items = (0, (_Completions || _load_Completions()).convertCompletions)(contents, offset, replacementPrefix, unfilteredItems);
+
+      return { isIncomplete, items };
     })();
   }
 
-  dispose() {
-    if (!this.isDisposed()) {
-      // Atempt to send disconnect message before shutting down connection
+  _disconnect() {
+    var _this3 = this;
+
+    return (0, _asyncToGenerator.default)(function* () {
+      // Attempt to send disconnect message before shutting down connection
       try {
         (_hackConfig || _load_hackConfig()).logger.log('Attempting to disconnect cleanly from HackProcess');
-        this.getConnectionService().disconnect();
+        (yield _this3.getConnectionService()).disconnect();
       } catch (e) {
         // Failing to send the shutdown is not fatal...
         // ... continue with shutdown.
         (_hackConfig || _load_hackConfig()).logger.logError('Hack Process died before disconnect() could be sent.');
       }
-      super.dispose();
-      this._fileVersionNotifier.dispose();
-      this._fileSubscription.unsubscribe();
-      if (processes.has(this._fileCache)) {
-        processes.get(this._fileCache).delete(this._hhconfigPath);
-      }
-    } else {
-      (_hackConfig || _load_hackConfig()).logger.logInfo(`HackProcess attempt to shut down already disposed ${this.getRoot()}.`);
-    }
+    })();
+  }
+
+  dispose() {
+    this._disconnect();
+    this._process.dispose();
+    this._fileVersionNotifier.dispose();
+    this._fileSubscription.unsubscribe();
   }
 }
 
@@ -377,7 +390,7 @@ function editToHackEdit(editEvent) {
 
 function observeConnections(fileCache) {
   (_hackConfig || _load_hackConfig()).logger.logInfo('observing connections');
-  return processes.get(fileCache).observeValues().switchMap(process => _rxjsBundlesRxMinJs.Observable.fromPromise(process)).filter(process => process != null).map(process => {
+  return processes.get(fileCache).observeValues().switchMap(process => process).filter(process => process != null).switchMap(process => {
     if (!(process != null)) {
       throw new Error('Invariant violation: "process != null"');
     }

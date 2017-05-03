@@ -1,72 +1,68 @@
-'use babel';
+/* @flow */
 
-import { SelectListView } from 'atom-space-pen-views';
-import _ from 'lodash';
+import SelectListView from "atom-select-list";
+import _ from "lodash";
 
-import { log } from './utils';
+import { log } from "./utils";
 
-// View to display a list of grammars to apply to the current editor.
-export default class SignalListView extends SelectListView {
-  initialize(getKernelSpecs) {
-    this.getKernelSpecs = getKernelSpecs;
-    super.initialize(...arguments);
-
+export default class KernelPicker {
+  kernelSpecs: Array<Kernelspec>;
+  onConfirmed: ?(kernelSpecs: Kernelspec) => void;
+  selectListView: SelectListView;
+  panel: ?atom$Panel;
+  previouslyFocusedElement: ?HTMLElement;
+  constructor(kernelSpecs: Array<Kernelspec>) {
+    this.kernelSpecs = kernelSpecs;
     this.onConfirmed = null;
-    this.list.addClass('mark-active');
-  }
 
-
-  getFilterKey() {
-    return 'name';
+    this.selectListView = new SelectListView({
+      itemsClassList: ["mark-active"],
+      items: [],
+      filterKeyForItem: item => item.display_name,
+      elementForItem: item => {
+        const element = document.createElement("li");
+        element.textContent = item.display_name;
+        return element;
+      },
+      didConfirmSelection: item => {
+        log("Selected kernel:", item);
+        if (this.onConfirmed) this.onConfirmed(item);
+        this.cancel();
+      },
+      didCancelSelection: () => this.cancel(),
+      emptyMessage: "No kernels found"
+    });
   }
 
   destroy() {
     this.cancel();
+    return this.selectListView.destroy();
   }
 
-  viewForItem(item) {
-    const element = document.createElement('li');
-    element.textContent = item.name;
-    return element;
-  }
-
-  cancelled() {
-    if (this.panel) this.panel.destroy();
+  cancel() {
+    if (this.panel != null) {
+      this.panel.destroy();
+    }
     this.panel = null;
-    this.editor = null;
-  }
-
-  confirmed(item) {
-    log('Selected command:', item);
-    if (this.onConfirmed) this.onConfirmed(item);
-    this.cancel();
+    if (this.previouslyFocusedElement) {
+      this.previouslyFocusedElement.focus();
+      this.previouslyFocusedElement = null;
+    }
   }
 
   attach() {
-    this.storeFocusedElement();
-    if (!this.panel) { this.panel = atom.workspace.addModalPanel({ item: this }); }
-    this.focusFilterEditor();
-
-    this.getKernelSpecs((kernelSpec) => {
-      this.languageOptions = _.map(kernelSpec, spec =>
-        ({
-          name: spec.display_name,
-          kernelSpec: spec,
-        }));
-
-      this.setItems(this.languageOptions);
-    });
+    this.previouslyFocusedElement = document.activeElement;
+    if (this.panel == null)
+      this.panel = atom.workspace.addModalPanel({ item: this.selectListView });
+    this.selectListView.focus();
+    this.selectListView.reset();
   }
 
-  getEmptyMessage() {
-    return 'No running kernels found.';
-  }
-
-  toggle() {
-    if (this.panel) {
+  async toggle() {
+    if (this.panel != null) {
       this.cancel();
-    } else if (atom.workspace.getActiveTextEditor()) {
-      this.editor = atom.workspace.getActiveTextEditor();
+    } else {
+      await this.selectListView.update({ items: this.kernelSpecs });
       this.attach();
     }
   }

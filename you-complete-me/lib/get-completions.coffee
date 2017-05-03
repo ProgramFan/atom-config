@@ -15,7 +15,7 @@ fetchCompletions = ({editor, filepath, contents, filetypes, bufferPosition, pref
   parameters = utility.buildRequestParameters filepath, contents, filetypes, bufferPosition
   parameters.force_semantic = forceSemantic
   handler.request('POST', 'completions', parameters).then (response) ->
-    completions = response?.completions or []
+    completions = if Array.isArray response?.completions then response.completions else []
     startColumn = (response?.completion_start_column or (bufferPosition.column + 1)) - 1
     prefix = editor.getTextInBufferRange [[bufferPosition.row, startColumn], bufferPosition]
     return {completions, prefix, filetypes}
@@ -23,21 +23,22 @@ fetchCompletions = ({editor, filepath, contents, filetypes, bufferPosition, pref
 convertCompletions = ({completions, prefix, filetypes}) ->
   converter = (filetype) ->
     general = (completion) ->
-      suggestion =
-        text: completion.insertion_text
-        replacementPrefix: prefix
-        displayText: completion.menu_text
-        leftLabel: completion.extra_menu_info
-        rightLabel: completion.kind
-        description: completion.detailed_info
-      suggestion.type = switch completion.kind
+      text: completion.insertion_text
+      replacementPrefix: prefix
+      displayText: completion.menu_text
+      type: switch completion.extra_menu_info
         when '[File]', '[Dir]', '[File&Dir]' then 'import'
-        else null
-      return suggestion
+        else 'identifier'
+      leftLabel: switch completion.extra_menu_info
+        when '[File]', '[Dir]', '[File&Dir]' then ''
+        when '[ID]' then ''
+        else completion.extra_menu_info
+      rightLabel: completion.kind
+      description: completion.detailed_info
 
     clang = (completion) ->
-      suggestion = general completion
-      suggestion.type = switch completion.kind
+      result = general completion
+      result.type = switch completion.kind
         when 'TYPE', 'STRUCT', 'ENUM' then 'type'
         when 'CLASS' then 'class'
         when 'MEMBER' then 'property'
@@ -45,9 +46,8 @@ convertCompletions = ({completions, prefix, filetypes}) ->
         when 'VARIABLE', 'PARAMETER' then 'variable'
         when 'MACRO' then 'constant'
         when 'NAMESPACE' then 'keyword'
-        when 'UNKNOWN' then 'value'
-        else suggestion.type
-      return suggestion
+        else result.type
+      return result
 
     switch filetype
       when 'c', 'cpp', 'objc', 'objcpp' then clang

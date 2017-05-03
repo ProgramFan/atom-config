@@ -16,10 +16,10 @@ function _load_registerGrammar() {
 
 var _atom = require('atom');
 
-var _vcs;
+var _nuclideVcsBase;
 
-function _load_vcs() {
-  return _vcs = require('../../commons-atom/vcs');
+function _load_nuclideVcsBase() {
+  return _nuclideVcsBase = require('../../nuclide-vcs-base');
 }
 
 var _HgRepositoryProvider;
@@ -38,6 +38,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const HG_ADD_TREE_CONTEXT_MENU_PRIORITY = 400;
@@ -69,7 +70,7 @@ function getActivePathAndHgRepository() {
     return null;
   }
   const filePath = editor.getPath() || '';
-  const repository = (0, (_vcs || _load_vcs()).repositoryForPath)(filePath);
+  const repository = (0, (_nuclideVcsBase || _load_nuclideVcsBase()).repositoryForPath)(filePath);
   if (repository == null || repository.getType() !== 'hg') {
     return null;
   }
@@ -102,18 +103,18 @@ function activate(state) {
   subscriptions = new _atom.CompositeDisposable();
 
   subscriptions.add(atom.commands.add('atom-text-editor', 'nuclide-hg-repository:revert', event => {
-    const editorElement = event.target;
-    (0, (_vcs || _load_vcs()).revertPath)(editorElement.getModel().getPath());
+    const editorElement = event.currentTarget;
+    (0, (_nuclideVcsBase || _load_nuclideVcsBase()).revertPath)(editorElement.getModel().getPath());
   }));
 
   subscriptions.add(atom.commands.add('atom-text-editor', 'nuclide-hg-repository:confirm-and-revert', event => {
-    const editorElement = event.target;
-    (0, (_vcs || _load_vcs()).confirmAndRevertPath)(editorElement.getModel().getPath());
+    const editorElement = event.currentTarget;
+    (0, (_nuclideVcsBase || _load_nuclideVcsBase()).confirmAndRevertPath)(editorElement.getModel().getPath());
   }));
 
   subscriptions.add(atom.commands.add('atom-text-editor', 'nuclide-hg-repository:add', event => {
-    const editorElement = event.target;
-    (0, (_vcs || _load_vcs()).addPath)(editorElement.getModel().getPath());
+    const editorElement = event.currentTarget;
+    (0, (_nuclideVcsBase || _load_nuclideVcsBase()).addPath)(editorElement.getModel().getPath());
   }));
 
   // Text editor context menu items.
@@ -152,7 +153,7 @@ function addItemsToFileTreeContextMenu(contextMenu) {
     callback() {
       // TODO(most): support reverting multiple nodes at once.
       const revertNode = contextMenu.getSingleSelectedNode();
-      (0, (_vcs || _load_vcs()).confirmAndRevertPath)(revertNode == null ? null : revertNode.uri);
+      (0, (_nuclideVcsBase || _load_nuclideVcsBase()).confirmAndRevertPath)(revertNode == null ? null : revertNode.uri);
     },
     shouldDisplay() {
       return shouldDisplayActionTreeItem(contextMenu, 'Revert');
@@ -165,7 +166,7 @@ function addItemsToFileTreeContextMenu(contextMenu) {
     callback() {
       // TODO(most): support adding multiple nodes at once.
       const addNode = contextMenu.getSingleSelectedNode();
-      (0, (_vcs || _load_vcs()).addPath)(addNode == null ? null : addNode.uri);
+      (0, (_nuclideVcsBase || _load_nuclideVcsBase()).addPath)(addNode == null ? null : addNode.uri);
     },
     shouldDisplay() {
       return shouldDisplayActionTreeItem(contextMenu, 'Add');

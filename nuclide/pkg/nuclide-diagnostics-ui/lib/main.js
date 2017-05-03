@@ -1,7 +1,5 @@
 'use strict';
 
-var _atom = require('atom');
-
 var _nuclideAnalytics;
 
 function _load_nuclideAnalytics() {
@@ -74,6 +72,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const LINTER_PACKAGE = 'linter';
@@ -100,33 +99,22 @@ class Activation {
 
     // Currently, the DiagnosticsPanel is designed to work with only one DiagnosticUpdater.
     if (this._diagnosticUpdaters.getValue() != null) {
-      return;
+      return new (_UniversalDisposable || _load_UniversalDisposable()).default();
     }
     this._diagnosticUpdaters.next(diagnosticUpdater);
-    this._subscriptions.add(addAtomCommands(diagnosticUpdater), () => {
-      if (this._diagnosticUpdaters.getValue() === diagnosticUpdater) {
-        this._diagnosticUpdaters.next(null);
+    const atomCommandsDisposable = addAtomCommands(diagnosticUpdater);
+    this._subscriptions.add(atomCommandsDisposable);
+    return new (_UniversalDisposable || _load_UniversalDisposable()).default(atomCommandsDisposable, () => {
+      if (!(this._diagnosticUpdaters.getValue() === diagnosticUpdater)) {
+        throw new Error('Invariant violation: "this._diagnosticUpdaters.getValue() === diagnosticUpdater"');
       }
+
+      this._diagnosticUpdaters.next(null);
     });
   }
 
   consumeStatusBar(statusBar) {
     this._getStatusBarTile().consumeStatusBar(statusBar);
-  }
-
-  consumeToolBar(getToolBar) {
-    const toolBar = getToolBar('nuclide-diagnostics-ui');
-    toolBar.addButton({
-      icon: 'law',
-      callback: 'nuclide-diagnostics-ui:toggle-table',
-      tooltip: 'Toggle Diagnostics Table',
-      priority: 100
-    });
-    const disposable = new _atom.Disposable(() => {
-      toolBar.removeItems();
-    });
-    this._subscriptions.add(disposable);
-    return disposable;
   }
 
   deserializeDiagnosticsPanelModel() {
@@ -143,20 +131,6 @@ class Activation {
 
   serialize() {
     return this._state;
-  }
-
-  getHomeFragments() {
-    return {
-      feature: {
-        title: 'Diagnostics',
-        icon: 'law',
-        description: 'Displays diagnostics, errors, and lint warnings for your files and projects.',
-        command: () => {
-          atom.commands.dispatch(atom.views.getView(atom.workspace), 'nuclide-diagnostics-ui:toggle-table', { visible: true });
-        }
-      },
-      priority: 4
-    };
   }
 
   _createDiagnosticsPanelModel() {

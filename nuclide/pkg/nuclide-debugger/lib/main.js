@@ -18,6 +18,12 @@ exports.consumeRegisterNuxService = consumeRegisterNuxService;
 exports.consumeTriggerNuxService = consumeTriggerNuxService;
 exports.consumeWorkspaceViewsService = consumeWorkspaceViewsService;
 
+var _constants;
+
+function _load_constants() {
+  return _constants = require('./constants');
+}
+
 var _UniversalDisposable;
 
 function _load_UniversalDisposable() {
@@ -96,6 +102,12 @@ function _load_nuclideDebuggerBase() {
   return _nuclideDebuggerBase = require('../../nuclide-debugger-base');
 }
 
+var _DebuggerStore;
+
+function _load_DebuggerStore() {
+  return _DebuggerStore = require('./DebuggerStore');
+}
+
 var _NewDebuggerView;
 
 function _load_NewDebuggerView() {
@@ -114,6 +126,14 @@ function _load_range() {
   return _range = require('../../commons-atom/range');
 }
 
+var _os = _interopRequireDefault(require('os'));
+
+var _nullthrows;
+
+function _load_nullthrows() {
+  return _nullthrows = _interopRequireDefault(require('nullthrows'));
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -124,12 +144,54 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const DATATIP_PACKAGE_NAME = 'nuclide-debugger-datatip';
 const NUX_NEW_DEBUGGER_UI_ID = 4377;
 const GK_NEW_DEBUGGER_UI_NUX = 'mp_nuclide_new_debugger_ui';
 const NUX_NEW_DEBUGGER_UI_NAME = 'nuclide_new_debugger_ui';
+const SCREEN_ROW_ATTRIBUTE_NAME = 'data-screen-row';
+
+function getGutterLineNumber(target) {
+  const eventLine = parseInt(target.dataset.line, 10);
+  if (eventLine != null && eventLine >= 0 && !isNaN(Number(eventLine))) {
+    return eventLine;
+  }
+}
+
+function getEditorLineNumber(editor, target) {
+  let node = target;
+  while (node != null) {
+    if (node.hasAttribute(SCREEN_ROW_ATTRIBUTE_NAME)) {
+      const screenRow = Number(node.getAttribute(SCREEN_ROW_ATTRIBUTE_NAME));
+      try {
+        return editor.bufferPositionForScreenPosition([screenRow, 0]).row;
+      } catch (error) {
+        return null;
+      }
+    }
+    node = node.parentElement;
+  }
+}
+
+function firstNonNull(...args) {
+  return (0, (_nullthrows || _load_nullthrows()).default)(args.find(arg => arg != null));
+}
+
+function getLineForEvent(editor, event) {
+  const cursorLine = editor.getLastCursor().getBufferRow();
+  const target = event ? event.target : null;
+  if (target == null) {
+    return cursorLine;
+  }
+  // toggleLine is the line the user clicked in the gutter next to, as opposed
+  // to the line the editor's cursor happens to be in. If this command was invoked
+  // from the menu, then the cursor position is the target line.
+  return firstNonNull(getGutterLineNumber(target), getEditorLineNumber(editor, target),
+  // fall back to the line the cursor is on.
+  cursorLine);
+}
 
 class DebuggerView extends _react.default.Component {
 
@@ -147,7 +209,7 @@ class DebuggerView extends _react.default.Component {
   }
 
   componentDidMount() {
-    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('debugger-ui-mounted', {
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_UI_MOUNTED, {
       frontend: this._getUiTypeForAnalytics()
     });
     // Wait for UI to initialize and "calm down"
@@ -160,7 +222,7 @@ class DebuggerView extends _react.default.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.showOldView !== this.state.showOldView) {
-      (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('debugger-ui-toggled', {
+      (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_UI_TOGGLED, {
         frontend: this._getUiTypeForAnalytics()
       });
     }
@@ -181,16 +243,17 @@ class DebuggerView extends _react.default.Component {
   }
 
   render() {
-    const {
-      model
-    } = this.props;
+    const { model } = this.props;
     const { showOldView } = this.state;
     return _react.default.createElement(
       'div',
       { className: 'nuclide-debugger-root' },
       _react.default.createElement(
         'div',
-        { className: (0, (_classnames || _load_classnames()).default)({ 'nuclide-debugger-container-old-enabled': showOldView }) },
+        {
+          className: (0, (_classnames || _load_classnames()).default)({
+            'nuclide-debugger-container-old-enabled': showOldView
+          }) },
         _react.default.createElement((_DebuggerControllerView || _load_DebuggerControllerView()).default, {
           store: model.getStore(),
           bridge: model.getBridge(),
@@ -236,7 +299,6 @@ class Activation {
         this._model.getActions().stopDebugging();
       }
     }),
-
     // Commands.
     atom.commands.add('atom-workspace', {
       'nuclide-debugger:toggle': this._toggleLaunchAttachDialog.bind(this)
@@ -253,6 +315,8 @@ class Activation {
     }), atom.commands.add('atom-workspace', {
       'nuclide-debugger:toggle-breakpoint': this._toggleBreakpoint.bind(this)
     }), atom.commands.add('atom-workspace', {
+      'nuclide-debugger:toggle-breakpoint-enabled': this._toggleBreakpointEnabled.bind(this)
+    }), atom.commands.add('atom-workspace', {
       'nuclide-debugger:toggle-launch-attach': this._toggleLaunchAttachDialog.bind(this)
     }), atom.commands.add('atom-workspace', {
       'nuclide-debugger:remove-all-breakpoints': this._deleteAllBreakpoints.bind(this)
@@ -264,8 +328,9 @@ class Activation {
       'nuclide-debugger:run-to-location': this._runToLocation.bind(this)
     }), atom.commands.add('.nuclide-debugger-root', {
       'nuclide-debugger:copy-debugger-expression-value': this._copyDebuggerExpressionValue.bind(this)
+    }), atom.commands.add('.nuclide-debugger-root', {
+      'nuclide-debugger:copy-debugger-callstack': this._copyDebuggerCallstack.bind(this)
     }),
-
     // Context Menu Items.
     atom.contextMenu.add({
       '.nuclide-debugger-breakpoint': [{
@@ -275,21 +340,45 @@ class Activation {
         label: 'Remove All Breakpoints',
         command: 'nuclide-debugger:remove-all-breakpoints'
       }],
-      '.nuclide-debugger-expression-value-list .list-item': [{
+      '.nuclide-debugger-callstack-table': [{
+        label: 'Copy Callstack',
+        command: 'nuclide-debugger:copy-debugger-callstack'
+      }],
+      '.nuclide-debugger-expression-value-list': [{
         label: 'Copy',
         command: 'nuclide-debugger:copy-debugger-expression-value'
       }],
       'atom-text-editor': [{ type: 'separator' }, {
         label: 'Debugger',
         submenu: [{
+          label: 'Run to Location',
+          command: 'nuclide-debugger:run-to-location',
+          shouldDisplay: event => {
+            // Should also check for is paused.
+            const store = this.getModel().getStore();
+            const debuggerInstance = store.getDebuggerInstance();
+            if (store.getDebuggerMode() === (_DebuggerStore || _load_DebuggerStore()).DebuggerMode.PAUSED && debuggerInstance != null && debuggerInstance.getDebuggerProcessInfo().supportContinueToLocation()) {
+              return true;
+            }
+            return false;
+          }
+        }, {
           label: 'Toggle Breakpoint',
           command: 'nuclide-debugger:toggle-breakpoint'
         }, {
-          label: 'Add to Watch',
-          command: 'nuclide-debugger:add-to-watch'
+          label: 'Toggle Breakpoint enabled/disabled',
+          command: 'nuclide-debugger:toggle-breakpoint-enabled',
+          shouldDisplay: event => this._executeWithEditorPath(event, (filePath, line) => this.getModel().getBreakpointStore().getBreakpointAtLine(filePath, line) != null) || false
         }, {
-          label: 'Run to Location',
-          command: 'nuclide-debugger:run-to-location'
+          label: 'Add to Watch',
+          command: 'nuclide-debugger:add-to-watch',
+          shouldDisplay: event => {
+            const textEditor = atom.workspace.getActiveTextEditor();
+            if (!this.getModel().getStore().isDebugging() || textEditor == null) {
+              return false;
+            }
+            return textEditor.getSelections().length === 1 && !textEditor.getSelectedBufferRange().isEmpty();
+          }
         }]
       }, { type: 'separator' }]
     }));
@@ -349,6 +438,7 @@ class Activation {
   _continue() {
     // TODO(jeffreytan): when we figured out the launch lifecycle story
     // we may bind this to start-debugging too.
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_STEP_CONTINUE);
     this._model.getBridge().continue();
   }
 
@@ -357,40 +447,52 @@ class Activation {
   }
 
   _stepOver() {
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_STEP_OVER);
     this._model.getBridge().stepOver();
   }
 
   _stepInto() {
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_STEP_INTO);
     this._model.getBridge().stepInto();
   }
 
   _stepOut() {
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_STEP_OUT);
     this._model.getBridge().stepOut();
   }
 
-  _toggleBreakpoint() {
-    return (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)('nuclide-debugger-atom:toggleBreakpoint', () => {
-      this._executeWithEditorPath((filePath, line) => {
-        this._model.getActions().toggleBreakpoint(filePath, line);
-      });
+  _toggleBreakpoint(event) {
+    return this._executeWithEditorPath(event, (filePath, line) => {
+      this._model.getActions().toggleBreakpoint(filePath, line);
     });
   }
 
-  _runToLocation() {
-    this._executeWithEditorPath((path, line) => {
+  _toggleBreakpointEnabled(event) {
+    this._executeWithEditorPath(event, (filePath, line) => {
+      const bp = this._model.getBreakpointStore().getBreakpointAtLine(filePath, line);
+
+      if (bp) {
+        const { id, enabled } = bp;
+        this._model.getActions().updateBreakpointEnabled(id, !enabled);
+      }
+    });
+  }
+
+  _runToLocation(event) {
+    this._executeWithEditorPath(event, (path, line) => {
+      (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_STEP_RUN_TO_LOCATION);
       this._model.getBridge().runToLocation(path, line);
     });
   }
 
-  _executeWithEditorPath(fn) {
+  _executeWithEditorPath(event, fn) {
     const editor = atom.workspace.getActiveTextEditor();
-    if (editor && editor.getPath()) {
-      const filePath = editor.getPath();
-      if (filePath) {
-        const line = editor.getLastCursor().getBufferRow();
-        fn(filePath, line);
-      }
+    if (!editor || !editor.getPath()) {
+      return null;
     }
+
+    const line = getLineForEvent(editor, event);
+    return fn((0, (_nullthrows || _load_nullthrows()).default)(editor.getPath()), line);
   }
 
   _deleteBreakpoint(event) {
@@ -416,6 +518,9 @@ class Activation {
     } else {
       dialog.show();
     }
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_TOGGLE_ATTACH_DIALOG, {
+      visible: dialog.isVisible()
+    });
     this._emitLaunchAttachVisibilityChangedEvent();
   }
 
@@ -424,6 +529,7 @@ class Activation {
     if (dialog.isVisible()) {
       dialog.hide();
     }
+    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)((_constants || _load_constants()).AnalyticsEvents.DEBUGGER_TOGGLE_ATTACH_DIALOG, { visible: false });
     this._emitLaunchAttachVisibilityChangedEvent();
   }
 
@@ -483,6 +589,20 @@ class Activation {
   _copyDebuggerExpressionValue(event) {
     const clickedElement = event.target;
     atom.clipboard.write(clickedElement.textContent);
+  }
+
+  _copyDebuggerCallstack(event) {
+    const callstackStore = this._model.getCallstackStore();
+    const callstack = callstackStore.getCallstack();
+    if (callstack) {
+      let callstackText = '';
+      callstack.forEach((item, i) => {
+        const path = (_nuclideUri || _load_nuclideUri()).default.basename(item.location.path.replace(/^[a-zA-Z]+:\/\//, ''));
+        callstackText += `${i}\t${item.name}\t${path}:${item.location.line}${_os.default.EOL}`;
+      });
+
+      atom.clipboard.write(callstackText.trim());
+    }
   }
 }
 
@@ -622,8 +742,7 @@ function provideRemoteControlService() {
 
 function consumeDatatipService(service) {
   const provider = createDatatipProvider();
-  service.addProvider(provider);
-  const disposable = new _atom.Disposable(() => service.removeProvider(provider));
+  const disposable = service.addProvider(provider);
 
   if (!activation) {
     throw new Error('Invariant violation: "activation"');

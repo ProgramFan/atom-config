@@ -103,6 +103,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const WORKSPACE_VIEW_URI = exports.WORKSPACE_VIEW_URI = 'atom://nuclide/debugger';
@@ -117,14 +118,15 @@ class DebuggerModel {
     this._emitter = new _events.default();
     this._store = new (_DebuggerStore || _load_DebuggerStore()).DebuggerStore(this._dispatcher, this);
     this._actions = new (_DebuggerActions || _load_DebuggerActions()).default(this._dispatcher, this._store);
-    this._breakpointStore = new (_BreakpointStore || _load_BreakpointStore()).default(this._dispatcher, state ? state.breakpoints : null);
+    this._breakpointStore = new (_BreakpointStore || _load_BreakpointStore()).default(this._dispatcher, state ? state.breakpoints : null, // serialized breakpoints
+    this._store);
     this._breakpointManager = new (_BreakpointManager || _load_BreakpointManager()).default(this._breakpointStore, this._actions);
     this._bridge = new (_Bridge || _load_Bridge()).default(this);
     this._debuggerProviderStore = new (_DebuggerProviderStore || _load_DebuggerProviderStore()).DebuggerProviderStore(this._dispatcher, this._actions);
     this._watchExpressionStore = new (_WatchExpressionStore || _load_WatchExpressionStore()).WatchExpressionStore(this._dispatcher, this._bridge);
     this._watchExpressionListStore = new (_WatchExpressionListStore || _load_WatchExpressionListStore()).WatchExpressionListStore(this._watchExpressionStore, this._dispatcher);
     this._debuggerActionStore = new (_DebuggerActionsStore || _load_DebuggerActionsStore()).default(this._dispatcher, this._bridge);
-    this._callstackStore = new (_CallstackStore || _load_CallstackStore()).default(this._dispatcher);
+    this._callstackStore = new (_CallstackStore || _load_CallstackStore()).default(this._dispatcher, this._store);
     this._scopesStore = new (_ScopesStore || _load_ScopesStore()).default(this._dispatcher);
     this._threadStore = new (_ThreadStore || _load_ThreadStore()).default(this._dispatcher);
     this._debuggerPauseController = new (_DebuggerPauseController || _load_DebuggerPauseController()).DebuggerPauseController(this._store);
@@ -190,14 +192,14 @@ class DebuggerModel {
   }
 
   getDefaultLocation() {
-    return 'right-panel';
+    return 'right';
   }
 
   getURI() {
     return WORKSPACE_VIEW_URI;
   }
 
-  getPreferredInitialWidth() {
+  getPreferredWidth() {
     return 500;
   }
 }

@@ -13,6 +13,7 @@ exports.compareMessagesByFile = compareMessagesByFile;
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 function fileOfDiagnosticMessage(diagnostic) {
@@ -24,7 +25,7 @@ function fileOfDiagnosticMessage(diagnostic) {
 }
 
 function getProjectRelativePathOfDiagnostic(diagnostic) {
-  if (diagnostic.filePath != null) {
+  if (typeof diagnostic.filePath === 'string') {
     const [, relativePath] = atom.project.relativizePath(diagnostic.filePath);
     return relativePath;
   } else {
@@ -59,7 +60,8 @@ function compareMessagesByFile(a, b) {
 
 const messageLevelRank = {
   Error: 0,
-  Warning: 1
+  Warning: 1,
+  Info: 2
 };
 
 function compareMessagesByLevel(a, b) {

@@ -38,10 +38,10 @@ function _load_utils() {
   return _utils = require('./utils');
 }
 
-var _vcs;
+var _nuclideVcsBase;
 
-function _load_vcs() {
-  return _vcs = require('../../commons-atom/vcs');
+function _load_nuclideVcsBase() {
+  return _nuclideVcsBase = require('../../nuclide-vcs-base');
 }
 
 var _nuclideLogging;
@@ -78,7 +78,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function createStateStream(actions, initialState) {
   const states = new _rxjsBundlesRxMinJs.BehaviorSubject(initialState);
-  actions.scan((_accumulateState || _load_accumulateState()).accumulateState, initialState).subscribe(states);
+  actions.scan((_accumulateState || _load_accumulateState()).accumulateState, initialState).catch(error => {
+    (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().fatal('bookshelf middleware got broken', error);
+    atom.notifications.addError('Nuclide bookshelf broke, please report a bug to help us fix it!');
+    return _rxjsBundlesRxMinJs.Observable.empty();
+  }).subscribe(states);
   return states;
 } /**
    * Copyright (c) 2015-present, Facebook, Inc.
@@ -88,6 +92,7 @@ function createStateStream(actions, initialState) {
    * the root directory of this source tree.
    *
    * 
+   * @format
    */
 
 class Activation {
@@ -109,7 +114,7 @@ class Activation {
     };
     const commands = new (_Commands || _load_Commands()).Commands(dispatch, () => states.getValue());
 
-    const addedRepoSubscription = (0, (_vcs || _load_vcs()).getHgRepositoryStream)().subscribe(repository => {
+    const addedRepoSubscription = (0, (_nuclideVcsBase || _load_nuclideVcsBase()).getHgRepositoryStream)().subscribe(repository => {
       // $FlowFixMe wrong repository type
       commands.addProjectRepository(repository);
     });

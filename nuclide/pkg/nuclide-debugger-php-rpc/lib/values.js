@@ -58,13 +58,14 @@ function convertValue(contextId, dbgpProperty) {
    * the root directory of this source tree.
    *
    * 
+   * @format
    */
 
 function convertStringValue(dbgpProperty) {
   let value;
   if (dbgpProperty.hasOwnProperty('_')) {
-    // $FlowFixMe(peterhal)
-    value = dbgpProperty.$.encoding === 'base64' ? (0, (_helpers || _load_helpers()).base64Decode)(dbgpProperty._) : `TODO: Non-base64 encoded string: ${JSON.stringify(dbgpProperty)}`;
+    value = dbgpProperty.$.encoding === 'base64' ? // $FlowFixMe(peterhal)
+    (0, (_helpers || _load_helpers()).base64Decode)(dbgpProperty._) : `TODO: Non-base64 encoded string: ${JSON.stringify(dbgpProperty)}`;
   } else {
     // zero length strings have no dbgpProperty._ property
     value = '';
@@ -135,7 +136,7 @@ function convertArrayValue(contextId, dbgpProperty) {
 
 function convertObjectValue(contextId, dbgpProperty) {
   const remoteId = getAggregateRemoteObjectId(contextId, dbgpProperty);
-  let description = dbgpProperty.$.classname;
+  let description = getObjectDescription(dbgpProperty);
   if (dbgpProperty.$.recursive != null) {
     description = '* Recursive *';
   }
@@ -144,6 +145,21 @@ function convertObjectValue(contextId, dbgpProperty) {
     type: 'object',
     objectId: remoteId
   };
+}
+
+function getObjectDescription(dbgpProperty) {
+  const { classname, numchildren } = dbgpProperty.$;
+  switch (classname) {
+    case 'HH\\Map':
+    case 'HH\\ImmMap':
+    case 'HH\\Vector':
+    case 'HH\\ImmVector':
+    case 'HH\\Set':
+    case 'HH\\ImmSet':
+      return `${classname}[${numchildren || 0}]`;
+    default:
+      return classname;
+  }
 }
 
 function getAggregateRemoteObjectId(contextId, dbgpProperty) {

@@ -83,3 +83,9 @@ to `resources/nuclicons` and rerun the script.
 .icon-nuclicon-jest-outline::before {
   content: "\f110";
 }
+.icon-nuclicon-biggrep::before {
+  content: "\f111";
+}
+.icon-nuclicon-flow::before {
+  content: "\f112";
+}

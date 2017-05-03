@@ -8,8 +8,8 @@ exports.callHHClient = undefined;
 var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
 
 /**
- * Executes hh_client with proper arguments returning the result string or json object.
- */
+  * Executes hh_client with proper arguments returning the result string or json object.
+  */
 let callHHClient = exports.callHHClient = (() => {
   var _ref = (0, _asyncToGenerator.default)(function* (args, errorStream, processInput, filePath) {
     if (!hhPromiseQueue) {
@@ -38,7 +38,17 @@ let callHHClient = exports.callHHClient = (() => {
 
         (_hackConfig || _load_hackConfig()).logger.log(`Calling Hack: ${hackCommand} with ${allArgs.toString()}`);
         execResult = yield (0, (_nuclideAnalytics || _load_nuclideAnalytics()).trackTiming)(trackingIdOfHackArgs(args), function () {
-          return (0, (_process || _load_process()).asyncExecute)(hackCommand, allArgs, { stdin: processInput });
+          // TODO: Can't we do a better job with error handling here?
+          try {
+            return (0, (_process || _load_process()).runCommandDetailed)(hackCommand, allArgs, {
+              input: processInput,
+              isExitError: function () {
+                return false;
+              }
+            }).toPromise();
+          } catch (err) {
+            return { stdout: '', stderr: '' };
+          }
         });
 
         const { stdout, stderr } = execResult;
@@ -79,7 +89,9 @@ stdout: ${stdout}, stderr: ${stderr}`;
 })();
 
 exports.hackRangeToAtomRange = hackRangeToAtomRange;
+exports.hackSpanToAtomRange = hackSpanToAtomRange;
 exports.atomPointOfHackRangeStart = atomPointOfHackRangeStart;
+exports.atomPointFromHack = atomPointFromHack;
 
 var _process;
 
@@ -121,17 +133,30 @@ const HH_SERVER_INIT_MESSAGE = 'hh_server still initializing'; /**
                                                                 * the root directory of this source tree.
                                                                 *
                                                                 * 
+                                                                * @format
                                                                 */
 
 const HH_SERVER_BUSY_MESSAGE = 'hh_server is busy';
 
 
 let hhPromiseQueue = null;function hackRangeToAtomRange(position) {
-  return new (_simpleTextBuffer || _load_simpleTextBuffer()).Range(atomPointOfHackRangeStart(position), new (_simpleTextBuffer || _load_simpleTextBuffer()).Point(position.line - 1, position.char_end));
+  return new (_simpleTextBuffer || _load_simpleTextBuffer()).Range(atomPointOfHackRangeStart(position),
+  // Atom ranges exclude the endpoint.
+  atomPointFromHack(position.line, position.char_end + 1));
+}
+
+function hackSpanToAtomRange(span) {
+  return new (_simpleTextBuffer || _load_simpleTextBuffer()).Range(atomPointFromHack(span.line_start, span.char_start),
+  // Atom ranges exclude the endpoint.
+  atomPointFromHack(span.line_end, span.char_end + 1));
 }
 
 function atomPointOfHackRangeStart(position) {
-  return new (_simpleTextBuffer || _load_simpleTextBuffer()).Point(position.line - 1, position.char_start - 1);
+  return atomPointFromHack(position.line, position.char_start);
+}
+
+function atomPointFromHack(hackLine, hackColumn) {
+  return new (_simpleTextBuffer || _load_simpleTextBuffer()).Point(hackLine - 1, hackColumn - 1);
 }
 
 function trackingIdOfHackArgs(args) {

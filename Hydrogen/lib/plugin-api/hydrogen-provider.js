@@ -1,7 +1,6 @@
-'use babel';
+"use babel";
 
-import store from './../store';
-import { grammarToLanguage } from './../utils';
+import store from "./../store";
 /**
  * @version 1.0.0
  *
@@ -27,7 +26,7 @@ export default class HydrogenProvider {
    * @param {Function} Callback
    */
   onDidChangeKernel(callback) {
-    this._hydrogen.emitter.on('did-change-kernel', (kernel) => {
+    this._hydrogen.emitter.on("did-change-kernel", kernel => {
       if (kernel) {
         return callback(kernel.getPluginWrapper());
       }
@@ -42,8 +41,9 @@ export default class HydrogenProvider {
   getActiveKernel() {
     if (!store.kernel) {
       const grammar = store.editor.getGrammar();
-      const language = grammarToLanguage(grammar);
-      throw new Error(`No running kernel for language \`${language}\` found`);
+      throw new Error(
+        `No running kernel for grammar \`${grammar.name}\` found`
+      );
     }
 
     return store.kernel.getPluginWrapper();

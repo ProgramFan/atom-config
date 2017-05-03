@@ -70,7 +70,7 @@ let executeRefactoring = (() => {
     // appropriate message.
 
 
-    (0, (_nuclideTextedit || _load_nuclideTextedit()).default)(path, ...fileEdits);
+    (0, (_nuclideTextedit || _load_nuclideTextedit()).applyTextEdits)(path, ...fileEdits);
     (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('nuclide-refactorizer:success');
     return (_refactorActions || _load_refactorActions()).close();
   });
@@ -99,7 +99,7 @@ function _load_nuclideLogging() {
 var _nuclideTextedit;
 
 function _load_nuclideTextedit() {
-  return _nuclideTextedit = _interopRequireDefault(require('../../nuclide-textedit'));
+  return _nuclideTextedit = require('../../nuclide-textedit');
 }
 
 var _refactorActions;
@@ -135,7 +135,10 @@ function getEpics(providers) {
       const { source, error } = action.payload;
       const sourceName = source === 'got-refactorings' ? 'getting refactors' : 'executing refactor';
       (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)().error(`Error ${sourceName}:`, error);
-      atom.notifications.addError(`Error ${sourceName}`, { detail: error.stack, dismissable: true });
+      atom.notifications.addError(`Error ${sourceName}`, {
+        detail: error.stack,
+        dismissable: true
+      });
       return (_refactorActions || _load_refactorActions()).close();
     });
   }];
@@ -147,4 +150,5 @@ function getEpics(providers) {
    * the root directory of this source tree.
    *
    * 
+   * @format
    */

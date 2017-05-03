@@ -31,6 +31,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
@@ -66,6 +67,7 @@ class QueuedTransport {
     this._messageQueue = [];
     this._messages = new _rxjsBundlesRxMinJs.Subject();
     this._emitter = new (_eventKit || _load_eventKit()).Emitter();
+    this._lastStateChangeTime = Date.now();
 
     if (transport != null) {
       this._connect(transport);
@@ -74,6 +76,10 @@ class QueuedTransport {
 
   getState() {
     return this._isClosed ? 'closed' : this._transport == null ? 'disconnected' : 'open';
+  }
+
+  getLastStateChangeTime() {
+    return this._lastStateChangeTime;
   }
 
   _connect(transport) {
@@ -88,6 +94,7 @@ class QueuedTransport {
     }
 
     this._transport = transport;
+    this._lastStateChangeTime = Date.now();
     transport.onMessage().subscribe(message => this._messages.next(message));
     transport.onClose(() => this._onClose(transport));
   }
@@ -108,6 +115,7 @@ class QueuedTransport {
     }
 
     this._transport = null;
+    this._lastStateChangeTime = Date.now();
     this._emitter.emit('disconnect', transport);
   }
 
@@ -196,6 +204,7 @@ class QueuedTransport {
     this._disconnect();
     if (!this._isClosed) {
       this._isClosed = true;
+      this._lastStateChangeTime = Date.now();
     }
   }
 

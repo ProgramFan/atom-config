@@ -62,7 +62,7 @@ class ServerLanguageService {
       const filePath = fileVersion.filePath;
       const buffer = yield (0, (_nuclideOpenFilesRpc || _load_nuclideOpenFilesRpc()).getBufferAtVersion)(fileVersion);
       if (buffer == null) {
-        return [];
+        return { isIncomplete: false, items: [] };
       }
       return _this2._service.getAutocompleteSuggestions(filePath, buffer, position, activatedManually, prefix);
     })();
@@ -180,6 +180,17 @@ class ServerLanguageService {
     })();
   }
 
+  supportsSymbolSearch(directories) {
+    return Promise.resolve(false);
+    // A single-file language service by definition cannot offer
+    // "project-wide symbol search". If you want your language to offer
+    // symbols, you'll have to implement LanguageService directly.
+  }
+
+  symbolSearch(query, directories) {
+    return Promise.resolve(null);
+  }
+
   getProjectRoot(fileUri) {
     return this._service.getProjectRoot(fileUri);
   }
@@ -206,6 +217,7 @@ exports.ServerLanguageService = ServerLanguageService; // Assert that ServerLang
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 null;

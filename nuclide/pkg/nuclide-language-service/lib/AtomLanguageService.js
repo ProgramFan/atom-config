@@ -186,6 +186,10 @@ class AtomLanguageService {
     })();
   }
 
+  getCachedLanguageServices() {
+    return this._connectionToLanguageService.values();
+  }
+
   observeLanguageServices() {
     return this._connectionToLanguageService.observeValues().switchMap(languageService => {
       return _rxjsBundlesRxMinJs.Observable.fromPromise(languageService);
@@ -206,4 +210,5 @@ exports.AtomLanguageService = AtomLanguageService;
  * the root directory of this source tree.
  *
  * 
+ * @format
  */

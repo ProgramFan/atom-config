@@ -21,6 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const ActionTypes = exports.ActionTypes = Object.freeze({
@@ -32,6 +33,7 @@ const ActionTypes = exports.ActionTypes = Object.freeze({
   EXPAND_NODE_DEEP: 'EXPAND_NODE_DEEP',
   SET_CWD: 'SET_CWD',
   SET_HIDE_IGNORED_NAMES: 'SET_HIDE_IGNORED_NAMES',
+  SET_IS_CALCULATING_CHANGES: 'SET_IS_CALCULATING_CHANGES',
   SET_IGNORED_NAMES: 'SET_IGNORED_NAMES',
   SET_ROOT_KEYS: 'SET_ROOT_KEYS',
   SET_TRACKED_NODE: 'SET_TRACKED_NODE',

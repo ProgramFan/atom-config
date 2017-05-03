@@ -11,6 +11,8 @@ Object.defineProperty(exports, "__esModule", {
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
+const CLIENTINFO_CHANNEL = exports.CLIENTINFO_CHANNEL = 'clientinfo';
 const HEARTBEAT_CHANNEL = exports.HEARTBEAT_CHANNEL = 'heartbeat';

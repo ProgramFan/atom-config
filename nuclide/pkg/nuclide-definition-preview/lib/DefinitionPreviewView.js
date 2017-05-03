@@ -27,10 +27,10 @@ function _load_goToLocation() {
   return _goToLocation = require('../../commons-atom/go-to-location');
 }
 
-var _textBuffer;
+var _nuclideRemoteConnection;
 
-function _load_textBuffer() {
-  return _textBuffer = require('../../commons-atom/text-buffer');
+function _load_nuclideRemoteConnection() {
+  return _nuclideRemoteConnection = require('../../nuclide-remote-connection');
 }
 
 var _AtomTextEditor;
@@ -69,6 +69,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const MINIMUM_EDITOR_HEIGHT = 10;
@@ -78,7 +79,7 @@ class DefinitionPreviewView extends _react.default.Component {
 
   constructor(props) {
     super(props);
-    const buffer = props.definition != null ? (0, (_textBuffer || _load_textBuffer()).bufferForUri)(props.definition.path) : new _atom.TextBuffer();
+    const buffer = props.definition != null ? (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).bufferForUri)(props.definition.path) : new _atom.TextBuffer();
     const heightSetting = (_featureConfig || _load_featureConfig()).default.get('nuclide-definition-preview.editorHeight');
     let height = 50;
     if (heightSetting != null) {
@@ -106,7 +107,10 @@ class DefinitionPreviewView extends _react.default.Component {
       // the correct path if the new definition prop has a different path than the
       // currently loaded buffer.
       if (definition.path !== this.state.buffer.getPath()) {
-        this.setState({ buffer: (0, (_textBuffer || _load_textBuffer()).bufferForUri)(definition.path), oldBuffer: this.state.buffer });
+        this.setState({
+          buffer: (0, (_nuclideRemoteConnection || _load_nuclideRemoteConnection()).bufferForUri)(definition.path),
+          oldBuffer: this.state.buffer
+        });
       }
     } else {
       // A null definition has no associated file path, so make a new TextBuffer()
@@ -185,7 +189,8 @@ class DefinitionPreviewView extends _react.default.Component {
       { className: 'pane-item nuclide-definition-preview' },
       _react.default.createElement(
         'div',
-        { className: 'nuclide-definition-preview-editor',
+        {
+          className: 'nuclide-definition-preview-editor',
           style: { height: `${this.state.editorHeight}em` } },
         _react.default.createElement((_AtomTextEditor || _load_AtomTextEditor()).AtomTextEditor, {
           ref: 'editor',
@@ -261,14 +266,17 @@ const ButtonContainer = props => {
         ),
         _react.default.createElement(
           (_Button || _load_Button()).Button,
-          { onClick: props._decreaseEditorHeight,
+          {
+            onClick: props._decreaseEditorHeight,
             size: (_Button || _load_Button()).ButtonSizes.SMALL,
             disabled: props.atMinHeight },
           '-'
         ),
         _react.default.createElement(
           (_Button || _load_Button()).Button,
-          { onClick: props._increaseEditorHeight, size: (_Button || _load_Button()).ButtonSizes.SMALL },
+          {
+            onClick: props._increaseEditorHeight,
+            size: (_Button || _load_Button()).ButtonSizes.SMALL },
           '+'
         )
       ),
@@ -277,7 +285,9 @@ const ButtonContainer = props => {
         { className: 'nuclide-definition-preview-buttons-right' },
         _react.default.createElement(
           (_Button || _load_Button()).Button,
-          { onClick: props._openCurrentDefinitionInMainEditor, size: (_Button || _load_Button()).ButtonSizes.SMALL },
+          {
+            onClick: props._openCurrentDefinitionInMainEditor,
+            size: (_Button || _load_Button()).ButtonSizes.SMALL },
           'Open in main editor'
         )
       )

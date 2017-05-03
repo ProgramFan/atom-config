@@ -1,4 +1,4 @@
-'use babel';
+"use babel";
 
 /*
  * The `HydrogenKernel` class wraps Hydrogen's internal representation of kernels
@@ -16,7 +16,9 @@ export default class HydrogenKernel {
     // Internal: plugins might hold references to long-destroyed kernels, so
     // all API calls should guard against this case
     if (this.destroyed) {
-      throw new Error('HydrogenKernel: operation not allowed because the kernel has been destroyed');
+      throw new Error(
+        "HydrogenKernel: operation not allowed because the kernel has been destroyed"
+      );
     }
   }
 
@@ -26,7 +28,7 @@ export default class HydrogenKernel {
    */
   onDidDestroy(callback) {
     this._assertNotDestroyed();
-    this._kernel.emitter.on('did-destroy', callback);
+    this._kernel.emitter.on("did-destroy", callback);
   }
 
   /*
@@ -37,7 +39,9 @@ export default class HydrogenKernel {
     this._assertNotDestroyed();
     const { connectionFile } = this._kernel;
     if (!connectionFile) {
-      throw new Error(`No connection file for ${this._kernel.kernelSpec.display_name} kernel found`);
+      throw new Error(
+        `No connection file for ${this._kernel.kernelSpec.display_name} kernel found`
+      );
     }
 
     return connectionFile;

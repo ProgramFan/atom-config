@@ -30,24 +30,25 @@ function _load_nuclideMarshalersCommon() {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
+const PYTHON_EXECUTABLE = 'python'; /**
+                                     * Copyright (c) 2015-present, Facebook, Inc.
+                                     * All rights reserved.
+                                     *
+                                     * This source code is licensed under the license found in the LICENSE file in
+                                     * the root directory of this source tree.
+                                     *
+                                     * 
+                                     * @format
+                                     */
 
-const PYTHON_EXECUTABLE = 'python';
 const LIB_PATH = (_nuclideUri || _load_nuclideUri()).default.join(__dirname, '../VendorLib');
 const PROCESS_PATH = (_nuclideUri || _load_nuclideUri()).default.join(__dirname, '../python/jediserver.py');
 const OPTS = {
   cwd: (_nuclideUri || _load_nuclideUri()).default.dirname(PROCESS_PATH),
   stdio: 'pipe',
   detached: false, // When Atom is killed, server process should be killed.
-  env: { PYTHONPATH: LIB_PATH }
+  env: { PYTHONPATH: LIB_PATH },
+  /* TODO(T17353599) */isExitError: () => false
 };
 
 let serviceRegistry = null;
@@ -69,8 +70,8 @@ class JediServer {
       args.push('-p');
       args = args.concat(paths);
     }
-    const createProcess = () => (0, (_process || _load_process()).safeSpawn)(pythonPath, args, OPTS);
-    this._process = new (_nuclideRpc || _load_nuclideRpc()).RpcProcess(name, getServiceRegistry(), createProcess);
+    const processStream = (0, (_process || _load_process()).spawn)(pythonPath, args, OPTS);
+    this._process = new (_nuclideRpc || _load_nuclideRpc()).RpcProcess(name, getServiceRegistry(), processStream);
     this._isDisposed = false;
   }
 

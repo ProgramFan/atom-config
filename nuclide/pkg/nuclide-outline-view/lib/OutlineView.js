@@ -43,30 +43,35 @@ function _load_PanelComponentScroller() {
   return _PanelComponentScroller = require('../../nuclide-ui/PanelComponentScroller');
 }
 
+var _Message;
+
+function _load_Message() {
+  return _Message = require('../../nuclide-ui/Message');
+}
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the LICENSE file in
- * the root directory of this source tree.
- *
- * 
- */
-
-const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)();
+const logger = (0, (_nuclideLogging || _load_nuclideLogging()).getLogger)(); /**
+                                                                              * Copyright (c) 2015-present, Facebook, Inc.
+                                                                              * All rights reserved.
+                                                                              *
+                                                                              * This source code is licensed under the license found in the LICENSE file in
+                                                                              * the root directory of this source tree.
+                                                                              *
+                                                                              * 
+                                                                              * @format
+                                                                              */
 
 const TOKEN_KIND_TO_CLASS_NAME_MAP = {
-  'keyword': 'syntax--keyword',
+  keyword: 'syntax--keyword',
   'class-name': 'syntax--entity syntax--name syntax--class',
-  'constructor': 'syntax--entity syntax--name syntax--function',
-  'method': 'syntax--entity syntax--name syntax--function',
-  'param': 'syntax--variable',
-  'string': 'syntax--string',
-  'whitespace': '',
-  'plain': '',
-  'type': 'syntax--support syntax--type'
+  constructor: 'syntax--entity syntax--name syntax--function',
+  method: 'syntax--entity syntax--name syntax--function',
+  param: 'syntax--variable',
+  string: 'syntax--string',
+  whitespace: '',
+  plain: '',
+  type: 'syntax--support syntax--type'
 };
 
 class OutlineView extends _react.default.Component {
@@ -108,7 +113,7 @@ class OutlineView extends _react.default.Component {
         null,
         _react.default.createElement(
           'div',
-          { className: 'padded nuclide-outline-view' },
+          { className: 'nuclide-outline-view' },
           _react.default.createElement(OutlineViewComponent, { outline: this.state.outline })
         )
       )
@@ -123,10 +128,15 @@ class OutlineViewComponent extends _react.default.Component {
 
   render() {
     const outline = this.props.outline;
+    const noOutlineAvailableMessage = _react.default.createElement(
+      (_Message || _load_Message()).Message,
+      null,
+      'No outline available.'
+    );
     switch (outline.kind) {
       case 'empty':
       case 'not-text-editor':
-        return null;
+        return noOutlineAvailableMessage;
       case 'loading':
         return _react.default.createElement(
           'div',
@@ -137,27 +147,23 @@ class OutlineViewComponent extends _react.default.Component {
           })
         );
       case 'no-provider':
-        return _react.default.createElement(
-          'span',
-          null,
+        return outline.grammar === 'Null Grammar' ? noOutlineAvailableMessage : _react.default.createElement(
+          (_Message || _load_Message()).Message,
+          { type: (_Message || _load_Message()).MessageTypes.warning },
           'Outline view does not currently support ',
           outline.grammar,
           '.'
         );
       case 'provider-no-outline':
-        return _react.default.createElement(
-          'span',
-          null,
-          'No outline available.'
-        );
+        return noOutlineAvailableMessage;
       case 'outline':
         return renderTrees(outline.editor, outline.outlineTrees);
       default:
         const errorText = `Encountered unexpected outline kind ${outline.kind}`;
         logger.error(errorText);
         return _react.default.createElement(
-          'span',
-          null,
+          (_Message || _load_Message()).Message,
+          { type: (_Message || _load_Message()).MessageTypes.error },
           'Internal Error:',
           _react.default.createElement('br', null),
           errorText
@@ -166,51 +172,67 @@ class OutlineViewComponent extends _react.default.Component {
   }
 }
 
-function renderTree(editor, outline, index) {
-  const onClick = () => {
-    const pane = atom.workspace.paneForItem(editor);
-    if (pane == null) {
-      return;
-    }
-    (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('nuclide-outline-view:go-to-location');
-    pane.activate();
-    pane.activateItem(editor);
-    (0, (_goToLocation || _load_goToLocation()).goToLocationInEditor)(editor, outline.startPosition.row, outline.startPosition.column);
-  };
+class OutlineTree extends _react.default.PureComponent {
 
-  const onDoubleClick = () => {
-    // Assumes that the click handler has already run, activating the text editor and moving the
-    // cursor to the start of the symbol.
-    const endPosition = outline.endPosition;
-    if (endPosition != null) {
-      editor.selectToBufferPosition(endPosition);
-    }
-  };
+  render() {
+    const { editor, outline } = this.props;
 
-  const classes = (0, (_classnames || _load_classnames()).default)('list-nested-item', { selected: outline.highlighted });
-  return _react.default.createElement(
-    'li',
-    { className: classes, key: index },
-    _react.default.createElement(
-      'div',
-      {
-        className: 'list-item nuclide-outline-view-item',
-        onClick: onClick,
-        onDoubleClick: onDoubleClick },
-      renderItemText(outline)
-    ),
-    renderTrees(editor, outline.children)
-  );
+    const onClick = () => {
+      const pane = atom.workspace.paneForItem(editor);
+      if (pane == null) {
+        return;
+      }
+      (0, (_nuclideAnalytics || _load_nuclideAnalytics()).track)('nuclide-outline-view:go-to-location');
+      pane.activate();
+      pane.activateItem(editor);
+      (0, (_goToLocation || _load_goToLocation()).goToLocationInEditor)(editor, outline.startPosition.row, outline.startPosition.column);
+    };
+
+    const onDoubleClick = () => {
+      // Assumes that the click handler has already run, activating the text editor and moving the
+      // cursor to the start of the symbol.
+      const endPosition = outline.endPosition;
+      if (endPosition != null) {
+        editor.selectToBufferPosition(endPosition);
+      }
+    };
+
+    const classes = (0, (_classnames || _load_classnames()).default)('list-nested-item', {
+      selected: outline.highlighted
+    });
+    return _react.default.createElement(
+      'li',
+      { className: classes },
+      _react.default.createElement(
+        'div',
+        {
+          className: 'list-item nuclide-outline-view-item',
+          onClick: onClick,
+          onDoubleClick: onDoubleClick },
+        renderItem(outline)
+      ),
+      renderTrees(editor, outline.children)
+    );
+  }
 }
 
-function renderItemText(outline) {
-  if (outline.tokenizedText != null) {
-    return outline.tokenizedText.map(renderTextToken);
-  } else if (outline.plainText != null) {
-    return outline.plainText;
-  } else {
-    return 'Missing text';
+function renderItem(outline) {
+  const r = [];
+
+  if (outline.icon != null) {
+    r.push(_react.default.createElement('span', { className: `icon icon-${outline.icon}` }));
+    // Note: icons here are fixed-width, so the text lines up.
   }
+
+  if (outline.tokenizedText != null) {
+    r.push(...outline.tokenizedText.map(renderTextToken));
+  } else if (outline.plainText != null) {
+    r.push(outline.plainText);
+  } else {
+    r.push('Missing text');
+  }
+
+  return r;
 }
 
 function renderTextToken(token, index) {
@@ -232,7 +254,7 @@ function renderTrees(editor, outlines) {
     _react.default.createElement(
       'ul',
       { className: 'list-tree', style: { position: 'relative' } },
-      outlines.map((outline, index) => renderTree(editor, outline, index))
+      outlines.map((outline, index) => _react.default.createElement(OutlineTree, { editor: editor, outline: outline, key: index }))
     )
   );
 }

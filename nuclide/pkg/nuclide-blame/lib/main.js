@@ -31,10 +31,10 @@ function _load_goToLocation() {
   return _goToLocation = require('../../commons-atom/go-to-location');
 }
 
-var _vcs;
+var _nuclideVcsBase;
 
-function _load_vcs() {
-  return _vcs = require('../../commons-atom/vcs');
+function _load_nuclideVcsBase() {
+  return _nuclideVcsBase = require('../../nuclide-vcs-base');
 }
 
 var _nuclideAnalytics;
@@ -53,6 +53,7 @@ const PACKAGES_MISSING_MESSAGE = 'Could not open blame. Missing at least one bla
                                                                                                 * the root directory of this source tree.
                                                                                                 *
                                                                                                 * 
+                                                                                                * @format
                                                                                                 */
 
 const TOGGLE_BLAME_FILE_TREE_CONTEXT_MENU_PRIORITY = 2000;
@@ -235,7 +236,7 @@ function findBlameableNodes(contextMenu) {
     if (node == null || !node.uri) {
       continue;
     }
-    const repo = (0, (_vcs || _load_vcs()).repositoryForPath)(node.uri);
+    const repo = (0, (_nuclideVcsBase || _load_nuclideVcsBase()).repositoryForPath)(node.uri);
     if (!node.isContainer && repo != null && repo.getType() === 'hg') {
       nodes.push(node);
     }

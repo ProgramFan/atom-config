@@ -15,7 +15,8 @@
   font-size: 16px;
   line-height: 1.6;
   background-color: #fff;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: auto;
   box-sizing: border-box;
   padding: 20px;
   color: rgba(0,0,0,.8);
@@ -84,9 +85,14 @@
     font-size: 1.0625em;
   }
 
-  pre.atom-text-editor {
-    background: @syntax-background-color !important;
-    border: 1px solid darken(@syntax-background-color, 10%) !important;
+  .listingblock pre.highlights {
+    background: contrast(@syntax-background-color, lighten(@syntax-background-color, 4%), darken(@syntax-background-color, 4%));
+  }
+
+  pre.highlights {
+    // background: contrast(@syntax-background-color, lighten(@syntax-background-color, 4%), darken(@syntax-background-color, 4%)) !important;
+    color: @syntax-text-color;
+    word-break: break-word;
   }
 
   .verseblock,

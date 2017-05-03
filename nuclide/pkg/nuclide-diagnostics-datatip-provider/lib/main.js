@@ -71,6 +71,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * the root directory of this source tree.
  *
  * 
+ * @format
  */
 
 const DATATIP_PACKAGE_NAME = 'nuclide-diagnostics-datatip';
@@ -93,8 +94,7 @@ function consumeDatatipService(service) {
     throw new Error('Invariant violation: "disposables"');
   }
 
-  service.addProvider(datatipProvider);
-  const disposable = new _atom.Disposable(() => service.removeProvider(datatipProvider));
+  const disposable = service.addProvider(datatipProvider);
   disposables.add(disposable);
   return disposable;
 }
