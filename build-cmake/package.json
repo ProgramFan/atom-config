@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
+        "raw": "/tmp/d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
-        "spec": "/tmp/d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
+        "rawSpec": "/tmp/d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
+        "spec": "/tmp/d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6198-1ool4wb.ubdvb49529"
+      "/tmp/apm-install-dir-11743-6205-3qpgw8.nuvpumobt9"
     ]
   ],
-  "_from": "../d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
+  "_from": "../d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
   "_id": "build-cmake@0.9.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/build-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
+    "raw": "/tmp/d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
-    "spec": "/tmp/d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
+    "rawSpec": "/tmp/d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
+    "spec": "/tmp/d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
+  "_resolved": "file:../d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
   "_shasum": "fe5791e65ed9730a5e1f36f7777802131d50484f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6198-1cf9g8s.eu9qk3mcxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6198-1ool4wb.ubdvb49529",
+  "_spec": "/tmp/d-11743-6205-1wnepld.c2rsbgldi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6205-3qpgw8.nuvpumobt9",
   "bugs": {
     "url": "https://github.com/siegelaaron94/atom-build-cmake/issues"
   },

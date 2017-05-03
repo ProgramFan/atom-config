@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
+        "raw": "/tmp/d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
-        "spec": "/tmp/d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
+        "rawSpec": "/tmp/d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
+        "spec": "/tmp/d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7651-18t75ig.m6svmquxr"
+      "/tmp/apm-install-dir-11743-7650-1vu3pox.dwchrrudi"
     ]
   ],
-  "_from": "../d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
+  "_from": "../d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
   "_id": "asciidoctor-preview@0.3.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/asciidoctor-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
+    "raw": "/tmp/d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
-    "spec": "/tmp/d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
+    "rawSpec": "/tmp/d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
+    "spec": "/tmp/d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
+  "_resolved": "file:../d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
   "_shasum": "8f23f0c05c6fbaeb0362c27ca3832ebcd3edbcee",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7651-1aotxw0.n24n0tqpvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7651-18t75ig.m6svmquxr",
+  "_spec": "/tmp/d-11743-7650-3swdfo.ikly4iy66r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-7650-1vu3pox.dwchrrudi",
   "bugs": {
     "url": "https://github.com/griffin-stewie/asciidoctor-preview/issues"
   },

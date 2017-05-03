@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
+        "raw": "/tmp/d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
-        "spec": "/tmp/d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
+        "rawSpec": "/tmp/d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
+        "spec": "/tmp/d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6906-1sw2es.duxzpycik9"
+      "/tmp/apm-install-dir-11743-6913-1jgy6kn.fbo1l6usor"
     ]
   ],
-  "_from": "../d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
+  "_from": "../d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
   "_id": "language-dot@1.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/language-dot",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
+    "raw": "/tmp/d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
-    "spec": "/tmp/d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
+    "rawSpec": "/tmp/d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
+    "spec": "/tmp/d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
+  "_resolved": "file:../d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
   "_shasum": "3d4e6816dcf75a0ddc5011e7e512a0ef176fcf00",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6906-1f9j2k0.4k7lmr6bt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6906-1sw2es.duxzpycik9",
+  "_spec": "/tmp/d-11743-6913-12lsopg.o6fcbrcnmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11743-6913-1jgy6kn.fbo1l6usor",
   "bugs": {
     "url": "https://github.com/AdoPi/language-dot/issues"
   },
