@@ -64,3 +64,5 @@ nuclide
 you-complete-me
 atom-rtags-plus
 latextools
+hyperclick
+symbols-tree-view
