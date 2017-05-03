@@ -10,7 +10,6 @@ branches:
   - master
 
 os:
-- osx
 - linux
 
 env:
