@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7947-shfmht.c6awoh6w29/package.tgz",
+        "raw": "/tmp/d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7947-shfmht.c6awoh6w29/package.tgz",
-        "spec": "/tmp/d-11743-7947-shfmht.c6awoh6w29/package.tgz",
+        "rawSpec": "/tmp/d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
+        "spec": "/tmp/d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7947-1ey5xto.y85rhehfr"
+      "/tmp/apm-install-dir-117417-8430-wlvai0.qk4bzkt9"
     ]
   ],
-  "_from": "../d-11743-7947-shfmht.c6awoh6w29/package.tgz",
+  "_from": "../d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
   "_id": "python-tools@0.6.9",
   "_inCache": true,
   "_installable": true,
   "_location": "/python-tools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7947-shfmht.c6awoh6w29/package.tgz",
+    "raw": "/tmp/d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7947-shfmht.c6awoh6w29/package.tgz",
-    "spec": "/tmp/d-11743-7947-shfmht.c6awoh6w29/package.tgz",
+    "rawSpec": "/tmp/d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
+    "spec": "/tmp/d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7947-shfmht.c6awoh6w29/package.tgz",
+  "_resolved": "file:../d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
   "_shasum": "dba6e2a8889971140b20f143c8535e6b054a1df0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7947-shfmht.c6awoh6w29/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7947-1ey5xto.y85rhehfr",
+  "_spec": "/tmp/d-117417-8430-1bb1y8h.mcblat6gvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117417-8430-wlvai0.qk4bzkt9",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/MichaelAquilina/python-tools/issues"
@@ -63,5 +63,18 @@
     "type": "git",
     "url": "git+https://github.com/MichaelAquilina/python-tools.git"
   },
-  "version": "0.6.9"
+  "version": "0.6.9",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/python-tools.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

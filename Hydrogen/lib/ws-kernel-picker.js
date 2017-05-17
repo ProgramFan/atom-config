@@ -1,6 +1,6 @@
 "use babel";
 
-import { SelectListView } from "atom-space-pen-views";
+import SelectListView from "atom-select-list";
 import _ from "lodash";
 import tildify from "tildify";
 import v4 from "uuid/v4";
@@ -9,45 +9,49 @@ import Config from "./config";
 import * as services from "./jupyter-js-services-shim";
 import WSKernel from "./ws-kernel";
 
-class CustomListView extends SelectListView {
-  initialize(emptyMessage, onConfirmed) {
+class CustomListView {
+  constructor(emptyMessage, onConfirmed) {
     this.emptyMessage = emptyMessage;
     this.onConfirmed = onConfirmed;
-    super.initialize(...arguments);
-    this.storeFocusedElement();
+    this.previouslyFocusedElement = document.activeElement;
+    this.selectListView = new SelectListView({
+      itemsClassList: ["mark-active"],
+      items: [],
+      filterKeyForItem: item => item.name,
+      elementForItem: item => {
+        const element = document.createElement("li");
+        element.textContent = item.name;
+        return element;
+      },
+      didConfirmSelection: item => {
+        if (this.onConfirmed) this.onConfirmed(item);
+        this.cancel();
+      },
+      didCancelSelection: () => this.cancel(),
+      emptyMessage: this.emptyMessage
+    });
+
     if (!this.panel) {
-      this.panel = atom.workspace.addModalPanel({ item: this });
+      this.panel = atom.workspace.addModalPanel({ item: this.selectListView });
     }
     this.panel.show();
-    this.focusFilterEditor();
-  }
-
-  getFilterKey() {
-    return "name";
+    this.selectListView.focus();
   }
 
   destroy() {
     this.cancel();
+    return this.selectListView.destroy();
   }
 
-  viewForItem(item) {
-    const element = document.createElement("li");
-    element.textContent = item.name;
-    return element;
-  }
-
-  cancelled() {
-    if (this.panel) this.panel.destroy();
+  cancel() {
+    if (this.panel != null) {
+      this.panel.destroy();
+    }
     this.panel = null;
-  }
-
-  confirmed(item) {
-    if (this.onConfirmed) this.onConfirmed(item);
-    this.cancel();
-  }
-
-  getEmptyMessage() {
-    return this.emptyMessage;
+    if (this.previouslyFocusedElement) {
+      this.previouslyFocusedElement.focus();
+      this.previouslyFocusedElement = null;
+    }
   }
 }
 
@@ -73,67 +77,80 @@ export default class WSKernelPicker {
       this.onGateway.bind(this)
     );
     this.previouslyFocusedElement = gatewayListing.previouslyFocusedElement;
-    gatewayListing.setItems(gateways);
-    gatewayListing.setError("Select a gateway"); // TODO(nikita): maybe don't misuse error
+    gatewayListing.selectListView.update({
+      items: gateways,
+      infoMessage: "Select a gateway"
+    });
   }
 
   onGateway(gatewayInfo) {
-    services.Kernel.getSpecs(gatewayInfo.options).then(
-      specModels => {
-        const kernelSpecs = _.filter(specModels.kernelspecs, spec =>
-          this._kernelSpecFilter(spec)
-        );
-
-        const kernelNames = _.map(kernelSpecs, specModel => specModel.name);
-
-        const sessionListing = new CustomListView(
-          "No sessions available",
-          this.onSession.bind(this)
-        );
-        sessionListing.previouslyFocusedElement = this.previouslyFocusedElement;
-        sessionListing.setLoading("Loading sessions...");
-
-        services.Session.listRunning(gatewayInfo.options).then(
-          sessionModels => {
-            sessionModels = sessionModels.filter(model => {
-              const name = model.kernel ? model.kernel.name : null;
-              return name ? kernelNames.includes(name) : true;
-            });
-            const items = sessionModels.map(model => {
-              let name;
-              if (model.notebook && model.notebook.path) {
-                name = tildify(model.notebook.path);
-              } else {
-                name = `Session ${model.id}`;
-              }
-              return {
-                name,
-                model,
-                options: gatewayInfo.options
-              };
-            });
-            items.unshift({
-              name: "[new session]",
-              model: null,
-              options: gatewayInfo.options,
-              kernelSpecs
-            });
-            return sessionListing.setItems(items);
-          },
-          () =>
-            // Gateways offer the option of never listing sessions, for security
-            // reasons.
-            // Assume this is the case and proceed to creating a new session.
-            this.onSession({
-              name: "[new session]",
-              model: null,
-              options: gatewayInfo.options,
-              kernelSpecs
-            })
-        );
-      },
-      () => atom.notifications.addError("Connection to gateway failed")
+    const sessionListing = new CustomListView(
+      "No sessions available",
+      this.onSession.bind(this)
     );
+    services.Kernel
+      .getSpecs(gatewayInfo.options)
+      .then(
+        specModels => {
+          const kernelSpecs = _.filter(specModels.kernelspecs, spec =>
+            this._kernelSpecFilter(spec)
+          );
+
+          const kernelNames = _.map(kernelSpecs, specModel => specModel.name);
+
+          sessionListing.previouslyFocusedElement = this.previouslyFocusedElement;
+          sessionListing.selectListView.update({
+            loadingMessage: "Loading sessions..."
+          });
+
+          services.Session.listRunning(gatewayInfo.options).then(
+            sessionModels => {
+              sessionModels = sessionModels.filter(model => {
+                const name = model.kernel ? model.kernel.name : null;
+                return name ? kernelNames.includes(name) : true;
+              });
+              const items = sessionModels.map(model => {
+                let name;
+                if (model.notebook && model.notebook.path) {
+                  name = tildify(model.notebook.path);
+                } else {
+                  name = `Session ${model.id}`;
+                }
+                return {
+                  name,
+                  model,
+                  options: gatewayInfo.options
+                };
+              });
+              items.unshift({
+                name: "[new session]",
+                model: null,
+                options: gatewayInfo.options,
+                kernelSpecs
+              });
+              return sessionListing.selectListView.update({
+                items: items,
+                loadingMessage: null
+              });
+            },
+            () =>
+              // Gateways offer the option of never listing sessions, for security
+              // reasons.
+              // Assume this is the case and proceed to creating a new session.
+              this.onSession({
+                name: "[new session]",
+                model: null,
+                options: gatewayInfo.options,
+                kernelSpecs
+              })
+          );
+        },
+        () => atom.notifications.addError("Connection to gateway failed")
+      )
+      .then(() => {
+        sessionListing.selectListView.focus();
+        sessionListing.selectListView.reset();
+      });
   }
 
   onSession(sessionInfo) {
@@ -153,11 +170,13 @@ export default class WSKernelPicker {
           options
         };
       });
-      kernelListing.setItems(items);
+      kernelListing.selectListView.update({ items: items });
+      kernelListing.selectListView.focus();
+      kernelListing.selectListView.reset();
       if (!sessionInfo.name) {
-        kernelListing.setError(
-          "This gateway does not support listing sessions"
-        );
+        kernelListing.selectListView.update({
+          errorMessage: "This gateway does not support listing sessions"
+        });
       }
     } else {
       services.Session

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
+        "raw": "/tmp/d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
-        "spec": "/tmp/d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
+        "rawSpec": "/tmp/d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
+        "spec": "/tmp/d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-5467-1sfftgy.ta6sxrms4i"
+      "/tmp/apm-install-dir-117417-6008-15gwq5a.lusu37syvi"
     ]
   ],
-  "_from": "../d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
+  "_from": "../d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
   "_id": "flex-tool-bar@0.12.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/flex-tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
+    "raw": "/tmp/d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
-    "spec": "/tmp/d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
+    "rawSpec": "/tmp/d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
+    "spec": "/tmp/d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
+  "_resolved": "file:../d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
   "_shasum": "2c337d3e7ece4ce3aabcb5a8ba37d32f91dc65ea",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-5467-r72mpm.dfxdrq9f6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-5467-1sfftgy.ta6sxrms4i",
+  "_spec": "/tmp/d-117417-6008-15958gj.euxuqjv2t9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117417-6008-15gwq5a.lusu37syvi",
   "bugs": {
     "url": "https://github.com/cakecatz/flex-toolbar/issues"
   },
@@ -82,5 +82,2630 @@
     "type": "git",
     "url": "git+https://github.com/cakecatz/flex-toolbar.git"
   },
-  "version": "0.12.0"
+  "version": "0.12.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "anymatch",
+        "version": "1.3.0",
+        "path": "node_modules/anymatch/index.js"
+      },
+      {
+        "name": "arr-diff",
+        "version": "2.0.0",
+        "path": "node_modules/arr-diff/index.js"
+      },
+      {
+        "name": "arr-flatten",
+        "version": "1.0.3",
+        "path": "node_modules/arr-flatten/index.js"
+      },
+      {
+        "name": "array-unique",
+        "version": "0.2.1",
+        "path": "node_modules/array-unique/index.js"
+      },
+      {
+        "name": "arrify",
+        "version": "1.0.1",
+        "path": "node_modules/arrify/index.js"
+      },
+      {
+        "name": "async",
+        "version": "1.5.2",
+        "path": "node_modules/async/lib/async.js"
+      },
+      {
+        "name": "async-each",
+        "version": "1.0.1",
+        "path": "node_modules/async-each/index.js"
+      },
+      {
+        "name": "atom-package-deps",
+        "version": "4.6.0",
+        "path": "node_modules/atom-package-deps/lib/index.js"
+      },
+      {
+        "name": "atom-package-path",
+        "version": "1.1.0",
+        "path": "node_modules/atom-package-path/lib/index.js"
+      },
+      {
+        "name": "balanced-match",
+        "version": "0.4.2",
+        "path": "node_modules/balanced-match/index.js"
+      },
+      {
+        "name": "binary-extensions",
+        "version": "1.8.0",
+        "path": "node_modules/binary-extensions/binary-extensions.json"
+      },
+      {
+        "name": "brace-expansion",
+        "version": "1.1.7",
+        "path": "node_modules/brace-expansion/index.js"
+      },
+      {
+        "name": "braces",
+        "version": "1.8.5",
+        "path": "node_modules/braces/index.js"
+      },
+      {
+        "name": "buffer-shims",
+        "version": "1.0.0",
+        "path": "node_modules/buffer-shims/index.js"
+      },
+      {
+        "name": "camel-case",
+        "version": "3.0.0",
+        "path": "node_modules/camel-case/camel-case.js"
+      },
+      {
+        "name": "change-case",
+        "version": "3.0.1",
+        "path": "node_modules/change-case/change-case.js"
+      },
+      {
+        "name": "chokidar",
+        "version": "1.7.0",
+        "path": "node_modules/chokidar/index.js"
+      },
+      {
+        "name": "coffee-script",
+        "version": "1.12.6",
+        "path": "node_modules/coffee-script/lib/coffee-script/coffee-script.js"
+      },
+      {
+        "name": "concat-map",
+        "version": "0.0.1",
+        "path": "node_modules/concat-map/index.js"
+      },
+      {
+        "name": "concat-stream",
+        "version": "1.6.0",
+        "path": "node_modules/concat-stream/index.js"
+      },
+      {
+        "name": "consistent-env",
+        "version": "1.3.0",
+        "path": "node_modules/consistent-env/lib/index.js"
+      },
+      {
+        "name": "constant-case",
+        "version": "2.0.0",
+        "path": "node_modules/constant-case/constant-case.js"
+      },
+      {
+        "name": "core-util-is",
+        "version": "1.0.2",
+        "path": "node_modules/core-util-is/lib/util.js"
+      },
+      {
+        "name": "cross-spawn",
+        "version": "2.2.3",
+        "path": "node_modules/cross-spawn/index.js"
+      },
+      {
+        "name": "cross-spawn-async",
+        "version": "2.2.5",
+        "path": "node_modules/cross-spawn-async/index.js"
+      },
+      {
+        "name": "cson",
+        "version": "3.0.2",
+        "path": "node_modules/cson/out/lib/cson.js"
+      },
+      {
+        "name": "cson-parser",
+        "version": "1.3.5",
+        "path": "node_modules/cson-parser/lib/cson-parser.js"
+      },
+      {
+        "name": "d",
+        "version": "0.1.1",
+        "path": "node_modules/d/index.js"
+      },
+      {
+        "name": "dot-case",
+        "version": "2.1.1",
+        "path": "node_modules/dot-case/dot-case.js"
+      },
+      {
+        "name": "eachr",
+        "version": "3.2.0",
+        "path": "node_modules/eachr/index.js"
+      },
+      {
+        "name": "editions",
+        "version": "1.3.3",
+        "path": "node_modules/editions/es2015/index.js"
+      },
+      {
+        "name": "emissary",
+        "version": "1.3.3",
+        "path": "node_modules/emissary/lib/emissary.js"
+      },
+      {
+        "name": "es5-ext",
+        "version": "0.10.18",
+        "path": "node_modules/es5-ext/index.js"
+      },
+      {
+        "name": "d",
+        "version": "1.0.0",
+        "path": "node_modules/es5-ext/node_modules/d/index.js"
+      },
+      {
+        "name": "es6-iterator",
+        "version": "2.0.1",
+        "path": "node_modules/es5-ext/node_modules/es6-iterator/index.js"
+      },
+      {
+        "name": "es6-symbol",
+        "version": "3.1.1",
+        "path": "node_modules/es5-ext/node_modules/es6-symbol/index.js"
+      },
+      {
+        "name": "es6-iterator",
+        "version": "0.1.3",
+        "path": "node_modules/es6-iterator/index.js"
+      },
+      {
+        "name": "es6-symbol",
+        "version": "2.0.1",
+        "path": "node_modules/es6-symbol/index.js"
+      },
+      {
+        "name": "es6-weak-map",
+        "version": "0.1.4",
+        "path": "node_modules/es6-weak-map/index.js"
+      },
+      {
+        "name": "expand-brackets",
+        "version": "0.1.5",
+        "path": "node_modules/expand-brackets/index.js"
+      },
+      {
+        "name": "expand-range",
+        "version": "1.8.2",
+        "path": "node_modules/expand-range/index.js"
+      },
+      {
+        "name": "extglob",
+        "version": "0.3.2",
+        "path": "node_modules/extglob/index.js"
+      },
+      {
+        "name": "extract-opts",
+        "version": "3.3.1",
+        "path": "node_modules/extract-opts/index.js"
+      },
+      {
+        "name": "filename-regex",
+        "version": "2.0.1",
+        "path": "node_modules/filename-regex/index.js"
+      },
+      {
+        "name": "fill-range",
+        "version": "2.2.3",
+        "path": "node_modules/fill-range/index.js"
+      },
+      {
+        "name": "for-in",
+        "version": "1.0.2",
+        "path": "node_modules/for-in/index.js"
+      },
+      {
+        "name": "for-own",
+        "version": "0.1.5",
+        "path": "node_modules/for-own/index.js"
+      },
+      {
+        "name": "fs-plus",
+        "version": "2.10.1",
+        "path": "node_modules/fs-plus/lib/fs-plus.js"
+      },
+      {
+        "name": "fs.realpath",
+        "version": "1.0.0",
+        "path": "node_modules/fs.realpath/index.js"
+      },
+      {
+        "name": "glob",
+        "version": "7.1.1",
+        "path": "node_modules/glob/glob.js"
+      },
+      {
+        "name": "glob-base",
+        "version": "0.3.0",
+        "path": "node_modules/glob-base/index.js"
+      },
+      {
+        "name": "glob-parent",
+        "version": "2.0.0",
+        "path": "node_modules/glob-parent/index.js"
+      },
+      {
+        "name": "graceful-fs",
+        "version": "4.1.11",
+        "path": "node_modules/graceful-fs/graceful-fs.js"
+      },
+      {
+        "name": "grim",
+        "version": "1.5.0",
+        "path": "node_modules/grim/lib/grim.js"
+      },
+      {
+        "name": "header-case",
+        "version": "1.0.1",
+        "path": "node_modules/header-case/header-case.js"
+      },
+      {
+        "name": "inflight",
+        "version": "1.0.6",
+        "path": "node_modules/inflight/inflight.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.3",
+        "path": "node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "is-binary-path",
+        "version": "1.0.1",
+        "path": "node_modules/is-binary-path/index.js"
+      },
+      {
+        "name": "is-buffer",
+        "version": "1.1.5",
+        "path": "node_modules/is-buffer/index.js"
+      },
+      {
+        "name": "is-dotfile",
+        "version": "1.0.2",
+        "path": "node_modules/is-dotfile/index.js"
+      },
+      {
+        "name": "is-equal-shallow",
+        "version": "0.1.3",
+        "path": "node_modules/is-equal-shallow/index.js"
+      },
+      {
+        "name": "is-extendable",
+        "version": "0.1.1",
+        "path": "node_modules/is-extendable/index.js"
+      },
+      {
+        "name": "is-extglob",
+        "version": "1.0.0",
+        "path": "node_modules/is-extglob/index.js"
+      },
+      {
+        "name": "is-glob",
+        "version": "2.0.1",
+        "path": "node_modules/is-glob/index.js"
+      },
+      {
+        "name": "is-lower-case",
+        "version": "1.1.3",
+        "path": "node_modules/is-lower-case/is-lower-case.js"
+      },
+      {
+        "name": "is-number",
+        "version": "2.1.0",
+        "path": "node_modules/is-number/index.js"
+      },
+      {
+        "name": "is-posix-bracket",
+        "version": "0.1.1",
+        "path": "node_modules/is-posix-bracket/index.js"
+      },
+      {
+        "name": "is-primitive",
+        "version": "2.0.0",
+        "path": "node_modules/is-primitive/index.js"
+      },
+      {
+        "name": "is-upper-case",
+        "version": "1.1.2",
+        "path": "node_modules/is-upper-case/is-upper-case.js"
+      },
+      {
+        "name": "is-utf8",
+        "version": "0.2.1",
+        "path": "node_modules/is-utf8/is-utf8.js"
+      },
+      {
+        "name": "isarray",
+        "version": "1.0.0",
+        "path": "node_modules/isarray/index.js"
+      },
+      {
+        "name": "isexe",
+        "version": "2.0.0",
+        "path": "node_modules/isexe/index.js"
+      },
+      {
+        "name": "isobject",
+        "version": "2.1.0",
+        "path": "node_modules/isobject/index.js"
+      },
+      {
+        "name": "jquery",
+        "version": "2.1.4",
+        "path": "node_modules/jquery/dist/jquery.js"
+      },
+      {
+        "name": "json5",
+        "version": "0.5.1",
+        "path": "node_modules/json5/lib/json5.js"
+      },
+      {
+        "name": "kind-of",
+        "version": "3.2.2",
+        "path": "node_modules/kind-of/index.js"
+      },
+      {
+        "name": "lodash.uniq",
+        "version": "4.5.0",
+        "path": "node_modules/lodash.uniq/index.js"
+      },
+      {
+        "name": "lower-case",
+        "version": "1.1.4",
+        "path": "node_modules/lower-case/lower-case.js"
+      },
+      {
+        "name": "lower-case-first",
+        "version": "1.0.2",
+        "path": "node_modules/lower-case-first/lower-case-first.js"
+      },
+      {
+        "name": "lru-cache",
+        "version": "4.0.2",
+        "path": "node_modules/lru-cache/lib/lru-cache.js"
+      },
+      {
+        "name": "micromatch",
+        "version": "2.3.11",
+        "path": "node_modules/micromatch/index.js"
+      },
+      {
+        "name": "minimatch",
+        "version": "3.0.4",
+        "path": "node_modules/minimatch/minimatch.js"
+      },
+      {
+        "name": "minimist",
+        "version": "0.0.8",
+        "path": "node_modules/minimist/index.js"
+      },
+      {
+        "name": "mixto",
+        "version": "1.0.0",
+        "path": "node_modules/mixto/lib/mixin.js"
+      },
+      {
+        "name": "mkdirp",
+        "version": "0.5.1",
+        "path": "node_modules/mkdirp/index.js"
+      },
+      {
+        "name": "no-case",
+        "version": "2.3.1",
+        "path": "node_modules/no-case/no-case.js"
+      },
+      {
+        "name": "normalize-path",
+        "version": "2.1.1",
+        "path": "node_modules/normalize-path/index.js"
+      },
+      {
+        "name": "object.omit",
+        "version": "2.0.1",
+        "path": "node_modules/object.omit/index.js"
+      },
+      {
+        "name": "once",
+        "version": "1.4.0",
+        "path": "node_modules/once/once.js"
+      },
+      {
+        "name": "os-shim",
+        "version": "0.1.3",
+        "path": "node_modules/os-shim/lib/os.js"
+      },
+      {
+        "name": "param-case",
+        "version": "2.1.1",
+        "path": "node_modules/param-case/param-case.js"
+      },
+      {
+        "name": "parse-glob",
+        "version": "3.0.4",
+        "path": "node_modules/parse-glob/index.js"
+      },
+      {
+        "name": "pascal-case",
+        "version": "2.0.1",
+        "path": "node_modules/pascal-case/pascal-case.js"
+      },
+      {
+        "name": "path-case",
+        "version": "2.1.1",
+        "path": "node_modules/path-case/path-case.js"
+      },
+      {
+        "name": "path-is-absolute",
+        "version": "1.0.1",
+        "path": "node_modules/path-is-absolute/index.js"
+      },
+      {
+        "name": "preserve",
+        "version": "0.2.0",
+        "path": "node_modules/preserve/index.js"
+      },
+      {
+        "name": "process-nextick-args",
+        "version": "1.0.7",
+        "path": "node_modules/process-nextick-args/index.js"
+      },
+      {
+        "name": "property-accessors",
+        "version": "1.1.3",
+        "path": "node_modules/property-accessors/lib/property-accessors.js"
+      },
+      {
+        "name": "pseudomap",
+        "version": "1.0.2",
+        "path": "node_modules/pseudomap/map.js"
+      },
+      {
+        "name": "randomatic",
+        "version": "1.1.6",
+        "path": "node_modules/randomatic/index.js"
+      },
+      {
+        "name": "readable-stream",
+        "version": "2.2.9",
+        "path": "node_modules/readable-stream/readable.js"
+      },
+      {
+        "name": "readdirp",
+        "version": "2.1.0",
+        "path": "node_modules/readdirp/readdirp.js"
+      },
+      {
+        "name": "regex-cache",
+        "version": "0.4.3",
+        "path": "node_modules/regex-cache/index.js"
+      },
+      {
+        "name": "remove-trailing-separator",
+        "version": "1.0.1",
+        "path": "node_modules/remove-trailing-separator/index.js"
+      },
+      {
+        "name": "repeat-element",
+        "version": "1.1.2",
+        "path": "node_modules/repeat-element/index.js"
+      },
+      {
+        "name": "repeat-string",
+        "version": "1.6.1",
+        "path": "node_modules/repeat-string/index.js"
+      },
+      {
+        "name": "requirefresh",
+        "version": "2.1.0",
+        "path": "node_modules/requirefresh/index.js"
+      },
+      {
+        "name": "rimraf",
+        "version": "2.6.1",
+        "path": "node_modules/rimraf/rimraf.js"
+      },
+      {
+        "name": "safefs",
+        "version": "4.1.0",
+        "path": "node_modules/safefs/index.js"
+      },
+      {
+        "name": "sb-callsite",
+        "version": "1.1.2",
+        "path": "node_modules/sb-callsite/lib/main.js"
+      },
+      {
+        "name": "sb-exec",
+        "version": "3.1.0",
+        "path": "node_modules/sb-exec/lib/index.js"
+      },
+      {
+        "name": "sb-fs",
+        "version": "3.0.0",
+        "path": "node_modules/sb-fs/lib/index.js"
+      },
+      {
+        "name": "sb-memoize",
+        "version": "1.0.2",
+        "path": "node_modules/sb-memoize/lib/index.js"
+      },
+      {
+        "name": "sb-npm-path",
+        "version": "2.0.0",
+        "path": "node_modules/sb-npm-path/lib/index.js"
+      },
+      {
+        "name": "sb-promisify",
+        "version": "2.0.2",
+        "path": "node_modules/sb-promisify/lib/index.js"
+      },
+      {
+        "name": "semver",
+        "version": "5.3.0",
+        "path": "node_modules/semver/semver.js"
+      },
+      {
+        "name": "sentence-case",
+        "version": "2.1.1",
+        "path": "node_modules/sentence-case/sentence-case.js"
+      },
+      {
+        "name": "set-immediate-shim",
+        "version": "1.0.1",
+        "path": "node_modules/set-immediate-shim/index.js"
+      },
+      {
+        "name": "snake-case",
+        "version": "2.1.0",
+        "path": "node_modules/snake-case/snake-case.js"
+      },
+      {
+        "name": "space-pen",
+        "version": "5.1.2",
+        "path": "node_modules/space-pen/lib/space-pen.js"
+      },
+      {
+        "name": "spawn-sync",
+        "version": "1.0.15",
+        "path": "node_modules/spawn-sync/index.js"
+      },
+      {
+        "name": "string_decoder",
+        "version": "1.0.0",
+        "path": "node_modules/string_decoder/lib/string_decoder.js"
+      },
+      {
+        "name": "strip-bom-buf",
+        "version": "1.0.0",
+        "path": "node_modules/strip-bom-buf/index.js"
+      },
+      {
+        "name": "swap-case",
+        "version": "1.1.2",
+        "path": "node_modules/swap-case/swap-case.js"
+      },
+      {
+        "name": "title-case",
+        "version": "2.1.1",
+        "path": "node_modules/title-case/title-case.js"
+      },
+      {
+        "name": "tree-match-sync",
+        "version": "0.0.2",
+        "path": "node_modules/tree-match-sync/index.js"
+      },
+      {
+        "name": "typechecker",
+        "version": "4.4.1",
+        "path": "node_modules/typechecker/index.js"
+      },
+      {
+        "name": "typedarray",
+        "version": "0.0.6",
+        "path": "node_modules/typedarray/index.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "upper-case",
+        "version": "1.1.3",
+        "path": "node_modules/upper-case/upper-case.js"
+      },
+      {
+        "name": "upper-case-first",
+        "version": "1.1.2",
+        "path": "node_modules/upper-case-first/upper-case-first.js"
+      },
+      {
+        "name": "util-deprecate",
+        "version": "1.0.2",
+        "path": "node_modules/util-deprecate/node.js"
+      },
+      {
+        "name": "which",
+        "version": "1.2.14",
+        "path": "node_modules/which/which.js"
+      },
+      {
+        "name": "wrappy",
+        "version": "1.0.2",
+        "path": "node_modules/wrappy/wrappy.js"
+      },
+      {
+        "name": "yallist",
+        "version": "2.1.2",
+        "path": "node_modules/yallist/yallist.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/flex-tool-bar.coffee",
+        "lib/url-replace.coffee"
+      ],
+      ".js": [
+        "node_modules/anymatch/index.js",
+        "node_modules/arr-diff/index.js",
+        "node_modules/arr-flatten/index.js",
+        "node_modules/array-unique/index.js",
+        "node_modules/arrify/index.js",
+        "node_modules/async/dist/async.js",
+        "node_modules/async/dist/async.min.js",
+        "node_modules/async/lib/async.js",
+        "node_modules/async-each/index.js",
+        "node_modules/atom-package-deps/lib/helpers.js",
+        "node_modules/atom-package-deps/lib/index.js",
+        "node_modules/atom-package-deps/lib/types.js",
+        "node_modules/atom-package-deps/lib/view.js",
+        "node_modules/atom-package-path/lib/index.js",
+        "node_modules/balanced-match/index.js",
+        "node_modules/brace-expansion/index.js",
+        "node_modules/braces/index.js",
+        "node_modules/buffer-shims/index.js",
+        "node_modules/camel-case/camel-case.js",
+        "node_modules/change-case/change-case.js",
+        "node_modules/chokidar/index.js",
+        "node_modules/chokidar/lib/fsevents-handler.js",
+        "node_modules/chokidar/lib/nodefs-handler.js",
+        "node_modules/coffee-script/lib/coffee-script/browser.js",
+        "node_modules/coffee-script/lib/coffee-script/cake.js",
+        "node_modules/coffee-script/lib/coffee-script/coffee-script.js",
+        "node_modules/coffee-script/lib/coffee-script/command.js",
+        "node_modules/coffee-script/lib/coffee-script/grammar.js",
+        "node_modules/coffee-script/lib/coffee-script/helpers.js",
+        "node_modules/coffee-script/lib/coffee-script/index.js",
+        "node_modules/coffee-script/lib/coffee-script/lexer.js",
+        "node_modules/coffee-script/lib/coffee-script/nodes.js",
+        "node_modules/coffee-script/lib/coffee-script/optparse.js",
+        "node_modules/coffee-script/lib/coffee-script/parser.js",
+        "node_modules/coffee-script/lib/coffee-script/register.js",
+        "node_modules/coffee-script/lib/coffee-script/repl.js",
+        "node_modules/coffee-script/lib/coffee-script/rewriter.js",
+        "node_modules/coffee-script/lib/coffee-script/scope.js",
+        "node_modules/coffee-script/lib/coffee-script/sourcemap.js",
+        "node_modules/coffee-script/register.js",
+        "node_modules/coffee-script/repl.js",
+        "node_modules/concat-map/example/map.js",
+        "node_modules/concat-map/index.js",
+        "node_modules/concat-stream/index.js",
+        "node_modules/consistent-env/decls/jasmine.js",
+        "node_modules/consistent-env/lib/helpers.js",
+        "node_modules/consistent-env/lib/index.js",
+        "node_modules/constant-case/constant-case.js",
+        "node_modules/core-util-is/lib/util.js",
+        "node_modules/core-util-is/test.js",
+        "node_modules/cross-spawn/index.js",
+        "node_modules/cross-spawn-async/index.js",
+        "node_modules/cross-spawn-async/lib/enoent.js",
+        "node_modules/cross-spawn-async/lib/parse.js",
+        "node_modules/cross-spawn-async/lib/resolveCommand.js",
+        "node_modules/cson/docs/assets/biscotto.js",
+        "node_modules/cson/docs/assets/search_data.js",
+        "node_modules/cson/out/bin/cson-cli.js",
+        "node_modules/cson/out/lib/cson.js",
+        "node_modules/cson-parser/lib/cson-parser.js",
+        "node_modules/cson-parser/lib/parse.js",
+        "node_modules/cson-parser/lib/stringify.js",
+        "node_modules/d/auto-bind.js",
+        "node_modules/d/index.js",
+        "node_modules/d/lazy.js",
+        "node_modules/dot-case/dot-case.js",
+        "node_modules/eachr/es2015/index.js",
+        "node_modules/eachr/example.js",
+        "node_modules/eachr/index.js",
+        "node_modules/eachr/source/index.js",
+        "node_modules/editions/es2015/index.js",
+        "node_modules/editions/source/index.js",
+        "node_modules/emissary/lib/behavior.js",
+        "node_modules/emissary/lib/emissary.js",
+        "node_modules/emissary/lib/emitter.js",
+        "node_modules/emissary/lib/helpers.js",
+        "node_modules/emissary/lib/signal.js",
+        "node_modules/emissary/lib/subscriber.js",
+        "node_modules/emissary/lib/subscription.js",
+        "node_modules/es5-ext/array/#/@@iterator/implement.js",
+        "node_modules/es5-ext/array/#/@@iterator/index.js",
+        "node_modules/es5-ext/array/#/@@iterator/is-implemented.js",
+        "node_modules/es5-ext/array/#/@@iterator/shim.js",
+        "node_modules/es5-ext/array/#/_compare-by-length.js",
+        "node_modules/es5-ext/array/#/binary-search.js",
+        "node_modules/es5-ext/array/#/clear.js",
+        "node_modules/es5-ext/array/#/compact.js",
+        "node_modules/es5-ext/array/#/concat/implement.js",
+        "node_modules/es5-ext/array/#/concat/index.js",
+        "node_modules/es5-ext/array/#/concat/is-implemented.js",
+        "node_modules/es5-ext/array/#/concat/shim.js",
+        "node_modules/es5-ext/array/#/contains.js",
+        "node_modules/es5-ext/array/#/copy-within/implement.js",
+        "node_modules/es5-ext/array/#/copy-within/index.js",
+        "node_modules/es5-ext/array/#/copy-within/is-implemented.js",
+        "node_modules/es5-ext/array/#/copy-within/shim.js",
+        "node_modules/es5-ext/array/#/diff.js",
+        "node_modules/es5-ext/array/#/e-index-of.js",
+        "node_modules/es5-ext/array/#/e-last-index-of.js",
+        "node_modules/es5-ext/array/#/entries/implement.js",
+        "node_modules/es5-ext/array/#/entries/index.js",
+        "node_modules/es5-ext/array/#/entries/is-implemented.js",
+        "node_modules/es5-ext/array/#/entries/shim.js",
+        "node_modules/es5-ext/array/#/exclusion.js",
+        "node_modules/es5-ext/array/#/fill/implement.js",
+        "node_modules/es5-ext/array/#/fill/index.js",
+        "node_modules/es5-ext/array/#/fill/is-implemented.js",
+        "node_modules/es5-ext/array/#/fill/shim.js",
+        "node_modules/es5-ext/array/#/filter/implement.js",
+        "node_modules/es5-ext/array/#/filter/index.js",
+        "node_modules/es5-ext/array/#/filter/is-implemented.js",
+        "node_modules/es5-ext/array/#/filter/shim.js",
+        "node_modules/es5-ext/array/#/find/implement.js",
+        "node_modules/es5-ext/array/#/find/index.js",
+        "node_modules/es5-ext/array/#/find/is-implemented.js",
+        "node_modules/es5-ext/array/#/find/shim.js",
+        "node_modules/es5-ext/array/#/find-index/implement.js",
+        "node_modules/es5-ext/array/#/find-index/index.js",
+        "node_modules/es5-ext/array/#/find-index/is-implemented.js",
+        "node_modules/es5-ext/array/#/find-index/shim.js",
+        "node_modules/es5-ext/array/#/first-index.js",
+        "node_modules/es5-ext/array/#/first.js",
+        "node_modules/es5-ext/array/#/flatten.js",
+        "node_modules/es5-ext/array/#/for-each-right.js",
+        "node_modules/es5-ext/array/#/group.js",
+        "node_modules/es5-ext/array/#/index.js",
+        "node_modules/es5-ext/array/#/indexes-of.js",
+        "node_modules/es5-ext/array/#/intersection.js",
+        "node_modules/es5-ext/array/#/is-copy.js",
+        "node_modules/es5-ext/array/#/is-uniq.js",
+        "node_modules/es5-ext/array/#/keys/implement.js",
+        "node_modules/es5-ext/array/#/keys/index.js",
+        "node_modules/es5-ext/array/#/keys/is-implemented.js",
+        "node_modules/es5-ext/array/#/keys/shim.js",
+        "node_modules/es5-ext/array/#/last-index.js",
+        "node_modules/es5-ext/array/#/last.js",
+        "node_modules/es5-ext/array/#/map/implement.js",
+        "node_modules/es5-ext/array/#/map/index.js",
+        "node_modules/es5-ext/array/#/map/is-implemented.js",
+        "node_modules/es5-ext/array/#/map/shim.js",
+        "node_modules/es5-ext/array/#/remove.js",
+        "node_modules/es5-ext/array/#/separate.js",
+        "node_modules/es5-ext/array/#/slice/implement.js",
+        "node_modules/es5-ext/array/#/slice/index.js",
+        "node_modules/es5-ext/array/#/slice/is-implemented.js",
+        "node_modules/es5-ext/array/#/slice/shim.js",
+        "node_modules/es5-ext/array/#/some-right.js",
+        "node_modules/es5-ext/array/#/splice/implement.js",
+        "node_modules/es5-ext/array/#/splice/index.js",
+        "node_modules/es5-ext/array/#/splice/is-implemented.js",
+        "node_modules/es5-ext/array/#/splice/shim.js",
+        "node_modules/es5-ext/array/#/uniq.js",
+        "node_modules/es5-ext/array/#/values/implement.js",
+        "node_modules/es5-ext/array/#/values/index.js",
+        "node_modules/es5-ext/array/#/values/is-implemented.js",
+        "node_modules/es5-ext/array/#/values/shim.js",
+        "node_modules/es5-ext/array/_is-extensible.js",
+        "node_modules/es5-ext/array/_sub-array-dummy-safe.js",
+        "node_modules/es5-ext/array/_sub-array-dummy.js",
+        "node_modules/es5-ext/array/from/implement.js",
+        "node_modules/es5-ext/array/from/index.js",
+        "node_modules/es5-ext/array/from/is-implemented.js",
+        "node_modules/es5-ext/array/from/shim.js",
+        "node_modules/es5-ext/array/generate.js",
+        "node_modules/es5-ext/array/index.js",
+        "node_modules/es5-ext/array/is-plain-array.js",
+        "node_modules/es5-ext/array/of/implement.js",
+        "node_modules/es5-ext/array/of/index.js",
+        "node_modules/es5-ext/array/of/is-implemented.js",
+        "node_modules/es5-ext/array/of/shim.js",
+        "node_modules/es5-ext/array/to-array.js",
+        "node_modules/es5-ext/array/valid-array.js",
+        "node_modules/es5-ext/boolean/index.js",
+        "node_modules/es5-ext/boolean/is-boolean.js",
+        "node_modules/es5-ext/date/#/copy.js",
+        "node_modules/es5-ext/date/#/days-in-month.js",
+        "node_modules/es5-ext/date/#/floor-day.js",
+        "node_modules/es5-ext/date/#/floor-month.js",
+        "node_modules/es5-ext/date/#/floor-year.js",
+        "node_modules/es5-ext/date/#/format.js",
+        "node_modules/es5-ext/date/#/index.js",
+        "node_modules/es5-ext/date/index.js",
+        "node_modules/es5-ext/date/is-date.js",
+        "node_modules/es5-ext/date/valid-date.js",
+        "node_modules/es5-ext/error/#/index.js",
+        "node_modules/es5-ext/error/#/throw.js",
+        "node_modules/es5-ext/error/custom.js",
+        "node_modules/es5-ext/error/index.js",
+        "node_modules/es5-ext/error/is-error.js",
+        "node_modules/es5-ext/error/valid-error.js",
+        "node_modules/es5-ext/function/#/compose.js",
+        "node_modules/es5-ext/function/#/copy.js",
+        "node_modules/es5-ext/function/#/curry.js",
+        "node_modules/es5-ext/function/#/index.js",
+        "node_modules/es5-ext/function/#/lock.js",
+        "node_modules/es5-ext/function/#/not.js",
+        "node_modules/es5-ext/function/#/partial.js",
+        "node_modules/es5-ext/function/#/spread.js",
+        "node_modules/es5-ext/function/#/to-string-tokens.js",
+        "node_modules/es5-ext/function/_define-length.js",
+        "node_modules/es5-ext/function/constant.js",
+        "node_modules/es5-ext/function/identity.js",
+        "node_modules/es5-ext/function/index.js",
+        "node_modules/es5-ext/function/invoke.js",
+        "node_modules/es5-ext/function/is-arguments.js",
+        "node_modules/es5-ext/function/is-function.js",
+        "node_modules/es5-ext/function/noop.js",
+        "node_modules/es5-ext/function/pluck.js",
+        "node_modules/es5-ext/function/valid-function.js",
+        "node_modules/es5-ext/global.js",
+        "node_modules/es5-ext/index.js",
+        "node_modules/es5-ext/iterable/for-each.js",
+        "node_modules/es5-ext/iterable/index.js",
+        "node_modules/es5-ext/iterable/is.js",
+        "node_modules/es5-ext/iterable/validate-object.js",
+        "node_modules/es5-ext/iterable/validate.js",
+        "node_modules/es5-ext/json/index.js",
+        "node_modules/es5-ext/json/safe-stringify.js",
+        "node_modules/es5-ext/math/_pack-ieee754.js",
+        "node_modules/es5-ext/math/_unpack-ieee754.js",
+        "node_modules/es5-ext/math/acosh/implement.js",
+        "node_modules/es5-ext/math/acosh/index.js",
+        "node_modules/es5-ext/math/acosh/is-implemented.js",
+        "node_modules/es5-ext/math/acosh/shim.js",
+        "node_modules/es5-ext/math/asinh/implement.js",
+        "node_modules/es5-ext/math/asinh/index.js",
+        "node_modules/es5-ext/math/asinh/is-implemented.js",
+        "node_modules/es5-ext/math/asinh/shim.js",
+        "node_modules/es5-ext/math/atanh/implement.js",
+        "node_modules/es5-ext/math/atanh/index.js",
+        "node_modules/es5-ext/math/atanh/is-implemented.js",
+        "node_modules/es5-ext/math/atanh/shim.js",
+        "node_modules/es5-ext/math/cbrt/implement.js",
+        "node_modules/es5-ext/math/cbrt/index.js",
+        "node_modules/es5-ext/math/cbrt/is-implemented.js",
+        "node_modules/es5-ext/math/cbrt/shim.js",
+        "node_modules/es5-ext/math/clz32/implement.js",
+        "node_modules/es5-ext/math/clz32/index.js",
+        "node_modules/es5-ext/math/clz32/is-implemented.js",
+        "node_modules/es5-ext/math/clz32/shim.js",
+        "node_modules/es5-ext/math/cosh/implement.js",
+        "node_modules/es5-ext/math/cosh/index.js",
+        "node_modules/es5-ext/math/cosh/is-implemented.js",
+        "node_modules/es5-ext/math/cosh/shim.js",
+        "node_modules/es5-ext/math/expm1/implement.js",
+        "node_modules/es5-ext/math/expm1/index.js",
+        "node_modules/es5-ext/math/expm1/is-implemented.js",
+        "node_modules/es5-ext/math/expm1/shim.js",
+        "node_modules/es5-ext/math/fround/implement.js",
+        "node_modules/es5-ext/math/fround/index.js",
+        "node_modules/es5-ext/math/fround/is-implemented.js",
+        "node_modules/es5-ext/math/fround/shim.js",
+        "node_modules/es5-ext/math/hypot/implement.js",
+        "node_modules/es5-ext/math/hypot/index.js",
+        "node_modules/es5-ext/math/hypot/is-implemented.js",
+        "node_modules/es5-ext/math/hypot/shim.js",
+        "node_modules/es5-ext/math/imul/implement.js",
+        "node_modules/es5-ext/math/imul/index.js",
+        "node_modules/es5-ext/math/imul/is-implemented.js",
+        "node_modules/es5-ext/math/imul/shim.js",
+        "node_modules/es5-ext/math/index.js",
+        "node_modules/es5-ext/math/log10/implement.js",
+        "node_modules/es5-ext/math/log10/index.js",
+        "node_modules/es5-ext/math/log10/is-implemented.js",
+        "node_modules/es5-ext/math/log10/shim.js",
+        "node_modules/es5-ext/math/log1p/implement.js",
+        "node_modules/es5-ext/math/log1p/index.js",
+        "node_modules/es5-ext/math/log1p/is-implemented.js",
+        "node_modules/es5-ext/math/log1p/shim.js",
+        "node_modules/es5-ext/math/log2/implement.js",
+        "node_modules/es5-ext/math/log2/index.js",
+        "node_modules/es5-ext/math/log2/is-implemented.js",
+        "node_modules/es5-ext/math/log2/shim.js",
+        "node_modules/es5-ext/math/sign/implement.js",
+        "node_modules/es5-ext/math/sign/index.js",
+        "node_modules/es5-ext/math/sign/is-implemented.js",
+        "node_modules/es5-ext/math/sign/shim.js",
+        "node_modules/es5-ext/math/sinh/implement.js",
+        "node_modules/es5-ext/math/sinh/index.js",
+        "node_modules/es5-ext/math/sinh/is-implemented.js",
+        "node_modules/es5-ext/math/sinh/shim.js",
+        "node_modules/es5-ext/math/tanh/implement.js",
+        "node_modules/es5-ext/math/tanh/index.js",
+        "node_modules/es5-ext/math/tanh/is-implemented.js",
+        "node_modules/es5-ext/math/tanh/shim.js",
+        "node_modules/es5-ext/math/trunc/implement.js",
+        "node_modules/es5-ext/math/trunc/index.js",
+        "node_modules/es5-ext/math/trunc/is-implemented.js",
+        "node_modules/es5-ext/math/trunc/shim.js",
+        "node_modules/es5-ext/node_modules/d/auto-bind.js",
+        "node_modules/es5-ext/node_modules/d/index.js",
+        "node_modules/es5-ext/node_modules/d/lazy.js",
+        "node_modules/es5-ext/node_modules/es6-iterator/#/chain.js",
+        "node_modules/es5-ext/node_modules/es6-iterator/array.js",
+        "node_modules/es5-ext/node_modules/es6-iterator/for-of.js",
+        "node_modules/es5-ext/node_modules/es6-iterator/get.js",
+        "node_modules/es5-ext/node_modules/es6-iterator/index.js",
+        "node_modules/es5-ext/node_modules/es6-iterator/is-iterable.js",
+        "node_modules/es5-ext/node_modules/es6-iterator/string.js",
+        "node_modules/es5-ext/node_modules/es6-iterator/valid-iterable.js",
+        "node_modules/es5-ext/node_modules/es6-symbol/implement.js",
+        "node_modules/es5-ext/node_modules/es6-symbol/index.js",
+        "node_modules/es5-ext/node_modules/es6-symbol/is-implemented.js",
+        "node_modules/es5-ext/node_modules/es6-symbol/is-native-implemented.js",
+        "node_modules/es5-ext/node_modules/es6-symbol/is-symbol.js",
+        "node_modules/es5-ext/node_modules/es6-symbol/polyfill.js",
+        "node_modules/es5-ext/node_modules/es6-symbol/validate-symbol.js",
+        "node_modules/es5-ext/number/#/index.js",
+        "node_modules/es5-ext/number/#/pad.js",
+        "node_modules/es5-ext/number/epsilon/implement.js",
+        "node_modules/es5-ext/number/epsilon/index.js",
+        "node_modules/es5-ext/number/epsilon/is-implemented.js",
+        "node_modules/es5-ext/number/index.js",
+        "node_modules/es5-ext/number/is-finite/implement.js",
+        "node_modules/es5-ext/number/is-finite/index.js",
+        "node_modules/es5-ext/number/is-finite/is-implemented.js",
+        "node_modules/es5-ext/number/is-finite/shim.js",
+        "node_modules/es5-ext/number/is-integer/implement.js",
+        "node_modules/es5-ext/number/is-integer/index.js",
+        "node_modules/es5-ext/number/is-integer/is-implemented.js",
+        "node_modules/es5-ext/number/is-integer/shim.js",
+        "node_modules/es5-ext/number/is-nan/implement.js",
+        "node_modules/es5-ext/number/is-nan/index.js",
+        "node_modules/es5-ext/number/is-nan/is-implemented.js",
+        "node_modules/es5-ext/number/is-nan/shim.js",
+        "node_modules/es5-ext/number/is-natural.js",
+        "node_modules/es5-ext/number/is-number.js",
+        "node_modules/es5-ext/number/is-safe-integer/implement.js",
+        "node_modules/es5-ext/number/is-safe-integer/index.js",
+        "node_modules/es5-ext/number/is-safe-integer/is-implemented.js",
+        "node_modules/es5-ext/number/is-safe-integer/shim.js",
+        "node_modules/es5-ext/number/max-safe-integer/implement.js",
+        "node_modules/es5-ext/number/max-safe-integer/index.js",
+        "node_modules/es5-ext/number/max-safe-integer/is-implemented.js",
+        "node_modules/es5-ext/number/min-safe-integer/implement.js",
+        "node_modules/es5-ext/number/min-safe-integer/index.js",
+        "node_modules/es5-ext/number/min-safe-integer/is-implemented.js",
+        "node_modules/es5-ext/number/to-integer.js",
+        "node_modules/es5-ext/number/to-pos-integer.js",
+        "node_modules/es5-ext/number/to-uint32.js",
+        "node_modules/es5-ext/object/_iterate.js",
+        "node_modules/es5-ext/object/assign/implement.js",
+        "node_modules/es5-ext/object/assign/index.js",
+        "node_modules/es5-ext/object/assign/is-implemented.js",
+        "node_modules/es5-ext/object/assign/shim.js",
+        "node_modules/es5-ext/object/clear.js",
+        "node_modules/es5-ext/object/compact.js",
+        "node_modules/es5-ext/object/compare.js",
+        "node_modules/es5-ext/object/copy-deep.js",
+        "node_modules/es5-ext/object/copy.js",
+        "node_modules/es5-ext/object/count.js",
+        "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-natural-number-value.js",
+        "node_modules/es5-ext/object/ensure-natural-number.js",
+        "node_modules/es5-ext/object/ensure-promise.js",
+        "node_modules/es5-ext/object/eq.js",
+        "node_modules/es5-ext/object/every.js",
+        "node_modules/es5-ext/object/filter.js",
+        "node_modules/es5-ext/object/find-key.js",
+        "node_modules/es5-ext/object/find.js",
+        "node_modules/es5-ext/object/first-key.js",
+        "node_modules/es5-ext/object/flatten.js",
+        "node_modules/es5-ext/object/for-each.js",
+        "node_modules/es5-ext/object/get-property-names.js",
+        "node_modules/es5-ext/object/index.js",
+        "node_modules/es5-ext/object/is-array-like.js",
+        "node_modules/es5-ext/object/is-callable.js",
+        "node_modules/es5-ext/object/is-copy-deep.js",
+        "node_modules/es5-ext/object/is-copy.js",
+        "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-number-value.js",
+        "node_modules/es5-ext/object/is-object.js",
+        "node_modules/es5-ext/object/is-plain-object.js",
+        "node_modules/es5-ext/object/is-promise.js",
+        "node_modules/es5-ext/object/is-value.js",
+        "node_modules/es5-ext/object/is.js",
+        "node_modules/es5-ext/object/key-of.js",
+        "node_modules/es5-ext/object/keys/implement.js",
+        "node_modules/es5-ext/object/keys/index.js",
+        "node_modules/es5-ext/object/keys/is-implemented.js",
+        "node_modules/es5-ext/object/keys/shim.js",
+        "node_modules/es5-ext/object/map-keys.js",
+        "node_modules/es5-ext/object/map.js",
+        "node_modules/es5-ext/object/mixin-prototypes.js",
+        "node_modules/es5-ext/object/mixin.js",
+        "node_modules/es5-ext/object/normalize-options.js",
+        "node_modules/es5-ext/object/primitive-set.js",
+        "node_modules/es5-ext/object/safe-traverse.js",
+        "node_modules/es5-ext/object/serialize.js",
+        "node_modules/es5-ext/object/set-prototype-of/implement.js",
+        "node_modules/es5-ext/object/set-prototype-of/index.js",
+        "node_modules/es5-ext/object/set-prototype-of/is-implemented.js",
+        "node_modules/es5-ext/object/set-prototype-of/shim.js",
+        "node_modules/es5-ext/object/some.js",
+        "node_modules/es5-ext/object/to-array.js",
+        "node_modules/es5-ext/object/unserialize.js",
+        "node_modules/es5-ext/object/valid-callable.js",
+        "node_modules/es5-ext/object/valid-object.js",
+        "node_modules/es5-ext/object/valid-value.js",
+        "node_modules/es5-ext/object/validate-array-like-object.js",
+        "node_modules/es5-ext/object/validate-array-like.js",
+        "node_modules/es5-ext/object/validate-stringifiable-value.js",
+        "node_modules/es5-ext/object/validate-stringifiable.js",
+        "node_modules/es5-ext/reg-exp/#/index.js",
+        "node_modules/es5-ext/reg-exp/#/is-sticky.js",
+        "node_modules/es5-ext/reg-exp/#/is-unicode.js",
+        "node_modules/es5-ext/reg-exp/#/match/implement.js",
+        "node_modules/es5-ext/reg-exp/#/match/index.js",
+        "node_modules/es5-ext/reg-exp/#/match/is-implemented.js",
+        "node_modules/es5-ext/reg-exp/#/match/shim.js",
+        "node_modules/es5-ext/reg-exp/#/replace/implement.js",
+        "node_modules/es5-ext/reg-exp/#/replace/index.js",
+        "node_modules/es5-ext/reg-exp/#/replace/is-implemented.js",
+        "node_modules/es5-ext/reg-exp/#/replace/shim.js",
+        "node_modules/es5-ext/reg-exp/#/search/implement.js",
+        "node_modules/es5-ext/reg-exp/#/search/index.js",
+        "node_modules/es5-ext/reg-exp/#/search/is-implemented.js",
+        "node_modules/es5-ext/reg-exp/#/search/shim.js",
+        "node_modules/es5-ext/reg-exp/#/split/implement.js",
+        "node_modules/es5-ext/reg-exp/#/split/index.js",
+        "node_modules/es5-ext/reg-exp/#/split/is-implemented.js",
+        "node_modules/es5-ext/reg-exp/#/split/shim.js",
+        "node_modules/es5-ext/reg-exp/#/sticky/implement.js",
+        "node_modules/es5-ext/reg-exp/#/sticky/is-implemented.js",
+        "node_modules/es5-ext/reg-exp/#/unicode/implement.js",
+        "node_modules/es5-ext/reg-exp/#/unicode/is-implemented.js",
+        "node_modules/es5-ext/reg-exp/escape.js",
+        "node_modules/es5-ext/reg-exp/index.js",
+        "node_modules/es5-ext/reg-exp/is-reg-exp.js",
+        "node_modules/es5-ext/reg-exp/valid-reg-exp.js",
+        "node_modules/es5-ext/safe-to-string.js",
+        "node_modules/es5-ext/string/#/@@iterator/implement.js",
+        "node_modules/es5-ext/string/#/@@iterator/index.js",
+        "node_modules/es5-ext/string/#/@@iterator/is-implemented.js",
+        "node_modules/es5-ext/string/#/@@iterator/shim.js",
+        "node_modules/es5-ext/string/#/at.js",
+        "node_modules/es5-ext/string/#/camel-to-hyphen.js",
+        "node_modules/es5-ext/string/#/capitalize.js",
+        "node_modules/es5-ext/string/#/case-insensitive-compare.js",
+        "node_modules/es5-ext/string/#/code-point-at/implement.js",
+        "node_modules/es5-ext/string/#/code-point-at/index.js",
+        "node_modules/es5-ext/string/#/code-point-at/is-implemented.js",
+        "node_modules/es5-ext/string/#/code-point-at/shim.js",
+        "node_modules/es5-ext/string/#/contains/implement.js",
+        "node_modules/es5-ext/string/#/contains/index.js",
+        "node_modules/es5-ext/string/#/contains/is-implemented.js",
+        "node_modules/es5-ext/string/#/contains/shim.js",
+        "node_modules/es5-ext/string/#/count.js",
+        "node_modules/es5-ext/string/#/ends-with/implement.js",
+        "node_modules/es5-ext/string/#/ends-with/index.js",
+        "node_modules/es5-ext/string/#/ends-with/is-implemented.js",
+        "node_modules/es5-ext/string/#/ends-with/shim.js",
+        "node_modules/es5-ext/string/#/hyphen-to-camel.js",
+        "node_modules/es5-ext/string/#/indent.js",
+        "node_modules/es5-ext/string/#/index.js",
+        "node_modules/es5-ext/string/#/last.js",
+        "node_modules/es5-ext/string/#/normalize/_data.js",
+        "node_modules/es5-ext/string/#/normalize/implement.js",
+        "node_modules/es5-ext/string/#/normalize/index.js",
+        "node_modules/es5-ext/string/#/normalize/is-implemented.js",
+        "node_modules/es5-ext/string/#/normalize/shim.js",
+        "node_modules/es5-ext/string/#/pad.js",
+        "node_modules/es5-ext/string/#/plain-replace-all.js",
+        "node_modules/es5-ext/string/#/plain-replace.js",
+        "node_modules/es5-ext/string/#/repeat/implement.js",
+        "node_modules/es5-ext/string/#/repeat/index.js",
+        "node_modules/es5-ext/string/#/repeat/is-implemented.js",
+        "node_modules/es5-ext/string/#/repeat/shim.js",
+        "node_modules/es5-ext/string/#/starts-with/implement.js",
+        "node_modules/es5-ext/string/#/starts-with/index.js",
+        "node_modules/es5-ext/string/#/starts-with/is-implemented.js",
+        "node_modules/es5-ext/string/#/starts-with/shim.js",
+        "node_modules/es5-ext/string/#/uncapitalize.js",
+        "node_modules/es5-ext/string/format-method.js",
+        "node_modules/es5-ext/string/from-code-point/implement.js",
+        "node_modules/es5-ext/string/from-code-point/index.js",
+        "node_modules/es5-ext/string/from-code-point/is-implemented.js",
+        "node_modules/es5-ext/string/from-code-point/shim.js",
+        "node_modules/es5-ext/string/index.js",
+        "node_modules/es5-ext/string/is-string.js",
+        "node_modules/es5-ext/string/random-uniq.js",
+        "node_modules/es5-ext/string/raw/implement.js",
+        "node_modules/es5-ext/string/raw/index.js",
+        "node_modules/es5-ext/string/raw/is-implemented.js",
+        "node_modules/es5-ext/string/raw/shim.js",
+        "node_modules/es6-iterator/#/chain.js",
+        "node_modules/es6-iterator/array.js",
+        "node_modules/es6-iterator/for-of.js",
+        "node_modules/es6-iterator/get.js",
+        "node_modules/es6-iterator/index.js",
+        "node_modules/es6-iterator/is-iterable.js",
+        "node_modules/es6-iterator/string.js",
+        "node_modules/es6-iterator/valid-iterable.js",
+        "node_modules/es6-symbol/implement.js",
+        "node_modules/es6-symbol/index.js",
+        "node_modules/es6-symbol/is-implemented.js",
+        "node_modules/es6-symbol/is-native-implemented.js",
+        "node_modules/es6-symbol/is-symbol.js",
+        "node_modules/es6-symbol/polyfill.js",
+        "node_modules/es6-symbol/validate-symbol.js",
+        "node_modules/es6-weak-map/implement.js",
+        "node_modules/es6-weak-map/index.js",
+        "node_modules/es6-weak-map/is-implemented.js",
+        "node_modules/es6-weak-map/is-native-implemented.js",
+        "node_modules/es6-weak-map/is-weak-map.js",
+        "node_modules/es6-weak-map/polyfill.js",
+        "node_modules/es6-weak-map/valid-weak-map.js",
+        "node_modules/expand-brackets/index.js",
+        "node_modules/expand-range/index.js",
+        "node_modules/extglob/index.js",
+        "node_modules/extract-opts/es2015/index.js",
+        "node_modules/extract-opts/index.js",
+        "node_modules/extract-opts/source/index.js",
+        "node_modules/filename-regex/index.js",
+        "node_modules/fill-range/index.js",
+        "node_modules/for-in/index.js",
+        "node_modules/for-own/index.js",
+        "node_modules/fs-plus/lib/fs-plus.js",
+        "node_modules/fs.realpath/index.js",
+        "node_modules/fs.realpath/old.js",
+        "node_modules/glob/common.js",
+        "node_modules/glob/glob.js",
+        "node_modules/glob/sync.js",
+        "node_modules/glob-base/index.js",
+        "node_modules/glob-parent/index.js",
+        "node_modules/glob-parent/test.js",
+        "node_modules/graceful-fs/fs.js",
+        "node_modules/graceful-fs/graceful-fs.js",
+        "node_modules/graceful-fs/legacy-streams.js",
+        "node_modules/graceful-fs/polyfills.js",
+        "node_modules/grim/lib/deprecation.js",
+        "node_modules/grim/lib/grim.js",
+        "node_modules/header-case/header-case.js",
+        "node_modules/inflight/inflight.js",
+        "node_modules/inherits/inherits.js",
+        "node_modules/inherits/inherits_browser.js",
+        "node_modules/is-binary-path/index.js",
+        "node_modules/is-buffer/index.js",
+        "node_modules/is-dotfile/index.js",
+        "node_modules/is-equal-shallow/index.js",
+        "node_modules/is-extendable/index.js",
+        "node_modules/is-extglob/index.js",
+        "node_modules/is-glob/index.js",
+        "node_modules/is-lower-case/is-lower-case.js",
+        "node_modules/is-number/index.js",
+        "node_modules/is-posix-bracket/index.js",
+        "node_modules/is-primitive/index.js",
+        "node_modules/is-upper-case/is-upper-case.js",
+        "node_modules/is-utf8/is-utf8.js",
+        "node_modules/isarray/index.js",
+        "node_modules/isarray/test.js",
+        "node_modules/isexe/index.js",
+        "node_modules/isexe/mode.js",
+        "node_modules/isexe/windows.js",
+        "node_modules/isobject/index.js",
+        "node_modules/jquery/dist/jquery.js",
+        "node_modules/jquery/dist/jquery.min.js",
+        "node_modules/jquery/src/ajax/jsonp.js",
+        "node_modules/jquery/src/ajax/load.js",
+        "node_modules/jquery/src/ajax/parseJSON.js",
+        "node_modules/jquery/src/ajax/parseXML.js",
+        "node_modules/jquery/src/ajax/script.js",
+        "node_modules/jquery/src/ajax/var/nonce.js",
+        "node_modules/jquery/src/ajax/var/rquery.js",
+        "node_modules/jquery/src/ajax/xhr.js",
+        "node_modules/jquery/src/ajax.js",
+        "node_modules/jquery/src/attributes/attr.js",
+        "node_modules/jquery/src/attributes/classes.js",
+        "node_modules/jquery/src/attributes/prop.js",
+        "node_modules/jquery/src/attributes/support.js",
+        "node_modules/jquery/src/attributes/val.js",
+        "node_modules/jquery/src/attributes.js",
+        "node_modules/jquery/src/callbacks.js",
+        "node_modules/jquery/src/core/access.js",
+        "node_modules/jquery/src/core/init.js",
+        "node_modules/jquery/src/core/parseHTML.js",
+        "node_modules/jquery/src/core/ready.js",
+        "node_modules/jquery/src/core/var/rsingleTag.js",
+        "node_modules/jquery/src/core.js",
+        "node_modules/jquery/src/css/addGetHookIf.js",
+        "node_modules/jquery/src/css/curCSS.js",
+        "node_modules/jquery/src/css/defaultDisplay.js",
+        "node_modules/jquery/src/css/hiddenVisibleSelectors.js",
+        "node_modules/jquery/src/css/support.js",
+        "node_modules/jquery/src/css/swap.js",
+        "node_modules/jquery/src/css/var/cssExpand.js",
+        "node_modules/jquery/src/css/var/getStyles.js",
+        "node_modules/jquery/src/css/var/isHidden.js",
+        "node_modules/jquery/src/css/var/rmargin.js",
+        "node_modules/jquery/src/css/var/rnumnonpx.js",
+        "node_modules/jquery/src/css.js",
+        "node_modules/jquery/src/data/Data.js",
+        "node_modules/jquery/src/data/accepts.js",
+        "node_modules/jquery/src/data/var/data_priv.js",
+        "node_modules/jquery/src/data/var/data_user.js",
+        "node_modules/jquery/src/data.js",
+        "node_modules/jquery/src/deferred.js",
+        "node_modules/jquery/src/deprecated.js",
+        "node_modules/jquery/src/dimensions.js",
+        "node_modules/jquery/src/effects/Tween.js",
+        "node_modules/jquery/src/effects/animatedSelector.js",
+        "node_modules/jquery/src/effects.js",
+        "node_modules/jquery/src/event/ajax.js",
+        "node_modules/jquery/src/event/alias.js",
+        "node_modules/jquery/src/event/support.js",
+        "node_modules/jquery/src/event.js",
+        "node_modules/jquery/src/exports/amd.js",
+        "node_modules/jquery/src/exports/global.js",
+        "node_modules/jquery/src/intro.js",
+        "node_modules/jquery/src/jquery.js",
+        "node_modules/jquery/src/manipulation/_evalUrl.js",
+        "node_modules/jquery/src/manipulation/support.js",
+        "node_modules/jquery/src/manipulation/var/rcheckableType.js",
+        "node_modules/jquery/src/manipulation.js",
+        "node_modules/jquery/src/offset.js",
+        "node_modules/jquery/src/outro.js",
+        "node_modules/jquery/src/queue/delay.js",
+        "node_modules/jquery/src/queue.js",
+        "node_modules/jquery/src/selector-native.js",
+        "node_modules/jquery/src/selector-sizzle.js",
+        "node_modules/jquery/src/selector.js",
+        "node_modules/jquery/src/serialize.js",
+        "node_modules/jquery/src/sizzle/dist/sizzle.js",
+        "node_modules/jquery/src/sizzle/dist/sizzle.min.js",
+        "node_modules/jquery/src/traversing/findFilter.js",
+        "node_modules/jquery/src/traversing/var/rneedsContext.js",
+        "node_modules/jquery/src/traversing.js",
+        "node_modules/jquery/src/var/arr.js",
+        "node_modules/jquery/src/var/class2type.js",
+        "node_modules/jquery/src/var/concat.js",
+        "node_modules/jquery/src/var/hasOwn.js",
+        "node_modules/jquery/src/var/indexOf.js",
+        "node_modules/jquery/src/var/pnum.js",
+        "node_modules/jquery/src/var/push.js",
+        "node_modules/jquery/src/var/rnotwhite.js",
+        "node_modules/jquery/src/var/slice.js",
+        "node_modules/jquery/src/var/strundefined.js",
+        "node_modules/jquery/src/var/support.js",
+        "node_modules/jquery/src/var/toString.js",
+        "node_modules/jquery/src/wrap.js",
+        "node_modules/json5/lib/cli.js",
+        "node_modules/json5/lib/json5.js",
+        "node_modules/json5/lib/require.js",
+        "node_modules/kind-of/index.js",
+        "node_modules/lodash.uniq/index.js",
+        "node_modules/lower-case/lower-case.js",
+        "node_modules/lower-case-first/lower-case-first.js",
+        "node_modules/lru-cache/lib/lru-cache.js",
+        "node_modules/micromatch/index.js",
+        "node_modules/micromatch/lib/chars.js",
+        "node_modules/micromatch/lib/expand.js",
+        "node_modules/micromatch/lib/glob.js",
+        "node_modules/micromatch/lib/utils.js",
+        "node_modules/minimatch/minimatch.js",
+        "node_modules/minimist/example/parse.js",
+        "node_modules/minimist/index.js",
+        "node_modules/mixto/lib/mixin.js",
+        "node_modules/mkdirp/bin/cmd.js",
+        "node_modules/mkdirp/examples/pow.js",
+        "node_modules/mkdirp/index.js",
+        "node_modules/no-case/no-case.js",
+        "node_modules/no-case/vendor/camel-case-regexp.js",
+        "node_modules/no-case/vendor/camel-case-upper-regexp.js",
+        "node_modules/no-case/vendor/non-word-regexp.js",
+        "node_modules/normalize-path/index.js",
+        "node_modules/object.omit/index.js",
+        "node_modules/once/once.js",
+        "node_modules/os-shim/lib/os.js",
+        "node_modules/param-case/param-case.js",
+        "node_modules/parse-glob/index.js",
+        "node_modules/pascal-case/pascal-case.js",
+        "node_modules/path-case/path-case.js",
+        "node_modules/path-is-absolute/index.js",
+        "node_modules/preserve/index.js",
+        "node_modules/preserve/test.js",
+        "node_modules/process-nextick-args/index.js",
+        "node_modules/process-nextick-args/test.js",
+        "node_modules/property-accessors/lib/property-accessors.js",
+        "node_modules/pseudomap/map.js",
+        "node_modules/pseudomap/pseudomap.js",
+        "node_modules/randomatic/index.js",
+        "node_modules/readable-stream/duplex-browser.js",
+        "node_modules/readable-stream/duplex.js",
+        "node_modules/readable-stream/lib/_stream_duplex.js",
+        "node_modules/readable-stream/lib/_stream_passthrough.js",
+        "node_modules/readable-stream/lib/_stream_readable.js",
+        "node_modules/readable-stream/lib/_stream_transform.js",
+        "node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/readable-stream/lib/internal/streams/BufferList.js",
+        "node_modules/readable-stream/lib/internal/streams/stream-browser.js",
+        "node_modules/readable-stream/lib/internal/streams/stream.js",
+        "node_modules/readable-stream/passthrough.js",
+        "node_modules/readable-stream/readable-browser.js",
+        "node_modules/readable-stream/readable.js",
+        "node_modules/readable-stream/transform.js",
+        "node_modules/readable-stream/writable-browser.js",
+        "node_modules/readable-stream/writable.js",
+        "node_modules/readdirp/examples/callback-api.js",
+        "node_modules/readdirp/examples/grep.js",
+        "node_modules/readdirp/examples/stream-api-pipe.js",
+        "node_modules/readdirp/examples/stream-api.js",
+        "node_modules/readdirp/readdirp.js",
+        "node_modules/readdirp/stream-api.js",
+        "node_modules/regex-cache/index.js",
+        "node_modules/remove-trailing-separator/index.js",
+        "node_modules/repeat-element/index.js",
+        "node_modules/repeat-string/index.js",
+        "node_modules/requirefresh/es2015/index.js",
+        "node_modules/requirefresh/index.js",
+        "node_modules/requirefresh/source/index.js",
+        "node_modules/rimraf/bin.js",
+        "node_modules/rimraf/rimraf.js",
+        "node_modules/safefs/es2015/index.js",
+        "node_modules/safefs/index.js",
+        "node_modules/safefs/source/index.js",
+        "node_modules/sb-callsite/lib/main.js",
+        "node_modules/sb-exec/decls/jasmine.js",
+        "node_modules/sb-exec/lib/helpers.js",
+        "node_modules/sb-exec/lib/index.js",
+        "node_modules/sb-exec/lib/types.js",
+        "node_modules/sb-fs/lib/index.js",
+        "node_modules/sb-memoize/lib/index.js",
+        "node_modules/sb-npm-path/decls/jasmine.js",
+        "node_modules/sb-npm-path/lib/helpers.js",
+        "node_modules/sb-npm-path/lib/index.js",
+        "node_modules/sb-promisify/lib/index.js",
+        "node_modules/semver/semver.js",
+        "node_modules/sentence-case/sentence-case.js",
+        "node_modules/set-immediate-shim/index.js",
+        "node_modules/snake-case/snake-case.js",
+        "node_modules/space-pen/lib/space-pen.js",
+        "node_modules/spawn-sync/index.js",
+        "node_modules/spawn-sync/lib/json-buffer/index.js",
+        "node_modules/spawn-sync/lib/spawn-sync.js",
+        "node_modules/spawn-sync/lib/worker.js",
+        "node_modules/spawn-sync/postinstall.js",
+        "node_modules/string_decoder/lib/string_decoder.js",
+        "node_modules/strip-bom-buf/index.js",
+        "node_modules/swap-case/swap-case.js",
+        "node_modules/title-case/title-case.js",
+        "node_modules/tree-match-sync/index.js",
+        "node_modules/typechecker/es2015/index.js",
+        "node_modules/typechecker/index.js",
+        "node_modules/typechecker/source/index.js",
+        "node_modules/typedarray/example/tarray.js",
+        "node_modules/typedarray/index.js",
+        "node_modules/underscore/underscore-min.js",
+        "node_modules/underscore/underscore.js",
+        "node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/upper-case/upper-case.js",
+        "node_modules/upper-case-first/upper-case-first.js",
+        "node_modules/util-deprecate/browser.js",
+        "node_modules/util-deprecate/node.js",
+        "node_modules/which/which.js",
+        "node_modules/wrappy/wrappy.js",
+        "node_modules/yallist/iterator.js",
+        "node_modules/yallist/yallist.js"
+      ],
+      ".json": [
+        "node_modules/anymatch/package.json",
+        "node_modules/arr-diff/package.json",
+        "node_modules/arr-flatten/package.json",
+        "node_modules/array-unique/package.json",
+        "node_modules/arrify/package.json",
+        "node_modules/async/package.json",
+        "node_modules/async-each/package.json",
+        "node_modules/atom-package-deps/.eslintrc.json",
+        "node_modules/atom-package-deps/package.json",
+        "node_modules/atom-package-path/package.json",
+        "node_modules/balanced-match/package.json",
+        "node_modules/binary-extensions/binary-extensions.json",
+        "node_modules/binary-extensions/package.json",
+        "node_modules/brace-expansion/package.json",
+        "node_modules/braces/package.json",
+        "node_modules/buffer-shims/package.json",
+        "node_modules/camel-case/package.json",
+        "node_modules/change-case/package.json",
+        "node_modules/chokidar/package.json",
+        "node_modules/coffee-script/package.json",
+        "node_modules/concat-map/package.json",
+        "node_modules/concat-stream/package.json",
+        "node_modules/consistent-env/.eslintrc.json",
+        "node_modules/consistent-env/package.json",
+        "node_modules/constant-case/package.json",
+        "node_modules/core-util-is/package.json",
+        "node_modules/cross-spawn/package.json",
+        "node_modules/cross-spawn-async/package.json",
+        "node_modules/cson/package.json",
+        "node_modules/cson-parser/package.json",
+        "node_modules/d/package.json",
+        "node_modules/dot-case/package.json",
+        "node_modules/eachr/package.json",
+        "node_modules/editions/package.json",
+        "node_modules/emissary/package.json",
+        "node_modules/es5-ext/node_modules/d/package.json",
+        "node_modules/es5-ext/node_modules/es6-iterator/package.json",
+        "node_modules/es5-ext/node_modules/es6-symbol/package.json",
+        "node_modules/es5-ext/package.json",
+        "node_modules/es6-iterator/package.json",
+        "node_modules/es6-symbol/package.json",
+        "node_modules/es6-weak-map/package.json",
+        "node_modules/expand-brackets/package.json",
+        "node_modules/expand-range/package.json",
+        "node_modules/extglob/package.json",
+        "node_modules/extract-opts/package.json",
+        "node_modules/filename-regex/package.json",
+        "node_modules/fill-range/package.json",
+        "node_modules/for-in/package.json",
+        "node_modules/for-own/package.json",
+        "node_modules/fs-plus/package.json",
+        "node_modules/fs.realpath/package.json",
+        "node_modules/glob/package.json",
+        "node_modules/glob-base/package.json",
+        "node_modules/glob-parent/package.json",
+        "node_modules/graceful-fs/package.json",
+        "node_modules/grim/package.json",
+        "node_modules/header-case/package.json",
+        "node_modules/inflight/package.json",
+        "node_modules/inherits/package.json",
+        "node_modules/is-binary-path/package.json",
+        "node_modules/is-buffer/package.json",
+        "node_modules/is-dotfile/package.json",
+        "node_modules/is-equal-shallow/package.json",
+        "node_modules/is-extendable/package.json",
+        "node_modules/is-extglob/package.json",
+        "node_modules/is-glob/package.json",
+        "node_modules/is-lower-case/package.json",
+        "node_modules/is-number/package.json",
+        "node_modules/is-posix-bracket/package.json",
+        "node_modules/is-primitive/package.json",
+        "node_modules/is-upper-case/package.json",
+        "node_modules/is-utf8/package.json",
+        "node_modules/isarray/component.json",
+        "node_modules/isarray/package.json",
+        "node_modules/isexe/package.json",
+        "node_modules/isobject/package.json",
+        "node_modules/jquery/bower.json",
+        "node_modules/jquery/package.json",
+        "node_modules/json5/package.json",
+        "node_modules/kind-of/package.json",
+        "node_modules/lodash.uniq/package.json",
+        "node_modules/lower-case/package.json",
+        "node_modules/lower-case-first/package.json",
+        "node_modules/lru-cache/package.json",
+        "node_modules/micromatch/package.json",
+        "node_modules/minimatch/package.json",
+        "node_modules/minimist/package.json",
+        "node_modules/mixto/package.json",
+        "node_modules/mkdirp/package.json",
+        "node_modules/no-case/package.json",
+        "node_modules/normalize-path/package.json",
+        "node_modules/object.omit/package.json",
+        "node_modules/once/package.json",
+        "node_modules/os-shim/package.json",
+        "node_modules/param-case/package.json",
+        "node_modules/parse-glob/package.json",
+        "node_modules/pascal-case/package.json",
+        "node_modules/path-case/package.json",
+        "node_modules/path-is-absolute/package.json",
+        "node_modules/preserve/package.json",
+        "node_modules/process-nextick-args/package.json",
+        "node_modules/property-accessors/package.json",
+        "node_modules/pseudomap/package.json",
+        "node_modules/randomatic/package.json",
+        "node_modules/readable-stream/package.json",
+        "node_modules/readdirp/examples/package.json",
+        "node_modules/readdirp/package.json",
+        "node_modules/regex-cache/package.json",
+        "node_modules/remove-trailing-separator/package.json",
+        "node_modules/repeat-element/package.json",
+        "node_modules/repeat-string/package.json",
+        "node_modules/requirefresh/package.json",
+        "node_modules/rimraf/package.json",
+        "node_modules/safefs/package.json",
+        "node_modules/sb-callsite/package.json",
+        "node_modules/sb-exec/.eslintrc.json",
+        "node_modules/sb-exec/package.json",
+        "node_modules/sb-fs/package.json",
+        "node_modules/sb-memoize/.eslintrc.json",
+        "node_modules/sb-memoize/package.json",
+        "node_modules/sb-npm-path/.eslintrc.json",
+        "node_modules/sb-npm-path/package.json",
+        "node_modules/sb-promisify/package.json",
+        "node_modules/semver/package.json",
+        "node_modules/sentence-case/package.json",
+        "node_modules/set-immediate-shim/package.json",
+        "node_modules/snake-case/package.json",
+        "node_modules/space-pen/api.json",
+        "node_modules/space-pen/package.json",
+        "node_modules/spawn-sync/package.json",
+        "node_modules/string_decoder/package.json",
+        "node_modules/strip-bom-buf/package.json",
+        "node_modules/swap-case/package.json",
+        "node_modules/title-case/package.json",
+        "node_modules/tree-match-sync/package.json",
+        "node_modules/typechecker/package.json",
+        "node_modules/typedarray/package.json",
+        "node_modules/underscore/package.json",
+        "node_modules/underscore-plus/package.json",
+        "node_modules/upper-case/package.json",
+        "node_modules/upper-case-first/package.json",
+        "node_modules/util-deprecate/package.json",
+        "node_modules/which/package.json",
+        "node_modules/wrappy/package.json",
+        "node_modules/yallist/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec",
+          "types"
+        ],
+        "dependencies": {
+          "atom-package-deps": "^4.0.1",
+          "change-case": "^3.0.0",
+          "chokidar": "^1.4.3",
+          "cson": "^3.0.2",
+          "fs-plus": "^2.8.1",
+          "json5": "^0.5.0",
+          "space-pen": "^5.1.1",
+          "tree-match-sync": "0.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/anymatch"
+        ],
+        "dependencies": {
+          "arrify": "^1.0.0",
+          "micromatch": "^2.1.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/arr-diff"
+        ],
+        "dependencies": {
+          "arr-flatten": "^1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps",
+          "node_modules/atom-package-deps/lib"
+        ],
+        "dependencies": {
+          "atom-package-path": "^1.1.0",
+          "sb-exec": "^3.0.1",
+          "sb-fs": "^3.0.0",
+          "semver": "^5.3.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-path/lib",
+          "node_modules/atom-package-path",
+          "node_modules/atom-package-path/spec"
+        ],
+        "dependencies": {
+          "sb-callsite": "^1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/brace-expansion"
+        ],
+        "dependencies": {
+          "balanced-match": "^0.4.1",
+          "concat-map": "0.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/braces"
+        ],
+        "dependencies": {
+          "expand-range": "^1.8.1",
+          "preserve": "^0.2.0",
+          "repeat-element": "^1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/camel-case"
+        ],
+        "dependencies": {
+          "no-case": "^2.2.0",
+          "upper-case": "^1.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/change-case"
+        ],
+        "dependencies": {
+          "camel-case": "^3.0.0",
+          "constant-case": "^2.0.0",
+          "dot-case": "^2.1.0",
+          "header-case": "^1.0.0",
+          "is-lower-case": "^1.1.0",
+          "is-upper-case": "^1.1.0",
+          "lower-case": "^1.1.1",
+          "lower-case-first": "^1.0.0",
+          "no-case": "^2.2.0",
+          "param-case": "^2.1.0",
+          "pascal-case": "^2.0.0",
+          "path-case": "^2.1.0",
+          "sentence-case": "^2.1.0",
+          "snake-case": "^2.1.0",
+          "swap-case": "^1.1.0",
+          "title-case": "^2.1.0",
+          "upper-case": "^1.1.1",
+          "upper-case-first": "^1.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/chokidar",
+          "node_modules/chokidar/lib"
+        ],
+        "dependencies": {
+          "anymatch": "^1.3.0",
+          "async-each": "^1.0.0",
+          "fsevents": "^1.0.0",
+          "glob-parent": "^2.0.0",
+          "inherits": "^2.0.1",
+          "is-binary-path": "^1.0.0",
+          "is-glob": "^2.0.0",
+          "path-is-absolute": "^1.0.0",
+          "readdirp": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/concat-stream"
+        ],
+        "dependencies": {
+          "inherits": "^2.0.3",
+          "readable-stream": "^2.2.2",
+          "typedarray": "^0.0.6"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/consistent-env",
+          "node_modules/consistent-env/decls",
+          "node_modules/consistent-env/lib"
+        ],
+        "dependencies": {
+          "lodash.uniq": "^4.5.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/constant-case"
+        ],
+        "dependencies": {
+          "snake-case": "^2.1.0",
+          "upper-case": "^1.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/cross-spawn"
+        ],
+        "dependencies": {
+          "cross-spawn-async": "^2.2.2",
+          "spawn-sync": "^1.0.15"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/cross-spawn-async",
+          "node_modules/cross-spawn-async/lib"
+        ],
+        "dependencies": {
+          "lru-cache": "^4.0.0",
+          "which": "^1.2.8"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/cson/docs/assets",
+          "node_modules/cson/out/bin",
+          "node_modules/cson/out/lib",
+          "node_modules/cson"
+        ],
+        "dependencies": {
+          "coffee-script": "^1.9.0",
+          "cson-parser": "^1.0.6",
+          "extract-opts": "^3.0.1",
+          "requirefresh": "^2.0.0",
+          "safefs": "^4.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/cson-parser/lib",
+          "node_modules/cson-parser"
+        ],
+        "dependencies": {
+          "coffee-script": "^1.10.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/d",
+          "node_modules/d/test"
+        ],
+        "dependencies": {
+          "es5-ext": "~0.10.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/dot-case"
+        ],
+        "dependencies": {
+          "no-case": "^2.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/eachr/es2015",
+          "node_modules/eachr",
+          "node_modules/eachr/source"
+        ],
+        "dependencies": {
+          "editions": "^1.1.1",
+          "typechecker": "^4.3.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/emissary/lib",
+          "node_modules/emissary"
+        ],
+        "dependencies": {
+          "es6-weak-map": "^0.1.2",
+          "mixto": "1.x",
+          "property-accessors": "^1.1",
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/es5-ext/array/#/@@iterator",
+          "node_modules/es5-ext/array/#",
+          "node_modules/es5-ext/array/#/concat",
+          "node_modules/es5-ext/array/#/copy-within",
+          "node_modules/es5-ext/array/#/entries",
+          "node_modules/es5-ext/array/#/fill",
+          "node_modules/es5-ext/array/#/filter",
+          "node_modules/es5-ext/array/#/find",
+          "node_modules/es5-ext/array/#/find-index",
+          "node_modules/es5-ext/array/#/keys",
+          "node_modules/es5-ext/array/#/map",
+          "node_modules/es5-ext/array/#/slice",
+          "node_modules/es5-ext/array/#/splice",
+          "node_modules/es5-ext/array/#/values",
+          "node_modules/es5-ext/array",
+          "node_modules/es5-ext/array/from",
+          "node_modules/es5-ext/array/of",
+          "node_modules/es5-ext/boolean",
+          "node_modules/es5-ext/date/#",
+          "node_modules/es5-ext/date",
+          "node_modules/es5-ext/error/#",
+          "node_modules/es5-ext/error",
+          "node_modules/es5-ext/function/#",
+          "node_modules/es5-ext/function",
+          "node_modules/es5-ext",
+          "node_modules/es5-ext/iterable",
+          "node_modules/es5-ext/json",
+          "node_modules/es5-ext/math",
+          "node_modules/es5-ext/math/acosh",
+          "node_modules/es5-ext/math/asinh",
+          "node_modules/es5-ext/math/atanh",
+          "node_modules/es5-ext/math/cbrt",
+          "node_modules/es5-ext/math/clz32",
+          "node_modules/es5-ext/math/cosh",
+          "node_modules/es5-ext/math/expm1",
+          "node_modules/es5-ext/math/fround",
+          "node_modules/es5-ext/math/hypot",
+          "node_modules/es5-ext/math/imul",
+          "node_modules/es5-ext/math/log10",
+          "node_modules/es5-ext/math/log1p",
+          "node_modules/es5-ext/math/log2",
+          "node_modules/es5-ext/math/sign",
+          "node_modules/es5-ext/math/sinh",
+          "node_modules/es5-ext/math/tanh",
+          "node_modules/es5-ext/math/trunc",
+          "node_modules/es5-ext/number/#",
+          "node_modules/es5-ext/number/epsilon",
+          "node_modules/es5-ext/number",
+          "node_modules/es5-ext/number/is-finite",
+          "node_modules/es5-ext/number/is-integer",
+          "node_modules/es5-ext/number/is-nan",
+          "node_modules/es5-ext/number/is-safe-integer",
+          "node_modules/es5-ext/number/max-safe-integer",
+          "node_modules/es5-ext/number/min-safe-integer",
+          "node_modules/es5-ext/object",
+          "node_modules/es5-ext/object/assign",
+          "node_modules/es5-ext/object/keys",
+          "node_modules/es5-ext/object/set-prototype-of",
+          "node_modules/es5-ext/reg-exp/#",
+          "node_modules/es5-ext/reg-exp/#/match",
+          "node_modules/es5-ext/reg-exp/#/replace",
+          "node_modules/es5-ext/reg-exp/#/search",
+          "node_modules/es5-ext/reg-exp/#/split",
+          "node_modules/es5-ext/reg-exp/#/sticky",
+          "node_modules/es5-ext/reg-exp/#/unicode",
+          "node_modules/es5-ext/reg-exp",
+          "node_modules/es5-ext/string/#/@@iterator",
+          "node_modules/es5-ext/string/#",
+          "node_modules/es5-ext/string/#/code-point-at",
+          "node_modules/es5-ext/string/#/contains",
+          "node_modules/es5-ext/string/#/ends-with",
+          "node_modules/es5-ext/string/#/normalize",
+          "node_modules/es5-ext/string/#/repeat",
+          "node_modules/es5-ext/string/#/starts-with",
+          "node_modules/es5-ext/string",
+          "node_modules/es5-ext/string/from-code-point",
+          "node_modules/es5-ext/string/raw",
+          "node_modules/es5-ext/test",
+          "node_modules/es5-ext/test/array/#/@@iterator",
+          "node_modules/es5-ext/test/array/#",
+          "node_modules/es5-ext/test/array/#/concat",
+          "node_modules/es5-ext/test/array/#/copy-within",
+          "node_modules/es5-ext/test/array/#/entries",
+          "node_modules/es5-ext/test/array/#/fill",
+          "node_modules/es5-ext/test/array/#/filter",
+          "node_modules/es5-ext/test/array/#/find",
+          "node_modules/es5-ext/test/array/#/find-index",
+          "node_modules/es5-ext/test/array/#/keys",
+          "node_modules/es5-ext/test/array/#/map",
+          "node_modules/es5-ext/test/array/#/slice",
+          "node_modules/es5-ext/test/array/#/splice",
+          "node_modules/es5-ext/test/array/#/values",
+          "node_modules/es5-ext/test/array",
+          "node_modules/es5-ext/test/array/from",
+          "node_modules/es5-ext/test/array/of",
+          "node_modules/es5-ext/test/boolean",
+          "node_modules/es5-ext/test/date/#",
+          "node_modules/es5-ext/test/date",
+          "node_modules/es5-ext/test/error/#",
+          "node_modules/es5-ext/test/error",
+          "node_modules/es5-ext/test/function/#",
+          "node_modules/es5-ext/test/function",
+          "node_modules/es5-ext/test/iterable",
+          "node_modules/es5-ext/test/json",
+          "node_modules/es5-ext/test/math",
+          "node_modules/es5-ext/test/math/acosh",
+          "node_modules/es5-ext/test/math/asinh",
+          "node_modules/es5-ext/test/math/atanh",
+          "node_modules/es5-ext/test/math/cbrt",
+          "node_modules/es5-ext/test/math/clz32",
+          "node_modules/es5-ext/test/math/cosh",
+          "node_modules/es5-ext/test/math/expm1",
+          "node_modules/es5-ext/test/math/fround",
+          "node_modules/es5-ext/test/math/hypot",
+          "node_modules/es5-ext/test/math/imul",
+          "node_modules/es5-ext/test/math/log10",
+          "node_modules/es5-ext/test/math/log1p",
+          "node_modules/es5-ext/test/math/log2",
+          "node_modules/es5-ext/test/math/sign",
+          "node_modules/es5-ext/test/math/sinh",
+          "node_modules/es5-ext/test/math/tanh",
+          "node_modules/es5-ext/test/math/trunc",
+          "node_modules/es5-ext/test/number/#",
+          "node_modules/es5-ext/test/number/epsilon",
+          "node_modules/es5-ext/test/number/is-finite",
+          "node_modules/es5-ext/test/number/is-integer",
+          "node_modules/es5-ext/test/number/is-nan",
+          "node_modules/es5-ext/test/number",
+          "node_modules/es5-ext/test/number/is-safe-integer",
+          "node_modules/es5-ext/test/number/max-safe-integer",
+          "node_modules/es5-ext/test/number/min-safe-integer",
+          "node_modules/es5-ext/test/object",
+          "node_modules/es5-ext/test/object/assign",
+          "node_modules/es5-ext/test/object/keys",
+          "node_modules/es5-ext/test/object/set-prototype-of",
+          "node_modules/es5-ext/test/reg-exp/#",
+          "node_modules/es5-ext/test/reg-exp/#/match",
+          "node_modules/es5-ext/test/reg-exp/#/replace",
+          "node_modules/es5-ext/test/reg-exp/#/search",
+          "node_modules/es5-ext/test/reg-exp/#/split",
+          "node_modules/es5-ext/test/reg-exp/#/sticky",
+          "node_modules/es5-ext/test/reg-exp/#/unicode",
+          "node_modules/es5-ext/test/reg-exp",
+          "node_modules/es5-ext/test/string/#/@@iterator",
+          "node_modules/es5-ext/test/string/#",
+          "node_modules/es5-ext/test/string/#/code-point-at",
+          "node_modules/es5-ext/test/string/#/contains",
+          "node_modules/es5-ext/test/string/#/ends-with",
+          "node_modules/es5-ext/test/string/#/normalize",
+          "node_modules/es5-ext/test/string/#/repeat",
+          "node_modules/es5-ext/test/string/#/starts-with",
+          "node_modules/es5-ext/test/string",
+          "node_modules/es5-ext/test/string/from-code-point",
+          "node_modules/es5-ext/test/string/raw"
+        ],
+        "dependencies": {
+          "es6-iterator": "2",
+          "es6-symbol": "~3.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/es5-ext/node_modules/d",
+          "node_modules/es5-ext/node_modules/d/test"
+        ],
+        "dependencies": {
+          "es5-ext": "^0.10.9"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/es5-ext/node_modules/es6-iterator/#",
+          "node_modules/es5-ext/node_modules/es6-iterator",
+          "node_modules/es5-ext/node_modules/es6-iterator/test/#",
+          "node_modules/es5-ext/node_modules/es6-iterator/test"
+        ],
+        "dependencies": {
+          "d": "1",
+          "es5-ext": "^0.10.14",
+          "es6-symbol": "^3.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/es5-ext/node_modules/es6-symbol",
+          "node_modules/es5-ext/node_modules/es6-symbol/test"
+        ],
+        "dependencies": {
+          "d": "1",
+          "es5-ext": "~0.10.14"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/es6-iterator/#",
+          "node_modules/es6-iterator",
+          "node_modules/es6-iterator/test/#",
+          "node_modules/es6-iterator/test"
+        ],
+        "dependencies": {
+          "d": "~0.1.1",
+          "es5-ext": "~0.10.5",
+          "es6-symbol": "~2.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/es6-symbol",
+          "node_modules/es6-symbol/test"
+        ],
+        "dependencies": {
+          "d": "~0.1.1",
+          "es5-ext": "~0.10.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/es6-weak-map",
+          "node_modules/es6-weak-map/test"
+        ],
+        "dependencies": {
+          "d": "~0.1.1",
+          "es5-ext": "~0.10.6",
+          "es6-iterator": "~0.1.3",
+          "es6-symbol": "~2.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/expand-brackets"
+        ],
+        "dependencies": {
+          "is-posix-bracket": "^0.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/expand-range"
+        ],
+        "dependencies": {
+          "fill-range": "^2.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/extglob"
+        ],
+        "dependencies": {
+          "is-extglob": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/extract-opts/es2015",
+          "node_modules/extract-opts",
+          "node_modules/extract-opts/source"
+        ],
+        "dependencies": {
+          "eachr": "^3.2.0",
+          "editions": "^1.1.1",
+          "typechecker": "^4.3.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/fill-range"
+        ],
+        "dependencies": {
+          "is-number": "^2.1.0",
+          "isobject": "^2.0.0",
+          "randomatic": "^1.1.3",
+          "repeat-element": "^1.1.2",
+          "repeat-string": "^1.5.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/for-own"
+        ],
+        "dependencies": {
+          "for-in": "^1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/fs-plus/lib",
+          "node_modules/fs-plus"
+        ],
+        "dependencies": {
+          "async": "^1.5.2",
+          "mkdirp": "^0.5.1",
+          "rimraf": "^2.5.2",
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob"
+        ],
+        "dependencies": {
+          "fs.realpath": "^1.0.0",
+          "inflight": "^1.0.4",
+          "inherits": "2",
+          "minimatch": "^3.0.2",
+          "once": "^1.3.0",
+          "path-is-absolute": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob-base"
+        ],
+        "dependencies": {
+          "glob-parent": "^2.0.0",
+          "is-glob": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob-parent"
+        ],
+        "dependencies": {
+          "is-glob": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/grim/lib",
+          "node_modules/grim"
+        ],
+        "dependencies": {
+          "emissary": "^1.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/header-case"
+        ],
+        "dependencies": {
+          "no-case": "^2.2.0",
+          "upper-case": "^1.1.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/inflight"
+        ],
+        "dependencies": {
+          "once": "^1.3.0",
+          "wrappy": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/is-binary-path"
+        ],
+        "dependencies": {
+          "binary-extensions": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/is-equal-shallow"
+        ],
+        "dependencies": {
+          "is-primitive": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/is-glob"
+        ],
+        "dependencies": {
+          "is-extglob": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/is-lower-case"
+        ],
+        "dependencies": {
+          "lower-case": "^1.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/is-number"
+        ],
+        "dependencies": {
+          "kind-of": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/is-upper-case"
+        ],
+        "dependencies": {
+          "upper-case": "^1.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/isobject"
+        ],
+        "dependencies": {
+          "isarray": "1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/kind-of"
+        ],
+        "dependencies": {
+          "is-buffer": "^1.1.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/lower-case-first"
+        ],
+        "dependencies": {
+          "lower-case": "^1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/lru-cache/lib",
+          "node_modules/lru-cache"
+        ],
+        "dependencies": {
+          "pseudomap": "^1.0.1",
+          "yallist": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/micromatch",
+          "node_modules/micromatch/lib"
+        ],
+        "dependencies": {
+          "arr-diff": "^2.0.0",
+          "array-unique": "^0.2.1",
+          "braces": "^1.8.2",
+          "expand-brackets": "^0.1.4",
+          "extglob": "^0.3.1",
+          "filename-regex": "^2.0.0",
+          "is-extglob": "^1.0.0",
+          "is-glob": "^2.0.1",
+          "kind-of": "^3.0.2",
+          "normalize-path": "^2.0.1",
+          "object.omit": "^2.0.0",
+          "parse-glob": "^3.0.4",
+          "regex-cache": "^0.4.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/minimatch"
+        ],
+        "dependencies": {
+          "brace-expansion": "^1.1.7"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/mkdirp/bin",
+          "node_modules/mkdirp/examples",
+          "node_modules/mkdirp",
+          "node_modules/mkdirp/test"
+        ],
+        "dependencies": {
+          "minimist": "0.0.8"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/no-case",
+          "node_modules/no-case/vendor"
+        ],
+        "dependencies": {
+          "lower-case": "^1.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/normalize-path"
+        ],
+        "dependencies": {
+          "remove-trailing-separator": "^1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/object.omit"
+        ],
+        "dependencies": {
+          "for-own": "^0.1.4",
+          "is-extendable": "^0.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/once"
+        ],
+        "dependencies": {
+          "wrappy": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/param-case"
+        ],
+        "dependencies": {
+          "no-case": "^2.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/parse-glob"
+        ],
+        "dependencies": {
+          "glob-base": "^0.3.0",
+          "is-dotfile": "^1.0.0",
+          "is-extglob": "^1.0.0",
+          "is-glob": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/pascal-case"
+        ],
+        "dependencies": {
+          "camel-case": "^3.0.0",
+          "upper-case-first": "^1.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/path-case"
+        ],
+        "dependencies": {
+          "no-case": "^2.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/property-accessors/lib",
+          "node_modules/property-accessors"
+        ],
+        "dependencies": {
+          "es6-weak-map": "^0.1.2",
+          "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/randomatic"
+        ],
+        "dependencies": {
+          "is-number": "^2.0.2",
+          "kind-of": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/readable-stream",
+          "node_modules/readable-stream/lib",
+          "node_modules/readable-stream/lib/internal/streams"
+        ],
+        "dependencies": {
+          "buffer-shims": "~1.0.0",
+          "core-util-is": "~1.0.0",
+          "inherits": "~2.0.1",
+          "isarray": "~1.0.0",
+          "process-nextick-args": "~1.0.6",
+          "string_decoder": "~1.0.0",
+          "util-deprecate": "~1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/readdirp/examples",
+          "node_modules/readdirp",
+          "node_modules/readdirp/test"
+        ],
+        "dependencies": {
+          "graceful-fs": "^4.1.2",
+          "minimatch": "^3.0.2",
+          "readable-stream": "^2.0.2",
+          "set-immediate-shim": "^1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/regex-cache"
+        ],
+        "dependencies": {
+          "is-equal-shallow": "^0.1.3",
+          "is-primitive": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/requirefresh/es2015",
+          "node_modules/requirefresh",
+          "node_modules/requirefresh/source"
+        ],
+        "dependencies": {
+          "editions": "^1.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/rimraf"
+        ],
+        "dependencies": {
+          "glob": "^7.0.5"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/safefs/es2015",
+          "node_modules/safefs",
+          "node_modules/safefs/source"
+        ],
+        "dependencies": {
+          "editions": "^1.1.1",
+          "graceful-fs": "^4.1.4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sb-exec",
+          "node_modules/sb-exec/decls",
+          "node_modules/sb-exec/lib"
+        ],
+        "dependencies": {
+          "consistent-env": "^1.2.0",
+          "lodash.uniq": "^4.5.0",
+          "sb-npm-path": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sb-fs/lib",
+          "node_modules/sb-fs"
+        ],
+        "dependencies": {
+          "sb-promisify": "^2.0.1",
+          "strip-bom-buf": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sb-npm-path",
+          "node_modules/sb-npm-path/decls",
+          "node_modules/sb-npm-path/lib"
+        ],
+        "dependencies": {
+          "sb-memoize": "^1.0.2",
+          "sb-promisify": "^2.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/sentence-case"
+        ],
+        "dependencies": {
+          "no-case": "^2.2.0",
+          "upper-case-first": "^1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/snake-case"
+        ],
+        "dependencies": {
+          "no-case": "^2.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/space-pen",
+          "node_modules/space-pen/lib"
+        ],
+        "dependencies": {
+          "grim": "^1.0.0",
+          "jquery": "2.1.4",
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/spawn-sync",
+          "node_modules/spawn-sync/lib/json-buffer",
+          "node_modules/spawn-sync/lib",
+          "node_modules/spawn-sync/test"
+        ],
+        "dependencies": {
+          "concat-stream": "^1.4.7",
+          "os-shim": "^0.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/string_decoder/lib",
+          "node_modules/string_decoder"
+        ],
+        "dependencies": {
+          "buffer-shims": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/strip-bom-buf"
+        ],
+        "dependencies": {
+          "is-utf8": "^0.2.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/swap-case"
+        ],
+        "dependencies": {
+          "lower-case": "^1.1.1",
+          "upper-case": "^1.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/title-case"
+        ],
+        "dependencies": {
+          "no-case": "^2.2.0",
+          "upper-case": "^1.0.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/tree-match-sync",
+          "node_modules/tree-match-sync/test"
+        ],
+        "dependencies": {
+          "cross-spawn": "^2.0.0",
+          "minimatch": "^3.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/typechecker/es2015",
+          "node_modules/typechecker",
+          "node_modules/typechecker/source"
+        ],
+        "dependencies": {
+          "editions": "^1.3.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/upper-case-first"
+        ],
+        "dependencies": {
+          "upper-case": "^1.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/which"
+        ],
+        "dependencies": {
+          "isexe": "^2.0.0"
+        }
+      }
+    ]
+  }
 }

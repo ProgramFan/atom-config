@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
+        "raw": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
-        "spec": "/tmp/d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
+        "rawSpec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+        "spec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6410-rgcawd.3lvl1munmi"
+      "/tmp/apm-install-dir-117417-6962-9wpxnc.ulcl2nvcxr"
     ]
   ],
-  "_from": "../d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
+  "_from": "../d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
   "_id": "intentions@1.1.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/intentions",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
+    "raw": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
-    "spec": "/tmp/d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
+    "rawSpec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+    "spec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
+  "_resolved": "file:../d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
   "_shasum": "ff78e073a6bf1069e184a4cc79e8306af30a1962",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6410-m255gi.nmujpjh5mi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6410-rgcawd.3lvl1munmi",
+  "_spec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117417-6962-9wpxnc.ulcl2nvcxr",
   "bugs": {
     "url": "https://github.com/steelbrain/intentions/issues"
   },
@@ -80,5 +80,101 @@
     "lint": "eslint .",
     "test": "apm test"
   },
-  "version": "1.1.2"
+  "version": "1.1.2",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "disposable-event",
+        "version": "1.0.3",
+        "path": "node_modules/disposable-event/lib/index.js"
+      },
+      {
+        "name": "escape-html",
+        "version": "1.0.3",
+        "path": "node_modules/escape-html/index.js"
+      },
+      {
+        "name": "sb-event-kit",
+        "version": "2.0.0",
+        "path": "node_modules/sb-event-kit/lib/main.js"
+      },
+      {
+        "name": "vanilla-jsx",
+        "version": "3.0.2",
+        "path": "node_modules/vanilla-jsx/lib/main.js"
+      }
+    ],
+    "extensions": {
+      ".json": [
+        ".eslintrc.json",
+        "node_modules/disposable-event/.eslintrc.json",
+        "node_modules/disposable-event/package.json",
+        "node_modules/escape-html/package.json",
+        "node_modules/sb-event-kit/package.json",
+        "node_modules/vanilla-jsx/package.json",
+        "package.json"
+      ],
+      ".js": [
+        "lib/commands.js",
+        "lib/elements/highlight.js",
+        "lib/elements/list.js",
+        "lib/helpers.js",
+        "lib/index.js",
+        "lib/main.js",
+        "lib/providers-highlight.js",
+        "lib/providers-list.js",
+        "lib/types.js",
+        "lib/validate.js",
+        "lib/view-list.js",
+        "node_modules/disposable-event/decls/jasmine.js",
+        "node_modules/disposable-event/lib/index.js",
+        "node_modules/escape-html/index.js",
+        "node_modules/sb-event-kit/lib/composite-disposable.js",
+        "node_modules/sb-event-kit/lib/disposable.js",
+        "node_modules/sb-event-kit/lib/emitter.js",
+        "node_modules/sb-event-kit/lib/main.js",
+        "node_modules/vanilla-jsx/lib/main.js",
+        "node_modules/vanilla-jsx/src/main.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "decls",
+          "keymaps",
+          "lib",
+          "lib/elements",
+          "spec"
+        ],
+        "dependencies": {
+          "disposable-event": "^1.0.1",
+          "sb-event-kit": "^2.0.0",
+          "vanilla-jsx": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/disposable-event",
+          "node_modules/disposable-event/decls",
+          "node_modules/disposable-event/lib"
+        ],
+        "dependencies": {
+          "sb-event-kit": "^2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/vanilla-jsx/lib",
+          "node_modules/vanilla-jsx",
+          "node_modules/vanilla-jsx/spec",
+          "node_modules/vanilla-jsx/src"
+        ],
+        "dependencies": {
+          "escape-html": "^1.0.3"
+        }
+      }
+    ]
+  }
 }

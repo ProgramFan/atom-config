@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+        "raw": "/tmp/d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
-        "spec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+        "rawSpec": "/tmp/d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
+        "spec": "/tmp/d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6368-vec4o3.vkynj3jtt9"
+      "/tmp/apm-install-dir-117417-6920-8rcxk4.r286geewmi"
     ]
   ],
-  "_from": "../d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+  "_from": "../d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
   "_id": "busy-signal@1.4.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/busy-signal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+    "raw": "/tmp/d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
-    "spec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+    "rawSpec": "/tmp/d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
+    "spec": "/tmp/d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
+  "_resolved": "file:../d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
   "_shasum": "bea1229c77d3ea332466bc878e52ab4a2a394590",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6368-12zqc48.sl8euyp66r/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6368-vec4o3.vkynj3jtt9",
+  "_spec": "/tmp/d-117417-6920-1i2wpox.o0e13piudi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117417-6920-8rcxk4.r286geewmi",
   "bugs": {
     "url": "https://github.com/steelbrain/busy-signal/issues"
   },
@@ -85,5 +85,61 @@
     "lint": "eslint .",
     "test": "apm test"
   },
-  "version": "1.4.1"
+  "version": "1.4.1",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "disposify",
+        "version": "1.0.0",
+        "path": "node_modules/disposify/lib/index.js"
+      },
+      {
+        "name": "escape-html",
+        "version": "1.0.3",
+        "path": "node_modules/escape-html/index.js"
+      },
+      {
+        "name": "ms",
+        "version": "1.0.0",
+        "path": "node_modules/ms/index.js"
+      }
+    ],
+    "extensions": {
+      ".json": [
+        ".eslintrc.json",
+        "node_modules/disposify/package.json",
+        "node_modules/escape-html/package.json",
+        "node_modules/ms/package.json",
+        "package.json"
+      ],
+      ".js": [
+        "lib/element.js",
+        "lib/helpers.js",
+        "lib/index.js",
+        "lib/main.js",
+        "lib/provider.js",
+        "lib/registry.js",
+        "lib/types.js",
+        "node_modules/disposify/lib/index.js",
+        "node_modules/escape-html/index.js",
+        "node_modules/ms/index.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "decls",
+          "lib",
+          "spec"
+        ],
+        "dependencies": {
+          "disposify": "^1.0.0",
+          "escape-html": "^1.0.3",
+          "ms": "^1.0.0"
+        }
+      }
+    ]
+  }
 }

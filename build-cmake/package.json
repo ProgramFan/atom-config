@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
+        "raw": "/tmp/d-117417-6745-ta37h3.xr590h33di/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
-        "spec": "/tmp/d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
+        "rawSpec": "/tmp/d-117417-6745-ta37h3.xr590h33di/package.tgz",
+        "spec": "/tmp/d-117417-6745-ta37h3.xr590h33di/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-6199-8k32bf.u1ija46lxr"
+      "/tmp/apm-install-dir-117417-6745-1cirh5p.5c5w3a0pb9"
     ]
   ],
-  "_from": "../d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
+  "_from": "../d-117417-6745-ta37h3.xr590h33di/package.tgz",
   "_id": "build-cmake@0.9.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/build-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
+    "raw": "/tmp/d-117417-6745-ta37h3.xr590h33di/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
-    "spec": "/tmp/d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
+    "rawSpec": "/tmp/d-117417-6745-ta37h3.xr590h33di/package.tgz",
+    "spec": "/tmp/d-117417-6745-ta37h3.xr590h33di/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
+  "_resolved": "file:../d-117417-6745-ta37h3.xr590h33di/package.tgz",
   "_shasum": "fe5791e65ed9730a5e1f36f7777802131d50484f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-6199-a1a7hm.ssth5b3xr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-6199-8k32bf.u1ija46lxr",
+  "_spec": "/tmp/d-117417-6745-ta37h3.xr590h33di/package.tgz",
+  "_where": "/tmp/apm-install-dir-117417-6745-1cirh5p.5c5w3a0pb9",
   "bugs": {
     "url": "https://github.com/siegelaaron94/atom-build-cmake/issues"
   },
@@ -72,5 +72,194 @@
     "type": "git",
     "url": "git+https://github.com/siegelaaron94/atom-build-cmake.git"
   },
-  "version": "0.9.1"
+  "version": "0.9.1",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "balanced-match",
+        "version": "0.4.2",
+        "path": "node_modules/balanced-match/index.js"
+      },
+      {
+        "name": "brace-expansion",
+        "version": "1.1.7",
+        "path": "node_modules/brace-expansion/index.js"
+      },
+      {
+        "name": "concat-map",
+        "version": "0.0.1",
+        "path": "node_modules/concat-map/index.js"
+      },
+      {
+        "name": "es6-promise",
+        "version": "1.0.0",
+        "path": "node_modules/es6-promise/dist/commonjs/main.js"
+      },
+      {
+        "name": "fs.realpath",
+        "version": "1.0.0",
+        "path": "node_modules/fs.realpath/index.js"
+      },
+      {
+        "name": "glob",
+        "version": "7.1.1",
+        "path": "node_modules/glob/glob.js"
+      },
+      {
+        "name": "inflight",
+        "version": "1.0.6",
+        "path": "node_modules/inflight/inflight.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.3",
+        "path": "node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "minimatch",
+        "version": "3.0.4",
+        "path": "node_modules/minimatch/minimatch.js"
+      },
+      {
+        "name": "once",
+        "version": "1.4.0",
+        "path": "node_modules/once/once.js"
+      },
+      {
+        "name": "path-is-absolute",
+        "version": "1.0.1",
+        "path": "node_modules/path-is-absolute/index.js"
+      },
+      {
+        "name": "voucher",
+        "version": "0.1.2",
+        "path": "node_modules/voucher/index.js"
+      },
+      {
+        "name": "wrappy",
+        "version": "1.0.2",
+        "path": "node_modules/wrappy/wrappy.js"
+      }
+    ],
+    "extensions": {
+      ".js": [
+        "lib/cmake.js",
+        "lib/config.js",
+        "node_modules/balanced-match/index.js",
+        "node_modules/brace-expansion/index.js",
+        "node_modules/concat-map/example/map.js",
+        "node_modules/concat-map/index.js",
+        "node_modules/es6-promise/dist/commonjs/main.js",
+        "node_modules/es6-promise/dist/commonjs/promise/all.js",
+        "node_modules/es6-promise/dist/commonjs/promise/asap.js",
+        "node_modules/es6-promise/dist/commonjs/promise/config.js",
+        "node_modules/es6-promise/dist/commonjs/promise/polyfill.js",
+        "node_modules/es6-promise/dist/commonjs/promise/promise.js",
+        "node_modules/es6-promise/dist/commonjs/promise/race.js",
+        "node_modules/es6-promise/dist/commonjs/promise/reject.js",
+        "node_modules/es6-promise/dist/commonjs/promise/resolve.js",
+        "node_modules/es6-promise/dist/commonjs/promise/utils.js",
+        "node_modules/es6-promise/dist/promise-1.0.0.amd.js",
+        "node_modules/es6-promise/dist/promise-1.0.0.js",
+        "node_modules/es6-promise/dist/promise-1.0.0.min.js",
+        "node_modules/fs.realpath/index.js",
+        "node_modules/fs.realpath/old.js",
+        "node_modules/glob/common.js",
+        "node_modules/glob/glob.js",
+        "node_modules/glob/sync.js",
+        "node_modules/inflight/inflight.js",
+        "node_modules/inherits/inherits.js",
+        "node_modules/inherits/inherits_browser.js",
+        "node_modules/minimatch/minimatch.js",
+        "node_modules/once/once.js",
+        "node_modules/path-is-absolute/index.js",
+        "node_modules/voucher/index.js",
+        "node_modules/wrappy/wrappy.js"
+      ],
+      ".json": [
+        "node_modules/balanced-match/package.json",
+        "node_modules/brace-expansion/package.json",
+        "node_modules/concat-map/package.json",
+        "node_modules/es6-promise/package.json",
+        "node_modules/fs.realpath/package.json",
+        "node_modules/glob/package.json",
+        "node_modules/inflight/package.json",
+        "node_modules/inherits/package.json",
+        "node_modules/minimatch/package.json",
+        "node_modules/once/package.json",
+        "node_modules/path-is-absolute/package.json",
+        "node_modules/voucher/package.json",
+        "node_modules/wrappy/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          ""
+        ],
+        "dependencies": {
+          "glob": "^7.0.3",
+          "voucher": "^0.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/brace-expansion"
+        ],
+        "dependencies": {
+          "balanced-match": "^0.4.1",
+          "concat-map": "0.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob"
+        ],
+        "dependencies": {
+          "fs.realpath": "^1.0.0",
+          "inflight": "^1.0.4",
+          "inherits": "2",
+          "minimatch": "^3.0.2",
+          "once": "^1.3.0",
+          "path-is-absolute": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/inflight"
+        ],
+        "dependencies": {
+          "once": "^1.3.0",
+          "wrappy": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/minimatch"
+        ],
+        "dependencies": {
+          "brace-expansion": "^1.1.7"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/once"
+        ],
+        "dependencies": {
+          "wrappy": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/voucher"
+        ],
+        "dependencies": {
+          "es6-promise": "^1.0.0"
+        }
+      }
+    ]
+  }
 }

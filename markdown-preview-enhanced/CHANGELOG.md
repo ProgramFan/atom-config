@@ -1,3 +1,15 @@
+## 0.12.2 & 0.12.3
+* [x] quick fix plantuml file import issue [#398](https://github.com/shd101wyy/markdown-preview-enhanced/issues/398).  
+* [x] add `xypic` support for MathJax [#393](https://github.com/shd101wyy/markdown-preview-enhanced/pull/393).   
+* [x] upgrade `MathJax` to version `2.7.1`.
+* [x] fix <code>```math</code> content escape issue.   
+
+## 0.12.1
+* [x] fix issue [#387](https://github.com/shd101wyy/markdown-preview-enhanced/issues/387) `Pagebreak command ignored`.
+* [x] fix issue [#388](https://github.com/shd101wyy/markdown-preview-enhanced/issues/388).  
+* [x] upgrade `plantuml` to version `1.2017.12` [#382](https://github.com/shd101wyy/markdown-preview-enhanced/issues/382).     
+* [x] add `\(...\)` and `\[...\]` to default math inline and block delimiters.
+
 ## 0.11.1
 * [x] add `class` and `id` field to `slide` of presentation & update presentation-intro.md.  
 * [x] fix issue [#368](https://github.com/shd101wyy/markdown-preview-enhanced/issues/368), open file whose path has space.  

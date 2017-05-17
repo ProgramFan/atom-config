@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
+        "raw": "/tmp/d-117417-7777-12nyefs.njc86hto6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
-        "spec": "/tmp/d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
+        "rawSpec": "/tmp/d-117417-7777-12nyefs.njc86hto6r/package.tgz",
+        "spec": "/tmp/d-117417-7777-12nyefs.njc86hto6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7294-455p93.c8v20rudi"
+      "/tmp/apm-install-dir-117417-7777-zz1l0e.88qg58kt9"
     ]
   ],
-  "_from": "../d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
+  "_from": "../d-117417-7777-12nyefs.njc86hto6r/package.tgz",
   "_id": "autocomplete-en-en@0.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-en-en",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
+    "raw": "/tmp/d-117417-7777-12nyefs.njc86hto6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
-    "spec": "/tmp/d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
+    "rawSpec": "/tmp/d-117417-7777-12nyefs.njc86hto6r/package.tgz",
+    "spec": "/tmp/d-117417-7777-12nyefs.njc86hto6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
+  "_resolved": "file:../d-117417-7777-12nyefs.njc86hto6r/package.tgz",
   "_shasum": "d72a0a605b97e906dd6247710c2c73766ec0e36b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7294-fpzwmj.6l1jaif6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7294-455p93.c8v20rudi",
+  "_spec": "/tmp/d-117417-7777-12nyefs.njc86hto6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117417-7777-zz1l0e.88qg58kt9",
   "author": {
     "name": "Shuai Wu",
     "email": "ws.horton@gmail.com"
@@ -83,5 +83,43 @@
     "type": "git",
     "url": "git+https://github.com/wushuaibuaa/autocomplete-en-en.git"
   },
-  "version": "0.2.0"
+  "version": "0.2.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "fuzzaldrin",
+        "version": "2.1.0",
+        "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
+      }
+    ],
+    "extensions": {
+      ".json": [
+        "en-en-dict.json",
+        "node_modules/fuzzaldrin/package.json",
+        "package.json"
+      ],
+      ".coffee": [
+        "lib/autocomplete-en-en.coffee",
+        "lib/provider.coffee"
+      ],
+      ".js": [
+        "node_modules/fuzzaldrin/lib/filter.js",
+        "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
+        "node_modules/fuzzaldrin/lib/matcher.js",
+        "node_modules/fuzzaldrin/lib/scorer.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "lib"
+        ],
+        "dependencies": {
+          "fuzzaldrin": "^2.1.0"
+        }
+      }
+    ]
+  }
 }

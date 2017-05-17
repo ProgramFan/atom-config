@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-5425-429zro.dl2u3m1jor/package.tgz",
+        "raw": "/tmp/d-117417-5966-znx62k.ywxywrk9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-5425-429zro.dl2u3m1jor/package.tgz",
-        "spec": "/tmp/d-11743-5425-429zro.dl2u3m1jor/package.tgz",
+        "rawSpec": "/tmp/d-117417-5966-znx62k.ywxywrk9/package.tgz",
+        "spec": "/tmp/d-117417-5966-znx62k.ywxywrk9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-5425-rwhk3e.03qjv2t9"
+      "/tmp/apm-install-dir-117417-5966-yzu2d7.8eppop3nmi"
     ]
   ],
-  "_from": "../d-11743-5425-429zro.dl2u3m1jor/package.tgz",
+  "_from": "../d-117417-5966-znx62k.ywxywrk9/package.tgz",
   "_id": "tool-bar@1.1.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-5425-429zro.dl2u3m1jor/package.tgz",
+    "raw": "/tmp/d-117417-5966-znx62k.ywxywrk9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-5425-429zro.dl2u3m1jor/package.tgz",
-    "spec": "/tmp/d-11743-5425-429zro.dl2u3m1jor/package.tgz",
+    "rawSpec": "/tmp/d-117417-5966-znx62k.ywxywrk9/package.tgz",
+    "spec": "/tmp/d-117417-5966-znx62k.ywxywrk9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-5425-429zro.dl2u3m1jor/package.tgz",
+  "_resolved": "file:../d-117417-5966-znx62k.ywxywrk9/package.tgz",
   "_shasum": "94b5074753ee1b1322459844b70727fec5acdb6f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-5425-429zro.dl2u3m1jor/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-5425-rwhk3e.03qjv2t9",
+  "_spec": "/tmp/d-117417-5966-znx62k.ywxywrk9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117417-5966-yzu2d7.8eppop3nmi",
   "bugs": {
     "url": "https://github.com/suda/tool-bar/issues"
   },
@@ -79,5 +79,24 @@
   "scripts": {
     "lint": "eslint --format tap . && remark ."
   },
-  "version": "1.1.0"
+  "version": "1.1.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        ".eslintrc.json",
+        "package.json"
+      ],
+      ".js": [
+        "lib/raf-debounce.js",
+        "lib/tool-bar-button-view.js",
+        "lib/tool-bar-manager.js",
+        "lib/tool-bar-spacer-view.js",
+        "lib/tool-bar-view.js",
+        "lib/tool-bar.js"
+      ]
+    },
+    "folders": []
+  }
 }

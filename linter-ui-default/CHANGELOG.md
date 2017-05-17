@@ -1,3 +1,33 @@
+## 1.5.0
+
+* Remove `hidePanelUnlessTextEditor` config
+* Tweak Tooltip visuals (See #301 for Screenshots)
+* Do not focus Linter dock on open (less UI clutter)
+* Remove linter tooltip when Text Editor is unfocused
+* Readd `panelHeight` config and make it work on Docks
+* Replace Linter Status bar with icons instead of boxes
+* Change status bar to represent Entire Projecy by default
+* Add `Both` support to `tooltipFollows` config and make it default
+* Fix unnecessary jump to message when clicking links in description
+
+## 1.4.0
+
+* Fix for Nuclide's file tree
+* Add `hidePanelWhenEmpty` config
+* Add `hidePanelUnlessTextEditor` config
+
+## 1.3.0 (for Atom Beta)
+
+* Add docks API support
+* Remove tooltip if it exists on config change
+* Remove tooltip when cursor changes (only when `tooltipFollows` is set to `Mouse`)
+
+## 1.2.4
+
+* Fix for Nuclide's Tree View
+* Remove tooltip if it exists on config change
+* Remove tooltip when cursor changes (only when `tooltipFollows` is set to `Mouse`)
+
 ## 1.2.3
 
 * Improve tooltip hiding logic

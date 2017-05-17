@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
+        "raw": "/tmp/d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
-        "spec": "/tmp/d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
+        "rawSpec": "/tmp/d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
+        "spec": "/tmp/d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11743-7252-1jc5bf1.z4l7op3nmi"
+      "/tmp/apm-install-dir-117417-7727-1tculvn.xek7f1or"
     ]
   ],
-  "_from": "../d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
+  "_from": "../d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
   "_id": "autocomplete-paths@1.0.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/autocomplete-paths",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
+    "raw": "/tmp/d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
-    "spec": "/tmp/d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
+    "rawSpec": "/tmp/d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
+    "spec": "/tmp/d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
+  "_resolved": "file:../d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
   "_shasum": "5e7067c0992d19e7b54a35bb07aacb154e38442c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11743-7252-snzab4.ddv5yfzuxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11743-7252-1jc5bf1.z4l7op3nmi",
+  "_spec": "/tmp/d-117417-7727-1y9it44.fibvbr19k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117417-7727-1tculvn.xek7f1or",
   "bugs": {
     "url": "https://github.com/atom-community/autocomplete-paths/issues"
   },
@@ -68,5 +68,71 @@
     "type": "git",
     "url": "git+https://github.com/atom-community/autocomplete-paths.git"
   },
-  "version": "1.0.5"
+  "version": "1.0.5",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "fuzzaldrin",
+        "version": "2.1.0",
+        "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      }
+    ],
+    "extensions": {
+      ".json": [
+        "coffeelint.json",
+        "node_modules/fuzzaldrin/package.json",
+        "node_modules/underscore/package.json",
+        "node_modules/underscore-plus/package.json",
+        "package.json"
+      ],
+      ".coffee": [
+        "lib/autocomplete-paths.coffee",
+        "lib/paths-provider.coffee"
+      ],
+      ".js": [
+        "node_modules/fuzzaldrin/lib/filter.js",
+        "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
+        "node_modules/fuzzaldrin/lib/matcher.js",
+        "node_modules/fuzzaldrin/lib/scorer.js",
+        "node_modules/underscore/underscore-min.js",
+        "node_modules/underscore/underscore.js",
+        "node_modules/underscore-plus/lib/underscore-plus.js"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "lib",
+          "spec",
+          "spec/fixtures",
+          "spec/issues"
+        ],
+        "dependencies": {
+          "fuzzaldrin": ">=1.0.0",
+          "underscore-plus": ">=1.1.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
 }
