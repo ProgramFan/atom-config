@@ -1,23 +1,17 @@
 language: javascript
-
 script: "./build-packages.sh"
-
 git:
   depth: 10
-
 branches:
   only:
   - master
-
 os:
 - linux
-
 env:
-  global:
-  - secure: ih4D7hCxq6rHNZuZ/xNbVmOP2sc9Iox2CnBTB38JCGGf8UOQ3zrHHXTkrp2xsJ78keDN2wr7YVl3rDnhMUfc05N9cXJ2wTzIOe8ClR0BoxdAZpT1F56cEvtLiOXsy7horxs2OaG2ds8ydVBagr87LPkquXpaRomIRy+qvt2sb0p/YCqnKthw6K70pFUqyAU9glGz1y6FwNwd7JbeRw0xBch+rIWZ8C9ZgK/y8KAgACc1H/+W430tsgpCEBnBFoeB77ZYeYITtaX92fqRbdhi7/JFMwv5fEnRnFBDr81vgryroNHEh9gFqhcoK01td0tWkU+Uu2C0YLGVeldtgCv8gvEjcHE6G5QaOAb3v3we0nqCJTpmVGsfLo0DvLheKVqwCA1FJYqkvNbl+2XGYeLMmGkyYNhl44QgY2DzyVq9PWg3idwFMwLvZKVNpVMtyNUU0ABOVcR41AzYMiROe7sSah3cHmCUMGPBu85VwKBjVRF52WwYM1s3kLaEz6SE6634jIbU97HerIQP0unZZR//KFpIYvA1/Tpay1hMPfatHznrml8Af6kMSpBbzVS/rixOHlvlwibSNSc/FhOd4L55qrRi0HWcy7SdDERSXRG7Zk1/Hxi4ONzxVMlhPGMFP7uM7x7p/b/sv6GA4ziaqKxbGacS14kVycC31jwI0x7f3Qw=
   matrix:
   - ATOM_CHANNEL=stable
-
+  global:
+    secure: y12pFbEgoZiTWzxhNeGx/TNC+3xGCyn8mvizfecUsMcJ8vHILyZrVisDRibD38L74zmHM00BUXHWJaqYcsVlhRh1W32E4Qsd4CkrSBdpTjV272u1CIJvho0RLH2GKGFN5tQKkhbheKFfTahNoTUUuwLqvMEcvQUgW5NvYZO2XRc9Wy2j6A8wLWxFDAKslRLfCC+pgLmejmX7EB4Vg3u12xOz/wSeH4b931b/9q9qTOfWkQFhvmuN1SW6yiZPk0gLzYXioU8oRIUXb/ytJ4zfcQnOxjqEZkESPMGxNwJOeZKw2Vc0CX0dg+8N67t3XiVDt+GJY6lByXzMGy6XiOS4nGvhaH1Z6gZ3sBNHNIBEhnOFTUUrgBngaViXFfDJEaHnXBZT+YEZ6bCfJTLr7pNCJgUs9Vuxfg67RzhwV2Y3zNUCYCUezMQ3leLUnZyU5eCcbpnB1iVaWQTafYPhCwf3y/UhQheCoRMGum48UCsX8bGWBl4l242tYM3bfbCJNFEDkMVKHI2URz/5BCMPG9cVNXAOY0tTB3TEsWzVu5M9E5h+A/QGQAruc3x+edoRxv8JOP8j4rMieqXsd0rYvi4PEOEKvSac35NWG4nF+3kWwA05rO0pviQv9MX7nwT1SCMkaWZg+SJNRMTBrmwbJYfc858cdZO0bjARZnU/SrnTkfw=
 addons:
   apt:
     sources:
@@ -29,10 +23,8 @@ addons:
     - libzmq3-dev
     - gcc-4.8
     - g++-4.8
-
 before_install:
-  - if [ $TRAVIS_OS_NAME == "osx" ]; then brew update; fi
-  - if [ $TRAVIS_OS_NAME == "osx" ]; then brew install zeromq; fi
-
-install: 
-  - export CXX="g++-4.8" CC="gcc-4.8"
+- if [ $TRAVIS_OS_NAME == "osx" ]; then brew update; fi
+- if [ $TRAVIS_OS_NAME == "osx" ]; then brew install zeromq; fi
+install:
+- export CXX="g++-4.8" CC="gcc-4.8"
