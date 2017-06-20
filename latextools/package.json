@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-8827-dao4p9.w1n744pldi/package.tgz",
+        "raw": "/tmp/d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-8827-dao4p9.w1n744pldi/package.tgz",
-        "spec": "/tmp/d-117417-8827-dao4p9.w1n744pldi/package.tgz",
+        "rawSpec": "/tmp/d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
+        "spec": "/tmp/d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-8827-1iz906l.cgfjhh0k9"
+      "/tmp/apm-install-dir-117520-6271-1oy8n4h.g74h63l3di"
     ]
   ],
-  "_from": "../d-117417-8827-dao4p9.w1n744pldi/package.tgz",
+  "_from": "../d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
   "_id": "latextools@0.8.5",
   "_inCache": true,
-  "_installable": true,
   "_location": "/latextools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-8827-dao4p9.w1n744pldi/package.tgz",
+    "raw": "/tmp/d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-8827-dao4p9.w1n744pldi/package.tgz",
-    "spec": "/tmp/d-117417-8827-dao4p9.w1n744pldi/package.tgz",
+    "rawSpec": "/tmp/d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
+    "spec": "/tmp/d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-8827-dao4p9.w1n744pldi/package.tgz",
+  "_resolved": "file:../d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
   "_shasum": "a75d86dd742fbef160fc32662e3efd1bb26fdbd1",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-8827-dao4p9.w1n744pldi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-8827-1iz906l.cgfjhh0k9",
+  "_spec": "/tmp/d-117520-6271-1vwtq4p.bginsfko6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-6271-1oy8n4h.g74h63l3di",
   "bugs": {
     "url": "https://github.com/msiniscalchi/atom-latextools/issues"
   },

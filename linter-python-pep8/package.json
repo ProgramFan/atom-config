@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-7046-1jire76.a153w3766r/package.tgz",
+        "raw": "/tmp/d-117520-4450-11nztjp.pvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-7046-1jire76.a153w3766r/package.tgz",
-        "spec": "/tmp/d-117417-7046-1jire76.a153w3766r/package.tgz",
+        "rawSpec": "/tmp/d-117520-4450-11nztjp.pvi/package.tgz",
+        "spec": "/tmp/d-117520-4450-11nztjp.pvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-7046-19vlq2m.dzk6gvi"
+      "/tmp/apm-install-dir-117520-4450-1qyc1r4.kbnco6flxr"
     ]
   ],
-  "_from": "../d-117417-7046-1jire76.a153w3766r/package.tgz",
+  "_from": "../d-117520-4450-11nztjp.pvi/package.tgz",
   "_id": "linter-python-pep8@0.2.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/linter-python-pep8",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-7046-1jire76.a153w3766r/package.tgz",
+    "raw": "/tmp/d-117520-4450-11nztjp.pvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-7046-1jire76.a153w3766r/package.tgz",
-    "spec": "/tmp/d-117417-7046-1jire76.a153w3766r/package.tgz",
+    "rawSpec": "/tmp/d-117520-4450-11nztjp.pvi/package.tgz",
+    "spec": "/tmp/d-117520-4450-11nztjp.pvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-7046-1jire76.a153w3766r/package.tgz",
+  "_resolved": "file:../d-117520-4450-11nztjp.pvi/package.tgz",
   "_shasum": "583da473dc31b91e2825b2e42b31ac600049824d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-7046-1jire76.a153w3766r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-7046-19vlq2m.dzk6gvi",
+  "_spec": "/tmp/d-117520-4450-11nztjp.pvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-4450-1qyc1r4.kbnco6flxr",
   "activationEvents": [],
   "bugs": {
     "url": "https://github.com/bsnux/linter-python-pep8/issues"

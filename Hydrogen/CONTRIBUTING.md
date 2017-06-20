@@ -9,6 +9,10 @@ Please join our [Slack channel](https://slackin-nteract.now.sh/) if you have any
 
 ## Project setup
 
+### Prerequisites
+
+For hacking on Hydrogen you'll need to have [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node) installed.
+
 ### Quick and dirty setup
 
 `apm develop hydrogen`
@@ -34,3 +38,12 @@ or when you want some feedback!
 You can run specs by triggering the `window:run-package-specs` command in Atom. To run tests on the command line use `apm test` within the package directory.
 
 We use [Jasmine](https://jasmine.github.io/2.5/introduction) for writing specs.
+
+### Build Documentation
+
+To build the website locally run:
+```bash
+npm install gitbook-cli -g
+gitbook serve
+```
+For more information take a look at https://toolchain.gitbook.com/setup.html.

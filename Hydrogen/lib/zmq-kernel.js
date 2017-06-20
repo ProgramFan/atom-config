@@ -3,13 +3,13 @@
 import fs from "fs";
 import { Message, Socket } from "jmp";
 import v4 from "uuid/v4";
+import { launchSpecFromConnectionInfo } from "spawnteract";
 
 import Kernel from "./kernel";
 import InputView from "./input-view";
-import kernelManager from "./kernel-manager";
 import { log } from "./utils";
 
-type Connection = {
+export type Connection = {
   control_port: number,
   hb_port: number,
   iopub_port: number,
@@ -27,6 +27,7 @@ export default class ZMQKernel extends Kernel {
   connection: Connection;
   connectionFile: string;
   kernelProcess: child_process$ChildProcess;
+  options: Object;
 
   shellSocket: Socket;
   controlSocket: Socket;
@@ -38,14 +39,16 @@ export default class ZMQKernel extends Kernel {
     grammar: atom$Grammar,
     connection: Connection,
     connectionFile: string,
-    kernelProcess: child_process$ChildProcess
+    kernelProcess: ?child_process$ChildProcess,
+    options: ?Object
   ) {
     super(kernelSpec, grammar);
     this.connection = connection;
     this.connectionFile = connectionFile;
-    this.kernelProcess = kernelProcess;
+    this.options = options || {};
 
-    if (this.kernelProcess) {
+    if (kernelProcess) {
+      this.kernelProcess = kernelProcess;
       log("ZMQKernel: @kernelProcess:", this.kernelProcess);
 
       this.kernelProcess.stdout.on("data", (data: string | Buffer) => {
@@ -165,8 +168,16 @@ export default class ZMQKernel extends Kernel {
 
   restart(onRestarted: ?Function) {
     if (this.kernelProcess) {
-      this.destroy(true);
-      kernelManager.startKernel(this.kernelSpec, this.grammar, onRestarted);
+      this.shutdown(true);
+      this._kill();
+      const { spawn } = launchSpecFromConnectionInfo(
+        this.kernelSpec,
+        this.connection,
+        this.connectionFile,
+        this.options
+      );
+      this.kernelProcess = spawn;
+      if (onRestarted) onRestarted(this);
       return;
     }
 
@@ -177,7 +188,7 @@ export default class ZMQKernel extends Kernel {
 
   // onResults is a callback that may be called multiple times
   // as results come in from the kernel
-  _execute(code: string, requestId: string, onResults: Function) {
+  _execute(code: string, requestId: string, onResults: ?Function) {
     const message = this._createMessage("execute_request", requestId);
 
     message.content = {
@@ -193,7 +204,7 @@ export default class ZMQKernel extends Kernel {
     this.shellSocket.send(new Message(message));
   }
 
-  execute(code: string, onResults: Function) {
+  execute(code: string, onResults: ?Function) {
     log("Kernel.execute:", code);
 
     const requestId = `execute_${v4()}`;
@@ -273,11 +284,11 @@ export default class ZMQKernel extends Kernel {
 
     const { status } = message.content;
     if (status === "error") {
-      // Drop 'status: error' shell messages, wait for IO messages instead
-      return;
-    }
-
-    if (status === "ok") {
+      callback({
+        data: "error",
+        stream: "status"
+      });
+    } else if (status === "ok") {
       const { msg_type } = message.header;
 
       if (msg_type === "execution_reply") {
@@ -340,6 +351,7 @@ export default class ZMQKernel extends Kernel {
       if (msg_id && status === "idle" && msg_id.startsWith("execute")) {
         this._callWatchCallbacks();
       }
+      return;
     }
 
     const { msg_id } = message.parent_header;
@@ -358,7 +370,6 @@ export default class ZMQKernel extends Kernel {
       callback(result);
     }
   }
-  /* eslint-enable camelcase*/
 
   _isValidMessage(message: Message) {
     if (!message) {
@@ -410,10 +421,10 @@ export default class ZMQKernel extends Kernel {
     return true;
   }
 
-  destroy(restart: ?boolean = false) {
+  destroy() {
     log("ZMQKernel: destroy:", this);
 
-    this.shutdown(restart);
+    this.shutdown();
 
     if (this.kernelProcess) {
       this._kill();
@@ -425,7 +436,7 @@ export default class ZMQKernel extends Kernel {
     this.ioSocket.close();
     this.stdinSocket.close();
 
-    super.destroy(...arguments);
+    super.destroy();
   }
 
   _getUsername() {

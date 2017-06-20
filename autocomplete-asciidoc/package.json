@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
+        "raw": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
-        "spec": "/tmp/d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
+        "rawSpec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+        "spec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-8002-iky6j0.ugglxflxr"
+      "/tmp/apm-install-dir-117520-5429-1426jql.9k3qziwwmi"
     ]
   ],
-  "_from": "../d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
+  "_from": "../d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
   "_id": "autocomplete-asciidoc@0.1.2",
   "_inCache": true,
-  "_installable": true,
   "_location": "/autocomplete-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
+    "raw": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
-    "spec": "/tmp/d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
+    "rawSpec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+    "spec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
+  "_resolved": "file:../d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
   "_shasum": "bd850af2336aa841202c403968c6c293a3e52186",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-8002-1nymdja.4g5xbf0f6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-8002-iky6j0.ugglxflxr",
+  "_spec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-5429-1426jql.9k3qziwwmi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-autocomplete-asciidoc/issues"
   },
@@ -84,12 +83,12 @@
       },
       {
         "name": "balanced-match",
-        "version": "0.4.2",
+        "version": "1.0.0",
         "path": "node_modules/balanced-match/index.js"
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.7",
+        "version": "1.1.8",
         "path": "node_modules/brace-expansion/index.js"
       },
       {
@@ -119,7 +118,7 @@
       },
       {
         "name": "glob",
-        "version": "7.1.1",
+        "version": "7.1.2",
         "path": "node_modules/glob/glob.js"
       },
       {
@@ -1278,7 +1277,7 @@
           "node_modules/brace-expansion"
         ],
         "dependencies": {
-          "balanced-match": "^0.4.1",
+          "balanced-match": "^1.0.0",
           "concat-map": "0.0.1"
         }
       },
@@ -1311,7 +1310,7 @@
           "fs.realpath": "^1.0.0",
           "inflight": "^1.0.4",
           "inherits": "2",
-          "minimatch": "^3.0.2",
+          "minimatch": "^3.0.4",
           "once": "^1.3.0",
           "path-is-absolute": "^1.0.0"
         }

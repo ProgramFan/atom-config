@@ -46,7 +46,9 @@ scopesForLanguageName =
   'erd': 'source.erd',
   'node': 'source.js',
   'markdown': 'source.gfm',
-  'md': "source.gfm"
+  'md': 'source.gfm',
+  'diff': 'source.diff'
 
 module.exports.scopeForLanguageName  = (language)->
+  language = language.toLowerCase()
   return scopesForLanguageName[language] or ('source.' + language)

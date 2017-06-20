@@ -114,20 +114,10 @@ export function getCodeToInspect(editor: atom$TextEditor) {
   return [code, cursorPosition];
 }
 
-export function getCommentStrings(
-  editor: atom$TextEditor,
-  scope: atom$ScopeDescriptor
-) {
-  if (parseFloat(atom.getVersion()) <= 1.1) {
-    return editor.languageMode.commentStartAndEndStringsForScope(scope);
-  }
-  return editor.getCommentStrings(scope);
-}
-
 export function getRegexString(editor: atom$TextEditor) {
   const scope = editor.getRootScopeDescriptor();
 
-  const { commentStartString } = getCommentStrings(editor, scope);
+  const { commentStartString } = editor.getCommentStrings(scope);
 
   if (!commentStartString) {
     log("CellManager: No comment string defined in root scope");
@@ -145,7 +135,7 @@ export function getRegexString(editor: atom$TextEditor) {
 
 export function getBreakpoints(editor: atom$TextEditor) {
   const buffer = editor.getBuffer();
-  const breakpoints = [new Point(0, 0)];
+  const breakpoints = [];
 
   const regexString = getRegexString(editor);
   if (regexString) {
@@ -237,10 +227,20 @@ export function getCurrentCell(editor: atom$TextEditor) {
   return getCurrentCodeCell(editor);
 }
 
-export function getCells(editor: atom$TextEditor) {
-  const breakpoints = getBreakpoints(editor);
-  let start = breakpoints.shift();
+export function getCells(
+  editor: atom$TextEditor,
+  breakpoints: Array<atom$Point> = []
+) {
+  if (breakpoints.length !== 0) {
+    breakpoints.sort((a, b) => a.compare(b));
+  } else {
+    breakpoints = getBreakpoints(editor);
+  }
+  return getCellsForBreakPoints(breakpoints);
+}
 
+export function getCellsForBreakPoints(breakpoints: Array<atom$Point>) {
+  let start = new Point(0, 0);
   return _.map(breakpoints, end => {
     const cell = new Range(start, end);
     start = new Point(end.row + 1, 0);
@@ -312,7 +312,7 @@ export function findCodeBlock(editor: atom$TextEditor) {
   const indentLevel = cursor.getIndentLevel();
   let foldable = editor.isFoldableAtBufferRow(row);
   const foldRange = editor.languageMode.rowRangeForCodeFoldAtBufferRow(row);
-  if (!foldRange || !foldRange[0] || !foldRange[1]) {
+  if (!foldRange || foldRange[0] == null || foldRange[1] == null) {
     foldable = false;
   }
 

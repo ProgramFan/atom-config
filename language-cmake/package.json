@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
+        "raw": "/tmp/d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
-        "spec": "/tmp/d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
+        "rawSpec": "/tmp/d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
+        "spec": "/tmp/d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-7348-1bwq6xc.ra3p611yvi"
+      "/tmp/apm-install-dir-117520-4759-1nnmdt8.wrpi0h33di"
     ]
   ],
-  "_from": "../d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
+  "_from": "../d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
   "_id": "language-cmake@0.3.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/language-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
+    "raw": "/tmp/d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
-    "spec": "/tmp/d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
+    "rawSpec": "/tmp/d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
+    "spec": "/tmp/d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
+  "_resolved": "file:../d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
   "_shasum": "44c1eb981dce35332681eb69609ded9890267572",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-7348-1nshx2x.fnge0o1or/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-7348-1bwq6xc.ra3p611yvi",
+  "_spec": "/tmp/d-117520-4759-1u3xvlu.dtp9wl8fr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-4759-1nnmdt8.wrpi0h33di",
   "bugs": {
     "url": "https://github.com/lucas-clemente/language-cmake/issues"
   },

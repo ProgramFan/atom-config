@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
+        "raw": "/tmp/d-117520-4935-q247qu.jppxf20529/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
-        "spec": "/tmp/d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
+        "rawSpec": "/tmp/d-117520-4935-q247qu.jppxf20529/package.tgz",
+        "spec": "/tmp/d-117520-4935-q247qu.jppxf20529/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-7516-a4keqe.xzsb8rggb9"
+      "/tmp/apm-install-dir-117520-4935-1wehy8r.awc2acerk9"
     ]
   ],
-  "_from": "../d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
+  "_from": "../d-117520-4935-q247qu.jppxf20529/package.tgz",
   "_id": "language-asciidoc@1.10.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/language-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
+    "raw": "/tmp/d-117520-4935-q247qu.jppxf20529/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
-    "spec": "/tmp/d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
+    "rawSpec": "/tmp/d-117520-4935-q247qu.jppxf20529/package.tgz",
+    "spec": "/tmp/d-117520-4935-q247qu.jppxf20529/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
+  "_resolved": "file:../d-117520-4935-q247qu.jppxf20529/package.tgz",
   "_shasum": "0894b2d50369b6539f9bd1dced6e1020b67a886e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-7516-lerkm4.i5fbxirudi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-7516-a4keqe.xzsb8rggb9",
+  "_spec": "/tmp/d-117520-4935-q247qu.jppxf20529/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-4935-1wehy8r.awc2acerk9",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },
@@ -76,12 +75,12 @@
       },
       {
         "name": "balanced-match",
-        "version": "0.4.2",
+        "version": "1.0.0",
         "path": "node_modules/balanced-match/index.js"
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.7",
+        "version": "1.1.8",
         "path": "node_modules/brace-expansion/index.js"
       },
       {
@@ -111,7 +110,7 @@
       },
       {
         "name": "glob",
-        "version": "7.1.1",
+        "version": "7.1.2",
         "path": "node_modules/glob/glob.js"
       },
       {
@@ -314,7 +313,7 @@
           "node_modules/brace-expansion"
         ],
         "dependencies": {
-          "balanced-match": "^0.4.1",
+          "balanced-match": "^1.0.0",
           "concat-map": "0.0.1"
         }
       },
@@ -347,7 +346,7 @@
           "fs.realpath": "^1.0.0",
           "inflight": "^1.0.4",
           "inherits": "2",
-          "minimatch": "^3.0.2",
+          "minimatch": "^3.0.4",
           "once": "^1.3.0",
           "path-is-absolute": "^1.0.0"
         }

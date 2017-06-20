@@ -1,11 +1,11 @@
 /* @flow */
 
-import React from 'react'
-import ReactDOM from 'react-dom'
 import { CompositeDisposable } from 'atom'
-
-import Component from './component'
 import { WORKSPACE_URI } from '../helpers'
+
+let React
+let ReactDOM
+let Component
 
 class PanelDock {
   element: HTMLElement;
@@ -14,6 +14,26 @@ class PanelDock {
   constructor(delegate: Object) {
     this.element = document.createElement('div')
     this.subscriptions = new CompositeDisposable()
+    this.subscriptions.add(atom.config.observe('linter-ui-default.panelHeight', (panelHeight) => {
+      const paneContainer = atom.workspace.paneContainerForItem(this)
+      // NOTE: This is an internal API access
+      // It's necessary because there's no Public API for it yet
+      if (paneContainer && typeof paneContainer.state.size === 'number' && typeof paneContainer.render === 'function') {
+        paneContainer.state.size = panelHeight
+        paneContainer.render(paneContainer.state)
+      }
+    }))
+
+    if (!React) {
+      React = require('react')
+    }
+    if (!ReactDOM) {
+      ReactDOM = require('react-dom')
+    }
+    if (!Component) {
+      Component = require('./component')
+    }
+
     ReactDOM.render(<Component delegate={delegate} />, this.element)
   }
   getURI() {

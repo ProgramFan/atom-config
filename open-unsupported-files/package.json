@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
+        "raw": "/tmp/d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
-        "spec": "/tmp/d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
+        "rawSpec": "/tmp/d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
+        "spec": "/tmp/d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-6358-1wof9xc.59exo8byb9"
+      "/tmp/apm-install-dir-117520-3744-xn7knk.soon3r3sor"
     ]
   ],
-  "_from": "../d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
-  "_id": "open-unsupported-files@1.0.19",
+  "_from": "../d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
+  "_id": "open-unsupported-files@1.0.20",
   "_inCache": true,
-  "_installable": true,
   "_location": "/open-unsupported-files",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
+    "raw": "/tmp/d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
-    "spec": "/tmp/d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
+    "rawSpec": "/tmp/d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
+    "spec": "/tmp/d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
-  "_shasum": "45281d6249d49533cf416ccd83547d0550e2ad34",
+  "_resolved": "file:../d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
+  "_shasum": "c7d109de38dba035aff4f854572777bb08b04de3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-6358-19iik6d.t4e99q9f6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-6358-1wof9xc.59exo8byb9",
+  "_spec": "/tmp/d-117520-3744-1h4u09c.40ns960f6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-3744-xn7knk.soon3r3sor",
   "bugs": {
     "url": "https://github.com/skandasoft/open-unsupported-files/issues"
   },
@@ -59,13 +58,13 @@
   "main": "./lib/open-unsupported-files",
   "name": "open-unsupported-files",
   "optionalDependencies": {},
-  "readme": "# open-unsupported-files\n------------------------\n\n\nOPEN UNSUPPORTED FORMATS IN THEIR DEFAULT EDITOR. FOR EG. WORD,EXCEL.\n\n\n##Config option\n----------------\n\nXLS,DOC,DOCX has been maintained by default. you could add other file extensions(comma separated).\n![open word document from atom ](https://github.com/skandasoft/open-unsupported-files/blob/master/open-word-doc.gif?raw=true)\n",
+  "readme": "# open-unsupported-files\n------------------------\n\n\nOPEN UNSUPPORTED FORMATS IN THEIR DEFAULT EDITOR. FOR EG. WORD,EXCEL.\n\n\n__Config option to maintain file type/extension__  \n\n\nXLS,DOC,DOCX has been maintained by default. you could add other file extensions(comma separated).\n![open word document from atom ](https://github.com/skandasoft/open-unsupported-files/blob/master/open-word-doc.gif?raw=true)\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/skandasoft/open-unsupported-files.git"
   },
-  "version": "1.0.19",
+  "version": "1.0.20",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -86,7 +85,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.18",
+        "version": "0.10.23",
         "path": "node_modules/es5-ext/index.js"
       },
       {

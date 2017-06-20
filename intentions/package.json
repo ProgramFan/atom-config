@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+        "raw": "/tmp/d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
-        "spec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+        "rawSpec": "/tmp/d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
+        "spec": "/tmp/d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-6962-9wpxnc.ulcl2nvcxr"
+      "/tmp/apm-install-dir-117520-4362-mx6sbz.bihuohto6r"
     ]
   ],
-  "_from": "../d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+  "_from": "../d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
   "_id": "intentions@1.1.2",
   "_inCache": true,
-  "_installable": true,
   "_location": "/intentions",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+    "raw": "/tmp/d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
-    "spec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+    "rawSpec": "/tmp/d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
+    "spec": "/tmp/d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
+  "_resolved": "file:../d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
   "_shasum": "ff78e073a6bf1069e184a4cc79e8306af30a1962",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-6962-1342bxj.o1rv4jwcdi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-6962-9wpxnc.ulcl2nvcxr",
+  "_spec": "/tmp/d-117520-4362-i9g6sm.1617uba9k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-4362-mx6sbz.bihuohto6r",
   "bugs": {
     "url": "https://github.com/steelbrain/intentions/issues"
   },

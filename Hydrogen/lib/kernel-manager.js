@@ -1,4 +1,4 @@
-"use babel";
+/* @flow */
 
 import _ from "lodash";
 import { exec } from "child_process";
@@ -8,20 +8,30 @@ import path from "path";
 
 import Config from "./config";
 import ZMQKernel from "./zmq-kernel";
+
 import KernelPicker from "./kernel-picker";
 import store from "./store";
-import { getEditorDirectory, log } from "./utils";
+import { getEditorDirectory, log, deprecationNote } from "./utils";
+
+import type { Connection } from "./zmq-kernel";
 
 class KernelManager {
+  _kernelSpecs: ?Object;
+  kernelPicker: ?KernelPicker;
   constructor() {
     this._kernelSpecs = this.getKernelSpecsFromSettings();
   }
 
-  startKernelFor(grammar, onStarted) {
+  startKernelFor(
+    grammar: atom$Grammar,
+    editor: atom$TextEditor,
+    onStarted: (kernel: ZMQKernel) => void
+  ) {
     try {
-      const rootDirectory = atom.project.rootDirectories[0]
-        ? atom.project.rootDirectories[0].path
-        : getEditorDirectory(store.editor);
+      const rootDirectory = editor
+        ? getEditorDirectory(editor)
+        : atom.project.getPaths()[0];
+
       const connectionFile = path.join(
         rootDirectory,
         "hydrogen",
@@ -50,7 +60,13 @@ class KernelManager {
     });
   }
 
-  startExistingKernel(grammar, connection, connectionFile, onStarted) {
+  startExistingKernel(
+    grammar: atom$Grammar,
+    connection: Connection,
+    connectionFile: string,
+    onStarted: (kernel: ZMQKernel) => void
+  ) {
+    deprecationNote();
     const language = grammar.name;
 
     log("KernelManager: startExistingKernel: Assuming", language);
@@ -84,9 +100,12 @@ class KernelManager {
     });
   }
 
-  startKernel(kernelSpec, grammar, onStarted) {
+  startKernel(
+    kernelSpec: Kernelspec,
+    grammar: atom$Grammar,
+    onStarted: ?(kernel: ZMQKernel) => void
+  ) {
     const displayName = kernelSpec.display_name;
-    let kernelStartDir;
     let currentPath = getEditorDirectory(store.editor);
     let projectPath;
 
@@ -101,21 +120,23 @@ class KernelManager {
         break;
     }
 
-    if (projectPath != null) {
-      kernelStartDir = projectPath;
-    } else {
-      kernelStartDir = currentPath;
-    }
+    const kernelStartDir = projectPath != null ? projectPath : currentPath;
+    const options = {
+      cwd: kernelStartDir,
+      stdio: ["ignore", "pipe", "pipe"]
+    };
 
-    launchSpec(kernelSpec, {
-      cwd: kernelStartDir
-    }).then(({ config, connectionFile, spawn }) => {
+    launchSpec(
+      kernelSpec,
+      options
+    ).then(({ config, connectionFile, spawn }) => {
       const kernel = new ZMQKernel(
         kernelSpec,
         grammar,
         config,
         connectionFile,
-        spawn
+        spawn,
+        options
       );
 
       kernel.connect(() => {
@@ -130,7 +151,7 @@ class KernelManager {
     });
   }
 
-  _executeStartupCode(kernel) {
+  _executeStartupCode(kernel: ZMQKernel) {
     const displayName = kernel.kernelSpec.display_name;
     let startupCode = Config.getJson("startupCode")[displayName];
     if (startupCode) {
@@ -140,7 +161,7 @@ class KernelManager {
     }
   }
 
-  getAllKernelSpecs(callback) {
+  getAllKernelSpecs(callback: Function) {
     if (_.isEmpty(this._kernelSpecs)) {
       return this.updateKernelSpecs(() =>
         callback(_.map(this._kernelSpecs, "spec"))
@@ -149,7 +170,7 @@ class KernelManager {
     return callback(_.map(this._kernelSpecs, "spec"));
   }
 
-  getAllKernelSpecsForGrammar(grammar, callback) {
+  getAllKernelSpecsForGrammar(grammar: ?atom$Grammar, callback: Function) {
     if (grammar) {
       return this.getAllKernelSpecs(kernelSpecs => {
         const specs = kernelSpecs.filter(spec =>
@@ -162,11 +183,7 @@ class KernelManager {
     return callback([]);
   }
 
-  getKernelSpecForGrammar(grammar, callback) {
-    if (!grammar) {
-      return;
-    }
-
+  getKernelSpecForGrammar(grammar: atom$Grammar, callback: Function) {
     this.getAllKernelSpecsForGrammar(grammar, kernelSpecs => {
       if (kernelSpecs.length <= 1) {
         callback(kernelSpecs[0]);
@@ -184,11 +201,11 @@ class KernelManager {
     });
   }
 
-  kernelSpecProvidesLanguage(kernelSpec, grammarLanguage) {
+  kernelSpecProvidesLanguage(kernelSpec: Kernelspec, grammarLanguage: string) {
     return kernelSpec.language.toLowerCase() === grammarLanguage.toLowerCase();
   }
 
-  kernelSpecProvidesGrammar(kernelSpec, grammar) {
+  kernelSpecProvidesGrammar(kernelSpec: Kernelspec, grammar: ?atom$Grammar) {
     if (!grammar || !grammar.name || !kernelSpec || !kernelSpec.language) {
       return false;
     }
@@ -220,12 +237,12 @@ class KernelManager {
     );
   }
 
-  mergeKernelSpecs(kernelSpecs) {
+  mergeKernelSpecs(kernelSpecs: Kernelspec) {
     _.assign(this._kernelSpecs, kernelSpecs);
   }
 
-  updateKernelSpecs(callback) {
-    this._kernelSpecs = this.getKernelSpecsFromSettings;
+  updateKernelSpecs(callback: ?Function) {
+    this._kernelSpecs = this.getKernelSpecsFromSettings();
     this.getKernelSpecsFromJupyter((err, kernelSpecsFromJupyter) => {
       if (!err) {
         this.mergeKernelSpecs(kernelSpecsFromJupyter);
@@ -234,7 +251,8 @@ class KernelManager {
       if (_.isEmpty(this._kernelSpecs)) {
         const message = "No kernel specs found";
         const options = {
-          description: "Use kernelSpec option in Hydrogen or update IPython/Jupyter to a version that supports: `jupyter kernelspec list --json` or `ipython kernelspec list --json`",
+          description:
+            "Use kernelSpec option in Hydrogen or update IPython/Jupyter to a version that supports: `jupyter kernelspec list --json` or `ipython kernelspec list --json`",
           dismissable: true
         };
         atom.notifications.addError(message, options);
@@ -251,7 +269,7 @@ class KernelManager {
     });
   }
 
-  getKernelSpecsFromJupyter(callback) {
+  getKernelSpecsFromJupyter(callback: Function) {
     const jupyter = "jupyter kernelspec list --json --log-level=CRITICAL";
     const ipython = "ipython kernelspec list --json --log-level=CRITICAL";
 
@@ -269,13 +287,13 @@ class KernelManager {
     });
   }
 
-  getKernelSpecsFrom(command, callback) {
+  getKernelSpecsFrom(command: string, callback: Function) {
     const options = { killSignal: "SIGINT" };
     let kernelSpecs;
     return exec(command, options, (err, stdout) => {
       if (!err) {
         try {
-          kernelSpecs = JSON.parse(stdout).kernelspecs;
+          kernelSpecs = JSON.parse(stdout.toString()).kernelspecs;
         } catch (error) {
           err = error;
           log("Could not parse kernelspecs:", err);

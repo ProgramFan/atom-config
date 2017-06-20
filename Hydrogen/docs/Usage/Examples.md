@@ -10,6 +10,26 @@ from plotly import offline
 offline.init_notebook_mode()
 
 offline.iplot([{"y": [1, 2, 1]}])
+{%- language name="Python using matplotlib", type="py" -%}
+import numpy as np
+import matplotlib.pyplot as plt
+from plotly import offline as py
+import plotly.tools as tls
+py.init_notebook_mode()
+
+t = np.linspace(0, 20, 500)
+plt.plot(t, np.sin(t))
+
+plotly_fig = tls.mpl_to_plotly(plt.gcf())
+py.iplot(plotly_fig)
+{%- language name="R", type="r" -%}
+library(IRdisplay)
+
+data <- list(list(x=c(1999, 2000, 2001, 2002), y=c(10, 15, 13, 17), type='scatter'))
+figure <- list(data=data)
+
+mimebundle <- list('application/vnd.plotly.v1+json'=figure)
+IRdisplay::publish_mimebundle(mimebundle)
 {%- endcodetabs %}
 
 ## Interactive JSON Objects

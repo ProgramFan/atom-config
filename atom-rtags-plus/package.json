@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
+        "raw": "/tmp/d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
-        "spec": "/tmp/d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
+        "rawSpec": "/tmp/d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
+        "spec": "/tmp/d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-8303-cyvo53.sjaif6r"
+      "/tmp/apm-install-dir-117520-5738-1omamr3.rtgm9jatt9"
     ]
   ],
-  "_from": "../d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
+  "_from": "../d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
   "_id": "atom-rtags-plus@1.4.2",
   "_inCache": true,
-  "_installable": true,
   "_location": "/atom-rtags-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
+    "raw": "/tmp/d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
-    "spec": "/tmp/d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
+    "rawSpec": "/tmp/d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
+    "spec": "/tmp/d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
+  "_resolved": "file:../d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
   "_shasum": "3f60d0003f8cf9e8ba560bda3e466bb794f32126",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-8303-xt5y4o.ue8tw0o1or/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-8303-cyvo53.sjaif6r",
+  "_spec": "/tmp/d-117520-5738-1ynfqut.haskr6yldi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-5738-1omamr3.rtgm9jatt9",
   "bugs": {
     "url": "https://github.com/sphaerophoria/atom-rtags-plus/issues"
   },
@@ -107,7 +106,7 @@
       },
       {
         "name": "consistent-env",
-        "version": "1.3.0",
+        "version": "1.3.1",
         "path": "node_modules/consistent-env/lib/index.js"
       },
       {
@@ -122,7 +121,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.18",
+        "version": "0.10.23",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -302,7 +301,6 @@
         "node_modules/atom-space-pen-views/lib/scroll-view.js",
         "node_modules/atom-space-pen-views/lib/select-list-view.js",
         "node_modules/atom-space-pen-views/lib/text-editor-view.js",
-        "node_modules/consistent-env/decls/jasmine.js",
         "node_modules/consistent-env/lib/helpers.js",
         "node_modules/consistent-env/lib/index.js",
         "node_modules/d/auto-bind.js",
@@ -2028,7 +2026,6 @@
       {
         "paths": [
           "node_modules/consistent-env",
-          "node_modules/consistent-env/decls",
           "node_modules/consistent-env/lib"
         ],
         "dependencies": {

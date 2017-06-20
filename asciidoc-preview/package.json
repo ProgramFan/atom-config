@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
+        "raw": "/tmp/d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
-        "spec": "/tmp/d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
+        "rawSpec": "/tmp/d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
+        "spec": "/tmp/d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-8044-owti6r.tpru48to6r"
+      "/tmp/apm-install-dir-117520-5473-1y7jqle.tlrxvibe29"
     ]
   ],
-  "_from": "../d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
-  "_id": "asciidoc-preview@2.10.1",
+  "_from": "../d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
+  "_id": "asciidoc-preview@2.10.2",
   "_inCache": true,
-  "_installable": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
+    "raw": "/tmp/d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
-    "spec": "/tmp/d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
+    "rawSpec": "/tmp/d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
+    "spec": "/tmp/d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
-  "_shasum": "9ed4f057e99a3cf42f3b2e55249cd86bd18e1ae8",
+  "_resolved": "file:../d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
+  "_shasum": "19b2e54e98094f7667b208e390ddb9d08491d7e5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-8044-zqk472.2q0k2lc8fr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-8044-owti6r.tpru48to6r",
+  "_spec": "/tmp/d-117520-5473-lbt97d.pg3rw9udi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-5473-1y7jqle.tlrxvibe29",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },
@@ -255,7 +254,7 @@
     "font-awesome",
     "asciidoc-preview"
   ],
-  "version": "2.10.1",
+  "version": "2.10.2",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -278,11 +277,6 @@
         "name": "boolbase",
         "version": "1.0.0",
         "path": "node_modules/boolbase/index.js"
-      },
-      {
-        "name": "buffer-shims",
-        "version": "1.0.0",
-        "path": "node_modules/buffer-shims/index.js"
       },
       {
         "name": "cheerio",
@@ -346,7 +340,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.18",
+        "version": "0.10.23",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -531,7 +525,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.2.9",
+        "version": "2.3.0",
         "path": "node_modules/readable-stream/readable.js"
       },
       {
@@ -540,14 +534,24 @@
         "path": "node_modules/rimraf/rimraf.js"
       },
       {
+        "name": "safe-buffer",
+        "version": "5.1.0",
+        "path": "node_modules/safe-buffer/index.js"
+      },
+      {
         "name": "space-pen",
         "version": "5.1.2",
         "path": "node_modules/space-pen/lib/space-pen.js"
       },
       {
         "name": "string_decoder",
-        "version": "1.0.0",
+        "version": "1.0.2",
         "path": "node_modules/string_decoder/lib/string_decoder.js"
+      },
+      {
+        "name": "safe-buffer",
+        "version": "5.0.1",
+        "path": "node_modules/string_decoder/node_modules/safe-buffer/index.js"
       },
       {
         "name": "underscore",
@@ -578,7 +582,6 @@
         "node_modules/async/package.json",
         "node_modules/atom-space-pen-views/package.json",
         "node_modules/boolbase/package.json",
-        "node_modules/buffer-shims/package.json",
         "node_modules/cheerio/package.json",
         "node_modules/core-util-is/package.json",
         "node_modules/css-select/lib/procedure.json",
@@ -639,8 +642,10 @@
         "node_modules/property-accessors/package.json",
         "node_modules/readable-stream/package.json",
         "node_modules/rimraf/package.json",
+        "node_modules/safe-buffer/package.json",
         "node_modules/space-pen/api.json",
         "node_modules/space-pen/package.json",
+        "node_modules/string_decoder/node_modules/safe-buffer/package.json",
         "node_modules/string_decoder/package.json",
         "node_modules/underscore/package.json",
         "node_modules/underscore-plus/package.json",
@@ -672,7 +677,6 @@
         "node_modules/atom-space-pen-views/lib/select-list-view.js",
         "node_modules/atom-space-pen-views/lib/text-editor-view.js",
         "node_modules/boolbase/index.js",
-        "node_modules/buffer-shims/index.js",
         "node_modules/cheerio/index.js",
         "node_modules/cheerio/lib/api/attributes.js",
         "node_modules/cheerio/lib/api/css.js",
@@ -1292,6 +1296,7 @@
         "node_modules/readable-stream/lib/_stream_transform.js",
         "node_modules/readable-stream/lib/_stream_writable.js",
         "node_modules/readable-stream/lib/internal/streams/BufferList.js",
+        "node_modules/readable-stream/lib/internal/streams/destroy.js",
         "node_modules/readable-stream/lib/internal/streams/stream-browser.js",
         "node_modules/readable-stream/lib/internal/streams/stream.js",
         "node_modules/readable-stream/passthrough.js",
@@ -1302,8 +1307,13 @@
         "node_modules/readable-stream/writable.js",
         "node_modules/rimraf/bin.js",
         "node_modules/rimraf/rimraf.js",
+        "node_modules/safe-buffer/index.js",
+        "node_modules/safe-buffer/test.js",
         "node_modules/space-pen/lib/space-pen.js",
         "node_modules/string_decoder/lib/string_decoder.js",
+        "node_modules/string_decoder/node_modules/safe-buffer/browser.js",
+        "node_modules/string_decoder/node_modules/safe-buffer/index.js",
+        "node_modules/string_decoder/node_modules/safe-buffer/test.js",
         "node_modules/underscore/underscore-min.js",
         "node_modules/underscore/underscore.js",
         "node_modules/underscore-plus/lib/underscore-plus.js",
@@ -1746,11 +1756,11 @@
           "node_modules/readable-stream/lib/internal/streams"
         ],
         "dependencies": {
-          "buffer-shims": "~1.0.0",
           "core-util-is": "~1.0.0",
-          "inherits": "~2.0.1",
+          "inherits": "~2.0.3",
           "isarray": "~1.0.0",
           "process-nextick-args": "~1.0.6",
+          "safe-buffer": "~5.1.0",
           "string_decoder": "~1.0.0",
           "util-deprecate": "~1.0.1"
         }
@@ -1772,7 +1782,7 @@
           "node_modules/string_decoder"
         ],
         "dependencies": {
-          "buffer-shims": "~1.0.0"
+          "safe-buffer": "~5.0.1"
         }
       },
       {

@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
+        "raw": "/tmp/d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
-        "spec": "/tmp/d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
+        "rawSpec": "/tmp/d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
+        "spec": "/tmp/d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-6316-3dv1yi.mf71i0y66r"
+      "/tmp/apm-install-dir-117520-3700-xqc5az.l1xkowdn29"
     ]
   ],
-  "_from": "../d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
+  "_from": "../d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
   "_id": "open-no-binaries@0.1.1",
   "_inCache": true,
-  "_installable": true,
   "_location": "/open-no-binaries",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
+    "raw": "/tmp/d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
-    "spec": "/tmp/d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
+    "rawSpec": "/tmp/d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
+    "spec": "/tmp/d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
+  "_resolved": "file:../d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
   "_shasum": "ba1b52e6be5a2a8931451d592abd88a638ec5816",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-6316-pl0nd4.d14448ia4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-6316-3dv1yi.mf71i0y66r",
+  "_spec": "/tmp/d-117520-3700-cleu3b.s4tvokcsor/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-3700-xqc5az.l1xkowdn29",
   "bugs": {
     "url": "https://github.com/mishak87/open-no-binaries/issues"
   },

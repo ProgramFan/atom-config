@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
+        "raw": "/tmp/d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
-        "spec": "/tmp/d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
+        "rawSpec": "/tmp/d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
+        "spec": "/tmp/d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-8345-1lx31xl.xu2shy3nmi"
+      "/tmp/apm-install-dir-117520-5782-1j8dprz.70xwxko6r"
     ]
   ],
-  "_from": "../d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
+  "_from": "../d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
   "_id": "hyperclick@0.0.40",
   "_inCache": true,
-  "_installable": true,
   "_location": "/hyperclick",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
+    "raw": "/tmp/d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
-    "spec": "/tmp/d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
+    "rawSpec": "/tmp/d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
+    "spec": "/tmp/d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
+  "_resolved": "file:../d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
   "_shasum": "111e2f79509dcc5a9cc083f6b27a33c2cf575969",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-8345-tnsmp2.q14g7xecdi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-8345-1lx31xl.xu2shy3nmi",
+  "_spec": "/tmp/d-117520-5782-kx9wuu.43sctprpb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-5782-1j8dprz.70xwxko6r",
   "bugs": {
     "url": "https://github.com/facebooknuclide/hyperclick/issues"
   },
@@ -303,7 +302,7 @@
       },
       {
         "name": "iconv-lite",
-        "version": "0.4.17",
+        "version": "0.4.18",
         "path": "node_modules/iconv-lite/lib/index.js"
       },
       {
@@ -328,7 +327,7 @@
       },
       {
         "name": "node-fetch",
-        "version": "1.6.3",
+        "version": "1.7.1",
         "path": "node_modules/node-fetch/index.js"
       },
       {
@@ -338,7 +337,7 @@
       },
       {
         "name": "promise",
-        "version": "7.1.1",
+        "version": "7.3.1",
         "path": "node_modules/promise/index.js"
       },
       {
@@ -1418,6 +1417,7 @@
         "node_modules/node-fetch/lib/body.js",
         "node_modules/node-fetch/lib/fetch-error.js",
         "node_modules/node-fetch/lib/headers.js",
+        "node_modules/node-fetch/lib/index.js",
         "node_modules/node-fetch/lib/request.js",
         "node_modules/node-fetch/lib/response.js",
         "node_modules/object-assign/index.js",

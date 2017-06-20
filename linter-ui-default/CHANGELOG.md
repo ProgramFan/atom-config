@@ -1,3 +1,32 @@
+## 1.6.1
+
+* Flip default `hidePanelWhenEmpty` to false
+* Allow opening editors from markdown links from Message v2 description
+
+## 1.6.0
+
+* Apply panelHeight changes live
+* Fix performance regression of v1.5.x
+* Use another color variable tooltip background
+* Only hide/show dock when Linter is the active item
+* Add `Jump to next issue` to `statusBarClickBehavior` config
+
+## 1.5.4
+
+* Fix the last of known Linter Panel bugs
+
+## 1.5.3
+
+* Hide panel if appropriate after active pane item change
+
+## 1.5.2
+
+* F my life.
+
+## 1.5.1
+
+* Flip a check that was making Panel behave weirdly
+
 ## 1.5.0
 
 * Remove `hidePanelUnlessTextEditor` config

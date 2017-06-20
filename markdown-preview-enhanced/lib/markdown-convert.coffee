@@ -4,30 +4,53 @@ fs = require 'fs'
 processGraphs = require './process-graphs'
 encrypt = require './encrypt'
 CACHE = require './cache'
-fileImport = require './file-import'
+{fileImport} = require './file-import'
 {protocolsWhiteListRegExp} = require './protocols-whitelist'
 
 # TODO: refactor this file
 # it has common functions as pandoc-convert.coffee
 
 processMath = (text)->
-  text = text.replace(/\\\$/g, '#slash_dollarsign#')
+  line = text.replace(/\\\$/g, '#slash_dollarsign#')
+
+  inline = JSON.parse(atom.config.get('markdown-preview-enhanced.indicatorForMathRenderingInline'))
+  block = JSON.parse(atom.config.get('markdown-preview-enhanced.indicatorForMathRenderingBlock'))
+
+  inlineBegin = '(?:' + inline.map (x)-> x[0]
+                      .join('|')
+                      .replace(/\\/g, '\\\\')
+                      .replace(/([\(\)\[\]\$])/g, '\\$1') + ')'
+  inlineEnd = '(?:' + inline.map (x)-> x[1]
+                      .join('|')
+                      .replace(/\\/g, '\\\\')
+                      .replace(/([\(\)\[\]\$])/g, '\\$1') + ')'
+  blockBegin = '(?:' + block.map (x)-> x[0]
+                      .join('|')
+                      .replace(/\\/g, '\\\\')
+                      .replace(/([\(\)\[\]\$])/g, '\\$1') + ')'
+  blockEnd = '(?:' + block.map (x)-> x[1]
+                      .join('|')
+                      .replace(/\\/g, '\\\\')
+                      .replace(/([\(\)\[\]\$])/g, '\\$1') + ')'
 
   # display
-  text = text.replace /\$\$([\s\S]+?)\$\$/g, ($0, $1)->
-    $1 = $1.replace(/\n/g, '').replace(/\#slash\_dollarsign\#/g, '\\\$')
-    $1 = escape($1)
-    "<p align=\"center\"><img src=\"http://api.gmath.guru/cgi-bin/gmath?#{$1.trim()}\"/></p>"
+  line = line.replace new RegExp("(```(?:[\\s\\S]+?)```\\s*(?:\\n|$))|(?:#{blockBegin}([\\s\\S]+?)#{blockEnd})", 'g'), ($0, $1, $2)->
+    return $1 if $1
+    math = $2
+    math = math.replace(/\n/g, '').replace(/\#slash\_dollarsign\#/g, '\\\$')
+    math = escape(math)
+    "<p align=\"center\"><img src=\"https://latex.codecogs.com/gif.latex?#{math.trim()}\"/></p>"
 
   # inline
-  r = /\$([\s\S]+?)\$/g
-  text = text.replace /\$([\s\S]+?)\$/g, ($0, $1)->
-    $1 = $1.replace(/\n/g, '').replace(/\#slash\_dollarsign\#/g, '\\\$')
-    $1 = escape($1)
-    "<img src=\"http://api.gmath.guru/cgi-bin/gmath?#{$1.trim()}\"/>"
+  line = line.replace new RegExp("(```(?:[\\s\\S]+?)```\\s*(?:\\n|$))|(?:#{inlineBegin}([\\s\\S]+?)#{inlineEnd})", 'g'), ($0, $1, $2)->
+    return $1 if $1
+    math = $2
+    math = math.replace(/\n/g, '').replace(/\#slash\_dollarsign\#/g, '\\\$')
+    math = escape(math)
+    "<img src=\"https://latex.codecogs.com/gif.latex?#{math.trim()}\"/>"
 
-  text = text.replace(/\#slash\_dollarsign\#/g, '\\\$')
-  text
+  line = line.replace(/\#slash\_dollarsign\#/g, '\\\$')
+  return line
 
 # convert relative path to project path
 processPaths = (text, fileDirectoryPath, projectDirectoryPath, useAbsoluteImagePath)->
@@ -50,21 +73,31 @@ processPaths = (text, fileDirectoryPath, projectDirectoryPath, useAbsoluteImageP
       else # ./test.png or test.png
         return src
 
-  # replace path in ![](...) and []()
-  r = /(\!?\[.*?]\()([^\)|^'|^"]*)(.*?\))/gi
-  text = text.replace r, (whole, a, b, c)->
-    if b[0] == '<'
-      b = b.slice(1, b.length-1)
-      a + '<' + resolvePath(b.trim()) + '> ' + c
+  inBlock = false
+  lines = text.split('\n')
+  lines = lines.map (line)->
+    if line.match(/^\s*```/)
+      inBlock = !inBlock
+      line
+    else if inBlock
+      line
     else
-      a + resolvePath(b.trim()) + ' ' + c
+      # replace path in ![](...) and []()
+      r = /(\!?\[.*?]\()([^\)|^'|^"]*)(.*?\))/gi
+      line = line.replace r, (whole, a, b, c)->
+        if b[0] == '<'
+          b = b.slice(1, b.length-1)
+          a + '<' + resolvePath(b.trim()) + '> ' + c
+        else
+          a + resolvePath(b.trim()) + ' ' + c
 
-  # replace path in tag
-  r = /(<[img|a|iframe].*?[src|href]=['"])(.+?)(['"].*?>)/gi
-  text = text.replace r, (whole, a, b, c)->
-    a + resolvePath(b) + c
+      # replace path in tag
+      r = /(<[img|a|iframe].*?[src|href]=['"])(.+?)(['"].*?>)/gi
+      line = line.replace r, (whole, a, b, c)->
+        a + resolvePath(b) + c
+      line
 
-  text
+  lines.join('\n')
 
 markdownConvert = (text, {projectDirectoryPath, fileDirectoryPath}, config={})->
   if !config.path
@@ -79,35 +112,34 @@ markdownConvert = (text, {projectDirectoryPath, fileDirectoryPath}, config={})->
   else
     outputFilePath = path.resolve(fileDirectoryPath, config.path)
 
-  delete(CACHE[outputFilePath])
-
-  useAbsoluteImagePath = config.absolute_image_path
-
-  # import external files
-  text = fileImport(text, {fileDirectoryPath, projectDirectoryPath, useAbsoluteImagePath}).outputString
-
-  # change link path to project '/' path
-  # this is actually differnet from pandoc-convert.coffee
-  text = processPaths text, fileDirectoryPath, projectDirectoryPath, useAbsoluteImagePath
-
-  text = processMath text
-
   # TODO: create imageFolder
   if config['image_dir'][0] == '/'
     imageDirectoryPath = path.resolve(projectDirectoryPath, '.' + config['image_dir'])
   else
     imageDirectoryPath = path.resolve(fileDirectoryPath, config['image_dir'])
 
-  atom.notifications.addInfo('Your document is being prepared', detail: ':)')
+  delete(CACHE[outputFilePath])
 
-  imageDir = new Directory(imageDirectoryPath)
-  imageDir.create().then (flag)->
+  useAbsoluteImagePath = config.absolute_image_path
 
-    # mermaid / viz / wavedrom graph
-    processGraphs text, {fileDirectoryPath, projectDirectoryPath, imageDirectoryPath, imageFilePrefix: encrypt(outputFilePath), useAbsoluteImagePath}, (text, imagePaths=[])->
-      fs.writeFile outputFilePath, text, (err)->
-        return atom.notifications.addError('failed to generate markdown') if err
-        atom.notifications.addInfo("File #{path.basename(outputFilePath)} was created", detail: "path: #{outputFilePath}")
+  # import external files
+  fileImport(text, {fileDirectoryPath, projectDirectoryPath, useAbsoluteImagePath, imageDirectoryPath}).then ({outputString:text})->
+    # change link path to project '/' path
+    # this is actually differnet from pandoc-convert.coffee
+    text = processPaths text, fileDirectoryPath, projectDirectoryPath, useAbsoluteImagePath
+
+    text = processMath text
+
+    atom.notifications.addInfo('Your document is being prepared', detail: ':)')
+
+    imageDir = new Directory(imageDirectoryPath)
+    imageDir.create().then (flag)->
+
+      # mermaid / viz / wavedrom graph
+      processGraphs text, {fileDirectoryPath, projectDirectoryPath, imageDirectoryPath, imageFilePrefix: encrypt(outputFilePath), useAbsoluteImagePath}, (text, imagePaths=[])->
+        fs.writeFile outputFilePath, text, (err)->
+          return atom.notifications.addError('failed to generate markdown') if err
+          atom.notifications.addInfo("File #{path.basename(outputFilePath)} was created", detail: "path: #{outputFilePath}")
 
 
 module.exports = markdownConvert

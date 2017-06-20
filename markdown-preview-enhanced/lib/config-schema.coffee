@@ -19,11 +19,32 @@ module.exports =
       enum: syntaxThemes
       order: 1
     whiteBackground:
-      title: "White background"
+      title: "White Background"
       type: "boolean"
       default: false
       description: "Use white background color for preview."
       order: 2
+    singlePreview:
+      title: "Open Only One Preview"
+      type: "boolean"
+      default: true,
+      order: 3
+    openPreviewPaneAutomatically:
+      title: "Open preview pane automatically when opening a markdown file"
+      type: "boolean"
+      default: true
+      order: 4
+    automaticallyShowPreviewOfMarkdownBeingEdited:
+      title: "Automatically show preview of markdown being edited"
+      type: "boolean"
+      default: true,
+      order: 5
+    closePreviewAutomatically:
+      title: "Automatically close preview when closing a markdown file"
+      description: "This option only works if `Open Only One Preview` is unchecked."
+      type: "boolean"
+      default: true
+      order: 6
     breakOnSingleNewline:
       type: "boolean"
       default: true
@@ -34,14 +55,8 @@ module.exports =
       default: false
       description: "Enable smartypants and other sweet transforms."
       order: 11
-    showBackToTopButton:
-      title: "Show back to top button"
-      type: "boolean"
-      default: true
-      description: "Show back to top button in preview."
-      order: 12
     enableZenMode:
-      title: "Zen mode"
+      title: "Zen Mode"
       type: "boolean"
       default: false
       description: "Distraction free writing."
@@ -98,12 +113,12 @@ module.exports =
       default: "[[\"$$\", \"$$\"], [\"\\\\[\", \"\\\\]\"]]"
       description: "Use customized Math expression block indicator. By default it is [[\"$$\", \"$$\"]]. `(Restart is required to take effect)`"
       order: 22
-    mathJaxProcessEnvironments:
-      title: "MathJax processEnvironments"
-      type: "boolean"
-      default: false
-      description: "Note that, as opposed to true LaTeX, MathJax processes all environments when wrapped inside math delimiters. By defaut, MathJax will also render all environments outside of delimiters; this can be controlled via the processEnvironments option. `Live Update` is recommended to be disabled when this option is enabled. `(Restart is required to take effect)`"
-      order: 23
+    latexEngine:
+      title: "LaTeX Engine"
+      type: "string"
+      default: "pdflatex" # TODO: different default latex engine for different OS
+      description: "The LaTeX engine you want to you to run latex code chunk."
+      order: 25
     enableWikiLinkSyntax:
       title: "Enable Wiki Link syntax"
       type: "boolean"
@@ -116,12 +131,6 @@ module.exports =
       default: ".md"
       description: "By default, [[test]] will direct to file path `test.md`."
       order: 31
-    useStandardCodeFencingForGraphs:
-      title: "Use standard code fencing for graphs"
-      type: "boolean"
-      default: true
-      description: "Use standard code fencing for graphs. For example, code block `mermaid` or `@mermaid` will render mermaid graphs. If this option is disabled, then only `@mermaid` will render mermaid graphs. Works for mermaid, viz, plantuml, and wavedrom."
-      order: 35
     liveUpdate:
       type: "boolean"
       default: true
@@ -149,7 +158,7 @@ module.exports =
       description: "Scroll duration is defined in milliseconds. Lower value indicates faster scrolling speed. Default is 120ms"
       order: 76
     documentExportPath:
-      title: "document export folder path"
+      title: "Document Export Folder Path"
       description: "When exporting document to disk, by default the document will be generated at the root path './'"
       type: "string"
       default: "./"
@@ -220,11 +229,6 @@ module.exports =
       type: "string"
       default: "1cm"
       order: 132
-    openPreviewPaneAutomatically:
-      title: "Open preview pane automatically when opening a markdown file"
-      type: "boolean"
-      default: true
-      order: 140
     imageFolderPath:
       title: "Image save folder path"
       description: "When using Image Helper to copy images, by default images will be copied to root image folder path '/assets'"

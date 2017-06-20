@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
+        "raw": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
-        "spec": "/tmp/d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
+        "rawSpec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+        "spec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-8708-o2e3wt.22lffrms4i"
+      "/tmp/apm-install-dir-117520-6147-qgp8me.6t0m5cdi"
     ]
   ],
-  "_from": "../d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
-  "_id": "platformio-ide-terminal@2.5.0",
+  "_from": "../d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+  "_id": "platformio-ide-terminal@2.5.1",
   "_inCache": true,
-  "_installable": true,
   "_location": "/platformio-ide-terminal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
+    "raw": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
-    "spec": "/tmp/d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
+    "rawSpec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+    "spec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
-  "_shasum": "99c6ccd7a2300d1194a8677895f5885d436fde76",
+  "_resolved": "file:../d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+  "_shasum": "0ec8b37e2f00f7deea2b154cafb1473370030d9b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-8708-1umzdu5.wdlwlpiudi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-8708-o2e3wt.22lffrms4i",
+  "_spec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-6147-qgp8me.6t0m5cdi",
   "activationHooks": [
     "core:loaded-shell-environment"
   ],
@@ -98,7 +97,7 @@
     "platformioIDETerminal": {
       "description": "PlatformIO IDE Terminal API",
       "versions": {
-        "1.0.0": "providePlatformIOIDETerminal"
+        "1.1.0": "providePlatformIOIDETerminal"
       }
     },
     "runInTerminal": {
@@ -114,7 +113,7 @@
     "type": "git",
     "url": "git+https://github.com/platformio/platformio-atom-ide-terminal.git"
   },
-  "version": "2.5.0",
+  "version": "2.5.1",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -135,7 +134,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.18",
+        "version": "0.10.23",
         "path": "node_modules/es5-ext/index.js"
       },
       {

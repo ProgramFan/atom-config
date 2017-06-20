@@ -8,7 +8,7 @@ Viz = require '../dependencies/viz/viz.js'
 codeChunkAPI = require './code-chunk'
 {svgAsPngUri} = require '../dependencies/save-svg-as-png/save-svg-as-png.js'
 processGraphs = require './process-graphs'
-fileImport = require './file-import'
+{fileImport} = require './file-import'
 
 getFileExtension = (documentType)->
   if documentType == 'pdf_document' or documentType == 'beamer_presentation'
@@ -163,21 +163,32 @@ processPaths = (text, fileDirectoryPath, projectDirectoryPath)->
     else # ./test.png or test.png
       return src
 
-  # replace path in ![](...) and []()
-  r = /(\!?\[.*?]\()([^\)|^'|^"]*)(.*?\))/gi
-  text = text.replace r, (whole, a, b, c)->
-    if b[0] == '<'
-      b = b.slice(1, b.length-1)
-      a + '<' + resolvePath(b.trim()) + '> ' + c
+  inBlock = false
+  lines = text.split('\n')
+  lines = lines.map (line)->
+    if line.match(/^\s*```/)
+      inBlock = !inBlock
+      line
+    else if inBlock
+      line
     else
-      a + resolvePath(b.trim()) + ' ' + c
+      # replace path in ![](...) and []()
+      r = /(\!?\[.*?]\()([^\)|^'|^"]*)(.*?\))/gi
+      line = line.replace r, (whole, a, b, c)->
+        if b[0] == '<'
+          b = b.slice(1, b.length-1)
+          a + '<' + resolvePath(b.trim()) + '> ' + c
+        else
+          a + resolvePath(b.trim()) + ' ' + c
 
-  # replace path in tag
-  r = /(<[img|a|iframe].*?[src|href]=['"])(.+?)(['"].*?>)/gi
-  text = text.replace r, (whole, a, b, c)->
-    a + resolvePath(b) + c
+      # replace path in tag
+      r = /(<[img|a|iframe].*?[src|href]=['"])(.+?)(['"].*?>)/gi
+      line = line.replace r, (whole, a, b, c)->
+        a + resolvePath(b) + c
 
-  text
+      line
+
+  lines.join('\n')
 
 # callback(error, html)
 pandocRender = (text='', {args, projectDirectoryPath, fileDirectoryPath}, callback)->
@@ -201,13 +212,23 @@ pandocRender = (text='', {args, projectDirectoryPath, fileDirectoryPath}, callba
   while i < lines.length
     line = lines[i]
 
-    codeChunkMatch = line.match /^\`\`\`\{(\w+)\s*(.*)\}\s*/
-    if codeChunkMatch # code chunk
+    if codeChunkMatch = line.match /^\`\`\`\{(\w+)\s*(.*)\}\s*/ # code chunk
       lang = codeChunkMatch[1].trim()
       dataArgs = codeChunkMatch[2].trim().replace(/('|")/g, '\\$1') # escape
       dataCodeChunk = "{#{lang} #{dataArgs}}"
 
       outputString += "```{.r data-code-chunk=\"#{dataCodeChunk}\"}\n"
+      inCodeBlock = true
+      i += 1
+      continue
+
+    if codeBlockMatch = line.match(/^\`\`\`([^\s]+)\s+\{(.+?)\}/)
+      lang = codeBlockMatch[1]
+      dataArgs = codeBlockMatch[2].trim().replace(/('|")/g, '\\$1') # escape
+      dataCodeBlock = "#{lang} \{#{dataArgs}\}"
+
+      outputString += "```{.r data-code-block=\"#{dataCodeBlock}\"}\n"
+      inCodeBlock = true
       i += 1
       continue
 
@@ -284,8 +305,10 @@ pandocConvert = (text, {fileDirectoryPath, projectDirectoryPath, sourceFilePath,
     outputFilePath = outputFilePath.slice(0, outputFilePath.length - path.extname(outputFilePath).length) + '.' + extension
     args.push '-o', outputFilePath
 
+  # NOTE: 0.12.4 No need to resolve paths.
+  # #409: https://github.com/shd101wyy/markdown-preview-enhanced/issues/409
   # resolve paths in front-matter(yaml)
-  processConfigPaths config, fileDirectoryPath, projectDirectoryPath
+  # processConfigPaths config, fileDirectoryPath, projectDirectoryPath
 
   if outputConfig
     processOutputConfig outputConfig, args
@@ -294,39 +317,38 @@ pandocConvert = (text, {fileDirectoryPath, projectDirectoryPath, sourceFilePath,
   text = matter.stringify(text, config)
 
   # import external files
-  text = fileImport(text, {fileDirectoryPath, projectDirectoryPath, useAbsoluteImagePath: false}).outputString
+  fileImport(text, {fileDirectoryPath, projectDirectoryPath, useAbsoluteImagePath: false}).then ({outputString: text})->
+    # change link path to relative path
+    text = processPaths text, fileDirectoryPath, projectDirectoryPath
 
-  # change link path to relative path
-  text = processPaths text, fileDirectoryPath, projectDirectoryPath
+    # change working directory
+    cwd = process.cwd()
+    process.chdir(fileDirectoryPath)
 
-  # change working directory
-  cwd = process.cwd()
-  process.chdir(fileDirectoryPath)
+    # citation
+    if config['bibliography'] or config['references']
+      args.push('--filter', 'pandoc-citeproc')
 
-  # citation
-  if config['bibliography'] or config['references']
-    args.push('--filter', 'pandoc-citeproc')
+    atom.notifications.addInfo('Your document is being prepared', detail: ':)')
 
-  atom.notifications.addInfo('Your document is being prepared', detail: ':)')
+    # mermaid / viz / wavedrom graph
+    processGraphs text, {fileDirectoryPath, projectDirectoryPath, imageDirectoryPath: fileDirectoryPath, forPandoc:true}, (text, imagePaths=[])->
+      # console.log args.join(' ')
+      #
+      # pandoc will cause error if directory doesn't exist,
+      # therefore I will create directory first.
+      directory = new Directory(path.dirname(outputFilePath))
+      directory.create().then (flag)->
+        pandocPath = atom.config.get('markdown-preview-enhanced.pandocPath')
+        program = execFile pandocPath, args, (err)->
+          if deleteImages
+            # remove images
+            imagePaths.forEach (p)->
+              fs.unlink(p)
 
-  # mermaid / viz / wavedrom graph
-  processGraphs text, {fileDirectoryPath, projectDirectoryPath, imageDirectoryPath: fileDirectoryPath}, (text, imagePaths=[])->
-    # console.log args.join(' ')
-    #
-    # pandoc will cause error if directory doesn't exist,
-    # therefore I will create directory first.
-    directory = new Directory(path.dirname(outputFilePath))
-    directory.create().then (flag)->
-      pandocPath = atom.config.get('markdown-preview-enhanced.pandocPath')
-      program = execFile pandocPath, args, (err)->
-        if deleteImages
-          # remove images
-          imagePaths.forEach (p)->
-            fs.unlink(p)
-
-        process.chdir(cwd) # change cwd back
-        return callback(err, outputFilePath) if callback
-      program.stdin.end(text)
+          process.chdir(cwd) # change cwd back
+          return callback(err, outputFilePath) if callback
+        program.stdin.end(text)
 
 module.exports = {
   pandocConvert,

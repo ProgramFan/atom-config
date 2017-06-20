@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
+        "raw": "/tmp/d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
-        "spec": "/tmp/d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
+        "rawSpec": "/tmp/d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
+        "spec": "/tmp/d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-6190-1r3uld.xmeivpwrk9"
+      "/tmp/apm-install-dir-117520-3568-kf84a1.zyvwrssjor"
     ]
   ],
-  "_from": "../d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
-  "_id": "Zen@0.16.4",
+  "_from": "../d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
+  "_id": "Zen@0.18.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/Zen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
+    "raw": "/tmp/d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
-    "spec": "/tmp/d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
+    "rawSpec": "/tmp/d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
+    "spec": "/tmp/d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
-  "_shasum": "8e4faa886b1afd8f9c5d87d12f1a579b630b6fad",
+  "_resolved": "file:../d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
+  "_shasum": "f7d93d67444735d8e814994b77ddf646d606940d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-6190-1uhbanb.xguh5pcik9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-6190-1r3uld.xmeivpwrk9",
+  "_spec": "/tmp/d-117520-3568-1s0j2ix.wb7d37hkt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-3568-kf84a1.zyvwrssjor",
   "activationCommands": {
     "atom-text-editor": [
       "zen:toggle"
@@ -50,7 +49,7 @@
   "description": "Distraction free writing.",
   "devDependencies": {},
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": ">=1.17.0 <2.0.0"
   },
   "homepage": "https://github.com/defunkt/zen#readme",
   "keywords": [
@@ -69,5 +68,5 @@
     "type": "git",
     "url": "git+https://github.com/defunkt/zen.git"
   },
-  "version": "0.16.4"
+  "version": "0.18.0"
 }

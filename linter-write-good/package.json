@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-7299-1g015io.mhusl6usor/package.tgz",
+        "raw": "/tmp/d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-7299-1g015io.mhusl6usor/package.tgz",
-        "spec": "/tmp/d-117417-7299-1g015io.mhusl6usor/package.tgz",
+        "rawSpec": "/tmp/d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
+        "spec": "/tmp/d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-7299-1rykb94.c39o8t1emi"
+      "/tmp/apm-install-dir-117520-4714-1danjib.6h0sm50zfr"
     ]
   ],
-  "_from": "../d-117417-7299-1g015io.mhusl6usor/package.tgz",
+  "_from": "../d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
   "_id": "linter-write-good@0.9.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/linter-write-good",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-7299-1g015io.mhusl6usor/package.tgz",
+    "raw": "/tmp/d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-7299-1g015io.mhusl6usor/package.tgz",
-    "spec": "/tmp/d-117417-7299-1g015io.mhusl6usor/package.tgz",
+    "rawSpec": "/tmp/d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
+    "spec": "/tmp/d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-7299-1g015io.mhusl6usor/package.tgz",
+  "_resolved": "file:../d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
   "_shasum": "afe974d4391d0d37589c915d9c66ce2976b80fc5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-7299-1g015io.mhusl6usor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-7299-1rykb94.c39o8t1emi",
+  "_spec": "/tmp/d-117520-4714-1123ioi.a26km1v2t9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-4714-1danjib.6h0sm50zfr",
   "activationCommands": [],
   "bugs": {
     "url": "https://github.com/gepoch/linter-write-good/issues"
@@ -83,7 +82,7 @@
       },
       {
         "name": "e-prime",
-        "version": "0.10.1",
+        "version": "0.10.2",
         "path": "node_modules/e-prime/e-prime.js"
       },
       {

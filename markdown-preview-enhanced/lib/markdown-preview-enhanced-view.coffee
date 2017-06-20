@@ -15,14 +15,27 @@ request = null
 {loadPreviewTheme} = require './style'
 plantumlAPI = require './puml'
 ebookConvert = require './ebook-convert'
-{loadMathJax} = require './mathjax-wrapper'
+{loadMathJax, getMathJaxConfigForExport} = require './mathjax-wrapper'
 {pandocConvert} = require './pandoc-convert'
 markdownConvert = require './markdown-convert'
 princeConvert = require './prince-convert'
 codeChunkAPI = require './code-chunk'
 CACHE = require './cache'
 {protocolsWhiteListRegExp} = require './protocols-whitelist'
+toc = require('./toc')
 
+###
+.markdown-preview-enhanced-container {
+  .markdown-preview-enhanced
+  .mpe-sidebar-toc
+  .mpe-toolbar {
+    .refresh-btn
+    .back-to-top-btn
+    .sidebar-toc-btn
+  }
+}
+
+###
 module.exports =
 class MarkdownPreviewEnhancedView extends ScrollView
   constructor: (uri, mainModule)->
@@ -32,6 +45,11 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @mainModule = mainModule
     @protocal = 'markdown-preview-enhanced://'
     @editor = null
+    @previewElement = null
+
+    @enableSidebarTOC = false
+    @sidebarTOC = null
+    @headingElements = null # TODO: highlight sidebar toc for sync.
 
     @tocConfigs = null
     @scrollMap = null
@@ -48,13 +66,12 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     @mathRenderingOption = atom.config.get('markdown-preview-enhanced.mathRenderingOption')
     @mathRenderingOption = if @mathRenderingOption == 'None' then null else @mathRenderingOption
-    @mathJaxProcessEnvironments = atom.config.get('markdown-preview-enhanced.mathJaxProcessEnvironments')
-    @mathInlineDelimiters = JSON.parse(atom.config.get('markdown-preview-enhanced.indicatorForMathRenderingInline'))
-    @mathBlockDelimiters = JSON.parse(atom.config.get('markdown-preview-enhanced.indicatorForMathRenderingBlock'))
+    @mathJaxProcessEnvironments = false
 
     @parseDelay = Date.now()
     @editorScrollDelay = Date.now()
     @previewScrollDelay = Date.now()
+    @zoomLevel = 1.0
 
     @documentExporterView = null # binded in markdown-preview-enhanced.coffee startMD function
 
@@ -90,6 +107,11 @@ class MarkdownPreviewEnhancedView extends ScrollView
       'markdown-preview-enhanced:export-to-disk': => @exportToDisk()
       'markdown-preview-enhanced:pandoc-document-export': => @pandocDocumentExport()
       'markdown-preview-enhanced:save-as-markdown': => @saveAsMarkdown()
+      'markdown-preview-enhanced:zoom-in': => @zoomIn()
+      'markdown-preview-enhanced:zoom-out': => @zoomOut()
+      'markdown-preview-enhanced:reset-zoom': => @resetZoom()
+      'markdown-preview-enhanced:refresh-preview': => @refreshPreview()
+      'markdown-preview-enhanced:sync-source': => @syncSource()
       'core:copy': => @copyToClipboard()
 
     # init settings
@@ -97,9 +119,8 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @initSettingsEvents()
 
   @content: ->
-    @div class: 'markdown-preview-enhanced native-key-bindings', tabindex: -1, style: "background-color: #fff; padding: 32px; color: #222;", =>
-      # @p style: 'font-size: 24px', 'loading preview...'
-      @div class: "markdown-spinner", 'Loading Markdown\u2026'
+    @div class: 'markdown-preview-enhanced-container native-key-bindings', tabindex: -1, =>
+      @div class: "markdown-spinner", 'Initializing Package\u2026'
 
   getTitle: ->
     @getFileName() + ' preview'
@@ -128,7 +149,9 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     return ''
 
+  # only works if singlePreview
   setTabTitle: (title)->
+    return if !@mainModule.singlePreview
     tabTitle = $('[data-type="MarkdownPreviewEnhancedView"] div.title')
     if tabTitle.length
       tabTitle[0].innerText = title
@@ -156,6 +179,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
   bindEditor: (editor)->
     if not @editor
+      @editor = editor # this line is necessary here to make tab title correct.
       atom.workspace
           .open @uri,
                 split: 'right',
@@ -169,27 +193,33 @@ class MarkdownPreviewEnhancedView extends ScrollView
     else
       # save cache
       CACHE[@editor.getPath()] = {
-        html: @element?.innerHTML or '',
+        html: @previewElement?.innerHTML or '',
         codeChunksData: @codeChunksData,
         graphData: @graphData,
         presentationMode: @presentationMode,
+        tocConfigs: @tocConfigs,
         slideConfigs: @slideConfigs,
         filesCache: @filesCache,
+        zoomLevel: @zoomLevel
       }
 
-      # @element.innerHTML = '<p style="font-size: 24px;"> loading preview... <br>type something if preview doesn\'t render :( </p>'
-
-      setTimeout(()=>
-        @initEvents(editor)
-      , 0)
+      # setTimeout(()=>
+      @initEvents(editor)
+      # , 0)
 
   initEvents: (editor)->
     @editor = editor
     @updateTabTitle()
-    @element.removeAttribute('style')
+
+    @previewElement = document.createElement('div') # create new preview element
+    @previewElement.classList.add('markdown-preview-enhanced')
+    @previewElement.setAttribute('for', 'preview')
+    @previewElement.innerHTML = "<div class=\"markdown-spinner\"> Loading Markdown\u2026 </div>"
+    @element.innerHTML = ''
+    @element.appendChild @previewElement
 
     if not @parseMD
-      {@parseMD, @buildScrollMap, @processFrontMatter} = require './md'
+      {@parseMD, @buildScrollMap, @processFrontMatter, @md} = require './md'
       require '../dependencies/wavedrom/default.js'
       require '../dependencies/wavedrom/wavedrom.min.js'
 
@@ -204,39 +234,39 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @disposables.dispose()
     @disposables = new CompositeDisposable()
 
+    @addToolBar()
+    @addBackToTopButton()
+    @addRefreshButton()
+    @addSidebarTOCButton()
+
     @initEditorEvent()
     @initViewEvent()
 
     # restore preview
     d = CACHE[@editor.getPath()]
     if d
-      @element.innerHTML = d.html
+      @previewElement.innerHTML = d.html
       @graphData = d.graphData
       @codeChunksData = d.codeChunksData
       @presentationMode = d.presentationMode
+      @tocConfigs = d.tocConfigs
       @slideConfigs = d.slideConfigs
       @filesCache = d.filesCache
 
+      @zoomLevel = d.zoomLevel
+      @setZoomLevel()
+
       if @presentationMode
-        @element.setAttribute 'data-presentation-preview-mode', ''
+        @previewElement.setAttribute 'data-presentation-preview-mode', ''
       else
-        @element.removeAttribute 'data-presentation-preview-mode'
+        @previewElement.removeAttribute 'data-presentation-preview-mode'
 
       @setInitialScrollPos()
-      # console.log 'restore ' + @editor.getPath()
 
-      # reset back to top button onclick event
-      @element.getElementsByClassName('back-to-top-btn')?[0]?.onclick = ()=>
-        @element.scrollTop = 0
-
-      # reset refresh button onclick event
-      @element.getElementsByClassName('refresh-btn')?[0]?.onclick = ()=>
-        @filesCache = {}
-        codeChunkAPI.clearCache()
-        @renderMarkdown()
+      @renderSidebarTOC()
 
       # rebind tag a click event
-      @bindTagAClickEvent()
+      @bindTagAClickEvent(@previewElement)
 
       # render plantuml in case
       @renderPlantUML()
@@ -244,21 +274,32 @@ class MarkdownPreviewEnhancedView extends ScrollView
       # reset code chunks
       @setupCodeChunks()
     else
+      @codeChunksData = {}
+      @graphData = {}
+      @tocConfigs = null
+
       @renderMarkdown()
     @scrollMap = null
 
   initEditorEvent: ->
     editorElement = @editor.getElement()
 
+    @disposables.add atom.commands.add editorElement,
+      'markdown-preview-enhanced:sync-preview': => @syncPreview()
+
     @disposables.add @editor.onDidDestroy ()=>
-      @setTabTitle('unknown preview')
+      # @setTabTitle('unknown preview')
       if @disposables
         @disposables.dispose()
         @disposables = null
       @editor = null
-      @element.onscroll = null
+      @previewElement.onscroll = null
 
-      @element.innerHTML = '<p style="font-size: 24px;"> Open a markdown file to start preview </p>'
+      # @element.innerHTML = '<p style="font-size: 24px; width: 100%; text-align: center; margin-top: 64px;"> Open a markdown file to start preview </p>'
+      if !atom.config.get('markdown-preview-enhanced.singlePreview') and atom.config.get('markdown-preview-enhanced.closePreviewAutomatically')
+        pane = atom.workspace.paneForItem(this)
+        pane.destroyItem(this) # this will trigger @destroy()
+
 
     @disposables.add @editor.onDidStopChanging ()=>
       # @textChanged = true # this line has problem.
@@ -275,7 +316,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
         @textChanged = true
 
     @disposables.add editorElement.onDidChangeScrollTop ()=>
-      if !@scrollSync or !@element or @textChanged or !@editor or @presentationMode
+      if !@scrollSync or !@previewElement or @textChanged or !@editor or @presentationMode
         return
       if Date.now() < @editorScrollDelay
         return
@@ -306,7 +347,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     # match markdown preview to cursor position
     @disposables.add @editor.onDidChangeCursorPosition (event)=>
-      if !@scrollSync or !@element or @textChanged
+      if !@scrollSync or !@previewElement or @textChanged
         return
       if Date.now() < @parseDelay
         return
@@ -325,59 +366,61 @@ class MarkdownPreviewEnhancedView extends ScrollView
           @scrollToPos(0)
           return
         else if lineNo >= @editor.getScreenLineCount() - 2 # last 2nd rows
-          @scrollToPos(@element.scrollHeight - 16)
+          @scrollToPos(@previewElement.scrollHeight - 16)
           return
 
         @scrollSyncToLineNo(lineNo)
 
+  previewSyncSource: ->
+    if @previewElement.scrollTop == 0 # most top
+      @editorScrollDelay = Date.now() + 500
+      return @scrollToPos 0, @editor.getElement()
+
+    top = @previewElement.scrollTop + @previewElement.offsetHeight / 2
+
+    if @presentationMode
+      top = top / @presentationZoom
+
+    # try to find corresponding screen buffer row
+    @scrollMap ?= @buildScrollMap(this)
+
+    i = 0
+    j = @scrollMap.length - 1
+    count = 0
+    screenRow = -1
+
+    while count < 20
+      if Math.abs(top - @scrollMap[i]) < 20
+        screenRow = i
+        break
+      else if Math.abs(top - @scrollMap[j]) < 20
+        screenRow = j
+        break
+      else
+        mid = Math.floor((i + j) / 2)
+        if top > @scrollMap[mid]
+          i = mid
+        else
+          j = mid
+
+      count++
+
+    if screenRow == -1
+      screenRow = mid
+
+    @scrollToPos(screenRow * @editor.getLineHeightInPixels() - @previewElement.offsetHeight / 2, @editor.getElement())
+    # @editor.getElement().setScrollTop
+
+    # track currnet time to disable onDidChangeScrollTop
+    @editorScrollDelay = Date.now() + 500
+
   initViewEvent: ->
-    @element.onscroll = ()=>
+    @previewElement.onscroll = ()=>
       if !@editor or !@scrollSync or @textChanged
         return
       if Date.now() < @previewScrollDelay
         return
-
-      if @element.scrollTop == 0 # most top
-        @editorScrollDelay = Date.now() + 500
-        return @scrollToPos 0, @editor.getElement()
-
-      top = @element.scrollTop + @element.offsetHeight / 2
-
-      if @presentationMode
-        top = top / @presentationZoom
-
-      # try to find corresponding screen buffer row
-      @scrollMap ?= @buildScrollMap(this)
-
-      i = 0
-      j = @scrollMap.length - 1
-      count = 0
-      screenRow = -1
-
-      while count < 20
-        if Math.abs(top - @scrollMap[i]) < 20
-          screenRow = i
-          break
-        else if Math.abs(top - @scrollMap[j]) < 20
-          screenRow = j
-          break
-        else
-          mid = Math.floor((i + j) / 2)
-          if top > @scrollMap[mid]
-            i = mid
-          else
-            j = mid
-
-        count++
-
-      if screenRow == -1
-        screenRow = mid
-
-      @scrollToPos(screenRow * @editor.getLineHeightInPixels() - @element.offsetHeight / 2, @editor.getElement())
-      # @editor.getElement().setScrollTop
-
-      # track currnet time to disable onDidChangeScrollTop
-      @editorScrollDelay = Date.now() + 500
+      @previewSyncSource()
 
   initSettingsEvents: ->
     # break line?
@@ -426,32 +469,23 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @settingsDisposables.add atom.config.observe 'markdown-preview-enhanced.mermaidTheme',
       (theme) =>
         @setMermaidTheme theme # hack to solve https://github.com/exupero/saveSvgAsPng/issues/128 problem
-        # @element.setAttribute 'data-mermaid-theme', theme
 
     # render front matter as table?
     @settingsDisposables.add atom.config.observe 'markdown-preview-enhanced.frontMatterRenderingOption', () =>
       @renderMarkdown()
 
-    # show back to top button?
-    @settingsDisposables.add atom.config.observe 'markdown-preview-enhanced.showBackToTopButton', (flag)=>
-      @showBackToTopButton = flag
-      if flag
-        @addBackToTopButton()
-      else
-        document.getElementsByClassName('back-to-top-btn')[0]?.remove()
-
   scrollSyncForPresentation: (bufferLineNo)->
     i = @slideConfigs.length - 1
     while i >= 0
-      if bufferLineNo >= @slideConfigs[i].line
+      if bufferLineNo >= @slideConfigs[i].lineNo
         break
       i-=1
-    slideElement = @element.querySelector(".slide[data-offset=\"#{i}\"]")
+    slideElement = @previewElement.querySelector(".slide[data-offset=\"#{i}\"]")
 
     return if not slideElement
 
     # set slide to middle of preview
-    @element.scrollTop = -@element.offsetHeight/2 + (slideElement.offsetTop + slideElement.offsetHeight/2)*parseFloat(slideElement.style.zoom)
+    @previewElement.scrollTop = -@previewElement.offsetHeight/2 + (slideElement.offsetTop + slideElement.offsetHeight/2)*parseFloat(slideElement.style.zoom)
 
   # lineNo here is screen buffer row.
   scrollSyncToLineNo: (lineNo)->
@@ -467,7 +501,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     @scrollToPos scrollTop
 
-  # smooth scroll @element to scrollTop
+  # smooth scroll @previewElement to scrollTop
   # if editorElement is provided, then editorElement.setScrollTop(scrollTop)
   scrollToPos: (scrollTop, editorElement=null)->
     if @scrollTimeout
@@ -487,13 +521,13 @@ class MarkdownPreviewEnhancedView extends ScrollView
             editorElement.setScrollTop scrollTop
           else
             @previewScrollDelay = Date.now() + 500
-            @element.scrollTop = scrollTop
+            @previewElement.scrollTop = scrollTop
           return
 
         if editorElement
           difference = scrollTop - editorElement.getScrollTop()
         else
-          difference = scrollTop - @element.scrollTop
+          difference = scrollTop - @previewElement.scrollTop
 
         perTick = difference / duration * delay
 
@@ -508,8 +542,8 @@ class MarkdownPreviewEnhancedView extends ScrollView
           # disable preview onscroll
           @previewScrollDelay = Date.now() + 500
 
-          @element.scrollTop += perTick
-          return if @element.scrollTop == scrollTop
+          @previewElement.scrollTop += perTick
+          return if @previewElement.scrollTop == scrollTop
 
         helper duration-delay
       , delay
@@ -529,7 +563,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @renderMarkdown()
 
   renderMarkdown: ->
-    if Date.now() < @parseDelay or !@editor or !@element
+    if Date.now() < @parseDelay or !@editor or !@previewElement
       @textChanged = false
       return
     @parseDelay = Date.now() + 200
@@ -539,23 +573,21 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
       if slideConfigs.length
         html = @parseSlides(html, slideConfigs, yamlConfig)
-        @element.setAttribute 'data-presentation-preview-mode', ''
+        @previewElement.setAttribute 'data-presentation-preview-mode', ''
         @presentationMode = true
         @slideConfigs = slideConfigs
         @scrollMap = null
       else
-        @element.removeAttribute 'data-presentation-preview-mode'
+        @previewElement.removeAttribute 'data-presentation-preview-mode'
         @presentationMode = false
 
-      @element.innerHTML = html
+      @previewElement.innerHTML = html
       @graphData = {}
       @bindEvents()
 
-      @mainModule.emitter.emit 'on-did-render-preview', {htmlString: html, previewElement: @element}
+      @mainModule.emitter.emit 'on-did-render-preview', {htmlString: html, previewElement: @previewElement}
 
       @setInitialScrollPos()
-      @addBackToTopButton()
-      @addRefreshButton()
       @processYAMLConfig(yamlConfig)
 
       @textChanged = false
@@ -573,48 +605,88 @@ class MarkdownPreviewEnhancedView extends ScrollView
         @scrollSyncToLineNo cursor.getScreenRow()
         @scrollDuration = t
 
+        # clear @scrollMap after 2 seconds because sometimes
+        # loading images will change scrollHeight.
+        setTimeout ()=>
+        	@scrollMap = null
+        , 2000
+
+  addToolBar: ->
+    @toolbar = document.createElement('div')
+    @toolbar.classList.add('mpe-toolbar')
+    @element.appendChild(@toolbar)
+
+    showToolbar = ()=> @toolbar.style.opacity = "1"
+    @previewElement.onmouseenter = showToolbar
+    @toolbar.onmouseenter = showToolbar
+
+    @previewElement.onmouseleave = ()=>
+      @toolbar.style.opacity = "0"
+
   addBackToTopButton: ->
-    # TODO: check config
-
     # add back to top button #222
-    if @showBackToTopButton and @element.scrollHeight > @element.offsetHeight
-      backToTopBtn = document.createElement('div')
-      backToTopBtn.classList.add('back-to-top-btn')
-      backToTopBtn.classList.add('btn')
-      backToTopBtn.innerHTML = '<span>⬆︎</span>'
-      @element.appendChild(backToTopBtn)
+    # if @previewElement and @previewElement.scrollHeight > @previewElement.offsetHeight
+    backToTopBtn = document.createElement('div')
+    backToTopBtn.classList.add('back-to-top-btn')
+    backToTopBtn.classList.add('btn')
+    backToTopBtn.innerHTML = '<span>⬆︎</span>'
+    @toolbar.appendChild(backToTopBtn)
 
-      backToTopBtn.onclick = ()=>
-        @element.scrollTop = 0
+    backToTopBtn.onclick = ()=>
+      @previewElement.scrollTop = 0
 
   addRefreshButton: ->
     refreshBtn = document.createElement('div')
     refreshBtn.classList.add('refresh-btn')
     refreshBtn.classList.add('btn')
     refreshBtn.innerHTML = '<span>⟳</span>'
-    @element.appendChild(refreshBtn)
+    @toolbar.appendChild(refreshBtn)
 
-    refreshBtn.onclick = ()=>
-      # clear cache
-      @filesCache = {}
-      codeChunkAPI.clearCache()
+    refreshBtn.onclick = => @refreshPreview()
 
-      # render again
-      @renderMarkdown()
+  addSidebarTOCButton: ->
+    sidebarTOCBtn = document.createElement('div')
+    sidebarTOCBtn.classList.add('sidebar-toc-btn')
+    sidebarTOCBtn.classList.add('btn')
+    sidebarTOCBtn.innerHTML = '<span>≡</span>'
+    @toolbar.appendChild(sidebarTOCBtn)
+
+    helper = ()=>
+      if @enableSidebarTOC
+        @sidebarTOC = document.createElement('div') # create new sidebar toc
+        @sidebarTOC.classList.add('mpe-sidebar-toc')
+        @element.appendChild @sidebarTOC
+        @element.classList.add 'show-sidebar-toc'
+        @renderSidebarTOC()
+        @setZoomLevel()
+      else
+        @sidebarTOC?.remove()
+        @sidebarTOC = null
+        @element.classList.remove 'show-sidebar-toc'
+        @previewElement.style.width = "100%"
+
+      @scrollMap = null
+
+    helper()
+
+    sidebarTOCBtn.onclick = ()=>
+      @enableSidebarTOC = !@enableSidebarTOC
+      helper()
 
   processYAMLConfig: (yamlConfig={})->
     if yamlConfig.id
-      @element.id = yamlConfig.id
+      @previewElement.id = yamlConfig.id
     if yamlConfig.class
       cls = yamlConfig.class
       cls = [cls] if typeof(cls) == 'string'
       cls = cls.join(' ') or ''
-      @element.setAttribute 'class', "markdown-preview-enhanced native-key-bindings #{cls}"
+      @previewElement.setAttribute 'class', "markdown-preview-enhanced #{cls}"
 
   bindEvents: ->
-    @bindTagAClickEvent()
+    @renderSidebarTOC()
+    @bindTagAClickEvent(@previewElement)
     @setupCodeChunks()
-    @initTaskList()
+    # @initTaskList() # this function is deprecated as `data-line` is no longer stored
     @renderMermaid()
     @renderPlantUML()
     @renderWavedrom()
@@ -623,26 +695,45 @@ class MarkdownPreviewEnhancedView extends ScrollView
     @renderMathJax()
     @scrollMap = null
 
+  renderSidebarTOC: ->
+    return if !@enableSidebarTOC
+    if @usePandocParser
+      headings = @previewElement.querySelectorAll('h1, h2, h3, h4, h5, h6')
+      tokens = []
+      headings?.forEach (elem, i)->
+        if elem.id
+          tokens.push({content: elem.innerHTML, id: elem.id, level: parseInt(elem.tagName.slice(1))})
+      tocObject = toc(tokens, {ordered: false})
+    else
+      return if !@tocConfigs
+      tocObject = toc(@tocConfigs.headings, {ordered: false})
+
+    if tocObject.content.length
+      @sidebarTOC.innerHTML = @md.render(tocObject.content)
+      @bindTagAClickEvent(@sidebarTOC)
+    else
+      @sidebarTOC.innerHTML = "<p style=\"text-align:center;font-style: italic;\">Outline (empty)</p>"
+
   # <a href="" > ... </a> click event
-  bindTagAClickEvent: ()->
-    as = @element.getElementsByTagName('a')
+  bindTagAClickEvent: (element=@element)->
+    as = element.getElementsByTagName('a') # TODO: this might be wrong
 
     analyzeHref = (href)=>
       if href and href[0] == '#'
-        targetElement = @element.querySelector("[id=\"#{href.slice(1)}\"]") # fix number id bug
+        targetElement = @previewElement.querySelector("[id=\"#{href.slice(1)}\"]") # fix number id bug
         if targetElement
           a.onclick = ()=>
             # jump to tag position
             offsetTop = 0
             el = targetElement
-            while el and el != @element
+            while el and el != @previewElement
               offsetTop += el.offsetTop
               el = el.offsetParent
 
-            if @element.scrollTop > offsetTop
-              @element.scrollTop = offsetTop - 32 - targetElement.offsetHeight
+            if @previewElement.scrollTop > offsetTop
+              @previewElement.scrollTop = offsetTop - 32 - targetElement.offsetHeight
             else
-              @element.scrollTop = offsetTop
+              @previewElement.scrollTop = offsetTop
       else
         a.onclick = ()=>
           return if !href
@@ -653,7 +744,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
           else if href.match(/^file\:\/\/\//)
             # if href.startsWith 'file:///'
             openFilePath = href.slice(8) # remove protocal
-            openFilePath = openFilePath.replace(/\.md(\s*)\#(.+)$/, '.md') # remove #anchor
+            openFilePath = openFilePath.replace(/(\s*)[\#\?](.+)$/, '') # remove #anchor and ?params...
             openFilePath = decodeURI(openFilePath)
             atom.workspace.open openFilePath,
               split: 'left',
@@ -666,17 +757,13 @@ class MarkdownPreviewEnhancedView extends ScrollView
       analyzeHref(href)
 
   setupCodeChunks: ()->
-    codeChunks = @element.getElementsByClassName('code-chunk')
+    codeChunks = @previewElement.getElementsByClassName('code-chunk')
     return if !codeChunks.length
 
     newCodeChunksData = {}
     needToSetupChunksId = false
     setupCodeChunk = (codeChunk)=>
-      dataArgs = codeChunk.getAttribute('data-args')
-      idMatch = dataArgs.match(/\s*id\s*:\s*\"([^\"]*)\"/)
-      if idMatch and idMatch[1]
-        id = idMatch[1]
-        codeChunk.id = 'code_chunk_' + id
+      if id = codeChunk.id
         running = @codeChunksData[id]?.running or false
         codeChunk.classList.add('running') if running
 
@@ -733,11 +820,10 @@ class MarkdownPreviewEnhancedView extends ScrollView
         i = cmd.indexOf(' ')
         if i > 0
           dataArgs = cmd.slice(i + 1, cmd.length).trim()
-          cmd = cmd.slice(0, i)
 
         idMatch = match[1].match(/\s*id\s*:\s*\"([^\"]*)\"/)
         if !idMatch
-          id = (new Date().getTime()).toString(36)
+          id = 'ch'+(new Date().getTime()).toString(36)
 
           line = line.trimRight()
           line = line.replace(/}$/, (if !dataArgs then '' else ',') + ' id:"' + id + '"}')
@@ -756,14 +842,18 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
   getNearestCodeChunk: ()->
     bufferRow = @editor.getCursorBufferPosition().row
-    codeChunks = @element.getElementsByClassName('code-chunk')
-    i = codeChunks.length - 1
-    while i >= 0
-      codeChunk = codeChunks[i]
-      lineNo = parseInt(codeChunk.getAttribute('data-line'))
-      if lineNo <= bufferRow
-        return codeChunk
-      i-=1
+    buffer = @editor.buffer
+    lines = buffer.lines
+    lineNo = bufferRow
+    while lineNo >= 0
+      line = lines[lineNo]
+      if match = line.match(/^\`\`\`\{(.+)\}(\s*)/)
+        if idMatch = match[1].match(/\sid\s*\:\s*(\"([^\"]+)\"|\'([^\']+)\')/)
+          id = idMatch[2] or idMatch[3]
+          codeChunk = document.getElementById(id)
+          return codeChunk
+
+      lineNo--
     return null
 
   # return false if meet error
@@ -782,7 +872,6 @@ class MarkdownPreviewEnhancedView extends ScrollView
     try
       allowUnsafeEval ->
         options = eval("({#{dataArgs}})")
-      # options = JSON.parse '{'+dataArgs.replace((/([(\w)|(\-)]+)(:)/g), "\"$1\"$2").replace((/'/g), "\"")+'}'
     catch error
       atom.notifications.addError('Invalid options', detail: dataArgs)
       return false
@@ -793,7 +882,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
     if options.continue
       last = null
       if options.continue == true
-        codeChunks = @element.getElementsByClassName 'code-chunk'
+        codeChunks = @previewElement.getElementsByClassName 'code-chunk'
         i = codeChunks.length - 1
         while i >= 0
           if codeChunks[i] == codeChunk
@@ -801,7 +890,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
             break
           i--
       else # id
-        last = document.getElementById('code_chunk_' + options.continue)
+        last = document.getElementById(options.continue)
 
       if last
         {code: lastCode, options: lastOptions} = @parseCodeChunk(last) or {}
@@ -851,7 +940,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     codeChunkAPI.run code, @fileDirectoryPath, cmd, options, (error, data, options)=>
       # get new codeChunk
-      codeChunk = document.getElementById('code_chunk_' + id)
+      codeChunk = document.getElementById(id)
       return if not codeChunk
       codeChunk.classList.remove('running')
 
@@ -905,12 +994,12 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @codeChunksData[id] = {running: false, outputDiv, outputElement}
 
   runAllCodeChunks: ()->
-    codeChunks = @element.getElementsByClassName('code-chunk')
+    codeChunks = @previewElement.getElementsByClassName('code-chunk')
     for chunk in codeChunks
       @runCodeChunk(chunk)
 
   initTaskList: ()->
-    checkboxs = @element.getElementsByClassName('task-list-item-checkbox')
+    checkboxs = @previewElement.getElementsByClassName('task-list-item-checkbox')
     for checkbox in checkboxs
       this_ = this
       checkbox.onclick = ()->
@@ -936,11 +1025,11 @@ class MarkdownPreviewEnhancedView extends ScrollView
         buffer.setTextInRange([[lineNo, 0], [lineNo+1, 0]], line + '\n')
 
   renderMermaid: ()->
-    els = @element.getElementsByClassName('mermaid mpe-graph')
+    els = @previewElement.getElementsByClassName('mermaid mpe-graph')
     if els.length
       @graphData.mermaid_s = Array.prototype.slice.call(els)
 
-      notProcessedEls = @element.querySelectorAll('.mermaid.mpe-graph:not([data-processed])')
+      notProcessedEls = @previewElement.querySelectorAll('.mermaid.mpe-graph:not([data-processed])')
 
       if notProcessedEls.length
         mermaid.init null, notProcessedEls
@@ -963,11 +1052,11 @@ class MarkdownPreviewEnhancedView extends ScrollView
         mermaidAPI.render el.id, el.getAttribute('data-original'), cb(el)
       ###
 
-      # disable @element onscroll
+      # disable @previewElement onscroll
       @previewScrollDelay = Date.now() + 500
 
   renderWavedrom: ()->
-    els = @element.getElementsByClassName('wavedrom mpe-graph')
+    els = @previewElement.getElementsByClassName('wavedrom mpe-graph')
     if els.length
       @graphData.wavedrom_s = Array.prototype.slice.call(els)
 
@@ -989,11 +1078,11 @@ class MarkdownPreviewEnhancedView extends ScrollView
             catch error
               el.innerText = 'failed to eval WaveDrom code.'
 
-      # disable @element onscroll
+      # disable @previewElement onscroll
       @previewScrollDelay = Date.now() + 500
 
   renderPlantUML: ()->
-    els = @element.getElementsByClassName('plantuml mpe-graph')
+    els = @previewElement.getElementsByClassName('plantuml mpe-graph')
 
     if els.length
       @graphData.plantuml_s = Array.prototype.slice.call(els)
@@ -1006,10 +1095,13 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
     for el in els
       if el.getAttribute('data-processed') != 'true'
-        helper(el, el.getAttribute('data-original'))
-        el.innerText = 'rendering graph...\n'
+        if !el.classList.contains 'initialized'
+          el.innerText = 'rendering PlantUML graph...\n'
 
-  renderViz: (element=@element)->
+        helper(el, el.getAttribute('data-original'))
+
+
+  renderViz: (element=@previewElement)->
     els = element.getElementsByClassName('viz mpe-graph')
 
     if els.length
@@ -1036,12 +1128,14 @@ class MarkdownPreviewEnhancedView extends ScrollView
     return if @mathRenderingOption != 'MathJax' and !@usePandocParser
 
     if typeof(MathJax) == 'undefined'
-      return loadMathJax document, ()=> @renderMathJax()
+      return loadMathJax document, (config)=>
+        @mathJaxProcessEnvironments = config.tex2jax?.processEnvironments
+        @renderMathJax()
 
     if @mathJaxProcessEnvironments or @usePandocParser
-      return MathJax.Hub.Queue ['Typeset', MathJax.Hub, @element], ()=> @scrollMap = null
+      return MathJax.Hub.Queue ['Typeset', MathJax.Hub, @previewElement], ()=> @scrollMap = null
 
-    els = @element.getElementsByClassName('mathjax-exps')
+    els = @previewElement.getElementsByClassName('mathjax-exps')
     return if !els.length
 
     unprocessedElements = []
@@ -1056,13 +1150,13 @@ class MarkdownPreviewEnhancedView extends ScrollView
       @scrollMap = null
 
     if unprocessedElements.length == els.length
-      MathJax.Hub.Queue ['Typeset', MathJax.Hub, @element], callback
+      MathJax.Hub.Queue ['Typeset', MathJax.Hub, @previewElement], callback
     else if unprocessedElements.length
       MathJax.Hub.Typeset unprocessedElements, callback
 
   renderKaTeX: ()->
     return if @mathRenderingOption != 'KaTeX'
-    els = @element.getElementsByClassName('katex-exps')
+    els = @previewElement.getElementsByClassName('katex-exps')
 
     for el in els
       if el.hasAttribute('data-processed')
@@ -1080,6 +1174,39 @@ class MarkdownPreviewEnhancedView extends ScrollView
 
   resizeEvent: ()->
     @scrollMap = null
+
+  setZoomLevel: ()->
+    @previewElement.style.zoom = @zoomLevel
+    if @enableSidebarTOC
+      @previewElement.style.width = "calc(100% - #{268 / @zoomLevel}px)"
+    @scrollMap = null
+
+  zoomIn: ()->
+    @zoomLevel = parseFloat(getComputedStyle(@previewElement).zoom) + 0.1
+    @setZoomLevel()
+
+  zoomOut: ()->
+    @zoomLevel = parseFloat(getComputedStyle(@previewElement).zoom) - 0.1
+    @setZoomLevel()
+
+  resetZoom: ()->
+    @zoomLevel = 1.0
+    @setZoomLevel()
+
+  refreshPreview: ()->
+    # clear cache
+    @filesCache = {}
+
+    # render again
+    @renderMarkdown()
+
+  syncPreview: ()->
+    screenRow = @editor?.getCursorBufferPosition?().row
+    return if !screenRow
+    @scrollSyncToLineNo screenRow
+
+  syncSource: ()->
+    @previewSyncSource()
 
   ###
   convert './a.txt' '/a.txt'
@@ -1186,23 +1313,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
         $codeChunk.append("<div class=\"output-element\">#{options.element}</div>")
 
       if cmd == 'javascript'
-        requires = options.require or []
-        if typeof(requires) == 'string'
-          requires = [requires]
-        requiresStr = ""
-        for requirePath in requires
-          # TODO: css
-          if requirePath.match(/^(http|https)\:\/\//)
-            if (!requireCache[requirePath])
-              requireCache[requirePath] = true
-              scriptsStr += "<script src=\"#{requirePath}\"></script>\n"
-          else
-            requirePath = path.resolve(@fileDirectoryPath, requirePath)
-            if !requireCache[requirePath]
-              requiresStr += (fs.readFileSync(requirePath, {encoding: 'utf-8'}) + '\n')
-              requireCache[requirePath] = true
-
-        jsCode += (requiresStr + code + '\n')
+        jsCode += (code + '\n')
 
     html = $.html()
     html += "#{scriptsStr}\n" if scriptsStr
@@ -1238,23 +1349,10 @@ class MarkdownPreviewEnhancedView extends ScrollView
       if mathRenderingOption == 'MathJax' or @usePandocParser
         inline = atom.config.get('markdown-preview-enhanced.indicatorForMathRenderingInline')
         block = atom.config.get('markdown-preview-enhanced.indicatorForMathRenderingBlock')
-        mathJaxProcessEnvironments = atom.config.get('markdown-preview-enhanced.mathJaxProcessEnvironments')
         if offline
           mathStyle = "
           <script type=\"text/x-mathjax-config\">
-            MathJax.Hub.Config({
-              extensions: ['tex2jax.js'],
-              jax: ['input/TeX','output/HTML-CSS'],
-              messageStyle: 'none',
-              tex2jax: {inlineMath: #{inline},
-                        displayMath: #{block},
-                        processEnvironments: #{mathJaxProcessEnvironments},
-                        processEscapes: true},
-              TeX: {
-                extensions: ['AMSmath.js', 'AMSsymbols.js', 'noErrors.js', 'noUndefined.js', \"file://#{path.resolve(__dirname, '../dependencies/mathjax/extensions/TeX/xypic.js')}\"]
-              },
-              'HTML-CSS': { availableFonts: ['TeX'] }
-            });
+            MathJax.Hub.Config(#{JSON.stringify(getMathJaxConfigForExport(false))});
           </script>
           <script type=\"text/javascript\" async src=\"file://#{path.resolve(__dirname, '../dependencies/mathjax/MathJax.js')}\"></script>
           "
@@ -1263,21 +1361,9 @@ class MarkdownPreviewEnhancedView extends ScrollView
           # displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
           mathStyle = "
           <script type=\"text/x-mathjax-config\">
-            MathJax.Hub.Config({
-              extensions: ['tex2jax.js'],
-              jax: ['input/TeX','output/HTML-CSS'],
-              messageStyle: 'none',
-              tex2jax: {inlineMath: #{inline},
-                        displayMath: #{block},
-                        processEnvironments: #{mathJaxProcessEnvironments},
-                        processEscapes: true},
-              TeX: {
-                extensions: ['AMSmath.js', 'AMSsymbols.js', 'noErrors.js', 'noUndefined.js', 'http://sonoisa.github.io/xyjax_ext/xypic.js']
-              },
-              'HTML-CSS': { availableFonts: ['TeX'] }
-            });
+            MathJax.Hub.Config(#{JSON.stringify(getMathJaxConfigForExport(true))});
           </script>
-          <script type=\"text/javascript\" async src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js\"></script>
+          <script type=\"text/javascript\" async src=\"https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js\"></script>
           "
       else if mathRenderingOption == 'KaTeX'
         if offline
@@ -1507,7 +1593,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
       height = presentationConfig['height'] or 700
 
     # ratio = height / width * 100 + '%'
-    zoom = (@element.offsetWidth - 128)/width ## 64 is 2*padding
+    zoom = (@previewElement.offsetWidth - 128)/width ## 64 is 2*padding
     @presentationZoom = zoom
 
     for slide in slides
@@ -1651,7 +1737,7 @@ class MarkdownPreviewEnhancedView extends ScrollView
   ## PhantomJS
   ##################################################
   loadPhantomJSHeaderFooterConfig: ()->
-    # mermaid_config.js
+    # phantomjs_header_footer_config.js
     configPath = path.resolve(atom.config.configDirPath, './markdown-preview-enhanced/phantomjs_header_footer_config.js')
     try
       delete require.cache[require.resolve(configPath)] # return uncached
@@ -1762,6 +1848,36 @@ module.exports = config || {}
                 @openFile dest if atom.config.get('markdown-preview-enhanced.pdfOpenAutomatically')
 
 
+  # This function doesn't deal with `reject` error
+  ebookDownloadImages: (div, dest)->
+    new Promise (resolve, reject)=>
+      # download images for .epub and .mobi
+      imagesToDownload = []
+      if path.extname(dest) in ['.epub', '.mobi']
+        for img in div.getElementsByTagName('img')
+          src = img.getAttribute('src')
+          if src.startsWith('http://') or src.startsWith('https://')
+            imagesToDownload.push(img)
+
+      request ?= require('request')
+
+      if imagesToDownload.length
+        atom.notifications.addInfo('downloading images...')
+
+      asyncFunctions = imagesToDownload.map (img)=>
+        (callback)=>
+          httpSrc = img.getAttribute('src')
+          savePath = Math.random().toString(36).substr(2, 9) + '_' + path.basename(httpSrc)
+          savePath =  path.resolve(@fileDirectoryPath, savePath)
+
+          stream = request(httpSrc).pipe(fs.createWriteStream(savePath))
+
+          stream.on 'finish', ()->
+            img.setAttribute 'src', 'file:///'+savePath
+            callback(null, savePath)
+
+      async.parallel asyncFunctions, (error, downloadedImagePaths=[])=>
+        return resolve(downloadedImagePaths)
 
   ## EBOOK
   generateEbook: (dest)->
@@ -1774,110 +1890,92 @@ module.exports = config || {}
 
       if !ebookConfig
         return atom.notifications.addError('ebook config not found', detail: 'please insert ebook front-matter to your markdown file')
-      else
-        atom.notifications.addInfo('Your document is being prepared', detail: ':)')
 
-        if ebookConfig.cover # change cover to absolute path if necessary
-          cover = ebookConfig.cover
-          if cover.startsWith('./') or cover.startsWith('../')
-            cover = path.resolve(@fileDirectoryPath, cover)
-            ebookConfig.cover = cover
-          else if cover.startsWith('/')
-            cover = path.resolve(@projectDirectoryPath, '.'+cover)
-            ebookConfig.cover = cover
+      atom.notifications.addInfo('Your document is being prepared', detail: ':)')
 
-        div = document.createElement('div')
-        div.innerHTML = html
+      if ebookConfig.cover # change cover to absolute path if necessary
+        cover = ebookConfig.cover
+        if cover.startsWith('./') or cover.startsWith('../')
+          cover = path.resolve(@fileDirectoryPath, cover)
+          ebookConfig.cover = cover
+        else if cover.startsWith('/')
+          cover = path.resolve(@projectDirectoryPath, '.'+cover)
+          ebookConfig.cover = cover
 
-        structure = [] # {level:0, filePath: 'path to file', heading: '', id: ''}
-        headingOffset = 0
+      div = document.createElement('div')
+      div.innerHTML = html
 
-        # load the last ul, analyze toc links.
-        getStructure = (ul, level)->
-          for li in ul.children
-            a = li.children[0]?.getElementsByTagName('a')?[0]
-            continue if not a
-            filePath = a.getAttribute('href') # assume markdown file path
-            heading = a.innerHTML
-            id = 'ebook-heading-id-'+headingOffset
+      structure = [] # {level:0, filePath: 'path to file', heading: '', id: ''}
+      headingOffset = 0
 
-            structure.push {level: level, filePath: filePath, heading: heading, id: id}
-            headingOffset += 1
+      # load the last ul as TOC, analyze toc links.
+      getStructure = (ul, level)->
+        for li in ul.children
+          a = li.children[0]
+          continue if a?.tagName != "A"
+          filePath = a.getAttribute('href') # assume markdown file path
+          heading = a.innerHTML
+          id = 'ebook-heading-id-'+headingOffset
 
-            a.href = '#'+id # change id
+          structure.push {level: level, filePath: filePath, heading: heading, id: id}
+          headingOffset += 1
 
-            if li.childElementCount > 1
-              getStructure(li.children[1], level+1)
+          a.href = '#'+id # change id
 
-        children = div.children
-        i = children.length - 1
-        while i >= 0
-          if children[i].tagName == 'UL' # find table of contents
-            getStructure(children[i], 0)
-            break
-          i -= 1
+          if li.childElementCount > 1
+            getStructure(li.children[1], level+1)
+
+      children = div.children
+      i = children.length - 1
+      while i >= 0
+        if children[i].tagName == 'UL' # find table of contents
+          getStructure(children[i], 0)
+
+          # delete TOC if necessary
+          if ebookConfig.include_toc == false
+            ul = children[i]
+            prev = ul.previousElementSibling
+            if prev?.tagName.startsWith('H')
+              prev.remove()
+            ul.remove()
+
+          break
+        i -= 1
+
+      # load each markdown files according to TOC
+      async ?= require('async')
+      asyncFunctions = structure.map ({heading, id, level, filePath}, offset)=>
+        if filePath.startsWith('file:///')
+          filePath = filePath.slice(8)
+
+        (cb)=>
+          fs.readFile filePath, {encoding: 'utf-8'}, (error, text)=>
+            return cb(error.toString()) if error
+
+            @parseMD @formatStringBeforeParsing(text), {isForEbook: true, projectDirectoryPath: @projectDirectoryPath, fileDirectoryPath: path.dirname(filePath)}, ({html})=>
+              html = @formatStringAfterParsing(html)
+              cb(null, {heading, id, level, filePath, html})
+
+      async.series asyncFunctions, (error, data)=>
+        if error
+          return atom.notifications.addError('Ebook generation: Failed to load file', detail: filePath + '\n ' + error)
 
         outputHTML = div.innerHTML
 
-        # append files according to structure
-        for obj in structure
-          heading = obj.heading
-          id = obj.id
-          level = obj.level
-          filePath = obj.filePath
+        data.forEach ({heading, id, level, filePath, html})->
+          div.innerHTML = html
+          if div.childElementCount
+            div.children[0].id = id
+            div.children[0].setAttribute('ebook-toc-level-'+(level+1), '')
+            div.children[0].setAttribute('heading', heading)
 
-          if filePath.startsWith('file:///')
-            filePath = filePath.slice(8)
-
-          try
-            text = fs.readFileSync(filePath, {encoding: 'utf-8'})
-            @parseMD @formatStringBeforeParsing(text), {isForEbook: true, projectDirectoryPath: @projectDirectoryPath, fileDirectoryPath: path.dirname(filePath)}, ({html})=>
-              html = @formatStringAfterParsing(html)
-
-              # add to TOC
-              div.innerHTML = html
-              if div.childElementCount
-                div.children[0].id = id
-                div.children[0].setAttribute('ebook-toc-level-'+(level+1), '')
-                div.children[0].setAttribute('heading', heading)
-
-              outputHTML += div.innerHTML
-          catch error
-            atom.notifications.addError('Ebook generation: Failed to load file', detail: filePath + '\n ' + error)
-            return
+          outputHTML += div.innerHTML # append new content
 
         # render viz
         div.innerHTML = outputHTML
         @renderViz(div)
 
-        # download images for .epub and .mobi
-        imagesToDownload = []
-        if path.extname(dest) in ['.epub', '.mobi']
-          for img in div.getElementsByTagName('img')
-            src = img.getAttribute('src')
-            if src.startsWith('http://') or src.startsWith('https://')
-              imagesToDownload.push(img)
-
-        request ?= require('request')
-        async ?= require('async')
-
-        if imagesToDownload.length
-          atom.notifications.addInfo('downloading images...')
-
-        asyncFunctions = imagesToDownload.map (img)=>
-          (callback)=>
-            httpSrc = img.getAttribute('src')
-            savePath = Math.random().toString(36).substr(2, 9) + '_' + path.basename(httpSrc)
-            savePath =  path.resolve(@fileDirectoryPath, savePath)
-
-            stream = request(httpSrc).pipe(fs.createWriteStream(savePath))
-
-            stream.on 'finish', ()->
-              img.setAttribute 'src', 'file:///'+savePath
-              callback(null, savePath)
-
-
-        async.parallel asyncFunctions, (error, downloadedImagePaths=[])=>
+        @ebookDownloadImages(div, dest).then (downloadedImagePaths)=>
           # convert image to base64 if output html
           if path.extname(dest) == '.html'
             # check cover
@@ -1982,6 +2080,7 @@ module.exports = config || {}
       atom.notifications.addInfo "File #{path.basename(outputFilePath)} was created", detail: "path: #{outputFilePath}"
 
   saveAsMarkdown: ()->
+    return if !@editor
     {data} = @processFrontMatter(@editor.getText())
     data = data or {}
 
@@ -2028,7 +2127,9 @@ module.exports = config || {}
     for key of CACHE
       delete(CACHE[key])
 
-    @mainModule.preview = null # unbind
+    # @mainModule.preview = null # unbind
+    @mainModule.removePreviewFromMap this
 
   getElement: ->
-    @element
+    # @element
+    @previewElement

@@ -6,24 +6,37 @@ import ReactDOM from "react-dom";
 import _ from "lodash";
 import os from "os";
 import path from "path";
+// $FlowFixMe
+import { shell } from "electron";
 
 import Config from "./config";
 import store from "./store";
 
+export const INSPECTOR_URI = "atom://hydrogen/inspector";
+export const WATCHES_URI = "atom://hydrogen/watch-sidebar";
+export const OUTPUT_AREA_URI = "atom://hydrogen/output-area";
+
 export function reactFactory(
   reactElement: React$Element<any>,
   domElement: HTMLElement,
-  additionalTeardown: Function = () => {},
+  additionalTeardown: ?Function,
   disposer: atom$CompositeDisposable = store.subscriptions
 ) {
   ReactDOM.render(reactElement, domElement);
 
   const disposable = new Disposable(() => {
     ReactDOM.unmountComponentAtNode(domElement);
-    additionalTeardown();
+    if (typeof additionalTeardown === "function") additionalTeardown();
   });
 
   disposer.add(disposable);
+}
+
+export function focus(item: ?mixed) {
+  if (item) {
+    const editorPane = atom.workspace.paneForItem(item);
+    if (editorPane) editorPane.activate();
+  }
 }
 
 export function grammarToLanguage(grammar: ?atom$Grammar) {
@@ -37,6 +50,38 @@ export function grammarToLanguage(grammar: ?atom$Grammar) {
   );
 
   return kernelLanguage ? kernelLanguage.toLowerCase() : grammarLanguage;
+}
+
+/**
+ * Copied from https://github.com/nteract/nteract/blob/master/src/notebook/epics/execute.js#L37
+ * Create an object that adheres to the jupyter notebook specification.
+ * http://jupyter-client.readthedocs.io/en/latest/messaging.html
+ *
+ * @param {Object} msg - Message that has content which can be converted to nbformat
+ * @return {Object} formattedMsg  - Message with the associated output type
+ */
+export function msgSpecToNotebookFormat(message: Message) {
+  return Object.assign({}, message.content, {
+    output_type: message.header.msg_type
+  });
+}
+
+/**
+  * A very basic converter for supporting jupyter messaging protocol v4 replies
+  */
+export function msgSpecV4toV5(message: Message) {
+  switch (message.header.msg_type) {
+    case "pyout":
+      message.header.msg_type = "execute_result";
+      break;
+    case "pyerr":
+      message.header.msg_type = "error";
+      break;
+    case "stream":
+      if (!message.content.text) message.content.text = message.content.data;
+      break;
+  }
+  return message;
 }
 
 const markupGrammars = new Set([
@@ -65,19 +110,20 @@ export function getEmbeddedScope(
   return _.find(scopes, s => s.indexOf("source.embedded.") === 0);
 }
 
-export function getEditorDirectory(editor: atom$TextEditor) {
+export function getEditorDirectory(editor: ?atom$TextEditor) {
+  if (!editor) return os.homedir();
   const editorPath = editor.getPath();
   return editorPath ? path.dirname(editorPath) : os.homedir();
 }
-/* eslint-disable no-console */
+
 export function log(...message: Array<any>) {
-  if (atom.inDevMode() || atom.config.get("Hydrogen.debug")) {
+  if (atom.config.get("Hydrogen.debug")) {
     console.trace("Hydrogen:", ...message);
   }
 }
 
 export function renderDevTools() {
-  if (atom.inDevMode() || atom.config.get("Hydrogen.debug")) {
+  if (atom.config.get("Hydrogen.debug")) {
     try {
       const devTools = require("mobx-react-devtools");
       const div = document.createElement("div");
@@ -88,4 +134,30 @@ export function renderDevTools() {
       log("Could not enable dev tools", e);
     }
   }
+}
+
+export function deprecationNote() {
+  atom.notifications.addWarning("This feature will be deprecated soon!", {
+    description:
+      "Connecting to existing kernels via a `connection.json` file will be deprecated soon.\n\nFor some time now Hydrogen supports using [kernel gateways](https://nteract.gitbooks.io/hydrogen/docs/Usage/RemoteKernelConnection.html) for connection to existing kernels. Using that option is a lot simpler yet very powerful.\n\nPlease get in touch with us if using remote kernels isn't a option for you.",
+    dismissable: true,
+    buttons: [
+      {
+        className: "icon icon-x",
+        text: "I really need this feature",
+        onDidClick: () => {
+          shell.openExternal("https://github.com/nteract/hydrogen/issues/858");
+        }
+      },
+      {
+        className: "icon icon-check",
+        text: "I'll try remote kernels",
+        onDidClick: () => {
+          shell.openExternal(
+            "https://nteract.gitbooks.io/hydrogen/docs/Usage/RemoteKernelConnection.html"
+          );
+        }
+      }
+    ]
+  });
 }

@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
+        "raw": "/tmp/d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
-        "spec": "/tmp/d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
+        "rawSpec": "/tmp/d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
+        "spec": "/tmp/d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-7474-194d3t.55hxjq0k9"
+      "/tmp/apm-install-dir-117520-4891-l89q6i.kalsqvvx6r"
     ]
   ],
-  "_from": "../d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
-  "_id": "language-markdown@0.22.0",
+  "_from": "../d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
+  "_id": "language-markdown@0.23.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/language-markdown",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
+    "raw": "/tmp/d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
-    "spec": "/tmp/d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
+    "rawSpec": "/tmp/d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
+    "spec": "/tmp/d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
-  "_shasum": "73334d0cc78273e1d2e005811b2bbec1f3e8ef5a",
+  "_resolved": "file:../d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
+  "_shasum": "7f5c386ab8debf4858f6f14315054b3dda98f5c4",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-7474-1kq7z1e.mae9oogvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-7474-194d3t.55hxjq0k9",
+  "_spec": "/tmp/d-117520-4891-1wjd9zv.xni4hlrf6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-4891-l89q6i.kalsqvvx6r",
   "bugs": {
     "url": "https://github.com/burodepeper/language-markdown/issues"
   },
@@ -78,7 +77,7 @@
     "type": "git",
     "url": "git+https://github.com/burodepeper/language-markdown.git"
   },
-  "version": "0.22.0",
+  "version": "0.23.0",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -89,12 +88,12 @@
       },
       {
         "name": "balanced-match",
-        "version": "0.4.2",
+        "version": "1.0.0",
         "path": "node_modules/balanced-match/index.js"
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.7",
+        "version": "1.1.8",
         "path": "node_modules/brace-expansion/index.js"
       },
       {
@@ -134,7 +133,7 @@
       },
       {
         "name": "glob",
-        "version": "7.1.1",
+        "version": "7.1.2",
         "path": "node_modules/glob/glob.js"
       },
       {
@@ -789,7 +788,7 @@
           "node_modules/brace-expansion"
         ],
         "dependencies": {
-          "balanced-match": "^0.4.1",
+          "balanced-match": "^1.0.0",
           "concat-map": "0.0.1"
         }
       },
@@ -842,7 +841,7 @@
           "fs.realpath": "^1.0.0",
           "inflight": "^1.0.4",
           "inherits": "2",
-          "minimatch": "^3.0.2",
+          "minimatch": "^3.0.4",
           "once": "^1.3.0",
           "path-is-absolute": "^1.0.0"
         }

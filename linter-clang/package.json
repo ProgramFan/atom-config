@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
+        "raw": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
-        "spec": "/tmp/d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
+        "rawSpec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
+        "spec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117417-7004-j2ptpt.cm7jxj38fr"
+      "/tmp/apm-install-dir-117520-4406-1fuhq53.h1nbdwjyvi"
     ]
   ],
-  "_from": "../d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
+  "_from": "../d-117520-4406-37hykh.una33gcik9/package.tgz",
   "_id": "linter-clang@4.1.1",
   "_inCache": true,
-  "_installable": true,
   "_location": "/linter-clang",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
+    "raw": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
-    "spec": "/tmp/d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
+    "rawSpec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
+    "spec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
+  "_resolved": "file:../d-117520-4406-37hykh.una33gcik9/package.tgz",
   "_shasum": "8a2ed73bc8bec8e174797463af72c75f32ccb450",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117417-7004-tjvsfq.rnjg0c0udi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117417-7004-j2ptpt.cm7jxj38fr",
+  "_spec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117520-4406-1fuhq53.h1nbdwjyvi",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-clang/issues"
   },
@@ -162,7 +161,7 @@
       },
       {
         "name": "consistent-env",
-        "version": "1.3.0",
+        "version": "1.3.1",
         "path": "node_modules/consistent-env/lib/index.js"
       },
       {
@@ -243,7 +242,6 @@
         "node_modules/atom-package-deps/lib/view.js",
         "node_modules/atom-package-path/lib/index.js",
         "node_modules/clang-flags/lib/clang-flags.js",
-        "node_modules/consistent-env/decls/jasmine.js",
         "node_modules/consistent-env/lib/helpers.js",
         "node_modules/consistent-env/lib/index.js",
         "node_modules/is-utf8/is-utf8.js",
@@ -346,7 +344,6 @@
       {
         "paths": [
           "node_modules/consistent-env",
-          "node_modules/consistent-env/decls",
           "node_modules/consistent-env/lib"
         ],
         "dependencies": {

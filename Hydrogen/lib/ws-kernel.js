@@ -53,11 +53,8 @@ export default class WSKernel extends Kernel {
     };
 
     future.onReply = (message: Message) => {
-      if (message.content.status === "error") {
-        return;
-      }
       const result = {
-        data: "ok",
+        data: message.content.status,
         stream: "status"
       };
       if (onResults) onResults(result);
@@ -126,6 +123,6 @@ export default class WSKernel extends Kernel {
   destroy() {
     log("WSKernel: destroying jupyter-js-services Session");
     this.session.dispose();
-    super.destroy(...arguments);
+    super.destroy();
   }
 }
