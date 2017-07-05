@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
+        "raw": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
-        "spec": "/tmp/d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
+        "rawSpec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+        "spec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-4009-16j13wq.tsdobt9"
+      "/tmp/apm-install-dir-11765-5320-1tdppum.w8xek7f1or"
     ]
   ],
-  "_from": "../d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
+  "_from": "../d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
   "_id": "git-time-machine@1.5.9",
   "_inCache": true,
   "_location": "/git-time-machine",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
+    "raw": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
-    "spec": "/tmp/d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
+    "rawSpec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+    "spec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
+  "_resolved": "file:../d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
   "_shasum": "9ed9fa205ab5efc37e2c8298d46e7be7c792863b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-4009-1q98ljj.pg7ygsc3di/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-4009-16j13wq.tsdobt9",
+  "_spec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-5320-1tdppum.w8xek7f1or",
   "activationCommands": {
     "atom-workspace": "git-time-machine:toggle"
   },

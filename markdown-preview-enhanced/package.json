@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
+        "raw": "/tmp/d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
-        "spec": "/tmp/d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
+        "rawSpec": "/tmp/d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
+        "spec": "/tmp/d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-5282-1bkenae.wdhuu6usor"
+      "/tmp/apm-install-dir-11765-6597-17dpve.p0h6nipb9"
     ]
   ],
-  "_from": "../d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
+  "_from": "../d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
   "_id": "markdown-preview-enhanced@0.13.0",
   "_inCache": true,
   "_location": "/markdown-preview-enhanced",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
+    "raw": "/tmp/d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
-    "spec": "/tmp/d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
+    "rawSpec": "/tmp/d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
+    "spec": "/tmp/d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
+  "_resolved": "file:../d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
   "_shasum": "bb0217f4f70736c6f16905a40a1c8a0b9649f9d4",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-5282-1o2f5gs.t78tfn7b9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-5282-1bkenae.wdhuu6usor",
+  "_spec": "/tmp/d-11765-6597-1thm9e3.4sl09q9f6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-6597-17dpve.p0h6nipb9",
   "bugs": {
     "url": "https://github.com/shd101wyy/markdown-preview-enhanced/issues"
   },
@@ -145,7 +145,7 @@
       },
       {
         "name": "async",
-        "version": "2.4.1",
+        "version": "2.5.0",
         "path": "node_modules/async/dist/async.js"
       },
       {
@@ -235,7 +235,7 @@
       },
       {
         "name": "commander",
-        "version": "2.9.0",
+        "version": "2.11.0",
         "path": "node_modules/commander/index.js"
       },
       {
@@ -482,11 +482,6 @@
         "name": "graceful-fs",
         "version": "4.1.11",
         "path": "node_modules/graceful-fs/graceful-fs.js"
-      },
-      {
-        "name": "graceful-readlink",
-        "version": "1.0.1",
-        "path": "node_modules/graceful-readlink/index.js"
       },
       {
         "name": "gray-matter",
@@ -1087,6 +1082,7 @@
         "node_modules/async/cargo.js",
         "node_modules/async/compose.js",
         "node_modules/async/concat.js",
+        "node_modules/async/concatLimit.js",
         "node_modules/async/concatSeries.js",
         "node_modules/async/constant.js",
         "node_modules/async/detect.js",
@@ -1120,13 +1116,11 @@
         "node_modules/async/internal/DoublyLinkedList.js",
         "node_modules/async/internal/applyEach.js",
         "node_modules/async/internal/breakLoop.js",
-        "node_modules/async/internal/concat.js",
         "node_modules/async/internal/consoleFunc.js",
         "node_modules/async/internal/createTester.js",
         "node_modules/async/internal/doLimit.js",
         "node_modules/async/internal/doParallel.js",
         "node_modules/async/internal/doParallelLimit.js",
-        "node_modules/async/internal/doSeries.js",
         "node_modules/async/internal/eachOfLimit.js",
         "node_modules/async/internal/filter.js",
         "node_modules/async/internal/findGetResult.js",
@@ -1846,7 +1840,6 @@
         "node_modules/graceful-fs/graceful-fs.js",
         "node_modules/graceful-fs/legacy-streams.js",
         "node_modules/graceful-fs/polyfills.js",
-        "node_modules/graceful-readlink/index.js",
         "node_modules/gray-matter/index.js",
         "node_modules/gray-matter/lib/parsers.js",
         "node_modules/grim/lib/deprecation.js",
@@ -3730,7 +3723,6 @@
         "node_modules/getpass/package.json",
         "node_modules/glob/package.json",
         "node_modules/graceful-fs/package.json",
-        "node_modules/graceful-readlink/package.json",
         "node_modules/gray-matter/package.json",
         "node_modules/grim/package.json",
         "node_modules/har-validator/lib/schemas/cache.json",
@@ -4253,14 +4245,6 @@
         ],
         "dependencies": {
           "delayed-stream": "~1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/commander"
-        ],
-        "dependencies": {
-          "graceful-readlink": ">= 1.0.0"
         }
       },
       {

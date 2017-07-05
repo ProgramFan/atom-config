@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
+        "raw": "/tmp/d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
-        "spec": "/tmp/d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
+        "rawSpec": "/tmp/d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
+        "spec": "/tmp/d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-5694-1rhlicm.4bsjq69a4i"
+      "/tmp/apm-install-dir-11765-7008-5zg3t.pby6meu3di"
     ]
   ],
-  "_from": "../d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
+  "_from": "../d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
   "_id": "you-complete-me@0.8.0",
   "_inCache": true,
   "_location": "/you-complete-me",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
+    "raw": "/tmp/d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
-    "spec": "/tmp/d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
+    "rawSpec": "/tmp/d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
+    "spec": "/tmp/d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
+  "_resolved": "file:../d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
   "_shasum": "4256493ad74eab447fccf2b1410b6bec918e8d6a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-5694-19x1kfp.bisr4fgvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-5694-1rhlicm.4bsjq69a4i",
+  "_spec": "/tmp/d-11765-7008-1y1rw4q.h433r0y66r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-7008-5zg3t.pby6meu3di",
   "bugs": {
     "url": "https://github.com/Qusic/atom-youcompleteme/issues"
   },

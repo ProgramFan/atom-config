@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
+        "raw": "/tmp/d-11765-5188-580nl5.mniw2q33di/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
-        "spec": "/tmp/d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
+        "rawSpec": "/tmp/d-11765-5188-580nl5.mniw2q33di/package.tgz",
+        "spec": "/tmp/d-11765-5188-580nl5.mniw2q33di/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-3876-1agimiy.ezevobt9"
+      "/tmp/apm-install-dir-11765-5188-fvsuwj.x3bhdunmi"
     ]
   ],
-  "_from": "../d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
+  "_from": "../d-11765-5188-580nl5.mniw2q33di/package.tgz",
   "_id": "remote-sync@4.1.5",
   "_inCache": true,
   "_location": "/remote-sync",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
+    "raw": "/tmp/d-11765-5188-580nl5.mniw2q33di/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
-    "spec": "/tmp/d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
+    "rawSpec": "/tmp/d-11765-5188-580nl5.mniw2q33di/package.tgz",
+    "spec": "/tmp/d-11765-5188-580nl5.mniw2q33di/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
+  "_resolved": "file:../d-11765-5188-580nl5.mniw2q33di/package.tgz",
   "_shasum": "3be3ac87b25de35a23a8aeadb1a425809dcb2c3c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-3876-2w44ev.wy6lvm42t9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-3876-1agimiy.ezevobt9",
+  "_spec": "/tmp/d-11765-5188-580nl5.mniw2q33di/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-5188-fvsuwj.x3bhdunmi",
   "bugs": {
     "url": "https://github.com/yongkangchen/remote-sync/issues"
   },
@@ -102,7 +102,7 @@
       },
       {
         "name": "async",
-        "version": "2.4.1",
+        "version": "2.5.0",
         "path": "node_modules/async/dist/async.js"
       },
       {
@@ -477,7 +477,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.3.0",
+        "version": "2.3.3",
         "path": "node_modules/readable-stream/readable.js"
       },
       {
@@ -512,7 +512,7 @@
       },
       {
         "name": "safe-buffer",
-        "version": "5.1.0",
+        "version": "5.1.1",
         "path": "node_modules/safe-buffer/index.js"
       },
       {
@@ -547,13 +547,8 @@
       },
       {
         "name": "string_decoder",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "path": "node_modules/string_decoder/lib/string_decoder.js"
-      },
-      {
-        "name": "safe-buffer",
-        "version": "5.0.1",
-        "path": "node_modules/string_decoder/node_modules/safe-buffer/index.js"
       },
       {
         "name": "underscore",
@@ -616,6 +611,7 @@
         "node_modules/async/cargo.js",
         "node_modules/async/compose.js",
         "node_modules/async/concat.js",
+        "node_modules/async/concatLimit.js",
         "node_modules/async/concatSeries.js",
         "node_modules/async/constant.js",
         "node_modules/async/detect.js",
@@ -649,13 +645,11 @@
         "node_modules/async/internal/DoublyLinkedList.js",
         "node_modules/async/internal/applyEach.js",
         "node_modules/async/internal/breakLoop.js",
-        "node_modules/async/internal/concat.js",
         "node_modules/async/internal/consoleFunc.js",
         "node_modules/async/internal/createTester.js",
         "node_modules/async/internal/doLimit.js",
         "node_modules/async/internal/doParallel.js",
         "node_modules/async/internal/doParallelLimit.js",
-        "node_modules/async/internal/doSeries.js",
         "node_modules/async/internal/eachOfLimit.js",
         "node_modules/async/internal/filter.js",
         "node_modules/async/internal/findGetResult.js",
@@ -2446,9 +2440,6 @@
         "node_modules/ssh2-streams/lib/utils.js",
         "node_modules/streamsearch/lib/sbmh.js",
         "node_modules/string_decoder/lib/string_decoder.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/browser.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/index.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/test.js",
         "node_modules/underscore/underscore-min.js",
         "node_modules/underscore/underscore.js",
         "node_modules/underscore-plus/lib/underscore-plus.js",
@@ -2560,7 +2551,6 @@
         "node_modules/ssh2/package.json",
         "node_modules/ssh2-streams/package.json",
         "node_modules/streamsearch/package.json",
-        "node_modules/string_decoder/node_modules/safe-buffer/package.json",
         "node_modules/string_decoder/package.json",
         "node_modules/underscore/package.json",
         "node_modules/underscore-plus/package.json",
@@ -3230,8 +3220,8 @@
           "inherits": "~2.0.3",
           "isarray": "~1.0.0",
           "process-nextick-args": "~1.0.6",
-          "safe-buffer": "~5.1.0",
-          "string_decoder": "~1.0.0",
+          "safe-buffer": "~5.1.1",
+          "string_decoder": "~1.0.3",
           "util-deprecate": "~1.0.1"
         }
       },
@@ -3305,7 +3295,7 @@
           "node_modules/string_decoder"
         ],
         "dependencies": {
-          "safe-buffer": "~5.0.1"
+          "safe-buffer": "~5.1.0"
         }
       },
       {

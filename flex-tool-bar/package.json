@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
+        "raw": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
-        "spec": "/tmp/d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
+        "rawSpec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+        "spec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-3384-r7yxt8.ei7qjb57b9"
+      "/tmp/apm-install-dir-11765-4696-1dytkpt.tq0tokzkt9"
     ]
   ],
-  "_from": "../d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
+  "_from": "../d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
   "_id": "flex-tool-bar@0.12.0",
   "_inCache": true,
   "_location": "/flex-tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
+    "raw": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
-    "spec": "/tmp/d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
+    "rawSpec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+    "spec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
+  "_resolved": "file:../d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
   "_shasum": "2c337d3e7ece4ce3aabcb5a8ba37d32f91dc65ea",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-3384-1k92a5c.0s6lzvvx6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-3384-r7yxt8.ei7qjb57b9",
+  "_spec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-4696-1dytkpt.tq0tokzkt9",
   "bugs": {
     "url": "https://github.com/cakecatz/flex-toolbar/issues"
   },
@@ -597,7 +597,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.3.0",
+        "version": "2.3.3",
         "path": "node_modules/readable-stream/readable.js"
       },
       {
@@ -637,7 +637,7 @@
       },
       {
         "name": "safe-buffer",
-        "version": "5.1.0",
+        "version": "5.1.1",
         "path": "node_modules/safe-buffer/index.js"
       },
       {
@@ -707,13 +707,8 @@
       },
       {
         "name": "string_decoder",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "path": "node_modules/string_decoder/lib/string_decoder.js"
-      },
-      {
-        "name": "safe-buffer",
-        "version": "5.0.1",
-        "path": "node_modules/string_decoder/node_modules/safe-buffer/index.js"
       },
       {
         "name": "strip-bom-buf",
@@ -1533,9 +1528,6 @@
         "node_modules/spawn-sync/lib/worker.js",
         "node_modules/spawn-sync/postinstall.js",
         "node_modules/string_decoder/lib/string_decoder.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/browser.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/index.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/test.js",
         "node_modules/strip-bom-buf/index.js",
         "node_modules/swap-case/swap-case.js",
         "node_modules/title-case/title-case.js",
@@ -1692,7 +1684,6 @@
         "node_modules/space-pen/api.json",
         "node_modules/space-pen/package.json",
         "node_modules/spawn-sync/package.json",
-        "node_modules/string_decoder/node_modules/safe-buffer/package.json",
         "node_modules/string_decoder/package.json",
         "node_modules/strip-bom-buf/package.json",
         "node_modules/swap-case/package.json",
@@ -2549,8 +2540,8 @@
           "inherits": "~2.0.3",
           "isarray": "~1.0.0",
           "process-nextick-args": "~1.0.6",
-          "safe-buffer": "~5.1.0",
-          "string_decoder": "~1.0.0",
+          "safe-buffer": "~5.1.1",
+          "string_decoder": "~1.0.3",
           "util-deprecate": "~1.0.1"
         }
       },
@@ -2684,7 +2675,7 @@
           "node_modules/string_decoder"
         ],
         "dependencies": {
-          "safe-buffer": "~5.0.1"
+          "safe-buffer": "~5.1.0"
         }
       },
       {

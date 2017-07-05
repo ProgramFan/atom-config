@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
+        "raw": "/tmp/d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
-        "spec": "/tmp/d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
+        "rawSpec": "/tmp/d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
+        "spec": "/tmp/d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-3480-16fw78m.wlpsgd5cdi"
+      "/tmp/apm-install-dir-11765-4791-ot8clg.bl2surf6r"
     ]
   ],
-  "_from": "../d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
-  "_id": "file-icons@2.1.7",
+  "_from": "../d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
+  "_id": "file-icons@2.1.8",
   "_inCache": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
+    "raw": "/tmp/d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
-    "spec": "/tmp/d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
+    "rawSpec": "/tmp/d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
+    "spec": "/tmp/d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
-  "_shasum": "130c9dad88f0de4892e3ed5380b871458e9b273c",
+  "_resolved": "file:../d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
+  "_shasum": "75003478bfc451465680051982fdf8950a0da711",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-3480-1abcnyj.g9swa8m2t9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-3480-16fw78m.wlpsgd5cdi",
+  "_spec": "/tmp/d-11765-4791-1jcyu76.7bxver8uxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-4791-ot8clg.bl2surf6r",
   "atomTestRunner": "atom-mocha",
   "bugs": {
     "url": "https://github.com/file-icons/atom/issues"
@@ -126,7 +126,7 @@
     "unzip": "*"
   },
   "engines": {
-    "atom": ">1.11.0"
+    "atom": ">1.17.0"
   },
   "homepage": "https://github.com/file-icons/atom",
   "license": "MIT",
@@ -152,7 +152,7 @@
     "type": "git",
     "url": "git+https://github.com/file-icons/atom.git"
   },
-  "version": "2.1.7",
+  "version": "2.1.8",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -433,7 +433,7 @@
       },
       {
         "name": "isobject",
-        "version": "3.0.0",
+        "version": "3.0.1",
         "path": "node_modules/isobject/index.js"
       },
       {
@@ -583,12 +583,12 @@
       },
       {
         "name": "snapdragon-node",
-        "version": "2.0.1",
+        "version": "2.1.1",
         "path": "node_modules/snapdragon-node/index.js"
       },
       {
         "name": "snapdragon-util",
-        "version": "3.0.0",
+        "version": "3.0.1",
         "path": "node_modules/snapdragon-util/index.js"
       },
       {
@@ -1672,7 +1672,7 @@
         "dependencies": {
           "define-property": "^1.0.0",
           "isobject": "^3.0.0",
-          "snapdragon-util": "^3.0.0"
+          "snapdragon-util": "^3.0.1"
         }
       },
       {

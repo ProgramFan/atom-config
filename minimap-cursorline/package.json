@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-3252-1efbdko.ssjor/package.tgz",
+        "raw": "/tmp/d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-3252-1efbdko.ssjor/package.tgz",
-        "spec": "/tmp/d-117520-3252-1efbdko.ssjor/package.tgz",
+        "rawSpec": "/tmp/d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
+        "spec": "/tmp/d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-3252-zr8muj.i94uyaxlxr"
+      "/tmp/apm-install-dir-11765-4564-a3wku3.2ui7fogvi"
     ]
   ],
-  "_from": "../d-117520-3252-1efbdko.ssjor/package.tgz",
+  "_from": "../d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
   "_id": "minimap-cursorline@0.2.0",
   "_inCache": true,
   "_location": "/minimap-cursorline",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-3252-1efbdko.ssjor/package.tgz",
+    "raw": "/tmp/d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-3252-1efbdko.ssjor/package.tgz",
-    "spec": "/tmp/d-117520-3252-1efbdko.ssjor/package.tgz",
+    "rawSpec": "/tmp/d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
+    "spec": "/tmp/d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-3252-1efbdko.ssjor/package.tgz",
+  "_resolved": "file:../d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
   "_shasum": "e453900a4e932f1aa23b34a850b19d8cca186207",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-3252-1efbdko.ssjor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-3252-zr8muj.i94uyaxlxr",
+  "_spec": "/tmp/d-11765-4564-1yao082.l9j2zw7b9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-4564-a3wku3.2ui7fogvi",
   "bugs": {
     "url": "https://github.com/atom-minimap/minimap-cursorline/issues"
   },

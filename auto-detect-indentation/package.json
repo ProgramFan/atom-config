@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
+        "raw": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
-        "spec": "/tmp/d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
+        "rawSpec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+        "spec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-3612-173dvv4.98c5scq5mi"
+      "/tmp/apm-install-dir-11765-4923-y0ke1.khbrdd9529"
     ]
   ],
-  "_from": "../d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
+  "_from": "../d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
   "_id": "auto-detect-indentation@1.3.0",
   "_inCache": true,
   "_location": "/auto-detect-indentation",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
+    "raw": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
-    "spec": "/tmp/d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
+    "rawSpec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+    "spec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
+  "_resolved": "file:../d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
   "_shasum": "818851261e5fd2022fa64a3e75744818ea0feca8",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-3612-x6nayx.rnkqgmbo6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-3612-173dvv4.98c5scq5mi",
+  "_spec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-4923-y0ke1.khbrdd9529",
   "author": {
     "name": "Jason Tokoph",
     "email": "jason@tokoph.net"

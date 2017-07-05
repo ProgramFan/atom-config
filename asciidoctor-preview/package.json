@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
+        "raw": "/tmp/d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
-        "spec": "/tmp/d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
+        "rawSpec": "/tmp/d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
+        "spec": "/tmp/d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-5561-1n9e921.cs7z4a38fr"
+      "/tmp/apm-install-dir-11765-6876-1he75xo.fk6cfbhuxr"
     ]
   ],
-  "_from": "../d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
+  "_from": "../d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
   "_id": "asciidoctor-preview@0.3.2",
   "_inCache": true,
   "_location": "/asciidoctor-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
+    "raw": "/tmp/d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
-    "spec": "/tmp/d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
+    "rawSpec": "/tmp/d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
+    "spec": "/tmp/d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
+  "_resolved": "file:../d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
   "_shasum": "8f23f0c05c6fbaeb0362c27ca3832ebcd3edbcee",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-5561-1100sk0.ya8dpo80k9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-5561-1n9e921.cs7z4a38fr",
+  "_spec": "/tmp/d-11765-6876-1uutzo2.zmt74d9529/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-6876-1he75xo.fk6cfbhuxr",
   "bugs": {
     "url": "https://github.com/griffin-stewie/asciidoctor-preview/issues"
   },
@@ -380,7 +380,7 @@
       },
       {
         "name": "readable-stream",
-        "version": "2.3.0",
+        "version": "2.3.3",
         "path": "node_modules/readable-stream/readable.js"
       },
       {
@@ -390,7 +390,7 @@
       },
       {
         "name": "safe-buffer",
-        "version": "5.1.0",
+        "version": "5.1.1",
         "path": "node_modules/safe-buffer/index.js"
       },
       {
@@ -405,13 +405,8 @@
       },
       {
         "name": "string_decoder",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "path": "node_modules/string_decoder/lib/string_decoder.js"
-      },
-      {
-        "name": "safe-buffer",
-        "version": "5.0.1",
-        "path": "node_modules/string_decoder/node_modules/safe-buffer/index.js"
       },
       {
         "name": "temp",
@@ -1143,9 +1138,6 @@
         "node_modules/space-pen/node_modules/grim/lib/deprecation.js",
         "node_modules/space-pen/node_modules/grim/lib/grim.js",
         "node_modules/string_decoder/lib/string_decoder.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/browser.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/index.js",
-        "node_modules/string_decoder/node_modules/safe-buffer/test.js",
         "node_modules/temp/examples/grepcount.js",
         "node_modules/temp/examples/pdfcreator.js",
         "node_modules/temp/lib/temp.js",
@@ -1238,7 +1230,6 @@
         "node_modules/space-pen/api.json",
         "node_modules/space-pen/node_modules/grim/package.json",
         "node_modules/space-pen/package.json",
-        "node_modules/string_decoder/node_modules/safe-buffer/package.json",
         "node_modules/string_decoder/package.json",
         "node_modules/temp/node_modules/rimraf/package.json",
         "node_modules/temp/package.json",
@@ -1747,8 +1738,8 @@
           "inherits": "~2.0.3",
           "isarray": "~1.0.0",
           "process-nextick-args": "~1.0.6",
-          "safe-buffer": "~5.1.0",
-          "string_decoder": "~1.0.0",
+          "safe-buffer": "~5.1.1",
+          "string_decoder": "~1.0.3",
           "util-deprecate": "~1.0.1"
         }
       },
@@ -1786,7 +1777,7 @@
           "node_modules/string_decoder"
         ],
         "dependencies": {
-          "safe-buffer": "~5.0.1"
+          "safe-buffer": "~5.1.0"
         }
       },
       {

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
+        "raw": "/tmp/d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
-        "spec": "/tmp/d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
+        "rawSpec": "/tmp/d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
+        "spec": "/tmp/d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-4141-11kcg7u.3v72o11yvi"
+      "/tmp/apm-install-dir-11765-5453-kz3o0k.8mocivn29"
     ]
   ],
-  "_from": "../d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
+  "_from": "../d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
   "_id": "build-cmake@0.10.1",
   "_inCache": true,
   "_location": "/build-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
+    "raw": "/tmp/d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
-    "spec": "/tmp/d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
+    "rawSpec": "/tmp/d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
+    "spec": "/tmp/d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
+  "_resolved": "file:../d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
   "_shasum": "90b765fd085e86065e1e93ce6bb53d6e365c5da7",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-4141-w6quek.ynzp0vygb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-4141-11kcg7u.3v72o11yvi",
+  "_spec": "/tmp/d-11765-5453-v4i8nm.d090gdgqfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-5453-kz3o0k.8mocivn29",
   "bugs": {
     "url": "https://github.com/siegelaaron94/atom-build-cmake/issues"
   },

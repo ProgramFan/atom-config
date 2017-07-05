@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
+        "raw": "/tmp/d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
-        "spec": "/tmp/d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
+        "rawSpec": "/tmp/d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
+        "spec": "/tmp/d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-3965-2fhf3.lcl7gv6lxr"
+      "/tmp/apm-install-dir-11765-5276-wfo2ut.zmwugwg66r"
     ]
   ],
-  "_from": "../d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
+  "_from": "../d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
   "_id": "git-plus@7.9.3",
   "_inCache": true,
   "_location": "/git-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
+    "raw": "/tmp/d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
-    "spec": "/tmp/d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
+    "rawSpec": "/tmp/d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
+    "spec": "/tmp/d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
+  "_resolved": "file:../d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
   "_shasum": "2f3206a523fb6c0a9228c94769b2ae1bcfc59e38",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-3965-1sqn2ej.fnv10grpb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-3965-2fhf3.lcl7gv6lxr",
+  "_spec": "/tmp/d-11765-5276-7hz1nb.jdt37eqaor/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-5276-wfo2ut.zmwugwg66r",
   "bugs": {
     "url": "https://github.com/akonwi/git-plus/issues"
   },

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+        "raw": "/tmp/d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
-        "spec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+        "rawSpec": "/tmp/d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
+        "spec": "/tmp/d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-5429-1426jql.9k3qziwwmi"
+      "/tmp/apm-install-dir-11765-6744-c66ecp.3tkiou5wmi"
     ]
   ],
-  "_from": "../d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+  "_from": "../d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
   "_id": "autocomplete-asciidoc@0.1.2",
   "_inCache": true,
   "_location": "/autocomplete-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+    "raw": "/tmp/d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
-    "spec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+    "rawSpec": "/tmp/d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
+    "spec": "/tmp/d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
+  "_resolved": "file:../d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
   "_shasum": "bd850af2336aa841202c403968c6c293a3e52186",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-5429-rc6dtr.vv6b9be29/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-5429-1426jql.9k3qziwwmi",
+  "_spec": "/tmp/d-11765-6744-1qc0m6n.6ef1lwhfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-6744-c66ecp.3tkiou5wmi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-autocomplete-asciidoc/issues"
   },

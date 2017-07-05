@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
+        "raw": "/tmp/d-11765-4431-3izvku.yjo9wwmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
-        "spec": "/tmp/d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
+        "rawSpec": "/tmp/d-11765-4431-3izvku.yjo9wwmi/package.tgz",
+        "spec": "/tmp/d-11765-4431-3izvku.yjo9wwmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-3120-sdr6bt.ie1uxtuik9"
+      "/tmp/apm-install-dir-11765-4431-9taxp8.52iqsn61or"
     ]
   ],
-  "_from": "../d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
+  "_from": "../d-11765-4431-3izvku.yjo9wwmi/package.tgz",
   "_id": "minimap@4.28.2",
   "_inCache": true,
   "_location": "/minimap",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
+    "raw": "/tmp/d-11765-4431-3izvku.yjo9wwmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
-    "spec": "/tmp/d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
+    "rawSpec": "/tmp/d-11765-4431-3izvku.yjo9wwmi/package.tgz",
+    "spec": "/tmp/d-11765-4431-3izvku.yjo9wwmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
+  "_resolved": "file:../d-11765-4431-3izvku.yjo9wwmi/package.tgz",
   "_shasum": "2adfbda9695b5b629946e9311596ea8e2e0f30fd",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-3120-1dnzak1.eyw0icnmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-3120-sdr6bt.ie1uxtuik9",
+  "_spec": "/tmp/d-11765-4431-3izvku.yjo9wwmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-4431-9taxp8.52iqsn61or",
   "author": {
     "name": "Fangdun Cai",
     "email": "cfddream@gmail.com"

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
+        "raw": "/tmp/d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
-        "spec": "/tmp/d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
+        "rawSpec": "/tmp/d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
+        "spec": "/tmp/d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-5605-gfue75.aqf5n4s4i"
+      "/tmp/apm-install-dir-11765-6920-1f3bych.wktsr79zfr"
     ]
   ],
-  "_from": "../d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
-  "_id": "docblockr@0.10.3",
+  "_from": "../d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
+  "_id": "docblockr@0.10.5",
   "_inCache": true,
   "_location": "/docblockr",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
+    "raw": "/tmp/d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
-    "spec": "/tmp/d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
+    "rawSpec": "/tmp/d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
+    "spec": "/tmp/d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
-  "_shasum": "3b8de97069169c5e896fd0e14583cfc130e1c436",
+  "_resolved": "file:../d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
+  "_shasum": "93ae89aeeed30d704d82d5e51b08fcbd9f55cdfa",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-5605-eg9qzg.kbii2otj4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-5605-gfue75.aqf5n4s4i",
+  "_spec": "/tmp/d-11765-6920-1lvnp6n.o2p22o6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-6920-1f3bych.wktsr79zfr",
   "atomTestRunner": "./spec/runner",
   "bugs": {
     "url": "https://github.com/nikhilkalige/docblockr/issues"
@@ -70,7 +70,7 @@
   "scripts": {
     "test": "cd ~/.atom/packages; atom --test docblockr/spec"
   },
-  "version": "0.10.3",
+  "version": "0.10.5",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

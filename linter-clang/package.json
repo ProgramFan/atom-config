@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
+        "raw": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
-        "spec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
+        "rawSpec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
+        "spec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-4406-1fuhq53.h1nbdwjyvi"
+      "/tmp/apm-install-dir-11765-5717-q83ipz.v90e265hfr"
     ]
   ],
-  "_from": "../d-117520-4406-37hykh.una33gcik9/package.tgz",
+  "_from": "../d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
   "_id": "linter-clang@4.1.1",
   "_inCache": true,
   "_location": "/linter-clang",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
+    "raw": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
-    "spec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
+    "rawSpec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
+    "spec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-4406-37hykh.una33gcik9/package.tgz",
+  "_resolved": "file:../d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
   "_shasum": "8a2ed73bc8bec8e174797463af72c75f32ccb450",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-4406-37hykh.una33gcik9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-4406-1fuhq53.h1nbdwjyvi",
+  "_spec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-5717-q83ipz.v90e265hfr",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-clang/issues"
   },

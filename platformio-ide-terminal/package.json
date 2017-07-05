@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+        "raw": "/tmp/d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
-        "spec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+        "rawSpec": "/tmp/d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
+        "spec": "/tmp/d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-6147-qgp8me.6t0m5cdi"
+      "/tmp/apm-install-dir-11765-7469-qwuhee.izi8p8pvi"
     ]
   ],
-  "_from": "../d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
-  "_id": "platformio-ide-terminal@2.5.1",
+  "_from": "../d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
+  "_id": "platformio-ide-terminal@2.5.2",
   "_inCache": true,
   "_location": "/platformio-ide-terminal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+    "raw": "/tmp/d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
-    "spec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
+    "rawSpec": "/tmp/d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
+    "spec": "/tmp/d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
-  "_shasum": "0ec8b37e2f00f7deea2b154cafb1473370030d9b",
+  "_resolved": "file:../d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
+  "_shasum": "574052d6d2eb8a249e8abbf82de16d52765e11bb",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-6147-1e7bwwh.lc1d29be29/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-6147-qgp8me.6t0m5cdi",
+  "_spec": "/tmp/d-11765-7469-1rck4ku.3kdium1jor/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-7469-qwuhee.izi8p8pvi",
   "activationHooks": [
     "core:loaded-shell-environment"
   ],
@@ -113,7 +113,7 @@
     "type": "git",
     "url": "git+https://github.com/platformio/platformio-atom-ide-terminal.git"
   },
-  "version": "2.5.1",
+  "version": "2.5.2",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

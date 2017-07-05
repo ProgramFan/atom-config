@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
+        "raw": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
-        "spec": "/tmp/d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
+        "rawSpec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+        "spec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-6315-ztq8h2.otakyb9"
+      "/tmp/apm-install-dir-11765-7635-64s95f.4pob7w4s4i"
     ]
   ],
-  "_from": "../d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
+  "_from": "../d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
   "_id": "sync-settings@0.8.2",
   "_inCache": true,
   "_location": "/sync-settings",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
+    "raw": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
-    "spec": "/tmp/d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
+    "rawSpec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+    "spec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
+  "_resolved": "file:../d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
   "_shasum": "276016dcb9f53f218899cc24ca6eb614c51a9f4a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-6315-sdn2xt.39tw8hyqfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-6315-ztq8h2.otakyb9",
+  "_spec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-7635-64s95f.4pob7w4s4i",
   "bugs": {
     "url": "https://github.com/atom-community/sync-settings/issues"
   },

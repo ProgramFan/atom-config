@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
+        "raw": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
-        "spec": "/tmp/d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
+        "rawSpec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+        "spec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-5914-tgspun.pmcltprpb9"
+      "/tmp/apm-install-dir-11765-7229-pcuyot.jntrg7rpb9"
     ]
   ],
-  "_from": "../d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
-  "_id": "autocomplete-python@1.8.64",
+  "_from": "../d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+  "_id": "autocomplete-python@1.9.1",
   "_inCache": true,
   "_location": "/autocomplete-python",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
+    "raw": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
-    "spec": "/tmp/d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
+    "rawSpec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+    "spec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
-  "_shasum": "b3975b7010b0d782c8f02e3aeb0b720aafd47c8f",
+  "_resolved": "file:../d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+  "_shasum": "716b4ce6c14abc4ce3ee49209e2aac0e8a4b2f7d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-5914-xvqxey.wzuwbqpvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-5914-tgspun.pmcltprpb9",
+  "_spec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-7229-pcuyot.jntrg7rpb9",
   "bugs": {
     "url": "https://github.com/autocomplete-python/autocomplete-python/issues"
   },
@@ -99,7 +99,7 @@
     "type": "git",
     "url": "git+https://github.com/autocomplete-python/autocomplete-python.git"
   },
-  "version": "1.8.64",
+  "version": "1.9.1",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -235,6 +235,8 @@
         "lib/provider.coffee",
         "lib/rename-view.coffee",
         "lib/scope-helpers.coffee",
+        "lib/tooltips.coffee",
+        "lib/touchbar.coffee",
         "lib/usages-view.coffee"
       ],
       ".js": [

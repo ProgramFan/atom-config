@@ -1,8 +1,15 @@
 # Next
+- ...
+
+# v0.30.3 (2017-06-21)
+- Improve command not found error message
+- Add goimports beautifier for Go language
+- Fixes [#1728](https://github.com/Glavin001/atom-beautify/issues/1728). Remove Shell-Env from Executable, use Atom's process.env instead. See [#1735](https://github.com/Glavin001/atom-beautify/pull/1735).
+
+# v0.30.2 (2017-06-20)
 - Fixes [#1030](https://github.com/Glavin001/atom-beautify/issues/1030). Add support for alpha versions of autopep8
 - Fixes [#1725](https://github.com/Glavin001/atom-beautify/issues/1725). Fix version parsing of PHP executable
 - Fixes [#1730](https://github.com/Glavin001/atom-beautify/issues/1730). Correctly parse PHPCBF version and improve handling of Executable
-- ...
 
 # v0.30.1 (2017-06-19)
 - Fix [#1703](https://github.com/Glavin001/atom-beautify/issues/1703). Now Fortran 2003/2008 file extensions are available for Fortran beautifier.

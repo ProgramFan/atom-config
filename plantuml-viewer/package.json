@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
+        "raw": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
-        "spec": "/tmp/d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
+        "rawSpec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
+        "spec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-6103-1nal5c8.aqh5q257b9"
+      "/tmp/apm-install-dir-11765-7425-1vpgyfc.0kltbj4i"
     ]
   ],
-  "_from": "../d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
+  "_from": "../d-11765-7425-vufobu.2ddbzkt9/package.tgz",
   "_id": "plantuml-viewer@0.7.1",
   "_inCache": true,
   "_location": "/plantuml-viewer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
+    "raw": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
-    "spec": "/tmp/d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
+    "rawSpec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
+    "spec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
+  "_resolved": "file:../d-11765-7425-vufobu.2ddbzkt9/package.tgz",
   "_shasum": "0556a04440c2203ac36f822f4b9519dadeddbd26",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-6103-15qe3c3.eda8xgvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-6103-1nal5c8.aqh5q257b9",
+  "_spec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-7425-1vpgyfc.0kltbj4i",
   "bugs": {
     "url": "https://github.com/markushedvall/plantuml-viewer/issues"
   },
@@ -82,7 +82,7 @@
       },
       {
         "name": "commander",
-        "version": "2.9.0",
+        "version": "2.11.0",
         "path": "node_modules/commander/index.js"
       },
       {
@@ -134,11 +134,6 @@
         "name": "fuzzaldrin",
         "version": "2.1.0",
         "path": "node_modules/fuzzaldrin/lib/fuzzaldrin.js"
-      },
-      {
-        "name": "graceful-readlink",
-        "version": "1.0.1",
-        "path": "node_modules/graceful-readlink/index.js"
       },
       {
         "name": "grim",
@@ -226,7 +221,6 @@
         "node_modules/es6-symbol/package.json",
         "node_modules/es6-weak-map/package.json",
         "node_modules/fuzzaldrin/package.json",
-        "node_modules/graceful-readlink/package.json",
         "node_modules/grim/package.json",
         "node_modules/jquery/bower.json",
         "node_modules/jquery/package.json",
@@ -701,7 +695,6 @@
         "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
         "node_modules/fuzzaldrin/lib/matcher.js",
         "node_modules/fuzzaldrin/lib/scorer.js",
-        "node_modules/graceful-readlink/index.js",
         "node_modules/grim/lib/deprecation.js",
         "node_modules/grim/lib/grim.js",
         "node_modules/jquery/dist/jquery.js",
@@ -874,14 +867,6 @@
         "dependencies": {
           "fuzzaldrin": "^2.1.0",
           "space-pen": "^5.1.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/commander"
-        ],
-        "dependencies": {
-          "graceful-readlink": ">= 1.0.0"
         }
       },
       {

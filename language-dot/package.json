@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
+        "raw": "/tmp/d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
-        "spec": "/tmp/d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
+        "rawSpec": "/tmp/d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
+        "spec": "/tmp/d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117520-4803-1cek9bb.fd1ytd42t9"
+      "/tmp/apm-install-dir-11765-6117-dghdmq.3y9n5ng66r"
     ]
   ],
-  "_from": "../d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
+  "_from": "../d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
   "_id": "language-dot@1.7.0",
   "_inCache": true,
   "_location": "/language-dot",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
+    "raw": "/tmp/d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
-    "spec": "/tmp/d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
+    "rawSpec": "/tmp/d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
+    "spec": "/tmp/d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
+  "_resolved": "file:../d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
   "_shasum": "3d4e6816dcf75a0ddc5011e7e512a0ef176fcf00",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117520-4803-wgnfbg.nfiozuxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117520-4803-1cek9bb.fd1ytd42t9",
+  "_spec": "/tmp/d-11765-6117-11w95vc.bbvmlvj9k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11765-6117-dghdmq.3y9n5ng66r",
   "bugs": {
     "url": "https://github.com/AdoPi/language-dot/issues"
   },
