@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+        "raw": "/tmp/d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
-        "spec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+        "rawSpec": "/tmp/d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
+        "spec": "/tmp/d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-4923-y0ke1.khbrdd9529"
+      "/tmp/apm-install-dir-117631-4887-78ho0r.6ceduw61or"
     ]
   ],
-  "_from": "../d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+  "_from": "../d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
   "_id": "auto-detect-indentation@1.3.0",
   "_inCache": true,
   "_location": "/auto-detect-indentation",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+    "raw": "/tmp/d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
-    "spec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+    "rawSpec": "/tmp/d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
+    "spec": "/tmp/d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
+  "_resolved": "file:../d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
   "_shasum": "818851261e5fd2022fa64a3e75744818ea0feca8",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-4923-w6yg8t.ndwemnp14i/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-4923-y0ke1.khbrdd9529",
+  "_spec": "/tmp/d-117631-4887-8udy9u.68psh2rzfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-4887-78ho0r.6ceduw61or",
   "author": {
     "name": "Jason Tokoph",
     "email": "jason@tokoph.net"
@@ -90,7 +90,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {

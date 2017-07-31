@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-5541-d397rz.5m45u680k9/package.tgz",
+        "raw": "/tmp/d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-5541-d397rz.5m45u680k9/package.tgz",
-        "spec": "/tmp/d-11765-5541-d397rz.5m45u680k9/package.tgz",
+        "rawSpec": "/tmp/d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
+        "spec": "/tmp/d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-5541-97zs30.a7as3ba9k9"
+      "/tmp/apm-install-dir-117631-5506-6hu9cp.bfeay8pvi"
     ]
   ],
-  "_from": "../d-11765-5541-d397rz.5m45u680k9/package.tgz",
+  "_from": "../d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
   "_id": "linter@2.2.0",
   "_inCache": true,
   "_location": "/linter",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-5541-d397rz.5m45u680k9/package.tgz",
+    "raw": "/tmp/d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-5541-d397rz.5m45u680k9/package.tgz",
-    "spec": "/tmp/d-11765-5541-d397rz.5m45u680k9/package.tgz",
+    "rawSpec": "/tmp/d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
+    "spec": "/tmp/d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-5541-d397rz.5m45u680k9/package.tgz",
+  "_resolved": "file:../d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
   "_shasum": "58c53b67851cb486e4d3d1d033438122fbf82104",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-5541-d397rz.5m45u680k9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-5541-97zs30.a7as3ba9k9",
+  "_spec": "/tmp/d-117631-5506-1ryaex4.06tcd0wwmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-5506-6hu9cp.bfeay8pvi",
   "author": {
     "name": "steelbrain"
   },
@@ -251,7 +251,7 @@
       },
       {
         "name": "semver",
-        "version": "5.3.0",
+        "version": "5.4.1",
         "path": "node_modules/semver/semver.js"
       },
       {

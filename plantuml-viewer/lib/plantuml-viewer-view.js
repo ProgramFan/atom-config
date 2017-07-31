@@ -53,22 +53,40 @@ function PlantumlViewerView (editor) {
     }, 0)
   })
 
+  function getDetectedPathFor (execName) {
+    for (var pathsDir of process.env.PATH.split(path.delimiter)) {
+      var candidateExecPath = path.join(pathsDir, execName)
+      if (fs.existsSync(candidateExecPath)) {
+        return candidateExecPath
+      }
+    }
+  }
+
+  var updateImageTimerId = 0
+  function queueUpdate () {
+    if (updateImageTimerId) return
+    updateImageTimerId = setTimeout(function () {
+      updateImage()
+      updateImageTimerId = 0
+    }, 20)
+  }
+
   function attached () {
     disposables = new CompositeDisposable()
-    updateImage()
+    queueUpdate()
     if (atom.config.get('plantuml-viewer.liveUpdate')) {
       disposables.add(editor.getBuffer().onDidChange(function () {
         if (loading) {
           waitingToLoad = true
           return
         }
-        updateImage()
+        queueUpdate()
       }))
 
       interval = setInterval(function () {
         if (panZoom) {
           if (width !== self.width() || height !== self.height()) {
-            updateImage()
+            queueUpdate()
             width = self.width()
             height = self.height()
           }
@@ -134,7 +152,7 @@ function PlantumlViewerView (editor) {
     var options = {
       format: 'svg',
       include: includePath,
-      dot: atom.config.get('plantuml-viewer.graphvizDotExecutable'),
+      dot: atom.config.get('plantuml-viewer.graphvizDotExecutable') || getDetectedPathFor('dot'),
       config: atom.config.get('plantuml-viewer.configFile'),
       charset: atom.config.get('plantuml-viewer.charset')
     }
@@ -151,7 +169,7 @@ function PlantumlViewerView (editor) {
 
       if (waitingToLoad) {
         waitingToLoad = false
-        updateImage()
+        queueUpdate()
       }
       loading = false
     })
@@ -174,7 +192,7 @@ function PlantumlViewerView (editor) {
       var plantumlOptions = {
         format: extension,
         include: includePath,
-        dot: atom.config.get('plantuml-viewer.graphvizDotExecutable'),
+        dot: atom.config.get('plantuml-viewer.graphvizDotExecutable') || getDetectedPathFor('dot'),
         config: atom.config.get('plantuml-viewer.configFile'),
         charset: atom.config.get('plantuml-viewer.charset')
       }
@@ -188,7 +206,7 @@ function PlantumlViewerView (editor) {
     var options = {
       format: 'png',
       include: includePath,
-      dot: atom.config.get('plantuml-viewer.graphvizDotExecutable'),
+      dot: atom.config.get('plantuml-viewer.graphvizDotExecutable') || getDetectedPathFor('dot'),
       config: atom.config.get('plantuml-viewer.configFile'),
       charset: atom.config.get('plantuml-viewer.charset')
     }

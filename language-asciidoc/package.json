@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
+        "raw": "/tmp/d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
-        "spec": "/tmp/d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
+        "rawSpec": "/tmp/d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
+        "spec": "/tmp/d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-6249-lp6dc.a4nk84obt9"
+      "/tmp/apm-install-dir-117631-6215-1o6edlf.xzcttbuik9"
     ]
   ],
-  "_from": "../d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
+  "_from": "../d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
   "_id": "language-asciidoc@1.10.0",
   "_inCache": true,
   "_location": "/language-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
+    "raw": "/tmp/d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
-    "spec": "/tmp/d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
+    "rawSpec": "/tmp/d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
+    "spec": "/tmp/d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
+  "_resolved": "file:../d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
   "_shasum": "0894b2d50369b6539f9bd1dced6e1020b67a886e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-6249-1u9eia8.xrw4i5p14i/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-6249-lp6dc.a4nk84obt9",
+  "_spec": "/tmp/d-117631-6215-1953tu3.d0f8ph9f6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-6215-1o6edlf.xzcttbuik9",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },

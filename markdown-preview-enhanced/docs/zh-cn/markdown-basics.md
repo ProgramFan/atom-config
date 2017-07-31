@@ -18,7 +18,7 @@
 
 如果你想要给你的标题添加 `id` 或者 `class`，请在标题最后添加 `{#id .class1 .class2}`。例如：  
 ```markdown
-# 这个标题拥有 1 个 id {#id1}
+# 这个标题拥有 1 个 id {#my_id}
 # 这个标题有 2 个 classes {.class1 .class2}
 ```
 > 这是一个 MPE 扩展的特性。  
@@ -125,18 +125,18 @@ puts markdown.to_html
 
 例如，添加 `class1 class2` 到一个 代码块：
 
-    ```javascript {.class1 .class2}
+    ```javascript {.class1 .class}
     function add(x, y) {
       return x + y
     }
     ```
 
 ##### 代码行数
-如果你想要你的代码块显示代码行数，只要添加 `lineNo` class 就可以了。
+如果你想要你的代码块显示代码行数，只要添加 `line-numbers` class 就可以了。
 
 例如：
 
-    ```javascript {.lineNo}
+    ```javascript {.line-numbers}
     function add(x, y) {
       return x + y
     }
@@ -144,8 +144,7 @@ puts markdown.to_html
 
 将会得到下面的显示效果：
 
-![Screen Shot 2017-05-27 at 6.10.10 PM](http://i.imgur.com/5wfq8Uq.png)
-
+![screen shot 2017-07-14 at 1 20 27 am](https://user-images.githubusercontent.com/1908863/28200587-a8582b0a-6832-11e7-83a7-6c3bb011322f.png)
 
 ### 任务列表   
 ```markdown  
@@ -163,12 +162,27 @@ Content from cell 1 | Content from cell 2
 Content in the first column | Content in the second column
 ```
 
+## 扩展的语法
+### 表格  
+![screen shot 2017-07-15 at 8 16 45 pm](https://user-images.githubusercontent.com/1908863/28243710-945e3004-699a-11e7-9a5f-d74f6c944c3b.png)
+
+### 上标
+```markdown
+30^th^
+```
+
+### 下标
+```markdown
+H~2~O
+```
+
 ### 脚注
 ```markdown
 Content [^1]
 
 [^1]: Hi! This is a footnote
 ```
+
 
 ## References
 * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)

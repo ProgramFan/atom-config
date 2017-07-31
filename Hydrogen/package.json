@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-7273-936m86.tu2d6xbt9/package.tgz",
+        "raw": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-7273-936m86.tu2d6xbt9/package.tgz",
-        "spec": "/tmp/d-11765-7273-936m86.tu2d6xbt9/package.tgz",
+        "rawSpec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
+        "spec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-7273-s1wy45.bl07y6tj4i"
+      "/tmp/apm-install-dir-117631-7226-10yp3xz.df6a9py14i"
     ]
   ],
-  "_from": "../d-11765-7273-936m86.tu2d6xbt9/package.tgz",
+  "_from": "../d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
   "_id": "Hydrogen@1.19.0",
   "_inCache": true,
   "_location": "/Hydrogen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-7273-936m86.tu2d6xbt9/package.tgz",
+    "raw": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-7273-936m86.tu2d6xbt9/package.tgz",
-    "spec": "/tmp/d-11765-7273-936m86.tu2d6xbt9/package.tgz",
+    "rawSpec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
+    "spec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-7273-936m86.tu2d6xbt9/package.tgz",
+  "_resolved": "file:../d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
   "_shasum": "7c9479201506ebea69bc3ca34a9ec7c8eaec5eea",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-7273-936m86.tu2d6xbt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-7273-s1wy45.bl07y6tj4i",
+  "_spec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-7226-10yp3xz.df6a9py14i",
   "activationCommands": {
     "atom-text-editor": [
       "hydrogen:select-kernel",

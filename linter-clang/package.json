@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
+        "raw": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
-        "spec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
+        "rawSpec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+        "spec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-5717-q83ipz.v90e265hfr"
+      "/tmp/apm-install-dir-117631-5686-6y4kd5.4vqna8m2t9"
     ]
   ],
-  "_from": "../d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
-  "_id": "linter-clang@4.1.1",
+  "_from": "../d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+  "_id": "linter-clang@4.1.2",
   "_inCache": true,
   "_location": "/linter-clang",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
+    "raw": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
-    "spec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
+    "rawSpec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+    "spec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
-  "_shasum": "8a2ed73bc8bec8e174797463af72c75f32ccb450",
+  "_resolved": "file:../d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+  "_shasum": "92c7b37702c19190fc2adb4fcd82c926a7efbb05",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-5717-1y7omlb.gzi9221emi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-5717-q83ipz.v90e265hfr",
+  "_spec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-5686-6y4kd5.4vqna8m2t9",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-clang/issues"
   },
@@ -75,7 +75,7 @@
     }
   },
   "dependencies": {
-    "atom-linter": "^9.0.0",
+    "atom-linter": "^10.0.0",
     "atom-package-deps": "^4.5.0",
     "clang-flags": "^0.2.2"
   },
@@ -135,19 +135,24 @@
     "lint": "eslint .",
     "test": "apm test"
   },
-  "version": "4.1.1",
+  "version": "4.1.2",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "atom-linter",
-        "version": "9.0.1",
+        "version": "10.0.0",
         "path": "node_modules/atom-linter/lib/index.js"
       },
       {
         "name": "atom-package-deps",
         "version": "4.6.0",
         "path": "node_modules/atom-package-deps/lib/index.js"
+      },
+      {
+        "name": "sb-exec",
+        "version": "3.1.0",
+        "path": "node_modules/atom-package-deps/node_modules/sb-exec/lib/index.js"
       },
       {
         "name": "atom-package-path",
@@ -191,7 +196,7 @@
       },
       {
         "name": "sb-exec",
-        "version": "3.1.0",
+        "version": "4.0.0",
         "path": "node_modules/sb-exec/lib/index.js"
       },
       {
@@ -216,7 +221,7 @@
       },
       {
         "name": "semver",
-        "version": "5.3.0",
+        "version": "5.4.1",
         "path": "node_modules/semver/semver.js"
       },
       {
@@ -240,6 +245,10 @@
         "node_modules/atom-package-deps/lib/index.js",
         "node_modules/atom-package-deps/lib/types.js",
         "node_modules/atom-package-deps/lib/view.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/decls/jasmine.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/helpers.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/index.js",
+        "node_modules/atom-package-deps/node_modules/sb-exec/lib/types.js",
         "node_modules/atom-package-path/lib/index.js",
         "node_modules/clang-flags/lib/clang-flags.js",
         "node_modules/consistent-env/lib/helpers.js",
@@ -249,7 +258,6 @@
         "node_modules/named-js-regexp/lib/named-js-regexp.js",
         "node_modules/os-tmpdir/index.js",
         "node_modules/sb-callsite/lib/main.js",
-        "node_modules/sb-exec/decls/jasmine.js",
         "node_modules/sb-exec/lib/helpers.js",
         "node_modules/sb-exec/lib/index.js",
         "node_modules/sb-exec/lib/types.js",
@@ -267,6 +275,8 @@
         "node_modules/atom-linter/.eslintrc.json",
         "node_modules/atom-linter/package.json",
         "node_modules/atom-package-deps/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/.eslintrc.json",
+        "node_modules/atom-package-deps/node_modules/sb-exec/package.json",
         "node_modules/atom-package-deps/package.json",
         "node_modules/atom-package-path/package.json",
         "node_modules/clang-flags/package.json",
@@ -302,7 +312,7 @@
           "spec"
         ],
         "dependencies": {
-          "atom-linter": "^9.0.0",
+          "atom-linter": "^10.0.0",
           "atom-package-deps": "^4.5.0",
           "clang-flags": "^0.2.2"
         }
@@ -314,7 +324,7 @@
         ],
         "dependencies": {
           "named-js-regexp": "^1.3.1",
-          "sb-exec": "^3.1.0",
+          "sb-exec": "^4.0.0",
           "sb-promisify": "^2.0.1",
           "tmp": "~0.0.28"
         }
@@ -329,6 +339,18 @@
           "sb-exec": "^3.0.1",
           "sb-fs": "^3.0.0",
           "semver": "^5.3.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-package-deps/node_modules/sb-exec",
+          "node_modules/atom-package-deps/node_modules/sb-exec/decls",
+          "node_modules/atom-package-deps/node_modules/sb-exec/lib"
+        ],
+        "dependencies": {
+          "consistent-env": "^1.2.0",
+          "lodash.uniq": "^4.5.0",
+          "sb-npm-path": "^2.0.0"
         }
       },
       {
@@ -353,7 +375,6 @@
       {
         "paths": [
           "node_modules/sb-exec",
-          "node_modules/sb-exec/decls",
           "node_modules/sb-exec/lib"
         ],
         "dependencies": {

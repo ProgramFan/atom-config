@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+        "raw": "/tmp/d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
-        "spec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+        "rawSpec": "/tmp/d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
+        "spec": "/tmp/d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-5320-1tdppum.w8xek7f1or"
+      "/tmp/apm-install-dir-117631-5285-11myf01.lwxi02uik9"
     ]
   ],
-  "_from": "../d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+  "_from": "../d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
   "_id": "git-time-machine@1.5.9",
   "_inCache": true,
   "_location": "/git-time-machine",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+    "raw": "/tmp/d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
-    "spec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+    "rawSpec": "/tmp/d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
+    "spec": "/tmp/d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
+  "_resolved": "file:../d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
   "_shasum": "9ed9fa205ab5efc37e2c8298d46e7be7c792863b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-5320-1xvf0vg.d3as40wwmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-5320-1tdppum.w8xek7f1or",
+  "_spec": "/tmp/d-117631-5285-zr02x0.prhpca0pb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-5285-11myf01.lwxi02uik9",
   "activationCommands": {
     "atom-workspace": "git-time-machine:toggle"
   },
@@ -105,7 +105,7 @@
       },
       {
         "name": "diff",
-        "version": "3.2.0",
+        "version": "3.3.0",
         "path": "node_modules/diff/lib/index.js"
       },
       {
@@ -115,7 +115,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {

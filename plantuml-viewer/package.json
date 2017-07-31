@@ -2,50 +2,50 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
+        "raw": "/tmp/d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
-        "spec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
+        "rawSpec": "/tmp/d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
+        "spec": "/tmp/d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-7425-1vpgyfc.0kltbj4i"
+      "/tmp/apm-install-dir-117631-7378-nnodam.wuvjfywrk9"
     ]
   ],
-  "_from": "../d-11765-7425-vufobu.2ddbzkt9/package.tgz",
-  "_id": "plantuml-viewer@0.7.1",
+  "_from": "../d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
+  "_id": "plantuml-viewer@0.7.2",
   "_inCache": true,
   "_location": "/plantuml-viewer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
+    "raw": "/tmp/d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
-    "spec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
+    "rawSpec": "/tmp/d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
+    "spec": "/tmp/d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-7425-vufobu.2ddbzkt9/package.tgz",
-  "_shasum": "0556a04440c2203ac36f822f4b9519dadeddbd26",
+  "_resolved": "file:../d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
+  "_shasum": "2958e72947b5f677e0b5cbb73ca46a1b6d15054c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-7425-vufobu.2ddbzkt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-7425-1vpgyfc.0kltbj4i",
+  "_spec": "/tmp/d-117631-7378-t62m4i.skkqp5vcxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-7378-nnodam.wuvjfywrk9",
   "bugs": {
     "url": "https://github.com/markushedvall/plantuml-viewer/issues"
   },
   "dependencies": {
-    "atom-space-pen-views": "^2.0.5",
+    "atom-space-pen-views": "^2.2.0",
     "node-plantuml": "^0.5.0",
-    "svg-pan-zoom": "^3.2.3"
+    "svg-pan-zoom": "^3.5.1"
   },
   "description": "Open a rendered diagram of the PlantUML source in an editor with `ctrl-alt-p`.",
   "devDependencies": {
-    "standard": "^4.5.4"
+    "standard": "^10.0.2"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
@@ -71,7 +71,7 @@
     "lint": "standard",
     "test": "standard && apm test"
   },
-  "version": "0.7.1",
+  "version": "0.7.2",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -97,7 +97,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -187,7 +187,7 @@
       },
       {
         "name": "svg-pan-zoom",
-        "version": "3.5.1",
+        "version": "3.5.2",
         "path": "node_modules/svg-pan-zoom/dist/svg-pan-zoom.js"
       },
       {
@@ -854,9 +854,9 @@
           "spec"
         ],
         "dependencies": {
-          "atom-space-pen-views": "^2.0.5",
+          "atom-space-pen-views": "^2.2.0",
           "node-plantuml": "^0.5.0",
-          "svg-pan-zoom": "^3.2.3"
+          "svg-pan-zoom": "^3.5.1"
         }
       },
       {

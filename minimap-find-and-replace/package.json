@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-4475-h995oz.fnmfv42t9/package.tgz",
+        "raw": "/tmp/d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-4475-h995oz.fnmfv42t9/package.tgz",
-        "spec": "/tmp/d-11765-4475-h995oz.fnmfv42t9/package.tgz",
+        "rawSpec": "/tmp/d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
+        "spec": "/tmp/d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-4475-1bltvuj.d3o1g7gb9"
+      "/tmp/apm-install-dir-117631-4439-y51272.6x3o4aq0k9"
     ]
   ],
-  "_from": "../d-11765-4475-h995oz.fnmfv42t9/package.tgz",
+  "_from": "../d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
   "_id": "minimap-find-and-replace@4.5.2",
   "_inCache": true,
   "_location": "/minimap-find-and-replace",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-4475-h995oz.fnmfv42t9/package.tgz",
+    "raw": "/tmp/d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-4475-h995oz.fnmfv42t9/package.tgz",
-    "spec": "/tmp/d-11765-4475-h995oz.fnmfv42t9/package.tgz",
+    "rawSpec": "/tmp/d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
+    "spec": "/tmp/d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-4475-h995oz.fnmfv42t9/package.tgz",
+  "_resolved": "file:../d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
   "_shasum": "b7f2d462efcfc9bc3ea9e29720a779fbd7805d58",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-4475-h995oz.fnmfv42t9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-4475-1bltvuj.d3o1g7gb9",
+  "_spec": "/tmp/d-117631-4439-6vj3ng.zbvdj3v7vi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-4439-y51272.6x3o4aq0k9",
   "author": {
     "name": "Cédric Néhémie",
     "email": "cedric.nehemie@gmail.com"

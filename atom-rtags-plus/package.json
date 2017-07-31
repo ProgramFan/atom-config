@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
+        "raw": "/tmp/d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
-        "spec": "/tmp/d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
+        "rawSpec": "/tmp/d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
+        "spec": "/tmp/d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-7052-1txf62a.n8fimuz0k9"
+      "/tmp/apm-install-dir-117631-7005-1sw7uh7.kvpl73c8fr"
     ]
   ],
-  "_from": "../d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
+  "_from": "../d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
   "_id": "atom-rtags-plus@1.4.2",
   "_inCache": true,
   "_location": "/atom-rtags-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
+    "raw": "/tmp/d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
-    "spec": "/tmp/d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
+    "rawSpec": "/tmp/d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
+    "spec": "/tmp/d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
+  "_resolved": "file:../d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
   "_shasum": "3f60d0003f8cf9e8ba560bda3e466bb794f32126",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-7052-4jp63t.mjgexez5mi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-7052-1txf62a.n8fimuz0k9",
+  "_spec": "/tmp/d-117631-7005-1rpuylv.9pdkakyb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-7005-1sw7uh7.kvpl73c8fr",
   "bugs": {
     "url": "https://github.com/sphaerophoria/atom-rtags-plus/issues"
   },
@@ -121,7 +121,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -241,7 +241,7 @@
       },
       {
         "name": "semver",
-        "version": "5.3.0",
+        "version": "5.4.1",
         "path": "node_modules/semver/semver.js"
       },
       {

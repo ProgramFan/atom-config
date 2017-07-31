@@ -19,7 +19,7 @@ $ sudo ln -s ~/Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/
 添加 `ebook-convert` 到你的系統路徑。  
 
 ## eBook 例子
-一個電子書項目的例子可以查看 [這裡](https://github.com/shd101wyy/ebook-example).   
+一個電子書項目的例子可以查看 [這裡](https://github.com/shd101wyy/ebook-example)。   
 
 ## 開始編寫 eBook    
 你可以在你的 markdown 文件中添加 `ebook front-matter` 來設置你的電子書。     
@@ -210,6 +210,22 @@ ebook:
 ---
 ```  
 你可以在 [ebook-convert 手冊](https://manual.calibre-ebook.com/generated/en/ebook-convert.html) 中找到一系列的參數。  
+
+## 保存時自動導出
+Add the front-matter like below:  
+```yaml
+---
+export_on_save:
+  ebook: true
+  // or
+  ebook: "epub"
+  ebook: "pdf"
+  ebook: "mobi"
+  ebook: "html"
+  ebook: ["pdf", ...]
+---
+```
+這樣當你保存你的 markdown 文件時，電子書將會被自動導出。  
 
 
 ## 已知問題 & 局限

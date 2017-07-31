@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+        "raw": "/tmp/d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
-        "spec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+        "rawSpec": "/tmp/d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
+        "spec": "/tmp/d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-7229-pcuyot.jntrg7rpb9"
+      "/tmp/apm-install-dir-117631-7182-12ar06r.rbtmvrhpvi"
     ]
   ],
-  "_from": "../d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+  "_from": "../d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
   "_id": "autocomplete-python@1.9.1",
   "_inCache": true,
   "_location": "/autocomplete-python",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+    "raw": "/tmp/d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
-    "spec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+    "rawSpec": "/tmp/d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
+    "spec": "/tmp/d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
+  "_resolved": "file:../d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
   "_shasum": "716b4ce6c14abc4ce3ee49209e2aac0e8a4b2f7d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-7229-1fohcpm.tp3gbsxlxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-7229-pcuyot.jntrg7rpb9",
+  "_spec": "/tmp/d-117631-7182-1i9b1kv.eu6b7w4s4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-7182-12ar06r.rbtmvrhpvi",
   "bugs": {
     "url": "https://github.com/autocomplete-python/autocomplete-python/issues"
   },
@@ -125,7 +125,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {

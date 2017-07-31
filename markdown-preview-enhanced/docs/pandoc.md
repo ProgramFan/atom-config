@@ -7,7 +7,7 @@ You can use `pandoc document export` by right clicking at the preview, then you 
 ---
 
 ## Pandoc Parser
-By default **Markdown Preview Enhanced** uses [remarkable](https://github.com/jonschlinkert/remarkable) to parse markdown.  
+By default **Markdown Preview Enhanced** uses [markdown-it](https://github.com/markdown-it/markdown-it) to parse markdown.  
 You can also set it to `pandoc` parser from package settings.    
 
 ![Screen Shot 2017-03-07 at 10.05.25 PM](http://i.imgur.com/NdCJBgR.png)  
@@ -25,13 +25,12 @@ Please note that `--filter=pandoc-citeproc` will be automatically added if there
 **Known Issues & Limitations**:  
 1. `ebook` export has problem.  
 2. `Code Chunk` is sometimes buggy.  
-3. `Create TOC` command doesn't work, but `[TOC]` works.  
 
 ## Front-Matter   
 `pandoc document export` requires writing `front-matter`.  
 More information and tutorial about how to write `front-matter` can be found [here](https://jekyllrb.com/docs/frontmatter/).
 
-## Exports
+## Export
 
 You don't have to use the `Pandoc Parser` that I mentioned above to export files.    
 
@@ -47,6 +46,17 @@ Click the link below to see the document format that you want to export.
 
 You can also define your own custom document:  
 * [custom](pandoc-custom.md)
+
+## Export on save
+Add the front-matter like below:  
+```yaml
+---
+export_on_save:
+  pandoc: true
+---
+```
+So pandoc will run every time you save your markdown source file.  
+
 
 ## Articles  
 * [Bibliographies and Citations](pandoc-bibliographies-and-citations.md)

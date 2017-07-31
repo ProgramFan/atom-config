@@ -7,7 +7,7 @@ Pandoc 的安装说明可以参考 [这里](http://pandoc.org/installing.html)�
 ---
 
 ## Pandoc Parser
-默认情况下， **Markdown Preview Enhanced** 使用 [remarkable](https://github.com/jonschlinkert/remarkable) 来转换 markdown。  
+默认情况下， **Markdown Preview Enhanced** 使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来转换 markdown。  
 你也可以在插件设置中设置使用 `Pandoc Parser` 来转换 markdown。      
 
 ![Screen Shot 2017-03-07 at 10.05.25 PM](http://i.imgur.com/NdCJBgR.png)  
@@ -25,7 +25,6 @@ pandoc_args: ['--toc', '--toc-depth=2']
 **已知的问题 & 局限**:  
 1. `ebook` 导出有问题。  
 2. `Code Chunk` 有时候有问题。  
-3. `Create TOC` 命令无法工作，但是 `[TOC]` 这种写法没问题。  
 
 ## Front-Matter   
 `pandoc document export` 要求编写 `front-matter`。    
@@ -47,6 +46,18 @@ pandoc_args: ['--toc', '--toc-depth=2']
 
 你还可以创建你自己的自定义文档：
 * [custom](zh-cn/pandoc-custom.md)
+
+## 保存时自动导出
+添加 front-matter 如下：
+```yaml
+---
+export_on_save:
+  pandoc: true
+---
+```
+这样每次当你保存你的 markdown 文件时，pandoc 将会自动运行。
+
+
 
 ## 文章  
 * [Bibliographies and Citations](zh-cn/pandoc-bibliographies-and-citations.md)

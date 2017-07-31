@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
+        "raw": "/tmp/d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
-        "spec": "/tmp/d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
+        "rawSpec": "/tmp/d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
+        "spec": "/tmp/d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-5894-1elemr5.ytk55vzpvi"
+      "/tmp/apm-install-dir-117631-5862-j6z5pr.pnykz9f6r"
     ]
   ],
-  "_from": "../d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
-  "_id": "linter-spell@0.14.0",
+  "_from": "../d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
+  "_id": "linter-spell@0.15.0",
   "_inCache": true,
   "_location": "/linter-spell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
+    "raw": "/tmp/d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
-    "spec": "/tmp/d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
+    "rawSpec": "/tmp/d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
+    "spec": "/tmp/d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
-  "_shasum": "3600e5407bd75ad56f3dde25ee625786223e8388",
+  "_resolved": "file:../d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
+  "_shasum": "3ce10d295fd94e64432cc18280649024153ce7ed",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-5894-ba6ol8.tpqwha1yvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-5894-1elemr5.ytk55vzpvi",
+  "_spec": "/tmp/d-117631-5862-k1vtlz.gjdn2ymn29/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-5862-j6z5pr.pnykz9f6r",
   "author": {
     "name": "Tarn Burton",
     "email": "twburton@gmail.com"
@@ -129,10 +129,10 @@
   "dependencies": {
     "atom-package-deps": "^4.4.1",
     "atom-space-pen-views": "^2.2.0",
+    "jaro-winkler": "^0.2.8",
     "language-tags": "^1.0.5",
-    "linter-spell-word-list": "^0.4.2",
+    "linter-spell-word-list": "^0.5.0",
     "lodash": "^4.17.4",
-    "natural": "0.5.0",
     "os-locale": "^2.0.0"
   },
   "description": "Multilingual grammar-specific spell checking using Ispell-interface such as Aspell or Hunspell.",
@@ -200,15 +200,10 @@
       "HTMLDivElement"
     ]
   },
-  "version": "0.14.0",
+  "version": "0.15.0",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
-      {
-        "name": "apparatus",
-        "version": "0.0.9",
-        "path": "node_modules/apparatus/lib/apparatus/index.js"
-      },
       {
         "name": "atom-package-deps",
         "version": "4.6.0",
@@ -230,13 +225,8 @@
         "path": "node_modules/consistent-env/lib/index.js"
       },
       {
-        "name": "core-util-is",
-        "version": "1.0.2",
-        "path": "node_modules/core-util-is/lib/util.js"
-      },
-      {
         "name": "cross-spawn",
-        "version": "4.0.2",
+        "version": "5.1.0",
         "path": "node_modules/cross-spawn/index.js"
       },
       {
@@ -245,23 +235,13 @@
         "path": "node_modules/d/index.js"
       },
       {
-        "name": "date-format",
-        "version": "0.0.0",
-        "path": "node_modules/date-format/lib/index.js"
-      },
-      {
-        "name": "debug",
-        "version": "2.6.8",
-        "path": "node_modules/debug/src/index.js"
-      },
-      {
         "name": "emissary",
         "version": "1.3.3",
         "path": "node_modules/emissary/lib/emissary.js"
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -296,7 +276,7 @@
       },
       {
         "name": "execa",
-        "version": "0.5.1",
+        "version": "0.7.0",
         "path": "node_modules/execa/index.js"
       },
       {
@@ -306,18 +286,13 @@
       },
       {
         "name": "get-stream",
-        "version": "2.3.1",
+        "version": "3.0.0",
         "path": "node_modules/get-stream/index.js"
       },
       {
         "name": "grim",
         "version": "1.5.0",
         "path": "node_modules/grim/lib/grim.js"
-      },
-      {
-        "name": "inherits",
-        "version": "2.0.3",
-        "path": "node_modules/inherits/inherits.js"
       },
       {
         "name": "invert-kv",
@@ -335,14 +310,14 @@
         "path": "node_modules/is-utf8/is-utf8.js"
       },
       {
-        "name": "isarray",
-        "version": "0.0.1",
-        "path": "node_modules/isarray/index.js"
-      },
-      {
         "name": "isexe",
         "version": "2.0.0",
         "path": "node_modules/isexe/index.js"
+      },
+      {
+        "name": "jaro-winkler",
+        "version": "0.2.8",
+        "path": "node_modules/jaro-winkler/index.js"
       },
       {
         "name": "jquery",
@@ -361,13 +336,8 @@
       },
       {
         "name": "linter-spell-word-list",
-        "version": "0.4.2",
+        "version": "0.5.0",
         "path": "node_modules/linter-spell-word-list/main.js"
-      },
-      {
-        "name": "natural",
-        "version": "0.4.0",
-        "path": "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/index.js"
       },
       {
         "name": "lodash",
@@ -378,11 +348,6 @@
         "name": "lodash.uniq",
         "version": "4.5.0",
         "path": "node_modules/lodash.uniq/index.js"
-      },
-      {
-        "name": "log4js",
-        "version": "1.1.1",
-        "path": "node_modules/log4js/lib/log4js.js"
       },
       {
         "name": "lru-cache",
@@ -400,29 +365,9 @@
         "path": "node_modules/mimic-fn/index.js"
       },
       {
-        "name": "minimist",
-        "version": "0.0.8",
-        "path": "node_modules/minimist/index.js"
-      },
-      {
         "name": "mixto",
         "version": "1.0.0",
         "path": "node_modules/mixto/lib/mixin.js"
-      },
-      {
-        "name": "mkdirp",
-        "version": "0.5.1",
-        "path": "node_modules/mkdirp/index.js"
-      },
-      {
-        "name": "ms",
-        "version": "2.0.0",
-        "path": "node_modules/ms/index.js"
-      },
-      {
-        "name": "natural",
-        "version": "0.5.0",
-        "path": "node_modules/natural/lib/natural/index.js"
       },
       {
         "name": "npm-run-path",
@@ -430,13 +375,8 @@
         "path": "node_modules/npm-run-path/index.js"
       },
       {
-        "name": "object-assign",
-        "version": "4.1.1",
-        "path": "node_modules/object-assign/index.js"
-      },
-      {
         "name": "os-locale",
-        "version": "2.0.0",
+        "version": "2.1.0",
         "path": "node_modules/os-locale/index.js"
       },
       {
@@ -450,16 +390,6 @@
         "path": "node_modules/path-key/index.js"
       },
       {
-        "name": "pinkie",
-        "version": "2.0.4",
-        "path": "node_modules/pinkie/index.js"
-      },
-      {
-        "name": "pinkie-promise",
-        "version": "2.0.1",
-        "path": "node_modules/pinkie-promise/index.js"
-      },
-      {
         "name": "property-accessors",
         "version": "1.1.3",
         "path": "node_modules/property-accessors/lib/property-accessors.js"
@@ -468,11 +398,6 @@
         "name": "pseudomap",
         "version": "1.0.2",
         "path": "node_modules/pseudomap/map.js"
-      },
-      {
-        "name": "readable-stream",
-        "version": "1.1.14",
-        "path": "node_modules/readable-stream/readable.js"
       },
       {
         "name": "sb-callsite",
@@ -506,8 +431,18 @@
       },
       {
         "name": "semver",
-        "version": "5.3.0",
+        "version": "5.4.1",
         "path": "node_modules/semver/semver.js"
+      },
+      {
+        "name": "shebang-command",
+        "version": "1.2.0",
+        "path": "node_modules/shebang-command/index.js"
+      },
+      {
+        "name": "shebang-regex",
+        "version": "1.0.0",
+        "path": "node_modules/shebang-regex/index.js"
       },
       {
         "name": "signal-exit",
@@ -520,21 +455,6 @@
         "path": "node_modules/space-pen/lib/space-pen.js"
       },
       {
-        "name": "streamroller",
-        "version": "0.4.1",
-        "path": "node_modules/streamroller/lib/index.js"
-      },
-      {
-        "name": "debug",
-        "version": "0.7.4",
-        "path": "node_modules/streamroller/node_modules/debug/lib/debug.js"
-      },
-      {
-        "name": "string_decoder",
-        "version": "0.10.31",
-        "path": "node_modules/string_decoder/index.js"
-      },
-      {
         "name": "strip-bom-buf",
         "version": "1.0.0",
         "path": "node_modules/strip-bom-buf/index.js"
@@ -543,11 +463,6 @@
         "name": "strip-eof",
         "version": "1.0.0",
         "path": "node_modules/strip-eof/index.js"
-      },
-      {
-        "name": "sylvester",
-        "version": "0.0.21",
-        "path": "node_modules/sylvester/lib/node-sylvester/index.js"
       },
       {
         "name": "underscore",
@@ -582,13 +497,6 @@
         "lib/main.js",
         "lib/providers.js",
         "lib/spell.js",
-        "node_modules/apparatus/index.js",
-        "node_modules/apparatus/lib/apparatus/classifier/bayes_classifier.js",
-        "node_modules/apparatus/lib/apparatus/classifier/classifier.js",
-        "node_modules/apparatus/lib/apparatus/classifier/logistic_regression_classifier.js",
-        "node_modules/apparatus/lib/apparatus/classifier/randomforest_classifier.js",
-        "node_modules/apparatus/lib/apparatus/clusterer/kmeans.js",
-        "node_modules/apparatus/lib/apparatus/index.js",
         "node_modules/atom-package-deps/lib/helpers.js",
         "node_modules/atom-package-deps/lib/index.js",
         "node_modules/atom-package-deps/lib/types.js",
@@ -600,23 +508,17 @@
         "node_modules/atom-space-pen-views/lib/text-editor-view.js",
         "node_modules/consistent-env/lib/helpers.js",
         "node_modules/consistent-env/lib/index.js",
-        "node_modules/core-util-is/lib/util.js",
-        "node_modules/core-util-is/test.js",
         "node_modules/cross-spawn/index.js",
         "node_modules/cross-spawn/lib/enoent.js",
-        "node_modules/cross-spawn/lib/hasBrokenSpawn.js",
         "node_modules/cross-spawn/lib/parse.js",
-        "node_modules/cross-spawn/lib/resolveCommand.js",
+        "node_modules/cross-spawn/lib/util/escapeArgument.js",
+        "node_modules/cross-spawn/lib/util/escapeCommand.js",
+        "node_modules/cross-spawn/lib/util/hasEmptyArgumentBug.js",
+        "node_modules/cross-spawn/lib/util/readShebang.js",
+        "node_modules/cross-spawn/lib/util/resolveCommand.js",
         "node_modules/d/auto-bind.js",
         "node_modules/d/index.js",
         "node_modules/d/lazy.js",
-        "node_modules/date-format/lib/index.js",
-        "node_modules/debug/karma.conf.js",
-        "node_modules/debug/node.js",
-        "node_modules/debug/src/browser.js",
-        "node_modules/debug/src/debug.js",
-        "node_modules/debug/src/index.js",
-        "node_modules/debug/src/node.js",
         "node_modules/emissary/lib/behavior.js",
         "node_modules/emissary/lib/emissary.js",
         "node_modules/emissary/lib/emitter.js",
@@ -1054,6 +956,7 @@
         "node_modules/es6-weak-map/valid-weak-map.js",
         "node_modules/execa/index.js",
         "node_modules/execa/lib/errname.js",
+        "node_modules/execa/lib/stdio.js",
         "node_modules/fuzzaldrin/lib/filter.js",
         "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
         "node_modules/fuzzaldrin/lib/matcher.js",
@@ -1062,16 +965,13 @@
         "node_modules/get-stream/index.js",
         "node_modules/grim/lib/deprecation.js",
         "node_modules/grim/lib/grim.js",
-        "node_modules/inherits/inherits.js",
-        "node_modules/inherits/inherits_browser.js",
         "node_modules/invert-kv/index.js",
         "node_modules/is-stream/index.js",
         "node_modules/is-utf8/is-utf8.js",
-        "node_modules/isarray/build/build.js",
-        "node_modules/isarray/index.js",
         "node_modules/isexe/index.js",
         "node_modules/isexe/mode.js",
         "node_modules/isexe/windows.js",
+        "node_modules/jaro-winkler/index.js",
         "node_modules/jquery/dist/jquery.js",
         "node_modules/jquery/dist/jquery.min.js",
         "node_modules/jquery/src/ajax/jsonp.js",
@@ -1162,101 +1062,6 @@
         "node_modules/language-tags/lib/index.js",
         "node_modules/lcid/index.js",
         "node_modules/linter-spell-word-list/main.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/index.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/analyzers/sentence_analyzer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/brill_pos_tagger/lib/Brill_POS_Tagger.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/brill_pos_tagger/lib/Predicate.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/brill_pos_tagger/lib/TF_Parser.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/brill_pos_tagger/lib/TransformationRule.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/classifiers/bayes_classifier.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/classifiers/classifier.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/classifiers/logistic_regression_classifier.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/distance/dice_coefficient.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/distance/jaro-winkler_distance.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/distance/levenshtein_distance.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/index.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/count_inflector.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/form_set.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/fr/count_inflector.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/fr/noun_inflector.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/ja/noun_inflector.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/noun_inflector.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/present_verb_inflector.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/singular_plural_inflector.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/ngrams/ngrams.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/ngrams/ngrams_zh.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/normalizers/normalizer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/normalizers/normalizer_ja.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/normalizers/normalizer_no.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/normalizers/remove_diacritics.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/phonetics/dm_soundex.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/phonetics/double_metaphone.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/phonetics/metaphone.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/phonetics/phonetic.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/phonetics/soundex.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/spellcheck/spellcheck.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/lancaster_rules.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/lancaster_stemmer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/porter_stemmer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/porter_stemmer_es.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/porter_stemmer_fa.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/porter_stemmer_fr.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/porter_stemmer_it.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/porter_stemmer_no.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/porter_stemmer_pt.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/porter_stemmer_ru.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_es.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_fa.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_fr.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_it.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_ja.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_no.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_pl.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_pt.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/stemmer_ru.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers/token.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tfidf/tfidf.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_es.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_fa.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_fr.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_it.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_nl.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_no.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_pl.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_pt.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_ru.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/regexp_tokenizer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/sentence_tokenizer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/tokenizer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/tokenizer_case.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/tokenizer_ja.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers/treebank_word_tokenizer.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/transliterators/ja/index.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/trie/trie.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/bag.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/edge_weighted_digraph.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/longest_path_tree.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/shortest_path_tree.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_es.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_fa.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_fr.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_it.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_ja.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_nl.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_no.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_pl.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_pt.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_ru.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/stopwords_zh.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/topological.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util/utils.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/wordnet/data_file.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/wordnet/index_file.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/wordnet/wordnet.js",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/wordnet/wordnet_file.js",
         "node_modules/lodash/_DataView.js",
         "node_modules/lodash/_Hash.js",
         "node_modules/lodash/_LazyWrapper.js",
@@ -2307,175 +2112,17 @@
         "node_modules/lodash/zipObjectDeep.js",
         "node_modules/lodash/zipWith.js",
         "node_modules/lodash.uniq/index.js",
-        "node_modules/log4js/coverage/lcov-report/prettify.js",
-        "node_modules/log4js/coverage/lcov-report/sorter.js",
-        "node_modules/log4js/examples/example-connect-logger.js",
-        "node_modules/log4js/examples/example-socket.js",
-        "node_modules/log4js/examples/example.js",
-        "node_modules/log4js/examples/flush-on-exit.js",
-        "node_modules/log4js/examples/fromreadme.js",
-        "node_modules/log4js/examples/hipchat-appender.js",
-        "node_modules/log4js/examples/log-rolling.js",
-        "node_modules/log4js/examples/log-to-files.js",
-        "node_modules/log4js/examples/logFaces-appender.js",
-        "node_modules/log4js/examples/loggly-appender.js",
-        "node_modules/log4js/examples/logstashUDP.js",
-        "node_modules/log4js/examples/memory-test.js",
-        "node_modules/log4js/examples/patternLayout-tokens.js",
-        "node_modules/log4js/examples/reload.js",
-        "node_modules/log4js/examples/slack-appender.js",
-        "node_modules/log4js/examples/smtp-appender.js",
-        "node_modules/log4js/lib/appenders/categoryFilter.js",
-        "node_modules/log4js/lib/appenders/clustered.js",
-        "node_modules/log4js/lib/appenders/console.js",
-        "node_modules/log4js/lib/appenders/dateFile.js",
-        "node_modules/log4js/lib/appenders/file.js",
-        "node_modules/log4js/lib/appenders/fileSync.js",
-        "node_modules/log4js/lib/appenders/gelf.js",
-        "node_modules/log4js/lib/appenders/hipchat.js",
-        "node_modules/log4js/lib/appenders/logFacesAppender.js",
-        "node_modules/log4js/lib/appenders/logLevelFilter.js",
-        "node_modules/log4js/lib/appenders/loggly.js",
-        "node_modules/log4js/lib/appenders/logstashUDP.js",
-        "node_modules/log4js/lib/appenders/mailgun.js",
-        "node_modules/log4js/lib/appenders/multiprocess.js",
-        "node_modules/log4js/lib/appenders/slack.js",
-        "node_modules/log4js/lib/appenders/smtp.js",
-        "node_modules/log4js/lib/appenders/stderr.js",
-        "node_modules/log4js/lib/appenders/stdout.js",
-        "node_modules/log4js/lib/connect-logger.js",
-        "node_modules/log4js/lib/date_format.js",
-        "node_modules/log4js/lib/layouts.js",
-        "node_modules/log4js/lib/levels.js",
-        "node_modules/log4js/lib/log4js.js",
-        "node_modules/log4js/lib/logger.js",
         "node_modules/lru-cache/index.js",
         "node_modules/mem/index.js",
         "node_modules/mimic-fn/index.js",
-        "node_modules/minimist/example/parse.js",
-        "node_modules/minimist/index.js",
         "node_modules/mixto/lib/mixin.js",
-        "node_modules/mkdirp/bin/cmd.js",
-        "node_modules/mkdirp/examples/pow.js",
-        "node_modules/mkdirp/index.js",
-        "node_modules/ms/index.js",
-        "node_modules/natural/index.js",
-        "node_modules/natural/lib/natural/analyzers/sentence_analyzer.js",
-        "node_modules/natural/lib/natural/brill_pos_tagger/lib/Brill_POS_Tagger.js",
-        "node_modules/natural/lib/natural/brill_pos_tagger/lib/Lexicon.js",
-        "node_modules/natural/lib/natural/brill_pos_tagger/lib/Predicate.js",
-        "node_modules/natural/lib/natural/brill_pos_tagger/lib/RuleSet.js",
-        "node_modules/natural/lib/natural/brill_pos_tagger/lib/TF_Parser.js",
-        "node_modules/natural/lib/natural/brill_pos_tagger/lib/TransformationRule.js",
-        "node_modules/natural/lib/natural/classifiers/bayes_classifier.js",
-        "node_modules/natural/lib/natural/classifiers/classifier.js",
-        "node_modules/natural/lib/natural/classifiers/logistic_regression_classifier.js",
-        "node_modules/natural/lib/natural/distance/dice_coefficient.js",
-        "node_modules/natural/lib/natural/distance/jaro-winkler_distance.js",
-        "node_modules/natural/lib/natural/distance/levenshtein_distance.js",
-        "node_modules/natural/lib/natural/index.js",
-        "node_modules/natural/lib/natural/inflectors/count_inflector.js",
-        "node_modules/natural/lib/natural/inflectors/form_set.js",
-        "node_modules/natural/lib/natural/inflectors/fr/count_inflector.js",
-        "node_modules/natural/lib/natural/inflectors/fr/noun_inflector.js",
-        "node_modules/natural/lib/natural/inflectors/ja/noun_inflector.js",
-        "node_modules/natural/lib/natural/inflectors/noun_inflector.js",
-        "node_modules/natural/lib/natural/inflectors/present_verb_inflector.js",
-        "node_modules/natural/lib/natural/inflectors/singular_plural_inflector.js",
-        "node_modules/natural/lib/natural/ngrams/ngrams.js",
-        "node_modules/natural/lib/natural/ngrams/ngrams_zh.js",
-        "node_modules/natural/lib/natural/normalizers/normalizer.js",
-        "node_modules/natural/lib/natural/normalizers/normalizer_ja.js",
-        "node_modules/natural/lib/natural/normalizers/normalizer_no.js",
-        "node_modules/natural/lib/natural/normalizers/remove_diacritics.js",
-        "node_modules/natural/lib/natural/phonetics/dm_soundex.js",
-        "node_modules/natural/lib/natural/phonetics/double_metaphone.js",
-        "node_modules/natural/lib/natural/phonetics/metaphone.js",
-        "node_modules/natural/lib/natural/phonetics/phonetic.js",
-        "node_modules/natural/lib/natural/phonetics/soundex.js",
-        "node_modules/natural/lib/natural/spellcheck/spellcheck.js",
-        "node_modules/natural/lib/natural/stemmers/lancaster_rules.js",
-        "node_modules/natural/lib/natural/stemmers/lancaster_stemmer.js",
-        "node_modules/natural/lib/natural/stemmers/porter_stemmer.js",
-        "node_modules/natural/lib/natural/stemmers/porter_stemmer_es.js",
-        "node_modules/natural/lib/natural/stemmers/porter_stemmer_fa.js",
-        "node_modules/natural/lib/natural/stemmers/porter_stemmer_fr.js",
-        "node_modules/natural/lib/natural/stemmers/porter_stemmer_it.js",
-        "node_modules/natural/lib/natural/stemmers/porter_stemmer_no.js",
-        "node_modules/natural/lib/natural/stemmers/porter_stemmer_pt.js",
-        "node_modules/natural/lib/natural/stemmers/porter_stemmer_ru.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_es.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_fa.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_fr.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_it.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_ja.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_no.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_pl.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_pt.js",
-        "node_modules/natural/lib/natural/stemmers/stemmer_ru.js",
-        "node_modules/natural/lib/natural/stemmers/token.js",
-        "node_modules/natural/lib/natural/tfidf/tfidf.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_es.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_fa.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_fr.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_it.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_nl.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_no.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_pl.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_pt.js",
-        "node_modules/natural/lib/natural/tokenizers/aggressive_tokenizer_ru.js",
-        "node_modules/natural/lib/natural/tokenizers/regexp_tokenizer.js",
-        "node_modules/natural/lib/natural/tokenizers/sentence_tokenizer.js",
-        "node_modules/natural/lib/natural/tokenizers/tokenizer.js",
-        "node_modules/natural/lib/natural/tokenizers/tokenizer_case.js",
-        "node_modules/natural/lib/natural/tokenizers/tokenizer_ja.js",
-        "node_modules/natural/lib/natural/tokenizers/treebank_word_tokenizer.js",
-        "node_modules/natural/lib/natural/transliterators/ja/index.js",
-        "node_modules/natural/lib/natural/trie/trie.js",
-        "node_modules/natural/lib/natural/util/bag.js",
-        "node_modules/natural/lib/natural/util/edge_weighted_digraph.js",
-        "node_modules/natural/lib/natural/util/longest_path_tree.js",
-        "node_modules/natural/lib/natural/util/shortest_path_tree.js",
-        "node_modules/natural/lib/natural/util/stopwords.js",
-        "node_modules/natural/lib/natural/util/stopwords_es.js",
-        "node_modules/natural/lib/natural/util/stopwords_fa.js",
-        "node_modules/natural/lib/natural/util/stopwords_fr.js",
-        "node_modules/natural/lib/natural/util/stopwords_it.js",
-        "node_modules/natural/lib/natural/util/stopwords_ja.js",
-        "node_modules/natural/lib/natural/util/stopwords_nl.js",
-        "node_modules/natural/lib/natural/util/stopwords_no.js",
-        "node_modules/natural/lib/natural/util/stopwords_pl.js",
-        "node_modules/natural/lib/natural/util/stopwords_pt.js",
-        "node_modules/natural/lib/natural/util/stopwords_ru.js",
-        "node_modules/natural/lib/natural/util/stopwords_zh.js",
-        "node_modules/natural/lib/natural/util/topological.js",
-        "node_modules/natural/lib/natural/util/utils.js",
-        "node_modules/natural/lib/natural/wordnet/data_file.js",
-        "node_modules/natural/lib/natural/wordnet/index_file.js",
-        "node_modules/natural/lib/natural/wordnet/wordnet.js",
-        "node_modules/natural/lib/natural/wordnet/wordnet_file.js",
         "node_modules/npm-run-path/index.js",
-        "node_modules/object-assign/index.js",
         "node_modules/os-locale/index.js",
         "node_modules/p-finally/index.js",
         "node_modules/path-key/index.js",
-        "node_modules/pinkie/index.js",
-        "node_modules/pinkie-promise/index.js",
         "node_modules/property-accessors/lib/property-accessors.js",
         "node_modules/pseudomap/map.js",
         "node_modules/pseudomap/pseudomap.js",
-        "node_modules/readable-stream/duplex.js",
-        "node_modules/readable-stream/lib/_stream_duplex.js",
-        "node_modules/readable-stream/lib/_stream_passthrough.js",
-        "node_modules/readable-stream/lib/_stream_readable.js",
-        "node_modules/readable-stream/lib/_stream_transform.js",
-        "node_modules/readable-stream/lib/_stream_writable.js",
-        "node_modules/readable-stream/passthrough.js",
-        "node_modules/readable-stream/readable.js",
-        "node_modules/readable-stream/transform.js",
-        "node_modules/readable-stream/writable.js",
         "node_modules/sb-callsite/lib/main.js",
         "node_modules/sb-exec/decls/jasmine.js",
         "node_modules/sb-exec/lib/helpers.js",
@@ -2488,30 +2135,13 @@
         "node_modules/sb-npm-path/lib/index.js",
         "node_modules/sb-promisify/lib/index.js",
         "node_modules/semver/semver.js",
+        "node_modules/shebang-command/index.js",
+        "node_modules/shebang-regex/index.js",
         "node_modules/signal-exit/index.js",
         "node_modules/signal-exit/signals.js",
         "node_modules/space-pen/lib/space-pen.js",
-        "node_modules/streamroller/lib/BaseRollingFileStream.js",
-        "node_modules/streamroller/lib/DateRollingFileStream.js",
-        "node_modules/streamroller/lib/RollingFileStream.js",
-        "node_modules/streamroller/lib/index.js",
-        "node_modules/streamroller/node_modules/debug/debug.js",
-        "node_modules/streamroller/node_modules/debug/index.js",
-        "node_modules/streamroller/node_modules/debug/lib/debug.js",
-        "node_modules/string_decoder/index.js",
         "node_modules/strip-bom-buf/index.js",
         "node_modules/strip-eof/index.js",
-        "node_modules/sylvester/index.js",
-        "node_modules/sylvester/lib/node-sylvester/index.js",
-        "node_modules/sylvester/lib/node-sylvester/line.js",
-        "node_modules/sylvester/lib/node-sylvester/line.segment.js",
-        "node_modules/sylvester/lib/node-sylvester/linkedlist.js",
-        "node_modules/sylvester/lib/node-sylvester/matrix.js",
-        "node_modules/sylvester/lib/node-sylvester/plane.js",
-        "node_modules/sylvester/lib/node-sylvester/polygon.js",
-        "node_modules/sylvester/lib/node-sylvester/polygon.vertex.js",
-        "node_modules/sylvester/lib/node-sylvester/sylvester.js",
-        "node_modules/sylvester/lib/node-sylvester/vector.js",
         "node_modules/underscore/underscore-min.js",
         "node_modules/underscore/underscore.js",
         "node_modules/underscore-plus/lib/underscore-plus.js",
@@ -2521,19 +2151,14 @@
       ],
       ".json": [
         "lib/likely-subtags.json",
-        "node_modules/apparatus/package.json",
         "node_modules/atom-package-deps/.eslintrc.json",
         "node_modules/atom-package-deps/package.json",
         "node_modules/atom-package-path/package.json",
         "node_modules/atom-space-pen-views/package.json",
         "node_modules/consistent-env/.eslintrc.json",
         "node_modules/consistent-env/package.json",
-        "node_modules/core-util-is/package.json",
         "node_modules/cross-spawn/package.json",
         "node_modules/d/package.json",
-        "node_modules/date-format/package.json",
-        "node_modules/debug/component.json",
-        "node_modules/debug/package.json",
         "node_modules/emissary/package.json",
         "node_modules/es5-ext/node_modules/d/package.json",
         "node_modules/es5-ext/node_modules/es6-iterator/package.json",
@@ -2546,13 +2171,11 @@
         "node_modules/fuzzaldrin/package.json",
         "node_modules/get-stream/package.json",
         "node_modules/grim/package.json",
-        "node_modules/inherits/package.json",
         "node_modules/invert-kv/package.json",
         "node_modules/is-stream/package.json",
         "node_modules/is-utf8/package.json",
-        "node_modules/isarray/component.json",
-        "node_modules/isarray/package.json",
         "node_modules/isexe/package.json",
+        "node_modules/jaro-winkler/package.json",
         "node_modules/jquery/bower.json",
         "node_modules/jquery/package.json",
         "node_modules/language-subtag-registry/data/json/collection.json",
@@ -2574,56 +2197,19 @@
         "node_modules/language-tags/package.json",
         "node_modules/lcid/lcid.json",
         "node_modules/lcid/package.json",
-        "node_modules/linter-spell-word-list/node_modules/natural/bayes_classifier.json",
-        "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/brill_pos_tagger/data/English/lexicon_from_posjs.json",
-        "node_modules/linter-spell-word-list/node_modules/natural/lr_classifier.json",
-        "node_modules/linter-spell-word-list/node_modules/natural/package.json",
         "node_modules/linter-spell-word-list/package.json",
         "node_modules/lodash/package.json",
         "node_modules/lodash.uniq/package.json",
-        "node_modules/log4js/.bob.json",
-        "node_modules/log4js/.nyc_output/02ca1e00ec81fc17e1351df0472d87b7.json",
-        "node_modules/log4js/.nyc_output/0988c4c397adb1997f90bf142165dce7.json",
-        "node_modules/log4js/.nyc_output/3015553fcfdf0e9916bf3b037b1df73c.json",
-        "node_modules/log4js/.nyc_output/38ce0be7f4779eb5664908ef21b17ca1.json",
-        "node_modules/log4js/.nyc_output/3a093ac247f1d0be45cbdd9876b6e944.json",
-        "node_modules/log4js/.nyc_output/3aab46a07ffafe66099d01e8635ade94.json",
-        "node_modules/log4js/.nyc_output/3c49dddbac81af881cb6eb205d8fcc9d.json",
-        "node_modules/log4js/.nyc_output/40d3ebd99aa6c65a69969834ecfa7a79.json",
-        "node_modules/log4js/.nyc_output/45223ee8e60afe371609e371646b7357.json",
-        "node_modules/log4js/.nyc_output/4e458f2483da43c8f95a56aae9dcc673.json",
-        "node_modules/log4js/.nyc_output/5fb9afbcdc27f7c3c6988bb80ceea0c9.json",
-        "node_modules/log4js/.nyc_output/78e9865c5443a3f710c9c62e304739e1.json",
-        "node_modules/log4js/.nyc_output/9403b016e12a3b293747ff33f7930b9b.json",
-        "node_modules/log4js/.nyc_output/9aa39670c2cb9fae8644314e7fbd3b30.json",
-        "node_modules/log4js/.nyc_output/a973bb3d7ef05123c649d42bfb29a26d.json",
-        "node_modules/log4js/.nyc_output/c1e4884bd268431ff16841e915acf84e.json",
-        "node_modules/log4js/.nyc_output/c75d0c0f70f301257186becdb212faa5.json",
-        "node_modules/log4js/.nyc_output/e15080a8269a078d5f2e39644e615fb3.json",
-        "node_modules/log4js/.nyc_output/e76e9fdb36afb1bd42e0a5ce3ac69787.json",
-        "node_modules/log4js/.nyc_output/f01e1c5c2470f9b9742598279127bb3f.json",
-        "node_modules/log4js/.nyc_output/fbd06bed1e00a6a71d30ccbc518ca25b.json",
-        "node_modules/log4js/.nyc_output/fedad7eb0a87bc8817b02fd4d7a7b248.json",
-        "node_modules/log4js/package.json",
         "node_modules/lru-cache/package.json",
         "node_modules/mem/package.json",
         "node_modules/mimic-fn/package.json",
-        "node_modules/minimist/package.json",
         "node_modules/mixto/package.json",
-        "node_modules/mkdirp/package.json",
-        "node_modules/ms/package.json",
-        "node_modules/natural/lib/natural/brill_pos_tagger/data/English/lexicon_from_posjs.json",
-        "node_modules/natural/package.json",
         "node_modules/npm-run-path/package.json",
-        "node_modules/object-assign/package.json",
         "node_modules/os-locale/package.json",
         "node_modules/p-finally/package.json",
         "node_modules/path-key/package.json",
-        "node_modules/pinkie/package.json",
-        "node_modules/pinkie-promise/package.json",
         "node_modules/property-accessors/package.json",
         "node_modules/pseudomap/package.json",
-        "node_modules/readable-stream/package.json",
         "node_modules/sb-callsite/package.json",
         "node_modules/sb-exec/.eslintrc.json",
         "node_modules/sb-exec/package.json",
@@ -2634,15 +2220,13 @@
         "node_modules/sb-npm-path/package.json",
         "node_modules/sb-promisify/package.json",
         "node_modules/semver/package.json",
+        "node_modules/shebang-command/package.json",
+        "node_modules/shebang-regex/package.json",
         "node_modules/signal-exit/package.json",
         "node_modules/space-pen/api.json",
         "node_modules/space-pen/package.json",
-        "node_modules/streamroller/node_modules/debug/package.json",
-        "node_modules/streamroller/package.json",
-        "node_modules/string_decoder/package.json",
         "node_modules/strip-bom-buf/package.json",
         "node_modules/strip-eof/package.json",
-        "node_modules/sylvester/package.json",
         "node_modules/underscore/package.json",
         "node_modules/underscore-plus/package.json",
         "node_modules/which/package.json",
@@ -2662,23 +2246,11 @@
         "dependencies": {
           "atom-package-deps": "^4.4.1",
           "atom-space-pen-views": "^2.2.0",
+          "jaro-winkler": "^0.2.8",
           "language-tags": "^1.0.5",
-          "linter-spell-word-list": "^0.4.2",
+          "linter-spell-word-list": "^0.5.0",
           "lodash": "^4.17.4",
-          "natural": "0.5.0",
           "os-locale": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/apparatus",
-          "node_modules/apparatus/lib/apparatus/classifier",
-          "node_modules/apparatus/lib/apparatus/clusterer",
-          "node_modules/apparatus/lib/apparatus",
-          "node_modules/apparatus/spec"
-        ],
-        "dependencies": {
-          "sylvester": ">= 0.0.8"
         }
       },
       {
@@ -2725,10 +2297,12 @@
       {
         "paths": [
           "node_modules/cross-spawn",
-          "node_modules/cross-spawn/lib"
+          "node_modules/cross-spawn/lib",
+          "node_modules/cross-spawn/lib/util"
         ],
         "dependencies": {
           "lru-cache": "^4.0.1",
+          "shebang-command": "^1.2.0",
           "which": "^1.2.9"
         }
       },
@@ -2739,15 +2313,6 @@
         ],
         "dependencies": {
           "es5-ext": "~0.10.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/debug",
-          "node_modules/debug/src"
-        ],
-        "dependencies": {
-          "ms": "2.0.0"
         }
       },
       {
@@ -2997,22 +2562,13 @@
           "node_modules/execa/lib"
         ],
         "dependencies": {
-          "cross-spawn": "^4.0.0",
-          "get-stream": "^2.2.0",
+          "cross-spawn": "^5.0.1",
+          "get-stream": "^3.0.0",
           "is-stream": "^1.1.0",
           "npm-run-path": "^2.0.0",
           "p-finally": "^1.0.0",
           "signal-exit": "^3.0.0",
           "strip-eof": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/get-stream"
-        ],
-        "dependencies": {
-          "object-assign": "^4.0.1",
-          "pinkie-promise": "^2.0.0"
         }
       },
       {
@@ -3047,56 +2603,8 @@
           "node_modules/linter-spell-word-list"
         ],
         "dependencies": {
-          "lodash": "^4.13.0",
-          "natural": "^0.4.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/linter-spell-word-list/node_modules/natural",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/analyzers",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/brill_pos_tagger/data/English",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/brill_pos_tagger/lib",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/classifiers",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/distance",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/fr",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/inflectors/ja",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/ngrams",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/normalizers",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/phonetics",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/spellcheck",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/stemmers",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tfidf",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/tokenizers",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/transliterators/ja",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/trie",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/util",
-          "node_modules/linter-spell-word-list/node_modules/natural/lib/natural/wordnet"
-        ],
-        "dependencies": {
-          "apparatus": ">= 0.0.9",
-          "log4js": "*",
-          "sylvester": ">= 0.0.12",
-          "underscore": ">=1.3.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/log4js",
-          "node_modules/log4js/.nyc_output",
-          "node_modules/log4js/coverage/lcov-report",
-          "node_modules/log4js/examples",
-          "node_modules/log4js/lib/appenders",
-          "node_modules/log4js/lib",
-          "node_modules/log4js/test/tape",
-          "node_modules/log4js/test/vows"
-        ],
-        "dependencies": {
-          "debug": "^2.2.0",
-          "semver": "^5.3.0",
-          "streamroller": "^0.4.0"
+          "jaro-winkler": "^0.2.8",
+          "lodash": "^4.13.0"
         }
       },
       {
@@ -3118,47 +2626,6 @@
       },
       {
         "paths": [
-          "node_modules/mkdirp/bin",
-          "node_modules/mkdirp/examples",
-          "node_modules/mkdirp",
-          "node_modules/mkdirp/test"
-        ],
-        "dependencies": {
-          "minimist": "0.0.8"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/natural",
-          "node_modules/natural/lib/natural/analyzers",
-          "node_modules/natural/lib/natural/brill_pos_tagger/data/English",
-          "node_modules/natural/lib/natural/brill_pos_tagger/lib",
-          "node_modules/natural/lib/natural/classifiers",
-          "node_modules/natural/lib/natural/distance",
-          "node_modules/natural/lib/natural",
-          "node_modules/natural/lib/natural/inflectors",
-          "node_modules/natural/lib/natural/inflectors/fr",
-          "node_modules/natural/lib/natural/inflectors/ja",
-          "node_modules/natural/lib/natural/ngrams",
-          "node_modules/natural/lib/natural/normalizers",
-          "node_modules/natural/lib/natural/phonetics",
-          "node_modules/natural/lib/natural/spellcheck",
-          "node_modules/natural/lib/natural/stemmers",
-          "node_modules/natural/lib/natural/tfidf",
-          "node_modules/natural/lib/natural/tokenizers",
-          "node_modules/natural/lib/natural/transliterators/ja",
-          "node_modules/natural/lib/natural/trie",
-          "node_modules/natural/lib/natural/util",
-          "node_modules/natural/lib/natural/wordnet"
-        ],
-        "dependencies": {
-          "apparatus": ">= 0.0.9",
-          "sylvester": ">= 0.0.12",
-          "underscore": ">=1.3.1"
-        }
-      },
-      {
-        "paths": [
           "node_modules/npm-run-path"
         ],
         "dependencies": {
@@ -3170,17 +2637,9 @@
           "node_modules/os-locale"
         ],
         "dependencies": {
-          "execa": "^0.5.0",
+          "execa": "^0.7.0",
           "lcid": "^1.0.0",
           "mem": "^1.1.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/pinkie-promise"
-        ],
-        "dependencies": {
-          "pinkie": "^2.0.0"
         }
       },
       {
@@ -3191,18 +2650,6 @@
         "dependencies": {
           "es6-weak-map": "^0.1.2",
           "mixto": "1.x"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/readable-stream",
-          "node_modules/readable-stream/lib"
-        ],
-        "dependencies": {
-          "core-util-is": "~1.0.0",
-          "inherits": "~2.0.1",
-          "isarray": "0.0.1",
-          "string_decoder": "~0.10.x"
         }
       },
       {
@@ -3240,6 +2687,14 @@
       },
       {
         "paths": [
+          "node_modules/shebang-command"
+        ],
+        "dependencies": {
+          "shebang-regex": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
           "node_modules/space-pen",
           "node_modules/space-pen/lib"
         ],
@@ -3247,19 +2702,6 @@
           "grim": "^1.0.0",
           "jquery": "2.1.4",
           "underscore-plus": "1.x"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/streamroller/lib",
-          "node_modules/streamroller",
-          "node_modules/streamroller/test"
-        ],
-        "dependencies": {
-          "date-format": "^0.0.0",
-          "debug": "^0.7.2",
-          "mkdirp": "^0.5.1",
-          "readable-stream": "^1.1.7"
         }
       },
       {

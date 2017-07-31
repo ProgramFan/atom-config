@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+        "raw": "/tmp/d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
-        "spec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+        "rawSpec": "/tmp/d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
+        "spec": "/tmp/d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-7635-64s95f.4pob7w4s4i"
+      "/tmp/apm-install-dir-117631-7587-xilgss.4jt9um1jor"
     ]
   ],
-  "_from": "../d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+  "_from": "../d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
   "_id": "sync-settings@0.8.2",
   "_inCache": true,
   "_location": "/sync-settings",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+    "raw": "/tmp/d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
-    "spec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+    "rawSpec": "/tmp/d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
+    "spec": "/tmp/d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
+  "_resolved": "file:../d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
   "_shasum": "276016dcb9f53f218899cc24ca6eb614c51a9f4a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-7635-p60q0l.kx1qcnxw29/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-7635-64s95f.4pob7w4s4i",
+  "_spec": "/tmp/d-117631-7587-1wvjt32.61vc2fbt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-7587-xilgss.4jt9um1jor",
   "bugs": {
     "url": "https://github.com/atom-community/sync-settings/issues"
   },
@@ -111,7 +111,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {

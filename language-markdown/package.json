@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
+        "raw": "/tmp/d-117631-6171-154c4d3.z94ab2csor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
-        "spec": "/tmp/d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
+        "rawSpec": "/tmp/d-117631-6171-154c4d3.z94ab2csor/package.tgz",
+        "spec": "/tmp/d-117631-6171-154c4d3.z94ab2csor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-6205-1qki52v.ezgqy9cnmi"
+      "/tmp/apm-install-dir-117631-6171-14hg2z6.ccdtkgwrk9"
     ]
   ],
-  "_from": "../d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
-  "_id": "language-markdown@0.23.0",
+  "_from": "../d-117631-6171-154c4d3.z94ab2csor/package.tgz",
+  "_id": "language-markdown@0.25.1",
   "_inCache": true,
   "_location": "/language-markdown",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
+    "raw": "/tmp/d-117631-6171-154c4d3.z94ab2csor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
-    "spec": "/tmp/d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
+    "rawSpec": "/tmp/d-117631-6171-154c4d3.z94ab2csor/package.tgz",
+    "spec": "/tmp/d-117631-6171-154c4d3.z94ab2csor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
-  "_shasum": "7f5c386ab8debf4858f6f14315054b3dda98f5c4",
+  "_resolved": "file:../d-117631-6171-154c4d3.z94ab2csor/package.tgz",
+  "_shasum": "c1f0d3aa8a9e7bc183949db008cea0aad0630f0f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-6205-gvjwvc.7nmnp14i/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-6205-1qki52v.ezgqy9cnmi",
+  "_spec": "/tmp/d-117631-6171-154c4d3.z94ab2csor/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-6171-14hg2z6.ccdtkgwrk9",
   "bugs": {
     "url": "https://github.com/burodepeper/language-markdown/issues"
   },
@@ -67,7 +67,7 @@
     "r markdown"
   ],
   "license": "MIT",
-  "main": "lib/main.coffee",
+  "main": "lib/main.js",
   "name": "language-markdown",
   "optionalDependencies": {},
   "private": true,
@@ -77,7 +77,7 @@
     "type": "git",
     "url": "git+https://github.com/burodepeper/language-markdown.git"
   },
-  "version": "0.23.0",
+  "version": "0.25.1",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -220,8 +220,7 @@
     "extensions": {
       ".js": [
         "lib/GrammarCompiler.js",
-        "lib/__main.js",
-        "lib/functions.js",
+        "lib/main.js",
         "node_modules/async/dist/async.js",
         "node_modules/async/dist/async.min.js",
         "node_modules/async/lib/async.js",
@@ -732,11 +731,6 @@
         "node_modules/wordwrap/index.js",
         "node_modules/wrappy/wrappy.js"
       ],
-      ".coffee": [
-        "lib/main.coffee",
-        "node_modules/lib-ass/lib/ass-test.coffee",
-        "node_modules/lib-ass/lib/ass.coffee"
-      ],
       ".json": [
         "node_modules/async/package.json",
         "node_modules/balanced-match/package.json",
@@ -767,6 +761,10 @@
         "node_modules/wordwrap/package.json",
         "node_modules/wrappy/package.json",
         "package.json"
+      ],
+      ".coffee": [
+        "node_modules/lib-ass/lib/ass-test.coffee",
+        "node_modules/lib-ass/lib/ass.coffee"
       ]
     },
     "folders": [

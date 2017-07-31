@@ -1,5 +1,2 @@
-.DS_Store
-npm-debug.log
-node_modules
-styles/theme.less
-package-lock.json
+src
+docs

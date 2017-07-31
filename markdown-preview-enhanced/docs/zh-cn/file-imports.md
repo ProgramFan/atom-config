@@ -4,10 +4,12 @@
 
 ## 咋使呢？  
 仅仅  
-  ```markdown
-  @import "你的文件"  
-  ```
+
+`@import "你的文件"`  
+
 就可以了，很简单对吧～ <code>d(\`･∀･)b</code>
+
+`<!-- @import "your_file" -->` 的写法也是支持的。
 
 ## 刷新按钮
 刷新按钮可以在你的预览右上角找到。  
@@ -22,17 +24,16 @@
 * `.mermaid` 将会被 mermaid 渲染。  
 * `.dot` 文件将会被 viz.js (graphviz) 渲染。  
 * `.plantuml(.puml)` 文件将会被 PlantUML 渲染。
-* `.wavedrom` 文件将会被 wavedrom 渲染。  
 * `.html` 将会直接被引入。  
-* `.js` 将会在 `window` 范围内被执行。它的作用类似于 `<script>.. js 代码 ..</script>`。
-* `.less` 和 `.css` 将会被引用为 style。目前 `less` 只支持本地文件。
+* `.js` 将会被引用为 `<script src="你的 js 文件"></script>`。
+* `.less` 和 `.css` 将会被引用为 style。目前 `less` 只支持本地文件。`.css` 文件将会被引用为 `<link rel="stylesheet" href="你的 css 文件">`。
 * `.pdf` 文件将会被 `pdf2svg` 转换为 `svg` 然后被引用。
 * `markdown` 将会被分析处理然后被引用。
 * 其他所有的文件都将被视为代码块。    
 
 ## 设置图片
 ```markdown  
-@import "test.png" {width:"300px", height:"200px", title:"图片的标题", alt:"我的 alt"}
+@import "test.png" {width="300px" height="200px" title="图片的标题" alt="我的 alt"}
 ```
 
 ## 引用在线文件
@@ -53,24 +54,26 @@ Markdown Preview Enhanced 支持引用本地或者在线的 PDF 文件。
 
 ### PDF 设置
 * **page_no**  
-显示第 `nth` 页。例如 `{page_no:1}` 将会只显示 PDF 文件的第 1 页。
+显示第 `nth` 页。例如 `{page_no=1}` 将会只显示 PDF 文件的第 1 页。
 * **page_begin**, **page_end**  
-包含的。例如 `{page_begin:2, page_end:4}` 将会显示第 2，3，4 页。
+包含的。例如 `{page_begin=2 page_end=4}` 将会显示第 2，3，4 页。
 
 ## 强制渲染为代码块  
 ```markdown
-@import "test.puml" {code_block:true, class:"lineNo"}
-@import "test.py" {class:"lineNo"}
+@import "test.puml" {code_block=true class="line-numbers"}
+@import "test.py" {class="line-numbers"}
+```
+
+## As（作为）代码块
+```markdown
+@import "test.json" {as="vega-lite"}
 ```
 
 ## 引用文件作为 Code Chunk  
 ```markdown
-@import "test.py" {code_chunk:true, cmd:"python3"}
+@import "test.py" {cmd="python3"}
 ```
 
-## 已知问题
-* 引用文件可能会影响滑动同步。
-* code chunk 可能会有问题。
 
 [➔ Code Chunk](zh-cn/code-chunk.md)
 

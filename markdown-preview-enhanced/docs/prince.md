@@ -9,17 +9,15 @@ brew install Caskroom/cask/prince
 ```
 
 ## Usage
-Right click at the preview, then choose `Export to Disk`.  
-Click `PRINCE` tab.  
-Click `export` button.    
+Right click at the preview, then choose `PDF (prince)`.  
 
-![screen shot 2017-06-06 at 4 46 27 pm](https://user-images.githubusercontent.com/1908863/26853716-b68b279e-4ad8-11e7-896e-8e7c2990326b.png)
+![screen shot 2017-07-14 at 1 44 23 am](https://user-images.githubusercontent.com/1908863/28201287-fb5ea8d0-6835-11e7-9bdb-2afb458ee5cc.png)
 
-## Customize Css
-<kbd>cmd-shift-p</kbd> then run `Markdown Preview Enhanced: Customize Css` command or just open `style.less` file and add the following lines:  
+## Customize CSS
+<kbd>cmd-shift-p</kbd> then run `Markdown Preview Enhanced: Customize Css` command to open `style.less` file, then add and modify the following lines:  
 
 ```less
-.markdown-preview-enhanced.markdown-preview-enhanced {
+html body {
   &.prince {
     // your prince css here
   }
@@ -28,7 +26,7 @@ Click `export` button.
 
 For example, to change the page size to `A4 landscape`:  
 ```less
-.markdown-preview-enhanced.markdown-preview-enhanced {
+html body {
   &.prince {
     @page {
       size: A4 landscape
@@ -39,6 +37,16 @@ For example, to change the page size to `A4 landscape`:
 
 More information can be found at [prince user guide](https://www.princexml.com/doc/).  
 Especially [page styles](https://www.princexml.com/doc/paged/#page-styles).  
+
+## Export on save
+Add the front-matter like below:  
+```yaml
+---
+export_on_save:
+  prince: true
+---
+```
+So the PDF file will be generated every time you save your markdown source file.  
 
 
 ## Known issues

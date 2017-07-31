@@ -15,7 +15,7 @@ $ sudo ln -s ~/Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/
 ```
 **Windows**  
 Download and Install the [Calibre Application](https://calibre-ebook.com/download).  
-Add `ebook-convert` to your system path.
+Add `ebook-convert` to your `$PATH`.
 
 ## eBook Example
 An eBook example project can be found [here](https://github.com/shd101wyy/ebook-example).   
@@ -206,6 +206,23 @@ ebook:
 ---
 ```  
 You can find a list of arguments in [ebook-convert manual](https://manual.calibre-ebook.com/generated/en/ebook-convert.html).
+
+## Export on save
+Add the front-matter like below:  
+```yaml
+---
+export_on_save:
+  ebook: true
+  // or
+  ebook: "epub"
+  ebook: "pdf"
+  ebook: "mobi"
+  ebook: "html"
+  ebook: ["pdf", ...]
+---
+```
+So the ebooks will be generated every time you save your markdown source file.   
+
 
 ## Known Issues & Limitations
 * eBook generation is still under development.

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-7185-tja5if.q10mgqfr/package.tgz",
+        "raw": "/tmp/d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-7185-tja5if.q10mgqfr/package.tgz",
-        "spec": "/tmp/d-11765-7185-tja5if.q10mgqfr/package.tgz",
+        "rawSpec": "/tmp/d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
+        "spec": "/tmp/d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-7185-x1zar9.j5k7y9o1or"
+      "/tmp/apm-install-dir-117631-7138-1kdi4j0.y272rl766r"
     ]
   ],
-  "_from": "../d-11765-7185-tja5if.q10mgqfr/package.tgz",
+  "_from": "../d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
   "_id": "python-tools@0.6.9",
   "_inCache": true,
   "_location": "/python-tools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-7185-tja5if.q10mgqfr/package.tgz",
+    "raw": "/tmp/d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-7185-tja5if.q10mgqfr/package.tgz",
-    "spec": "/tmp/d-11765-7185-tja5if.q10mgqfr/package.tgz",
+    "rawSpec": "/tmp/d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
+    "spec": "/tmp/d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-7185-tja5if.q10mgqfr/package.tgz",
+  "_resolved": "file:../d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
   "_shasum": "dba6e2a8889971140b20f143c8535e6b054a1df0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-7185-tja5if.q10mgqfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-7185-x1zar9.j5k7y9o1or",
+  "_spec": "/tmp/d-117631-7138-1h6lsh6.wnqt0ozuxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-7138-1kdi4j0.y272rl766r",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/MichaelAquilina/python-tools/issues"

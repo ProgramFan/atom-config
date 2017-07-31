@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
+        "raw": "/tmp/d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
-        "spec": "/tmp/d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
+        "rawSpec": "/tmp/d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
+        "spec": "/tmp/d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-6700-zh0vj7.67kbl9dx6r"
+      "/tmp/apm-install-dir-117631-6652-1o5wm2s.gpin97ldi"
     ]
   ],
-  "_from": "../d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
+  "_from": "../d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
   "_id": "markdown-writer@2.6.5",
   "_inCache": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
+    "raw": "/tmp/d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
-    "spec": "/tmp/d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
+    "rawSpec": "/tmp/d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
+    "spec": "/tmp/d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
+  "_resolved": "file:../d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
   "_shasum": "9e1dd13e2ad751b93d37252aaad472087754924e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-6700-1svxjeg.gxlf28olxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-6700-zh0vj7.67kbl9dx6r",
+  "_spec": "/tmp/d-117631-6652-1izprv8.0mfplgcik9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-6652-1o5wm2s.gpin97ldi",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",
@@ -188,7 +188,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -223,7 +223,7 @@
       },
       {
         "name": "esprima",
-        "version": "3.1.3",
+        "version": "4.0.0",
         "path": "node_modules/esprima/dist/esprima.js"
       },
       {
@@ -273,7 +273,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.8.4",
+        "version": "3.9.1",
         "path": "node_modules/js-yaml/index.js"
       },
       {
@@ -1509,7 +1509,7 @@
         ],
         "dependencies": {
           "argparse": "^1.0.7",
-          "esprima": "^3.1.1"
+          "esprima": "^4.0.0"
         }
       },
       {

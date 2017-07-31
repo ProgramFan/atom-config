@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
+        "raw": "/tmp/d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
-        "spec": "/tmp/d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
+        "rawSpec": "/tmp/d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
+        "spec": "/tmp/d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-5100-92j8u2.ppfb4bzkt9"
+      "/tmp/apm-install-dir-117631-5064-1lp2ivk.vvuk8rggb9"
     ]
   ],
-  "_from": "../d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
+  "_from": "../d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
   "_id": "project-manager@3.3.5",
   "_inCache": true,
   "_location": "/project-manager",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
+    "raw": "/tmp/d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
-    "spec": "/tmp/d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
+    "rawSpec": "/tmp/d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
+    "spec": "/tmp/d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
+  "_resolved": "file:../d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
   "_shasum": "145fbdfcb6c24d31e073e974c839bae9f2b44ff9",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-5100-1ur8khr.dydn53ik9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-5100-92j8u2.ppfb4bzkt9",
+  "_spec": "/tmp/d-117631-5064-114vsu0.euh7ntrzfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-5064-1lp2ivk.vvuk8rggb9",
   "bugs": {
     "url": "https://github.com/danielbrodin/atom-project-manager/issues"
   },
@@ -226,7 +226,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+        "raw": "/tmp/d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
-        "spec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+        "rawSpec": "/tmp/d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
+        "spec": "/tmp/d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-4696-1dytkpt.tq0tokzkt9"
+      "/tmp/apm-install-dir-117631-4660-1io2p5v.ly9ryn9udi"
     ]
   ],
-  "_from": "../d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+  "_from": "../d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
   "_id": "flex-tool-bar@0.12.0",
   "_inCache": true,
   "_location": "/flex-tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+    "raw": "/tmp/d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
-    "spec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+    "rawSpec": "/tmp/d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
+    "spec": "/tmp/d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
+  "_resolved": "file:../d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
   "_shasum": "2c337d3e7ece4ce3aabcb5a8ba37d32f91dc65ea",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-4696-1dxijvi.h88qmjwcdi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-4696-1dytkpt.tq0tokzkt9",
+  "_spec": "/tmp/d-117631-4660-kdy5h7.3ygxupu8fr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-4660-1io2p5v.ly9ryn9udi",
   "bugs": {
     "url": "https://github.com/cakecatz/flex-toolbar/issues"
   },
@@ -87,7 +87,7 @@
     "dependencies": [
       {
         "name": "anymatch",
-        "version": "1.3.0",
+        "version": "1.3.2",
         "path": "node_modules/anymatch/index.js"
       },
       {
@@ -97,18 +97,13 @@
       },
       {
         "name": "arr-flatten",
-        "version": "1.0.3",
+        "version": "1.1.0",
         "path": "node_modules/arr-flatten/index.js"
       },
       {
         "name": "array-unique",
         "version": "0.2.1",
         "path": "node_modules/array-unique/index.js"
-      },
-      {
-        "name": "arrify",
-        "version": "1.0.1",
-        "path": "node_modules/arrify/index.js"
       },
       {
         "name": "async",
@@ -137,7 +132,7 @@
       },
       {
         "name": "binary-extensions",
-        "version": "1.8.0",
+        "version": "1.9.0",
         "path": "node_modules/binary-extensions/binary-extensions.json"
       },
       {
@@ -167,7 +162,7 @@
       },
       {
         "name": "coffee-script",
-        "version": "1.12.6",
+        "version": "1.12.7",
         "path": "node_modules/coffee-script/lib/coffee-script/coffee-script.js"
       },
       {
@@ -242,7 +237,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.23",
+        "version": "0.10.24",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -677,7 +672,7 @@
       },
       {
         "name": "semver",
-        "version": "5.3.0",
+        "version": "5.4.1",
         "path": "node_modules/semver/semver.js"
       },
       {
@@ -791,7 +786,6 @@
         "node_modules/arr-diff/index.js",
         "node_modules/arr-flatten/index.js",
         "node_modules/array-unique/index.js",
-        "node_modules/arrify/index.js",
         "node_modules/async/dist/async.js",
         "node_modules/async/dist/async.min.js",
         "node_modules/async/lib/async.js",
@@ -1554,7 +1548,6 @@
         "node_modules/arr-diff/package.json",
         "node_modules/arr-flatten/package.json",
         "node_modules/array-unique/package.json",
-        "node_modules/arrify/package.json",
         "node_modules/async/package.json",
         "node_modules/async-each/package.json",
         "node_modules/atom-package-deps/.eslintrc.json",
@@ -1726,8 +1719,8 @@
           "node_modules/anymatch"
         ],
         "dependencies": {
-          "arrify": "^1.0.0",
-          "micromatch": "^2.1.5"
+          "micromatch": "^2.1.5",
+          "normalize-path": "^2.0.0"
         }
       },
       {

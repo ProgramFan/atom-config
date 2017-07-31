@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
+        "raw": "/tmp/d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
-        "spec": "/tmp/d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
+        "rawSpec": "/tmp/d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
+        "spec": "/tmp/d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11765-4967-1a4e2vx.httqz4obt9"
+      "/tmp/apm-install-dir-117631-4932-tudfkn.m94vuc8fr"
     ]
   ],
-  "_from": "../d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
+  "_from": "../d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
   "_id": "sort-lines@0.14.0",
   "_inCache": true,
   "_location": "/sort-lines",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
+    "raw": "/tmp/d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
-    "spec": "/tmp/d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
+    "rawSpec": "/tmp/d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
+    "spec": "/tmp/d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
+  "_resolved": "file:../d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
   "_shasum": "ca019973a26ce699408c3cca7284655e6baa4915",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11765-4967-cyv43t.9ivke53ik9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11765-4967-1a4e2vx.httqz4obt9",
+  "_spec": "/tmp/d-117631-4932-q8w16r.umrfxswcdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117631-4932-tudfkn.m94vuc8fr",
   "activationCommands": {
     "atom-text-editor": [
       "sort-lines:sort",
