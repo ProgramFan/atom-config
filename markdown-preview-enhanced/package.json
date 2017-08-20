@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-6563-8ehitc.ntludz33di/package.tgz",
+        "raw": "/tmp/d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-6563-8ehitc.ntludz33di/package.tgz",
-        "spec": "/tmp/d-117631-6563-8ehitc.ntludz33di/package.tgz",
+        "rawSpec": "/tmp/d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
+        "spec": "/tmp/d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-6563-1hlerfg.0kaigm0a4i"
+      "/tmp/apm-install-dir-117720-7319-whf9g.5nem4h1tt9"
     ]
   ],
-  "_from": "../d-117631-6563-8ehitc.ntludz33di/package.tgz",
-  "_id": "markdown-preview-enhanced@0.14.4",
+  "_from": "../d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
+  "_id": "markdown-preview-enhanced@0.14.9",
   "_inCache": true,
   "_location": "/markdown-preview-enhanced",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-6563-8ehitc.ntludz33di/package.tgz",
+    "raw": "/tmp/d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-6563-8ehitc.ntludz33di/package.tgz",
-    "spec": "/tmp/d-117631-6563-8ehitc.ntludz33di/package.tgz",
+    "rawSpec": "/tmp/d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
+    "spec": "/tmp/d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-6563-8ehitc.ntludz33di/package.tgz",
-  "_shasum": "092194f4bd6c73d3b95f93a4ff4e39699665fbc3",
+  "_resolved": "file:../d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
+  "_shasum": "3eeab461adf1aefe0356f562c9844ff0cdf4c9b3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-6563-8ehitc.ntludz33di/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-6563-1hlerfg.0kaigm0a4i",
+  "_spec": "/tmp/d-117720-7319-hl5wy2.yr92l9dx6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-7319-whf9g.5nem4h1tt9",
   "activationCommands": {
     "atom-workspace": "markdown-preview-enhanced:toggle"
   },
@@ -48,7 +48,7 @@
     "url": "https://github.com/shd101wyy/markdown-preview-enhanced/issues"
   },
   "dependencies": {
-    "@shd101wyy/mume": "^0.1.6"
+    "@shd101wyy/mume": "^0.2.1"
   },
   "description": "One of the 'BEST' markdown preview extensions for Atom editor!",
   "devDependencies": {
@@ -101,7 +101,7 @@
   "main": "./out/src/extension",
   "name": "markdown-preview-enhanced",
   "optionalDependencies": {},
-  "readme": "<h1 align=\"center\"> Markdown Preview Enhanced </h1>\n<p align=\"center\">\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced/releases\"><img src=\"https://img.shields.io/github/tag/shd101wyy/markdown-preview-enhanced.svg\"></a>\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced\"><img src=\"https://img.shields.io/apm/dm/markdown-preview-enhanced.svg\"></a>\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced\"><img src=\"https://img.shields.io/github/stars/shd101wyy/markdown-preview-enhanced.svg?style=social&label=Star\"></a>\n</p>\n<br>\n\n![intro](https://user-images.githubusercontent.com/1908863/28227953-eb6eefa4-68a1-11e7-8769-96ea83facf3b.png)\n\n<p align=\"center\">\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/\"> English &nbsp;&nbsp; </a>  \n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/\"> 简体中文 &nbsp;&nbsp; </a>  \n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/\"> 正體中文 &nbsp;&nbsp; </a> <br>\n</p>\n\n<p align=\"center\">\n<a href=\"https://atom.io/packages/markdown-preview-enhanced\">atom</a>\n&\n<a href=\"https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced\">vscode</a>\n</p>\n\n*Still Beta Version!*      \n\n## Supporting this project\nMarkdown Preview Enhanced is an open source project released under the [University of Illinois/NCSA Open Source License](LICENSE.md). Its ongoing development is made possible thanks to the support by these awesome [backers](https://shd101wyy.github.io/markdown-preview-enhanced/#/backers). You can help make this project better by [supporting us on Patreon](https://www.patreon.com/shd101wyy), [PayPal](https://shd101wyy.github.io/markdown-preview-enhanced/#/paypal), or [微信支付 Wechat Pay](https://shd101wyy.github.io/markdown-preview-enhanced/#/wechat). Thank you!  \n\n## Introduction  \nMarkdown Preview Enhanced is an extension that provides you with many useful functionalities such as automatic scroll sync, [math typesetting](https://shd101wyy.github.io/markdown-preview-enhanced/#/math), [mermaid](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=mermaid), [PlantUML](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=plantuml), [pandoc](https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc), PDF export, [code chunk](https://shd101wyy.github.io/markdown-preview-enhanced/#/code-chunk), [presentation writer](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html), etc. A lot of its ideas are inspired by [Markdown Preview Plus](https://github.com/atom-community/markdown-preview-plus) and [RStudio Markdown](http://rmarkdown.rstudio.com/).  \n\nFeel free to ask questions, post issues, submit pull request, and request new features.\n\nFor more information about this project and how to use this extension, please check out our documentation ⬇︎\n\n## Documentation\nTo check out the documentation, visit\n* [English](https://shd101wyy.github.io/markdown-preview-enhanced/#/)  \n* [简体中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)  \n* [正體中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/)    \n\nContact me if you are willing to help translate the documentation :)\n\n## Keybindings\n> The <kbd>cmd</kbd> key for *Windows* is <kbd>ctrl</kbd>.  \n\n| Shortcuts  | Functionality  |\n|---|---|\n| <kbd>ctrl-shift-m</kbd> | Toggle preview  |\n| <kbd>ctrl-shift-s</kbd>  | Sync preview / Sync source  |  \n| <kbd>ctrl-shift-i</kbd>  | Open Image Helper |  \n| <kbd>shift-enter</kbd> | Run Code Chunk |    \n| <kbd>ctrl-shift-enter</kbd> | Run all Code Chunks |  \n| <kbd>cmd-=</kbd> or <kbd>cmd-shift-=</kbd> | Preview zoom in |  \n| <kbd>cmd--</kbd> or <kbd>cmd-shift-\\_</kbd> | Preview zoom out |  \n| <kbd>cmd-0</kbd> | Preview reset zoom |\n| <kbd>esc</kbd>  | Toggle sidebar TOC |\n\n## Changelog\nNewest updates for the current minor version can be found at the  [newest notes](https://shd101wyy.github.io/markdown-preview-enhanced/#/newest).  \nDetailed changes for each old release can be found at [history notes](https://shd101wyy.github.io/markdown-preview-enhanced/#/history).  \n\n## License\n[University of Illinois/NCSA Open Source License](LICENSE.md)  \n",
+  "readme": "<h1 align=\"center\"> Markdown Preview Enhanced </h1>\n<p align=\"center\">\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced/releases\"><img src=\"https://img.shields.io/github/tag/shd101wyy/markdown-preview-enhanced.svg\"></a>\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced\"><img src=\"https://img.shields.io/apm/dm/markdown-preview-enhanced.svg\"></a>\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced\"><img src=\"https://img.shields.io/github/stars/shd101wyy/markdown-preview-enhanced.svg?style=social&label=Star\"></a>\n</p>\n<br>\n\n![intro](https://user-images.githubusercontent.com/1908863/28227953-eb6eefa4-68a1-11e7-8769-96ea83facf3b.png)\n\n<p align=\"center\">\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/\"> English &nbsp;&nbsp; </a>\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/\"> 简体中文 &nbsp;&nbsp; </a>\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/\"> 正體中文 &nbsp;&nbsp; </a> <br>\n</p>\n\n<p align=\"center\">\n<a href=\"https://atom.io/packages/markdown-preview-enhanced\">atom</a>\n&\n<a href=\"https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced\">vscode</a>\n</p>\n\n*Still Beta Version!*\n\n## Supporting this project\nMarkdown Preview Enhanced is an open source project released under the [University of Illinois/NCSA Open Source License](LICENSE.md). Its ongoing development is made possible thanks to the support by these awesome [backers](https://shd101wyy.github.io/markdown-preview-enhanced/#/backers). You can help make this project better by [supporting us on Patreon](https://www.patreon.com/shd101wyy), [PayPal](https://shd101wyy.github.io/markdown-preview-enhanced/#/paypal), or [微信支付 Wechat Pay](https://shd101wyy.github.io/markdown-preview-enhanced/#/wechat). Thank you!\n\n## Introduction\nMarkdown Preview Enhanced is an extension that provides you with many useful functionalities such as automatic scroll sync, [math typesetting](https://shd101wyy.github.io/markdown-preview-enhanced/#/math), [mermaid](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=mermaid), [PlantUML](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=plantuml), [pandoc](https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc), PDF export, [code chunk](https://shd101wyy.github.io/markdown-preview-enhanced/#/code-chunk), [presentation writer](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html), etc. A lot of its ideas are inspired by [Markdown Preview Plus](https://github.com/atom-community/markdown-preview-plus) and [RStudio Markdown](http://rmarkdown.rstudio.com/).\n\nFeel free to ask questions, post issues, submit pull request, and request new features.\n\nFor more information about this project and how to use this extension, please check out our documentation ⬇︎\n\n## Documentation\nTo check out the documentation, visit\n* [English](https://shd101wyy.github.io/markdown-preview-enhanced/#/)\n* [简体中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)\n* [正體中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/)\n\nContact me if you are willing to help translate the documentation :)\n\n## Keybindings\n> The <kbd>cmd</kbd> key for *Windows* is <kbd>ctrl</kbd>.\n\n| Shortcuts  | Functionality  |\n|---|---|\n| <kbd>ctrl-shift-m</kbd> | Toggle preview  |\n| <kbd>ctrl-shift-s</kbd>  | Sync preview / Sync source  |\n| <kbd>ctrl-shift-i</kbd>  | Open Image Helper |\n| <kbd>shift-enter</kbd> | Run Code Chunk |\n| <kbd>ctrl-shift-enter</kbd> | Run all Code Chunks |\n| <kbd>cmd-=</kbd> or <kbd>cmd-shift-=</kbd> | Preview zoom in |\n| <kbd>cmd--</kbd> or <kbd>cmd-shift-\\_</kbd> | Preview zoom out |\n| <kbd>cmd-0</kbd> | Preview reset zoom |\n| <kbd>esc</kbd>  | Toggle sidebar TOC |\n\n## Changelog\nNewest updates for the current minor version can be found at the  [newest notes](https://shd101wyy.github.io/markdown-preview-enhanced/#/newest).\nDetailed changes for each old release can be found at [history notes](https://shd101wyy.github.io/markdown-preview-enhanced/#/history).\n\n## License\n[University of Illinois/NCSA Open Source License](LICENSE.md)\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -110,7 +110,7 @@
   "scripts": {
     "build": "nothing happened"
   },
-  "version": "0.14.4",
+  "version": "0.14.9",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -118,16 +118,6 @@
         "name": "ajv",
         "version": "4.11.8",
         "path": "node_modules/ajv/lib/ajv.js"
-      },
-      {
-        "name": "ansi-red",
-        "version": "0.1.1",
-        "path": "node_modules/ansi-red/index.js"
-      },
-      {
-        "name": "ansi-wrap",
-        "version": "0.1.0",
-        "path": "node_modules/ansi-wrap/index.js"
       },
       {
         "name": "argparse",
@@ -203,11 +193,6 @@
         "name": "co",
         "version": "4.6.0",
         "path": "node_modules/co/index.js"
-      },
-      {
-        "name": "coffee-script",
-        "version": "1.12.7",
-        "path": "node_modules/coffee-script/lib/coffee-script/coffee-script.js"
       },
       {
         "name": "combined-stream",
@@ -300,9 +285,9 @@
         "path": "node_modules/errno/errno.js"
       },
       {
-        "name": "esprima",
-        "version": "4.0.0",
-        "path": "node_modules/esprima/dist/esprima.js"
+        "name": "expand-tilde",
+        "version": "2.0.2",
+        "path": "node_modules/expand-tilde/index.js"
       },
       {
         "name": "extend",
@@ -310,13 +295,8 @@
         "path": "node_modules/extend/index.js"
       },
       {
-        "name": "extend-shallow",
-        "version": "2.0.1",
-        "path": "node_modules/extend-shallow/index.js"
-      },
-      {
         "name": "extsprintf",
-        "version": "1.0.2",
+        "version": "1.3.0",
         "path": "node_modules/extsprintf/lib/extsprintf.js"
       },
       {
@@ -350,14 +330,19 @@
         "path": "node_modules/glob/glob.js"
       },
       {
+        "name": "global-modules",
+        "version": "1.0.0",
+        "path": "node_modules/global-modules/index.js"
+      },
+      {
+        "name": "global-prefix",
+        "version": "1.0.2",
+        "path": "node_modules/global-prefix/index.js"
+      },
+      {
         "name": "graceful-fs",
         "version": "4.1.11",
         "path": "node_modules/graceful-fs/graceful-fs.js"
-      },
-      {
-        "name": "gray-matter",
-        "version": "2.1.1",
-        "path": "node_modules/gray-matter/index.js"
       },
       {
         "name": "har-schema",
@@ -378,6 +363,11 @@
         "name": "hoek",
         "version": "2.16.3",
         "path": "node_modules/hoek/lib/index.js"
+      },
+      {
+        "name": "homedir-polyfill",
+        "version": "1.0.1",
+        "path": "node_modules/homedir-polyfill/index.js"
       },
       {
         "name": "htmlparser2",
@@ -410,9 +400,9 @@
         "path": "node_modules/inherits/inherits.js"
       },
       {
-        "name": "is-extendable",
-        "version": "0.1.1",
-        "path": "node_modules/is-extendable/index.js"
+        "name": "ini",
+        "version": "1.3.4",
+        "path": "node_modules/ini/ini.js"
       },
       {
         "name": "is-typedarray",
@@ -420,19 +410,24 @@
         "path": "node_modules/is-typedarray/index.js"
       },
       {
+        "name": "is-windows",
+        "version": "1.0.1",
+        "path": "node_modules/is-windows/index.js"
+      },
+      {
         "name": "isarray",
         "version": "0.0.1",
         "path": "node_modules/isarray/index.js"
       },
       {
+        "name": "isexe",
+        "version": "2.0.0",
+        "path": "node_modules/isexe/index.js"
+      },
+      {
         "name": "isstream",
         "version": "0.1.2",
         "path": "node_modules/isstream/isstream.js"
-      },
-      {
-        "name": "js-yaml",
-        "version": "3.9.1",
-        "path": "node_modules/js-yaml/index.js"
       },
       {
         "name": "jsbn",
@@ -461,7 +456,7 @@
       },
       {
         "name": "jsprim",
-        "version": "1.4.0",
+        "version": "1.4.1",
         "path": "node_modules/jsprim/lib/jsprim.js"
       },
       {
@@ -525,6 +520,11 @@
         "path": "node_modules/os-tmpdir/index.js"
       },
       {
+        "name": "parse-passwd",
+        "version": "1.0.0",
+        "path": "node_modules/parse-passwd/index.js"
+      },
+      {
         "name": "path-is-absolute",
         "version": "1.0.1",
         "path": "node_modules/path-is-absolute/index.js"
@@ -563,6 +563,11 @@
         "name": "request",
         "version": "2.81.0",
         "path": "node_modules/request/index.js"
+      },
+      {
+        "name": "resolve-dir",
+        "version": "1.0.1",
+        "path": "node_modules/resolve-dir/index.js"
       },
       {
         "name": "rimraf",
@@ -615,11 +620,6 @@
         "path": "node_modules/temp/lib/temp.js"
       },
       {
-        "name": "toml",
-        "version": "2.3.2",
-        "path": "node_modules/toml/index.js"
-      },
-      {
         "name": "tough-cookie",
         "version": "2.3.2",
         "path": "node_modules/tough-cookie/lib/cookie.js"
@@ -651,8 +651,18 @@
       },
       {
         "name": "verror",
-        "version": "1.3.6",
+        "version": "1.10.0",
         "path": "node_modules/verror/lib/verror.js"
+      },
+      {
+        "name": "assert-plus",
+        "version": "1.0.0",
+        "path": "node_modules/verror/node_modules/assert-plus/assert.js"
+      },
+      {
+        "name": "which",
+        "version": "1.3.0",
+        "path": "node_modules/which/which.js"
       },
       {
         "name": "wrappy",
@@ -678,8 +688,10 @@
         "node_modules/@shd101wyy/mume/dependencies/jquery-modal/jquery.modal.min.js",
         "node_modules/@shd101wyy/mume/dependencies/katex/contrib/auto-render.min.js",
         "node_modules/@shd101wyy/mume/dependencies/katex/katex.min.js",
+        "node_modules/@shd101wyy/mume/dependencies/markdown-it/extensions/markdown-it-abbr.min.js",
         "node_modules/@shd101wyy/mume/dependencies/markdown-it/extensions/markdown-it-deflist.min.js",
         "node_modules/@shd101wyy/mume/dependencies/markdown-it/extensions/markdown-it-footnote.min.js",
+        "node_modules/@shd101wyy/mume/dependencies/markdown-it/extensions/markdown-it-mark.min.js",
         "node_modules/@shd101wyy/mume/dependencies/markdown-it/extensions/markdown-it-sub.min.js",
         "node_modules/@shd101wyy/mume/dependencies/markdown-it/extensions/markdown-it-sup.min.js",
         "node_modules/@shd101wyy/mume/dependencies/markdown-it/markdown-it.min.js",
@@ -1380,8 +1392,6 @@
         "node_modules/ajv/lib/v5.js",
         "node_modules/ajv/scripts/bundle.js",
         "node_modules/ajv/scripts/compile-dots.js",
-        "node_modules/ansi-red/index.js",
-        "node_modules/ansi-wrap/index.js",
         "node_modules/argparse/index.js",
         "node_modules/argparse/lib/action/append/constant.js",
         "node_modules/argparse/lib/action/append.js",
@@ -1456,24 +1466,6 @@
         "node_modules/cheerio/lib/static.js",
         "node_modules/cheerio/lib/utils.js",
         "node_modules/co/index.js",
-        "node_modules/coffee-script/lib/coffee-script/browser.js",
-        "node_modules/coffee-script/lib/coffee-script/cake.js",
-        "node_modules/coffee-script/lib/coffee-script/coffee-script.js",
-        "node_modules/coffee-script/lib/coffee-script/command.js",
-        "node_modules/coffee-script/lib/coffee-script/grammar.js",
-        "node_modules/coffee-script/lib/coffee-script/helpers.js",
-        "node_modules/coffee-script/lib/coffee-script/index.js",
-        "node_modules/coffee-script/lib/coffee-script/lexer.js",
-        "node_modules/coffee-script/lib/coffee-script/nodes.js",
-        "node_modules/coffee-script/lib/coffee-script/optparse.js",
-        "node_modules/coffee-script/lib/coffee-script/parser.js",
-        "node_modules/coffee-script/lib/coffee-script/register.js",
-        "node_modules/coffee-script/lib/coffee-script/repl.js",
-        "node_modules/coffee-script/lib/coffee-script/rewriter.js",
-        "node_modules/coffee-script/lib/coffee-script/scope.js",
-        "node_modules/coffee-script/lib/coffee-script/sourcemap.js",
-        "node_modules/coffee-script/register.js",
-        "node_modules/coffee-script/repl.js",
         "node_modules/combined-stream/lib/combined_stream.js",
         "node_modules/concat-map/example/map.js",
         "node_modules/concat-map/index.js",
@@ -1513,12 +1505,8 @@
         "node_modules/errno/custom.js",
         "node_modules/errno/errno.js",
         "node_modules/errno/test.js",
-        "node_modules/esprima/bin/esparse.js",
-        "node_modules/esprima/bin/esvalidate.js",
-        "node_modules/esprima/dist/esprima.js",
+        "node_modules/expand-tilde/index.js",
         "node_modules/extend/index.js",
-        "node_modules/extend-shallow/index.js",
-        "node_modules/extsprintf/examples/simple.js",
         "node_modules/extsprintf/lib/extsprintf.js",
         "node_modules/forever-agent/index.js",
         "node_modules/form-data/lib/browser.js",
@@ -1531,12 +1519,12 @@
         "node_modules/glob/common.js",
         "node_modules/glob/glob.js",
         "node_modules/glob/sync.js",
+        "node_modules/global-modules/index.js",
+        "node_modules/global-prefix/index.js",
         "node_modules/graceful-fs/fs.js",
         "node_modules/graceful-fs/graceful-fs.js",
         "node_modules/graceful-fs/legacy-streams.js",
         "node_modules/graceful-fs/polyfills.js",
-        "node_modules/gray-matter/index.js",
-        "node_modules/gray-matter/lib/parsers.js",
         "node_modules/har-schema/lib/index.js",
         "node_modules/har-validator/lib/browser/async.js",
         "node_modules/har-validator/lib/browser/error.js",
@@ -1563,6 +1551,7 @@
         "node_modules/hawk/lib/utils.js",
         "node_modules/hoek/lib/escape.js",
         "node_modules/hoek/lib/index.js",
+        "node_modules/homedir-polyfill/index.js",
         "node_modules/htmlparser2/lib/CollectingHandler.js",
         "node_modules/htmlparser2/lib/FeedHandler.js",
         "node_modules/htmlparser2/lib/Parser.js",
@@ -1600,46 +1589,17 @@
         "node_modules/inflight/inflight.js",
         "node_modules/inherits/inherits.js",
         "node_modules/inherits/inherits_browser.js",
-        "node_modules/is-extendable/index.js",
+        "node_modules/ini/ini.js",
         "node_modules/is-typedarray/index.js",
         "node_modules/is-typedarray/test.js",
+        "node_modules/is-windows/index.js",
         "node_modules/isarray/build/build.js",
         "node_modules/isarray/index.js",
+        "node_modules/isexe/index.js",
+        "node_modules/isexe/mode.js",
+        "node_modules/isexe/windows.js",
         "node_modules/isstream/isstream.js",
         "node_modules/isstream/test.js",
-        "node_modules/js-yaml/bin/js-yaml.js",
-        "node_modules/js-yaml/dist/js-yaml.js",
-        "node_modules/js-yaml/dist/js-yaml.min.js",
-        "node_modules/js-yaml/index.js",
-        "node_modules/js-yaml/lib/js-yaml/common.js",
-        "node_modules/js-yaml/lib/js-yaml/dumper.js",
-        "node_modules/js-yaml/lib/js-yaml/exception.js",
-        "node_modules/js-yaml/lib/js-yaml/loader.js",
-        "node_modules/js-yaml/lib/js-yaml/mark.js",
-        "node_modules/js-yaml/lib/js-yaml/schema/core.js",
-        "node_modules/js-yaml/lib/js-yaml/schema/default_full.js",
-        "node_modules/js-yaml/lib/js-yaml/schema/default_safe.js",
-        "node_modules/js-yaml/lib/js-yaml/schema/failsafe.js",
-        "node_modules/js-yaml/lib/js-yaml/schema/json.js",
-        "node_modules/js-yaml/lib/js-yaml/schema.js",
-        "node_modules/js-yaml/lib/js-yaml/type/binary.js",
-        "node_modules/js-yaml/lib/js-yaml/type/bool.js",
-        "node_modules/js-yaml/lib/js-yaml/type/float.js",
-        "node_modules/js-yaml/lib/js-yaml/type/int.js",
-        "node_modules/js-yaml/lib/js-yaml/type/js/function.js",
-        "node_modules/js-yaml/lib/js-yaml/type/js/regexp.js",
-        "node_modules/js-yaml/lib/js-yaml/type/js/undefined.js",
-        "node_modules/js-yaml/lib/js-yaml/type/map.js",
-        "node_modules/js-yaml/lib/js-yaml/type/merge.js",
-        "node_modules/js-yaml/lib/js-yaml/type/null.js",
-        "node_modules/js-yaml/lib/js-yaml/type/omap.js",
-        "node_modules/js-yaml/lib/js-yaml/type/pairs.js",
-        "node_modules/js-yaml/lib/js-yaml/type/seq.js",
-        "node_modules/js-yaml/lib/js-yaml/type/set.js",
-        "node_modules/js-yaml/lib/js-yaml/type/str.js",
-        "node_modules/js-yaml/lib/js-yaml/type/timestamp.js",
-        "node_modules/js-yaml/lib/js-yaml/type.js",
-        "node_modules/js-yaml/lib/js-yaml.js",
         "node_modules/jsbn/example.js",
         "node_modules/jsbn/index.js",
         "node_modules/json-schema/lib/links.js",
@@ -1787,6 +1747,7 @@
         "node_modules/oauth-sign/index.js",
         "node_modules/once/once.js",
         "node_modules/os-tmpdir/index.js",
+        "node_modules/parse-passwd/index.js",
         "node_modules/path-is-absolute/index.js",
         "node_modules/performance-now/lib/performance-now.js",
         "node_modules/promise/build.js",
@@ -1857,6 +1818,7 @@
         "node_modules/request/lib/redirect.js",
         "node_modules/request/lib/tunnel.js",
         "node_modules/request/request.js",
+        "node_modules/resolve-dir/index.js",
         "node_modules/rimraf/bin.js",
         "node_modules/rimraf/rimraf.js",
         "node_modules/safe-buffer/index.js",
@@ -1917,10 +1879,6 @@
         "node_modules/temp/no_cleanup.js",
         "node_modules/temp/no_cleanup_on_exit.js",
         "node_modules/temp/no_cleanup_on_exit.spec.js",
-        "node_modules/toml/benchmark.js",
-        "node_modules/toml/index.js",
-        "node_modules/toml/lib/compiler.js",
-        "node_modules/toml/lib/parser.js",
         "node_modules/tough-cookie/lib/cookie.js",
         "node_modules/tough-cookie/lib/memstore.js",
         "node_modules/tough-cookie/lib/pathMatch.js",
@@ -1948,12 +1906,9 @@
         "node_modules/uuid/v1.js",
         "node_modules/uuid/v4.js",
         "node_modules/uuid/v5.js",
-        "node_modules/verror/examples/levels-verror.js",
-        "node_modules/verror/examples/levels-werror.js",
-        "node_modules/verror/examples/varargs.js",
-        "node_modules/verror/examples/verror.js",
-        "node_modules/verror/examples/werror.js",
         "node_modules/verror/lib/verror.js",
+        "node_modules/verror/node_modules/assert-plus/assert.js",
+        "node_modules/which/which.js",
         "node_modules/wrappy/wrappy.js",
         "node_modules/yamljs/cli/json2yaml.js",
         "node_modules/yamljs/cli/yaml2json.js",
@@ -2023,8 +1978,6 @@
         "node_modules/ajv/lib/refs/json-schema-draft-04.json",
         "node_modules/ajv/lib/refs/json-schema-v5.json",
         "node_modules/ajv/package.json",
-        "node_modules/ansi-red/package.json",
-        "node_modules/ansi-wrap/package.json",
         "node_modules/argparse/package.json",
         "node_modules/asap/package.json",
         "node_modules/asn1/package.json",
@@ -2040,7 +1993,6 @@
         "node_modules/caseless/package.json",
         "node_modules/cheerio/package.json",
         "node_modules/co/package.json",
-        "node_modules/coffee-script/package.json",
         "node_modules/combined-stream/package.json",
         "node_modules/concat-map/package.json",
         "node_modules/core-util-is/package.json",
@@ -2065,11 +2017,10 @@
         "node_modules/entities/maps/xml.json",
         "node_modules/entities/package.json",
         "node_modules/errno/package.json",
-        "node_modules/esprima/package.json",
+        "node_modules/expand-tilde/package.json",
         "node_modules/extend/.jscs.json",
         "node_modules/extend/component.json",
         "node_modules/extend/package.json",
-        "node_modules/extend-shallow/package.json",
         "node_modules/extsprintf/package.json",
         "node_modules/forever-agent/package.json",
         "node_modules/form-data/package.json",
@@ -2077,8 +2028,9 @@
         "node_modules/getpass/node_modules/assert-plus/package.json",
         "node_modules/getpass/package.json",
         "node_modules/glob/package.json",
+        "node_modules/global-modules/package.json",
+        "node_modules/global-prefix/package.json",
         "node_modules/graceful-fs/package.json",
-        "node_modules/gray-matter/package.json",
         "node_modules/har-schema/lib/afterRequest.json",
         "node_modules/har-schema/lib/beforeRequest.json",
         "node_modules/har-schema/lib/browser.json",
@@ -2103,18 +2055,20 @@
         "node_modules/hawk/component.json",
         "node_modules/hawk/package.json",
         "node_modules/hoek/package.json",
+        "node_modules/homedir-polyfill/package.json",
         "node_modules/htmlparser2/node_modules/domutils/package.json",
         "node_modules/htmlparser2/package.json",
         "node_modules/http-signature/package.json",
         "node_modules/image-size/package.json",
         "node_modules/inflight/package.json",
         "node_modules/inherits/package.json",
-        "node_modules/is-extendable/package.json",
+        "node_modules/ini/package.json",
         "node_modules/is-typedarray/package.json",
+        "node_modules/is-windows/package.json",
         "node_modules/isarray/component.json",
         "node_modules/isarray/package.json",
+        "node_modules/isexe/package.json",
         "node_modules/isstream/package.json",
-        "node_modules/js-yaml/package.json",
         "node_modules/jsbn/package.json",
         "node_modules/json-schema/package.json",
         "node_modules/json-stable-stringify/package.json",
@@ -2136,6 +2090,7 @@
         "node_modules/oauth-sign/package.json",
         "node_modules/once/package.json",
         "node_modules/os-tmpdir/package.json",
+        "node_modules/parse-passwd/package.json",
         "node_modules/path-is-absolute/package.json",
         "node_modules/performance-now/package.json",
         "node_modules/promise/package.json",
@@ -2145,6 +2100,7 @@
         "node_modules/qs/package.json",
         "node_modules/readable-stream/package.json",
         "node_modules/request/package.json",
+        "node_modules/resolve-dir/package.json",
         "node_modules/rimraf/package.json",
         "node_modules/safe-buffer/package.json",
         "node_modules/sntp/package.json",
@@ -2156,7 +2112,6 @@
         "node_modules/string_decoder/package.json",
         "node_modules/stringstream/package.json",
         "node_modules/temp/package.json",
-        "node_modules/toml/package.json",
         "node_modules/tough-cookie/package.json",
         "node_modules/tunnel-agent/package.json",
         "node_modules/tweetnacl/package.json",
@@ -2164,7 +2119,9 @@
         "node_modules/uslug/package.json",
         "node_modules/uuid/.eslintrc.json",
         "node_modules/uuid/package.json",
+        "node_modules/verror/node_modules/assert-plus/package.json",
         "node_modules/verror/package.json",
+        "node_modules/which/package.json",
         "node_modules/wrappy/package.json",
         "node_modules/yamljs/bower.json",
         "node_modules/yamljs/package.json",
@@ -2195,7 +2152,7 @@
           ""
         ],
         "dependencies": {
-          "@shd101wyy/mume": "^0.1.6"
+          "@shd101wyy/mume": "^0.2.1"
         }
       },
       {
@@ -2211,14 +2168,6 @@
         "dependencies": {
           "co": "^4.6.0",
           "json-stable-stringify": "^1.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/ansi-red"
-        ],
-        "dependencies": {
-          "ansi-wrap": "0.1.0"
         }
       },
       {
@@ -2370,10 +2319,10 @@
       },
       {
         "paths": [
-          "node_modules/extend-shallow"
+          "node_modules/expand-tilde"
         ],
         "dependencies": {
-          "is-extendable": "^0.1.0"
+          "homedir-polyfill": "^1.0.1"
         }
       },
       {
@@ -2411,15 +2360,24 @@
       },
       {
         "paths": [
-          "node_modules/gray-matter",
-          "node_modules/gray-matter/lib"
+          "node_modules/global-modules"
         ],
         "dependencies": {
-          "ansi-red": "^0.1.1",
-          "coffee-script": "^1.12.4",
-          "extend-shallow": "^2.0.1",
-          "js-yaml": "^3.8.1",
-          "toml": "^2.3.2"
+          "global-prefix": "^1.0.1",
+          "is-windows": "^1.0.1",
+          "resolve-dir": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/global-prefix"
+        ],
+        "dependencies": {
+          "expand-tilde": "^2.0.2",
+          "homedir-polyfill": "^1.0.1",
+          "ini": "^1.3.4",
+          "is-windows": "^1.0.1",
+          "which": "^1.2.14"
         }
       },
       {
@@ -2449,6 +2407,14 @@
           "cryptiles": "2.x.x",
           "hoek": "2.x.x",
           "sntp": "1.x.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/homedir-polyfill"
+        ],
+        "dependencies": {
+          "parse-passwd": "^1.0.0"
         }
       },
       {
@@ -2502,22 +2468,6 @@
       },
       {
         "paths": [
-          "node_modules/js-yaml/bin",
-          "node_modules/js-yaml/dist",
-          "node_modules/js-yaml",
-          "node_modules/js-yaml/lib/js-yaml",
-          "node_modules/js-yaml/lib/js-yaml/schema",
-          "node_modules/js-yaml/lib/js-yaml/type",
-          "node_modules/js-yaml/lib/js-yaml/type/js",
-          "node_modules/js-yaml/lib"
-        ],
-        "dependencies": {
-          "argparse": "^1.0.7",
-          "esprima": "^4.0.0"
-        }
-      },
-      {
-        "paths": [
           "node_modules/json-stable-stringify/example",
           "node_modules/json-stable-stringify",
           "node_modules/json-stable-stringify/test"
@@ -2533,9 +2483,9 @@
         ],
         "dependencies": {
           "assert-plus": "1.0.0",
-          "extsprintf": "1.0.2",
+          "extsprintf": "1.3.0",
           "json-schema": "0.2.3",
-          "verror": "1.3.6"
+          "verror": "1.10.0"
         }
       },
       {
@@ -2673,6 +2623,15 @@
       },
       {
         "paths": [
+          "node_modules/resolve-dir"
+        ],
+        "dependencies": {
+          "expand-tilde": "^2.0.0",
+          "global-modules": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
           "node_modules/sntp/examples",
           "node_modules/sntp",
           "node_modules/sntp/lib",
@@ -2740,13 +2699,21 @@
       },
       {
         "paths": [
-          "node_modules/verror/examples",
           "node_modules/verror/lib",
-          "node_modules/verror",
-          "node_modules/verror/tests"
+          "node_modules/verror"
         ],
         "dependencies": {
-          "extsprintf": "1.0.2"
+          "assert-plus": "^1.0.0",
+          "core-util-is": "1.0.2",
+          "extsprintf": "^1.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/which"
+        ],
+        "dependencies": {
+          "isexe": "^2.0.0"
         }
       },
       {

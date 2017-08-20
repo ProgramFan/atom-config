@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
+        "raw": "/tmp/d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
-        "spec": "/tmp/d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
+        "rawSpec": "/tmp/d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
+        "spec": "/tmp/d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-7543-iwt9jh.an2mcjif6r"
+      "/tmp/apm-install-dir-117720-8297-1byjiyg.txpxqg2e29"
     ]
   ],
-  "_from": "../d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
+  "_from": "../d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
   "_id": "latextools@0.8.5",
   "_inCache": true,
   "_location": "/latextools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
+    "raw": "/tmp/d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
-    "spec": "/tmp/d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
+    "rawSpec": "/tmp/d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
+    "spec": "/tmp/d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
+  "_resolved": "file:../d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
   "_shasum": "a75d86dd742fbef160fc32662e3efd1bb26fdbd1",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-7543-12wwyyf.ey1svsfw29/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-7543-iwt9jh.an2mcjif6r",
+  "_spec": "/tmp/d-117720-8297-iwq2iy.5f9e7v6lxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-8297-1byjiyg.txpxqg2e29",
   "bugs": {
     "url": "https://github.com/msiniscalchi/atom-latextools/issues"
   },

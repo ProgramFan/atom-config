@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-6784-1olqa59.wib2o6r/package.tgz",
+        "raw": "/tmp/d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-6784-1olqa59.wib2o6r/package.tgz",
-        "spec": "/tmp/d-117631-6784-1olqa59.wib2o6r/package.tgz",
+        "rawSpec": "/tmp/d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
+        "spec": "/tmp/d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-6784-1c56yrw.dcdddeu3di"
+      "/tmp/apm-install-dir-117720-7539-7hvgvr.15n79tqpvi"
     ]
   ],
-  "_from": "../d-117631-6784-1olqa59.wib2o6r/package.tgz",
+  "_from": "../d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
   "_id": "asciidoc-image-helper@1.0.0",
   "_inCache": true,
   "_location": "/asciidoc-image-helper",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-6784-1olqa59.wib2o6r/package.tgz",
+    "raw": "/tmp/d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-6784-1olqa59.wib2o6r/package.tgz",
-    "spec": "/tmp/d-117631-6784-1olqa59.wib2o6r/package.tgz",
+    "rawSpec": "/tmp/d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
+    "spec": "/tmp/d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-6784-1olqa59.wib2o6r/package.tgz",
+  "_resolved": "file:../d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
   "_shasum": "d1117c4fb38405491709eb0dbe1c0045441e3458",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-6784-1olqa59.wib2o6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-6784-1c56yrw.dcdddeu3di",
+  "_spec": "/tmp/d-117720-7539-15kh9wm.bizgzumcxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-7539-7hvgvr.15n79tqpvi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-image-helper/issues"
   },
@@ -155,7 +155,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.24",
+        "version": "0.10.29",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -325,6 +325,7 @@
         "node_modules/es5-ext/array/#/indexes-of.js",
         "node_modules/es5-ext/array/#/intersection.js",
         "node_modules/es5-ext/array/#/is-copy.js",
+        "node_modules/es5-ext/array/#/is-empty.js",
         "node_modules/es5-ext/array/#/is-uniq.js",
         "node_modules/es5-ext/array/#/keys/implement.js",
         "node_modules/es5-ext/array/#/keys/index.js",
@@ -548,6 +549,8 @@
         "node_modules/es5-ext/object/copy.js",
         "node_modules/es5-ext/object/count.js",
         "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-array.js",
+        "node_modules/es5-ext/object/ensure-finite-number.js",
         "node_modules/es5-ext/object/ensure-natural-number-value.js",
         "node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/es5-ext/object/ensure-promise.js",
@@ -566,6 +569,7 @@
         "node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/es5-ext/object/is-copy.js",
         "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-finite-number.js",
         "node_modules/es5-ext/object/is-number-value.js",
         "node_modules/es5-ext/object/is-object.js",
         "node_modules/es5-ext/object/is-plain-object.js",
@@ -599,6 +603,7 @@
         "node_modules/es5-ext/object/validate-array-like.js",
         "node_modules/es5-ext/object/validate-stringifiable-value.js",
         "node_modules/es5-ext/object/validate-stringifiable.js",
+        "node_modules/es5-ext/optional-chaining.js",
         "node_modules/es5-ext/reg-exp/#/index.js",
         "node_modules/es5-ext/reg-exp/#/is-sticky.js",
         "node_modules/es5-ext/reg-exp/#/is-unicode.js",
@@ -681,6 +686,7 @@
         "node_modules/es5-ext/string/raw/index.js",
         "node_modules/es5-ext/string/raw/is-implemented.js",
         "node_modules/es5-ext/string/raw/shim.js",
+        "node_modules/es5-ext/to-short-string-representation.js",
         "node_modules/es6-iterator/#/chain.js",
         "node_modules/es6-iterator/array.js",
         "node_modules/es6-iterator/for-of.js",

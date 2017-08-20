@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
+        "raw": "/tmp/d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
-        "spec": "/tmp/d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
+        "rawSpec": "/tmp/d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
+        "spec": "/tmp/d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-6873-9tno45.vfgca0pb9"
+      "/tmp/apm-install-dir-117720-7628-1xa5l7.3cexm3g14i"
     ]
   ],
-  "_from": "../d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
+  "_from": "../d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
   "_id": "docblockr@0.11.0",
   "_inCache": true,
   "_location": "/docblockr",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
+    "raw": "/tmp/d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
-    "spec": "/tmp/d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
+    "rawSpec": "/tmp/d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
+    "spec": "/tmp/d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
+  "_resolved": "file:../d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
   "_shasum": "02c578f52504bf12a05fbe5ed13a8ec56b31b99a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-6873-138hu0w.7mdt2o6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-6873-9tno45.vfgca0pb9",
+  "_spec": "/tmp/d-117720-7628-ovj8t1.o7afzme7b9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-7628-1xa5l7.3cexm3g14i",
   "atomTestRunner": "./spec/runner",
   "bugs": {
     "url": "https://github.com/nikhilkalige/docblockr/issues"

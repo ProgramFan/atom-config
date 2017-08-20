@@ -6,7 +6,8 @@ Once you make donation, please email me ( `shd101wyy@gmail.com` ) the content `[
 
 
 ## $29+
-* [蓝牙彪](https://www.zhihu.com/people/bluetoothbiao/answers)
+* [蓝牙彪](https://www.zhihu.com/people/bluetoothbiao/answers)  
+* [Toma Tasovac](https://twitter.com/ttasovac)  
 
 ---
 
@@ -16,6 +17,9 @@ Once you make donation, please email me ( `shd101wyy@gmail.com` ) the content `[
 * [Eric M Fink](https://github.com/LuckyJimJD)  
 * yueduz
 * K Moses
+* [cnin](https://github.com/cnin)  
+* [xldrkp](axel-duerkop.de/blog)  
+* [湘君](http://www.sierxue.me/)  
 
 ---
 

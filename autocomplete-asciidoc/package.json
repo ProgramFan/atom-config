@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-6696-159uofx.xuxhqto6r/package.tgz",
+        "raw": "/tmp/d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-6696-159uofx.xuxhqto6r/package.tgz",
-        "spec": "/tmp/d-117631-6696-159uofx.xuxhqto6r/package.tgz",
+        "rawSpec": "/tmp/d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
+        "spec": "/tmp/d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-6696-10hbjho.s1fipphkt9"
+      "/tmp/apm-install-dir-117720-7451-8sb6b5.e2b3a98uxr"
     ]
   ],
-  "_from": "../d-117631-6696-159uofx.xuxhqto6r/package.tgz",
+  "_from": "../d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
   "_id": "autocomplete-asciidoc@0.1.2",
   "_inCache": true,
   "_location": "/autocomplete-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-6696-159uofx.xuxhqto6r/package.tgz",
+    "raw": "/tmp/d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-6696-159uofx.xuxhqto6r/package.tgz",
-    "spec": "/tmp/d-117631-6696-159uofx.xuxhqto6r/package.tgz",
+    "rawSpec": "/tmp/d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
+    "spec": "/tmp/d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-6696-159uofx.xuxhqto6r/package.tgz",
+  "_resolved": "file:../d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
   "_shasum": "bd850af2336aa841202c403968c6c293a3e52186",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-6696-159uofx.xuxhqto6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-6696-10hbjho.s1fipphkt9",
+  "_spec": "/tmp/d-117720-7451-15fwjbh.fbznnrk9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-7451-8sb6b5.e2b3a98uxr",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-autocomplete-asciidoc/issues"
   },

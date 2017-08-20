@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-5774-1wwynp.6y74x6r/package.tgz",
+        "raw": "/tmp/d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-5774-1wwynp.6y74x6r/package.tgz",
-        "spec": "/tmp/d-117631-5774-1wwynp.6y74x6r/package.tgz",
+        "rawSpec": "/tmp/d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
+        "spec": "/tmp/d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-5774-12cpkd9.1ojiw9udi"
+      "/tmp/apm-install-dir-117720-6531-1s1i7mh.z01du0udi"
     ]
   ],
-  "_from": "../d-117631-5774-1wwynp.6y74x6r/package.tgz",
+  "_from": "../d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
   "_id": "linter-shellcheck@1.4.4",
   "_inCache": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-5774-1wwynp.6y74x6r/package.tgz",
+    "raw": "/tmp/d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-5774-1wwynp.6y74x6r/package.tgz",
-    "spec": "/tmp/d-117631-5774-1wwynp.6y74x6r/package.tgz",
+    "rawSpec": "/tmp/d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
+    "spec": "/tmp/d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-5774-1wwynp.6y74x6r/package.tgz",
+  "_resolved": "file:../d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
   "_shasum": "d297a23b15118a7ba53d1d6d76d5d63b69018b68",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-5774-1wwynp.6y74x6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-5774-12cpkd9.1ojiw9udi",
+  "_spec": "/tmp/d-117720-6531-vcjeph.z0en67ds4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-6531-1s1i7mh.z01du0udi",
   "activationHooks": [
     "language-shellscript:grammar-used"
   ],
@@ -204,7 +204,7 @@
       },
       {
         "name": "tmp",
-        "version": "0.0.31",
+        "version": "0.0.33",
         "path": "node_modules/tmp/lib/tmp.js"
       }
     ],
@@ -369,7 +369,7 @@
           "node_modules/tmp"
         ],
         "dependencies": {
-          "os-tmpdir": "~1.0.1"
+          "os-tmpdir": "~1.0.2"
         }
       }
     ]

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
+        "raw": "/tmp/d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
-        "spec": "/tmp/d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
+        "rawSpec": "/tmp/d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
+        "spec": "/tmp/d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-5152-hxuw56.rzn1p2e29"
+      "/tmp/apm-install-dir-117720-5913-xlezf0.t60znkx1or"
     ]
   ],
-  "_from": "../d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
+  "_from": "../d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
   "_id": "remote-sync@4.1.5",
   "_inCache": true,
   "_location": "/remote-sync",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
+    "raw": "/tmp/d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
-    "spec": "/tmp/d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
+    "rawSpec": "/tmp/d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
+    "spec": "/tmp/d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
+  "_resolved": "file:../d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
   "_shasum": "3be3ac87b25de35a23a8aeadb1a425809dcb2c3c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-5152-m6eauu.s6h5aeb3xr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-5152-hxuw56.rzn1p2e29",
+  "_spec": "/tmp/d-117720-5913-6x0mx.uetsc92j4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-5913-xlezf0.t60znkx1or",
   "bugs": {
     "url": "https://github.com/yongkangchen/remote-sync/issues"
   },
@@ -122,7 +122,7 @@
       },
       {
         "name": "binary-extensions",
-        "version": "1.9.0",
+        "version": "1.10.0",
         "path": "node_modules/binary-extensions/binary-extensions.json"
       },
       {
@@ -162,7 +162,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.24",
+        "version": "0.10.29",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -487,7 +487,7 @@
       },
       {
         "name": "remove-trailing-separator",
-        "version": "1.0.2",
+        "version": "1.1.0",
         "path": "node_modules/remove-trailing-separator/index.js"
       },
       {
@@ -781,6 +781,7 @@
         "node_modules/es5-ext/array/#/indexes-of.js",
         "node_modules/es5-ext/array/#/intersection.js",
         "node_modules/es5-ext/array/#/is-copy.js",
+        "node_modules/es5-ext/array/#/is-empty.js",
         "node_modules/es5-ext/array/#/is-uniq.js",
         "node_modules/es5-ext/array/#/keys/implement.js",
         "node_modules/es5-ext/array/#/keys/index.js",
@@ -1004,6 +1005,8 @@
         "node_modules/es5-ext/object/copy.js",
         "node_modules/es5-ext/object/count.js",
         "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-array.js",
+        "node_modules/es5-ext/object/ensure-finite-number.js",
         "node_modules/es5-ext/object/ensure-natural-number-value.js",
         "node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/es5-ext/object/ensure-promise.js",
@@ -1022,6 +1025,7 @@
         "node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/es5-ext/object/is-copy.js",
         "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-finite-number.js",
         "node_modules/es5-ext/object/is-number-value.js",
         "node_modules/es5-ext/object/is-object.js",
         "node_modules/es5-ext/object/is-plain-object.js",
@@ -1055,6 +1059,7 @@
         "node_modules/es5-ext/object/validate-array-like.js",
         "node_modules/es5-ext/object/validate-stringifiable-value.js",
         "node_modules/es5-ext/object/validate-stringifiable.js",
+        "node_modules/es5-ext/optional-chaining.js",
         "node_modules/es5-ext/reg-exp/#/index.js",
         "node_modules/es5-ext/reg-exp/#/is-sticky.js",
         "node_modules/es5-ext/reg-exp/#/is-unicode.js",
@@ -1137,6 +1142,7 @@
         "node_modules/es5-ext/string/raw/index.js",
         "node_modules/es5-ext/string/raw/is-implemented.js",
         "node_modules/es5-ext/string/raw/shim.js",
+        "node_modules/es5-ext/to-short-string-representation.js",
         "node_modules/es6-iterator/#/chain.js",
         "node_modules/es6-iterator/array.js",
         "node_modules/es6-iterator/for-of.js",

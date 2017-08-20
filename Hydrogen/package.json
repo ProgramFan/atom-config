@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
+        "raw": "/tmp/d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
-        "spec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
+        "rawSpec": "/tmp/d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
+        "spec": "/tmp/d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-7226-10yp3xz.df6a9py14i"
+      "/tmp/apm-install-dir-117720-7980-cbii1w.3fkftlz0k9"
     ]
   ],
-  "_from": "../d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
-  "_id": "Hydrogen@1.19.0",
+  "_from": "../d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
+  "_id": "Hydrogen@1.20.0",
   "_inCache": true,
   "_location": "/Hydrogen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
+    "raw": "/tmp/d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
-    "spec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
+    "rawSpec": "/tmp/d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
+    "spec": "/tmp/d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
-  "_shasum": "7c9479201506ebea69bc3ca34a9ec7c8eaec5eea",
+  "_resolved": "file:../d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
+  "_shasum": "a5c8dafde055b7460fabb5ec6fb117ae4a2d9622",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-7226-1cbzhij.z8e990ms4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-7226-10yp3xz.df6a9py14i",
+  "_spec": "/tmp/d-117720-7980-19u8e5e.b1tpig4x6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-7980-cbii1w.3fkftlz0k9",
   "activationCommands": {
     "atom-text-editor": [
       "hydrogen:select-kernel",
@@ -66,14 +66,12 @@
   },
   "dependencies": {
     "@jupyterlab/services": "^0.42.0",
-    "@nteract/commutable": "^1.1.4",
-    "@nteract/display-area": "^1.3.1",
-    "@nteract/transform-plotly": "^1.2.0",
-    "@nteract/transforms": "^1.1.0",
+    "@nteract/display-area": "^2.0.1",
+    "@nteract/transform-plotly": "^2.0.1",
+    "@nteract/transforms": "^2.0.1",
     "atom-select-list": "^0.2.0",
     "escape-carriage": "^1.2.0",
     "escape-string-regexp": "^1.0.5",
-    "immutable": "^3.8.1",
     "jmp": "^0.7.5",
     "lodash": "^4.14.0",
     "loophole": "^1.1.0",
@@ -83,7 +81,7 @@
     "react-dom": "^15.5.4",
     "react-rangeslider": "^2.1.0",
     "requirejs": "^2.2.0",
-    "spawnteract": "^3.1.0",
+    "spawnteract": "^4.0.0",
     "tildify": "^1.2.0",
     "uuid": "^3.0.1",
     "ws": "^2.0.0",
@@ -91,14 +89,14 @@
   },
   "description": "Run code and get results inline using Jupyter kernels like IPython, IJulia, and iTorch",
   "devDependencies": {
-    "atom-jasmine2-test-runner": "^0.8.0",
+    "atom-jasmine2-test-runner": "^1.0.0",
     "enzyme": "^2.8.2",
-    "flow-bin": "^0.46.0",
+    "flow-bin": "^0.52.0",
     "husky": "^0.14.0",
     "lint-staged": "^4.0.0",
     "markdox": "^0.1.10",
     "mobx-react-devtools": "^4.2.11",
-    "prettier": "1.5.2",
+    "prettier": "1.5.3",
     "react-test-renderer": "^15.5.4"
   },
   "engines": {
@@ -152,5 +150,5 @@
     "precommit": "lint-staged",
     "prettier": "prettier --write 'lib/**/*.js' 'spec/**/*.js'"
   },
-  "version": "1.19.0"
+  "version": "1.20.0"
 }

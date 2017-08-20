@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+        "raw": "/tmp/d-117720-6442-15umhz7.df46zgp66r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
-        "spec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+        "rawSpec": "/tmp/d-117720-6442-15umhz7.df46zgp66r/package.tgz",
+        "spec": "/tmp/d-117720-6442-15umhz7.df46zgp66r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-5686-6y4kd5.4vqna8m2t9"
+      "/tmp/apm-install-dir-117720-6442-hyfqqv.covr1cerk9"
     ]
   ],
-  "_from": "../d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+  "_from": "../d-117720-6442-15umhz7.df46zgp66r/package.tgz",
   "_id": "linter-clang@4.1.2",
   "_inCache": true,
   "_location": "/linter-clang",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+    "raw": "/tmp/d-117720-6442-15umhz7.df46zgp66r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
-    "spec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+    "rawSpec": "/tmp/d-117720-6442-15umhz7.df46zgp66r/package.tgz",
+    "spec": "/tmp/d-117720-6442-15umhz7.df46zgp66r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
+  "_resolved": "file:../d-117720-6442-15umhz7.df46zgp66r/package.tgz",
   "_shasum": "92c7b37702c19190fc2adb4fcd82c926a7efbb05",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-5686-j9q5et.i6bd8cl3di/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-5686-6y4kd5.4vqna8m2t9",
+  "_spec": "/tmp/d-117720-6442-15umhz7.df46zgp66r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-6442-hyfqqv.covr1cerk9",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-clang/issues"
   },
@@ -231,7 +231,7 @@
       },
       {
         "name": "tmp",
-        "version": "0.0.31",
+        "version": "0.0.33",
         "path": "node_modules/tmp/lib/tmp.js"
       }
     ],
@@ -418,7 +418,7 @@
           "node_modules/tmp"
         ],
         "dependencies": {
-          "os-tmpdir": "~1.0.1"
+          "os-tmpdir": "~1.0.2"
         }
       }
     ]

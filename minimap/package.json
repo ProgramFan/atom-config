@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
+        "raw": "/tmp/d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
-        "spec": "/tmp/d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
+        "rawSpec": "/tmp/d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
+        "spec": "/tmp/d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117631-4395-pdc7ki.o8fgusdcxr"
+      "/tmp/apm-install-dir-117720-5156-1bjwbpq.b88zpbke29"
     ]
   ],
-  "_from": "../d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
-  "_id": "minimap@4.29.3",
+  "_from": "../d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
+  "_id": "minimap@4.29.6",
   "_inCache": true,
   "_location": "/minimap",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
+    "raw": "/tmp/d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
-    "spec": "/tmp/d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
+    "rawSpec": "/tmp/d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
+    "spec": "/tmp/d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
-  "_shasum": "1f7380c869b6832e3f7da3ab2d4d373b5320e98e",
+  "_resolved": "file:../d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
+  "_shasum": "4a0a2f27e91527ac32b7a132707f8d2b01ccac29",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117631-4395-1mxe6eb.5l93rz4cxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117631-4395-pdc7ki.o8fgusdcxr",
+  "_spec": "/tmp/d-117720-5156-1kxa69i.obfa16ecdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117720-5156-1bjwbpq.b88zpbke29",
   "author": {
     "name": "Fangdun Cai",
     "email": "cfddream@gmail.com"
@@ -255,7 +255,7 @@
       "IntersectionObserver"
     ]
   },
-  "version": "4.29.3",
+  "version": "4.29.6",
   "viewProviders": [
     "minimapViewProvider"
   ],
@@ -314,7 +314,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.24",
+        "version": "0.10.29",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -602,6 +602,7 @@
         "node_modules/es5-ext/array/#/indexes-of.js",
         "node_modules/es5-ext/array/#/intersection.js",
         "node_modules/es5-ext/array/#/is-copy.js",
+        "node_modules/es5-ext/array/#/is-empty.js",
         "node_modules/es5-ext/array/#/is-uniq.js",
         "node_modules/es5-ext/array/#/keys/implement.js",
         "node_modules/es5-ext/array/#/keys/index.js",
@@ -825,6 +826,8 @@
         "node_modules/es5-ext/object/copy.js",
         "node_modules/es5-ext/object/count.js",
         "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-array.js",
+        "node_modules/es5-ext/object/ensure-finite-number.js",
         "node_modules/es5-ext/object/ensure-natural-number-value.js",
         "node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/es5-ext/object/ensure-promise.js",
@@ -843,6 +846,7 @@
         "node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/es5-ext/object/is-copy.js",
         "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-finite-number.js",
         "node_modules/es5-ext/object/is-number-value.js",
         "node_modules/es5-ext/object/is-object.js",
         "node_modules/es5-ext/object/is-plain-object.js",
@@ -876,6 +880,7 @@
         "node_modules/es5-ext/object/validate-array-like.js",
         "node_modules/es5-ext/object/validate-stringifiable-value.js",
         "node_modules/es5-ext/object/validate-stringifiable.js",
+        "node_modules/es5-ext/optional-chaining.js",
         "node_modules/es5-ext/reg-exp/#/index.js",
         "node_modules/es5-ext/reg-exp/#/is-sticky.js",
         "node_modules/es5-ext/reg-exp/#/is-unicode.js",
@@ -958,6 +963,7 @@
         "node_modules/es5-ext/string/raw/index.js",
         "node_modules/es5-ext/string/raw/is-implemented.js",
         "node_modules/es5-ext/string/raw/shim.js",
+        "node_modules/es5-ext/to-short-string-representation.js",
         "node_modules/es6-iterator/#/chain.js",
         "node_modules/es6-iterator/array.js",
         "node_modules/es6-iterator/for-of.js",

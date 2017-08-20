@@ -48,6 +48,7 @@ class MarkdownPreviewEnhancedView {
         this.editorScrollDelay = Date.now();
         this.scrollTimeout = null;
         this.zoomLevel = 1;
+        this._webviewDOMReady = false;
         this._destroyCB = null;
         this.uri = uri;
         this.config = config;
@@ -55,13 +56,13 @@ class MarkdownPreviewEnhancedView {
         // Prevent atom keyboard event.
         this.element.classList.add('native-key-bindings');
         this.element.classList.add('mpe-preview');
-        // Prevent atom context menu from popping up.  
+        // Prevent atom context menu from popping up.
         this.element.oncontextmenu = function (event) {
             event.preventDefault();
             event.stopPropagation();
         };
         // Webview for markdown preview.
-        // Please note that the webview will load 
+        // Please note that the webview will load
         // the controller script at:
         // https://github.com/shd101wyy/mume/blob/master/src/webview.ts
         this.webview = document.createElement('webview');
@@ -70,6 +71,7 @@ class MarkdownPreviewEnhancedView {
         this.webview.style.border = 'none';
         this.webview.src = path.resolve(__dirname, '../../html/loading.html');
         this.webview.preload = mume.utility.addFileProtocol(path.resolve(mume.utility.extensionDirectoryPath, './dependencies/electron-webview/preload.js'));
+        this.webview.addEventListener('dom-ready', () => { this._webviewDOMReady = true; });
         this.webview.addEventListener('did-stop-loading', this.webviewStopLoading.bind(this));
         this.webview.addEventListener('ipc-message', this.webviewReceiveMessage.bind(this));
         this.webview.addEventListener('console-message', this.webviewConsoleMessage.bind(this));
@@ -142,9 +144,9 @@ class MarkdownPreviewEnhancedView {
             this.disposables = new atom_1.CompositeDisposable();
             // reset tab title
             this.updateTabTitle();
-            // reset 
+            // reset
             this.JSAndCssFiles = [];
-            // init markdown engine 
+            // init markdown engine
             if (this.editor.getPath() in MARKDOWN_ENGINES_MAP) {
                 this.engine = MARKDOWN_ENGINES_MAP[this.editor.getPath()];
             }
@@ -193,6 +195,7 @@ class MarkdownPreviewEnhancedView {
             });
             yield mume.utility.writeFile(htmlFilePath, html, { encoding: 'utf-8' });
             // load to webview
+            yield this.waitUtilWebviewDOMReady();
             if (this.webview.getURL() === htmlFilePath) {
                 this.webview.reload();
             }
@@ -202,12 +205,31 @@ class MarkdownPreviewEnhancedView {
         });
     }
     /**
+     * Wait until this.webview is attached to DOM and dom-ready event is emitted.
+     */
+    waitUtilWebviewDOMReady() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (this._webviewDOMReady)
+                return;
+            while (true) {
+                yield mume.utility.sleep(500);
+                if (this._webviewDOMReady)
+                    return;
+            }
+        });
+    }
+    /**
      * Webview finished loading content.
      */
     webviewStopLoading() {
-        if (!this.engine.isPreviewInPresentationMode) {
-            this.renderMarkdown();
-        }
+        return __awaiter(this, void 0, void 0, function* () {
+            while (!this.engine) {
+                yield mume.utility.sleep(500);
+            }
+            if (!this.engine.isPreviewInPresentationMode) {
+                this.renderMarkdown();
+            }
+        });
     }
     /**
      * Received message from webview.
@@ -264,7 +286,7 @@ class MarkdownPreviewEnhancedView {
         const editorElement = this.editor['getElement'](); // dunno why `getElement` not found.
         this.disposables.add(atom.commands.add(editorElement, {
             'markdown-preview-enhanced:sync-preview': () => {
-                this.syncPreview();
+                this.syncPreview(true);
             }
         }));
         this.disposables.add(this.editor.onDidDestroy(() => {
@@ -310,7 +332,7 @@ class MarkdownPreviewEnhancedView {
     }
     initPreviewEvents() {
         // as esc key doesn't work in atom,
-        // I created command. 
+        // I created command.
         this.disposables.add(atom.commands.add(this.element, {
             'markdown-preview-enhanced:esc-pressed': () => {
                 console.log('esc pressed');
@@ -319,8 +341,9 @@ class MarkdownPreviewEnhancedView {
     }
     /**
      * sync preview to match source.
+     * @param forced whether to override scroll sync.
      */
-    syncPreview() {
+    syncPreview(forced = false) {
         if (!this.editor)
             return;
         const firstVisibleScreenRow = this.editor['getFirstVisibleScreenRow']();
@@ -328,7 +351,8 @@ class MarkdownPreviewEnhancedView {
             return this.postMessage({
                 command: 'changeTextEditorSelection',
                 line: 0,
-                topRatio: 0
+                topRatio: 0,
+                forced
             });
         }
         const lastVisibleScreenRow = this.editor['getLastVisibleScreenRow']();
@@ -336,27 +360,29 @@ class MarkdownPreviewEnhancedView {
             return this.postMessage({
                 command: 'changeTextEditorSelection',
                 line: this.editor.getLastBufferRow(),
-                topRatio: 1
+                topRatio: 1,
+                forced
             });
         }
         let midBufferRow = this.editor['bufferRowForScreenRow'](Math.floor((lastVisibleScreenRow + firstVisibleScreenRow) / 2));
         this.postMessage({
             command: 'changeTextEditorSelection',
             line: midBufferRow,
-            topRatio: 0.5
+            topRatio: 0.5,
+            forced
         });
     }
     /**
      * Render markdown
      */
     renderMarkdown(triggeredBySave = false) {
-        if (!this.editor)
+        if (!this.editor || !this.engine)
             return;
-        // presentation mode 
+        // presentation mode
         if (this.engine.isPreviewInPresentationMode) {
             return this.loadPreview(); // restart preview.
         }
-        // not presentation mode 
+        // not presentation mode
         const text = this.editor.getText();
         // notice webview that we started parsing markdown
         this.postMessage({ command: 'startParsingMarkdown' });
@@ -453,7 +479,7 @@ class MarkdownPreviewEnhancedView {
     refreshPreview() {
         if (this.engine) {
             this.engine.clearCaches();
-            // restart webview 
+            // restart webview
             this.loadPreview();
         }
     }
@@ -466,6 +492,16 @@ class MarkdownPreviewEnhancedView {
     htmlExport(offline) {
         atom.notifications.addInfo('Your document is being prepared');
         this.engine.htmlExport({ offline })
+            .then((dest) => {
+            atom.notifications.addSuccess(`File \`${path.basename(dest)}\` was created at path: \`${dest}\``);
+        })
+            .catch((error) => {
+            atom.notifications.addError(error.toString());
+        });
+    }
+    chromeExport(fileType = 'pdf') {
+        atom.notifications.addInfo('Your document is being prepared');
+        this.engine.chromeExport({ fileType, openFileAfterGeneration: true })
             .then((dest) => {
             atom.notifications.addSuccess(`File \`${path.basename(dest)}\` was created at path: \`${dest}\``);
         })
@@ -616,13 +652,13 @@ class MarkdownPreviewEnhancedView {
             });
         });
     }
-    replaceHint(bufferRow, hint, withStr) {
-        if (!this.editor)
+    static replaceHint(editor, bufferRow, hint, withStr) {
+        if (!editor)
             return false;
-        const lines = this.editor.buffer.getLines();
+        const lines = editor.buffer.getLines();
         let textLine = lines[bufferRow] || '';
         if (textLine.indexOf(hint) >= 0) {
-            this.editor.buffer.setTextInRange([
+            editor.buffer.setTextInRange([
                 [bufferRow, 0],
                 [bufferRow, textLine.length],
             ], textLine.replace(hint, withStr));
@@ -630,17 +666,17 @@ class MarkdownPreviewEnhancedView {
         }
         return false;
     }
-    setUploadedImageURL(imageFileName, url, hint, bufferRow) {
+    static setUploadedImageURL(editor, imageFileName, url, hint, bufferRow) {
         let description;
         if (imageFileName.lastIndexOf('.'))
             description = imageFileName.slice(0, imageFileName.lastIndexOf('.'));
         else
             description = imageFileName;
         const withStr = `![${description}](${url})`;
-        if (!this.replaceHint(bufferRow, hint, withStr)) {
+        if (!this.replaceHint(editor, bufferRow, hint, withStr)) {
             let i = bufferRow - 20;
             while (i <= bufferRow + 20) {
-                if (this.replaceHint(i, hint, withStr))
+                if (this.replaceHint(editor, i, hint, withStr))
                     break;
                 i++;
             }
@@ -651,21 +687,27 @@ class MarkdownPreviewEnhancedView {
      * Then insert markdown image url to markdown file.
      * @param imageFilePath
      */
-    uploadImageFile(imageFilePath, imageUploader = "imgur") {
-        if (!this.editor)
+    static uploadImageFile(editor, imageFilePath, imageUploader = "imgur") {
+        if (!editor)
             return;
         const imageFileName = path.basename(imageFilePath);
         const uid = Math.random().toString(36).substr(2, 9);
         const hint = `![Uploading ${imageFileName}… (${uid})]()`;
-        const bufferRow = this.editor.getCursorBufferPosition().row;
-        this.editor.insertText(hint);
+        const bufferRow = editor.getCursorBufferPosition().row;
+        editor.insertText(hint);
         mume.utility.uploadImage(imageFilePath, { method: imageUploader })
             .then((url) => {
-            this.setUploadedImageURL(imageFileName, url, hint, bufferRow);
+            this.setUploadedImageURL(editor, imageFileName, url, hint, bufferRow);
         })
             .catch((err) => {
             atom.notifications.addError(err);
         });
+    }
+    activatePaneForEditor() {
+        if (this.editor) {
+            const pane = atom.workspace.paneForItem(this.editor);
+            pane.activate();
+        }
     }
     destroy() {
         if (this.disposables) {
@@ -710,13 +752,18 @@ MarkdownPreviewEnhancedView.MESSAGE_DISPATCH_EVENTS = {
         this.pasteImageFile(imageUrl);
     },
     'uploadImageFile': function (sourceUri, imageUrl, imageUploader) {
-        this.uploadImageFile(imageUrl, imageUploader);
+        if (!this.editor)
+            return;
+        MarkdownPreviewEnhancedView.uploadImageFile(this.editor, imageUrl, imageUploader);
     },
     'openInBrowser': function (sourceUri) {
         this.openInBrowser();
     },
     'htmlExport': function (sourceUri, offline) {
         this.htmlExport(offline);
+    },
+    'chromeExport': function (sourceUri, fileType) {
+        this.chromeExport(fileType);
     },
     'phantomjsExport': function (sourceUri, fileType) {
         this.phantomjsExport(fileType);
@@ -751,6 +798,7 @@ MarkdownPreviewEnhancedView.MESSAGE_DISPATCH_EVENTS = {
             // openFilePath = href.slice(8) # remove protocal
             let openFilePath = mume.utility.addFileProtocol(href.replace(/(\s*)[\#\?](.+)$/, '')); // remove #anchor and ?params...
             openFilePath = decodeURI(openFilePath);
+            this.activatePaneForEditor();
             atom.workspace.open(mume.utility.removeFileProtocol(openFilePath), {
                 activateItem: true,
                 activatePane: true,
@@ -772,7 +820,10 @@ MarkdownPreviewEnhancedView.MESSAGE_DISPATCH_EVENTS = {
         const buffer = editor.buffer;
         if (!buffer)
             return;
-        let line = buffer.lines[dataLine];
+        let lines = buffer.getLines();
+        if (dataLine >= lines.length)
+            return;
+        let line = lines[dataLine];
         if (line.match(/\[ \]/)) {
             line = line.replace('[ ]', '[x]');
         }
@@ -785,6 +836,7 @@ MarkdownPreviewEnhancedView.MESSAGE_DISPATCH_EVENTS = {
         this.setZoomLevel(zoomLevel);
     },
     'showUploadedImageHistory': function (sourceUri) {
+        this.activatePaneForEditor();
         const imageHistoryFilePath = path.resolve(mume.utility.extensionConfigDirectoryPath, './image_history.md');
         atom.workspace.open(imageHistoryFilePath);
     }

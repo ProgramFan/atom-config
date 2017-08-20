@@ -7,14 +7,14 @@ import {MarkdownPreviewEnhancedConfig} from "./config"
 
 /**
  * Key is editor.getPath()
- * Value is temp html file path.  
+ * Value is temp html file path.
  */
 const HTML_FILES_MAP = {}
 
 /**
  * Key is editor.getPath()
  * Value is MarkdownEngine
- * This data structure prevents MarkdownPreviewEnhancedView from creating 
+ * This data structure prevents MarkdownPreviewEnhancedView from creating
  * markdown engine for one file more than once.
  */
 const MARKDOWN_ENGINES_MAP:{[key:string]: mume.MarkdownEngine} = {}
@@ -49,6 +49,7 @@ export class MarkdownPreviewEnhancedView {
   private scrollTimeout = null
 
   private zoomLevel:number = 1
+  private _webviewDOMReady:boolean = false
 
   private _destroyCB:(preview:MarkdownPreviewEnhancedView)=>void = null
 
@@ -62,14 +63,14 @@ export class MarkdownPreviewEnhancedView {
     this.element.classList.add('native-key-bindings')
     this.element.classList.add('mpe-preview')
 
-    // Prevent atom context menu from popping up.  
+    // Prevent atom context menu from popping up.
     this.element.oncontextmenu = function(event){
       event.preventDefault()
       event.stopPropagation()
     }
-    
+
     // Webview for markdown preview.
-    // Please note that the webview will load 
+    // Please note that the webview will load
     // the controller script at:
     // https://github.com/shd101wyy/mume/blob/master/src/webview.ts
     this.webview = document.createElement('webview')
@@ -80,6 +81,7 @@ export class MarkdownPreviewEnhancedView {
     this.webview.preload = mume.utility.addFileProtocol(path.resolve(
       mume.utility.extensionDirectoryPath , './dependencies/electron-webview/preload.js'))
 
+    this.webview.addEventListener('dom-ready', ()=> {this._webviewDOMReady = true})
     this.webview.addEventListener('did-stop-loading', this.webviewStopLoading.bind(this))
     this.webview.addEventListener('ipc-message', this.webviewReceiveMessage.bind(this))
     this.webview.addEventListener('console-message', this.webviewConsoleMessage.bind(this))
@@ -105,7 +107,7 @@ export class MarkdownPreviewEnhancedView {
   }
 
   private updateTabTitle() {
-    if (!this.config.singlePreview) return 
+    if (!this.config.singlePreview) return
 
     const title = this.getTitle()
     const tabTitle = document.querySelector('[data-type="MarkdownPreviewEnhancedView"] div.title') as HTMLElement
@@ -129,7 +131,7 @@ export class MarkdownPreviewEnhancedView {
 
   /**
    * Bind editor to preview
-   * @param editor 
+   * @param editor
    */
   public bindEditor(editor:AtomCore.TextEditor) {
     if (!this.editor) {
@@ -149,7 +151,7 @@ export class MarkdownPreviewEnhancedView {
     } else { // preview already on
       this.editor = editor
       this.initEvents()
-    } 
+    }
   }
 
   private async initEvents() {
@@ -161,10 +163,10 @@ export class MarkdownPreviewEnhancedView {
     // reset tab title
     this.updateTabTitle()
 
-    // reset 
+    // reset
     this.JSAndCssFiles = []
 
-    // init markdown engine 
+    // init markdown engine
     if (this.editor.getPath() in MARKDOWN_ENGINES_MAP) {
       this.engine = MARKDOWN_ENGINES_MAP[this.editor.getPath()]
     } else {
@@ -182,12 +184,12 @@ export class MarkdownPreviewEnhancedView {
   }
 
   /**
-   * This function will 
+   * This function will
    * 1. Create a temp *.html file
    * 2. Write preview html template
    * 3. this.webview will load that *.html file.
    */
-  public async loadPreview() {    
+  public async loadPreview() {
     const editorFilePath = this.editor.getPath()
     this.postMessage({command: 'startParsingMarkdown'})
 
@@ -215,6 +217,7 @@ export class MarkdownPreviewEnhancedView {
     await mume.utility.writeFile(htmlFilePath, html, {encoding: 'utf-8'})
 
     // load to webview
+    await this.waitUtilWebviewDOMReady()
     if (this.webview.getURL() === htmlFilePath) {
       this.webview.reload()
     } else {
@@ -223,9 +226,23 @@ export class MarkdownPreviewEnhancedView {
   }
 
   /**
+   * Wait until this.webview is attached to DOM and dom-ready event is emitted.  
+   */
+  private async waitUtilWebviewDOMReady():Promise<void> {
+    if (this._webviewDOMReady) return 
+    while (true) {
+      await mume.utility.sleep(500)
+      if (this._webviewDOMReady) return
+    }
+  }
+
+  /**
    * Webview finished loading content.
    */
-  private webviewStopLoading() {
+  private async webviewStopLoading() { // #584
+    while (!this.engine) {
+      await mume.utility.sleep(500)
+    }
     if (!this.engine.isPreviewInPresentationMode) {
       this.renderMarkdown()
     }
@@ -233,7 +250,7 @@ export class MarkdownPreviewEnhancedView {
 
   /**
    * Received message from webview.
-   * @param event 
+   * @param event
    */
   private webviewReceiveMessage(event) {
     const data = event.args[0].data
@@ -268,13 +285,17 @@ export class MarkdownPreviewEnhancedView {
     this.pasteImageFile(imageUrl)
   },
   'uploadImageFile': function(sourceUri, imageUrl, imageUploader) {
-    this.uploadImageFile(imageUrl, imageUploader)
+    if (!this.editor) return
+    MarkdownPreviewEnhancedView.uploadImageFile(this.editor, imageUrl, imageUploader)
   },
   'openInBrowser': function(sourceUri) {
     this.openInBrowser()
   },
   'htmlExport': function(sourceUri, offline) {
     this.htmlExport(offline)
+  },
+  'chromeExport': function(sourceUri, fileType) {
+    this.chromeExport(fileType)
   },
   'phantomjsExport': function(sourceUri, fileType) {
     this.phantomjsExport(fileType)
@@ -308,8 +329,9 @@ export class MarkdownPreviewEnhancedView {
 			// openFilePath = href.slice(8) # remove protocal
 			let openFilePath = mume.utility.addFileProtocol(href.replace(/(\s*)[\#\?](.+)$/, '')) // remove #anchor and ?params...
       openFilePath = decodeURI(openFilePath)
+      this.activatePaneForEditor()
       atom.workspace.open(mume.utility.removeFileProtocol(openFilePath), {
-        activateItem: true, 
+        activateItem: true,
         activatePane: true,
         initialLine: 0,
         initialColumn: 0,
@@ -323,12 +345,14 @@ export class MarkdownPreviewEnhancedView {
   },
   'clickTaskListCheckbox': function(sourceUri, dataLine) {
     const editor = this.editor
-    if (!editor) return 
+    if (!editor) return
     const buffer = editor.buffer
-    if (!buffer) return 
-    let line = buffer.lines[dataLine]
+    if (!buffer) return
+    let lines = buffer.getLines()
+    if (dataLine >= lines.length) return
+    let line = lines[dataLine]
     if (line.match(/\[ \]/)) {
-      line = line.replace('[ ]', '[x]')	
+      line = line.replace('[ ]', '[x]')
     } else {
       line = line.replace(/\[[xX]\]/, '[ ]')
     }
@@ -338,6 +362,7 @@ export class MarkdownPreviewEnhancedView {
     this.setZoomLevel(zoomLevel)
   },
   'showUploadedImageHistory': function(sourceUri) {
+    this.activatePaneForEditor()
     const imageHistoryFilePath = path.resolve(mume.utility.extensionConfigDirectoryPath, './image_history.md')
     atom.workspace.open(imageHistoryFilePath)
   }
@@ -352,8 +377,8 @@ export class MarkdownPreviewEnhancedView {
     if (event.shiftKey && event.ctrlKey && event.which === 83) { // ctrl+shift+s preview sync source
       found = true
       return this.postMessage({command: 'previewSyncSource'})
-    } else if ((event.metaKey || event.ctrlKey)) { // ctrl+c copy 
-      if (event.which === 67) { // [c] copy 
+    } else if ((event.metaKey || event.ctrlKey)) { // ctrl+c copy
+      if (event.which === 67) { // [c] copy
         found = true
         this.postMessage({command: 'copy'})
       } else if (event.which === 187) { // [+] zoom in
@@ -368,7 +393,7 @@ export class MarkdownPreviewEnhancedView {
       } else if (event.which === 38) { // [ArrowUp] scroll to the most top
         found = true
         this.postMessage({command: 'scrollPreviewToTop'})
-      } 
+      }
     } else if (event.which === 27) { // [esc] toggle sidebar toc
       found = true
       this.postMessage({command: 'escPressed'})
@@ -385,7 +410,7 @@ export class MarkdownPreviewEnhancedView {
 
     this.disposables.add(atom.commands.add(editorElement, {
       'markdown-preview-enhanced:sync-preview': ()=> {
-        this.syncPreview()
+        this.syncPreview(true)
       }
     }))
 
@@ -418,7 +443,7 @@ export class MarkdownPreviewEnhancedView {
     }))
 
     this.disposables.add(this.editor.onDidChangeCursorPosition((event)=> {
-      if (!this.config.scrollSync) return 
+      if (!this.config.scrollSync) return
       if (Date.now() < this.editorScrollDelay) return
 
       const screenRow = event.newScreenPosition.row
@@ -436,7 +461,7 @@ export class MarkdownPreviewEnhancedView {
 
   private initPreviewEvents() {
     // as esc key doesn't work in atom,
-    // I created command. 
+    // I created command.
     this.disposables.add(atom.commands.add(this.element, {
       'markdown-preview-enhanced:esc-pressed': ()=> {
         console.log('esc pressed')
@@ -446,8 +471,9 @@ export class MarkdownPreviewEnhancedView {
 
   /**
    * sync preview to match source.
+   * @param forced whether to override scroll sync.
    */
-  private syncPreview() {
+  private syncPreview(forced=false) {
     if (!this.editor) return
 
     const firstVisibleScreenRow = this.editor['getFirstVisibleScreenRow']()
@@ -455,16 +481,18 @@ export class MarkdownPreviewEnhancedView {
       return this.postMessage({
         command: 'changeTextEditorSelection',
         line: 0,
-        topRatio: 0
+        topRatio: 0,
+        forced
       })
     }
-    
+
     const lastVisibleScreenRow = this.editor['getLastVisibleScreenRow']()
     if (lastVisibleScreenRow === this.editor.getLastScreenRow()) {
       return this.postMessage({
         command: 'changeTextEditorSelection',
         line: this.editor.getLastBufferRow(),
-        topRatio: 1
+        topRatio: 1,
+        forced
       })
     }
 
@@ -473,7 +501,8 @@ export class MarkdownPreviewEnhancedView {
     this.postMessage({
       command: 'changeTextEditorSelection',
       line: midBufferRow,
-      topRatio: 0.5
+      topRatio: 0.5,
+      forced
     })
   }
 
@@ -481,14 +510,14 @@ export class MarkdownPreviewEnhancedView {
    * Render markdown
    */
   public renderMarkdown(triggeredBySave:boolean=false) {
-    if (!this.editor) return 
+    if (!this.editor || !this.engine) return
 
-    // presentation mode 
+    // presentation mode
     if (this.engine.isPreviewInPresentationMode) {
       return this.loadPreview() // restart preview.
     }
 
-    // not presentation mode 
+    // not presentation mode
     const text = this.editor.getText()
 
     // notice webview that we started parsing markdown
@@ -519,7 +548,7 @@ export class MarkdownPreviewEnhancedView {
    */
   public scrollToBufferPosition(row) {
     if (!this.editor) return
-    if (row < 0) return 
+    if (row < 0) return
     this.editorScrollDelay = Date.now() + 500
 
     if (this.scrollTimeout) {
@@ -549,7 +578,7 @@ export class MarkdownPreviewEnhancedView {
         const s = editorElement.getScrollTop() + perTick
         editorElement.setScrollTop(s)
 
-        if (s == scrollTop) return 
+        if (s == scrollTop) return
         helper(duration-delay)
       }, delay)
     }
@@ -578,7 +607,7 @@ export class MarkdownPreviewEnhancedView {
 
   /**
    * Post message to this.webview
-   * @param data 
+   * @param data
    */
   private postMessage(data:any) {
     if (this.webview && this.webview.send)
@@ -599,7 +628,7 @@ export class MarkdownPreviewEnhancedView {
   public refreshPreview() {
     if (this.engine) {
       this.engine.clearCaches()
-      // restart webview 
+      // restart webview
       this.loadPreview()
     }
   }
@@ -620,7 +649,18 @@ export class MarkdownPreviewEnhancedView {
     .catch((error)=> {
       atom.notifications.addError(error.toString())
     })
-  }  
+  }
+
+  public chromeExport(fileType='pdf') {
+    atom.notifications.addInfo('Your document is being prepared')
+    this.engine.chromeExport({fileType, openFileAfterGeneration: true})
+    .then((dest)=> {
+      atom.notifications.addSuccess(`File \`${path.basename(dest)}\` was created at path: \`${dest}\``)
+    })
+    .catch((error)=> {
+      atom.notifications.addError(error.toString())
+    })
+  }
 
   public phantomjsExport(fileType='pdf') {
     atom.notifications.addInfo('Your document is being prepared')
@@ -739,7 +779,7 @@ export class MarkdownPreviewEnhancedView {
 
     fs.mkdir(assetDirectoryPath, (error) => {
       fs.stat(destPath, (err, stat) => {
-        if (err == null) { // file existed 
+        if (err == null) { // file existed
           const lastDotOffset = imageFileName.lastIndexOf('.')
           const uid = '_' + Math.random().toString(36).substr(2, 9)
 
@@ -752,7 +792,7 @@ export class MarkdownPreviewEnhancedView {
           }
 
           fs.createReadStream(imageFilePath).pipe(fs.createWriteStream(path.resolve(assetDirectoryPath, imageFileName)))
-        } else if (err.code === 'ENOENT') { // file doesn't exist 
+        } else if (err.code === 'ENOENT') { // file doesn't exist
           fs.createReadStream(imageFilePath).pipe(fs.createWriteStream(destPath))
 
           if (imageFileName.lastIndexOf('.'))
@@ -774,21 +814,21 @@ export class MarkdownPreviewEnhancedView {
     })
   }
 
-  private replaceHint(bufferRow:number, hint:string, withStr:string):boolean {
-    if (!this.editor) return false
-    const lines = this.editor.buffer.getLines()
+  private static replaceHint(editor: AtomCore.TextEditor, bufferRow:number, hint:string, withStr:string):boolean {
+    if (!editor) return false
+    const lines = editor.buffer.getLines()
     let textLine = lines[bufferRow] || ''
     if (textLine.indexOf(hint) >= 0) {
-      this.editor.buffer.setTextInRange([
+      editor.buffer.setTextInRange([
         [bufferRow, 0],
         [bufferRow, textLine.length],
       ], textLine.replace(hint, withStr))
-      return true 
+      return true
     }
-    return false 
+    return false
   }
 
-  private setUploadedImageURL(imageFileName:string, url:string, hint:string, bufferRow:number) {
+  private static setUploadedImageURL(editor: AtomCore.TextEditor, imageFileName:string, url:string, hint:string, bufferRow:number) {
     let description
     if (imageFileName.lastIndexOf('.'))
       description = imageFileName.slice(0, imageFileName.lastIndexOf('.'))
@@ -797,10 +837,10 @@ export class MarkdownPreviewEnhancedView {
 
     const withStr = `![${description}](${url})`
 
-    if (!this.replaceHint(bufferRow, hint, withStr)) {
+    if (!this.replaceHint(editor, bufferRow, hint, withStr)) {
       let i = bufferRow - 20
       while (i <= bufferRow + 20) {
-        if (this.replaceHint(i, hint, withStr))
+        if (this.replaceHint(editor, i, hint, withStr))
           break
         i++
       }
@@ -809,27 +849,34 @@ export class MarkdownPreviewEnhancedView {
 
   /**
    * Upload image at imageFilePath by this.config.imageUploader.
-   * Then insert markdown image url to markdown file.  
-   * @param imageFilePath 
+   * Then insert markdown image url to markdown file.
+   * @param imageFilePath
    */
-  public uploadImageFile(imageFilePath:string, imageUploader:string="imgur") {
-    if (!this.editor) return
+  public static uploadImageFile(editor:AtomCore.TextEditor, imageFilePath:string, imageUploader:string="imgur") {
+    if (!editor) return
 
     const imageFileName = path.basename(imageFilePath)
 
     const uid = Math.random().toString(36).substr(2, 9)
     const hint = `![Uploading ${imageFileName}… (${uid})]()`
-    const bufferRow = this.editor.getCursorBufferPosition().row
+    const bufferRow = editor.getCursorBufferPosition().row
 
-    this.editor.insertText(hint)
+    editor.insertText(hint)
 
     mume.utility.uploadImage(imageFilePath, {method:imageUploader})
     .then((url)=> {
-      this.setUploadedImageURL(imageFileName, url, hint, bufferRow)
+      this.setUploadedImageURL(editor, imageFileName, url, hint, bufferRow)
     })
     .catch((err)=> {
       atom.notifications.addError(err)
     })
+  }
+
+  private activatePaneForEditor() {
+    if (this.editor) {
+      const pane = atom.workspace.paneForItem(this.editor)
+      pane.activate()
+    }
   }
 
   public destroy() {
@@ -847,7 +894,7 @@ export class MarkdownPreviewEnhancedView {
 
   /**
    * cb will be called when this preview is destroyed.
-   * @param cb 
+   * @param cb
    */
   public onPreviewDidDestroy(cb:(preview:MarkdownPreviewEnhancedView)=>void) {
     this._destroyCB = cb

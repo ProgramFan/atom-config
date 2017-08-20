@@ -105,7 +105,7 @@ function removePreviewFromMap(preview) {
  * @param editor
  */
 function startPreview(editor) {
-    if (!(isMarkdownFile(editor.getPath())))
+    if (!editor || !editor['getPath'] || !(isMarkdownFile(editor.getPath())))
         return;
     let preview = getPreviewForEditor(editor);
     if (!preview) {
@@ -161,16 +161,15 @@ function activate(state) {
             'markdown-preview-enhanced:toggle-zen-mode': toggleZenMode,
             'markdown-preview-enhanced:run-code-chunk': runCodeChunkCommand,
             'markdown-preview-enhanced:run-all-code-chunks': runAllCodeChunks,
-            'markdown-preview-enhanced:show-uploaded-images': showUploadedImages,
-            'markdown-preview-enhanced:open-welcome-page': () => atom.workspace.open(path.resolve(__dirname, '../../docs/welcome.md'))
+            'markdown-preview-enhanced:show-uploaded-images': showUploadedImages
         }));
         // When the preview is displayed
         // preview will display the content of editor (pane item) that is activated
         subscriptions.add(atom.workspace.onDidChangeActivePaneItem((editor) => {
             if (editor &&
                 editor['buffer'] &&
-                editor['getGrammar'] &&
-                editor['getGrammar']().scopeName == 'source.gfm') {
+                editor['getPath'] &&
+                isMarkdownFile(editor['getPath']())) {
                 const preview = getPreviewForEditor(editor);
                 if (!preview)
                     return;
@@ -217,6 +216,8 @@ function activate(state) {
                         editorElement.setAttribute('data-markdown-zen', '');
                     else
                         editorElement.removeAttribute('data-markdown-zen');
+                // drop drop image events
+                bindMarkdownEditorDropEvents(editor);
             }
         }));
         // zen mode observation
@@ -232,6 +233,8 @@ function activate(state) {
                         else
                             editorElement.removeAttribute('data-markdown-zen');
                     }
+                    // drop drop image events
+                    bindMarkdownEditorDropEvents(editor);
                 }
             }
             if (enableZenMode)
@@ -248,30 +251,39 @@ function activate(state) {
             }
             previewsMap = {};
         }));
-        // Check welcome page
+        // Check package version
         const packageVersion = require(path.resolve(__dirname, '../../package.json'))['version'];
         if (packageVersion !== mume.configs.config['atom_mpe_version']) {
-            // FIXME: For version 0.14.0 
-            // DELETE the line below later
-            if (!mume.configs.config['atom_mpe_version']) {
-                const buttons = [{
-                        text: 'Open ~/.atom/config.json',
-                        onDidClick: function () {
-                            atom.workspace.open(path.resolve(atom.config.getUserConfigPath()));
-                        },
-                        className: 'btn'
-                    }];
-                atom.notifications.addInfo('As there are many changes to markdown-preview-enhanced version 0.14.0, please reset `markdown-preview-enhanced` configs by removing `markdown-preview-enhanced` section in `~/.atom/config.json` . Then restart atom. ', {
-                    buttons,
-                    dismissable: true
-                });
-            }
             mume.utility.updateExtensionConfig({ 'atom_mpe_version': packageVersion });
-            atom.workspace.open(path.resolve(__dirname, '../../docs/welcome.md'));
+            // Don't open `welcome.md` file anymore.  
+            // atom.workspace.open(path.resolve(__dirname, '../../docs/welcome.md'))
         }
     });
 }
 exports.activate = activate;
+/**
+ * Drop image file to markdown editor and upload the file directly.
+ * @param editor
+ */
+function bindMarkdownEditorDropEvents(editor) {
+    if (editor && editor.getElement) {
+        const editorElement = editor.getElement();
+        function dropImageFile(event) {
+            const files = event.dataTransfer.files;
+            for (let i = 0; i < files.length; i++) {
+                const filePath = files[i].path;
+                if (files[i].type.startsWith('image')) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    preview_content_provider_1.MarkdownPreviewEnhancedView.uploadImageFile(editor, filePath, config.imageUploader);
+                }
+            }
+            return false;
+        }
+        editorElement.ondrop = dropImageFile;
+        editorElement.ondragover = function (event) { event.preventDefault(); event.stopPropagation(); return false; };
+    }
+}
 /**
  * Open ~/.mume/style.less
  */

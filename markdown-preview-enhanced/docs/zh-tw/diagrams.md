@@ -31,8 +31,6 @@ Markdown Preview Enhanced 使用 [PlantUML](http://plantuml.com/) 來創建各�
 
 ## WaveDrom
 
-> 這個自 0.14.0 版本以後暫時不被支持了
-
 Markdown Preview Enhanced 使用 [WaveDrom](http://wavedrom.com/) 來渲染 digital timing diagram.  
 - `wavedrom` 代碼塊中的內容將會被 [WaveDrom](https://github.com/drom/wavedrom) 渲染。
 
@@ -41,7 +39,7 @@ Markdown Preview Enhanced 使用 [WaveDrom](http://wavedrom.com/) 來渲染 digi
 ## GraphViz  
 Markdown Preview Enhanced 使用 [Viz.js](https://github.com/mdaines/viz.js) 來渲染 [dot 語言](https://tinyurl.com/kjoouup) 圖形。  
 - `viz` 或者 `dot` 代碼塊中的內容將會被 [Viz.js](https://github.com/mdaines/viz.js) 渲染。  
-- 你可以通過 `{engine: "..."}` 來選擇不同的渲染引擎。 引擎 `circo`，`dot`，`neato`，`osage`，或者 `twopi` 是被支持的。默認下，使用 `dot` 引擎。
+- 你可以通過 `{engine="..."}` 來選擇不同的渲染引擎。 引擎 `circo`，`dot`，`neato`，`osage`，或者 `twopi` 是被支持的。默認下，使用 `dot` 引擎。
 
 ![screen shot 2017-07-14 at 1 12 30 am](https://user-images.githubusercontent.com/1908863/28200410-86a4d45a-6831-11e7-9981-12988882ec83.png)
 
@@ -56,8 +54,8 @@ Markdown Preview Enhanced 支持 [vega](https://vega.github.io/vega/) 以及 [ve
 你也可以 [@import](zh-tw/file-imports.md) 一個 `JSON` 或者 `YAML` 文件作為 `vega` 圖像，例如：  
 
 ```markdown
-@import "your_vega_source.json" {as:"vega"}
-@import "your_vega_lite_source.json" {as:"vega-lite"}
+@import "your_vega_source.json" {as="vega"}
+@import "your_vega_lite_source.json" {as="vega-lite"}
 ```
 
 ## Ditaa
@@ -93,6 +91,17 @@ Markdown Preview Enhanced 支持 [ditaa](https://github.com/stathissideris/ditaa
     ```mermaid {code_block: true}
     // 你的 mermaid 代碼
     ```
+
+---
+
+你可以為圖像的容器添加屬性。  
+例如：
+
+    ```puml {align="center"}
+    a->b  
+    ```
+
+將會把 puml 的圖像放在中間。  
 
 ---
 
