@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-7495-15ldivb.3cqevobt9/package.tgz",
+        "raw": "/tmp/d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-7495-15ldivb.3cqevobt9/package.tgz",
-        "spec": "/tmp/d-117720-7495-15ldivb.3cqevobt9/package.tgz",
+        "rawSpec": "/tmp/d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
+        "spec": "/tmp/d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-7495-19jpeui.tpfk0ozuxr"
+      "/tmp/apm-install-dir-117730-7509-w3iw6a.9e9wv78pvi"
     ]
   ],
-  "_from": "../d-117720-7495-15ldivb.3cqevobt9/package.tgz",
+  "_from": "../d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
   "_id": "asciidoc-preview@2.10.2",
   "_inCache": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-7495-15ldivb.3cqevobt9/package.tgz",
+    "raw": "/tmp/d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-7495-15ldivb.3cqevobt9/package.tgz",
-    "spec": "/tmp/d-117720-7495-15ldivb.3cqevobt9/package.tgz",
+    "rawSpec": "/tmp/d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
+    "spec": "/tmp/d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-7495-15ldivb.3cqevobt9/package.tgz",
+  "_resolved": "file:../d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
   "_shasum": "19b2e54e98094f7667b208e390ddb9d08491d7e5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-7495-15ldivb.3cqevobt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-7495-19jpeui.tpfk0ozuxr",
+  "_spec": "/tmp/d-117730-7509-1heduyk.n09jhy3nmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-7509-w3iw6a.9e9wv78pvi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },
@@ -340,7 +340,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.29",
+        "version": "0.10.30",
         "path": "node_modules/es5-ext/index.js"
       },
       {

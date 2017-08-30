@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
+        "raw": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
-        "spec": "/tmp/d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
+        "rawSpec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+        "spec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-8043-1m15prv.n8pcmu0udi"
+      "/tmp/apm-install-dir-117730-8057-f5jop6.nc1hiftj4i"
     ]
   ],
-  "_from": "../d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
+  "_from": "../d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
   "_id": "atom-beautify@0.30.5",
   "_inCache": true,
   "_location": "/atom-beautify",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
+    "raw": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
-    "spec": "/tmp/d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
+    "rawSpec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+    "spec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
+  "_resolved": "file:../d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
   "_shasum": "33fdc7c0bd0ed5ba260123e84cff88e2b3efa810",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-8043-1xdjod6.4wpfwasjor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-8043-1m15prv.n8pcmu0udi",
+  "_spec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-8057-f5jop6.nc1hiftj4i",
   "activationCommands": {
     "atom-workspace": [
       "atom-beautify:help-debug-editor",
@@ -786,7 +786,7 @@
       },
       {
         "name": "cli-width",
-        "version": "2.1.0",
+        "version": "2.2.0",
         "path": "node_modules/cli-width/index.js"
       },
       {
@@ -1096,7 +1096,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.29",
+        "version": "0.10.30",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -1421,7 +1421,7 @@
       },
       {
         "name": "function-bind",
-        "version": "1.1.0",
+        "version": "1.1.1",
         "path": "node_modules/function-bind/index.js"
       },
       {
@@ -1631,7 +1631,7 @@
       },
       {
         "name": "ignore",
-        "version": "3.3.3",
+        "version": "3.3.5",
         "path": "node_modules/ignore/ignore.js"
       },
       {
@@ -2071,7 +2071,7 @@
       },
       {
         "name": "marko",
-        "version": "4.4.26",
+        "version": "4.4.27",
         "path": "node_modules/marko/index.js"
       },
       {
@@ -2326,7 +2326,7 @@
       },
       {
         "name": "pkginfo",
-        "version": "0.4.0",
+        "version": "0.4.1",
         "path": "node_modules/pkginfo/lib/pkginfo.js"
       },
       {
@@ -2671,7 +2671,7 @@
       },
       {
         "name": "source-map",
-        "version": "0.5.6",
+        "version": "0.5.7",
         "path": "node_modules/source-map-support/node_modules/source-map/source-map.js"
       },
       {
@@ -2911,7 +2911,7 @@
       },
       {
         "name": "source-map",
-        "version": "0.5.6",
+        "version": "0.5.7",
         "path": "node_modules/uglify-js/node_modules/source-map/source-map.js"
       },
       {
@@ -3273,7 +3273,6 @@
         "node_modules/circular-json/package.json",
         "node_modules/cli-cursor/package.json",
         "node_modules/cli-table/package.json",
-        "node_modules/cli-width/coverage/coverage.json",
         "node_modules/cli-width/package.json",
         "node_modules/cliui/node_modules/wordwrap/package.json",
         "node_modules/cliui/package.json",
@@ -5089,8 +5088,6 @@
         "node_modules/cli-cursor/index.js",
         "node_modules/cli-table/lib/index.js",
         "node_modules/cli-table/lib/utils.js",
-        "node_modules/cli-width/coverage/lcov-report/prettify.js",
-        "node_modules/cli-width/coverage/lcov-report/sorter.js",
         "node_modules/cli-width/index.js",
         "node_modules/cliui/index.js",
         "node_modules/cliui/node_modules/wordwrap/example/center.js",
@@ -12236,6 +12233,7 @@
         "node_modules/marko/test-dist/autotests/components-browser/include-event-handler/test.js",
         "node_modules/marko/test-dist/autotests/components-browser/include-preserve-old/test.js",
         "node_modules/marko/test-dist/autotests/components-browser/input-checkbox/test.js",
+        "node_modules/marko/test-dist/autotests/components-browser/input-global/test.js",
         "node_modules/marko/test-dist/autotests/components-browser/input-no-change/test.js",
         "node_modules/marko/test-dist/autotests/components-browser/input-no-change-nested/components/foo/test.js",
         "node_modules/marko/test-dist/autotests/components-browser/input-no-change-nested/test.js",
@@ -17498,6 +17496,7 @@
           "node_modules/marko/test-dist/autotests/components-browser/include-event-handler",
           "node_modules/marko/test-dist/autotests/components-browser/include-preserve-old",
           "node_modules/marko/test-dist/autotests/components-browser/input-checkbox",
+          "node_modules/marko/test-dist/autotests/components-browser/input-global",
           "node_modules/marko/test-dist/autotests/components-browser/input-no-change",
           "node_modules/marko/test-dist/autotests/components-browser/input-no-change-nested/components/foo",
           "node_modules/marko/test-dist/autotests/components-browser/input-no-change-nested",

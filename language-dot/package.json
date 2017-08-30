@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
+        "raw": "/tmp/d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
-        "spec": "/tmp/d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
+        "rawSpec": "/tmp/d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
+        "spec": "/tmp/d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-6839-ojwpbj.hglyuv7vi"
+      "/tmp/apm-install-dir-117730-6849-d25oj0.nz4ag1ra4i"
     ]
   ],
-  "_from": "../d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
+  "_from": "../d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
   "_id": "language-dot@1.7.0",
   "_inCache": true,
   "_location": "/language-dot",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
+    "raw": "/tmp/d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
-    "spec": "/tmp/d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
+    "rawSpec": "/tmp/d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
+    "spec": "/tmp/d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
+  "_resolved": "file:../d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
   "_shasum": "3d4e6816dcf75a0ddc5011e7e512a0ef176fcf00",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-6839-k9nodq.n2rljzia4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-6839-ojwpbj.hglyuv7vi",
+  "_spec": "/tmp/d-117730-6849-5kegje.zy2jkvgqfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-6849-d25oj0.nz4ag1ra4i",
   "bugs": {
     "url": "https://github.com/AdoPi/language-dot/issues"
   },

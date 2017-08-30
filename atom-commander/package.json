@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
+        "raw": "/tmp/d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
-        "spec": "/tmp/d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
+        "rawSpec": "/tmp/d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
+        "spec": "/tmp/d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-5957-z4h7sf.rsieh4cxr"
+      "/tmp/apm-install-dir-117730-5966-1ekf95.aime8qia4i"
     ]
   ],
-  "_from": "../d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
-  "_id": "atom-commander@0.10.1",
+  "_from": "../d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
+  "_id": "atom-commander@0.10.2",
   "_inCache": true,
   "_location": "/atom-commander",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
+    "raw": "/tmp/d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
-    "spec": "/tmp/d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
+    "rawSpec": "/tmp/d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
+    "spec": "/tmp/d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
-  "_shasum": "2b6be318b2a5436dd4f2c050d813a3c0e5838e1b",
+  "_resolved": "file:../d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
+  "_shasum": "b30e71a9a041c086e9b04cf0c3c864d056f8092a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-5957-1gkgvg2.pviw1att9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-5957-z4h7sf.rsieh4cxr",
+  "_spec": "/tmp/d-117730-5966-lp03b3.g66u7bvs4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-5966-1ekf95.aime8qia4i",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/morassman/atom-commander/issues"
@@ -92,7 +92,7 @@
     "type": "git",
     "url": "git+https://github.com/morassman/atom-commander.git"
   },
-  "version": "0.10.1",
+  "version": "0.10.2",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -153,7 +153,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.29",
+        "version": "0.10.30",
         "path": "node_modules/es5-ext/index.js"
       },
       {

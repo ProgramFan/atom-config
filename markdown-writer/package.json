@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-7407-1ygptuy.jkbj4i/package.tgz",
+        "raw": "/tmp/d-117730-7421-bign00.j2jkc8r529/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-7407-1ygptuy.jkbj4i/package.tgz",
-        "spec": "/tmp/d-117720-7407-1ygptuy.jkbj4i/package.tgz",
+        "rawSpec": "/tmp/d-117730-7421-bign00.j2jkc8r529/package.tgz",
+        "spec": "/tmp/d-117730-7421-bign00.j2jkc8r529/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-7407-1cvsfdo.20b5p3z0k9"
+      "/tmp/apm-install-dir-117730-7421-1sdsxz2.t2759afw29"
     ]
   ],
-  "_from": "../d-117720-7407-1ygptuy.jkbj4i/package.tgz",
+  "_from": "../d-117730-7421-bign00.j2jkc8r529/package.tgz",
   "_id": "markdown-writer@2.6.5",
   "_inCache": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-7407-1ygptuy.jkbj4i/package.tgz",
+    "raw": "/tmp/d-117730-7421-bign00.j2jkc8r529/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-7407-1ygptuy.jkbj4i/package.tgz",
-    "spec": "/tmp/d-117720-7407-1ygptuy.jkbj4i/package.tgz",
+    "rawSpec": "/tmp/d-117730-7421-bign00.j2jkc8r529/package.tgz",
+    "spec": "/tmp/d-117730-7421-bign00.j2jkc8r529/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-7407-1ygptuy.jkbj4i/package.tgz",
+  "_resolved": "file:../d-117730-7421-bign00.j2jkc8r529/package.tgz",
   "_shasum": "9e1dd13e2ad751b93d37252aaad472087754924e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-7407-1ygptuy.jkbj4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-7407-1cvsfdo.20b5p3z0k9",
+  "_spec": "/tmp/d-117730-7421-bign00.j2jkc8r529/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-7421-1sdsxz2.t2759afw29",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",
@@ -188,7 +188,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.29",
+        "version": "0.10.30",
         "path": "node_modules/es5-ext/index.js"
       },
       {

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
+        "raw": "/tmp/d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
-        "spec": "/tmp/d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
+        "rawSpec": "/tmp/d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
+        "spec": "/tmp/d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-5604-a9u1wz.daixvibe29"
+      "/tmp/apm-install-dir-117730-5612-846g4s.k8uyzumcxr"
     ]
   ],
-  "_from": "../d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
+  "_from": "../d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
   "_id": "Zen@0.18.0",
   "_inCache": true,
   "_location": "/Zen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
+    "raw": "/tmp/d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
-    "spec": "/tmp/d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
+    "rawSpec": "/tmp/d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
+    "spec": "/tmp/d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
+  "_resolved": "file:../d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
   "_shasum": "f7d93d67444735d8e814994b77ddf646d606940d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-5604-1k9jax5.1sbd7mygb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-5604-a9u1wz.daixvibe29",
+  "_spec": "/tmp/d-117730-5612-yill8e.d5w1hy3nmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-5612-846g4s.k8uyzumcxr",
   "activationCommands": {
     "atom-text-editor": [
       "zen:toggle"

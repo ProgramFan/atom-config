@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
+        "raw": "/tmp/d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
-        "spec": "/tmp/d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
+        "rawSpec": "/tmp/d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
+        "spec": "/tmp/d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-8176-1aqd3e6.c4f8byb9"
+      "/tmp/apm-install-dir-117730-8190-wy4lh0.nn2ifkzkt9"
     ]
   ],
-  "_from": "../d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
-  "_id": "platformio-ide-terminal@2.5.5",
+  "_from": "../d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
+  "_id": "platformio-ide-terminal@2.6.0",
   "_inCache": true,
   "_location": "/platformio-ide-terminal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
+    "raw": "/tmp/d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
-    "spec": "/tmp/d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
+    "rawSpec": "/tmp/d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
+    "spec": "/tmp/d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
-  "_shasum": "3dab346b1a23b39ced4fe7185ca6db1aee6c8971",
+  "_resolved": "file:../d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
+  "_shasum": "2cea9f3583ec0da4d181c4601ec713a456c95f40",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-8176-cn4q68.qxkm1v2t9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-8176-1aqd3e6.c4f8byb9",
+  "_spec": "/tmp/d-117730-8190-sujt8p.yyfbh5b3xr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-8190-wy4lh0.nn2ifkzkt9",
   "activationHooks": [
     "core:loaded-shell-environment"
   ],
@@ -113,7 +113,7 @@
     "type": "git",
     "url": "git+https://github.com/platformio/platformio-atom-ide-terminal.git"
   },
-  "version": "2.5.5",
+  "version": "2.6.0",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -134,7 +134,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.29",
+        "version": "0.10.30",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -836,14 +836,6 @@
         "package.json"
       ],
       ".node": [
-        "node_modules/pty.js/bin/darwin/x64_m49/pty.node",
-        "node_modules/pty.js/bin/darwin/x64_m53/pty.node",
-        "node_modules/pty.js/bin/linux/x64_m49/pty.node",
-        "node_modules/pty.js/bin/linux/x64_m53/pty.node",
-        "node_modules/pty.js/bin/win32/ia32_m49/pty.node",
-        "node_modules/pty.js/bin/win32/ia32_m53/pty.node",
-        "node_modules/pty.js/bin/win32/x64_m49/pty.node",
-        "node_modules/pty.js/bin/win32/x64_m53/pty.node",
         "node_modules/pty.js/build/Release/pty.node"
       ]
     },
@@ -1140,14 +1132,6 @@
       },
       {
         "paths": [
-          "node_modules/pty.js/bin/darwin/x64_m49",
-          "node_modules/pty.js/bin/darwin/x64_m53",
-          "node_modules/pty.js/bin/linux/x64_m49",
-          "node_modules/pty.js/bin/linux/x64_m53",
-          "node_modules/pty.js/bin/win32/ia32_m49",
-          "node_modules/pty.js/bin/win32/ia32_m53",
-          "node_modules/pty.js/bin/win32/x64_m49",
-          "node_modules/pty.js/bin/win32/x64_m53",
           "node_modules/pty.js/build/Release",
           "node_modules/pty.js",
           "node_modules/pty.js/lib",

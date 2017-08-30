@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-6310-tko796.oj2ass8aor/package.tgz",
+        "raw": "/tmp/d-117730-6319-1st843o.kcchoxbt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-6310-tko796.oj2ass8aor/package.tgz",
-        "spec": "/tmp/d-117720-6310-tko796.oj2ass8aor/package.tgz",
+        "rawSpec": "/tmp/d-117730-6319-1st843o.kcchoxbt9/package.tgz",
+        "spec": "/tmp/d-117730-6319-1st843o.kcchoxbt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-6310-647zae.o10a0885mi"
+      "/tmp/apm-install-dir-117730-6319-1a1pn3v.4me4tjra4i"
     ]
   ],
-  "_from": "../d-117720-6310-tko796.oj2ass8aor/package.tgz",
-  "_id": "linter-ui-default@1.6.7",
+  "_from": "../d-117730-6319-1st843o.kcchoxbt9/package.tgz",
+  "_id": "linter-ui-default@1.6.8",
   "_inCache": true,
   "_location": "/linter-ui-default",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-6310-tko796.oj2ass8aor/package.tgz",
+    "raw": "/tmp/d-117730-6319-1st843o.kcchoxbt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-6310-tko796.oj2ass8aor/package.tgz",
-    "spec": "/tmp/d-117720-6310-tko796.oj2ass8aor/package.tgz",
+    "rawSpec": "/tmp/d-117730-6319-1st843o.kcchoxbt9/package.tgz",
+    "spec": "/tmp/d-117730-6319-1st843o.kcchoxbt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-6310-tko796.oj2ass8aor/package.tgz",
-  "_shasum": "07403d5721893afd753faf415a43345538154ca9",
+  "_resolved": "file:../d-117730-6319-1st843o.kcchoxbt9/package.tgz",
+  "_shasum": "b5274873f4954e5451049dde5956ac00a46d7de4",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-6310-tko796.oj2ass8aor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-6310-647zae.o10a0885mi",
+  "_spec": "/tmp/d-117730-6319-1st843o.kcchoxbt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-6319-1a1pn3v.4me4tjra4i",
   "bugs": {
     "url": "https://github.com/steelbrain/linter-ui-default/issues"
   },
@@ -228,7 +228,7 @@
   "scripts": {
     "test": "(apm test) && (flow check) && (eslint . )"
   },
-  "version": "1.6.7",
+  "version": "1.6.8",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

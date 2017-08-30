@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
+        "raw": "/tmp/d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
-        "spec": "/tmp/d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
+        "rawSpec": "/tmp/d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
+        "spec": "/tmp/d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117720-6354-uvld1d.psq75bfbt9"
+      "/tmp/apm-install-dir-117730-6364-1bqt4wh.3hdb98jjor"
     ]
   ],
-  "_from": "../d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
+  "_from": "../d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
   "_id": "busy-signal@1.4.3",
   "_inCache": true,
   "_location": "/busy-signal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
+    "raw": "/tmp/d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
-    "spec": "/tmp/d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
+    "rawSpec": "/tmp/d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
+    "spec": "/tmp/d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
+  "_resolved": "file:../d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
   "_shasum": "6baf37a38bf9468d9bfd491817102a70b50e05f3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117720-6354-c09aw2.u5mywopqfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117720-6354-uvld1d.psq75bfbt9",
+  "_spec": "/tmp/d-117730-6364-16enmsp.snmdjthuxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117730-6364-1bqt4wh.3hdb98jjor",
   "bugs": {
     "url": "https://github.com/steelbrain/busy-signal/issues"
   },
