@@ -28,7 +28,7 @@ open-no-binaries # stop atom from opening binary files
 open-unsupported-files # open unsupported files in external programs
 project-manager # save, load and switch projects
 file-watcher # reload file when changed outside
-remote-sync # allow editing remote files
+Remote-FTP # allow editing remote files
 atom-commander # better file manager
 git-plus # better git integration
 git-time-machine # navigate through time for a file
@@ -49,7 +49,7 @@ linter-scspell
 linter-spell
 linter-spell-latex
 linter-spell-html
-linter-write-good
+atomic-vale # A better language linter
 
 #
 # 3. Extra syntax highlighters
@@ -61,6 +61,7 @@ language-markdown # better markdown
 language-asciidoc
 language-latex
 language-plantuml
+language-fortran
 
 #
 # 4. Extra completers
@@ -71,6 +72,7 @@ autocomplete-en-en
 autocomplete-cmake
 
 # 5. Markdown utilities
+document-outline # Also work for asciidoc, latex
 markdown-preview-enhanced
 markdown-table-formatter
 markdown-writer
@@ -100,4 +102,3 @@ graphviz-preview # preview dot files
 plantuml-viewer # preview plantuml files
 platformio-ide-terminal # terminal in atom
 latextools # latex utils
-sync-settings # sync settings through gist
