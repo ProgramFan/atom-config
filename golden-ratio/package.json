@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-5568-iabwov.59zuissjor/package.tgz",
+        "raw": "/tmp/d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-5568-iabwov.59zuissjor/package.tgz",
-        "spec": "/tmp/d-117730-5568-iabwov.59zuissjor/package.tgz",
+        "rawSpec": "/tmp/d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
+        "spec": "/tmp/d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-5568-1we9qkf.2xz0i442t9"
+      "/tmp/apm-install-dir-11784-5578-15oa9uf.sj2uwstt9"
     ]
   ],
-  "_from": "../d-117730-5568-iabwov.59zuissjor/package.tgz",
+  "_from": "../d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
   "_id": "golden-ratio@0.3.0",
   "_inCache": true,
   "_location": "/golden-ratio",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-5568-iabwov.59zuissjor/package.tgz",
+    "raw": "/tmp/d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-5568-iabwov.59zuissjor/package.tgz",
-    "spec": "/tmp/d-117730-5568-iabwov.59zuissjor/package.tgz",
+    "rawSpec": "/tmp/d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
+    "spec": "/tmp/d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-5568-iabwov.59zuissjor/package.tgz",
+  "_resolved": "file:../d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
   "_shasum": "3b2ce4156308afe98454d19d501ba28ce5218689",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-5568-iabwov.59zuissjor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-5568-1we9qkf.2xz0i442t9",
+  "_spec": "/tmp/d-11784-5578-kpdzd0.afwlgzaor/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-5578-15oa9uf.sj2uwstt9",
   "activationCommands": {
     "atom-workspace": "golden-ratio:toggle"
   },

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-7029-pldzy1.or77hqia4i/package.tgz",
+        "raw": "/tmp/d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-7029-pldzy1.or77hqia4i/package.tgz",
-        "spec": "/tmp/d-117730-7029-pldzy1.or77hqia4i/package.tgz",
+        "rawSpec": "/tmp/d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
+        "spec": "/tmp/d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-7029-17ucd5p.jmu4eipb9"
+      "/tmp/apm-install-dir-11784-7037-1bpak7l.4lki0ms4i"
     ]
   ],
-  "_from": "../d-117730-7029-pldzy1.or77hqia4i/package.tgz",
+  "_from": "../d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
   "_id": "language-latex@1.1.1",
   "_inCache": true,
   "_location": "/language-latex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-7029-pldzy1.or77hqia4i/package.tgz",
+    "raw": "/tmp/d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-7029-pldzy1.or77hqia4i/package.tgz",
-    "spec": "/tmp/d-117730-7029-pldzy1.or77hqia4i/package.tgz",
+    "rawSpec": "/tmp/d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
+    "spec": "/tmp/d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-7029-pldzy1.or77hqia4i/package.tgz",
+  "_resolved": "file:../d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
   "_shasum": "c85acd386a8b85d32a765bac137f524dc700c327",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-7029-pldzy1.or77hqia4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-7029-17ucd5p.jmu4eipb9",
+  "_spec": "/tmp/d-11784-7037-ok6l5i.7bhzkc5wmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-7037-1bpak7l.4lki0ms4i",
   "bugs": {
     "url": "https://github.com/area/language-latex/issues"
   },

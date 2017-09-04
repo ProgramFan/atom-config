@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-6673-qoud0y.jhubi3haor/package.tgz",
+        "raw": "/tmp/d-11784-6681-gs853d.v63k7c766r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-6673-qoud0y.jhubi3haor/package.tgz",
-        "spec": "/tmp/d-117730-6673-qoud0y.jhubi3haor/package.tgz",
+        "rawSpec": "/tmp/d-11784-6681-gs853d.v63k7c766r/package.tgz",
+        "spec": "/tmp/d-11784-6681-gs853d.v63k7c766r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-6673-1r6l326.3sih589f6r"
+      "/tmp/apm-install-dir-11784-6681-1j56nf.px19fz85mi"
     ]
   ],
-  "_from": "../d-117730-6673-qoud0y.jhubi3haor/package.tgz",
+  "_from": "../d-11784-6681-gs853d.v63k7c766r/package.tgz",
   "_id": "linter-spell-latex@0.10.0",
   "_inCache": true,
   "_location": "/linter-spell-latex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-6673-qoud0y.jhubi3haor/package.tgz",
+    "raw": "/tmp/d-11784-6681-gs853d.v63k7c766r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-6673-qoud0y.jhubi3haor/package.tgz",
-    "spec": "/tmp/d-117730-6673-qoud0y.jhubi3haor/package.tgz",
+    "rawSpec": "/tmp/d-11784-6681-gs853d.v63k7c766r/package.tgz",
+    "spec": "/tmp/d-11784-6681-gs853d.v63k7c766r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-6673-qoud0y.jhubi3haor/package.tgz",
+  "_resolved": "file:../d-11784-6681-gs853d.v63k7c766r/package.tgz",
   "_shasum": "30db24b2a930bbe94c33056a1cd1fba020222a5c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-6673-qoud0y.jhubi3haor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-6673-1r6l326.3sih589f6r",
+  "_spec": "/tmp/d-11784-6681-gs853d.v63k7c766r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-6681-1j56nf.px19fz85mi",
   "activationHooks": [
     "language-latex:grammar-used",
     "language-tex:grammar-used"

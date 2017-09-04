@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
+        "raw": "/tmp/d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
-        "spec": "/tmp/d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
+        "rawSpec": "/tmp/d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
+        "spec": "/tmp/d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-7995-4h0jjo.0kgsbdquxr"
+      "/tmp/apm-install-dir-11784-8092-q9by35.bzl4gnl8fr"
     ]
   ],
-  "_from": "../d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
-  "_id": "Hydrogen@1.20.0",
+  "_from": "../d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
+  "_id": "Hydrogen@1.21.1",
   "_inCache": true,
   "_location": "/Hydrogen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
+    "raw": "/tmp/d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
-    "spec": "/tmp/d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
+    "rawSpec": "/tmp/d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
+    "spec": "/tmp/d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
-  "_shasum": "a5c8dafde055b7460fabb5ec6fb117ae4a2d9622",
+  "_resolved": "file:../d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
+  "_shasum": "babdb3888080aec7c69db091826ea70388058e58",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-7995-1cbxpp8.x2prpb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-7995-4h0jjo.0kgsbdquxr",
+  "_spec": "/tmp/d-11784-8092-k35sb8.5cpihk6gvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-8092-q9by35.bzl4gnl8fr",
   "activationCommands": {
     "atom-text-editor": [
       "hydrogen:select-kernel",
@@ -66,9 +66,9 @@
   },
   "dependencies": {
     "@jupyterlab/services": "^0.42.0",
-    "@nteract/display-area": "^2.0.1",
-    "@nteract/transform-plotly": "^2.0.1",
-    "@nteract/transforms": "^2.0.1",
+    "@nteract/display-area": "^2.4.0",
+    "@nteract/transform-plotly": "^2.2.0",
+    "@nteract/transforms": "^2.4.0",
     "atom-select-list": "^0.2.0",
     "escape-carriage": "^1.2.0",
     "escape-string-regexp": "^1.0.5",
@@ -91,12 +91,12 @@
   "devDependencies": {
     "atom-jasmine2-test-runner": "^1.0.0",
     "enzyme": "^2.8.2",
-    "flow-bin": "^0.52.0",
+    "flow-bin": "^0.54.0",
     "husky": "^0.14.0",
     "lint-staged": "^4.0.0",
     "markdox": "^0.1.10",
     "mobx-react-devtools": "^4.2.11",
-    "prettier": "1.5.3",
+    "prettier": "1.6.1",
     "react-test-renderer": "^15.5.4"
   },
   "engines": {
@@ -134,7 +134,7 @@
     },
     "hydrogen.provider": {
       "versions": {
-        "1.0.0": "provideHydrogen"
+        "1.1.0": "provideHydrogen"
       }
     }
   },
@@ -150,5 +150,5 @@
     "precommit": "lint-staged",
     "prettier": "prettier --write 'lib/**/*.js' 'spec/**/*.js'"
   },
-  "version": "1.20.0"
+  "version": "1.21.1"
 }

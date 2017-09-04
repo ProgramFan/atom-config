@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
+        "raw": "/tmp/d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
-        "spec": "/tmp/d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
+        "rawSpec": "/tmp/d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
+        "spec": "/tmp/d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-7818-1fuonti.r2gweqxgvi"
+      "/tmp/apm-install-dir-11784-7915-jhqaxh.2sa7dxtj4i"
     ]
   ],
-  "_from": "../d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
+  "_from": "../d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
   "_id": "hyperclick@0.1.3",
   "_inCache": true,
   "_location": "/hyperclick",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
+    "raw": "/tmp/d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
-    "spec": "/tmp/d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
+    "rawSpec": "/tmp/d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
+    "spec": "/tmp/d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
+  "_resolved": "file:../d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
   "_shasum": "f214d9881296852262b65748686cc45696b1f895",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-7818-18cepd3.8axlrcc8fr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-7818-1fuonti.r2gweqxgvi",
+  "_spec": "/tmp/d-11784-7915-swdyiu.aj6rvbo6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-7915-jhqaxh.2sa7dxtj4i",
   "bugs": {
     "url": "https://github.com/facebooknuclide/hyperclick/issues"
   },

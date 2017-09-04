@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
+        "raw": "/tmp/d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
-        "spec": "/tmp/d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
+        "rawSpec": "/tmp/d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
+        "spec": "/tmp/d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-5656-1kwt4jn.pcu1ikvs4i"
+      "/tmp/apm-install-dir-11784-5666-180e7ge.l67xcx47vi"
     ]
   ],
-  "_from": "../d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
+  "_from": "../d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
   "_id": "auto-detect-indentation@1.3.0",
   "_inCache": true,
   "_location": "/auto-detect-indentation",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
+    "raw": "/tmp/d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
-    "spec": "/tmp/d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
+    "rawSpec": "/tmp/d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
+    "spec": "/tmp/d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
+  "_resolved": "file:../d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
   "_shasum": "818851261e5fd2022fa64a3e75744818ea0feca8",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-5656-1pdmg05.3zurvk7qfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-5656-1kwt4jn.pcu1ikvs4i",
+  "_spec": "/tmp/d-11784-5666-1qd14cp.guuy9icnmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-5666-180e7ge.l67xcx47vi",
   "author": {
     "name": "Jason Tokoph",
     "email": "jason@tokoph.net"

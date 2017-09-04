@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
+        "raw": "/tmp/d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
-        "spec": "/tmp/d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
+        "rawSpec": "/tmp/d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
+        "spec": "/tmp/d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-5164-1ucdt1s.kjoqtlc8fr"
+      "/tmp/apm-install-dir-11784-5173-1a1ugz4.b8fvzehfr"
     ]
   ],
-  "_from": "../d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
+  "_from": "../d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
   "_id": "minimap@4.29.6",
   "_inCache": true,
   "_location": "/minimap",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
+    "raw": "/tmp/d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
-    "spec": "/tmp/d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
+    "rawSpec": "/tmp/d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
+    "spec": "/tmp/d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
+  "_resolved": "file:../d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
   "_shasum": "4a0a2f27e91527ac32b7a132707f8d2b01ccac29",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-5164-1468m5r.9ozlbrcnmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-5164-1ucdt1s.kjoqtlc8fr",
+  "_spec": "/tmp/d-11784-5173-1fqpv6o.lv0b6xyldi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-5173-1a1ugz4.b8fvzehfr",
   "author": {
     "name": "Fangdun Cai",
     "email": "cfddream@gmail.com"

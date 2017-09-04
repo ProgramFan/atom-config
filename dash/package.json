@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
+        "raw": "/tmp/d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
-        "spec": "/tmp/d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
+        "rawSpec": "/tmp/d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
+        "spec": "/tmp/d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-7686-1p9u5qt.cou6z2gldi"
+      "/tmp/apm-install-dir-11784-7783-8fnek8.dqlbrcnmi"
     ]
   ],
-  "_from": "../d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
+  "_from": "../d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
   "_id": "dash@1.7.1",
   "_inCache": true,
   "_location": "/dash",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
+    "raw": "/tmp/d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
-    "spec": "/tmp/d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
+    "rawSpec": "/tmp/d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
+    "spec": "/tmp/d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
+  "_resolved": "file:../d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
   "_shasum": "7fad1f6dccbc4424d70c4ed9573641b34802ab2b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-7686-3ovlxx.2s4jyh9f6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-7686-1p9u5qt.cou6z2gldi",
+  "_spec": "/tmp/d-11784-7783-7sqyoy.rlefa5g66r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-7783-8fnek8.dqlbrcnmi",
   "activationCommands": {
     "atom-text-editor": [
       "dash:shortcut",

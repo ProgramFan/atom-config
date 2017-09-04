@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+        "raw": "/tmp/d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
-        "spec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+        "rawSpec": "/tmp/d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
+        "spec": "/tmp/d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-8057-f5jop6.nc1hiftj4i"
+      "/tmp/apm-install-dir-11784-8154-1cnt15u.64fhepzaor"
     ]
   ],
-  "_from": "../d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+  "_from": "../d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
   "_id": "atom-beautify@0.30.5",
   "_inCache": true,
   "_location": "/atom-beautify",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+    "raw": "/tmp/d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
-    "spec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+    "rawSpec": "/tmp/d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
+    "spec": "/tmp/d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
+  "_resolved": "file:../d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
   "_shasum": "33fdc7c0bd0ed5ba260123e84cff88e2b3efa810",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-8057-wc1xwz.f87a4f5hfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-8057-f5jop6.nc1hiftj4i",
+  "_spec": "/tmp/d-11784-8154-ibbj70.v2j0l1h5mi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-8154-1cnt15u.64fhepzaor",
   "activationCommands": {
     "atom-workspace": [
       "atom-beautify:help-debug-editor",
@@ -491,7 +491,7 @@
       },
       {
         "name": "acorn",
-        "version": "5.1.1",
+        "version": "5.1.2",
         "path": "node_modules/acorn/dist/acorn.js"
       },
       {
@@ -891,7 +891,7 @@
       },
       {
         "name": "core-js",
-        "version": "2.5.0",
+        "version": "2.5.1",
         "path": "node_modules/core-js/index.js"
       },
       {
@@ -1031,7 +1031,7 @@
       },
       {
         "name": "diff",
-        "version": "3.3.0",
+        "version": "3.3.1",
         "path": "node_modules/diff/lib/index.js"
       },
       {
@@ -1156,7 +1156,7 @@
       },
       {
         "name": "eslint",
-        "version": "4.5.0",
+        "version": "4.6.1",
         "path": "node_modules/eslint/lib/api.js"
       },
       {
@@ -1221,7 +1221,7 @@
       },
       {
         "name": "supports-color",
-        "version": "4.2.1",
+        "version": "4.4.0",
         "path": "node_modules/eslint/node_modules/supports-color/index.js"
       },
       {
@@ -1671,7 +1671,7 @@
       },
       {
         "name": "inquirer",
-        "version": "3.2.2",
+        "version": "3.2.3",
         "path": "node_modules/inquirer/lib/inquirer.js"
       },
       {
@@ -1696,7 +1696,7 @@
       },
       {
         "name": "supports-color",
-        "version": "4.2.1",
+        "version": "4.4.0",
         "path": "node_modules/inquirer/node_modules/supports-color/index.js"
       },
       {
@@ -2111,12 +2111,12 @@
       },
       {
         "name": "mime-db",
-        "version": "1.29.0",
+        "version": "1.30.0",
         "path": "node_modules/mime-db/index.js"
       },
       {
         "name": "mime-types",
-        "version": "2.1.16",
+        "version": "2.1.17",
         "path": "node_modules/mime-types/index.js"
       },
       {
@@ -2666,7 +2666,7 @@
       },
       {
         "name": "source-map-support",
-        "version": "0.4.16",
+        "version": "0.4.17",
         "path": "node_modules/source-map-support/source-map-support.js"
       },
       {
@@ -7851,7 +7851,7 @@
         "node_modules/eslint/lib/load-rules.js",
         "node_modules/eslint/lib/logging.js",
         "node_modules/eslint/lib/options.js",
-        "node_modules/eslint/lib/rule-context.js",
+        "node_modules/eslint/lib/report-translator.js",
         "node_modules/eslint/lib/rules/accessor-pairs.js",
         "node_modules/eslint/lib/rules/array-bracket-newline.js",
         "node_modules/eslint/lib/rules/array-bracket-spacing.js",
@@ -7886,6 +7886,7 @@
         "node_modules/eslint/lib/rules/func-name-matching.js",
         "node_modules/eslint/lib/rules/func-names.js",
         "node_modules/eslint/lib/rules/func-style.js",
+        "node_modules/eslint/lib/rules/function-paren-newline.js",
         "node_modules/eslint/lib/rules/generator-star-spacing.js",
         "node_modules/eslint/lib/rules/getter-return.js",
         "node_modules/eslint/lib/rules/global-require.js",
@@ -8106,9 +8107,7 @@
         "node_modules/eslint/lib/rules/yield-star-spacing.js",
         "node_modules/eslint/lib/rules/yoda.js",
         "node_modules/eslint/lib/rules.js",
-        "node_modules/eslint/lib/testers/event-generator-tester.js",
         "node_modules/eslint/lib/testers/rule-tester.js",
-        "node_modules/eslint/lib/testers/test-parser.js",
         "node_modules/eslint/lib/timing.js",
         "node_modules/eslint/lib/token-store/backward-token-comment-cursor.js",
         "node_modules/eslint/lib/token-store/backward-token-cursor.js",
@@ -14051,7 +14050,6 @@
         "node_modules/source-map/lib/source-map/util.js",
         "node_modules/source-map/lib/source-map.js",
         "node_modules/source-map-support/browser-source-map-support.js",
-        "node_modules/source-map-support/build.js",
         "node_modules/source-map-support/node_modules/source-map/dist/source-map.debug.js",
         "node_modules/source-map-support/node_modules/source-map/dist/source-map.js",
         "node_modules/source-map-support/node_modules/source-map/dist/source-map.min.js",
@@ -14068,7 +14066,6 @@
         "node_modules/source-map-support/node_modules/source-map/source-map.js",
         "node_modules/source-map-support/register.js",
         "node_modules/source-map-support/source-map-support.js",
-        "node_modules/source-map-support/test.js",
         "node_modules/space-pen/lib/space-pen.js",
         "node_modules/sprintf-js/.eslintrc.js",
         "node_modules/sprintf-js/benchmark/benchmark.js",
@@ -18633,7 +18630,7 @@
           "node_modules/mime-types"
         ],
         "dependencies": {
-          "mime-db": "~1.29.0"
+          "mime-db": "~1.30.0"
         }
       },
       {

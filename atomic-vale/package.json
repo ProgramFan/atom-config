@@ -1,0 +1,80 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+        "spec": "/tmp/d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-11784-6770-upvsi2.szibq5xw29"
+    ]
+  ],
+  "_from": "../d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+  "_id": "atomic-vale@1.6.0",
+  "_inCache": true,
+  "_location": "/atomic-vale",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+    "spec": "/tmp/d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+  "_shasum": "e95343d19ce6f6e446648db1afa8bb1f75a5c564",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-11784-6770-1c30tfo.yp6pyzaor/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-6770-upvsi2.szibq5xw29",
+  "bugs": {
+    "url": "https://github.com/TimKam/atomic-vale/issues"
+  },
+  "dependencies": {},
+  "description": "Atom plugin for Vale, a customizable, syntax-aware linter for prose",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "homepage": "https://github.com/TimKam/atomic-vale#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "./lib/init",
+  "name": "atomic-vale",
+  "optionalDependencies": {},
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readme": "# atomic-vale package\nAtomic vale is a [vale](https://github.com/ValeLint/vale) plugin for Atom.\n\n## Installation\n1. [Install vale](https://github.com/ValeLint/vale#installation) for your command line.\n **Note:** Atomic vale requires vale version **0.4.0** or higher.\n\n2. Then, install `atomic-vale` via the [Atom Settings View](http://flight-manual.atom.io/using-atom/sections/atom-packages/).\n\n## Configuration\nYou manage your vale configuration in a\n[`.vale` or `_vale` file](https://github.com/ValeLint/vale#vale-your-style-our-editor).\nvale starts looking for this file in the same directory as the file vale is currently linting. If not found, vale moves up the directory tree until it finds a configuration file. vale v0.4.1 looks maximally six levels up, before it falls back to the default configuration.\n\nIn the atomic vale configuration settings, you can specify the following parameters:\n* The paths to your vale installation\n* Whether the linter runs *on the fly* after each edit or merely after saving the file\n* A List of scopes for languages vale will lint\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimKam/atomic-vale.git"
+  },
+  "version": "1.6.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/init.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
+        "raw": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
-        "spec": "/tmp/d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
+        "rawSpec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+        "spec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-7332-xgy0ha.uhuecm1jor"
+      "/tmp/apm-install-dir-11784-7429-15ttp6j.wtbarcz0k9"
     ]
   ],
-  "_from": "../d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
-  "_id": "markdown-preview-enhanced@0.14.9",
+  "_from": "../d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+  "_id": "markdown-preview-enhanced@0.14.10",
   "_inCache": true,
   "_location": "/markdown-preview-enhanced",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
+    "raw": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
-    "spec": "/tmp/d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
+    "rawSpec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+    "spec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
-  "_shasum": "3eeab461adf1aefe0356f562c9844ff0cdf4c9b3",
+  "_resolved": "file:../d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+  "_shasum": "8141e5b2d175672823828c02ec81abbba20eed0f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-7332-1w44iip.8o2ukp4x6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-7332-xgy0ha.uhuecm1jor",
+  "_spec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-7429-15ttp6j.wtbarcz0k9",
   "activationCommands": {
     "atom-workspace": "markdown-preview-enhanced:toggle"
   },
@@ -48,7 +48,7 @@
     "url": "https://github.com/shd101wyy/markdown-preview-enhanced/issues"
   },
   "dependencies": {
-    "@shd101wyy/mume": "^0.2.1"
+    "@shd101wyy/mume": "^0.2.2"
   },
   "description": "One of the 'BEST' markdown preview extensions for Atom editor!",
   "devDependencies": {
@@ -101,7 +101,7 @@
   "main": "./out/src/extension",
   "name": "markdown-preview-enhanced",
   "optionalDependencies": {},
-  "readme": "<h1 align=\"center\"> Markdown Preview Enhanced </h1>\n<p align=\"center\">\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced/releases\"><img src=\"https://img.shields.io/github/tag/shd101wyy/markdown-preview-enhanced.svg\"></a>\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced\"><img src=\"https://img.shields.io/apm/dm/markdown-preview-enhanced.svg\"></a>\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced\"><img src=\"https://img.shields.io/github/stars/shd101wyy/markdown-preview-enhanced.svg?style=social&label=Star\"></a>\n</p>\n<br>\n\n![intro](https://user-images.githubusercontent.com/1908863/28227953-eb6eefa4-68a1-11e7-8769-96ea83facf3b.png)\n\n<p align=\"center\">\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/\"> English &nbsp;&nbsp; </a>\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/\"> 简体中文 &nbsp;&nbsp; </a>\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/\"> 正體中文 &nbsp;&nbsp; </a> <br>\n</p>\n\n<p align=\"center\">\n<a href=\"https://atom.io/packages/markdown-preview-enhanced\">atom</a>\n&\n<a href=\"https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced\">vscode</a>\n</p>\n\n*Still Beta Version!*\n\n## Supporting this project\nMarkdown Preview Enhanced is an open source project released under the [University of Illinois/NCSA Open Source License](LICENSE.md). Its ongoing development is made possible thanks to the support by these awesome [backers](https://shd101wyy.github.io/markdown-preview-enhanced/#/backers). You can help make this project better by [supporting us on Patreon](https://www.patreon.com/shd101wyy), [PayPal](https://shd101wyy.github.io/markdown-preview-enhanced/#/paypal), or [微信支付 Wechat Pay](https://shd101wyy.github.io/markdown-preview-enhanced/#/wechat). Thank you!\n\n## Introduction\nMarkdown Preview Enhanced is an extension that provides you with many useful functionalities such as automatic scroll sync, [math typesetting](https://shd101wyy.github.io/markdown-preview-enhanced/#/math), [mermaid](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=mermaid), [PlantUML](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=plantuml), [pandoc](https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc), PDF export, [code chunk](https://shd101wyy.github.io/markdown-preview-enhanced/#/code-chunk), [presentation writer](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html), etc. A lot of its ideas are inspired by [Markdown Preview Plus](https://github.com/atom-community/markdown-preview-plus) and [RStudio Markdown](http://rmarkdown.rstudio.com/).\n\nFeel free to ask questions, post issues, submit pull request, and request new features.\n\nFor more information about this project and how to use this extension, please check out our documentation ⬇︎\n\n## Documentation\nTo check out the documentation, visit\n* [English](https://shd101wyy.github.io/markdown-preview-enhanced/#/)\n* [简体中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)\n* [正體中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/)\n\nContact me if you are willing to help translate the documentation :)\n\n## Keybindings\n> The <kbd>cmd</kbd> key for *Windows* is <kbd>ctrl</kbd>.\n\n| Shortcuts  | Functionality  |\n|---|---|\n| <kbd>ctrl-shift-m</kbd> | Toggle preview  |\n| <kbd>ctrl-shift-s</kbd>  | Sync preview / Sync source  |\n| <kbd>ctrl-shift-i</kbd>  | Open Image Helper |\n| <kbd>shift-enter</kbd> | Run Code Chunk |\n| <kbd>ctrl-shift-enter</kbd> | Run all Code Chunks |\n| <kbd>cmd-=</kbd> or <kbd>cmd-shift-=</kbd> | Preview zoom in |\n| <kbd>cmd--</kbd> or <kbd>cmd-shift-\\_</kbd> | Preview zoom out |\n| <kbd>cmd-0</kbd> | Preview reset zoom |\n| <kbd>esc</kbd>  | Toggle sidebar TOC |\n\n## Changelog\nNewest updates for the current minor version can be found at the  [newest notes](https://shd101wyy.github.io/markdown-preview-enhanced/#/newest).\nDetailed changes for each old release can be found at [history notes](https://shd101wyy.github.io/markdown-preview-enhanced/#/history).\n\n## License\n[University of Illinois/NCSA Open Source License](LICENSE.md)\n",
+  "readme": "<h1 align=\"center\"> Markdown Preview Enhanced </h1>\n<p align=\"center\">\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced/releases\"><img src=\"https://img.shields.io/github/tag/shd101wyy/markdown-preview-enhanced.svg\"></a>\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced\"><img src=\"https://img.shields.io/apm/dm/markdown-preview-enhanced.svg\"></a>\n<a href=\"https://github.com/shd101wyy/markdown-preview-enhanced\"><img src=\"https://img.shields.io/github/stars/shd101wyy/markdown-preview-enhanced.svg?style=social&label=Star\"></a>\n</p>\n<br>\n\n![intro](https://user-images.githubusercontent.com/1908863/28227953-eb6eefa4-68a1-11e7-8769-96ea83facf3b.png)\n\n<p align=\"center\">\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/\"> English &nbsp;&nbsp; </a>\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/\"> 简体中文 &nbsp;&nbsp; </a>\n<a href=\"https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/\"> 正體中文 &nbsp;&nbsp; </a> <br>\n</p>\n\n<p align=\"center\">\n<a href=\"https://atom.io/packages/markdown-preview-enhanced\">atom</a>\n&\n<a href=\"https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced\">vscode</a>\n</p>\n\n*Still Beta Version!*\n\n## Supporting this project\nMarkdown Preview Enhanced is an open source project released under the [University of Illinois/NCSA Open Source License](LICENSE.md). Its ongoing development is made possible thanks to the support by these awesome [backers](https://shd101wyy.github.io/markdown-preview-enhanced/#/backers). You can help make this project better by [supporting us on Patreon](https://www.patreon.com/shd101wyy), [PayPal](https://shd101wyy.github.io/markdown-preview-enhanced/#/paypal), or [微信支付 Wechat Pay](https://shd101wyy.github.io/markdown-preview-enhanced/#/wechat). Thank you!\n\n## Introduction\nMarkdown Preview Enhanced is an extension that provides you with many useful functionalities such as automatic scroll sync, [math typesetting](https://shd101wyy.github.io/markdown-preview-enhanced/#/math), [mermaid](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=mermaid), [PlantUML](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=plantuml), [pandoc](https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc), PDF export, [code chunk](https://shd101wyy.github.io/markdown-preview-enhanced/#/code-chunk), [presentation writer](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html), etc. A lot of its ideas are inspired by [Markdown Preview Plus](https://github.com/atom-community/markdown-preview-plus) and [RStudio Markdown](http://rmarkdown.rstudio.com/).\n\nFeel free to ask questions, post issues, submit pull request, and request new features.\n\nFor more information about this project and how to use this extension, please check out our documentation ⬇︎\n\n## Documentation\nTo check out the documentation, visit\n* [English](https://shd101wyy.github.io/markdown-preview-enhanced/#/)\n* [简体中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)\n* [正體中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/)\n\nContact me if you are willing to help translate the documentation :)\n\n## Keybindings\n> The <kbd>cmd</kbd> key for *Windows* is <kbd>ctrl</kbd>.\n\n| Shortcuts  | Functionality  |\n|---|---|\n| <kbd>ctrl-shift-m</kbd> | Toggle preview  |\n| <kbd>ctrl-shift-s</kbd>  | Sync preview / Sync source  |\n| <kbd>shift-enter</kbd> | Run Code Chunk |\n| <kbd>ctrl-shift-enter</kbd> | Run all Code Chunks |\n| <kbd>cmd-=</kbd> or <kbd>cmd-shift-=</kbd> | Preview zoom in |\n| <kbd>cmd--</kbd> or <kbd>cmd-shift-\\_</kbd> | Preview zoom out |\n| <kbd>cmd-0</kbd> | Preview reset zoom |\n| <kbd>esc</kbd>  | Toggle sidebar TOC |\n\n## Changelog\nNewest updates for the current minor version can be found at the  [newest notes](https://shd101wyy.github.io/markdown-preview-enhanced/#/newest).\nDetailed changes for each old release can be found at [history notes](https://shd101wyy.github.io/markdown-preview-enhanced/#/history).\n\n## License\n[University of Illinois/NCSA Open Source License](LICENSE.md)\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -110,7 +110,7 @@
   "scripts": {
     "build": "nothing happened"
   },
-  "version": "0.14.9",
+  "version": "0.14.10",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -481,12 +481,12 @@
       },
       {
         "name": "mime-db",
-        "version": "1.29.0",
+        "version": "1.30.0",
         "path": "node_modules/mime-db/index.js"
       },
       {
         "name": "mime-types",
-        "version": "2.1.16",
+        "version": "2.1.17",
         "path": "node_modules/mime-types/index.js"
       },
       {
@@ -2152,7 +2152,7 @@
           ""
         ],
         "dependencies": {
-          "@shd101wyy/mume": "^0.2.1"
+          "@shd101wyy/mume": "^0.2.2"
         }
       },
       {
@@ -2537,7 +2537,7 @@
           "node_modules/mime-types"
         ],
         "dependencies": {
-          "mime-db": "~1.29.0"
+          "mime-db": "~1.30.0"
         }
       },
       {

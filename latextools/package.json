@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
+        "raw": "/tmp/d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
-        "spec": "/tmp/d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
+        "rawSpec": "/tmp/d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
+        "spec": "/tmp/d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-8312-1qi1uqn.1keig22o6r"
+      "/tmp/apm-install-dir-11784-8410-11y3t0c.cduzq6w29"
     ]
   ],
-  "_from": "../d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
+  "_from": "../d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
   "_id": "latextools@0.8.5",
   "_inCache": true,
   "_location": "/latextools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
+    "raw": "/tmp/d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
-    "spec": "/tmp/d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
+    "rawSpec": "/tmp/d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
+    "spec": "/tmp/d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
+  "_resolved": "file:../d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
   "_shasum": "a75d86dd742fbef160fc32662e3efd1bb26fdbd1",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-8312-a8xdh2.ixsfsi3sor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-8312-1qi1uqn.1keig22o6r",
+  "_spec": "/tmp/d-11784-8410-1e3pzru.t87u2138fr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-8410-11y3t0c.cduzq6w29",
   "bugs": {
     "url": "https://github.com/msiniscalchi/atom-latextools/issues"
   },

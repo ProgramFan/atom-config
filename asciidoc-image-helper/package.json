@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
+        "raw": "/tmp/d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
-        "spec": "/tmp/d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
+        "rawSpec": "/tmp/d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
+        "spec": "/tmp/d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-7554-zlyv2r.039n6d2t9"
+      "/tmp/apm-install-dir-11784-7650-xwas0w.tuovpfogvi"
     ]
   ],
-  "_from": "../d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
+  "_from": "../d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
   "_id": "asciidoc-image-helper@1.0.0",
   "_inCache": true,
   "_location": "/asciidoc-image-helper",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
+    "raw": "/tmp/d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
-    "spec": "/tmp/d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
+    "rawSpec": "/tmp/d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
+    "spec": "/tmp/d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
+  "_resolved": "file:../d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
   "_shasum": "d1117c4fb38405491709eb0dbe1c0045441e3458",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-7554-ywmmkf.vvmab2csor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-7554-zlyv2r.039n6d2t9",
+  "_spec": "/tmp/d-11784-7650-11bc53w.xxuutmx6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-7650-xwas0w.tuovpfogvi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-image-helper/issues"
   },

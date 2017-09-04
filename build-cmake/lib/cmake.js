@@ -23,9 +23,12 @@ export default class CMake {
    * @param {regex} outputRegex
    * @param {function} callback
    * @param {string} outputMessage
+   * @param {function} prefilter
    * @return {Promise}
    */
-  grepStdout(command, commandArguments, outputRegex, callback, outputMessage) {
+  grepStdout(
+      command, commandArguments, outputRegex, callback, outputMessage,
+      prefilter) {
     return new Promise((resolve, reject) => {
       let child = spawn(command, commandArguments, {shell: false});
       let stdout = '';
@@ -40,6 +43,8 @@ export default class CMake {
         if (code !== 0) {
           reject(stderr.replace('/bin/sh: ', '').trim() + '!');
         } else {
+          if (prefilter) stdout = prefilter(stdout);
+
           let matches = [];
           let match = outputRegex.exec(stdout);
           while (match != null) {
@@ -76,7 +81,10 @@ export default class CMake {
                 }
               },
               'The executable "' + that.executable +
-                  '" failed to produce generators!')
+                  '" failed to produce generators!',
+              (stdout) => {
+                return stdout.substring(stdout.indexOf('Generators'));
+              })
           .then((generators) => {
             that.generators = generators;
           });
@@ -119,7 +127,7 @@ export default class CMake {
     return {
       name: targetName,
       exec: this.executable,
-      cwd: sourceDirectory,
+      cwd: buildDirectory,
       args: argumentList.concat(extraBuildArguments),
     };
   }
@@ -159,7 +167,7 @@ export default class CMake {
     return {
       name: targetName,
       exec: this.executable,
-      cwd: sourceDirectory,
+      cwd: buildDirectory,
       args: argumentList.concat(extraBuildArguments),
     };
   }
@@ -216,7 +224,7 @@ export default class CMake {
     return {
       name: targetName,
       exec: this.executable,
-      cwd: sourceDirectory,
+      cwd: buildDirectory,
       args: argumentList.concat(extraBuildArguments),
     };
   }
@@ -234,7 +242,7 @@ export default class CMake {
     return new Promise(function(resolve, reject) {
       glob(
           '**/*.vcxproj', {
-            cwd: sourceDirectory,
+            cwd: buildDirectory,
             nodir: true,
             ignore: 'CMakeFiles/**',
           },
@@ -281,7 +289,7 @@ export default class CMake {
                 .then((targets) => {
                   return {generator: generator, targets: targets};
                 });
-          else if (generator.match('Unix Makefiles'))
+          else if (generator.match('Makefiles'))
             return that
                 .makeFileTargets(
                     sourceDirectory, buildDirectory, parallelBuild,
@@ -289,6 +297,9 @@ export default class CMake {
                 .then((targets) => {
                   return {generator: generator, targets: targets};
                 });
+          else
+            throw Error(
+                'Cannot extract targets for generator \"' + generator + '\"');
         });
   }
 };

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-6010-4i9zov.svfw6irudi/package.tgz",
+        "raw": "/tmp/d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-6010-4i9zov.svfw6irudi/package.tgz",
-        "spec": "/tmp/d-117730-6010-4i9zov.svfw6irudi/package.tgz",
+        "rawSpec": "/tmp/d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
+        "spec": "/tmp/d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-6010-1ppeyhl.tx2fzb0529"
+      "/tmp/apm-install-dir-11784-6019-ub7ht9.nk3tathuxr"
     ]
   ],
-  "_from": "../d-117730-6010-4i9zov.svfw6irudi/package.tgz",
+  "_from": "../d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
   "_id": "git-plus@7.9.3",
   "_inCache": true,
   "_location": "/git-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-6010-4i9zov.svfw6irudi/package.tgz",
+    "raw": "/tmp/d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-6010-4i9zov.svfw6irudi/package.tgz",
-    "spec": "/tmp/d-117730-6010-4i9zov.svfw6irudi/package.tgz",
+    "rawSpec": "/tmp/d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
+    "spec": "/tmp/d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-6010-4i9zov.svfw6irudi/package.tgz",
+  "_resolved": "file:../d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
   "_shasum": "2f3206a523fb6c0a9228c94769b2ae1bcfc59e38",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-6010-4i9zov.svfw6irudi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-6010-1ppeyhl.tx2fzb0529",
+  "_spec": "/tmp/d-11784-6019-mo8euc.1jm63fecdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-6019-ub7ht9.nk3tathuxr",
   "bugs": {
     "url": "https://github.com/akonwi/git-plus/issues"
   },

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
+        "raw": "/tmp/d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
-        "spec": "/tmp/d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
+        "rawSpec": "/tmp/d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
+        "spec": "/tmp/d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117730-6628-159bg9a.dnjnb138fr"
+      "/tmp/apm-install-dir-11784-6637-162okef.a3b298jjor"
     ]
   ],
-  "_from": "../d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
+  "_from": "../d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
   "_id": "linter-spell@0.15.0",
   "_inCache": true,
   "_location": "/linter-spell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
+    "raw": "/tmp/d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
-    "spec": "/tmp/d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
+    "rawSpec": "/tmp/d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
+    "spec": "/tmp/d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
+  "_resolved": "file:../d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
   "_shasum": "3ce10d295fd94e64432cc18280649024153ce7ed",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117730-6628-wh5o1.xk2tvs4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117730-6628-159bg9a.dnjnb138fr",
+  "_spec": "/tmp/d-11784-6637-9lbx0w.zt51z1714i/package.tgz",
+  "_where": "/tmp/apm-install-dir-11784-6637-162okef.a3b298jjor",
   "author": {
     "name": "Tarn Burton",
     "email": "twburton@gmail.com"
