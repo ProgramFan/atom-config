@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
+        "raw": "/tmp/d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
-        "spec": "/tmp/d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
+        "rawSpec": "/tmp/d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
+        "spec": "/tmp/d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-6196-1mmrk8n.zrwc5o2yb9"
+      "/tmp/apm-install-dir-117823-5708-84jf9s.ienu8cwhfr"
     ]
   ],
-  "_from": "../d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
+  "_from": "../d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
   "_id": "build-cmake@0.10.2",
   "_inCache": true,
   "_location": "/build-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
+    "raw": "/tmp/d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
-    "spec": "/tmp/d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
+    "rawSpec": "/tmp/d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
+    "spec": "/tmp/d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
+  "_resolved": "file:../d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
   "_shasum": "8ca7f0889df7c3c33040fe2143d6115497789818",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-6196-jpkypd.wpivmcmcxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-6196-1mmrk8n.zrwc5o2yb9",
+  "_spec": "/tmp/d-117823-5708-1duyw3o.5vrny4lsor/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-5708-84jf9s.ienu8cwhfr",
   "bugs": {
     "url": "https://github.com/siegelaaron94/atom-build-cmake/issues"
   },

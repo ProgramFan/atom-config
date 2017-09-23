@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
+        "raw": "/tmp/d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
-        "spec": "/tmp/d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
+        "rawSpec": "/tmp/d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
+        "spec": "/tmp/d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-5622-1rg2w01.la1gjk0529"
+      "/tmp/apm-install-dir-117823-5179-ki6k2h.bnys9yhkt9"
     ]
   ],
-  "_from": "../d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
+  "_from": "../d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
   "_id": "Zen@0.18.0",
   "_inCache": true,
   "_location": "/Zen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
+    "raw": "/tmp/d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
-    "spec": "/tmp/d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
+    "rawSpec": "/tmp/d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
+    "spec": "/tmp/d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
+  "_resolved": "file:../d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
   "_shasum": "f7d93d67444735d8e814994b77ddf646d606940d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-5622-1qyvpbh.e4d6ajor/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-5622-1rg2w01.la1gjk0529",
+  "_spec": "/tmp/d-117823-5179-18jl3xc.xtxoagu8fr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-5179-ki6k2h.bnys9yhkt9",
   "activationCommands": {
     "atom-text-editor": [
       "zen:toggle"

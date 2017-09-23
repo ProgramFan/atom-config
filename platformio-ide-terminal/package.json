@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
+        "raw": "/tmp/d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
-        "spec": "/tmp/d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
+        "rawSpec": "/tmp/d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
+        "spec": "/tmp/d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-8288-4n3mmn.e9j91qncdi"
+      "/tmp/apm-install-dir-117823-8071-xwvsic.hvgqyyzaor"
     ]
   ],
-  "_from": "../d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
+  "_from": "../d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
   "_id": "platformio-ide-terminal@2.6.0",
   "_inCache": true,
   "_location": "/platformio-ide-terminal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
+    "raw": "/tmp/d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
-    "spec": "/tmp/d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
+    "rawSpec": "/tmp/d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
+    "spec": "/tmp/d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
+  "_resolved": "file:../d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
   "_shasum": "2cea9f3583ec0da4d181c4601ec713a456c95f40",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-8288-18s1gbd.vcwmydgqfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-8288-4n3mmn.e9j91qncdi",
+  "_spec": "/tmp/d-117823-8071-1258gxu.sq9ztzkt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-8071-xwvsic.hvgqyyzaor",
   "activationHooks": [
     "core:loaded-shell-environment"
   ],

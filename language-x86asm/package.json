@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-6902-123ets6.b3uy33ow29/package.tgz",
+        "raw": "/tmp/d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-6902-123ets6.b3uy33ow29/package.tgz",
-        "spec": "/tmp/d-11784-6902-123ets6.b3uy33ow29/package.tgz",
+        "rawSpec": "/tmp/d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
+        "spec": "/tmp/d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-6902-2gljkz.nqrq8pk3xr"
+      "/tmp/apm-install-dir-117823-6502-161rhez.xjjdw5qaor"
     ]
   ],
-  "_from": "../d-11784-6902-123ets6.b3uy33ow29/package.tgz",
+  "_from": "../d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
   "_id": "language-x86asm@0.9.0",
   "_inCache": true,
   "_location": "/language-x86asm",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-6902-123ets6.b3uy33ow29/package.tgz",
+    "raw": "/tmp/d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-6902-123ets6.b3uy33ow29/package.tgz",
-    "spec": "/tmp/d-11784-6902-123ets6.b3uy33ow29/package.tgz",
+    "rawSpec": "/tmp/d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
+    "spec": "/tmp/d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-6902-123ets6.b3uy33ow29/package.tgz",
+  "_resolved": "file:../d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
   "_shasum": "e3b0b4c7422c0c4f534f4d83b3ff09d71a79958c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-6902-123ets6.b3uy33ow29/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-6902-2gljkz.nqrq8pk3xr",
+  "_spec": "/tmp/d-117823-6502-8d9xrg.ucasn8w7b9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-6502-161rhez.xjjdw5qaor",
   "bugs": {
     "url": "https://github.com/SWW13/language-x86asm/issues"
   },

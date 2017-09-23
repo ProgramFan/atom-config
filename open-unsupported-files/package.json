@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
+        "raw": "/tmp/d-117823-5355-16ni3b7.79074aemi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
-        "spec": "/tmp/d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
+        "rawSpec": "/tmp/d-117823-5355-16ni3b7.79074aemi/package.tgz",
+        "spec": "/tmp/d-117823-5355-16ni3b7.79074aemi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-5798-1axqblu.iil2d6xbt9"
+      "/tmp/apm-install-dir-117823-5355-1gd1x0c.zlzyqfr"
     ]
   ],
-  "_from": "../d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
+  "_from": "../d-117823-5355-16ni3b7.79074aemi/package.tgz",
   "_id": "open-unsupported-files@1.0.20",
   "_inCache": true,
   "_location": "/open-unsupported-files",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
+    "raw": "/tmp/d-117823-5355-16ni3b7.79074aemi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
-    "spec": "/tmp/d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
+    "rawSpec": "/tmp/d-117823-5355-16ni3b7.79074aemi/package.tgz",
+    "spec": "/tmp/d-117823-5355-16ni3b7.79074aemi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
+  "_resolved": "file:../d-117823-5355-16ni3b7.79074aemi/package.tgz",
   "_shasum": "c7d109de38dba035aff4f854572777bb08b04de3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-5798-18i5eus.jdr9j54s4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-5798-1axqblu.iil2d6xbt9",
+  "_spec": "/tmp/d-117823-5355-16ni3b7.79074aemi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-5355-1gd1x0c.zlzyqfr",
   "bugs": {
     "url": "https://github.com/skandasoft/open-unsupported-files/issues"
   },
@@ -135,7 +135,7 @@
       },
       {
         "name": "event-kit",
-        "version": "2.3.0",
+        "version": "2.4.0",
         "path": "node_modules/grim/node_modules/event-kit/lib/event-kit.js"
       },
       {

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
+        "raw": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
-        "spec": "/tmp/d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
+        "rawSpec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+        "spec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-5394-83zvh3.3ce36gk3xr"
+      "/tmp/apm-install-dir-117823-4952-10zye0h.3de68t1emi"
     ]
   ],
-  "_from": "../d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
+  "_from": "../d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
   "_id": "tool-bar@1.1.0",
   "_inCache": true,
   "_location": "/tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
+    "raw": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
-    "spec": "/tmp/d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
+    "rawSpec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+    "spec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
+  "_resolved": "file:../d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
   "_shasum": "94b5074753ee1b1322459844b70727fec5acdb6f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-5394-z0knm8.tovj7fd2t9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-5394-83zvh3.3ce36gk3xr",
+  "_spec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-4952-10zye0h.3de68t1emi",
   "bugs": {
     "url": "https://github.com/suda/tool-bar/issues"
   },

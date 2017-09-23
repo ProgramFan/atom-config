@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
+        "raw": "/tmp/d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
-        "spec": "/tmp/d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
+        "rawSpec": "/tmp/d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
+        "spec": "/tmp/d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-5438-15k3iet.vk6sss8aor"
+      "/tmp/apm-install-dir-117823-4996-u4gkev.9ylg63whfr"
     ]
   ],
-  "_from": "../d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
+  "_from": "../d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
   "_id": "flex-tool-bar@0.12.0",
   "_inCache": true,
   "_location": "/flex-tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
+    "raw": "/tmp/d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
-    "spec": "/tmp/d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
+    "rawSpec": "/tmp/d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
+    "spec": "/tmp/d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
+  "_resolved": "file:../d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
   "_shasum": "2c337d3e7ece4ce3aabcb5a8ba37d32f91dc65ea",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-5438-gh0sjb.0sbwm0wwmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-5438-15k3iet.vk6sss8aor",
+  "_spec": "/tmp/d-117823-4996-w4xjrj.b7knijm7vi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-4996-u4gkev.9ylg63whfr",
   "bugs": {
     "url": "https://github.com/cakecatz/flex-toolbar/issues"
   },
@@ -502,7 +502,7 @@
       },
       {
         "name": "no-case",
-        "version": "2.3.1",
+        "version": "2.3.2",
         "path": "node_modules/no-case/no-case.js"
       },
       {
@@ -627,7 +627,7 @@
       },
       {
         "name": "rimraf",
-        "version": "2.6.1",
+        "version": "2.6.2",
         "path": "node_modules/rimraf/rimraf.js"
       },
       {

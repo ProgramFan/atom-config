@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+        "raw": "/tmp/d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
-        "spec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+        "rawSpec": "/tmp/d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
+        "spec": "/tmp/d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-7429-15ttp6j.wtbarcz0k9"
+      "/tmp/apm-install-dir-117823-7029-1844f1b.hod1dzpvi"
     ]
   ],
-  "_from": "../d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+  "_from": "../d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
   "_id": "markdown-preview-enhanced@0.14.10",
   "_inCache": true,
   "_location": "/markdown-preview-enhanced",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+    "raw": "/tmp/d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
-    "spec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+    "rawSpec": "/tmp/d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
+    "spec": "/tmp/d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
+  "_resolved": "file:../d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
   "_shasum": "8141e5b2d175672823828c02ec81abbba20eed0f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-7429-1pf025q.eug57v6lxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-7429-15ttp6j.wtbarcz0k9",
+  "_spec": "/tmp/d-117823-7029-x62o8.ckkf4oyldi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-7029-1844f1b.hod1dzpvi",
   "activationCommands": {
     "atom-workspace": "markdown-preview-enhanced:toggle"
   },
@@ -116,7 +116,7 @@
     "dependencies": [
       {
         "name": "ajv",
-        "version": "4.11.8",
+        "version": "5.2.2",
         "path": "node_modules/ajv/lib/ajv.js"
       },
       {
@@ -136,7 +136,7 @@
       },
       {
         "name": "assert-plus",
-        "version": "0.2.0",
+        "version": "1.0.0",
         "path": "node_modules/assert-plus/assert.js"
       },
       {
@@ -146,7 +146,7 @@
       },
       {
         "name": "aws-sign2",
-        "version": "0.6.0",
+        "version": "0.7.0",
         "path": "node_modules/aws-sign2/index.js"
       },
       {
@@ -171,7 +171,7 @@
       },
       {
         "name": "boom",
-        "version": "2.10.1",
+        "version": "4.3.1",
         "path": "node_modules/boom/lib/index.js"
       },
       {
@@ -211,8 +211,13 @@
       },
       {
         "name": "cryptiles",
-        "version": "2.0.5",
+        "version": "3.1.2",
         "path": "node_modules/cryptiles/lib/index.js"
+      },
+      {
+        "name": "boom",
+        "version": "5.2.0",
+        "path": "node_modules/cryptiles/node_modules/boom/lib/index.js"
       },
       {
         "name": "CSSselect",
@@ -228,11 +233,6 @@
         "name": "dashdash",
         "version": "1.14.1",
         "path": "node_modules/dashdash/lib/dashdash.js"
-      },
-      {
-        "name": "assert-plus",
-        "version": "1.0.0",
-        "path": "node_modules/dashdash/node_modules/assert-plus/assert.js"
       },
       {
         "name": "delayed-stream",
@@ -300,13 +300,18 @@
         "path": "node_modules/extsprintf/lib/extsprintf.js"
       },
       {
+        "name": "fast-deep-equal",
+        "version": "1.0.0",
+        "path": "node_modules/fast-deep-equal/index.js"
+      },
+      {
         "name": "forever-agent",
         "version": "0.6.1",
         "path": "node_modules/forever-agent/index.js"
       },
       {
         "name": "form-data",
-        "version": "2.1.4",
+        "version": "2.3.1",
         "path": "node_modules/form-data/lib/form_data.js"
       },
       {
@@ -318,11 +323,6 @@
         "name": "getpass",
         "version": "0.1.7",
         "path": "node_modules/getpass/lib/index.js"
-      },
-      {
-        "name": "assert-plus",
-        "version": "1.0.0",
-        "path": "node_modules/getpass/node_modules/assert-plus/assert.js"
       },
       {
         "name": "glob",
@@ -346,22 +346,22 @@
       },
       {
         "name": "har-schema",
-        "version": "1.0.5",
+        "version": "2.0.0",
         "path": "node_modules/har-schema/lib/index.js"
       },
       {
         "name": "har-validator",
-        "version": "4.2.1",
-        "path": "node_modules/har-validator/lib/node4/promise.js"
+        "version": "5.0.3",
+        "path": "node_modules/har-validator/lib/promise.js"
       },
       {
         "name": "hawk",
-        "version": "3.1.3",
+        "version": "6.0.2",
         "path": "node_modules/hawk/lib/index.js"
       },
       {
         "name": "hoek",
-        "version": "2.16.3",
+        "version": "4.2.0",
         "path": "node_modules/hoek/lib/index.js"
       },
       {
@@ -381,7 +381,7 @@
       },
       {
         "name": "http-signature",
-        "version": "1.1.1",
+        "version": "1.2.0",
         "path": "node_modules/http-signature/lib/index.js"
       },
       {
@@ -440,6 +440,11 @@
         "path": "node_modules/json-schema/lib/validate.js"
       },
       {
+        "name": "json-schema-traverse",
+        "version": "0.3.1",
+        "path": "node_modules/json-schema-traverse/index.js"
+      },
+      {
         "name": "json-stable-stringify",
         "version": "1.0.1",
         "path": "node_modules/json-stable-stringify/index.js"
@@ -458,11 +463,6 @@
         "name": "jsprim",
         "version": "1.4.1",
         "path": "node_modules/jsprim/lib/jsprim.js"
-      },
-      {
-        "name": "assert-plus",
-        "version": "1.0.0",
-        "path": "node_modules/jsprim/node_modules/assert-plus/assert.js"
       },
       {
         "name": "less",
@@ -531,7 +531,7 @@
       },
       {
         "name": "performance-now",
-        "version": "0.2.0",
+        "version": "2.1.0",
         "path": "node_modules/performance-now/lib/performance-now.js"
       },
       {
@@ -551,7 +551,7 @@
       },
       {
         "name": "qs",
-        "version": "6.4.0",
+        "version": "6.5.1",
         "path": "node_modules/qs/lib/index.js"
       },
       {
@@ -561,7 +561,7 @@
       },
       {
         "name": "request",
-        "version": "2.81.0",
+        "version": "2.82.0",
         "path": "node_modules/request/index.js"
       },
       {
@@ -581,8 +581,8 @@
       },
       {
         "name": "sntp",
-        "version": "1.0.9",
-        "path": "node_modules/sntp/index.js"
+        "version": "2.0.2",
+        "path": "node_modules/sntp/lib/index.js"
       },
       {
         "name": "source-map",
@@ -598,11 +598,6 @@
         "name": "sshpk",
         "version": "1.13.1",
         "path": "node_modules/sshpk/lib/index.js"
-      },
-      {
-        "name": "assert-plus",
-        "version": "1.0.0",
-        "path": "node_modules/sshpk/node_modules/assert-plus/assert.js"
       },
       {
         "name": "string_decoder",
@@ -621,7 +616,7 @@
       },
       {
         "name": "tough-cookie",
-        "version": "2.3.2",
+        "version": "2.3.3",
         "path": "node_modules/tough-cookie/lib/cookie.js"
       },
       {
@@ -653,11 +648,6 @@
         "name": "verror",
         "version": "1.10.0",
         "path": "node_modules/verror/lib/verror.js"
-      },
-      {
-        "name": "assert-plus",
-        "version": "1.0.0",
-        "path": "node_modules/verror/node_modules/assert-plus/assert.js"
       },
       {
         "name": "which",
@@ -1351,11 +1341,13 @@
         "node_modules/ajv/dist/ajv.min.js",
         "node_modules/ajv/dist/nodent.min.js",
         "node_modules/ajv/dist/regenerator.min.js",
+        "node_modules/ajv/lib/$data.js",
         "node_modules/ajv/lib/ajv.js",
-        "node_modules/ajv/lib/async.js",
         "node_modules/ajv/lib/cache.js",
         "node_modules/ajv/lib/compile/_rules.js",
+        "node_modules/ajv/lib/compile/async.js",
         "node_modules/ajv/lib/compile/equal.js",
+        "node_modules/ajv/lib/compile/error_classes.js",
         "node_modules/ajv/lib/compile/formats.js",
         "node_modules/ajv/lib/compile/index.js",
         "node_modules/ajv/lib/compile/resolve.js",
@@ -1363,15 +1355,14 @@
         "node_modules/ajv/lib/compile/schema_obj.js",
         "node_modules/ajv/lib/compile/ucs2length.js",
         "node_modules/ajv/lib/compile/util.js",
-        "node_modules/ajv/lib/compile/validation_error.js",
-        "node_modules/ajv/lib/dotjs/_formatLimit.js",
         "node_modules/ajv/lib/dotjs/_limit.js",
         "node_modules/ajv/lib/dotjs/_limitItems.js",
         "node_modules/ajv/lib/dotjs/_limitLength.js",
         "node_modules/ajv/lib/dotjs/_limitProperties.js",
         "node_modules/ajv/lib/dotjs/allOf.js",
         "node_modules/ajv/lib/dotjs/anyOf.js",
-        "node_modules/ajv/lib/dotjs/constant.js",
+        "node_modules/ajv/lib/dotjs/const.js",
+        "node_modules/ajv/lib/dotjs/contains.js",
         "node_modules/ajv/lib/dotjs/custom.js",
         "node_modules/ajv/lib/dotjs/dependencies.js",
         "node_modules/ajv/lib/dotjs/enum.js",
@@ -1381,15 +1372,14 @@
         "node_modules/ajv/lib/dotjs/not.js",
         "node_modules/ajv/lib/dotjs/oneOf.js",
         "node_modules/ajv/lib/dotjs/pattern.js",
-        "node_modules/ajv/lib/dotjs/patternRequired.js",
         "node_modules/ajv/lib/dotjs/properties.js",
+        "node_modules/ajv/lib/dotjs/propertyNames.js",
         "node_modules/ajv/lib/dotjs/ref.js",
         "node_modules/ajv/lib/dotjs/required.js",
-        "node_modules/ajv/lib/dotjs/switch.js",
         "node_modules/ajv/lib/dotjs/uniqueItems.js",
         "node_modules/ajv/lib/dotjs/validate.js",
         "node_modules/ajv/lib/keyword.js",
-        "node_modules/ajv/lib/v5.js",
+        "node_modules/ajv/lib/patternGroups.js",
         "node_modules/ajv/scripts/bundle.js",
         "node_modules/ajv/scripts/compile-dots.js",
         "node_modules/argparse/index.js",
@@ -1472,8 +1462,8 @@
         "node_modules/core-util-is/lib/util.js",
         "node_modules/core-util-is/test.js",
         "node_modules/cryptiles/lib/index.js",
+        "node_modules/cryptiles/node_modules/boom/lib/index.js",
         "node_modules/dashdash/lib/dashdash.js",
-        "node_modules/dashdash/node_modules/assert-plus/assert.js",
         "node_modules/delayed-stream/lib/delayed_stream.js",
         "node_modules/dom-serializer/index.js",
         "node_modules/dom-serializer/node_modules/domelementtype/index.js",
@@ -1508,6 +1498,8 @@
         "node_modules/expand-tilde/index.js",
         "node_modules/extend/index.js",
         "node_modules/extsprintf/lib/extsprintf.js",
+        "node_modules/fast-deep-equal/benchmark/index.js",
+        "node_modules/fast-deep-equal/index.js",
         "node_modules/forever-agent/index.js",
         "node_modules/form-data/lib/browser.js",
         "node_modules/form-data/lib/form_data.js",
@@ -1515,7 +1507,6 @@
         "node_modules/fs.realpath/index.js",
         "node_modules/fs.realpath/old.js",
         "node_modules/getpass/lib/index.js",
-        "node_modules/getpass/node_modules/assert-plus/assert.js",
         "node_modules/glob/common.js",
         "node_modules/glob/glob.js",
         "node_modules/glob/sync.js",
@@ -1526,23 +1517,11 @@
         "node_modules/graceful-fs/legacy-streams.js",
         "node_modules/graceful-fs/polyfills.js",
         "node_modules/har-schema/lib/index.js",
-        "node_modules/har-validator/lib/browser/async.js",
-        "node_modules/har-validator/lib/browser/error.js",
-        "node_modules/har-validator/lib/browser/promise.js",
-        "node_modules/har-validator/lib/node4/async.js",
-        "node_modules/har-validator/lib/node4/error.js",
-        "node_modules/har-validator/lib/node4/promise.js",
-        "node_modules/har-validator/lib/node6/async.js",
-        "node_modules/har-validator/lib/node6/error.js",
-        "node_modules/har-validator/lib/node6/promise.js",
-        "node_modules/har-validator/lib/node7/async.js",
-        "node_modules/har-validator/lib/node7/error.js",
-        "node_modules/har-validator/lib/node7/promise.js",
-        "node_modules/har-validator/src/async.js",
-        "node_modules/har-validator/src/error.js",
-        "node_modules/har-validator/src/promise.js",
-        "node_modules/hawk/dist/client.js",
-        "node_modules/hawk/example/usage.js",
+        "node_modules/har-validator/lib/async.js",
+        "node_modules/har-validator/lib/error.js",
+        "node_modules/har-validator/lib/promise.js",
+        "node_modules/hawk/client.js",
+        "node_modules/hawk/dist/browser.js",
         "node_modules/hawk/lib/browser.js",
         "node_modules/hawk/lib/client.js",
         "node_modules/hawk/lib/crypto.js",
@@ -1604,6 +1583,7 @@
         "node_modules/jsbn/index.js",
         "node_modules/json-schema/lib/links.js",
         "node_modules/json-schema/lib/validate.js",
+        "node_modules/json-schema-traverse/index.js",
         "node_modules/json-stable-stringify/example/key_cmp.js",
         "node_modules/json-stable-stringify/example/nested.js",
         "node_modules/json-stable-stringify/example/str.js",
@@ -1614,7 +1594,6 @@
         "node_modules/jsonify/lib/parse.js",
         "node_modules/jsonify/lib/stringify.js",
         "node_modules/jsprim/lib/jsprim.js",
-        "node_modules/jsprim/node_modules/assert-plus/assert.js",
         "node_modules/less/Gruntfile.js",
         "node_modules/less/browser.js",
         "node_modules/less/dist/less.js",
@@ -1823,9 +1802,6 @@
         "node_modules/rimraf/rimraf.js",
         "node_modules/safe-buffer/index.js",
         "node_modules/safe-buffer/test.js",
-        "node_modules/sntp/examples/offset.js",
-        "node_modules/sntp/examples/time.js",
-        "node_modules/sntp/index.js",
         "node_modules/sntp/lib/index.js",
         "node_modules/source-map/dist/source-map.debug.js",
         "node_modules/source-map/dist/source-map.js",
@@ -1869,7 +1845,6 @@
         "node_modules/sshpk/lib/signature.js",
         "node_modules/sshpk/lib/ssh-buffer.js",
         "node_modules/sshpk/lib/utils.js",
-        "node_modules/sshpk/node_modules/assert-plus/assert.js",
         "node_modules/string_decoder/index.js",
         "node_modules/stringstream/example.js",
         "node_modules/stringstream/stringstream.js",
@@ -1907,7 +1882,6 @@
         "node_modules/uuid/v4.js",
         "node_modules/uuid/v5.js",
         "node_modules/verror/lib/verror.js",
-        "node_modules/verror/node_modules/assert-plus/assert.js",
         "node_modules/which/which.js",
         "node_modules/wrappy/wrappy.js",
         "node_modules/yamljs/cli/json2yaml.js",
@@ -1975,7 +1949,9 @@
         "node_modules/@shd101wyy/mume/package.json",
         "node_modules/CSSselect/package.json",
         "node_modules/CSSwhat/package.json",
+        "node_modules/ajv/lib/refs/$data.json",
         "node_modules/ajv/lib/refs/json-schema-draft-04.json",
+        "node_modules/ajv/lib/refs/json-schema-draft-06.json",
         "node_modules/ajv/lib/refs/json-schema-v5.json",
         "node_modules/ajv/package.json",
         "node_modules/argparse/package.json",
@@ -1996,8 +1972,8 @@
         "node_modules/combined-stream/package.json",
         "node_modules/concat-map/package.json",
         "node_modules/core-util-is/package.json",
+        "node_modules/cryptiles/node_modules/boom/package.json",
         "node_modules/cryptiles/package.json",
-        "node_modules/dashdash/node_modules/assert-plus/package.json",
         "node_modules/dashdash/package.json",
         "node_modules/delayed-stream/package.json",
         "node_modules/dom-serializer/node_modules/domelementtype/package.json",
@@ -2022,10 +1998,10 @@
         "node_modules/extend/component.json",
         "node_modules/extend/package.json",
         "node_modules/extsprintf/package.json",
+        "node_modules/fast-deep-equal/package.json",
         "node_modules/forever-agent/package.json",
         "node_modules/form-data/package.json",
         "node_modules/fs.realpath/package.json",
-        "node_modules/getpass/node_modules/assert-plus/package.json",
         "node_modules/getpass/package.json",
         "node_modules/glob/package.json",
         "node_modules/global-modules/package.json",
@@ -2051,8 +2027,6 @@
         "node_modules/har-schema/lib/timings.json",
         "node_modules/har-schema/package.json",
         "node_modules/har-validator/package.json",
-        "node_modules/hawk/bower.json",
-        "node_modules/hawk/component.json",
         "node_modules/hawk/package.json",
         "node_modules/hoek/package.json",
         "node_modules/homedir-polyfill/package.json",
@@ -2071,10 +2045,10 @@
         "node_modules/isstream/package.json",
         "node_modules/jsbn/package.json",
         "node_modules/json-schema/package.json",
+        "node_modules/json-schema-traverse/package.json",
         "node_modules/json-stable-stringify/package.json",
         "node_modules/json-stringify-safe/package.json",
         "node_modules/jsonify/package.json",
-        "node_modules/jsprim/node_modules/assert-plus/package.json",
         "node_modules/jsprim/package.json",
         "node_modules/less/bower.json",
         "node_modules/less/package.json",
@@ -2096,7 +2070,6 @@
         "node_modules/promise/package.json",
         "node_modules/prr/package.json",
         "node_modules/punycode/package.json",
-        "node_modules/qs/.jscs.json",
         "node_modules/qs/package.json",
         "node_modules/readable-stream/package.json",
         "node_modules/request/package.json",
@@ -2107,7 +2080,6 @@
         "node_modules/source-map/package.json",
         "node_modules/sprintf-js/bower.json",
         "node_modules/sprintf-js/package.json",
-        "node_modules/sshpk/node_modules/assert-plus/package.json",
         "node_modules/sshpk/package.json",
         "node_modules/string_decoder/package.json",
         "node_modules/stringstream/package.json",
@@ -2119,7 +2091,6 @@
         "node_modules/uslug/package.json",
         "node_modules/uuid/.eslintrc.json",
         "node_modules/uuid/package.json",
-        "node_modules/verror/node_modules/assert-plus/package.json",
         "node_modules/verror/package.json",
         "node_modules/which/package.json",
         "node_modules/wrappy/package.json",
@@ -2167,6 +2138,8 @@
         ],
         "dependencies": {
           "co": "^4.6.0",
+          "fast-deep-equal": "^1.0.0",
+          "json-schema-traverse": "^0.3.0",
           "json-stable-stringify": "^1.0.1"
         }
       },
@@ -2195,11 +2168,10 @@
       {
         "paths": [
           "node_modules/boom/lib",
-          "node_modules/boom",
-          "node_modules/boom/test"
+          "node_modules/boom"
         ],
         "dependencies": {
-          "hoek": "2.x.x"
+          "hoek": "4.x.x"
         }
       },
       {
@@ -2237,11 +2209,19 @@
       {
         "paths": [
           "node_modules/cryptiles/lib",
-          "node_modules/cryptiles",
-          "node_modules/cryptiles/test"
+          "node_modules/cryptiles"
         ],
         "dependencies": {
-          "boom": "2.x.x"
+          "boom": "5.x.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/cryptiles/node_modules/boom/lib",
+          "node_modules/cryptiles/node_modules/boom"
+        ],
+        "dependencies": {
+          "hoek": "4.x.x"
         }
       },
       {
@@ -2382,31 +2362,25 @@
       },
       {
         "paths": [
-          "node_modules/har-validator/lib/browser",
-          "node_modules/har-validator/lib/node4",
-          "node_modules/har-validator/lib/node6",
-          "node_modules/har-validator/lib/node7",
-          "node_modules/har-validator",
-          "node_modules/har-validator/src"
+          "node_modules/har-validator/lib",
+          "node_modules/har-validator"
         ],
         "dependencies": {
-          "ajv": "^4.9.1",
-          "har-schema": "^1.0.5"
+          "ajv": "^5.1.0",
+          "har-schema": "^2.0.0"
         }
       },
       {
         "paths": [
           "node_modules/hawk",
           "node_modules/hawk/dist",
-          "node_modules/hawk/example",
-          "node_modules/hawk/lib",
-          "node_modules/hawk/test"
+          "node_modules/hawk/lib"
         ],
         "dependencies": {
-          "boom": "2.x.x",
-          "cryptiles": "2.x.x",
-          "hoek": "2.x.x",
-          "sntp": "1.x.x"
+          "boom": "4.x.x",
+          "cryptiles": "3.x.x",
+          "hoek": "4.x.x",
+          "sntp": "2.x.x"
         }
       },
       {
@@ -2452,7 +2426,7 @@
           "node_modules/http-signature"
         ],
         "dependencies": {
-          "assert-plus": "^0.2.0",
+          "assert-plus": "^1.0.0",
           "jsprim": "^1.2.2",
           "sshpk": "^1.7.0"
         }
@@ -2597,28 +2571,28 @@
           "node_modules/request/lib"
         ],
         "dependencies": {
-          "aws-sign2": "~0.6.0",
-          "aws4": "^1.2.1",
+          "aws-sign2": "~0.7.0",
+          "aws4": "^1.6.0",
           "caseless": "~0.12.0",
           "combined-stream": "~1.0.5",
-          "extend": "~3.0.0",
+          "extend": "~3.0.1",
           "forever-agent": "~0.6.1",
-          "form-data": "~2.1.1",
-          "har-validator": "~4.2.1",
-          "hawk": "~3.1.3",
-          "http-signature": "~1.1.0",
+          "form-data": "~2.3.1",
+          "har-validator": "~5.0.3",
+          "hawk": "~6.0.2",
+          "http-signature": "~1.2.0",
           "is-typedarray": "~1.0.0",
           "isstream": "~0.1.2",
           "json-stringify-safe": "~5.0.1",
-          "mime-types": "~2.1.7",
-          "oauth-sign": "~0.8.1",
-          "performance-now": "^0.2.0",
-          "qs": "~6.4.0",
-          "safe-buffer": "^5.0.1",
-          "stringstream": "~0.0.4",
-          "tough-cookie": "~2.3.0",
+          "mime-types": "~2.1.17",
+          "oauth-sign": "~0.8.2",
+          "performance-now": "^2.1.0",
+          "qs": "~6.5.1",
+          "safe-buffer": "^5.1.1",
+          "stringstream": "~0.0.5",
+          "tough-cookie": "~2.3.2",
           "tunnel-agent": "^0.6.0",
-          "uuid": "^3.0.0"
+          "uuid": "^3.1.0"
         }
       },
       {
@@ -2632,13 +2606,11 @@
       },
       {
         "paths": [
-          "node_modules/sntp/examples",
-          "node_modules/sntp",
           "node_modules/sntp/lib",
-          "node_modules/sntp/test"
+          "node_modules/sntp"
         ],
         "dependencies": {
-          "hoek": "2.x.x"
+          "hoek": "4.x.x"
         }
       },
       {

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
+        "raw": "/tmp/d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
-        "spec": "/tmp/d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
+        "rawSpec": "/tmp/d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
+        "spec": "/tmp/d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-7253-1as6xnk.gfbscyp66r"
+      "/tmp/apm-install-dir-117823-6850-1tbk9h0.5vw2iysyvi"
     ]
   ],
-  "_from": "../d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
+  "_from": "../d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
   "_id": "autocomplete-paths@2.11.0",
   "_inCache": true,
   "_location": "/autocomplete-paths",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
+    "raw": "/tmp/d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
-    "spec": "/tmp/d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
+    "rawSpec": "/tmp/d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
+    "spec": "/tmp/d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
+  "_resolved": "file:../d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
   "_shasum": "749bbe6e51ec2b5a7fe54c605532cc95aff03d37",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-7253-1q4n6k5.trkucv7vi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-7253-1as6xnk.gfbscyp66r",
+  "_spec": "/tmp/d-117823-6850-14qlyly.5ykpnfjemi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-6850-1tbk9h0.5vw2iysyvi",
   "bugs": {
     "url": "https://github.com/atom-community/autocomplete-paths/issues"
   },

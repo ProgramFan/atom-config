@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
+        "raw": "/tmp/d-117823-7559-1txeff4.41ifwdn29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
-        "spec": "/tmp/d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
+        "rawSpec": "/tmp/d-117823-7559-1txeff4.41ifwdn29/package.tgz",
+        "spec": "/tmp/d-117823-7559-1txeff4.41ifwdn29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-7959-1yze84z.hl7xlgnwmi"
+      "/tmp/apm-install-dir-117823-7559-1hud821.w52jbmaemi"
     ]
   ],
-  "_from": "../d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
+  "_from": "../d-117823-7559-1txeff4.41ifwdn29/package.tgz",
   "_id": "symbols-tree-view@0.14.0",
   "_inCache": true,
   "_location": "/symbols-tree-view",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
+    "raw": "/tmp/d-117823-7559-1txeff4.41ifwdn29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
-    "spec": "/tmp/d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
+    "rawSpec": "/tmp/d-117823-7559-1txeff4.41ifwdn29/package.tgz",
+    "spec": "/tmp/d-117823-7559-1txeff4.41ifwdn29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
+  "_resolved": "file:../d-117823-7559-1txeff4.41ifwdn29/package.tgz",
   "_shasum": "43df0647b4f2107134a2e93de1164da6db9f42dd",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-7959-1kg47ol.qj6lth85mi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-7959-1yze84z.hl7xlgnwmi",
+  "_spec": "/tmp/d-117823-7559-1txeff4.41ifwdn29/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-7559-1hud821.w52jbmaemi",
   "bugs": {
     "url": "https://github.com/xndcn/symbols-tree-view/issues"
   },
@@ -127,7 +127,7 @@
       },
       {
         "name": "event-kit",
-        "version": "2.3.0",
+        "version": "2.4.0",
         "path": "node_modules/event-kit/lib/event-kit.js"
       },
       {

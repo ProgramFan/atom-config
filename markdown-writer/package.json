@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-7518-11rschr.e9k531h5mi/package.tgz",
+        "raw": "/tmp/d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-7518-11rschr.e9k531h5mi/package.tgz",
-        "spec": "/tmp/d-11784-7518-11rschr.e9k531h5mi/package.tgz",
+        "rawSpec": "/tmp/d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
+        "spec": "/tmp/d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-7518-19br6bn.79ij2a9k9"
+      "/tmp/apm-install-dir-117823-7118-1do4nku.iivke53ik9"
     ]
   ],
-  "_from": "../d-11784-7518-11rschr.e9k531h5mi/package.tgz",
+  "_from": "../d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
   "_id": "markdown-writer@2.7.2",
   "_inCache": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-7518-11rschr.e9k531h5mi/package.tgz",
+    "raw": "/tmp/d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-7518-11rschr.e9k531h5mi/package.tgz",
-    "spec": "/tmp/d-11784-7518-11rschr.e9k531h5mi/package.tgz",
+    "rawSpec": "/tmp/d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
+    "spec": "/tmp/d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-7518-11rschr.e9k531h5mi/package.tgz",
+  "_resolved": "file:../d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
   "_shasum": "685112fc484fec822556f3803951eaa6c2e67d25",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-7518-11rschr.e9k531h5mi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-7518-19br6bn.79ij2a9k9",
+  "_spec": "/tmp/d-117823-7118-htxxn9.mp0jurf6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-7118-1do4nku.iivke53ik9",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",
@@ -275,7 +275,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.9.1",
+        "version": "3.10.0",
         "path": "node_modules/js-yaml/index.js"
       },
       {
@@ -320,7 +320,7 @@
       },
       {
         "name": "rimraf",
-        "version": "2.6.1",
+        "version": "2.6.2",
         "path": "node_modules/rimraf/rimraf.js"
       },
       {

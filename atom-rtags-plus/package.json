@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-7871-151xk10.f1oslnxw29/package.tgz",
+        "raw": "/tmp/d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-7871-151xk10.f1oslnxw29/package.tgz",
-        "spec": "/tmp/d-11784-7871-151xk10.f1oslnxw29/package.tgz",
+        "rawSpec": "/tmp/d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
+        "spec": "/tmp/d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-7871-1nxrcji.b3dq6qd7vi"
+      "/tmp/apm-install-dir-117823-7470-iib9l6.cdb5bl0udi"
     ]
   ],
-  "_from": "../d-11784-7871-151xk10.f1oslnxw29/package.tgz",
+  "_from": "../d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
   "_id": "atom-rtags-plus@1.4.2",
   "_inCache": true,
   "_location": "/atom-rtags-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-7871-151xk10.f1oslnxw29/package.tgz",
+    "raw": "/tmp/d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-7871-151xk10.f1oslnxw29/package.tgz",
-    "spec": "/tmp/d-11784-7871-151xk10.f1oslnxw29/package.tgz",
+    "rawSpec": "/tmp/d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
+    "spec": "/tmp/d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-7871-151xk10.f1oslnxw29/package.tgz",
+  "_resolved": "file:../d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
   "_shasum": "3f60d0003f8cf9e8ba560bda3e466bb794f32126",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-7871-151xk10.f1oslnxw29/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-7871-1nxrcji.b3dq6qd7vi",
+  "_spec": "/tmp/d-117823-7470-1voq2o7.10wvk21emi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-7470-iib9l6.cdb5bl0udi",
   "bugs": {
     "url": "https://github.com/sphaerophoria/atom-rtags-plus/issues"
   },
@@ -161,7 +161,7 @@
       },
       {
         "name": "fuzzaldrin-plus",
-        "version": "0.4.1",
+        "version": "0.5.0",
         "path": "node_modules/fuzzaldrin-plus/lib/fuzzaldrin.js"
       },
       {
@@ -746,8 +746,6 @@
         "node_modules/fuzzaldrin/lib/fuzzaldrin.js",
         "node_modules/fuzzaldrin/lib/matcher.js",
         "node_modules/fuzzaldrin/lib/scorer.js",
-        "node_modules/fuzzaldrin-plus/dist-browser/0.3.1/fuzzaldrin-plus.js",
-        "node_modules/fuzzaldrin-plus/dist-browser/0.3.1/fuzzaldrin-plus.min.js",
         "node_modules/fuzzaldrin-plus/dist-browser/fuzzaldrin-plus.js",
         "node_modules/fuzzaldrin-plus/dist-browser/fuzzaldrin-plus.min.js",
         "node_modules/fuzzaldrin-plus/lib/filter.js",
@@ -756,11 +754,6 @@
         "node_modules/fuzzaldrin-plus/lib/pathScorer.js",
         "node_modules/fuzzaldrin-plus/lib/query.js",
         "node_modules/fuzzaldrin-plus/lib/scorer.js",
-        "node_modules/fuzzaldrin-plus/src/lib/filter.js",
-        "node_modules/fuzzaldrin-plus/src/lib/matcher.js",
-        "node_modules/fuzzaldrin-plus/src/lib/pathScorer.js",
-        "node_modules/fuzzaldrin-plus/src/lib/query.js",
-        "node_modules/fuzzaldrin-plus/src/lib/scorer.js",
         "node_modules/grim/lib/deprecation.js",
         "node_modules/grim/lib/grim.js",
         "node_modules/is-utf8/is-utf8.js",

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
+        "raw": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
-        "spec": "/tmp/d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
+        "rawSpec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+        "spec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-5886-1sphjoa.12lu15rk9"
+      "/tmp/apm-install-dir-117823-5444-tgx1mo.qadky2pgb9"
     ]
   ],
-  "_from": "../d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
+  "_from": "../d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
   "_id": "file-watcher@1.2.6",
   "_inCache": true,
   "_location": "/file-watcher",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
+    "raw": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
-    "spec": "/tmp/d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
+    "rawSpec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+    "spec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
+  "_resolved": "file:../d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
   "_shasum": "7e25d1cafd0e2084b632b35b1a6299359ba62e7e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-5886-8e6qbh.desxq7iudi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-5886-1sphjoa.12lu15rk9",
+  "_spec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-5444-tgx1mo.qadky2pgb9",
   "bugs": {
     "url": "https://github.com/lwblackledge/file-watcher/issues"
   },

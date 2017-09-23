@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
+        "raw": "/tmp/d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
-        "spec": "/tmp/d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
+        "rawSpec": "/tmp/d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
+        "spec": "/tmp/d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11784-6549-yqg5j3.k0ma5dbo6r"
+      "/tmp/apm-install-dir-117823-6061-3rdg11.0rnfm9529"
     ]
   ],
-  "_from": "../d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
+  "_from": "../d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
   "_id": "linter-shellcheck@1.4.6",
   "_inCache": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
+    "raw": "/tmp/d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
-    "spec": "/tmp/d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
+    "rawSpec": "/tmp/d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
+    "spec": "/tmp/d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
+  "_resolved": "file:../d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
   "_shasum": "ab437a2d061aeeebb78a264e5ddaa6bd0a9a8726",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11784-6549-1tiwwpn.d5wvxkzkt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11784-6549-yqg5j3.k0ma5dbo6r",
+  "_spec": "/tmp/d-117823-6061-1joofio.rdat1hh0k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117823-6061-3rdg11.0rnfm9529",
   "activationHooks": [
     "language-shellscript:grammar-used"
   ],
@@ -159,7 +159,7 @@
       },
       {
         "name": "named-js-regexp",
-        "version": "1.3.2",
+        "version": "1.3.3",
         "path": "node_modules/named-js-regexp/lib/named-js-regexp.js"
       },
       {
