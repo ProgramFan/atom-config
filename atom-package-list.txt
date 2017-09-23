@@ -30,7 +30,6 @@ project-manager # save, load and switch projects
 file-watcher # reload file when changed outside
 Remote-FTP # allow editing remote files
 atom-commander # better file manager
-git-plus # better git integration
 git-time-machine # navigate through time for a file
 # build: run make/cmake etc. inside atom and display errors
 build
@@ -50,6 +49,8 @@ linter-spell
 linter-spell-latex
 linter-spell-html
 atomic-vale # A better language linter
+vim-mode-plus
+ex-mode
 
 #
 # 3. Extra syntax highlighters

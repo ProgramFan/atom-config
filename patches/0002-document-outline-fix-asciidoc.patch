@@ -1,0 +1,26 @@
+diff --git a/document-outline/lib/asciidoc-model.js b/document-outline/lib/asciidoc-model.js
+index baeebef4b..1297f92df 100644
+--- a/document-outline/lib/asciidoc-model.js
++++ b/document-outline/lib/asciidoc-model.js
+@@ -1,7 +1,8 @@
+ 'use babel';
+ import AbstractModel from './abstract-model';
+ 
+-const HEADING_REGEX = /^(.+)\n([!-/:-@[-`{-~])\2+$/gm;
++// const HEADING_REGEX = /^(.+)\n([!-/:-@[-`{-~])\2+$/gm;
++const HEADING_REGEX = /^([=#]+)\s*(.+)$/gm;
+ 
+ export default class AsciiDocModel extends AbstractModel {
+   constructor(editorOrBuffer) {
+@@ -10,6 +11,11 @@ export default class AsciiDocModel extends AbstractModel {
+   }
+ 
+   getRegexData(scanResult) {
++    return {
++      level: scanResult[1].length,
++      label: scanResult[2]
++    };
++
+     let level = 1;
+     let c = scanResult[2].substr(0, 1);
+ 
