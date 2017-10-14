@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
+        "raw": "/tmp/d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
-        "spec": "/tmp/d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
+        "rawSpec": "/tmp/d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
+        "spec": "/tmp/d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-6682-1a1xhuh.q1y4mibe29"
+      "/tmp/apm-install-dir-117914-6681-h27mjg.vyls9ssjor"
     ]
   ],
-  "_from": "../d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
+  "_from": "../d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
   "_id": "ex-mode@0.18.0",
   "_inCache": true,
   "_location": "/ex-mode",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
+    "raw": "/tmp/d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
-    "spec": "/tmp/d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
+    "rawSpec": "/tmp/d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
+    "spec": "/tmp/d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
+  "_resolved": "file:../d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
   "_shasum": "4ba7dc050b13e8fb073d5feb10d3a2bdd1f87541",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-6682-1x178eq.0tjn6rbe29/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-6682-1a1xhuh.q1y4mibe29",
+  "_spec": "/tmp/d-117914-6681-1luxodf.97ciqnnrk9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-6681-h27mjg.vyls9ssjor",
   "activationCommands": {
     "atom-workspace": "ex-mode:open"
   },

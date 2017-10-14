@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-6770-lxmx25.66azcl3di/package.tgz",
+        "raw": "/tmp/d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-6770-lxmx25.66azcl3di/package.tgz",
-        "spec": "/tmp/d-117914-6770-lxmx25.66azcl3di/package.tgz",
+        "rawSpec": "/tmp/d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
+        "spec": "/tmp/d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-6770-u5yry3.4tqfjvpldi"
+      "/tmp/apm-install-dir-117914-6991-1hwrpje.onvqn3tyb9"
     ]
   ],
-  "_from": "../d-117914-6770-lxmx25.66azcl3di/package.tgz",
+  "_from": "../d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
   "_id": "language-dot@1.7.0",
   "_inCache": true,
   "_location": "/language-dot",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-6770-lxmx25.66azcl3di/package.tgz",
+    "raw": "/tmp/d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-6770-lxmx25.66azcl3di/package.tgz",
-    "spec": "/tmp/d-117914-6770-lxmx25.66azcl3di/package.tgz",
+    "rawSpec": "/tmp/d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
+    "spec": "/tmp/d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-6770-lxmx25.66azcl3di/package.tgz",
+  "_resolved": "file:../d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
   "_shasum": "3d4e6816dcf75a0ddc5011e7e512a0ef176fcf00",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-6770-lxmx25.66azcl3di/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-6770-u5yry3.4tqfjvpldi",
+  "_spec": "/tmp/d-117914-6991-mluqwi.nx7jnka9k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-6991-1hwrpje.onvqn3tyb9",
   "bugs": {
     "url": "https://github.com/AdoPi/language-dot/issues"
   },

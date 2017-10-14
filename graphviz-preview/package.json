@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
+        "raw": "/tmp/d-117914-8468-1b847in.v3zapgmn29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
-        "spec": "/tmp/d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
+        "rawSpec": "/tmp/d-117914-8468-1b847in.v3zapgmn29/package.tgz",
+        "spec": "/tmp/d-117914-8468-1b847in.v3zapgmn29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-8290-1wb3dxv.2o4ci35wmi"
+      "/tmp/apm-install-dir-117914-8468-9a1noz.m4e2i96bt9"
     ]
   ],
-  "_from": "../d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
+  "_from": "../d-117914-8468-1b847in.v3zapgmn29/package.tgz",
   "_id": "graphviz-preview@1.7.0",
   "_inCache": true,
   "_location": "/graphviz-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
+    "raw": "/tmp/d-117914-8468-1b847in.v3zapgmn29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
-    "spec": "/tmp/d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
+    "rawSpec": "/tmp/d-117914-8468-1b847in.v3zapgmn29/package.tgz",
+    "spec": "/tmp/d-117914-8468-1b847in.v3zapgmn29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
+  "_resolved": "file:../d-117914-8468-1b847in.v3zapgmn29/package.tgz",
   "_shasum": "f63467d2b58293b3095d6c17b52486895b7c5b86",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-8290-faf3rh.6xbeu0izfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-8290-1wb3dxv.2o4ci35wmi",
+  "_spec": "/tmp/d-117914-8468-1b847in.v3zapgmn29/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-8468-9a1noz.m4e2i96bt9",
   "activationCommands": {
     "atom-text-editor": [
       "graphviz-preview:toggle"

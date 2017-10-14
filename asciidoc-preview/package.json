@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
+        "raw": "/tmp/d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
-        "spec": "/tmp/d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
+        "rawSpec": "/tmp/d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
+        "spec": "/tmp/d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7514-nlavtk.0z41q3erk9"
+      "/tmp/apm-install-dir-117914-7692-10qdax4.t659ffajor"
     ]
   ],
-  "_from": "../d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
+  "_from": "../d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
   "_id": "asciidoc-preview@2.10.2",
   "_inCache": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
+    "raw": "/tmp/d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
-    "spec": "/tmp/d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
+    "rawSpec": "/tmp/d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
+    "spec": "/tmp/d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
+  "_resolved": "file:../d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
   "_shasum": "19b2e54e98094f7667b208e390ddb9d08491d7e5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7514-1xcl6ht.xsqyk138fr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7514-nlavtk.0z41q3erk9",
+  "_spec": "/tmp/d-117914-7692-t1e9b1.bctvzyf1or/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7692-10qdax4.t659ffajor",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },

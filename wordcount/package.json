@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
+        "raw": "/tmp/d-117914-5355-1tffhe.btdre5qaor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
-        "spec": "/tmp/d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
+        "rawSpec": "/tmp/d-117914-5355-1tffhe.btdre5qaor/package.tgz",
+        "spec": "/tmp/d-117914-5355-1tffhe.btdre5qaor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-5359-1fow2pp.hvh0kymn29"
+      "/tmp/apm-install-dir-117914-5355-1tklmma.dfqfvzehfr"
     ]
   ],
-  "_from": "../d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
+  "_from": "../d-117914-5355-1tffhe.btdre5qaor/package.tgz",
   "_id": "wordcount@2.10.4",
   "_inCache": true,
   "_location": "/wordcount",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
+    "raw": "/tmp/d-117914-5355-1tffhe.btdre5qaor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
-    "spec": "/tmp/d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
+    "rawSpec": "/tmp/d-117914-5355-1tffhe.btdre5qaor/package.tgz",
+    "spec": "/tmp/d-117914-5355-1tffhe.btdre5qaor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
+  "_resolved": "file:../d-117914-5355-1tffhe.btdre5qaor/package.tgz",
   "_shasum": "75177885011b3bf434acef41ee8f01acac577fb3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-5359-13b83cn.ga4gr5dn29/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-5359-1fow2pp.hvh0kymn29",
+  "_spec": "/tmp/d-117914-5355-1tffhe.btdre5qaor/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-5355-1tklmma.dfqfvzehfr",
   "bugs": {
     "url": "https://github.com/nesQuick/atom-wordcount/issues"
   },

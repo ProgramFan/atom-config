@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
+        "raw": "/tmp/d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
-        "spec": "/tmp/d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
+        "rawSpec": "/tmp/d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
+        "spec": "/tmp/d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7470-8dg6aq.c3gvqjjor"
+      "/tmp/apm-install-dir-117914-7648-1gx7la9.o6a3ba9k9"
     ]
   ],
-  "_from": "../d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
+  "_from": "../d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
   "_id": "autocomplete-asciidoc@0.1.2",
   "_inCache": true,
   "_location": "/autocomplete-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
+    "raw": "/tmp/d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
-    "spec": "/tmp/d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
+    "rawSpec": "/tmp/d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
+    "spec": "/tmp/d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
+  "_resolved": "file:../d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
   "_shasum": "bd850af2336aa841202c403968c6c293a3e52186",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7470-1tiwc9r.no0700ms4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7470-8dg6aq.c3gvqjjor",
+  "_spec": "/tmp/d-117914-7648-k6xxlk.kp6cg14i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7648-1gx7la9.o6a3ba9k9",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-autocomplete-asciidoc/issues"
   },

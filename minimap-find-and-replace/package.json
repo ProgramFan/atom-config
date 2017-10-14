@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
+        "raw": "/tmp/d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
-        "spec": "/tmp/d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
+        "rawSpec": "/tmp/d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
+        "spec": "/tmp/d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-5088-1qayrxe.a44nghkt9"
+      "/tmp/apm-install-dir-117914-5084-16zgqrd.1m4g5sif6r"
     ]
   ],
-  "_from": "../d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
+  "_from": "../d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
   "_id": "minimap-find-and-replace@4.5.2",
   "_inCache": true,
   "_location": "/minimap-find-and-replace",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
+    "raw": "/tmp/d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
-    "spec": "/tmp/d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
+    "rawSpec": "/tmp/d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
+    "spec": "/tmp/d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
+  "_resolved": "file:../d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
   "_shasum": "b7f2d462efcfc9bc3ea9e29720a779fbd7805d58",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-5088-wtak6o.7hk20ozuxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-5088-1qayrxe.a44nghkt9",
+  "_spec": "/tmp/d-117914-5084-vrocjb.c5bcu40a4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-5084-16zgqrd.1m4g5sif6r",
   "author": {
     "name": "Cédric Néhémie",
     "email": "cedric.nehemie@gmail.com"

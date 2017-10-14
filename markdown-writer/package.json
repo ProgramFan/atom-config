@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7426-w5c5nw.39uanhfr/package.tgz",
+        "raw": "/tmp/d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7426-w5c5nw.39uanhfr/package.tgz",
-        "spec": "/tmp/d-117914-7426-w5c5nw.39uanhfr/package.tgz",
+        "rawSpec": "/tmp/d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
+        "spec": "/tmp/d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7426-1kex4tp.j23tathuxr"
+      "/tmp/apm-install-dir-117914-7559-4wfjr0.wlt66wp14i"
     ]
   ],
-  "_from": "../d-117914-7426-w5c5nw.39uanhfr/package.tgz",
+  "_from": "../d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
   "_id": "markdown-writer@2.7.2",
   "_inCache": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7426-w5c5nw.39uanhfr/package.tgz",
+    "raw": "/tmp/d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7426-w5c5nw.39uanhfr/package.tgz",
-    "spec": "/tmp/d-117914-7426-w5c5nw.39uanhfr/package.tgz",
+    "rawSpec": "/tmp/d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
+    "spec": "/tmp/d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7426-w5c5nw.39uanhfr/package.tgz",
+  "_resolved": "file:../d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
   "_shasum": "685112fc484fec822556f3803951eaa6c2e67d25",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7426-w5c5nw.39uanhfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7426-1kex4tp.j23tathuxr",
+  "_spec": "/tmp/d-117914-7559-1em6dga.0lgs6ecdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7559-4wfjr0.wlt66wp14i",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",
