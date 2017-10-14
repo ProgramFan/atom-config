@@ -42,7 +42,7 @@ There are some settings hidden in the package preferences!
     "pass": "pass", // string - Password for password-based user authentication. Default: (none)
     "promptForPass": false, // boolean - Set to true for enable password/passphrase dialog. This will prevent from using cleartext password/passphrase in this config. Default: false
     "remote": "/", // try to use absolute paths starting with /
-    "agent": "", // string - Path to ssh-agent's UNIX socket for ssh-agent-based user authentication. Windows users: set to 'pageant' for authenticating with Pageant or (actual) path to a cygwin "UNIX socket." Default: (none)
+    "agent": "", // string - Path to ssh-agent's UNIX socket for ssh-agent-based user authentication. Linux/Mac users can set "env" as a value to use env SSH_AUTH_SOCK variable. Windows users: set to 'pageant' for authenticating with Pageant or (actual) path to a cygwin "UNIX socket." Default: (none)
     "privatekey": "", // string - Absolute path to the private key file (in OpenSSH format). Default: (none)
     "passphrase": "", // string - For an encrypted private key, this is the passphrase used to decrypt it. Default: (none)
     "hosthash": "", // string - 'md5' or 'sha1'. The host's key is hashed using this method and passed to the hostVerifier function. Default: (none)
@@ -83,6 +83,14 @@ There are some settings hidden in the package preferences!
     "watchTimeout":500 // integer - The duration ( in milliseconds ) from when the file was last changed for the upload to begin.
 }
 ```
+
+## How to use .ftpignore?
+
+This package use the [ignore](https://www.npmjs.com/package/ignore) npm package. Which covers the operation of fully [gitignore](https://git-scm.com/docs/gitignore).
+
+## How use multiproject mode?
+
+It is a very alpha / beta version. For the time being, only 1 project is supported at one time.
 
 ## I'd like to support this project
 
@@ -136,3 +144,6 @@ Help us bring this project to the moon! Atom's rocket needs to get somewhere, ri
 [@nbdamian](https://github.com/nbdamian)
 [@thorstenhirsch](https://github.com/thorstenhirsch)
 [@ilessiivi](https://github.com/ilessiivi)
+[@lioutikov](https://github.com/lioutikov)
+[@zlibra](https://github.com/zlibra)  
+[@maxswjeon](https://github.com/maxswjeon)  

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
+        "raw": "/tmp/d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
-        "spec": "/tmp/d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
+        "rawSpec": "/tmp/d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
+        "spec": "/tmp/d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-6017-4ezjuf.icegj02j4i"
+      "/tmp/apm-install-dir-117914-6329-e3upuk.n2cijjdcxr"
     ]
   ],
-  "_from": "../d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
+  "_from": "../d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
   "_id": "linter-python-pep8@0.2.0",
   "_inCache": true,
   "_location": "/linter-python-pep8",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
+    "raw": "/tmp/d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
-    "spec": "/tmp/d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
+    "rawSpec": "/tmp/d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
+    "spec": "/tmp/d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
+  "_resolved": "file:../d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
   "_shasum": "583da473dc31b91e2825b2e42b31ac600049824d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-6017-1udpwwj.tou3y58kt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-6017-4ezjuf.icegj02j4i",
+  "_spec": "/tmp/d-117914-6329-1lq2kl8.mq2gldi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-6329-e3upuk.n2cijjdcxr",
   "activationEvents": [],
   "bugs": {
     "url": "https://github.com/bsnux/linter-python-pep8/issues"
@@ -57,19 +57,5 @@
     "type": "git",
     "url": "git+https://github.com/bsnux/linter-python-pep8.git"
   },
-  "version": "0.2.0",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".coffee": [
-        "lib/init.coffee",
-        "lib/linter-python-pep8.coffee"
-      ],
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.2.0"
 }

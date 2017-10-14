@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+        "raw": "/tmp/d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
-        "spec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+        "rawSpec": "/tmp/d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
+        "spec": "/tmp/d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-4952-10zye0h.3de68t1emi"
+      "/tmp/apm-install-dir-117914-5264-1tfr414.mp43zyqfr"
     ]
   ],
-  "_from": "../d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+  "_from": "../d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
   "_id": "tool-bar@1.1.0",
   "_inCache": true,
   "_location": "/tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+    "raw": "/tmp/d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
-    "spec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+    "rawSpec": "/tmp/d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
+    "spec": "/tmp/d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
+  "_resolved": "file:../d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
   "_shasum": "94b5074753ee1b1322459844b70727fec5acdb6f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-4952-1e7n1qo.iyzf4xi529/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-4952-10zye0h.3de68t1emi",
+  "_spec": "/tmp/d-117914-5264-1nxx1rf.8ks1r1kyb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-5264-1tfr414.mp43zyqfr",
   "bugs": {
     "url": "https://github.com/suda/tool-bar/issues"
   },
@@ -78,24 +78,5 @@
   "scripts": {
     "lint": "eslint --format tap . && remark ."
   },
-  "version": "1.1.0",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        ".eslintrc.json",
-        "package.json"
-      ],
-      ".js": [
-        "lib/raf-debounce.js",
-        "lib/tool-bar-button-view.js",
-        "lib/tool-bar-manager.js",
-        "lib/tool-bar-spacer-view.js",
-        "lib/tool-bar-view.js",
-        "lib/tool-bar.js"
-      ]
-    },
-    "folders": []
-  }
+  "version": "1.1.0"
 }

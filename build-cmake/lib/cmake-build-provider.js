@@ -11,6 +11,13 @@ export default {
   config: require('./config'),
 
   /**
+   * Install atom-build if it is not already.
+   */
+  activate() {
+    require('atom-package-deps').install('build-cmake');
+  },
+
+  /**
    * @return {CMakeBuildProvider}
    */
   providingFunction() {

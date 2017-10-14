@@ -1,8 +1,10 @@
 'use babel';
 import AbstractModel from './abstract-model';
 
-// const HEADING_REGEX = /^(.+)\n([!-/:-@[-`{-~])\2+$/gm;
-const HEADING_REGEX = /^([=#]+)\s*(.+)$/gm;
+// TODO add support foe settext style title (which is allowed)
+// Atx style headers only. Setext headers are not supported
+// http://asciidoctor.org/docs/asciidoc-recommended-practices/#section-titles
+const HEADING_REGEX = /^(=={0,5}|#\#{0,5})[ \t]+(.+?)(?:[ \t]+\1)?$/gm;
 
 export default class AsciiDocModel extends AbstractModel {
   constructor(editorOrBuffer) {
@@ -11,13 +13,8 @@ export default class AsciiDocModel extends AbstractModel {
   }
 
   getRegexData(scanResult) {
-    return {
-      level: scanResult[1].length,
-      label: scanResult[2]
-    };
-
     let level = 1;
-    let c = scanResult[2].substr(0, 1);
+    let c = scanResult[1].length;
 
     // Sometimes sectionLevels not set. Shouldn't happen but cant be bother to figure out why it does
     if (this.sectionLevels === undefined) {
@@ -32,7 +29,7 @@ export default class AsciiDocModel extends AbstractModel {
     }
     return {
       level: level,
-      label: scanResult[1]
+      label: scanResult[2]
     };
   }
 

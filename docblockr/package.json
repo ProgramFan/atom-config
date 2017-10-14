@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-7338-jvir4j.z2y1a714i/package.tgz",
+        "raw": "/tmp/d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-7338-jvir4j.z2y1a714i/package.tgz",
-        "spec": "/tmp/d-117823-7338-jvir4j.z2y1a714i/package.tgz",
+        "rawSpec": "/tmp/d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
+        "spec": "/tmp/d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-7338-1d3l463.gtotcpu8fr"
+      "/tmp/apm-install-dir-117914-7646-1jrkckq.1bpjc680k9"
     ]
   ],
-  "_from": "../d-117823-7338-jvir4j.z2y1a714i/package.tgz",
+  "_from": "../d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
   "_id": "docblockr@0.11.0",
   "_inCache": true,
   "_location": "/docblockr",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-7338-jvir4j.z2y1a714i/package.tgz",
+    "raw": "/tmp/d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-7338-jvir4j.z2y1a714i/package.tgz",
-    "spec": "/tmp/d-117823-7338-jvir4j.z2y1a714i/package.tgz",
+    "rawSpec": "/tmp/d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
+    "spec": "/tmp/d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-7338-jvir4j.z2y1a714i/package.tgz",
+  "_resolved": "file:../d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
   "_shasum": "02c578f52504bf12a05fbe5ed13a8ec56b31b99a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-7338-jvir4j.z2y1a714i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-7338-1d3l463.gtotcpu8fr",
+  "_spec": "/tmp/d-117914-7646-8q7mr8.gfqvdeu3di/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7646-1jrkckq.1bpjc680k9",
   "atomTestRunner": "./spec/runner",
   "bugs": {
     "url": "https://github.com/nikhilkalige/docblockr/issues"
@@ -70,32 +70,5 @@
   "scripts": {
     "test": "cd ~/.atom/packages; atom --test docblockr/spec"
   },
-  "version": "0.11.0",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".js": [
-        "lib/docblockr-worker.js",
-        "lib/docblockr.js",
-        "lib/docsparser.js",
-        "lib/languages/actionscript.js",
-        "lib/languages/coffee.js",
-        "lib/languages/cpp.js",
-        "lib/languages/java.js",
-        "lib/languages/javascript.js",
-        "lib/languages/objc.js",
-        "lib/languages/php.js",
-        "lib/languages/processing.js",
-        "lib/languages/rust.js",
-        "lib/languages/typescript.js",
-        "lib/utils.js",
-        "lib/xregexp.js"
-      ],
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.11.0"
 }

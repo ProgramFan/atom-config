@@ -6,6 +6,22 @@ import AbstractModel from './abstract-model';
 
 const HEADING_REGEX = /(^#+)[^#](.*)#*\n|(^[^\n]+)\n(=+|-+)\n/g;
 
+/**
+ * @param  {String} src   The source file with YFM
+ * @param  {Object} delim Change delimiters with delim.start|delim.end
+ * @return {String}       Content of the file, sans YFM
+ */
+function stripYaml(src) {
+  let re = /^---\n(?:\s*)?([\s\S]*?)\n?^(---|\.\.\.)\s*$\n\n?/m;
+  let match = re.exec(src);
+  if (match && match.index === 0) {
+    return src.replace(re, '');
+  }
+  else {
+    return src;
+  }
+}
+
 export default class MarkdownModel extends AbstractModel {
   constructor(editorOrBuffer) {
     super(editorOrBuffer, HEADING_REGEX);
@@ -16,6 +32,8 @@ export default class MarkdownModel extends AbstractModel {
   */
   parse() {
     let text = this.buffer.getText();
+    // TODO maybe optionally disable this
+    text = stripYaml(text);
     let reader = new Parser();
     let parsed = reader.parse(text);
     let rawHeadings = this.getHeadings(parsed);
@@ -60,7 +78,10 @@ export default class MarkdownModel extends AbstractModel {
           heading.label = headingText;
         }
       } else if (inHeading) {
-        headingText += node.literal;
+        // Make sure we only add the literal if it's not null #29
+        if (node.literal) {
+          headingText += node.literal;
+        }
       }
     }
     return rawHeadings;

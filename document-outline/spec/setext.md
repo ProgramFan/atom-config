@@ -1,3 +1,14 @@
+---
+front: matter
+in: yaml
+...
+
+
+------------------------
+Might start with heading: and have colon
+------------------------
+
+
 This is for using setext style headers
 ======================================
 

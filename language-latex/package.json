@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-6635-j69hih.jb3afnipb9/package.tgz",
+        "raw": "/tmp/d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-6635-j69hih.jb3afnipb9/package.tgz",
-        "spec": "/tmp/d-117823-6635-j69hih.jb3afnipb9/package.tgz",
+        "rawSpec": "/tmp/d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
+        "spec": "/tmp/d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-6635-1eif157.gut7skmx6r"
+      "/tmp/apm-install-dir-117914-6946-1uagx0v.543twvzpvi"
     ]
   ],
-  "_from": "../d-117823-6635-j69hih.jb3afnipb9/package.tgz",
+  "_from": "../d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
   "_id": "language-latex@1.1.1",
   "_inCache": true,
   "_location": "/language-latex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-6635-j69hih.jb3afnipb9/package.tgz",
+    "raw": "/tmp/d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-6635-j69hih.jb3afnipb9/package.tgz",
-    "spec": "/tmp/d-117823-6635-j69hih.jb3afnipb9/package.tgz",
+    "rawSpec": "/tmp/d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
+    "spec": "/tmp/d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-6635-j69hih.jb3afnipb9/package.tgz",
+  "_resolved": "file:../d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
   "_shasum": "c85acd386a8b85d32a765bac137f524dc700c327",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-6635-j69hih.jb3afnipb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-6635-1eif157.gut7skmx6r",
+  "_spec": "/tmp/d-117914-6946-1n06spd.9g1rgj5rk9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-6946-1uagx0v.543twvzpvi",
   "bugs": {
     "url": "https://github.com/area/language-latex/issues"
   },
@@ -58,15 +58,5 @@
     "type": "git",
     "url": "git+https://github.com/area/language-latex.git"
   },
-  "version": "1.1.1",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "1.1.1"
 }

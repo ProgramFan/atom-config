@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
+        "raw": "/tmp/d-117914-7822-oxib2p.ad159rizfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
-        "spec": "/tmp/d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
+        "rawSpec": "/tmp/d-117914-7822-oxib2p.ad159rizfr/package.tgz",
+        "spec": "/tmp/d-117914-7822-oxib2p.ad159rizfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-7515-u0xj0g.jqwv5tgldi"
+      "/tmp/apm-install-dir-117914-7822-xonnur.rqhp4g3nmi"
     ]
   ],
-  "_from": "../d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
+  "_from": "../d-117914-7822-oxib2p.ad159rizfr/package.tgz",
   "_id": "hyperclick@0.1.5",
   "_inCache": true,
   "_location": "/hyperclick",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
+    "raw": "/tmp/d-117914-7822-oxib2p.ad159rizfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
-    "spec": "/tmp/d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
+    "rawSpec": "/tmp/d-117914-7822-oxib2p.ad159rizfr/package.tgz",
+    "spec": "/tmp/d-117914-7822-oxib2p.ad159rizfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
+  "_resolved": "file:../d-117914-7822-oxib2p.ad159rizfr/package.tgz",
   "_shasum": "bfd388a0798053e09d72c36175a4c88f75b1f57a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-7515-1qhii2i.xxq3fh6w29/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-7515-u0xj0g.jqwv5tgldi",
+  "_spec": "/tmp/d-117914-7822-oxib2p.ad159rizfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7822-xonnur.rqhp4g3nmi",
   "bugs": {
     "url": "https://github.com/facebook-atom/hyperclick/issues"
   },
@@ -280,18 +280,5 @@
   "scripts": {
     "release": "./scripts/release.sh"
   },
-  "version": "0.1.5",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".js": [
-        "index.js"
-      ],
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.1.5"
 }

@@ -1,11 +1,15 @@
 'use babel';
 
-let __hasProp = {}.hasOwnProperty,
-  __extends = function (child, parent) { for (const key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  $ = require('atom-space-pen-views').$,
-  DirectoryView = require('./directory-view'),
-  ScrollView = require('atom-space-pen-views').ScrollView,
-  getObject = require('../helpers').getObject;
+import semver from 'semver';
+import { $, ScrollView } from 'atom-space-pen-views';
+import {
+  getObject,
+  resizeCursor,
+  elapsedTime,
+  resolveTree,
+  getSelectedTree,
+} from '../helpers';
+import DirectoryView from './directory-view';
 
 let hideLocalTreeError = false;
 
@@ -37,21 +41,34 @@ function showLocalTree() {
   if (treeView && typeof treeView.detach === 'function') treeView.attach();
 }
 
-module.exports = TreeView = (function (parent) {
-  __extends(TreeView, parent);
+class TreeView extends ScrollView {
 
-  const resizeCursor = process.platform === 'win32' ? 'ew-resize' : 'col-resize';
-
-  function TreeView() {
-    TreeView.__super__.constructor.apply(this, arguments);
-  }
-
-  TreeView.content = function () {
+  static content() {
     return this.div({
       class: 'remote-ftp-view ftptree-view-resizer tool-panel',
       'data-show-on-right-side': atom.config.get('tree-view.showOnRightSide'),
       'data-use-dock-integration': atom.config.get('Remote-FTP.tree.useDockIntegration'),
     }, () => {
+      this.ul({
+        class: 'list-inline tab-bar inset-panel show',
+        is: 'atom-tabs',
+        tabindex: -1,
+        location: 'left',
+        outlet: 'tabPanel',
+      }, () => {
+        this.li({
+          class: 'tab',
+          is: 'tabs-tab',
+          'data-type': 'TreeView',
+        }, () => {
+          this.div({
+            class: 'title',
+          }, () => {
+            this.text('Remote');
+          });
+        });
+      });
+
       this.div({
         class: 'scroller',
         outlet: 'scroller',
@@ -62,11 +79,13 @@ module.exports = TreeView = (function (parent) {
           outlet: 'list',
         });
       });
+
       this.div({
         class: 'resize-handle',
         outlet: 'horizontalResize',
         style: `cursor:${resizeCursor}`, // platform specific cursor
       });
+
       this.div({
         class: 'queue tool-panel panel-bottom',
         tabindex: -1,
@@ -87,82 +106,74 @@ module.exports = TreeView = (function (parent) {
           outlet: 'verticalResize',
         });
       });
+
       this.div({
         class: 'offline',
         tabindex: -1,
         outlet: 'offline',
       });
     });
-  };
+  }
 
-  const elapsedTime = function (ms) {
-    const days = Math.floor(ms / 86400000);
-    ms %= 86400000;
-    const hours = Math.floor(ms / 3600000);
-    ms %= 3600000;
-    const mins = Math.floor(ms / 60000);
-    ms %= 60000;
-    const secs = Math.floor(ms / 1000);
-    ms %= 1000;
+  initialize(...args) {
+    super.initialize(...args);
 
-    return ((days ? `${days}d ` : '') +
-				(hours ? `${((days) && hours < 10 ? '0' : '') + hours}h ` : '') +
-				(mins ? `${((days || hours) && mins < 10 ? '0' : '') + mins}m ` : '') +
-				(secs ? `${((days || hours || mins) && secs < 10 ? '0' : '') + secs}s ` : '')).replace(/^[dhms]\s+/, '').replace(/[dhms]\s+[dhms]/g, '').replace(/^\s+/, '').replace(/\s+$/, '') || '0s';
-  };
+    // Supported for old API
+    this.getSelected = getSelectedTree;
+    this.resolve = resolveTree;
 
-  TreeView.prototype.initialize = function (state) {
-    TreeView.__super__.initialize.apply(this, arguments);
+    const html = `
+    <div class="remote-ftp-offline-inner">
+    <div class="remote-ftp-picto"><span class="icon icon-shield"></span></div>
+    <ul>
+      <li><a role="connect" class="btn btn-default icon">Connect</a><br /></li>
+      <li><a role="configure" class="btn btn-default icon">Edit Configuration</a><br /></li>
+      <li><a role="configure_ignored" class="btn btn-default icon">Edit Ignore Configuration</a><br /></li>
+      <li><a role="toggle" class="btn btn-default icon">Close Panel</a></li>
+    </ul>
+    </div>`;
 
-    const self = this;
+    this.offline.html(html);
 
-		// self.addClass(atom.config.get('tree-view.showOnRightSide') ? 'panel-right' : 'panel-left');
-    let html = '<ul>';
-    html += '<li><a role="connect" class="btn btn-default icon">Connect</a><br /></li>';
-    html += '<li><a role="configure" class="btn btn-default icon">Edit Configuration</a><br /></li>';
-    html += '<li><a role="configure_ignored" class="btn btn-default icon">Edit Ignore Configuration</a><br /></li>';
-    html += '<li><a role="toggle" class="btn btn-default icon">Close Panel</a></li>';
-    html += '</ul>';
-    self.offline.html(html);
-    if (atom.project.remoteftp.isConnected())			{ self.showOnline(); } else			{ self.showOffline(); }
+    if (atom.project.remoteftp.isConnected()) {
+      this.showOnline();
+    } else {
+      this.showOffline();
+    }
 
-    self.root = new DirectoryView(atom.project.remoteftp.root);
-    self.root.expand();
-    self.list.append(self.root);
+    this.root = new DirectoryView(atom.project.remoteftp.root);
+    this.root.expand();
+    this.list.append(this.root);
 
-		// self.attach();
-
-		// Events
+    // Events
     atom.config.onDidChange('tree-view.showOnRightSide', () => {
-      if (self.isVisible()) {
+      if (this.isVisible()) {
         setTimeout(() => {
-          self.detach();
-          self.attach();
+          this.detach();
+          this.attach();
         }, 1);
       }
     });
 
     atom.config.onDidChange('Remote-FTP.tree.hideLocalWhenDisplayed', (values) => {
       if (values.newValue) {
-        if (self.isVisible()) {
+        if (this.isVisible()) {
           hideLocalTree();
         }
-      } else if (self.isVisible()) {
-        self.detach();
+      } else if (this.isVisible()) {
+        this.detach();
         showLocalTree();
-        self.attach();
+        this.attach();
       } else {
         showLocalTree();
       }
     });
 
     atom.config.onDidChange('Remote-FTP.tree.useDockIntegration', () => {
-      if (!atom.workspace.getRightDock === 'undefined') {
+      if (typeof atom.workspace.getRightDock === 'undefined') {
         atom.notifications.addWarning('Your editor is <b>deprecated</b>.<br />This option is available only >=1.17.0 version.');
-        return;
-      }
-
-      if (self.isVisible()) {
+        atom.config.set('Remote-FTP.tree.useDockIntegration', 'false');
+      } else if (this.isVisible()) {
         setTimeout(() => {
           this.detach();
           this.attach();
@@ -171,37 +182,38 @@ module.exports = TreeView = (function (parent) {
     });
 
     atom.project.remoteftp.on('debug', (msg) => {
-      self.debug.prepend(`<li>${msg}</li>`);
-      const children = self.debug.children();
+      this.debug.prepend(`<li>${msg}</li>`);
+      const children = this.debug.children();
+
       if (children.length > 20) {
         children.last().remove();
       }
     });
 
     atom.project.remoteftp.on('queue-changed', () => {
-      self.progress.empty();
+      this.progress.empty();
 
-      const queue = [];
-      if (atom.project.remoteftp._current) {
-        queue.push(atom.project.remoteftp._current);
+      const queues = [];
+      if (atom.project.remoteftp.current) {
+        queues.push(atom.project.remoteftp.current);
       }
 
-      for (let i = 0; i < atom.project.remoteftp._queue.length; i++) {
-        queue.push(atom.project.remoteftp._queue[i]);
-      }
+      atom.project.remoteftp.queue.forEach((queueElem) => {
+        queues.push(queueElem);
+      });
 
-      if (queue.length === 0) {
-        self.progress.hide();
+      if (queues.length === 0) {
+        this.progress.hide();
       } else {
-        self.progress.show();
+        this.progress.show();
 
-        queue.forEach((queue) => {
-          let $li = $(`<li><progress class="inline-block" /><div class="name">${queue[0]}</div><div class="eta">-</div></li>`),
-            $progress = $li.children('progress'),
-            $eta = $li.children('.eta'),
-            progress = queue[2];
+        queues.forEach((queue) => {
+          const $li = $(`<li><progress class="inline-block" /><div class="name">${queue[0]}</div><div class="eta">-</div></li>`);
+          const $progress = $li.children('progress');
+          const $eta = $li.children('.eta');
+          const progress = queue[2];
 
-          self.progress.append($li);
+          this.progress.append($li);
 
           progress.on('progress', (percent) => {
             if (percent === -1) {
@@ -210,9 +222,11 @@ module.exports = TreeView = (function (parent) {
             } else {
               $progress.attr('max', 100).attr('value', parseInt(percent * 100, 10));
               const eta = progress.getEta();
+
               $eta.text(elapsedTime(eta));
             }
           });
+
           progress.once('done', () => {
             progress.removeAllListeners('progress');
           });
@@ -220,49 +234,57 @@ module.exports = TreeView = (function (parent) {
       }
     });
 
-    self.offline.on('click', '[role="connect"]', (e) => {
+    this.offline.on('click', '[role="connect"]', () => {
       atom.project.remoteftp.readConfig(() => {
         atom.project.remoteftp.connect();
       });
     });
-    self.offline.on('click', '[role="configure"]', (e) => {
+
+    this.offline.on('click', '[role="configure"]', () => {
       atom.workspace.open(atom.project.remoteftp.getConfigPath());
     });
-    self.offline.on('click', '[role="configure_ignored"]', (e) => {
+
+    this.offline.on('click', '[role="configure_ignored"]', () => {
       atom.workspace.open(atom.project.getDirectories()[0].resolve('.ftpignore'));
     });
-    self.offline.on('click', '[role="toggle"]', (e) => {
-      self.toggle();
+
+    this.offline.on('click', '[role="toggle"]', () => {
+      this.toggle();
     });
-    self.horizontalResize.on('dblclick', (e) => { self.resizeToFitContent(e); });
-    self.horizontalResize.on('mousedown', (e) => { self.resizeHorizontalStarted(e); });
-    self.verticalResize.on('mousedown', (e) => { self.resizeVerticalStarted(e); });
-    self.list.on('keydown', (e) => { self.remoteKeyboardNavigation(e); });
+
+    this.horizontalResize.on('dblclick', (e) => { this.resizeToFitContent(e); });
+    this.horizontalResize.on('mousedown', (e) => { this.resizeHorizontalStarted(e); });
+    this.verticalResize.on('mousedown', (e) => { this.resizeVerticalStarted(e); });
+    this.list.on('keydown', (e) => { this.remoteKeyboardNavigation(e); });
 
     atom.project.remoteftp.on('connected', () => {
-      self.showOnline();
+      this.showOnline();
     });
-		// atom.project.remoteftp.on('closed', function () {
+
     atom.project.remoteftp.on('disconnected', () => {
-      self.showOffline();
+      this.showOffline();
     });
 
-    self.getTitle = () => 'Remote-FTP';
-  };
+    this.getTitle = () => 'Remote';
+  }
 
-  TreeView.prototype.attach = function () {
+  attach() {
     const enableDock = atom.config.get('Remote-FTP.tree.useDockIntegration');
     const showOnRightSide = atom.config.get('tree-view.showOnRightSide');
     const hideLocalDisplay = atom.config.get('Remote-FTP.tree.hideLocalWhenDisplayed');
 
     if (showOnRightSide && enableDock) {
       // if show on right side && use new integration
-      this.panel = atom.workspace.getRightDock().paneContainer.getActivePane().addItem(this);
-      atom.workspace.getRightDock().paneContainer.getActivePane().activateItemforURI(this.getTitle());
+      const activePane = atom.workspace.getRightDock().paneContainer.getActivePane();
+
+      this.panel = activePane.addItem(this);
+      activePane.activateItemforURI(this.getTitle());
     } else if (!showOnRightSide && enableDock) {
       // if not show on right side && use new integration
-      this.panel = atom.workspace.getLeftDock().paneContainer.getActivePane().addItem(this);
-      atom.workspace.getLeftDock().paneContainer.getActivePane().activateItem(this.panel);
+      const activePane = atom.workspace.getLeftDock().paneContainer.getActivePane();
+
+      this.panel = activePane.addItem(this);
+      activePane.activateItem(this.panel);
     } else if (showOnRightSide && !enableDock) {
       // if show on right side && not use new integration
       this.panel = atom.workspace.addRightPanel({ item: this });
@@ -276,10 +298,27 @@ module.exports = TreeView = (function (parent) {
     } else {
       showLocalTree();
     }
-  };
+  }
 
-  TreeView.prototype.detach = function () {
-    TreeView.__super__.detach.apply(this, arguments);
+  attached() {
+    const enableDock = atom.config.get('Remote-FTP.tree.useDockIntegration');
+    const appVersion = atom.appVersion.split('-')[0];
+
+    if (semver.satisfies(appVersion, '<1.17.0')) {
+      this.classList.add('oldversion');
+    }
+
+    if (!enableDock && semver.satisfies(appVersion, '>=1.17.0')) {
+      this.tabPanel.addClass('show');
+    } else {
+      this.tabPanel.removeClass('show');
+    }
+
+    this.attr('data-use-dock-integration', enableDock);
+  }
+
+  detach(...args) {
+    super.detach(...args);
 
     if (this.panel) {
       if (typeof this.panel.destroy === 'function') {
@@ -292,107 +331,105 @@ module.exports = TreeView = (function (parent) {
 
       this.panel = null;
     }
-  };
+  }
 
-  TreeView.prototype.toggle = function () {
+  toggle() {
     if (typeof this.panel !== 'undefined' && this.panel !== null) {
       this.detach();
     } else {
       this.attach();
     }
-  };
+  }
 
-  TreeView.prototype.showOffline = function () {
+  showOffline() {
     this.list.hide();
     this.queue.hide();
     this.offline.css('display', 'flex');
-  };
+  }
 
-  TreeView.prototype.showOnline = function () {
+  showOnline() {
     this.list.show();
     this.queue.show();
     this.offline.hide();
-  };
+  }
 
-  TreeView.prototype.resolve = function (path) {
-    const view = $(`.remote-ftp-view [data-path="${path}"]`).map(function () {
-      const v = $(this).view();
-      return v || null;
-    }).get(0);
-
-    return view;
-  };
-
-  TreeView.prototype.getSelected = function () {
-    const views = $('.remote-ftp-view .selected').map(function () {
-      const v = $(this).view();
-      return v || null;
-    }).get();
-
-    return views;
-  };
-
-  TreeView.prototype.resizeVerticalStarted = function (e) {
+  resizeVerticalStarted(e) {
     e.preventDefault();
+
+    const $doc = $(document);
 
     this.resizeHeightStart = this.queue.height();
     this.resizeMouseStart = e.pageY;
-    $(document).on('mousemove', this.resizeVerticalView.bind(this));
-    $(document).on('mouseup', this.resizeVerticalStopped);
-  };
 
-  TreeView.prototype.resizeVerticalStopped = function () {
+    $doc.on('mousemove', this.resizeVerticalView.bind(this));
+    $doc.on('mouseup', this.resizeVerticalStopped);
+  }
+
+  resizeVerticalStopped() {
     delete this.resizeHeightStart;
     delete this.resizeMouseStart;
-    $(document).off('mousemove', this.resizeVerticalView);
-    $(document).off('mouseup', this.resizeVerticalStopped);
-  };
 
-  TreeView.prototype.resizeVerticalView = function (e) {
-    if (e.which !== 1)			{ return this.resizeVerticalStopped(); }
+    const $doc = $(document);
 
-    let delta = e.pageY - this.resizeMouseStart,
-      height = Math.max(26, this.resizeHeightStart - delta);
+    $doc.off('mousemove', this.resizeVerticalView);
+    $doc.off('mouseup', this.resizeVerticalStopped);
+  }
+
+  resizeVerticalView(e) {
+    if (e.which !== 1) { return this.resizeVerticalStopped(); }
+
+    const delta = e.pageY - this.resizeMouseStart;
+    const height = Math.max(26, this.resizeHeightStart - delta);
 
     this.queue.height(height);
     this.scroller.css('bottom', `${height}px`);
-  };
 
-  TreeView.prototype.resizeHorizontalStarted = function (e) {
+    return true;
+  }
+
+  resizeHorizontalStarted(e) {
     e.preventDefault();
 
     this.resizeWidthStart = this.width();
     this.resizeMouseStart = e.pageX;
-    $(document).on('mousemove', this.resizeHorizontalView.bind(this));
-    $(document).on('mouseup', this.resizeHorizontalStopped);
-  };
 
-  TreeView.prototype.resizeHorizontalStopped = function () {
+    const $doc = $(document);
+
+    $doc.on('mousemove', this.resizeHorizontalView.bind(this));
+    $doc.on('mouseup', this.resizeHorizontalStopped);
+  }
+
+  resizeHorizontalStopped() {
     delete this.resizeWidthStart;
     delete this.resizeMouseStart;
-    $(document).off('mousemove', this.resizeHorizontalView);
-    $(document).off('mouseup', this.resizeHorizontalStopped);
-  };
 
-  TreeView.prototype.resizeHorizontalView = function (e) {
-    if (e.which !== 1)			{ return this.resizeHorizontalStopped(); }
+    const $doc = $(document);
 
-    let delta = e.pageX - this.resizeMouseStart,
-      width = Math.max(50, this.resizeWidthStart + delta);
+    $doc.off('mousemove', this.resizeHorizontalView);
+    $doc.off('mouseup', this.resizeHorizontalStopped);
+  }
+
+  resizeHorizontalView(e) {
+    if (e.which !== 1) { return this.resizeHorizontalStopped(); }
+
+    const delta = e.pageX - this.resizeMouseStart;
+    const width = Math.max(50, this.resizeWidthStart + delta);
 
     this.width(width);
-  };
 
-  TreeView.prototype.resizeToFitContent = function (e) {
+    return true;
+  }
+
+  resizeToFitContent(e) {
     e.preventDefault();
 
     this.width(1);
     this.width(this.list.outerWidth());
-  };
+  }
 
-  TreeView.prototype.remoteKeyboardNavigation = function (e) {
-    let arrows = { left: 37, up: 38, right: 39, down: 40 },
-      keyCode = e.keyCode || e.which;
+  remoteKeyboardNavigation(e) {
+    const arrows = { left: 37, up: 38, right: 39, down: 40 };
+    const keyCode = e.keyCode || e.which;
 
     switch (keyCode) {
       case arrows.up:
@@ -413,12 +450,15 @@ module.exports = TreeView = (function (parent) {
 
     e.preventDefault();
     e.stopPropagation();
-    this.remoteKeyboardNavigationMovePage();
-  };
 
-  TreeView.prototype.remoteKeyboardNavigationUp = function () {
-    let current = this.list.find('.selected'),
-      next = current.prev('.entry:visible');
+    this.remoteKeyboardNavigationMovePage();
+  }
+
+  remoteKeyboardNavigationUp() {
+    const current = this.list.find('.selected');
+
+    let next = current.prev('.entry:visible');
+
     if (next.length) {
       while (next.is('.expanded') && next.find('.entries .entry:visible').length) {
         next = next.find('.entries .entry:visible');
@@ -426,19 +466,25 @@ module.exports = TreeView = (function (parent) {
     } else {
       next = current.closest('.entries').closest('.entry:visible');
     }
+
     if (next.length) {
       current.removeClass('selected');
       next.last().addClass('selected');
     }
-  };
+  }
 
-  TreeView.prototype.remoteKeyboardNavigationDown = function () {
-    let current = this.list.find('.selected'),
-      next = current.find('.entries .entry:visible');
+  remoteKeyboardNavigationDown() {
+    const current = this.list.find('.selected');
+
+    let next = current.find('.entries .entry:visible');
+    let tmp = null;
+
     if (!next.length) {
       tmp = current;
+
       do {
         next = tmp.next('.entry:visible');
+
         if (!next.length) {
           tmp = tmp.closest('.entries').closest('.entry:visible');
         }
@@ -448,41 +494,49 @@ module.exports = TreeView = (function (parent) {
       current.removeClass('selected');
       next.first().addClass('selected');
     }
-  };
+  }
 
-  TreeView.prototype.remoteKeyboardNavigationLeft = function () {
+  remoteKeyboardNavigationLeft() {
     const current = this.list.find('.selected');
+
+    let next = null;
+
     if (!current.is('.directory')) {
       next = current.closest('.directory');
       next.view().collapse();
+
       current.removeClass('selected');
       next.first().addClass('selected');
     } else {
       current.view().collapse();
     }
-  };
+  }
 
-  TreeView.prototype.remoteKeyboardNavigationRight = function () {
+  remoteKeyboardNavigationRight() {
     const current = this.list.find('.selected');
+
     if (current.is('.directory')) {
       const view = current.view();
+
       view.open();
       view.expand();
     }
-  };
+  }
 
-  TreeView.prototype.remoteKeyboardNavigationMovePage = function () {
+  remoteKeyboardNavigationMovePage() {
     const current = this.list.find('.selected');
+
     if (current.length) {
-      let scrollerTop = this.scroller.scrollTop(),
-        selectedTop = current.position().top;
+      const scrollerTop = this.scroller.scrollTop();
+      const selectedTop = current.position().top;
+
       if (selectedTop < scrollerTop - 10) {
         this.scroller.pageUp();
-      } else if (selectedTop > scrollerTop + this.scroller.height() - 10) {
+      } else if (selectedTop > scrollerTop + (this.scroller.height() - 10)) {
         this.scroller.pageDown();
       }
     }
-  };
+  }
+}
 
-  return TreeView;
-}(ScrollView));
+export default TreeView;

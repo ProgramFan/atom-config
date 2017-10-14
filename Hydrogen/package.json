@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
+        "raw": "/tmp/d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
-        "spec": "/tmp/d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
+        "rawSpec": "/tmp/d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
+        "spec": "/tmp/d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-7691-1yssm6e.d3whskbj4i"
+      "/tmp/apm-install-dir-117914-7999-1yhff3a.fmjrw6zuxr"
     ]
   ],
-  "_from": "../d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
+  "_from": "../d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
   "_id": "Hydrogen@1.23.0",
   "_inCache": true,
   "_location": "/Hydrogen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
+    "raw": "/tmp/d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
-    "spec": "/tmp/d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
+    "rawSpec": "/tmp/d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
+    "spec": "/tmp/d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
+  "_resolved": "file:../d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
   "_shasum": "96697dc7eb2673c8eb3ec39804ef1a43e9e91be9",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-7691-3fdxjb.zfnknsif6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-7691-1yssm6e.d3whskbj4i",
+  "_spec": "/tmp/d-117914-7999-1wvw5sn.rgi9q9f6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7999-1yhff3a.fmjrw6zuxr",
   "activationCommands": {
     "atom-text-editor": [
       "hydrogen:select-kernel",

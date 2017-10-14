@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
+        "raw": "/tmp/d-117914-6902-1qapev8.77495rvn29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
-        "spec": "/tmp/d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
+        "rawSpec": "/tmp/d-117914-6902-1qapev8.77495rvn29/package.tgz",
+        "spec": "/tmp/d-117914-6902-1qapev8.77495rvn29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-6590-qw3v0d.txwnlv7vi"
+      "/tmp/apm-install-dir-117914-6902-1pfxuzt.636es1c3di"
     ]
   ],
-  "_from": "../d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
+  "_from": "../d-117914-6902-1qapev8.77495rvn29/package.tgz",
   "_id": "language-asciidoc@1.10.0",
   "_inCache": true,
   "_location": "/language-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
+    "raw": "/tmp/d-117914-6902-1qapev8.77495rvn29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
-    "spec": "/tmp/d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
+    "rawSpec": "/tmp/d-117914-6902-1qapev8.77495rvn29/package.tgz",
+    "spec": "/tmp/d-117914-6902-1qapev8.77495rvn29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
+  "_resolved": "file:../d-117914-6902-1qapev8.77495rvn29/package.tgz",
   "_shasum": "0894b2d50369b6539f9bd1dced6e1020b67a886e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-6590-1lh9ply.mjvjjj1yvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-6590-qw3v0d.txwnlv7vi",
+  "_spec": "/tmp/d-117914-6902-1qapev8.77495rvn29/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-6902-1pfxuzt.636es1c3di",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },
@@ -64,368 +64,5 @@
     "type": "git",
     "url": "git+https://github.com/asciidoctor/atom-language-asciidoc.git"
   },
-  "version": "1.10.0",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [
-      {
-        "name": "async",
-        "version": "1.5.2",
-        "path": "node_modules/async/lib/async.js"
-      },
-      {
-        "name": "balanced-match",
-        "version": "1.0.0",
-        "path": "node_modules/balanced-match/index.js"
-      },
-      {
-        "name": "brace-expansion",
-        "version": "1.1.8",
-        "path": "node_modules/brace-expansion/index.js"
-      },
-      {
-        "name": "coffee-script",
-        "version": "1.9.0",
-        "path": "node_modules/coffee-script/lib/coffee-script/coffee-script.js"
-      },
-      {
-        "name": "concat-map",
-        "version": "0.0.1",
-        "path": "node_modules/concat-map/index.js"
-      },
-      {
-        "name": "cson-parser",
-        "version": "1.0.9",
-        "path": "node_modules/cson-parser/lib/cson-parser.js"
-      },
-      {
-        "name": "fs-plus",
-        "version": "2.10.1",
-        "path": "node_modules/fs-plus/lib/fs-plus.js"
-      },
-      {
-        "name": "fs.realpath",
-        "version": "1.0.0",
-        "path": "node_modules/fs.realpath/index.js"
-      },
-      {
-        "name": "glob",
-        "version": "7.1.2",
-        "path": "node_modules/glob/glob.js"
-      },
-      {
-        "name": "inflight",
-        "version": "1.0.6",
-        "path": "node_modules/inflight/inflight.js"
-      },
-      {
-        "name": "inherits",
-        "version": "2.0.3",
-        "path": "node_modules/inherits/inherits.js"
-      },
-      {
-        "name": "minimatch",
-        "version": "3.0.4",
-        "path": "node_modules/minimatch/minimatch.js"
-      },
-      {
-        "name": "minimist",
-        "version": "0.0.8",
-        "path": "node_modules/minimist/index.js"
-      },
-      {
-        "name": "mkdirp",
-        "version": "0.5.1",
-        "path": "node_modules/mkdirp/index.js"
-      },
-      {
-        "name": "once",
-        "version": "1.4.0",
-        "path": "node_modules/once/once.js"
-      },
-      {
-        "name": "optimist",
-        "version": "0.4.0",
-        "path": "node_modules/optimist/index.js"
-      },
-      {
-        "name": "path-is-absolute",
-        "version": "1.0.1",
-        "path": "node_modules/path-is-absolute/index.js"
-      },
-      {
-        "name": "rimraf",
-        "version": "2.6.2",
-        "path": "node_modules/rimraf/rimraf.js"
-      },
-      {
-        "name": "season",
-        "version": "5.4.1",
-        "path": "node_modules/season/lib/cson.js"
-      },
-      {
-        "name": "underscore",
-        "version": "1.6.0",
-        "path": "node_modules/underscore/underscore.js"
-      },
-      {
-        "name": "underscore-plus",
-        "version": "1.6.6",
-        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
-      },
-      {
-        "name": "wordwrap",
-        "version": "0.0.3",
-        "path": "node_modules/wordwrap/index.js"
-      },
-      {
-        "name": "wrappy",
-        "version": "1.0.2",
-        "path": "node_modules/wrappy/wrappy.js"
-      }
-    ],
-    "extensions": {
-      ".json": [
-        "coffeelint.json",
-        "node_modules/async/package.json",
-        "node_modules/balanced-match/package.json",
-        "node_modules/brace-expansion/package.json",
-        "node_modules/coffee-script/bower.json",
-        "node_modules/coffee-script/package.json",
-        "node_modules/concat-map/package.json",
-        "node_modules/cson-parser/package.json",
-        "node_modules/fs-plus/package.json",
-        "node_modules/fs.realpath/package.json",
-        "node_modules/glob/package.json",
-        "node_modules/inflight/package.json",
-        "node_modules/inherits/package.json",
-        "node_modules/minimatch/package.json",
-        "node_modules/minimist/package.json",
-        "node_modules/mkdirp/package.json",
-        "node_modules/once/package.json",
-        "node_modules/optimist/package.json",
-        "node_modules/path-is-absolute/package.json",
-        "node_modules/rimraf/package.json",
-        "node_modules/season/package.json",
-        "node_modules/underscore/package.json",
-        "node_modules/underscore-plus/package.json",
-        "node_modules/wordwrap/package.json",
-        "node_modules/wrappy/package.json",
-        "package.json"
-      ],
-      ".coffee": [
-        "lib/code-block-generator.coffee",
-        "lib/grammar-helper.coffee",
-        "lib/main.coffee"
-      ],
-      ".js": [
-        "node_modules/async/dist/async.js",
-        "node_modules/async/dist/async.min.js",
-        "node_modules/async/lib/async.js",
-        "node_modules/balanced-match/index.js",
-        "node_modules/brace-expansion/index.js",
-        "node_modules/coffee-script/lib/coffee-script/browser.js",
-        "node_modules/coffee-script/lib/coffee-script/cake.js",
-        "node_modules/coffee-script/lib/coffee-script/coffee-script.js",
-        "node_modules/coffee-script/lib/coffee-script/command.js",
-        "node_modules/coffee-script/lib/coffee-script/grammar.js",
-        "node_modules/coffee-script/lib/coffee-script/helpers.js",
-        "node_modules/coffee-script/lib/coffee-script/index.js",
-        "node_modules/coffee-script/lib/coffee-script/lexer.js",
-        "node_modules/coffee-script/lib/coffee-script/nodes.js",
-        "node_modules/coffee-script/lib/coffee-script/optparse.js",
-        "node_modules/coffee-script/lib/coffee-script/parser.js",
-        "node_modules/coffee-script/lib/coffee-script/register.js",
-        "node_modules/coffee-script/lib/coffee-script/repl.js",
-        "node_modules/coffee-script/lib/coffee-script/rewriter.js",
-        "node_modules/coffee-script/lib/coffee-script/scope.js",
-        "node_modules/coffee-script/lib/coffee-script/sourcemap.js",
-        "node_modules/coffee-script/register.js",
-        "node_modules/coffee-script/repl.js",
-        "node_modules/concat-map/example/map.js",
-        "node_modules/concat-map/index.js",
-        "node_modules/cson-parser/lib/cson-parser.js",
-        "node_modules/cson-parser/lib/parse.js",
-        "node_modules/cson-parser/lib/stringify.js",
-        "node_modules/fs-plus/lib/fs-plus.js",
-        "node_modules/fs.realpath/index.js",
-        "node_modules/fs.realpath/old.js",
-        "node_modules/glob/common.js",
-        "node_modules/glob/glob.js",
-        "node_modules/glob/sync.js",
-        "node_modules/inflight/inflight.js",
-        "node_modules/inherits/inherits.js",
-        "node_modules/inherits/inherits_browser.js",
-        "node_modules/minimatch/minimatch.js",
-        "node_modules/minimist/example/parse.js",
-        "node_modules/minimist/index.js",
-        "node_modules/mkdirp/bin/cmd.js",
-        "node_modules/mkdirp/examples/pow.js",
-        "node_modules/mkdirp/index.js",
-        "node_modules/once/once.js",
-        "node_modules/optimist/example/bool.js",
-        "node_modules/optimist/example/boolean_double.js",
-        "node_modules/optimist/example/boolean_single.js",
-        "node_modules/optimist/example/default_hash.js",
-        "node_modules/optimist/example/default_singles.js",
-        "node_modules/optimist/example/divide.js",
-        "node_modules/optimist/example/line_count.js",
-        "node_modules/optimist/example/line_count_options.js",
-        "node_modules/optimist/example/line_count_wrap.js",
-        "node_modules/optimist/example/nonopt.js",
-        "node_modules/optimist/example/reflect.js",
-        "node_modules/optimist/example/short.js",
-        "node_modules/optimist/example/string.js",
-        "node_modules/optimist/example/usage-options.js",
-        "node_modules/optimist/example/xup.js",
-        "node_modules/optimist/index.js",
-        "node_modules/path-is-absolute/index.js",
-        "node_modules/rimraf/bin.js",
-        "node_modules/rimraf/rimraf.js",
-        "node_modules/season/lib/cson.js",
-        "node_modules/season/lib/csonc.js",
-        "node_modules/underscore/underscore-min.js",
-        "node_modules/underscore/underscore.js",
-        "node_modules/underscore-plus/lib/underscore-plus.js",
-        "node_modules/wordwrap/example/center.js",
-        "node_modules/wordwrap/example/meat.js",
-        "node_modules/wordwrap/index.js",
-        "node_modules/wrappy/wrappy.js"
-      ]
-    },
-    "folders": [
-      {
-        "paths": [
-          "",
-          "lib",
-          "spec/blocks",
-          "spec",
-          "spec/inlines",
-          "spec/partials",
-          "spec/tables"
-        ],
-        "dependencies": {
-          "season": "^5.4.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/brace-expansion"
-        ],
-        "dependencies": {
-          "balanced-match": "^1.0.0",
-          "concat-map": "0.0.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/cson-parser/lib",
-          "node_modules/cson-parser"
-        ],
-        "dependencies": {
-          "coffee-script": "1.9.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/fs-plus/lib",
-          "node_modules/fs-plus"
-        ],
-        "dependencies": {
-          "async": "^1.5.2",
-          "mkdirp": "^0.5.1",
-          "rimraf": "^2.5.2",
-          "underscore-plus": "1.x"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/glob"
-        ],
-        "dependencies": {
-          "fs.realpath": "^1.0.0",
-          "inflight": "^1.0.4",
-          "inherits": "2",
-          "minimatch": "^3.0.4",
-          "once": "^1.3.0",
-          "path-is-absolute": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/inflight"
-        ],
-        "dependencies": {
-          "once": "^1.3.0",
-          "wrappy": "1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/minimatch"
-        ],
-        "dependencies": {
-          "brace-expansion": "^1.1.7"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/mkdirp/bin",
-          "node_modules/mkdirp/examples",
-          "node_modules/mkdirp",
-          "node_modules/mkdirp/test"
-        ],
-        "dependencies": {
-          "minimist": "0.0.8"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/once"
-        ],
-        "dependencies": {
-          "wrappy": "1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/optimist/example",
-          "node_modules/optimist",
-          "node_modules/optimist/test/_",
-          "node_modules/optimist/test"
-        ],
-        "dependencies": {
-          "wordwrap": "~0.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/rimraf"
-        ],
-        "dependencies": {
-          "glob": "^7.0.5"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/season/lib",
-          "node_modules/season"
-        ],
-        "dependencies": {
-          "cson-parser": "1.0.9",
-          "fs-plus": "2.x",
-          "optimist": "~0.4.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/underscore-plus/lib",
-          "node_modules/underscore-plus"
-        ],
-        "dependencies": {
-          "underscore": "~1.6.0"
-        }
-      }
-    ]
-  }
+  "version": "1.10.0"
 }

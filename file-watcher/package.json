@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+        "raw": "/tmp/d-117914-5756-c81994.dni01f9a4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
-        "spec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+        "rawSpec": "/tmp/d-117914-5756-c81994.dni01f9a4i/package.tgz",
+        "spec": "/tmp/d-117914-5756-c81994.dni01f9a4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-5444-tgx1mo.qadky2pgb9"
+      "/tmp/apm-install-dir-117914-5756-m2kpld.43a431sjor"
     ]
   ],
-  "_from": "../d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+  "_from": "../d-117914-5756-c81994.dni01f9a4i/package.tgz",
   "_id": "file-watcher@1.2.6",
   "_inCache": true,
   "_location": "/file-watcher",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+    "raw": "/tmp/d-117914-5756-c81994.dni01f9a4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
-    "spec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+    "rawSpec": "/tmp/d-117914-5756-c81994.dni01f9a4i/package.tgz",
+    "spec": "/tmp/d-117914-5756-c81994.dni01f9a4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
+  "_resolved": "file:../d-117914-5756-c81994.dni01f9a4i/package.tgz",
   "_shasum": "7e25d1cafd0e2084b632b35b1a6299359ba62e7e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-5444-1tkzuzf.6wenwjnhfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-5444-tgx1mo.qadky2pgb9",
+  "_spec": "/tmp/d-117914-5756-c81994.dni01f9a4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-5756-m2kpld.43a431sjor",
   "bugs": {
     "url": "https://github.com/lwblackledge/file-watcher/issues"
   },
@@ -55,20 +55,5 @@
     "type": "git",
     "url": "git+https://github.com/lwblackledge/file-watcher.git"
   },
-  "version": "1.2.6",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".coffee": [
-        "lib/file-watcher.coffee",
-        "lib/init.coffee",
-        "lib/utils.coffee"
-      ],
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "1.2.6"
 }

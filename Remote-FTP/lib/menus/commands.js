@@ -8,19 +8,19 @@ import {
   getObject,
 } from '../helpers';
 
-import File from '../file';
-import Directory from '../directory';
 import DirectoryView from '../views/directory-view';
+import PermissionView from '../views/permission-view';
 import AddDialog from '../dialogs/add-dialog';
 import MoveDialog from '../dialogs/move-dialog';
 import NavigateTo from '../dialogs/navigate-to-dialog';
 
 
-const init = function INIT() {
+const init = () => {
   const atom = global.atom;
   const client = atom.project.remoteftp;
   const remoteftp = atom.project['remoteftp-main'];
-  const getRemotes = function GETREMOTES(errMessage) {
+
+  const getRemotes = (errMessage) => {
     const remotes = remoteftp.treeView.getSelected();
 
     if (!remotes || remotes.length === 0) {
@@ -33,7 +33,7 @@ const init = function INIT() {
     return remotes;
   };
 
-  const createConfig = function CREATECONFIG(obj) {
+  const createConfig = (obj) => {
     if (!hasProject()) return;
 
     const ftpConfigPath = client.getConfigPath();
@@ -51,13 +51,13 @@ const init = function INIT() {
         },
       });
     }
+
     if (writeFile) {
       FS.writeFile(ftpConfigPath, json, (err) => {
         if (!err) atom.workspace.open(ftpConfigPath);
       });
     }
   };
-
 
   const commands = {
     'remote-ftp:create-ftp-config': {
@@ -171,15 +171,21 @@ const init = function INIT() {
       enabled: true,
       command() {
         if (!hasProject()) return;
+
         const remotes = getRemotes('You need to select a folder first');
+
         if (remotes === false) return;
+
         if (!(remotes[0] instanceof DirectoryView)) {
           atom.notifications.addError(`Remote FTP: Cannot add a file to ${remotes[0].item.remote}`, {
             dismissable: false,
           });
+
           return;
         }
+
         const dialog = new AddDialog('', true);
+
         dialog.on('new-path', (e, name) => {
           const remote = Path.join(remotes[0].item.remote, name).replace(/\\/g, '/');
           dialog.close();
@@ -200,7 +206,9 @@ const init = function INIT() {
         if (!hasProject()) return;
 
         const remotes = getRemotes('You need to select a folder first');
+
         if (remotes === false) return;
+
         if (!(remotes[0] instanceof DirectoryView)) {
           atom.notifications.addError(`Remote FTP: Cannot add a folder to ${remotes[0].item.remote}`, {
             dismissable: false,
@@ -218,6 +226,7 @@ const init = function INIT() {
             remotes[0].open();
           });
         });
+
         dialog.attach();
       },
     },
@@ -240,6 +249,7 @@ const init = function INIT() {
         if (!hasProject()) return;
 
         const remotes = getRemotes('You need to select a folder first');
+
         if (remotes === false) return;
 
         const dialog = new MoveDialog(remotes[0].item.remote);
@@ -250,20 +260,28 @@ const init = function INIT() {
               obj: err,
               keys: ['message'],
             });
+
             dialog.close();
+
             if (errMessage === 'file exists' || errMessage === 'File already exists') {
               atom.notifications.addError('Remote FTP: File / Folder already exists', {
                 dismissable: false,
               });
               return;
             }
+
             const parentNew = remoteftp.treeView.resolve(Path.dirname(newremote));
+
             if (parentNew) parentNew.open();
+
             const parentOld = remoteftp.treeView.resolve(Path.dirname(remotes[0].item.remote));
+
             if (parentOld && parentOld !== parentNew) parentOld.open();
+
             remotes[0].destroy();
           });
         });
+
         dialog.attach();
       },
     },
@@ -279,12 +297,11 @@ const init = function INIT() {
           message: 'Are you sure you want to delete the selected item ?',
           detailedMessage: `You are deleting:${remotes.map(view => `\n  ${view.item.remote}`)}`,
           buttons: {
-            'Move to Trash': function MOVETOTRASH() {
+            'Move to Trash': () => {
               remotes.forEach((view) => {
                 if (!view) return;
 
-                const dir = Path.dirname(view.item.remote)
-                  .replace(/\\/g, '/');
+                const dir = Path.dirname(view.item.remote).replace(/\\/g, '/');
                 const parent = remoteftp.treeView.resolve(dir);
 
                 client.delete(view.item.remote, (err) => {
@@ -305,6 +322,7 @@ const init = function INIT() {
         if (!hasProject()) return;
 
         const remotes = getRemotes('You need to select a folder first');
+
         if (remotes === false) return;
 
         remotes.forEach((view) => {
@@ -316,14 +334,38 @@ const init = function INIT() {
         });
       },
     },
+    'remote-ftp:download-active': {
+      enabled: true,
+      command() {
+        if (!hasProject()) return;
+        if (!client.isConnected()) return;
+        if (client.ftpConfigPath !== client.getConfigPath()) return;
+
+        const activeTextEditor = atom.workspace.getActiveTextEditor();
+
+        if (typeof activeTextEditor === 'undefined') return;
+
+        const currentPath = activeTextEditor.getPath();
+
+        if (currentPath === client.getConfigPath()) return;
+        if (client.watch.files.indexOf(currentPath) >= 0) return;
+
+        const downloadItem = client.toRemote(currentPath);
+        client.download(downloadItem, true, () => {
+
+        });
+      },
+    },
     'remote-ftp:download-selected-local': {
       enabled: true,
       command() {
         if (!hasProject()) return;
+
         if (client.root.local === '') {
           atom.notifications.addError('Remote FTP: You must define your local root folder in the projects .ftpconfig file.', {
             dismissable: false,
           });
+
           return;
         }
 
@@ -332,32 +374,30 @@ const init = function INIT() {
 
           atom.commands.dispatch(viewWorkspace, 'remote-ftp:connect');
 
-          client.once('connected', () => {
+          client.onceConnected('connected', () => {
             atom.commands.dispatch(viewWorkspace, 'remote-ftp:download-selected-local');
           });
 
           return;
         }
 
-        if (atom.config.get('Remote-FTP.notifications.enableTransfer')) {
-    		// TODO: correctly count files within a subdirectory
-    		var requestedTransfers = 0;
-    		var successfulTransfers = 0;
-    		var attemptedTransfers = 0;
+        // TODO: correctly count files within a subdirectory
+        const $treeSelected = $('.tree-view .selected');
+        const requestedTransfers = $treeSelected.length;
 
-    		$('.tree-view .selected').map(() => {
-    			requestedTransfers++;
-    		});
-        }
+        let successfulTransfers = 0;
+        let attemptedTransfers = 0;
 
-        $('.tree-view .selected').each(function MAP() {
+        $treeSelected.each(() => {
           const path = this.getPath ? this.getPath() : '';
           const localPath = path.replace(client.root.local, '');
+
           // if this is windows, the path may have \ instead of / as directory separators
           const remotePath = atom.project.remoteftp.root.remote + localPath.replace(/\\/g, '/');
+
           client.download(remotePath, true, () => {
             if (atom.config.get('Remote-FTP.notifications.enableTransfer')) {
-                // TODO: check if any errors were thrown, indicating an unsuccessful transfer
+              // TODO: check if any errors were thrown, indicating an unsuccessful transfer
               attemptedTransfers++;
               successfulTransfers++;
             }
@@ -365,22 +405,21 @@ const init = function INIT() {
         });
 
         if (atom.config.get('Remote-FTP.notifications.enableTransfer')) {
-          var waitingForTransfers = setInterval(() => {
-            if (attemptedTransfers == requestedTransfers) {
-                    // we're done waiting
+          const waitingForTransfers = setInterval(() => {
+            if (attemptedTransfers === requestedTransfers) {
+              // we're done waiting
               clearInterval(waitingForTransfers);
-              if (successfulTransfers == requestedTransfers) {
-                        // great, all uploads worked
+
+              if (successfulTransfers === requestedTransfers) {
+                // great, all uploads worked
                 atom.notifications.addSuccess(`Remote FTP: All transfers succeeded (${successfulTransfers} of ${requestedTransfers}).`);
               } else {
-                        // :( some uploads failed
+                // :( some uploads failed
                 atom.notifications.addError(`Remote FTP: Some transfers failed<br />There were ${successfulTransfers} successful out of an expected ${requestedTransfers}.`);
               }
             }
           }, 200);
         }
-
-        return;
       },
     },
     'remote-ftp:upload-selected': {
@@ -402,19 +441,20 @@ const init = function INIT() {
 
         const locals = $('.tree-view .selected').map(function MAP() {
           return this.getPath ? this.getPath() : '';
-        })
-        .get();
+        }).get();
 
         const enableTransfer = atom.config.get('Remote-FTP.notifications.enableTransfer');
 
+        let successfulTransfers;
+        let attemptedTransfers;
+
         if (enableTransfer) {
-          var successfulTransfers = 0;
-          var attemptedTransfers = 0;
+          successfulTransfers = 0;
+          attemptedTransfers = 0;
         }
 
         locals.forEach((local) => {
           if (!local) return;
-
 
           client.upload(local, (err, list) => {
             if (enableTransfer) { attemptedTransfers++; }
@@ -422,6 +462,7 @@ const init = function INIT() {
               console.error(err);
               return;
             }
+
             if (enableTransfer) { successfulTransfers++; }
 
             const dirs = [];
@@ -439,15 +480,16 @@ const init = function INIT() {
         });
 
         if (atom.config.get('Remote-FTP.notifications.enableTransfer')) {
-          var waitingForTransfers = setInterval(() => {
-            if (attemptedTransfers == locals.length) {
-                    // we're done waiting
+          const waitingForTransfers = setInterval(() => {
+            if (attemptedTransfers === locals.length) {
+              // we're done waiting
               clearInterval(waitingForTransfers);
-              if (successfulTransfers == locals.length) {
-                        // great, all uploads worked
+
+              if (successfulTransfers === locals.length) {
+                // great, all uploads worked
                 atom.notifications.addSuccess(`Remote FTP: All transfers succeeded (${successfulTransfers} of ${locals.length}).`);
               } else {
-                        // :( some uploads failed
+                // :( some uploads failed
                 atom.notifications.addError(`Remote FTP: Some transfers failed<br />There were ${successfulTransfers} successful out of an expected ${locals.length}.`);
               }
             }
@@ -490,10 +532,8 @@ const init = function INIT() {
         remotes.forEach((view) => {
           if (!view) return;
 
-          const target = view.children().attr('data-path');
-
           // checking to see if we're working with a file
-          if (view.item.constructor.name == 'File') {
+          if (view.item.constructor.name === 'File') {
             try {
               client.syncRemoteFileToLocal(view.item.remote);
             } catch (err) {
@@ -513,7 +553,7 @@ const init = function INIT() {
           } else { // process sync for entire directory
             const isFile = false;
             try {
-              client.syncRemoteDirectoryToLocal(view.item.remote, this.isFile);
+              client.syncRemoteDirectoryToLocal(view.item.remote, isFile);
             } catch (err) {
               // syncRemoteDirectoryToLocal() is not setup to return any errors here,
               // as they are handled else where. TODO: perhaps look into a way to restructure
@@ -553,16 +593,13 @@ const init = function INIT() {
 
         const locals = $('.tree-view .selected').map(function MAP() {
           return this.getPath ? this.getPath() : '';
-        })
-        .get();
+        }).get();
 
         locals.forEach((local) => {
           if (!local) return;
 
-          const remote = client.toRemote(local);
-
           // checking to see if we're working with a file
-          if (FS.isFileSync(local) == true) {
+          if (FS.isFileSync(local) === true) {
             try {
               client.syncLocalFileToRemote(local);
             } catch (err) {
@@ -595,8 +632,6 @@ const init = function INIT() {
               atom.notifications.addError(`Remote FTP: Error Syncing "${local}" to remote`, {
                 dismissable: true,
               });
-            } finally {
-
             }
           }
         });
@@ -606,6 +641,7 @@ const init = function INIT() {
       enabled: true,
       command() {
         if (!hasProject()) return;
+
         client.abort();
       },
     },
@@ -613,11 +649,14 @@ const init = function INIT() {
       enabled: true,
       command() {
         if (!hasProject()) return;
+
         const dialog = new NavigateTo();
+
         dialog.on('navigate-to', (e, path) => {
           dialog.close();
           client.root.openPath(path);
         });
+
         dialog.attach();
       },
     },
@@ -625,10 +664,35 @@ const init = function INIT() {
       enabled: true,
       command() {
         if (!hasProject()) return;
+
+        const remotes = remoteftp.treeView.getSelected();
+
+        if (!remotes || remotes.length === 0) return;
+
+        const name = `${remotes.map(data => data.item.name)}`;
+
+        atom.clipboard.write(name);
+      },
+    },
+
+    'remote-ftp:permission-selected': {
+      enabled: true,
+      command() {
+        if (!hasProject()) return;
+
         const remotes = remoteftp.treeView.getSelected();
         if (!remotes || remotes.length === 0) return;
-        const name = `${remotes.map(data => data.item.name)}`;
-        atom.clipboard.write(name);
+
+        const isRoot = remotes[0].hasClass('project-root');
+        if (isRoot) return;
+
+        const original = remotes[0].item.original;
+
+        const permission = new PermissionView({
+          rights: original.rights,
+          group: original.group,
+          owner: original.owner,
+        }, remotes[0]);
       },
     },
 

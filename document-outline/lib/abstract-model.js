@@ -20,8 +20,17 @@ export default class AbstractModel {
   // NOTE: if it was possible to simply scan through applied scopes, wouldn't need most of this...
   constructor(editorOrBuffer, headingRegexes) {
     this.HEADING_REGEX = headingRegexes;
-
+    if (editorOrBuffer.getBuffer) {
+      editorOrBuffer = editorOrBuffer.getBuffer();
+    }
     this.buffer = editorOrBuffer;
+
+    // Use fast buffer search if it exists
+    if (this.buffer.findAllSync) {
+      this._parseLevel = this._parseLevelFast;
+    } else {
+      this._parseLevel = this._parseLevelSlow;
+    }
 
     this.maxDepth = atom.config.get("document-outline.maxHeadingDepth");
     if (!this.maxDepth) {
@@ -39,10 +48,9 @@ export default class AbstractModel {
     let newHeadingStr = JSON.stringify(newHeadings);
     if (newHeadingStr === this.oldHeadingStr) {
       return null;
-    } else {
-      this.oldHeadingStr = newHeadingStr;
-      return newHeadings;
     }
+    this.oldHeadingStr = newHeadingStr;
+    return newHeadings;
   }
 
   parse() {
@@ -104,33 +112,117 @@ export default class AbstractModel {
     return stack[0].children;
   }
 
-  _parseLevel(start, end, level) {
+  _parseLevelFast(start, end, level) {
+    let rawHeadings = [];
+    let regex = this.HEADING_REGEX;
+    let ranges = this.buffer.findAllSync(regex);
+    let headingText;
+    // non global version of the heading regex
+    // this is a backward compat hack that avoids changes to implementations
+    // for each grammar.
+    let limitedRegex = new RegExp(regex, 'm');
+    for (let headingRange of ranges) {
+      headingText = this.buffer.getTextInRange(headingRange);
+      let result = limitedRegex.exec(headingText);
+      // let parsedResult = this.getRegexData([headingText]);
+      if (result) {
+        let parsedResult = this.getRegexData(result);
+
+        if (parsedResult) {
+          let heading = {
+            level: parsedResult.level,
+            headingRange: headingRange,
+            label: parsedResult.label,
+            children: [],
+            range: new Range(headingRange.start, Point.INFINITY)
+          };
+          rawHeadings.push(heading);
+        }
+      }
+
+    }
+    return this._stackHeadings(rawHeadings);
+  }
+
+  // _parseLevel(start, end, level) {
+  //   // TODO Don't really want to do this check every time. Better move into the init and put each implementation in its own function.
+  //   if (this.buffer.findAllSync) {
+  //     return this._parseLevelFast(start, end, level);
+  //   } else {
+  //     return this._parseLevelSlow(start, end, level);
+  //   }
+  // }
+
+  _parseLevelSlow(start, end, level) {
     let rawHeadings = [];
     let regex = this.HEADING_REGEX;
 
     let text = this.buffer.getText();
 
+    let results = [];
     let result;
     let parsedResult;
+    // Collect the regex results
     while ((result = regex.exec(text)) !== null) {
       // allow subclasses to customise how they get level, label from regex
       parsedResult = this.getRegexData(result);
       if (parsedResult) {
-        // Gives us the option of returning null if we decide
-        // in getRegexData that the heading is invalid
-        let startLine = lineNumberByIndex(result.index, text);
+        parsedResult.index = result.index;
+        results.push(parsedResult);
+      }
+    }
+
+    // Find the line numbers for the results
+    // Much faster to loop over the lines once than to search every time.
+    let currentResultIndex = 0;
+    let currentResult = results[currentResultIndex];
+    let line = 0;
+    let match;
+    let re = /(^.*(\r\n|\n\r|\n|\r))|(^\r\n|^\n\r|^\n|^\r)/gm;
+    while ((match = re.exec(text))) {
+      if (match.index > currentResult.index) {
+        let startLine = line;
         let headingRange = new Range([startLine, 0],
-                                     [startLine, parsedResult.label.length]);
+                                     [startLine, currentResult.label.length]);
         let heading = {
-          level: parsedResult.level,
+          level: currentResult.level,
           headingRange: headingRange,
-          label: parsedResult.label,
+          label: currentResult.label,
           children: [],
           range: new Range(headingRange.start, Point.INFINITY)
         };
+
         rawHeadings.push(heading);
+        currentResultIndex += 1;
+        if (currentResultIndex >= results.length) {
+          // Stop iterating if we did all the headings
+          break;
+        } else {
+          currentResult = results[currentResultIndex];
+        }
       }
+      line += 1;
     }
+
+    //
+    // for (let parsedResult of results) {
+    //   // Gives us the option of returning null if we decide
+    //   // in getRegexData that the heading is invalid
+    //   // FIXME would be much faster to get all line numbers in one, otherwise we loop for every heading.
+    //   // can use assumption that indexes will be added in ascending order in line number test, don't have to test N indexes x m lines
+    //   let startLine = lineNumberByIndex(result.index, text);
+    //   let headingRange = new Range([startLine, 0],
+    //                                    [startLine, parsedResult.label.length]);
+    //   let heading = {
+    //     level: parsedResult.level,
+    //     headingRange: headingRange,
+    //     label: parsedResult.label,
+    //     children: [],
+    //     range: new Range(headingRange.start, Point.INFINITY)
+    //   };
+    //   rawHeadings.push(heading);
+    // }
+
     return this._stackHeadings(rawHeadings);
 
     // Using Atom's built-in text scanner. Think raw regex will be faster,

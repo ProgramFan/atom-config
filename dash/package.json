@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117823-7382-1mawl9s.27r5dn29/package.tgz",
+        "raw": "/tmp/d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117823-7382-1mawl9s.27r5dn29/package.tgz",
-        "spec": "/tmp/d-117823-7382-1mawl9s.27r5dn29/package.tgz",
+        "rawSpec": "/tmp/d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
+        "spec": "/tmp/d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117823-7382-nlovla.qksrdon7b9"
+      "/tmp/apm-install-dir-117914-7690-1s048ik.sg7epl23xr"
     ]
   ],
-  "_from": "../d-117823-7382-1mawl9s.27r5dn29/package.tgz",
+  "_from": "../d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
   "_id": "dash@1.7.1",
   "_inCache": true,
   "_location": "/dash",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117823-7382-1mawl9s.27r5dn29/package.tgz",
+    "raw": "/tmp/d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117823-7382-1mawl9s.27r5dn29/package.tgz",
-    "spec": "/tmp/d-117823-7382-1mawl9s.27r5dn29/package.tgz",
+    "rawSpec": "/tmp/d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
+    "spec": "/tmp/d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117823-7382-1mawl9s.27r5dn29/package.tgz",
+  "_resolved": "file:../d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
   "_shasum": "7fad1f6dccbc4424d70c4ed9573641b34802ab2b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117823-7382-1mawl9s.27r5dn29/package.tgz",
-  "_where": "/tmp/apm-install-dir-117823-7382-nlovla.qksrdon7b9",
+  "_spec": "/tmp/d-117914-7690-1pd319j.2qo512a9k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7690-1s048ik.sg7epl23xr",
   "activationCommands": {
     "atom-text-editor": [
       "dash:shortcut",
@@ -79,21 +79,5 @@
     "lint": "coffeelint .",
     "test": "npm run lint && apm test"
   },
-  "version": "1.7.1",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "coffeelint.json",
-        "package.json"
-      ],
-      ".coffee": [
-        "lib/dash.coffee",
-        "lib/filename-map.coffee",
-        "lib/grammar-map.coffee"
-      ]
-    },
-    "folders": []
-  }
+  "version": "1.7.1"
 }

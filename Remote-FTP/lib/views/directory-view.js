@@ -1,26 +1,21 @@
 'use babel';
 
-let __hasProp = {}.hasOwnProperty,
-  __extends = function (child, parent) { for (const key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  $ = require('atom-space-pen-views').$,
-  FileView = require('./file-view'),
-  getIconHandler = require('../helpers.js').getIconHandler,
-  View = require('atom-space-pen-views').View;
+import path from 'path';
+import { $, View } from 'atom-space-pen-views';
+import { getIconHandler, checkTarget, recursiveViewDestroy } from '../helpers';
+import FileView from './file-view';
 
-module.exports = DirectoryView = (function (parent) {
-  __extends(DirectoryView, parent);
+class DirectoryView extends View {
 
-  function DirectoryView() {
-    DirectoryView.__super__.constructor.apply(this, arguments);
-  }
-
-  DirectoryView.content = function () {
+  static content() {
     return this.li({
       class: 'directory entry list-nested-item collapsed',
+      is: 'tree-view-directory',
     }, () => {
       this.div({
         class: 'header list-item',
         outlet: 'header',
+        is: 'tree-view-directory',
       }, () => this.span({
         class: 'name icon',
         outlet: 'name',
@@ -30,41 +25,67 @@ module.exports = DirectoryView = (function (parent) {
         outlet: 'entries',
       });
     });
-  };
+  }
 
-  DirectoryView.prototype.initialize = function (directory) {
-		// DirectoryView.__super__.initialize.apply(this, arguments);
+  initialize(directory) {
+    // super.initialize(directory);
 
-    const self = this;
-
-    self.item = directory;
-    self.name.text(self.item.name);
-    self.name.attr('data-name', self.item.name);
-    self.name.attr('data-path', self.item.remote);
+    this.item = directory;
+    this.name.text(this.item.name);
+    this.name.attr('data-name', this.item.name);
+    this.name.attr('data-path', this.item.remote);
 
     const addIconToElement = getIconHandler();
     if (addIconToElement) {
-      const element = self.name[0] || self.name;
-      const path = self.item && self.item.local;
-      this.iconDisposable = addIconToElement(element, path, { isDirectory: true });
-    } else			{ self.name.addClass(self.item.type && self.item.type == 'l' ? 'icon-file-symlink-directory' : 'icon-file-directory'); }
+      const element = this.name[0] || this.name;
+      const pathIco = this.item && this.item.local;
+      this.iconDisposable = addIconToElement(element, pathIco, { isDirectory: true });
+    } else {
+      this.name.addClass(this.item.type && this.item.type === 'l' ? 'icon-file-symlink-directory' : 'icon-file-directory');
+    }
 
-    if (self.item.isExpanded || self.item.isRoot)			{ self.expand(); }
+    if (this.item.isExpanded || this.item.isRoot) { this.expand(); }
 
-    if (self.item.isRoot)			{ self.addClass('project-root'); }
+    if (this.item.isRoot) {
+      this.addClass('project-root');
+      this.header.addClass('project-root-header');
+      this.name.addClass('icon-server').removeClass('icon-file-directory');
+    }
 
-		// Trigger repaint
-    self.item.$folders.onValue(() => { self.repaint(); });
-    self.item.$files.onValue(() => { self.repaint(); });
-    self.item.$isExpanded.onValue(() => { self.setClasses(); });
-    self.item.on('destroyed', () => { self.destroy(); });
-    self.repaint();
+    // Trigger repaint
+    this.triggers();
 
-		// Events
-    self.on('mousedown', function (e) {
+    this.repaint();
+
+    // Events
+    this.events();
+
+    // NOTE: Newer versions will have event handling
+    if (atom.config.get('Remote-FTP.tree.enableDragAndDrop')) {
+      this.dragEvents();
+    }
+  }
+
+  triggers() {
+    this.item.onChangeItems(() => {
+      this.repaint();
+    });
+
+    this.item.onChangeExpanded(() => {
+      this.setClasses();
+    });
+
+    this.item.onDestroyed(() => {
+      this.destroy();
+    });
+  }
+
+  events() {
+    this.on('mousedown', (e) => {
+      const self = e.currentTarget;
       e.stopPropagation();
 
-      const view = $(this).view();
+      const view = $(self).view();
       const button = e.originalEvent ? e.originalEvent.button : 0;
       const selectKey = process.platform === 'darwin' ? 'metaKey' : 'ctrlKey'; // on mac the select key for multiple files is the meta key
       const $selected = $('.remote-ftp-view .selected');
@@ -81,23 +102,104 @@ module.exports = DirectoryView = (function (parent) {
         view.toggleClass('selected');
 
         if (button === 0 && !e[selectKey]) {
-          if (view.item.status === 0) view.open();
+          if (view.item.status === 0) {
+            view.open();
+            view.toggle();
+          }
+
           view.toggle();
         }
       }
     });
 
-    self.on('dblclick', function (e) {
+    this.on('dblclick', (e) => {
+      const self = e.currentTarget;
       e.stopPropagation();
 
-      const view = $(this).view();
+      const view = $(self).view();
+
       if (!view) return;
 
       view.open();
     });
-  };
+  }
 
-  DirectoryView.prototype.destroy = function () {
+  dragEvents() {
+    this.on('drop', (e) => {
+      const self = e.currentTarget;
+      e.preventDefault();
+      e.stopPropagation();
+
+      self.classList.remove('selected');
+
+      if (!checkTarget(e)) return;
+
+      const ftp = atom.project['remoteftp-main'];
+      const $self = $(self);
+      const dataTransfer = e.originalEvent.dataTransfer;
+      const pathInfos = JSON.parse(dataTransfer.getData('pathInfos'));
+      const newPathInfo = $self.find('span[data-path]').attr('data-path');
+      const destPath = path.posix.join(newPathInfo, pathInfos.name);
+
+      if (pathInfos.fullPath === destPath) return;
+
+      ftp.client.rename(pathInfos.fullPath, destPath, (err) => {
+        if (err) console.error(err);
+
+        // const sourceTree = ftp.treeView.resolve(path.posix.dirname(pathInfos.fullPath));
+        // const destTree = ftp.treeView.resolve(path.posix.dirname(destPath));
+
+        // NOTE: Check the hierarchy.
+        // if (sourceTree) {
+        //   sourceTree.open();
+        //   recursiveViewDestroy(sourceTree);
+        // }
+        //
+        // if (destTree) {
+        //   destTree.open();
+        //   recursiveViewDestroy(destTree);
+        // }
+      });
+    });
+
+    this.on('dragstart', (e) => {
+      const target = $(e.target).find('.name');
+      const dataTransfer = e.originalEvent.dataTransfer;
+      const pathInfos = {
+        fullPath: target.data('path'),
+        name: target.data('name'),
+      };
+
+      dataTransfer.setData('pathInfos', JSON.stringify(pathInfos));
+      dataTransfer.effectAllowed = 'move';
+    });
+
+    this.on('dragover', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    this.on('dragenter', (e) => {
+      const self = e.currentTarget;
+      e.stopPropagation();
+
+      if (!checkTarget(e)) return;
+
+      self.classList.add('selected');
+    });
+
+    this.on('dragend', () => {
+      // this.dragged = null;
+    });
+
+    this.on('dragleave', (e) => {
+      e.stopPropagation();
+
+      e.currentTarget.classList.remove('selected');
+    });
+  }
+
+  destroy() {
     this.item = null;
 
     if (this.iconDisposable) {
@@ -106,31 +208,29 @@ module.exports = DirectoryView = (function (parent) {
     }
 
     this.remove();
-  };
+  }
 
-  DirectoryView.prototype.repaint = function (recursive) {
-    let self = this,
-      views = self.entries.children().map(function () { return $(this).view(); }).get(),
-      folders = [],
-      files = [];
+  repaint() {
+    let views = this.entries.children().map((err, item) => $(item).view()).get();
+    const folders = [];
+    const files = [];
 
-    self.entries.children().detach();
+    this.entries.children().detach();
 
-    if (self.item) {
-      self.item.folders.forEach((item) => {
-        for (let a = 0, b = views.length; a < b; ++a)				{
-          if (views[a] && views[a] instanceof DirectoryView && views[a].item == item) {
+    if (this.item) {
+      this.item.folders.forEach((item) => {
+        for (let a = 0, b = views.length; a < b; ++a) {
+          if (views[a] && views[a] instanceof DirectoryView && views[a].item === item) {
             folders.push(views[a]);
             return;
           }
         }
         folders.push(new DirectoryView(item));
       });
-    }
-    if (self.item) {
-      self.item.files.forEach((item) => {
-        for (let a = 0, b = views.length; a < b; ++a)				{
-          if (views[a] && views[a] instanceof FileView && views[a].item == item) {
+
+      this.item.files.forEach((item) => {
+        for (let a = 0, b = views.length; a < b; ++a) {
+          if (views[a] && views[a] instanceof FileView && views[a].item === item) {
             files.push(views[a]);
             return;
           }
@@ -139,67 +239,67 @@ module.exports = DirectoryView = (function (parent) {
       });
     }
 
-		// TODO Destroy left over...
-
+    // TODO Destroy left over...
     views = folders.concat(files);
 
     views.sort((a, b) => {
-      if (a.constructor != b.constructor)				{ return a instanceof DirectoryView ? -1 : 1; }
-      if (a.item.name == b.item.name)				{ return 0; }
+      if (a.constructor !== b.constructor) { return a instanceof DirectoryView ? -1 : 1; }
+      if (a.item.name === b.item.name) { return 0; }
 
-      return a.item.name.toLowerCase().localeCompare(b.item.name.toLowerCase());
+      return a.item.name.toLowerCase()
+        .localeCompare(b.item.name.toLowerCase());
     });
 
     views.forEach((view) => {
-      self.entries.append(view);
+      this.entries.append(view);
     });
-  };
+  }
 
-  DirectoryView.prototype.setClasses = function () {
+  setClasses() {
     if (this.item.isExpanded) {
       this.addClass('expanded').removeClass('collapsed');
     } else {
       this.addClass('collapsed').removeClass('expanded');
     }
-  };
+  }
 
-  DirectoryView.prototype.expand = function (recursive) {
-    this.item.isExpanded = true;
-
-    if (recursive) {
-      this.entries.children().each(function () {
-        const view = $(this).view();
-        if (view && view instanceof DirectoryView)					{ view.expand(true); }
-      });
-    }
-  };
-
-  DirectoryView.prototype.collapse = function (recursive) {
-    this.item.isExpanded = false;
+  expand(recursive) {
+    this.item.setIsExpanded = true;
 
     if (recursive) {
-      this.entries.children().each(function () {
-        const view = $(this).view();
-        if (view && view instanceof DirectoryView)					{ view.collapse(true); }
+      this.entries.children().each((e, item) => {
+        const view = $(item).view();
+        if (view && view instanceof DirectoryView) { view.expand(true); }
       });
     }
-  };
+  }
 
-  DirectoryView.prototype.toggle = function (recursive) {
+  collapse(recursive) {
+    this.item.setIsExpanded = false;
+
+    if (recursive) {
+      this.entries.children().each((e, item) => {
+        const view = $(item).view();
+        if (view && view instanceof DirectoryView) { view.collapse(true); }
+      });
+    }
+  }
+
+  toggle(recursive) {
     if (this.item.isExpanded) {
       this.collapse(recursive);
     } else {
       this.expand(recursive);
     }
-  };
+  }
 
-  DirectoryView.prototype.open = function () {
+  open() {
     this.item.open();
-  };
+  }
 
-  DirectoryView.prototype.refresh = function () {
+  refresh() {
     this.item.open();
-  };
+  }
+}
 
-  return DirectoryView;
-}(View));
+export default DirectoryView;

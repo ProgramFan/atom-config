@@ -5,167 +5,224 @@
 @import "ui-variables";
 
 .remote-ftp-view {
-	position: relative;
-	width: 200px;
-	height: 100%;
-	overflow: hidden;
+  position: relative;
+  width: 200px;
+  height: 100%;
+  overflow: hidden;
 
-    &[data-use-dock-integration="true"] {
-        width: 100% !important;
+  .tab-bar:not(.show) {
+    display: none;
+  }
 
-        > .resize-handle {
-            display: none;
-        }
+  &[data-use-dock-integration="true"] {
+    width: 100% !important;
+
+    > .resize-handle {
+      display: none;
     }
 
-	> .resize-handle {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		right: -5px;
-		z-index: 10;
-		display: block;
-		width: 10px;
-		//cursor: e-resize;
-	}
+    .tab-bar {
+      display: none !important;
+    }
+  }
 
-	> .offline {
-		> ul {
-			width: 100%;
-			padding: 10px;
-			list-style-type: none;
+  &[data-use-dock-integration="false"]:not(.oldversion) {
+    .tab-bar:not(.show) {
+      display: none !important;
+    }
 
-			> li a {
-				width: 100%;
-				margin-bottom: 5px;
-			}
-		}
-	}
+    .tab-bar {
+      box-shadow: none;
 
-	> .scroller {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 27px;
-		display: block;
-		overflow: auto;
+      li.tab {
+        width: 100%;
+        box-shadow: none;
+        color: @text-color-highlight;
+      }
+    }
 
-		> .list-tree {
-			min-height: 100%;
-			width: auto;
-			min-width: -webkit-min-content;
-			padding-left: 5px;
-			padding-right: 10px;
-		}
-	}
+    > .scroller {
+      top: 30px !important;
+    }
 
-	.project-root.project-root > .header .name {
-		line-height: 2.5em;
-	}
+    .project-root::before {
+      border-top: 1px solid transparent;
+      background-clip: padding-box;
+    }
+  }
 
-	> .queue {
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		display: block;
-		height: 27px;
+  > .resize-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -5px;
+    z-index: 10;
+    display: block;
+    width: 10px;
+    //cursor: e-resize;
+  }
 
-		> .progress {
-			display: none;
-			width: auto;
-			height: auto;
-			border-radius: 0;
-			border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-			list-style: none;
-			margin: 0 0 2px 0;
-			padding: 0;
+  > .offline {
+    .remote-ftp-offline-inner {
+      width: 100%;
 
-			> li {
-				display: flex;
-				margin: 0;
-				padding: 4px 8px;
-				font-size: 11px;
-				line-height: 18px;
+      > ul {
+        width: 100%;
+        padding: 10px;
+        list-style-type: none;
 
-				flex-wrap: nowrap;
-				flex-direction: row;
-				justify-content: flex-start;
+        > li a {
+          width: 100%;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
 
-				progress {
-					flex: none;
-					width: 50px;
-				}
+  > .scroller {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 27px;
+    display: block;
+    overflow: auto;
 
-				.name {
-					width: 100%;
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					text-align: left;
-				}
+    > .list-tree {
+      min-height: 100%;
+      width: auto;
+      min-width: -webkit-min-content;
+      padding-left: 5px;
+      padding-right: 10px;
+    }
+  }
 
-				.eta {
-					flex: none;
-					white-space: nowrap;
-					text-align: right;
-				}
-			}
-		}
+  .project-root.project-root > .header {
+    &::before {
+        line-height: 2.5em !important;
+    }
 
-		> .list {
-			display: block;
-			list-style: none;
-			margin: 0;
-			padding: 0;
+    .name {
+        line-height: 2.5em;
+    }
+  }
 
-			> li {
-				display: block;
-				margin: 0;
-				padding: 2px 8px;
-				line-height: 10px;
-				font-size: 10px;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
+  > .queue {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: 27px;
 
-			> li:first-of-type {
-				padding-top: 4px;
-				padding-bottom: 4px;
-				font-size: 11px;
-				line-height: 18px;
-			}
-		}
+    > .progress {
+      display: none;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      list-style: none;
+      margin: 0 0 2px;
+      padding: 0;
 
-		> .resize-handle {
-			position: absolute;
-			top: -5px;
-			left: 0;
-			right: 0;
-			z-index: 10;
-			display: block;
-			height: 10px;
-			cursor: n-resize;
-		}
-	}
+      > li {
+        display: flex;
+        margin: 0;
+        padding: 4px 8px;
+        font-size: 11px;
+        line-height: 18px;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-start;
 
-	> .offline {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 3;
-		opacity: 0.8;
-		display: flex;
-		-webkit-box-align: center;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-	}
+        progress {
+          flex: none;
+          width: 50px;
+        }
 
+        .name {
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: left;
+        }
+
+        .eta {
+          flex: none;
+          white-space: nowrap;
+          text-align: right;
+        }
+      }
+    }
+
+    > .list {
+      display: block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      > li {
+        display: block;
+        margin: 0;
+        padding: 2px 8px;
+        line-height: 10px;
+        font-size: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      > li:first-of-type {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-size: 11px;
+        line-height: 18px;
+      }
+    }
+
+    > .resize-handle {
+      position: absolute;
+      top: -5px;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: block;
+      height: 10px;
+      cursor: n-resize;
+    }
+  }
+
+  > .offline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    .remote-ftp-picto {
+      margin-bottom: 15px;
+
+      > .icon {
+        display: block;
+
+        &::before {
+          font-size: 76px;
+          width: 100%;
+          height: 100%;
+          line-height: normal;
+        }
+      }
+    }
+  }
 }
 
 .ftptree-view-resizer {
@@ -179,12 +236,19 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-
   // use these classes to re-order
   // using a value in-between is fine too, e.g. order: -3;
-  & > .order--start  { order: -10; }
-  & > .order--center { order:   0; }
-  & > .order--end    { order:  10; }
+  & > .order--start {
+    order: -10;
+  }
+
+  & > .order--center {
+    order: 0;
+  }
+
+  & > .order--end {
+    order: 10;
+  }
 
   .ftptree-view-resize-handle {
     position: absolute;
@@ -209,7 +273,7 @@
 }
 
 .pane .ftptree-view-resizer {
-    width: 100%;
+  width: 100%;
 }
 
 .ftptree-view-scroller {
@@ -246,8 +310,8 @@
   }
 
   .project-root {
-	&:before {
-	  height: 2.5em !important;
+    &:before {
+      height: 2.5em !important;
     }
   }
 }
@@ -258,4 +322,50 @@
       cursor: ew-resize;
     }
   }
+}
+
+.modal {
+  .remote-ftp {
+    &.permission-view {
+      margin-bottom: 8.5px;
+
+      > div {
+        padding: 0 10px;
+      }
+
+      .permissions-wrapper {
+        display: flex;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+
+          .inline-block {
+            margin: 4px 10px 4px 0;
+          }
+
+          &.permission-chown {
+            display: block;
+            padding-top: 20px;
+            height: 140px;
+
+            atom-text-editor {
+              min-width: 140px;
+            }
+          }
+        }
+
+      }
+
+      .permissions-wrapper-block {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+/* NOTE: Fix modal overlay */
+.tooltip {
+  z-index: 10000;
 }
