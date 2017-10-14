@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
+        "raw": "/tmp/d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
-        "spec": "/tmp/d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
+        "rawSpec": "/tmp/d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
+        "spec": "/tmp/d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-6017-1ju8r3v.3gfjhh0k9"
+      "/tmp/apm-install-dir-117914-6021-1heedc4.zpye486w29"
     ]
   ],
-  "_from": "../d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
+  "_from": "../d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
   "_id": "build-cmake@0.11.0",
   "_inCache": true,
   "_location": "/build-cmake",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
+    "raw": "/tmp/d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
-    "spec": "/tmp/d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
+    "rawSpec": "/tmp/d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
+    "spec": "/tmp/d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
+  "_resolved": "file:../d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
   "_shasum": "59c16a894cb986d92d7dc6c7ac87abd20a4d49e8",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-6017-1kxkbry.8qktfenrk9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-6017-1ju8r3v.3gfjhh0k9",
+  "_spec": "/tmp/d-117914-6021-6tg1kj.9mu4kxd2t9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-6021-1heedc4.zpye486w29",
   "bugs": {
     "url": "https://github.com/siegelaaron94/atom-build-cmake/issues"
   },

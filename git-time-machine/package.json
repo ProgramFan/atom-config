@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
+        "raw": "/tmp/d-117914-5888-10pppge.vvs7cik9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
-        "spec": "/tmp/d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
+        "rawSpec": "/tmp/d-117914-5888-10pppge.vvs7cik9/package.tgz",
+        "spec": "/tmp/d-117914-5888-10pppge.vvs7cik9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-5885-cok6ya.0rtj2d42t9"
+      "/tmp/apm-install-dir-117914-5888-19ogs1m.w05sy30udi"
     ]
   ],
-  "_from": "../d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
+  "_from": "../d-117914-5888-10pppge.vvs7cik9/package.tgz",
   "_id": "git-time-machine@1.5.9",
   "_inCache": true,
   "_location": "/git-time-machine",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
+    "raw": "/tmp/d-117914-5888-10pppge.vvs7cik9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
-    "spec": "/tmp/d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
+    "rawSpec": "/tmp/d-117914-5888-10pppge.vvs7cik9/package.tgz",
+    "spec": "/tmp/d-117914-5888-10pppge.vvs7cik9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
+  "_resolved": "file:../d-117914-5888-10pppge.vvs7cik9/package.tgz",
   "_shasum": "9ed9fa205ab5efc37e2c8298d46e7be7c792863b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-5885-10p224w.us2ew5ewmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-5885-cok6ya.0rtj2d42t9",
+  "_spec": "/tmp/d-117914-5888-10pppge.vvs7cik9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-5888-19ogs1m.w05sy30udi",
   "activationCommands": {
     "atom-workspace": "git-time-machine:toggle"
   },

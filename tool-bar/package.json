@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
+        "raw": "/tmp/d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
-        "spec": "/tmp/d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
+        "rawSpec": "/tmp/d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
+        "spec": "/tmp/d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-5260-jd9zol.8p9vish5mi"
+      "/tmp/apm-install-dir-117914-5261-1i4vy5z.g0fcz93sor"
     ]
   ],
-  "_from": "../d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
+  "_from": "../d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
   "_id": "tool-bar@1.1.0",
   "_inCache": true,
   "_location": "/tool-bar",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
+    "raw": "/tmp/d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
-    "spec": "/tmp/d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
+    "rawSpec": "/tmp/d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
+    "spec": "/tmp/d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
+  "_resolved": "file:../d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
   "_shasum": "94b5074753ee1b1322459844b70727fec5acdb6f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-5260-1xeg6y4.trx99evcxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-5260-jd9zol.8p9vish5mi",
+  "_spec": "/tmp/d-117914-5261-1e7yf7.wh72nbfbt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-5261-1i4vy5z.g0fcz93sor",
   "bugs": {
     "url": "https://github.com/suda/tool-bar/issues"
   },

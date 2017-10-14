@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
+        "raw": "/tmp/d-117914-8177-r958dc.b4x7n1att9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
-        "spec": "/tmp/d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
+        "rawSpec": "/tmp/d-117914-8177-r958dc.b4x7n1att9/package.tgz",
+        "spec": "/tmp/d-117914-8177-r958dc.b4x7n1att9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-8133-6s0uyi.9xgdp9zfr"
+      "/tmp/apm-install-dir-117914-8177-xbgiwq.aibbe53ik9"
     ]
   ],
-  "_from": "../d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
+  "_from": "../d-117914-8177-r958dc.b4x7n1att9/package.tgz",
   "_id": "python-tools@0.6.9",
   "_inCache": true,
   "_location": "/python-tools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
+    "raw": "/tmp/d-117914-8177-r958dc.b4x7n1att9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
-    "spec": "/tmp/d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
+    "rawSpec": "/tmp/d-117914-8177-r958dc.b4x7n1att9/package.tgz",
+    "spec": "/tmp/d-117914-8177-r958dc.b4x7n1att9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
+  "_resolved": "file:../d-117914-8177-r958dc.b4x7n1att9/package.tgz",
   "_shasum": "dba6e2a8889971140b20f143c8535e6b054a1df0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-8133-17p4qgu.d7dh9nqaor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-8133-6s0uyi.9xgdp9zfr",
+  "_spec": "/tmp/d-117914-8177-r958dc.b4x7n1att9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-8177-xbgiwq.aibbe53ik9",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/MichaelAquilina/python-tools/issues"

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
+        "raw": "/tmp/d-117914-8556-modmqm.pukhu84cxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
-        "spec": "/tmp/d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
+        "rawSpec": "/tmp/d-117914-8556-modmqm.pukhu84cxr/package.tgz",
+        "spec": "/tmp/d-117914-8556-modmqm.pukhu84cxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-8512-3osj13.ewkt4q85mi"
+      "/tmp/apm-install-dir-117914-8556-e2b6uc.0qcsxajor"
     ]
   ],
-  "_from": "../d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
+  "_from": "../d-117914-8556-modmqm.pukhu84cxr/package.tgz",
   "_id": "plantuml-viewer@0.7.2",
   "_inCache": true,
   "_location": "/plantuml-viewer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
+    "raw": "/tmp/d-117914-8556-modmqm.pukhu84cxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
-    "spec": "/tmp/d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
+    "rawSpec": "/tmp/d-117914-8556-modmqm.pukhu84cxr/package.tgz",
+    "spec": "/tmp/d-117914-8556-modmqm.pukhu84cxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
+  "_resolved": "file:../d-117914-8556-modmqm.pukhu84cxr/package.tgz",
   "_shasum": "2958e72947b5f677e0b5cbb73ca46a1b6d15054c",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-8512-13vd389.1sd6vwjyvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-8512-3osj13.ewkt4q85mi",
+  "_spec": "/tmp/d-117914-8556-modmqm.pukhu84cxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-8556-e2b6uc.0qcsxajor",
   "bugs": {
     "url": "https://github.com/markushedvall/plantuml-viewer/issues"
   },

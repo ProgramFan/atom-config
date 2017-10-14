@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
+        "raw": "/tmp/d-117914-6726-pczbv.5vyk87iudi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
-        "spec": "/tmp/d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
+        "rawSpec": "/tmp/d-117914-6726-pczbv.5vyk87iudi/package.tgz",
+        "spec": "/tmp/d-117914-6726-pczbv.5vyk87iudi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-6725-1bep7ya.1ozwd0a4i"
+      "/tmp/apm-install-dir-117914-6726-3t8hno.lvh69zr529"
     ]
   ],
-  "_from": "../d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
+  "_from": "../d-117914-6726-pczbv.5vyk87iudi/package.tgz",
   "_id": "atom-beautify@0.30.5",
   "_inCache": true,
   "_location": "/atom-beautify",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
+    "raw": "/tmp/d-117914-6726-pczbv.5vyk87iudi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
-    "spec": "/tmp/d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
+    "rawSpec": "/tmp/d-117914-6726-pczbv.5vyk87iudi/package.tgz",
+    "spec": "/tmp/d-117914-6726-pczbv.5vyk87iudi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
+  "_resolved": "file:../d-117914-6726-pczbv.5vyk87iudi/package.tgz",
   "_shasum": "33fdc7c0bd0ed5ba260123e84cff88e2b3efa810",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-6725-1uk27bv.du3c2qpvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-6725-1bep7ya.1ozwd0a4i",
+  "_spec": "/tmp/d-117914-6726-pczbv.5vyk87iudi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-6726-3t8hno.lvh69zr529",
   "activationCommands": {
     "atom-workspace": [
       "atom-beautify:help-debug-editor",

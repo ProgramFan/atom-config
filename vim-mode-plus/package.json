@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
+        "raw": "/tmp/d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
-        "spec": "/tmp/d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
+        "rawSpec": "/tmp/d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
+        "spec": "/tmp/d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-6637-kkomg8.6aozd50zfr"
+      "/tmp/apm-install-dir-117914-6638-1hha5tv.69w0l766r"
     ]
   ],
-  "_from": "../d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
+  "_from": "../d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
   "_id": "vim-mode-plus@1.9.1",
   "_inCache": true,
   "_location": "/vim-mode-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
+    "raw": "/tmp/d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
-    "spec": "/tmp/d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
+    "rawSpec": "/tmp/d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
+    "spec": "/tmp/d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
+  "_resolved": "file:../d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
   "_shasum": "b059d2833cde791c6d942e843de5b4cc76c3698b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-6637-np9rvj.v5q2utyb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-6637-kkomg8.6aozd50zfr",
+  "_spec": "/tmp/d-117914-6638-156wrx.s5bd6xbt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-6638-1hha5tv.69w0l766r",
   "bugs": {
     "url": "https://github.com/t9md/atom-vim-mode-plus/issues"
   },

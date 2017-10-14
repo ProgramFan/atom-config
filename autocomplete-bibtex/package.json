@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
+        "raw": "/tmp/d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
-        "spec": "/tmp/d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
+        "rawSpec": "/tmp/d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
+        "spec": "/tmp/d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7168-1x2hb05.1j80py14i"
+      "/tmp/apm-install-dir-117914-7168-1hzsyff.jly1i0y66r"
     ]
   ],
-  "_from": "../d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
+  "_from": "../d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
   "_id": "autocomplete-bibtex@0.7.0",
   "_inCache": true,
   "_location": "/autocomplete-bibtex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
+    "raw": "/tmp/d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
-    "spec": "/tmp/d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
+    "rawSpec": "/tmp/d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
+    "spec": "/tmp/d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
+  "_resolved": "file:../d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
   "_shasum": "dc253d754c9d7f3eea772c9d67cbc1406fa6b9cd",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7168-1cdnoef.m2jrtchaor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7168-1x2hb05.1j80py14i",
+  "_spec": "/tmp/d-117914-7168-18c1wi5.87fq8y3nmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7168-1hzsyff.jly1i0y66r",
   "author": {
     "name": "apcshields"
   },

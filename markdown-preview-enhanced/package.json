@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
+        "raw": "/tmp/d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
-        "spec": "/tmp/d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
+        "rawSpec": "/tmp/d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
+        "spec": "/tmp/d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7471-w2buzw.1ygjsjor"
+      "/tmp/apm-install-dir-117914-7472-17xnsyy.jmwki3haor"
     ]
   ],
-  "_from": "../d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
+  "_from": "../d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
   "_id": "markdown-preview-enhanced@0.14.11",
   "_inCache": true,
   "_location": "/markdown-preview-enhanced",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
+    "raw": "/tmp/d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
-    "spec": "/tmp/d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
+    "rawSpec": "/tmp/d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
+    "spec": "/tmp/d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
+  "_resolved": "file:../d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
   "_shasum": "72c91a4088aaf44cefc6f917d225ae6d8d1eb06f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7471-b339dd.lwd2rtqpvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7471-w2buzw.1ygjsjor",
+  "_spec": "/tmp/d-117914-7472-1e0pgy3.xj1bk5ipb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-7472-17xnsyy.jmwki3haor",
   "activationCommands": {
     "atom-workspace": "markdown-preview-enhanced:toggle"
   },

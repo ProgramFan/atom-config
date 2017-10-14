@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
+        "raw": "/tmp/d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
-        "spec": "/tmp/d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
+        "rawSpec": "/tmp/d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
+        "spec": "/tmp/d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-8089-1mrzb5d.oi5dgnl8fr"
+      "/tmp/apm-install-dir-117914-8133-1pk56iz.ml1y2b7qfr"
     ]
   ],
-  "_from": "../d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
+  "_from": "../d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
   "_id": "symbols-tree-view@0.14.0",
   "_inCache": true,
   "_location": "/symbols-tree-view",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
+    "raw": "/tmp/d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
-    "spec": "/tmp/d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
+    "rawSpec": "/tmp/d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
+    "spec": "/tmp/d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
+  "_resolved": "file:../d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
   "_shasum": "43df0647b4f2107134a2e93de1164da6db9f42dd",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-8089-1ner84.fg5gxy9zfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-8089-1mrzb5d.oi5dgnl8fr",
+  "_spec": "/tmp/d-117914-8133-1efsivy.uocj21q0k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117914-8133-1pk56iz.ml1y2b7qfr",
   "bugs": {
     "url": "https://github.com/xndcn/symbols-tree-view/issues"
   },
