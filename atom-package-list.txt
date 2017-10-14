@@ -87,6 +87,7 @@ asciidoctor-preview
 
 # 7. LaTeX utilities
 atom-latex # one package to rule them all
+language-latex # better syntax than atom-latex at the moment
 
 # 7. C++ IDE
 docblockr # doxygen style document block
