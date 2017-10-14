@@ -51,6 +51,8 @@ linter-spell-html
 atomic-vale # A better language linter
 vim-mode-plus
 ex-mode
+atom-beautify # format code/text
+platformio-ide-terminal # terminal in atom
 
 #
 # 3. Extra syntax highlighters
@@ -58,9 +60,6 @@ ex-mode
 language-cmake
 language-dot
 language-x86asm
-language-markdown # better markdown
-language-asciidoc
-language-latex
 language-plantuml
 language-fortran
 
@@ -73,16 +72,21 @@ autocomplete-en-en
 autocomplete-cmake
 
 # 5. Markdown utilities
+language-markdown # better markdown
 document-outline # Also work for asciidoc, latex
 markdown-preview-enhanced
 markdown-table-formatter
 markdown-writer
 
 # 6. Asciidoc utilities
+language-asciidoc
 autocomplete-asciidoc
 asciidoc-preview
 asciidoc-image-helper
 asciidoctor-preview
+
+# 7. LaTeX utilities
+atom-latex # one package to rule them all
 
 # 7. C++ IDE
 docblockr # doxygen style document block
@@ -98,8 +102,5 @@ autocomplete-python
 Hydrogen # run jupyter kernel along with code
 
 # 8. Other tools
-atom-beautify # format code/text
 graphviz-preview # preview dot files
 plantuml-viewer # preview plantuml files
-platformio-ide-terminal # terminal in atom
-latextools # latex utils
