@@ -46,10 +46,7 @@ class Base {
     this.vimState = vimState
   }
 
-  // NOTE: initialize() must return `this`
-  initialize() {
-    return this
-  }
+  initialize() {}
 
   // Called both on cancel and success
   resetState() {}
@@ -137,12 +134,9 @@ class Base {
         this.processOperation()
       }
     }
-    if (!options.onCancel) {
-      options.onCancel = () => this.cancelOperation()
-    }
-    if (!options.onChange) {
-      options.onChange = input => this.vimState.hover.set(input)
-    }
+    if (!options.onCancel) options.onCancel = () => this.cancelOperation()
+    if (!options.onChange) options.onChange = input => this.vimState.hover.set(input)
+
     this.vimState.focusInput(options)
   }
 
@@ -156,6 +150,7 @@ class Base {
     })
   }
 
+  // Wrapper for this.utils == start
   getVimEofBufferPosition() {
     return this.utils.getVimEofBufferPosition(this.editor)
   }
@@ -168,8 +163,12 @@ class Base {
     return this.utils.getVimLastScreenRow(this.editor)
   }
 
-  getWordBufferRangeAndKindAtBufferPosition(point, options) {
-    return this.utils.getWordBufferRangeAndKindAtBufferPosition(this.editor, point, options)
+  getValidVimBufferRow(row) {
+    return this.utils.getValidVimBufferRow(this.editor, row)
+  }
+
+  getWordBufferRangeAndKindAtBufferPosition(...args) {
+    return this.utils.getWordBufferRangeAndKindAtBufferPosition(this.editor, ...args)
   }
 
   getFirstCharacterPositionForBufferRow(row) {
@@ -195,6 +194,11 @@ class Base {
   getFoldEndRowForRow(...args) {
     return this.utils.getFoldEndRowForRow(this.editor, ...args)
   }
+
+  getBufferRows(...args) {
+    return this.utils.getBufferRows(this.editor, ...args)
+  }
+  // Wrapper for this.utils == end
 
   instanceof(klassName) {
     return this instanceof Base.getClass(klassName)
@@ -227,8 +231,12 @@ class Base {
 
   getCursorBufferPositions() {
     return this.mode === "visual"
-      ? this.editor.getSelections().map(this.getCursorPositionForSelection.bind(this))
+      ? this.editor.getSelections().map(selection => this.getCursorPositionForSelection(selection))
       : this.editor.getCursorBufferPositions()
+  }
+
+  getCursorBufferPositionsOrdered() {
+    return this.utils.sortPoints(this.getCursorBufferPositions())
   }
 
   getBufferPositionForCursor(cursor) {
@@ -239,9 +247,17 @@ class Base {
     return this.swrap(selection).getBufferPositionFor("head", {from: ["property", "selection"]})
   }
 
+  getTypeOperationTypeChar() {
+    const {operationKind} = this.constructor
+    if (operationKind === "operator") return "O"
+    else if (operationKind === "text-object") return "T"
+    else if (operationKind === "motion") return "M"
+    else if (operationKind === "misc-command") return "X"
+  }
+
   toString() {
-    const targetStr = this.target ? `, target: ${this.target.toString()}` : ""
-    return `${this.name}{wise: ${this.wise}${targetStr}}`
+    const base = `${this.name}<${this.getTypeOperationTypeChar()}>`
+    return this.target ? `${base}{target = ${this.target.toString()}}` : base
   }
 
   getCommandName() {
@@ -269,7 +285,8 @@ class Base {
     loadableCSONText += CSON.stringify(commandTable) + "\n"
 
     const commandTablePath = path.join(__dirname, "command-table.coffee")
-    atom.workspace.open(commandTablePath).then(editor => {
+    const openOption = {activatePane: false, activateItem: false}
+    atom.workspace.open(commandTablePath, openOption).then(editor => {
       editor.setText(loadableCSONText)
       editor.save()
       atom.notifications.addInfo("Updated commandTable", {dismissable: true})
@@ -294,8 +311,8 @@ class Base {
     const commandTable = {}
     for (const file of filesToLoad) {
       for (const klass of klassesGroupedByFile[file]) {
-        commandTable[klass.name] = klass.isCommand()
-          ? {file: klass.file, commandName: klass.getCommandName(), commandScope: klass.getCommandScope()}
+        commandTable[klass.name] = klass.command
+          ? {file: klass.file, commandName: klass.getCommandName(), commandScope: klass.commandScope}
           : {file: klass.file}
       }
     }
@@ -343,19 +360,16 @@ class Base {
     throw new Error(`class '${name}' not found`)
   }
 
-  static getInstance(vimState, klassOrName, properties) {
-    const klass = typeof klassOrName === "function" ? klassOrName : Base.getClass(klassOrName)
-    const instance = new klass(vimState)
-    if (properties) Object.assign(instance, properties)
-    return instance.initialize() // initialize must return instance.
+  static getInstance(vimState, klass, properties) {
+    klass = typeof klass === "function" ? klass : Base.getClass(klass)
+    const object = new klass(vimState)
+    if (properties) Object.assign(object, properties)
+    object.initialize()
+    return object
   }
 
   static getClassRegistry() {
     return CLASS_REGISTRY
-  }
-
-  static isCommand() {
-    return this.command
   }
 
   static getCommandName() {
@@ -366,13 +380,9 @@ class Base {
     return _plus().dasherize(this.name)
   }
 
-  static getCommandScope() {
-    return this.commandScope
-  }
-
   static registerCommand() {
     return this.registerCommandFromSpec(this.name, {
-      commandScope: this.getCommandScope(),
+      commandScope: this.commandScope,
       commandName: this.getCommandName(),
       getClass: () => this,
     })
@@ -431,7 +441,6 @@ class Base {
   emitDidFinishMutation(...args) { return this.vimState.emitDidFinishMutation(...args) } // prettier-ignore
   onDidFinishOperation(...args) { return this.vimState.onDidFinishOperation(...args) } // prettier-ignore
   onDidResetOperationStack(...args) { return this.vimState.onDidResetOperationStack(...args) } // prettier-ignore
-  onDidSetOperatorModifier(...args) { return this.vimState.onDidSetOperatorModifier(...args) } // prettier-ignore
   onWillActivateMode(...args) { return this.vimState.onWillActivateMode(...args) } // prettier-ignore
   onDidActivateMode(...args) { return this.vimState.onDidActivateMode(...args) } // prettier-ignore
   preemptWillDeactivateMode(...args) { return this.vimState.preemptWillDeactivateMode(...args) } // prettier-ignore

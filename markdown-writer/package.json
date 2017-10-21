@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
+        "raw": "/tmp/d-117921-7488-f0qca.jk6y5019k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
-        "spec": "/tmp/d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
+        "rawSpec": "/tmp/d-117921-7488-f0qca.jk6y5019k9/package.tgz",
+        "spec": "/tmp/d-117921-7488-f0qca.jk6y5019k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7560-18s0x1b.axqschm2t9"
+      "/tmp/apm-install-dir-117921-7488-16jky4h.b9cgi7ldi"
     ]
   ],
-  "_from": "../d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
-  "_id": "markdown-writer@2.7.2",
+  "_from": "../d-117921-7488-f0qca.jk6y5019k9/package.tgz",
+  "_id": "markdown-writer@2.7.3",
   "_inCache": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
+    "raw": "/tmp/d-117921-7488-f0qca.jk6y5019k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
-    "spec": "/tmp/d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
+    "rawSpec": "/tmp/d-117921-7488-f0qca.jk6y5019k9/package.tgz",
+    "spec": "/tmp/d-117921-7488-f0qca.jk6y5019k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
-  "_shasum": "685112fc484fec822556f3803951eaa6c2e67d25",
+  "_resolved": "file:../d-117921-7488-f0qca.jk6y5019k9/package.tgz",
+  "_shasum": "1a319cbdfa3106a4f49bc6a7df7e17113e9a3127",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7560-15z6lzm.bt34k7qfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7560-18s0x1b.axqschm2t9",
+  "_spec": "/tmp/d-117921-7488-f0qca.jk6y5019k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-7488-16jky4h.b9cgi7ldi",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",
@@ -124,5 +124,5 @@
     "type": "git",
     "url": "git+https://github.com/zhuochun/md-writer.git"
   },
-  "version": "2.7.2"
+  "version": "2.7.3"
 }

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
+        "raw": "/tmp/d-117921-5148-1czvf6l.131hv9529/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
-        "spec": "/tmp/d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
+        "rawSpec": "/tmp/d-117921-5148-1czvf6l.131hv9529/package.tgz",
+        "spec": "/tmp/d-117921-5148-1czvf6l.131hv9529/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-5217-g7s9dn.yxdpy6tj4i"
+      "/tmp/apm-install-dir-117921-5148-1dxi3e4.xa9ocd6lxr"
     ]
   ],
-  "_from": "../d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
+  "_from": "../d-117921-5148-1czvf6l.131hv9529/package.tgz",
   "_id": "minimap-linter@2.1.1",
   "_inCache": true,
   "_location": "/minimap-linter",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
+    "raw": "/tmp/d-117921-5148-1czvf6l.131hv9529/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
-    "spec": "/tmp/d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
+    "rawSpec": "/tmp/d-117921-5148-1czvf6l.131hv9529/package.tgz",
+    "spec": "/tmp/d-117921-5148-1czvf6l.131hv9529/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
+  "_resolved": "file:../d-117921-5148-1czvf6l.131hv9529/package.tgz",
   "_shasum": "2feb76cd1ff68294aba05a9d15ed4160d25dec4f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-5217-6f6ehj.7nmchdj9k9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-5217-g7s9dn.yxdpy6tj4i",
+  "_spec": "/tmp/d-117921-5148-1czvf6l.131hv9529/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-5148-1dxi3e4.xa9ocd6lxr",
   "bugs": {
     "url": "https://github.com/AtomLinter/atom-minimap-linter/issues"
   },

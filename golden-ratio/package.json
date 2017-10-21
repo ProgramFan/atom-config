@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
+        "raw": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
-        "spec": "/tmp/d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
+        "rawSpec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
+        "spec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-5444-1fho4f1.q029vbo6r"
+      "/tmp/apm-install-dir-117921-5375-13zvxa7.1rxnut0529"
     ]
   ],
-  "_from": "../d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
+  "_from": "../d-117921-5375-ips95i.acf168ncdi/package.tgz",
   "_id": "golden-ratio@0.3.0",
   "_inCache": true,
   "_location": "/golden-ratio",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
+    "raw": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
-    "spec": "/tmp/d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
+    "rawSpec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
+    "spec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
+  "_resolved": "file:../d-117921-5375-ips95i.acf168ncdi/package.tgz",
   "_shasum": "3b2ce4156308afe98454d19d501ba28ce5218689",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-5444-12ucegi.v3vdqxs9k9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-5444-1fho4f1.q029vbo6r",
+  "_spec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-5375-13zvxa7.1rxnut0529",
   "activationCommands": {
     "atom-workspace": "golden-ratio:toggle"
   },

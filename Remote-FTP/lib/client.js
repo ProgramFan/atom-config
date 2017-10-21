@@ -176,7 +176,11 @@ export default (function INIT() {
 
             self.info = json;
             self.root.name = '';
-            self.root.path = `/${self.info.remote.replace(/^\/+/, '')}`;
+            if (self.info.remote) {
+              self.root.path = `/${self.info.remote.replace(/^\/+/, '')}`;
+            } else {
+              self.root.path = '/';
+            }
 
             if (self.info.privatekey) {
               self.info.privatekey = resolveHome(self.info.privatekey);
@@ -344,6 +348,9 @@ export default (function INIT() {
         this.promptForPass();
       } else if (this.info.keyboardInteractive === true) {
         this.promptForKeyboardInteractive();
+      } else if (this.info.keyboardInteractiveForPass === true) {
+        this.info.verifyCode = this.info.pass;
+        this.doConnect();
       } else {
         this.doConnect();
       }
@@ -431,7 +438,9 @@ export default (function INIT() {
           info.filePermissions = self.info.filePermissions;
           info.remoteCommand = self.info.remoteCommand;
           info.remoteShell = self.info.remoteShell;
+
           if (self.info.keyboardInteractive) info.tryKeyboard = true;
+          if (self.info.keyboardInteractiveForPass) info.tryKeyboard = true;
 
           self.connector = new SFTP(self);
           break;

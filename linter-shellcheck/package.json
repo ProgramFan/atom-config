@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
+        "raw": "/tmp/d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
-        "spec": "/tmp/d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
+        "rawSpec": "/tmp/d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
+        "spec": "/tmp/d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-6373-1ks9484.1bm5lmobt9"
+      "/tmp/apm-install-dir-117921-6301-131xpid.zxaf8khuxr"
     ]
   ],
-  "_from": "../d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
+  "_from": "../d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
   "_id": "linter-shellcheck@1.4.6",
   "_inCache": true,
   "_location": "/linter-shellcheck",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
+    "raw": "/tmp/d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
-    "spec": "/tmp/d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
+    "rawSpec": "/tmp/d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
+    "spec": "/tmp/d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
+  "_resolved": "file:../d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
   "_shasum": "ab437a2d061aeeebb78a264e5ddaa6bd0a9a8726",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-6373-1dgofwu.k8oty2pgb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-6373-1ks9484.1bm5lmobt9",
+  "_spec": "/tmp/d-117921-6301-mayb3y.q1u7nzh0k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-6301-131xpid.zxaf8khuxr",
   "activationHooks": [
     "language-shellscript:grammar-used"
   ],

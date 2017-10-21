@@ -3,19 +3,6 @@ import {Point, Range} from 'atom';
 
 const MAX_HEADING_DEPTH = 4;
 
-function lineNumberByIndex(index, string) {
-  // RegExp
-  let line = 0;
-  let match;
-  let re = /(^)[\S\s]/gm;
-  while ((match = re.exec(string))) {
-    if (match.index > index)
-      break;
-    line++;
-  }
-  return line;
-}
-
 export default class AbstractModel {
   // NOTE: if it was possible to simply scan through applied scopes, wouldn't need most of this...
   constructor(editorOrBuffer, headingRegexes) {
@@ -83,8 +70,8 @@ export default class AbstractModel {
         stack.push(heading);
       } else if (heading.level === top.level) {
         // At equal level, we close the previous heading
-        top.range.end = heading.headingRange.start;
-        top.range.end.row -= 1;
+        // Create a new point to avoid re-use of mutable value
+        top.range.end = new Point(heading.headingRange.start.row - 1, heading.headingRange.start.column);
         // Then get the parent
         top = stack.pop();
         top.children.push(heading);
@@ -93,13 +80,13 @@ export default class AbstractModel {
       } else if (top.level > heading.level) {
         // This starts a new section at a more important level
         // roll up the stack
-        top.range.end = heading.headingRange.start;
-        top.range.end.row -= 1;
+        // Create a new point to avoid re-use of mutable value
+        top.range.end = new Point(heading.headingRange.start.row - 1, heading.headingRange.start.column);
         while (top) {
           top = stack.pop();
           // Close each range until we get to the suitable parent
-          top.range.end = heading.headingRange.start;
-          top.range.end.row -= 1;
+          // Create a new point to avoid re-use of mutable value
+          top.range.end = new Point(heading.headingRange.start.row - 1, heading.headingRange.start.column);
           if (top.level < heading.level) {
             break;
           }
@@ -139,7 +126,6 @@ export default class AbstractModel {
           rawHeadings.push(heading);
         }
       }
-
     }
     return this._stackHeadings(rawHeadings);
   }

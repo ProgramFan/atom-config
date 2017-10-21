@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-5665-e133pt.88ybny7gb9/package.tgz",
+        "raw": "/tmp/d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-5665-e133pt.88ybny7gb9/package.tgz",
-        "spec": "/tmp/d-117914-5665-e133pt.88ybny7gb9/package.tgz",
+        "rawSpec": "/tmp/d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
+        "spec": "/tmp/d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-5665-pa2c89.njp9icnmi"
+      "/tmp/apm-install-dir-117921-5596-1gsrcmn.ln3t8olxr"
     ]
   ],
-  "_from": "../d-117914-5665-e133pt.88ybny7gb9/package.tgz",
+  "_from": "../d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
   "_id": "open-unsupported-files@1.0.20",
   "_inCache": true,
   "_location": "/open-unsupported-files",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-5665-e133pt.88ybny7gb9/package.tgz",
+    "raw": "/tmp/d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-5665-e133pt.88ybny7gb9/package.tgz",
-    "spec": "/tmp/d-117914-5665-e133pt.88ybny7gb9/package.tgz",
+    "rawSpec": "/tmp/d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
+    "spec": "/tmp/d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-5665-e133pt.88ybny7gb9/package.tgz",
+  "_resolved": "file:../d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
   "_shasum": "c7d109de38dba035aff4f854572777bb08b04de3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-5665-e133pt.88ybny7gb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-5665-pa2c89.njp9icnmi",
+  "_spec": "/tmp/d-117921-5596-r3ce7o.o8kuo9a4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-5596-1gsrcmn.ln3t8olxr",
   "bugs": {
     "url": "https://github.com/skandasoft/open-unsupported-files/issues"
   },

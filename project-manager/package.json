@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
+        "raw": "/tmp/d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
-        "spec": "/tmp/d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
+        "rawSpec": "/tmp/d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
+        "spec": "/tmp/d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-5709-1bzksmw.pkcchoxbt9"
+      "/tmp/apm-install-dir-117921-5640-ehc2yn.louy7dgqfr"
     ]
   ],
-  "_from": "../d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
+  "_from": "../d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
   "_id": "project-manager@3.3.5",
   "_inCache": true,
   "_location": "/project-manager",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
+    "raw": "/tmp/d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
-    "spec": "/tmp/d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
+    "rawSpec": "/tmp/d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
+    "spec": "/tmp/d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
+  "_resolved": "file:../d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
   "_shasum": "145fbdfcb6c24d31e073e974c839bae9f2b44ff9",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-5709-1xwigl8.uihxpf1or/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-5709-1bzksmw.pkcchoxbt9",
+  "_spec": "/tmp/d-117921-5640-1w6jq3c.fvogfu5wmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-5640-ehc2yn.louy7dgqfr",
   "bugs": {
     "url": "https://github.com/danielbrodin/atom-project-manager/issues"
   },

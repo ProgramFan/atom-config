@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
+        "raw": "/tmp/d-117921-7885-1bjshww.dzz69zr529/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
-        "spec": "/tmp/d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
+        "rawSpec": "/tmp/d-117921-7885-1bjshww.dzz69zr529/package.tgz",
+        "spec": "/tmp/d-117921-7885-1bjshww.dzz69zr529/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7957-1yv5eev.firmd6ajor"
+      "/tmp/apm-install-dir-117921-7885-kba4j7.pbc5q7u8fr"
     ]
   ],
-  "_from": "../d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
+  "_from": "../d-117921-7885-1bjshww.dzz69zr529/package.tgz",
   "_id": "dash@1.7.1",
   "_inCache": true,
   "_location": "/dash",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
+    "raw": "/tmp/d-117921-7885-1bjshww.dzz69zr529/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
-    "spec": "/tmp/d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
+    "rawSpec": "/tmp/d-117921-7885-1bjshww.dzz69zr529/package.tgz",
+    "spec": "/tmp/d-117921-7885-1bjshww.dzz69zr529/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
+  "_resolved": "file:../d-117921-7885-1bjshww.dzz69zr529/package.tgz",
   "_shasum": "7fad1f6dccbc4424d70c4ed9573641b34802ab2b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7957-u6ub3w.ua6xkcsor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7957-1yv5eev.firmd6ajor",
+  "_spec": "/tmp/d-117921-7885-1bjshww.dzz69zr529/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-7885-kba4j7.pbc5q7u8fr",
   "activationCommands": {
     "atom-text-editor": [
       "dash:shortcut",

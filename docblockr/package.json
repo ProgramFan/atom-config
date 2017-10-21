@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
+        "raw": "/tmp/d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
-        "spec": "/tmp/d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
+        "rawSpec": "/tmp/d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
+        "spec": "/tmp/d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7913-124hqtp.qijihbmx6r"
+      "/tmp/apm-install-dir-117921-7841-t6fa7k.fn1j0jm7vi"
     ]
   ],
-  "_from": "../d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
+  "_from": "../d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
   "_id": "docblockr@0.11.0",
   "_inCache": true,
   "_location": "/docblockr",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
+    "raw": "/tmp/d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
-    "spec": "/tmp/d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
+    "rawSpec": "/tmp/d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
+    "spec": "/tmp/d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
+  "_resolved": "file:../d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
   "_shasum": "02c578f52504bf12a05fbe5ed13a8ec56b31b99a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7913-1rzylqe.22hk2wqaor/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7913-124hqtp.qijihbmx6r",
+  "_spec": "/tmp/d-117921-7841-1qm9vi.i0h6apds4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-7841-t6fa7k.fn1j0jm7vi",
   "atomTestRunner": "./spec/runner",
   "bugs": {
     "url": "https://github.com/nikhilkalige/docblockr/issues"

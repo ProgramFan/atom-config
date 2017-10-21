@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
+        "raw": "/tmp/d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
-        "spec": "/tmp/d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
+        "rawSpec": "/tmp/d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
+        "spec": "/tmp/d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117914-7604-4z5krj.a7pwpfd2t9"
+      "/tmp/apm-install-dir-117921-7532-1iuwqah.qxcvc59udi"
     ]
   ],
-  "_from": "../d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
-  "_id": "language-asciidoc@1.10.0",
+  "_from": "../d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
+  "_id": "language-asciidoc@1.11.0",
   "_inCache": true,
   "_location": "/language-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
+    "raw": "/tmp/d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
-    "spec": "/tmp/d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
+    "rawSpec": "/tmp/d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
+    "spec": "/tmp/d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
-  "_shasum": "0894b2d50369b6539f9bd1dced6e1020b67a886e",
+  "_resolved": "file:../d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
+  "_shasum": "bf0bdf9934f678040405c6a68344b5f5650e7213",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117914-7604-9exq0p.oz6f5ka9k9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117914-7604-4z5krj.a7pwpfd2t9",
+  "_spec": "/tmp/d-117921-7532-1pd9sf8.jlttbuik9/package.tgz",
+  "_where": "/tmp/apm-install-dir-117921-7532-1iuwqah.qxcvc59udi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },
@@ -64,5 +64,5 @@
     "type": "git",
     "url": "git+https://github.com/asciidoctor/atom-language-asciidoc.git"
   },
-  "version": "1.10.0"
+  "version": "1.11.0"
 }
