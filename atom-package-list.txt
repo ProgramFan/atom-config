@@ -75,8 +75,8 @@ autocomplete-cmake
 language-markdown # better markdown
 document-outline # Also work for asciidoc, latex
 markdown-preview-enhanced
-markdown-table-formatter
-markdown-writer
+markdown-table-editor
+markdown-writer # Also work for asciidoc
 
 # 6. Asciidoc utilities
 language-asciidoc
