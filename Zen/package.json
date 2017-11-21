@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
+        "raw": "/tmp/d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
-        "spec": "/tmp/d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
+        "rawSpec": "/tmp/d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
+        "spec": "/tmp/d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117921-5419-94t1ab.lmbyidaemi"
+      "/tmp/apm-install-dir-1171021-5657-axlz75.zejz1wnrk9"
     ]
   ],
-  "_from": "../d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
+  "_from": "../d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
   "_id": "Zen@0.18.0",
   "_inCache": true,
   "_location": "/Zen",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
+    "raw": "/tmp/d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
-    "spec": "/tmp/d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
+    "rawSpec": "/tmp/d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
+    "spec": "/tmp/d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
+  "_resolved": "file:../d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
   "_shasum": "f7d93d67444735d8e814994b77ddf646d606940d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117921-5419-1kyb0vi.j070wo2yb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-117921-5419-94t1ab.lmbyidaemi",
+  "_spec": "/tmp/d-1171021-5657-11ut26w.www2dzehfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171021-5657-axlz75.zejz1wnrk9",
   "activationCommands": {
     "atom-text-editor": [
       "zen:toggle"

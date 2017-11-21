@@ -2,6 +2,48 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2017-11-20
+
+## Changed
++ Remove Chokidar package (~150 dependencies)
++ Supported native Filesystem Watcher API [PathWatcher](https://atom.io/docs/api/latest/PathWatcher) ([@putterson](https://github.com/putterson) Thanks)
++ The new major version drop supported older Atom versions.
+
+## Fixed
++ Resolve undefined once method
++ Eslint issues
+
+## [1.3.4] - 2017-11-20
+
+## Changed
++ Upgrade SSH2 and SSH2-streams
+
+## Fixed
++ Fix [#1029](https://github.com/icetee/remote-ftp/issues/1029)
++ Fix Cannot create icon-node for empty path [#690](https://github.com/icetee/remote-ftp/issues/690)
++ Incorrect watch notice
++ Fix path in Sync local method
++ Fix atom.project.remoteftp.once is not a function
++ Fix depth count in Windows
++ Fixed error object name in file upload
++ Fix Error: Failure [#942](https://github.com/icetee/remote-ftp/issues/942)
+
+## [1.3.0] - 2017-11-03
+
+## Featured
++ Supported multiple selection [#492](https://github.com/icetee/remote-ftp/issues/492) [#970](https://github.com/icetee/remote-ftp/issues/970)
+
+## Fixed
++ Fix Download command from Project tab [#1023](https://github.com/icetee/remote-ftp/issues/1023)
++ Supported ignore Sync local and Download [#972](https://github.com/icetee/remote-ftp/issues/972)
++ Fixed multiple connection on closed (ECONNRESET and 421 error code)
++ Solved incorrect downloads [#1016](https://github.com/icetee/remote-ftp/issues/1016)
++ More checks ignores
+
+## Changed
++ Grammar issue [#1032](https://github.com/icetee/remote-ftp/issues/1032)
++ Remove download method in syncLocal method
+
 ## [1.2.6] - 2017-10-21
 
 ## Fixed
@@ -50,7 +92,7 @@
 + Fix memory leaks on save [#908](https://github.com/icetee/remote-ftp/issues/908)
 + Add (old school) method for check file type (if no available MLSD example IIS) [19e1738](https://github.com/icetee/remote-ftp/commit/19e17383d20a0079ec50ad67d35fd8a55b79c62a)
 + Fix duplication connect (when reconnected)
-+ 🎨 Fix root icon position
++ Fix root icon position
 
 ## Featured
 + Supported UTF-8 filename in File-tree [#919](https://github.com/icetee/remote-ftp/issues/919)
@@ -83,7 +125,7 @@
 + Remove isAlreadyExits notification [a8019ff](https://github.com/icetee/remote-ftp/commit/a8019ff6449835383739851736d0f453c0fd8f78)
 + Implemented `SITE` method
 + Modify context-menu sequence [c68464b](https://github.com/icetee/remote-ftp/commit/c68464b2d9eb08aaf50e99065cea0e9b7b81a99e)
-+ 🎨 Design if no use dock integration
++ Design if no use dock integration
 
 ## [1.1.4] - 2017-07-30 [CANCELED]
 

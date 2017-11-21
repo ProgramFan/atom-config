@@ -33,7 +33,7 @@ export const sortDepth = (a, b) => {
 };
 
 export const countDepth = (file) => {
-  file.depth = file.name.split('/').length;
+  file.depth = file.name.replace(/\\/g, '/').split('/').length;
 };
 
 export const getObject = ({ keys, obj }) => {
@@ -239,4 +239,16 @@ export function recursiveViewDestroy(view) {
 
 export function resolveHome(path) {
   return Path.normalize(path.replace('~', os.homedir()));
+}
+
+export function mkdirSyncRecursive(path) {
+  const sep = Path.sep;
+  const initDir = Path.isAbsolute(path) ? sep : '';
+
+  path.split(sep).reduce((parentDir, childDir) => {
+    const curDir = Path.resolve(parentDir, childDir);
+    if (!fs.existsSync(curDir)) fs.mkdirSync(curDir);
+
+    return curDir;
+  }, initDir);
 }

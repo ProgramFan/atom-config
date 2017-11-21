@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
+        "raw": "/tmp/d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
-        "spec": "/tmp/d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
+        "rawSpec": "/tmp/d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
+        "spec": "/tmp/d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117921-6477-1r08tn3.ok5t7c766r"
+      "/tmp/apm-install-dir-1171021-6828-16m1igq.8he4su4n29"
     ]
   ],
-  "_from": "../d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
+  "_from": "../d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
   "_id": "linter-spell-html@0.7.0",
   "_inCache": true,
   "_location": "/linter-spell-html",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
+    "raw": "/tmp/d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
-    "spec": "/tmp/d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
+    "rawSpec": "/tmp/d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
+    "spec": "/tmp/d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
+  "_resolved": "file:../d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
   "_shasum": "8ce5287e9bd460c65c74b23305679ac38aeed797",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117921-6477-1jyyjqw.n4dhi79zfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117921-6477-1r08tn3.ok5t7c766r",
+  "_spec": "/tmp/d-1171021-6828-k58ol2.8u0lnjnhfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171021-6828-16m1igq.8he4su4n29",
   "activationHooks": [
     "language-html:grammar-used"
   ],

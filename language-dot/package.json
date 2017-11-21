@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
+        "raw": "/tmp/d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
-        "spec": "/tmp/d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
+        "rawSpec": "/tmp/d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
+        "spec": "/tmp/d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117921-6920-dnczps.q9sw3tyb9"
+      "/tmp/apm-install-dir-1171021-7334-1dnev2s.3k69r7ldi"
     ]
   ],
-  "_from": "../d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
+  "_from": "../d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
   "_id": "language-dot@1.7.0",
   "_inCache": true,
   "_location": "/language-dot",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
+    "raw": "/tmp/d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
-    "spec": "/tmp/d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
+    "rawSpec": "/tmp/d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
+    "spec": "/tmp/d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
+  "_resolved": "file:../d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
   "_shasum": "3d4e6816dcf75a0ddc5011e7e512a0ef176fcf00",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117921-6920-1ofke05.lre2pdgqfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117921-6920-dnczps.q9sw3tyb9",
+  "_spec": "/tmp/d-1171021-7334-mxzkjs.lp814w8kt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171021-7334-1dnev2s.3k69r7ldi",
   "bugs": {
     "url": "https://github.com/AdoPi/language-dot/issues"
   },

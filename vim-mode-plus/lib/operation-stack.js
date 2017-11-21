@@ -1,33 +1,26 @@
 const {Disposable, CompositeDisposable} = require("atom")
 const Base = require("./base")
-let OperationAbortedError
 
 // opration life in operationStack
 // 1. run
 //    instantiated by new.
-//    complement implicit Operator.SelectInVisualMode operator if necessary.
+//    complement implicit Operator.VisualModeSelect operator if necessary.
 //    push operation to stack.
 // 2. process
 //    reduce stack by, popping top of stack then set it as target of new top.
-//    check if remaining top of stack is executable by calling isComplete()
+//    check if remaining top of stack is executable by calling isReady()
 //    if executable, then pop stack then execute(poppedOperation)
 //    if not executable, enter "operator-pending-mode"
 module.exports = class OperationStack {
-  get mode() {
-    return this.modeManager.mode
-  }
-  get submode() {
-    return this.modeManager.submode
-  }
+  get mode() { return this.vimState.mode } // prettier-ignore
+  get submode() { return this.vimState.submode } // prettier-ignore
 
   constructor(vimState) {
     this.vimState = vimState
     this.editor = vimState.editor
     this.editorElement = vimState.editorElement
-    this.modeManager = vimState.modeManager
-
+    
     this.vimState.onDidDestroy(() => this.destroy())
-
     this.reset()
   }
 
@@ -96,7 +89,7 @@ module.exports = class OperationStack {
       if (this.isEmpty()) {
         if ((this.mode === "visual" && operation.isMotion()) || operation.isTextObject()) {
           const target = operation
-          operation = Base.getInstance(this.vimState, "SelectInVisualMode")
+          operation = Base.getInstance(this.vimState, "VisualModeSelect")
           operation.setTarget(target)
         }
         this.stack.push(operation)
@@ -155,8 +148,7 @@ module.exports = class OperationStack {
 
   handleError(error) {
     this.vimState.reset()
-    if (!OperationAbortedError) OperationAbortedError = require("./errors")
-    if (!(error instanceof OperationAbortedError)) throw error
+    throw error
   }
 
   isRunning() {
@@ -166,10 +158,11 @@ module.exports = class OperationStack {
   process() {
     if (this.stack.length === 2) {
       // [FIXME ideally]
-      // If target is not complete, we postpone composing target with operator to keep situation simple.
-      // So that we can assume when target is set to operator it's complete.
+      // When motion was targeted and its not complete like `y s t a`.
+      // We won't compose target till target become ready.
+      // So that we can assume when target is set, it' target is also ready.
       // e.g. `y s t a'(surround for range from here to till a)
-      if (!this.peekTop().isComplete()) return
+      if (!this.peekTop().isReady()) return
 
       const operation = this.stack.pop()
       this.peekTop().setTarget(operation)
@@ -177,9 +170,9 @@ module.exports = class OperationStack {
 
     const top = this.peekTop()
 
-    if (!top.isComplete()) {
+    if (!top.isReady()) {
       if (this.mode === "normal" && top.isOperator()) {
-        this.modeManager.activate("operator-pending")
+        this.vimState.activate("operator-pending")
       }
       // Temporary set while command is running to achieve operation-specific keymap scopes
       this.addToClassList(top.getCommandNameWithoutPrefix() + "-pending")
@@ -193,7 +186,9 @@ module.exports = class OperationStack {
     // Since almost all command don't return promise, finish synchronously.
     const execution = operation.execute()
     if (execution instanceof Promise) {
-      execution.then(() => this.finish(operation)).catch(() => this.handleError())
+      execution.then(() => this.finish(operation)).catch(() => {
+        this.handleError()
+      })
     } else {
       this.finish(operation)
     }
@@ -202,7 +197,7 @@ module.exports = class OperationStack {
   cancel(operation) {
     if (this.mode === "operator-pending") {
       this.vimState.mutationManager.restoreCursorsToInitialPosition()
-      this.modeManager.activate("normal")
+      this.vimState.activate("normal")
     }
     this.finish(operation, true)
   }
@@ -225,7 +220,7 @@ module.exports = class OperationStack {
       const eolCursors = this.editor.getCursors().filter(cursor => cursor.isAtEndOfLine())
       eolCursors.forEach(cursor => this.vimState.utils.moveCursorLeft(cursor, {keepGoalColumn: true}))
     } else if (this.mode === "visual") {
-      this.modeManager.updateNarrowedState()
+      this.vimState.updateNarrowedState()
       this.vimState.updatePreviousSelection()
     }
 

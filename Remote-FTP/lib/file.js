@@ -2,12 +2,16 @@
 
 import fs from 'fs-plus';
 import path from 'path';
+import { Emitter } from 'event-kit';
 
 class File {
   constructor(params) {
+    this.emitter = new Emitter();
+
     this.parent = null;
     this.name = '';
     this.client = null;
+    this.isSelected = false;
     this.status = 0;
     this.size = 0;
     this.date = null;
@@ -52,7 +56,11 @@ class File {
   }
 
   destroy() {
-    //
+    this.emitter.dispose();
+  }
+
+  onChangeSelect(callback) {
+    return this.emitter.on('did-change-select', callback);
   }
 
   get local() {
@@ -85,6 +93,11 @@ class File {
     }
 
     return this;
+  }
+
+  set setIsSelected(value) {
+    this.isSelected = value;
+    this.emitter.emit('did-change-select', value);
   }
 }
 

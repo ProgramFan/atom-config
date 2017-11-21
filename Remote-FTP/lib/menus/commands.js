@@ -16,7 +16,6 @@ import NavigateTo from '../dialogs/navigate-to-dialog';
 
 
 const init = () => {
-  const atom = global.atom;
   const client = atom.project.remoteftp;
   const remoteftp = atom.project['remoteftp-main'];
 
@@ -136,7 +135,7 @@ const init = () => {
 
         client.readConfig((e) => {
           if (e) {
-            atom.notifications.addError('Remote FTP: Could not read `.ftpconfig` file', {
+            atom.notifications.addError('Remote FTP: Could not read `.ftpconfig` file.', {
               detail: e,
               dismissable: false,
             });
@@ -153,7 +152,7 @@ const init = () => {
           client.connect();
 
           if (hideFTPTreeView) {
-            atom.project.remoteftp.once('connected', () => {
+            atom.project.remoteftp.emitter.once('connected', () => {
               remoteftp.treeView.toggle();
             });
           }
@@ -265,7 +264,7 @@ const init = () => {
             dialog.close();
 
             if (errMessage === 'file exists' || errMessage === 'File already exists') {
-              atom.notifications.addError('Remote FTP: File / Folder already exists', {
+              atom.notifications.addError('Remote FTP: File / Folder already exists.', {
                 dismissable: false,
               });
               return;
@@ -389,12 +388,10 @@ const init = () => {
         let successfulTransfers = 0;
         let attemptedTransfers = 0;
 
-        $treeSelected.each(() => {
-          const path = this.getPath ? this.getPath() : '';
+        $treeSelected.each((key, elem) => {
+          const path = elem.getPath ? elem.getPath() : '';
           const localPath = path.replace(client.root.local, '');
-
-          // if this is windows, the path may have \ instead of / as directory separators
-          const remotePath = atom.project.remoteftp.root.remote + localPath.replace(/\\/g, '/');
+          const remotePath = Path.posix.normalize(atom.project.remoteftp.root.remote + localPath);
 
           client.download(remotePath, true, () => {
             if (atom.config.get('Remote-FTP.notifications.enableTransfer')) {
@@ -433,7 +430,7 @@ const init = () => {
 
           atom.commands.dispatch(viewWorkspace, 'remote-ftp:connect');
 
-          atom.project.remoteftp.once('connected', () => {
+          atom.project.remoteftp.onceConnected(() => {
             atom.commands.dispatch(viewWorkspace, 'remote-ftp:upload-selected');
           });
 
@@ -541,13 +538,13 @@ const init = () => {
               // syncRemoteFileToLocal() is not setup to return any errors here,
               // as they are handled else where. TODO: perhaps look into a way to restructure
               // sequence to handle all errors in one location (here)
-              atom.notifications.addError(`Remote FTP: Error Syncing "${Path.basename(view.item.remote)}" to local`, {
+              atom.notifications.addError(`Remote FTP: Error Syncing "${Path.basename(view.item.remote)}" to local.`, {
                 dismissable: true,
               });
             } finally {
               // TODO: Verify transfer was completed successfully by checking files
               // and verifying sizes or hash of both files
-              atom.notifications.addInfo(`Remote FTP: Synced "${Path.basename(view.item.remote)}" to local!`, {
+              atom.notifications.addInfo(`Remote FTP: Synced "${Path.basename(view.item.remote)}" to local.`, {
                 dismissable: false,
               });
             }
@@ -559,13 +556,13 @@ const init = () => {
               // syncRemoteDirectoryToLocal() is not setup to return any errors here,
               // as they are handled else where. TODO: perhaps look into a way to restructure
               // sequence to handle all errors in one location (here)
-              atom.notifications.addError(`Remote FTP: Error in Syncing "${Path.basename(view.item.remote)}" to local`, {
+              atom.notifications.addError(`Remote FTP: Error in Syncing "${Path.basename(view.item.remote)}" to local.`, {
                 dismissable: true,
               });
             } finally {
               // TODO: Verify transfer was completed successfully by checking files
               // and verifying sizes or hash of both files
-              atom.notifications.addInfo(`Remote FTP: Synced "${Path.basename(view.item.remote)}" to local!!`, {
+              atom.notifications.addInfo(`Remote FTP: Synced "${Path.basename(view.item.remote)}" to local.`, {
                 dismissable: false,
               });
             }
@@ -585,7 +582,7 @@ const init = () => {
 
           atom.commands.dispatch(viewWorkspace, 'remote-ftp:connect');
 
-          client.once('connected', () => {
+          atom.project.remoteftp.emitter.once('connected', () => {
             atom.commands.dispatch(viewWorkspace, 'remote-ftp:sync-with-local');
           });
 
@@ -607,13 +604,13 @@ const init = () => {
               // syncLocalFileToRemote() is not setup to return any errors here,
               // as they are handled else where. TODO: perhaps look into a way to restructure
               // sequence to handle all errors in one location (here)
-              atom.notifications.addError(`Remote FTP: Error Syncing "${Path.basename(local)}" to remote`, {
+              atom.notifications.addError(`Remote FTP: Error Syncing "${Path.basename(local)}" to remote.`, {
                 dismissable: true,
               });
             } finally {
               // TODO: Verify transfer was completed successfully by checking remote
               // and verifying sizes or hash of both files
-              atom.notifications.addInfo(`Remote FTP: Synced "${Path.basename(local)}" to remote`, {
+              atom.notifications.addInfo(`Remote FTP: Synced "${Path.basename(local)}" to remote.`, {
                 dismissable: false,
               });
             }
@@ -622,7 +619,7 @@ const init = () => {
               client.syncLocalDirectoryToRemote(local, () => {
                 // TODO: Verify transfer was completed successfully by checking remote
                 // and verifying sizes or hash of both files
-                atom.notifications.addInfo(`Remote FTP: Synced "${local}" to remote`, {
+                atom.notifications.addInfo(`Remote FTP: Synced "${local}" to remote.`, {
                   dismissable: false,
                 });
               });
@@ -630,7 +627,7 @@ const init = () => {
               // syncLocalDirectoryToRemote() is not setup to return any errors here,
               // as they are handled else where. TODO: perhaps look into a way to restructure
               // sequence to handle all errors in one location (here)
-              atom.notifications.addError(`Remote FTP: Error Syncing "${local}" to remote`, {
+              atom.notifications.addError(`Remote FTP: Error Syncing "${local}" to remote.`, {
                 dismissable: true,
               });
             }

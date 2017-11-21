@@ -5,10 +5,11 @@ const Base = require("./base")
 
 class Operator extends Base {
   static operationKind = "operator"
-  requireTarget = true
+  static command = false
   recordable = true
 
   wise = null
+  target = null
   occurrence = false
   occurrenceType = "base"
 
@@ -29,17 +30,15 @@ class Operator extends Base {
   acceptPersistentSelection = true
 
   bufferCheckpointByPurpose = null
-  mutateSelectionOrderd = false
 
-  // Experimentaly allow selectTarget before input Complete
-  // -------------------------
-  supportEarlySelect = false
   targetSelected = null
+  input = null
+  readInputAfterSelect = false
+  bufferCheckpointByPurpose = {}
 
-  canEarlySelect() {
-    return this.supportEarlySelect && !this.repeated
+  isReady() {
+    return this.target && this.target.isReady()
   }
-  // -------------------------
 
   // Called when operation finished
   // This is essentially to reset state for `.` repeat.
@@ -49,30 +48,21 @@ class Operator extends Base {
   }
 
   // Two checkpoint for different purpose
-  // - one for undo(handled by modeManager)
+  // - one for undo
   // - one for preserve last inserted text
   createBufferCheckpoint(purpose) {
-    if (!this.bufferCheckpointByPurpose) this.bufferCheckpointByPurpose = {}
     this.bufferCheckpointByPurpose[purpose] = this.editor.createCheckpoint()
   }
 
   getBufferCheckpoint(purpose) {
-    if (this.bufferCheckpointByPurpose) {
-      return this.bufferCheckpointByPurpose[purpose]
-    }
-  }
-
-  deleteBufferCheckpoint(purpose) {
-    if (this.bufferCheckpointByPurpose) {
-      delete this.bufferCheckpointByPurpose[purpose]
-    }
+    return this.bufferCheckpointByPurpose[purpose]
   }
 
   groupChangesSinceBufferCheckpoint(purpose) {
     const checkpoint = this.getBufferCheckpoint(purpose)
     if (checkpoint) {
       this.editor.groupChangesSinceCheckpoint(checkpoint)
-      this.deleteBufferCheckpoint(purpose)
+      delete this.bufferCheckpointByPurpose[purpose]
     }
   }
 
@@ -138,11 +128,11 @@ class Operator extends Base {
     if (this.selectPersistentSelectionIfNecessary()) {
       // [FIXME] selection-wise is not synched if it already visual-mode
       if (this.mode !== "visual") {
-        this.vimState.modeManager.activate("visual", this.swrap.detectWise(this.editor))
+        this.vimState.activate("visual", this.swrap.detectWise(this.editor))
       }
     }
 
-    if (this.mode === "visual" && this.requireTarget) {
+    if (this.mode === "visual") {
       this.target = "CurrentSelection"
     }
     if (_.isString(this.target)) {
@@ -206,12 +196,6 @@ class Operator extends Base {
     this.target = target
     this.target.operator = this
     this.emitDidSetTarget(this)
-
-    if (this.canEarlySelect()) {
-      this.normalizeSelectionsIfNecessary()
-      this.createBufferCheckpoint("undo")
-      this.selectTarget()
-    }
   }
 
   setTextToRegisterForSelection(selection) {
@@ -223,7 +207,8 @@ class Operator extends Base {
       return
     }
 
-    if (this.target.isLinewise() && !text.endsWith("\n")) {
+    const wise = this.occurrenceSelected ? this.occurrenceWise : this.target.wise
+    if (wise === "linewise" && !text.endsWith("\n")) {
       text += "\n"
     }
 
@@ -272,43 +257,53 @@ class Operator extends Base {
     }
   }
 
-  startMutation(fn) {
-    if (this.canEarlySelect()) {
-      // - Skip selection normalization: already normalized before @selectTarget()
-      // - Manual checkpoint grouping: to create checkpoint before @selectTarget()
-      fn()
-      this.emitWillFinishMutation()
-      this.groupChangesSinceBufferCheckpoint("undo")
-    } else {
-      this.normalizeSelectionsIfNecessary()
-      this.editor.transact(() => {
-        fn()
-        this.emitWillFinishMutation()
-      })
+  mutateSelections() {
+    for (const selection of this.editor.getSelectionsOrderedByBufferPosition()) {
+      this.mutateSelection(selection)
     }
-
-    this.emitDidFinishMutation()
+    this.mutationManager.setCheckpoint("did-finish")
+    this.restoreCursorPositionsIfNecessary()
   }
 
-  // Main
-  execute() {
-    this.startMutation(() => {
-      if (this.selectTarget()) {
-        const selections = this.mutateSelectionOrderd
-          ? this.editor.getSelectionsOrderedByBufferPosition()
-          : this.editor.getSelections()
+  preSelect() {
+    this.normalizeSelectionsIfNecessary()
+    this.createBufferCheckpoint("undo")
+  }
 
-        for (const selection of selections) {
-          this.mutateSelection(selection)
-        }
-        this.mutationManager.setCheckpoint("did-finish")
-        this.restoreCursorPositionsIfNecessary()
-      }
-    })
+  postMutate() {
+    this.groupChangesSinceBufferCheckpoint("undo")
+    this.emitDidFinishMutation()
 
     // Even though we fail to select target and fail to mutate,
     // we have to return to normal-mode from operator-pending or visual
     this.activateMode("normal")
+  }
+
+  // Main
+  execute() {
+    this.preSelect()
+
+    if (this.readInputAfterSelect && !this.repeated) {
+      return this.executeAsyncToReadInputAfterSelect()
+    }
+
+    if (this.selectTarget()) this.mutateSelections()
+    this.postMutate()
+  }
+
+  async executeAsyncToReadInputAfterSelect() {
+    if (this.selectTarget()) {
+      this.input = await this.focusInputPromised(this.focusInputOptions)
+      if (this.input == null) {
+        if (this.mode !== "visual") {
+          this.editor.revertToCheckpoint(this.getBufferCheckpoint("undo"))
+          this.activateMode("normal")
+        }
+        return
+      }
+      this.mutateSelections()
+    }
+    this.postMutate()
   }
 
   // Return true unless all selection is empty.
@@ -372,14 +367,15 @@ class Operator extends Base {
     this.mutationManager.restoreCursorPositions({stay, wise, setToFirstCharacterOnLinewise})
   }
 }
-Operator.register(false)
 
 class SelectBase extends Operator {
+  static command = false
   flashTarget = false
   recordable = false
 
   execute() {
-    this.startMutation(() => this.selectTarget())
+    this.normalizeSelectionsIfNecessary()
+    this.selectTarget()
 
     if (this.target.selectSucceeded) {
       if (this.target.isTextObject()) {
@@ -392,7 +388,6 @@ class SelectBase extends Operator {
     }
   }
 }
-SelectBase.register(false)
 
 class Select extends SelectBase {
   execute() {
@@ -400,45 +395,40 @@ class Select extends SelectBase {
     super.execute()
   }
 }
-Select.register()
 
 class SelectLatestChange extends SelectBase {
   target = "ALatestChange"
 }
-SelectLatestChange.register()
 
 class SelectPreviousSelection extends SelectBase {
   target = "PreviousSelection"
 }
-SelectPreviousSelection.register()
 
 class SelectPersistentSelection extends SelectBase {
   target = "APersistentSelection"
   acceptPersistentSelection = false
 }
-SelectPersistentSelection.register()
 
 class SelectOccurrence extends SelectBase {
   occurrence = true
 }
-SelectOccurrence.register()
 
-// SelectInVisualMode: used in visual-mode
+// VisualModeSelect: used in visual-mode
 // When text-object is invoked from normal or viusal-mode, operation would be
-//  => SelectInVisualMode operator with target=text-object
+//  => VisualModeSelect operator with target=text-object
 // When motion is invoked from visual-mode, operation would be
-//  => SelectInVisualMode operator with target=motion)
+//  => VisualModeSelect operator with target=motion)
 // ================================
-// SelectInVisualMode is used in TWO situation.
+// VisualModeSelect is used in TWO situation.
 // - visual-mode operation
 //   - e.g: `v l`, `V j`, `v i p`...
 // - Directly invoke text-object from normal-mode
 //   - e.g: Invoke `Inner Paragraph` from command-palette.
-class SelectInVisualMode extends SelectBase {
+class VisualModeSelect extends SelectBase {
+  static command = false
   acceptPresetOccurrence = false
   acceptPersistentSelection = false
 }
-SelectInVisualMode.register(false)
 
 // Persistent Selection
 // =========================
@@ -452,24 +442,27 @@ class CreatePersistentSelection extends Operator {
     this.persistentSelection.markBufferRange(selection.getBufferRange())
   }
 }
-CreatePersistentSelection.register()
 
 class TogglePersistentSelection extends CreatePersistentSelection {
-  isComplete() {
-    const point = this.editor.getCursorBufferPosition()
-    this.markerToRemove = this.persistentSelection.getMarkerAtPoint(point)
-    return this.markerToRemove || super.isComplete()
+  initialize() {
+    if (this.mode === "normal") {
+      const point = this.editor.getCursorBufferPosition()
+      const marker = this.persistentSelection.getMarkerAtPoint(point)
+      if (marker) this.target = "Empty"
+    }
+    super.initialize()
   }
 
-  execute() {
-    if (this.markerToRemove) {
-      this.markerToRemove.destroy()
+  mutateSelection(selection) {
+    const point = this.getCursorPositionForSelection(selection)
+    const marker = this.persistentSelection.getMarkerAtPoint(point)
+    if (marker) {
+      marker.destroy()
     } else {
-      super.execute()
+      super.mutateSelection(selection)
     }
   }
 }
-TogglePersistentSelection.register()
 
 // Preset Occurrence
 // =========================
@@ -485,7 +478,7 @@ class TogglePresetOccurrence extends Operator {
     if (marker) {
       this.occurrenceManager.destroyMarkers([marker])
     } else {
-      const isNarrowed = this.vimState.modeManager.isNarrowed()
+      const isNarrowed = this.vimState.isNarrowed()
 
       let regex
       if (this.mode === "visual" && !isNarrowed) {
@@ -502,12 +495,10 @@ class TogglePresetOccurrence extends Operator {
     }
   }
 }
-TogglePresetOccurrence.register()
 
 class TogglePresetSubwordOccurrence extends TogglePresetOccurrence {
   occurrenceType = "subword"
 }
-TogglePresetSubwordOccurrence.register()
 
 // Want to rename RestoreOccurrenceMarker
 class AddPresetOccurrenceFromLastOccurrencePattern extends TogglePresetOccurrence {
@@ -521,7 +512,6 @@ class AddPresetOccurrenceFromLastOccurrencePattern extends TogglePresetOccurrenc
     }
   }
 }
-AddPresetOccurrenceFromLastOccurrencePattern.register()
 
 // Delete
 // ================================
@@ -550,17 +540,14 @@ class Delete extends Operator {
     selection.deleteSelectedText()
   }
 }
-Delete.register()
 
 class DeleteRight extends Delete {
   target = "MoveRight"
 }
-DeleteRight.register()
 
 class DeleteLeft extends Delete {
   target = "MoveLeft"
 }
-DeleteLeft.register()
 
 class DeleteToLastCharacterOfLine extends Delete {
   target = "MoveToLastCharacterOfLine"
@@ -576,14 +563,12 @@ class DeleteToLastCharacterOfLine extends Delete {
     super.execute()
   }
 }
-DeleteToLastCharacterOfLine.register()
 
 class DeleteLine extends Delete {
   wise = "linewise"
   target = "MoveToRelativeLine"
   flashTarget = false
 }
-DeleteLine.register()
 
 // Yank
 // =========================
@@ -595,18 +580,15 @@ class Yank extends Operator {
     this.setTextToRegisterForSelection(selection)
   }
 }
-Yank.register()
 
 class YankLine extends Yank {
   wise = "linewise"
   target = "MoveToRelativeLine"
 }
-YankLine.register()
 
 class YankToLastCharacterOfLine extends Yank {
   target = "MoveToLastCharacterOfLine"
 }
-YankToLastCharacterOfLine.register()
 
 // -------------------------
 // [ctrl-a]
@@ -631,7 +613,7 @@ class Increase extends Operator {
 
   replaceNumberInBufferRange(scanRange, fn) {
     const newRanges = []
-    this.scanForward(this.regex, {scanRange}, event => {
+    this.scanEditor("forward", this.regex, {scanRange}, event => {
       if (fn) {
         if (fn(event)) event.stop()
         else return
@@ -644,7 +626,7 @@ class Increase extends Operator {
 
   mutateSelection(selection) {
     const {cursor} = selection
-    if (this.target.is("Empty")) {
+    if (this.target.name === "Empty") {
       // ctrl-a, ctrl-x in `normal-mode`
       const cursorPosition = cursor.getBufferPosition()
       const scanRange = this.editor.bufferRangeForBufferRow(cursorPosition.row)
@@ -664,20 +646,17 @@ class Increase extends Operator {
     return Number.parseInt(numberString, 10) + this.step * this.getCount()
   }
 }
-Increase.register()
 
 // [ctrl-x]
 class Decrease extends Increase {
   step = -1
 }
-Decrease.register()
 
 // -------------------------
 // [g ctrl-a]
 class IncrementNumber extends Increase {
   baseNumber = null
   target = null
-  mutateSelectionOrderd = true
 
   getNextNumber(numberString) {
     if (this.baseNumber != null) {
@@ -688,13 +667,11 @@ class IncrementNumber extends Increase {
     return this.baseNumber
   }
 }
-IncrementNumber.register()
 
 // [g ctrl-x]
 class DecrementNumber extends IncrementNumber {
   step = -1
 }
-DecrementNumber.register()
 
 // Put
 // -------------------------
@@ -784,11 +761,7 @@ class PutBefore extends Operator {
 
   pasteCharacterwise(selection, text) {
     const {cursor} = selection
-    if (
-      selection.isEmpty() &&
-      this.location === "after" &&
-      !this.utils.isEmptyRow(this.editor, cursor.getBufferRow())
-    ) {
+    if (selection.isEmpty() && this.location === "after" && !this.isEmptyRow(cursor.getBufferRow())) {
       cursor.moveRight()
     }
     return selection.insertText(text)
@@ -817,12 +790,10 @@ class PutBefore extends Operator {
     }
   }
 }
-PutBefore.register()
 
 class PutAfter extends PutBefore {
   location = "after"
 }
-PutAfter.register()
 
 class PutBeforeWithAutoIndent extends PutBefore {
   pasteLinewise(selection, text) {
@@ -831,12 +802,10 @@ class PutBeforeWithAutoIndent extends PutBefore {
     return newRange
   }
 }
-PutBeforeWithAutoIndent.register()
 
 class PutAfterWithAutoIndent extends PutBeforeWithAutoIndent {
   location = "after"
 }
-PutAfterWithAutoIndent.register()
 
 class AddBlankLineBelow extends Operator {
   flashTarget = false
@@ -852,9 +821,41 @@ class AddBlankLineBelow extends Operator {
     this.editor.setTextInBufferRange([point, point], "\n".repeat(this.getCount()))
   }
 }
-AddBlankLineBelow.register()
 
 class AddBlankLineAbove extends AddBlankLineBelow {
   where = "above"
 }
-AddBlankLineAbove.register()
+
+module.exports = {
+  Operator,
+  SelectBase,
+  Select,
+  SelectLatestChange,
+  SelectPreviousSelection,
+  SelectPersistentSelection,
+  SelectOccurrence,
+  VisualModeSelect,
+  CreatePersistentSelection,
+  TogglePersistentSelection,
+  TogglePresetOccurrence,
+  TogglePresetSubwordOccurrence,
+  AddPresetOccurrenceFromLastOccurrencePattern,
+  Delete,
+  DeleteRight,
+  DeleteLeft,
+  DeleteToLastCharacterOfLine,
+  DeleteLine,
+  Yank,
+  YankLine,
+  YankToLastCharacterOfLine,
+  Increase,
+  Decrease,
+  IncrementNumber,
+  DecrementNumber,
+  PutBefore,
+  PutAfter,
+  PutBeforeWithAutoIndent,
+  PutAfterWithAutoIndent,
+  AddBlankLineBelow,
+  AddBlankLineAbove,
+}

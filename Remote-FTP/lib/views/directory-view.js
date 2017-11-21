@@ -1,5 +1,6 @@
 'use babel';
 
+import { Emitter, CompositeDisposable } from 'atom';
 import path from 'path';
 import { $, View } from 'atom-space-pen-views';
 import { getIconHandler, checkTarget, recursiveViewDestroy } from '../helpers';
@@ -30,6 +31,10 @@ class DirectoryView extends View {
   initialize(directory) {
     // super.initialize(directory);
 
+    this.emitter = new Emitter();
+    this.subscriptions = new CompositeDisposable();
+    this.subsDrags = new CompositeDisposable();
+
     this.item = directory;
     this.name.text(this.item.name);
     this.name.attr('data-name', this.item.name);
@@ -39,6 +44,9 @@ class DirectoryView extends View {
     if (addIconToElement) {
       const element = this.name[0] || this.name;
       const pathIco = this.item && this.item.local;
+
+      if (typeof pathIco === 'undefined') return;
+
       this.iconDisposable = addIconToElement(element, pathIco, { isDirectory: true });
     } else {
       this.name.addClass(this.item.type && this.item.type === 'l' ? 'icon-file-symlink-directory' : 'icon-file-directory');
@@ -60,28 +68,111 @@ class DirectoryView extends View {
     // Events
     this.events();
 
-    // NOTE: Newer versions will have event handling
     if (atom.config.get('Remote-FTP.tree.enableDragAndDrop')) {
-      this.dragEvents();
+      this.dragEventsActivate();
     }
   }
 
   triggers() {
-    this.item.onChangeItems(() => {
-      this.repaint();
-    });
+    this.subscriptions.add(
+      this.item.onChangeSelect(() => {
+        let lastSelected = atom.project['remoteftp-main'].treeView.lastSelected;
 
-    this.item.onChangeExpanded(() => {
-      this.setClasses();
-    });
+        if (this.item.isSelected) {
+          lastSelected.push(this);
+          lastSelected = lastSelected.reverse().slice(0, 2).reverse();
+        }
+      }),
+    );
 
-    this.item.onDestroyed(() => {
-      this.destroy();
-    });
+    this.subscriptions.add(
+      this.item.onChangeItems(() => {
+        this.repaint();
+      }),
+    );
+
+    this.subscriptions.add(
+      this.item.onChangeExpanded(() => {
+        this.setClasses();
+      }),
+    );
+
+    this.subscriptions.add(
+      this.item.onDestroyed(() => {
+        this.destroy();
+      }),
+    );
+  }
+
+  onDidMouseDown(callback) {
+    this.subscriptions.add(
+      this.emitter.on('mousedown', (e) => {
+        callback(e);
+      }),
+    );
+  }
+
+  onDidDbClick(callback) {
+    this.subscriptions.add(
+      this.emitter.on('dblclick', (e) => {
+        callback(e);
+      }),
+    );
+  }
+
+  onDidChangeEnableDragAndDrop(callback) {
+    this.subsDrags.add(
+      this.emitter.on('enableDragAndDrop', () => {
+        callback();
+      }),
+    );
+  }
+
+  onDidDrop(callback) {
+    this.subsDrags.add(
+      this.emitter.on('drop', (e) => {
+        callback(e);
+      }),
+    );
+  }
+
+  onDidDragStart(callback) {
+    this.subsDrags.add(
+      this.emitter.on('dragstart', (e) => {
+        callback(e);
+      }),
+    );
+  }
+
+  onDidDragOver(callback) {
+    this.subsDrags.add(
+      this.emitter.on('dragover', (e) => {
+        callback(e);
+      }),
+    );
+  }
+
+  onDidDragEnter(callback) {
+    this.subsDrags.add(
+      this.emitter.on('dragenter', (e) => {
+        callback(e);
+      }),
+    );
+  }
+
+  onDidDragLeave(callback) {
+    this.subsDrags.add(
+      this.emitter.on('dragleave', (e) => {
+        callback(e);
+      }),
+    );
   }
 
   events() {
-    this.on('mousedown', (e) => {
+    this.on('dblclick', e => this.emitter.emit('dblclick', e));
+    this.on('mousedown', e => this.emitter.emit('mousedown', e));
+
+    this.onDidMouseDown((e) => {
       const self = e.currentTarget;
       e.stopPropagation();
 
@@ -101,6 +192,10 @@ class DirectoryView extends View {
         }
         view.toggleClass('selected');
 
+        this.item.setIsSelected = view.hasClass('selected');
+
+        if (e.shiftKey) return;
+
         if (button === 0 && !e[selectKey]) {
           if (view.item.status === 0) {
             view.open();
@@ -112,7 +207,7 @@ class DirectoryView extends View {
       }
     });
 
-    this.on('dblclick', (e) => {
+    this.onDidDbClick((e) => {
       const self = e.currentTarget;
       e.stopPropagation();
 
@@ -124,8 +219,14 @@ class DirectoryView extends View {
     });
   }
 
-  dragEvents() {
-    this.on('drop', (e) => {
+  dragEventsActivate() {
+    this.on('drop', e => this.emitter.emit('drop', e));
+    this.on('dragstart', e => this.emitter.emit('dragstart', e));
+    this.on('dragover', e => this.emitter.emit('dragover', e));
+    this.on('dragenter', e => this.emitter.emit('dragenter', e));
+    this.on('dragleave', e => this.emitter.emit('dragleave', e));
+
+    this.onDidDrop((e) => {
       const self = e.currentTarget;
       e.preventDefault();
       e.stopPropagation();
@@ -146,23 +247,23 @@ class DirectoryView extends View {
       ftp.client.rename(pathInfos.fullPath, destPath, (err) => {
         if (err) console.error(err);
 
-        // const sourceTree = ftp.treeView.resolve(path.posix.dirname(pathInfos.fullPath));
-        // const destTree = ftp.treeView.resolve(path.posix.dirname(destPath));
+        const sourceTree = ftp.treeView.resolve(path.posix.dirname(pathInfos.fullPath));
+        const destTree = ftp.treeView.resolve(path.posix.dirname(destPath));
 
         // NOTE: Check the hierarchy.
-        // if (sourceTree) {
-        //   sourceTree.open();
-        //   recursiveViewDestroy(sourceTree);
-        // }
-        //
-        // if (destTree) {
-        //   destTree.open();
-        //   recursiveViewDestroy(destTree);
-        // }
+        if (sourceTree) {
+          sourceTree.open();
+          recursiveViewDestroy(sourceTree);
+        }
+
+        if (destTree) {
+          destTree.open();
+          recursiveViewDestroy(destTree);
+        }
       });
     });
 
-    this.on('dragstart', (e) => {
+    this.onDidDragStart((e) => {
       const target = $(e.target).find('.name');
       const dataTransfer = e.originalEvent.dataTransfer;
       const pathInfos = {
@@ -174,12 +275,12 @@ class DirectoryView extends View {
       dataTransfer.effectAllowed = 'move';
     });
 
-    this.on('dragover', (e) => {
+    this.onDidDragOver((e) => {
       e.preventDefault();
       e.stopPropagation();
     });
 
-    this.on('dragenter', (e) => {
+    this.onDidDragEnter((e) => {
       const self = e.currentTarget;
       e.stopPropagation();
 
@@ -188,15 +289,21 @@ class DirectoryView extends View {
       self.classList.add('selected');
     });
 
-    this.on('dragend', () => {
-      // this.dragged = null;
-    });
-
-    this.on('dragleave', (e) => {
+    this.onDidDragLeave((e) => {
       e.stopPropagation();
 
       e.currentTarget.classList.remove('selected');
     });
+  }
+
+  dragEventsDestroy() {
+    this.subsDrags.dispose();
+  }
+
+  dispose() {
+    this.subscriptions.dispose();
+    this.subsDrags.dispose();
+    this.emitter.dispose();
   }
 
   destroy() {
@@ -207,47 +314,61 @@ class DirectoryView extends View {
       this.iconDisposable = null;
     }
 
+    this.dispose();
     this.remove();
   }
 
-  repaint() {
-    let views = this.entries.children().map((err, item) => $(item).view()).get();
-    const folders = [];
-    const files = [];
+  getViews() {
+    return this.entries.children().map((err, item) => $(item).view()).get();
+  }
 
-    this.entries.children().detach();
+  getItemViews(itemViews) {
+    const views = this.getViews() || itemViews;
+    const entries = {
+      folders: [],
+      files: [],
+    };
 
     if (this.item) {
       this.item.folders.forEach((item) => {
         for (let a = 0, b = views.length; a < b; ++a) {
           if (views[a] && views[a] instanceof DirectoryView && views[a].item === item) {
-            folders.push(views[a]);
+            entries.folders.push(views[a]);
             return;
           }
         }
-        folders.push(new DirectoryView(item));
+        entries.folders.push(new DirectoryView(item));
       });
 
       this.item.files.forEach((item) => {
         for (let a = 0, b = views.length; a < b; ++a) {
           if (views[a] && views[a] instanceof FileView && views[a].item === item) {
-            files.push(views[a]);
+            entries.files.push(views[a]);
             return;
           }
         }
-        files.push(new FileView(item));
+        entries.files.push(new FileView(item));
       });
     }
 
+    return entries;
+  }
+
+  repaint() {
+    let views = this.getViews();
+
+    this.entries.children().detach();
+
+    const entries = this.getItemViews();
+
     // TODO Destroy left over...
-    views = folders.concat(files);
+    views = entries.folders.concat(entries.files);
 
     views.sort((a, b) => {
       if (a.constructor !== b.constructor) { return a instanceof DirectoryView ? -1 : 1; }
       if (a.item.name === b.item.name) { return 0; }
 
-      return a.item.name.toLowerCase()
-        .localeCompare(b.item.name.toLowerCase());
+      return a.item.name.toLowerCase().localeCompare(b.item.name.toLowerCase());
     });
 
     views.forEach((view) => {

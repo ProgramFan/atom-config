@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
+        "raw": "/tmp/d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
-        "spec": "/tmp/d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
+        "rawSpec": "/tmp/d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
+        "spec": "/tmp/d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117921-8017-cimaax.6vpch4zpvi"
+      "/tmp/apm-install-dir-1171021-8609-erdvwe.5qwb87iudi"
     ]
   ],
-  "_from": "../d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
+  "_from": "../d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
   "_id": "hyperclick@0.1.5",
   "_inCache": true,
   "_location": "/hyperclick",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
+    "raw": "/tmp/d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
-    "spec": "/tmp/d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
+    "rawSpec": "/tmp/d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
+    "spec": "/tmp/d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
+  "_resolved": "file:../d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
   "_shasum": "bfd388a0798053e09d72c36175a4c88f75b1f57a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117921-8017-1is1ui5.d55e0l766r/package.tgz",
-  "_where": "/tmp/apm-install-dir-117921-8017-cimaax.6vpch4zpvi",
+  "_spec": "/tmp/d-1171021-8609-kruj14.pg7n94quxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171021-8609-erdvwe.5qwb87iudi",
   "bugs": {
     "url": "https://github.com/facebook-atom/hyperclick/issues"
   },

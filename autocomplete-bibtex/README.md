@@ -1,8 +1,8 @@
-# autocomplete-bibtex package
+# Autocomplete-bibtex
 
 Adds citation key autocompletion to
-[autocomplete+](https://github.com/saschagehlich/autocomplete-plus) for
-[Atom](http://atom.io/).
+[autocomplete+](https://github.com/atom/autocomplete-plus) for
+[Atom](http://atom.io/). Supports bibtex and citeproc (yaml) file formats.
 
 ## Screenshot
 
@@ -29,7 +29,7 @@ You can install autocomplete-bibtex using the Preferences pane.
 
   ```coffeescript
   'autocomplete-bibtex':
-    'references': [
+    'bibtex': [
       '/path/to/references.bib'
       '/path/to/references.json'
     ]
@@ -40,7 +40,7 @@ You can install autocomplete-bibtex using the Preferences pane.
 
   If you prefer a graphical user interface, you can add edit the settings directly in `Packages - Settings View - Manage Packages - autocomplete-bibtex` as shown in the illustrated screenshot below:
 
-  ![](bibtex-settings.png)  
+  ![](bibtex-settings.png)
 
 2. By default, the autocomplete-bibtex package is configured to provide
   suggestions in [scopes](https://atom.io/docs/latest/advanced/scopes-and-scope-descriptors)
@@ -92,6 +92,7 @@ You can install autocomplete-bibtex using the Preferences pane.
   ```markdown
   @krijnen_expand_2014
   ```
+4. You can also search through citations using the `autocomplete-bibtex:search` command
 
 ### Custom citation formatting.
 

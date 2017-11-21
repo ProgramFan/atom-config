@@ -144,6 +144,7 @@ class TreeView extends ScrollView {
     this.root = new DirectoryView(atom.project.remoteftp.root);
     this.root.expand();
     this.list.append(this.root);
+    this.lastSelected = [];
 
     // Events
     atom.config.onDidChange('tree-view.showOnRightSide', () => {
@@ -181,7 +182,15 @@ class TreeView extends ScrollView {
       }
     });
 
-    atom.project.remoteftp.on('debug', (msg) => {
+    atom.config.onDidChange('Remote-FTP.tree.enableDragAndDrop', (value) => {
+      if (value.newValue) {
+        this.createDragAndDrops();
+      } else {
+        this.disposeDragAndDrops();
+      }
+    });
+
+    atom.project.remoteftp.onDidDebug((msg) => {
       this.debug.prepend(`<li>${msg}</li>`);
       const children = this.debug.children();
 
@@ -190,7 +199,7 @@ class TreeView extends ScrollView {
       }
     });
 
-    atom.project.remoteftp.on('queue-changed', () => {
+    atom.project.remoteftp.onDidQueueChanged(() => {
       this.progress.empty();
 
       const queues = [];
@@ -256,12 +265,29 @@ class TreeView extends ScrollView {
     this.horizontalResize.on('mousedown', (e) => { this.resizeHorizontalStarted(e); });
     this.verticalResize.on('mousedown', (e) => { this.resizeVerticalStarted(e); });
     this.list.on('keydown', (e) => { this.remoteKeyboardNavigation(e); });
+    this.root.entries.on('click', 'li.entry', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
 
-    atom.project.remoteftp.on('connected', () => {
+      let elem = e.target;
+      const $this = $(elem);
+
+      if (!$this.hasClass('entry list-item')) {
+        if (!$this.hasClass('name') && !$this.hasClass('header')) {
+          return true;
+        }
+        elem = $this.parent()[0];
+      }
+
+      this.remoteMultiSelect(e, elem);
+      return true;
+    });
+
+    atom.project.remoteftp.onDidConnected(() => {
       this.showOnline();
     });
 
-    atom.project.remoteftp.on('disconnected', () => {
+    atom.project.remoteftp.onDidDisconnected(() => {
       this.showOffline();
     });
 
@@ -331,6 +357,17 @@ class TreeView extends ScrollView {
 
       this.panel = null;
     }
+  }
+
+  createDragAndDrops() {
+    this.root.getViews().forEach((view) => {
+      view.dragEventsActivate();
+    });
+  }
+  disposeDragAndDrops() {
+    this.root.getViews().forEach((view) => {
+      view.dragEventsDestroy();
+    });
   }
 
   toggle() {
@@ -427,9 +464,46 @@ class TreeView extends ScrollView {
     this.width(this.list.outerWidth());
   }
 
+  remoteMultiSelect(e, current) {
+    const treeView = atom.project['remoteftp-main'].treeView;
+    const lastSelected = treeView.lastSelected[treeView.lastSelected.length - 1][0];
+
+    const keyCode = e.keyCode || e.which;
+    if (keyCode !== 1 || !e.shiftKey) {
+      this.list.removeClass('multi-select');
+      return true;
+    }
+
+    if (lastSelected === current) return true;
+
+    const entries = this.list.find('li.entry:not(.project-root)');
+
+    this.list.addClass('multi-select');
+
+    const lastIndex = entries.index(lastSelected);
+    const currIndex = entries.index(current);
+
+    if (lastIndex === -1 || currIndex === -1) return true;
+
+    const entryMin = Math.min(lastIndex, currIndex);
+    const entryMax = Math.max(lastIndex, currIndex);
+
+    for (let i = entryMin; i <= entryMax; i++) {
+      $(entries[i]).addClass('selected');
+    }
+
+    return true;
+  }
+
   remoteKeyboardNavigation(e) {
     const arrows = { left: 37, up: 38, right: 39, down: 40 };
     const keyCode = e.keyCode || e.which;
+
+    if (Object.values(arrows).indexOf(keyCode) > -1 && e.shiftKey) {
+      this.list.addClass('multi-select');
+    } else {
+      this.list.removeClass('multi-select');
+    }
 
     switch (keyCode) {
       case arrows.up:
@@ -456,10 +530,11 @@ class TreeView extends ScrollView {
 
   remoteKeyboardNavigationUp() {
     const current = this.list.find('.selected');
+    const isMulti = this.list.hasClass('multi-select');
 
     let next = current.prev('.entry:visible');
 
-    if (next.length) {
+    if (next.length >= 1) {
       while (next.is('.expanded') && next.find('.entries .entry:visible').length) {
         next = next.find('.entries .entry:visible');
       }
@@ -467,14 +542,16 @@ class TreeView extends ScrollView {
       next = current.closest('.entries').closest('.entry:visible');
     }
 
-    if (next.length) {
-      current.removeClass('selected');
-      next.last().addClass('selected');
+    if (next.length >= 1) {
+      if (!isMulti) current.removeClass('selected');
+
+      next.first().addClass('selected');
     }
   }
 
   remoteKeyboardNavigationDown() {
     const current = this.list.find('.selected');
+    const isMulti = this.list.hasClass('multi-select');
 
     let next = current.find('.entries .entry:visible');
     let tmp = null;
@@ -490,9 +567,11 @@ class TreeView extends ScrollView {
         }
       } while (!next.length && !tmp.is('.project-root'));
     }
-    if (next.length) {
-      current.removeClass('selected');
-      next.first().addClass('selected');
+
+    if (next.length >= 1) {
+      if (!isMulti) current.removeClass('selected');
+
+      next.last().addClass('selected');
     }
   }
 

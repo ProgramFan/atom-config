@@ -1,0 +1,19 @@
+{
+    "extends": "google",
+    "globals": {
+      "atom": true
+    },
+    "rules" : {
+      "max-len": ["warn", 110],
+      "no-else-return": ["warn"],
+      "semi": ["error", "never"]
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "jasmine": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017
+    }
+}

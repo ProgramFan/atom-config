@@ -6,7 +6,6 @@ import { multipleHostsEnabled, simpleSort } from './helpers';
 import File from './file';
 
 class Directory {
-
   constructor(params) {
     this.emitter = new Emitter();
 
@@ -15,6 +14,7 @@ class Directory {
     this.path = '';
     this.client = null;
     this.isExpanded = false;
+    this.isSelected = false;
     this.status = 0;
     this.folders = [];
     this.files = [];
@@ -198,6 +198,10 @@ class Directory {
     return this.emitter.on('did-change-expanded', callback);
   }
 
+  onChangeSelect(callback) {
+    return this.emitter.on('did-change-select', callback);
+  }
+
   onDestroyed(callback) {
     return this.emitter.on('destroyed', callback);
   }
@@ -241,6 +245,11 @@ class Directory {
   set setIsExpanded(value) {
     this.emitter.emit('did-change-expanded', value);
     this.isExpanded = value;
+  }
+
+  set setIsSelected(value) {
+    this.isSelected = value;
+    this.emitter.emit('did-change-select', value);
   }
 }
 

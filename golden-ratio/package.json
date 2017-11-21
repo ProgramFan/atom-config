@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
+        "raw": "/tmp/d-1171021-5604-1wm5511.gk3xr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
-        "spec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
+        "rawSpec": "/tmp/d-1171021-5604-1wm5511.gk3xr/package.tgz",
+        "spec": "/tmp/d-1171021-5604-1wm5511.gk3xr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117921-5375-13zvxa7.1rxnut0529"
+      "/tmp/apm-install-dir-1171021-5604-vxp108.8pg5dk7qfr"
     ]
   ],
-  "_from": "../d-117921-5375-ips95i.acf168ncdi/package.tgz",
+  "_from": "../d-1171021-5604-1wm5511.gk3xr/package.tgz",
   "_id": "golden-ratio@0.3.0",
   "_inCache": true,
   "_location": "/golden-ratio",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
+    "raw": "/tmp/d-1171021-5604-1wm5511.gk3xr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
-    "spec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
+    "rawSpec": "/tmp/d-1171021-5604-1wm5511.gk3xr/package.tgz",
+    "spec": "/tmp/d-1171021-5604-1wm5511.gk3xr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117921-5375-ips95i.acf168ncdi/package.tgz",
+  "_resolved": "file:../d-1171021-5604-1wm5511.gk3xr/package.tgz",
   "_shasum": "3b2ce4156308afe98454d19d501ba28ce5218689",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117921-5375-ips95i.acf168ncdi/package.tgz",
-  "_where": "/tmp/apm-install-dir-117921-5375-13zvxa7.1rxnut0529",
+  "_spec": "/tmp/d-1171021-5604-1wm5511.gk3xr/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171021-5604-vxp108.8pg5dk7qfr",
   "activationCommands": {
     "atom-workspace": "golden-ratio:toggle"
   },

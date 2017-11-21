@@ -18,6 +18,7 @@ class ConnectorFTP extends Connector {
     super(...args);
 
     this.ftp = null;
+    this.client = atom.project.remoteftp;
   }
 
   isConnected() {
@@ -61,7 +62,7 @@ class ConnectorFTP extends Connector {
 
         if (errCode === 421 || errCode === 'ECONNRESET') {
           this.emit('closed', 'RECONNECT');
-          this.disconnect();
+          return;
         }
 
         this.emit('error', err, errCode);
@@ -222,6 +223,14 @@ class ConnectorFTP extends Connector {
       }
     });
 
+    this.client.checkIgnore(npath);
+    if (this.client.ignoreFilter) {
+      if (this.client.ignoreFilter.ignores(npath)) {
+        tryApply(completed, null, [null]);
+        return;
+      }
+    }
+
     this.ftp.get(npath, (error, stream) => {
       if (error) {
         if (pool) clearInterval(pool);
@@ -260,8 +269,15 @@ class ConnectorFTP extends Connector {
     const npath = Path.posix.resolve(path);
 
     this.list(npath, recursive, (lError, list) => {
+      this.client.checkIgnore(npath);
+
       list.unshift({ name: npath, type: 'd' });
-      list.forEach((item) => {
+      list.forEach((item, index, object) => {
+        if (this.client.ignoreFilter) {
+          if (this.client.ignoreFilter.ignores(item.name)) {
+            object.splice(index, 1);
+          }
+        }
         item.depth = splitPaths(item.name).length;
       });
       list.sort(sortDepth);
@@ -354,9 +370,9 @@ class ConnectorFTP extends Connector {
 
     this.type(npath, (type) => {
       if (type === 'f') {
-        this._getFile(path, completed, progress);
+        this._getFile(npath, completed, progress);
       } else {
-        this._getFolder(path, recursive, completed, progress);
+        this._getFolder(npath, recursive, completed, progress);
       }
     });
   }
@@ -454,7 +470,6 @@ class ConnectorFTP extends Connector {
 
     const remotes = splitPaths(path);
     const dirs = [`/${remotes.slice(0, remotes.length).join('/')}`];
-    const enableTransfer = atom.config.get('Remote-FTP.notifications.enableTransfer');
     const remotePath = splitPaths(this.client.info.remote);
 
     if (recursive) {

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
+        "raw": "/tmp/d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
-        "spec": "/tmp/d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
+        "rawSpec": "/tmp/d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
+        "spec": "/tmp/d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117921-5507-7tz3wp.jp9jybke29"
+      "/tmp/apm-install-dir-1171021-5763-zykpgj.pui3cba9k9"
     ]
   ],
-  "_from": "../d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
+  "_from": "../d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
   "_id": "sort-lines@0.18.0",
   "_inCache": true,
   "_location": "/sort-lines",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
+    "raw": "/tmp/d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
-    "spec": "/tmp/d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
+    "rawSpec": "/tmp/d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
+    "spec": "/tmp/d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
+  "_resolved": "file:../d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
   "_shasum": "e7a421bc0e8655fa90b46cdc881c60983ade0816",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117921-5507-mwtyhe.qrt9ms4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-117921-5507-7tz3wp.jp9jybke29",
+  "_spec": "/tmp/d-1171021-5763-3s4h59.vtd4m18aor/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171021-5763-zykpgj.pui3cba9k9",
   "activationCommands": {
     "atom-text-editor": [
       "sort-lines:sort",

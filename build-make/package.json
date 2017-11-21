@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
+        "raw": "/tmp/d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
-        "spec": "/tmp/d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
+        "rawSpec": "/tmp/d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
+        "spec": "/tmp/d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-117921-5904-txvh9l.qemby5jyvi"
+      "/tmp/apm-install-dir-1171021-6138-1qvi5hs.citgknvcxr"
     ]
   ],
-  "_from": "../d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
+  "_from": "../d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
   "_id": "build-make@0.13.0",
   "_inCache": true,
   "_location": "/build-make",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
+    "raw": "/tmp/d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
-    "spec": "/tmp/d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
+    "rawSpec": "/tmp/d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
+    "spec": "/tmp/d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
+  "_resolved": "file:../d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
   "_shasum": "3c69da0d0ace84fb54117c2ce7a27e699c6109a5",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-117921-5904-1v89k0y.pdkylxflxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-117921-5904-txvh9l.qemby5jyvi",
+  "_spec": "/tmp/d-1171021-6138-12tl1m9.1wl9v0a4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171021-6138-1qvi5hs.citgknvcxr",
   "bugs": {
     "url": "https://github.com/AtomBuild/atom-build-make/issues"
   },
