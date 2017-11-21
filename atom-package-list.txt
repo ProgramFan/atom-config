@@ -12,8 +12,8 @@ minimap-git-diff
 minimap-cursorline
 minimap-linter
 # tool-bar: add a configurable toolbar
-tool-bar
-flex-tool-bar
+# tool-bar
+# flex-tool-bar
 wordcount # add word count to the status bar
 file-icons # beautiful file icons for tree view and tab header
 golden-ratio # automatically resize pane
@@ -29,8 +29,8 @@ open-unsupported-files # open unsupported files in external programs
 project-manager # save, load and switch projects
 file-watcher # reload file when changed outside
 Remote-FTP # allow editing remote files
-atom-commander # better file manager
-git-time-machine # navigate through time for a file
+# atom-commander # better file manager
+# git-time-machine # navigate through time for a file
 # build: run make/cmake etc. inside atom and display errors
 build
 build-make
