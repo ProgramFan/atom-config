@@ -17,7 +17,7 @@ minimap-linter
 wordcount # add word count to the status bar
 file-icons # beautiful file icons for tree view and tab header
 golden-ratio # automatically resize pane
-Zen # Zen mode
+#Zen # Zen mode
 
 #
 # 2. Editor Function Enhancements
