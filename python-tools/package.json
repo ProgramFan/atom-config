@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
+        "raw": "/tmp/d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
-        "spec": "/tmp/d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
+        "rawSpec": "/tmp/d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
+        "spec": "/tmp/d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171021-8715-mlkd2j.0lsz2maemi"
+      "/tmp/apm-install-dir-1171117-8022-1qzgsl4.acwtw97ldi"
     ]
   ],
-  "_from": "../d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
+  "_from": "../d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
   "_id": "python-tools@0.6.9",
   "_inCache": true,
   "_location": "/python-tools",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
+    "raw": "/tmp/d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
-    "spec": "/tmp/d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
+    "rawSpec": "/tmp/d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
+    "spec": "/tmp/d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
+  "_resolved": "file:../d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
   "_shasum": "dba6e2a8889971140b20f143c8535e6b054a1df0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171021-8715-pm1zgu.3pnqknjyvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171021-8715-mlkd2j.0lsz2maemi",
+  "_spec": "/tmp/d-1171117-8022-b5vdxf.kd44ewxw29/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171117-8022-1qzgsl4.acwtw97ldi",
   "activationCommands": {},
   "bugs": {
     "url": "https://github.com/MichaelAquilina/python-tools/issues"

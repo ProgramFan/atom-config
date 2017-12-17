@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
+        "raw": "/tmp/d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
-        "spec": "/tmp/d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
+        "rawSpec": "/tmp/d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
+        "spec": "/tmp/d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171021-7865-1p9t0hw.a5kj5x9a4i"
+      "/tmp/apm-install-dir-1171117-7172-1askqgo.m5aru23xr"
     ]
   ],
-  "_from": "../d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
-  "_id": "markdown-preview-enhanced@0.15.0",
+  "_from": "../d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
+  "_id": "markdown-preview-enhanced@0.15.1",
   "_inCache": true,
   "_location": "/markdown-preview-enhanced",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
+    "raw": "/tmp/d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
-    "spec": "/tmp/d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
+    "rawSpec": "/tmp/d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
+    "spec": "/tmp/d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
-  "_shasum": "bd623125d1f06a80197488d074a06c8ae336ee16",
+  "_resolved": "file:../d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
+  "_shasum": "0f1265fed59b8395e62581972010c0459a94d612",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171021-7865-v99re9.o3in9x80k9/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171021-7865-1p9t0hw.a5kj5x9a4i",
+  "_spec": "/tmp/d-1171117-7172-1x0yg5h.qda0dx6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171117-7172-1askqgo.m5aru23xr",
   "activationCommands": {
     "atom-workspace": "markdown-preview-enhanced:toggle"
   },
@@ -48,14 +48,14 @@
     "url": "https://github.com/shd101wyy/markdown-preview-enhanced/issues"
   },
   "dependencies": {
-    "@shd101wyy/mume": "^0.2.4"
+    "@shd101wyy/mume": "^0.2.7"
   },
   "description": "One of the 'BEST' markdown preview extensions for Atom editor!",
   "devDependencies": {
+    "@types/atom": "^1.21.8",
     "@types/jquery": "^3.2.12",
     "@types/mocha": "^2.2.43",
     "@types/node": "^8.0.31",
-    "atom-typings": "^1.21.6",
     "chinese-conv": "^1.0.1",
     "typescript": "^2.5.3"
   },
@@ -110,5 +110,5 @@
   "scripts": {
     "build": "nothing happened"
   },
-  "version": "0.15.0"
+  "version": "0.15.1"
 }

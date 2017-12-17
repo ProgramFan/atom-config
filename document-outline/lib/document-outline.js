@@ -1,13 +1,13 @@
-'use babel';
+// 'use babel';
 
-import MarkdownModel from './markdown-model';
-import LatexModel from './latex-model';
-import ReStructuredTextModel from './rst-model';
-import AsciiDocModel from './asciidoc-model';
+const {MarkdownModel} = require('./markdown-model');
+const {LatexModel} = require('./latex-model');
+const {ReStructuredTextModel} = require('./rst-model');
+const {AsciiDocModel} = require('./asciidoc-model');
 
-import DocumentOutlineView from './document-outline-view';
-import {CompositeDisposable} from 'atom';
-import {scopeIncludesOne} from './util';
+const {DocumentOutlineView} = require('./document-outline-view');
+const {CompositeDisposable} = require('atom');
+const {scopeIncludesOne} = require('./util');
 
 const MODEL_CLASS_FOR_SCOPES = {
   'source.gfm': MarkdownModel,
@@ -22,7 +22,7 @@ const MODEL_CLASS_FOR_SCOPES = {
 
 const SUPPORTED_SCOPES = Object.keys(MODEL_CLASS_FOR_SCOPES);
 
-export default {
+module.exports = {
   config: {
     showByDefault: {
       type: 'boolean',
@@ -52,9 +52,9 @@ export default {
       description: 'Default side for outline to appear'
     }
   },
-  subscriptions: null,
+
   activate() {
-    this.updateView.bind(this);
+    this.update.bind(this);
 
     atom.contextMenu.add({'div.document-outline': [{
       label: 'Toggle outline',
@@ -68,6 +68,12 @@ export default {
     // subscriptions for the currently active editor, cleared on tab switch
     this.editorSubscriptions = new CompositeDisposable();
 
+    // atom.workspace.addOpener(uri => {
+    //   if (uri === 'atom://document-outline/outline') {
+    //     return new DocumentOutlineView();
+    //   }
+    // });
+
     // Register command that toggles this view
     this.subscriptions.add(atom.commands.add('atom-workspace', {
       'document-outline:toggle': () => {
@@ -79,36 +85,43 @@ export default {
       this.updateCurrentEditor(pane);
     }));
 
-    atom.config.observe("document-outline.showByDefault", enable => {
-      this.updateCurrentEditor(atom.workspace.getActiveTextEditor());
-      if (enable) {
+    // Update the view if any options change
+    this.subscriptions.add(atom.config.observe('document-outline.maxHeadingDepth', newValue => {
+      this.update(atom.workspace.getActiveTextEditor());
+    }));
+
+    this.subscriptions.add(atom.config.observe('document-outline.autoScrollOutline', () => {
+      this.update(atom.workspace.getActiveTextEditor());
+    }));
+
+    this.subscriptions.add(atom.config.observe('document-outline.highlightCurrentSection', () => {
+      this.update(atom.workspace.getActiveTextEditor());
+    }));
+
+    this.subscriptions.add(atom.config.observe('document-outline.defaultSide', () => {
+      if (atom.config.get("document-outline.showByDefault")) {
+        atom.workspace.hide(this.view);
         atom.workspace.open(this.view, {location: atom.config.get('document-outline.defaultSide')});
       }
-    });
+    }));
 
-    // Update the view if any options change
-    atom.config.observe('document-outline.maxHeadingDepth', newValue => {
-      this.updateView(atom.workspace.getActiveTextEditor());
-    });
-
-    atom.config.observe('document-outline.autoScrollOutline', () => {
-      this.updateView(atom.workspace.getActiveTextEditor());
-    });
-
-    atom.config.observe('document-outline.highlightCurrentSection', () => {
-      this.updateView(atom.workspace.getActiveTextEditor());
-    });
-
-    atom.config.observe('document-outline.defaultSide', () => {
-      atom.workspace.hide(this.view);
-      atom.workspace.open(this.view, {location: atom.config.get('document-outline.defaultSide')});
-    });
-
-    this.updateCurrentEditor(atom.workspace.getActiveTextEditor());
+    this.subscriptions.add(atom.config.observe("document-outline.showByDefault", enable => {
+      if (enable) {
+        this.updateCurrentEditor(atom.workspace.getActiveTextEditor());
+        atom.workspace.open(this.view, {location: atom.config.get('document-outline.defaultSide')});
+      } else {
+        this.view.clear();
+        // atom.workspace.hide(this.view);
+      }
+    }));
 
     if (atom.config.get("document-outline.showByDefault")) {
+      this.updateCurrentEditor(atom.workspace.getActiveTextEditor());
       atom.workspace.open(this.view, {location: atom.config.get('document-outline.defaultSide')});
     }
+    //  else {
+    //   atom.workspace.hide(this.view);
+    // }
   },
 
   updateCurrentEditor(editor) {
@@ -128,26 +141,30 @@ export default {
         this.editorSubscriptions.dispose();
 
         this.editorSubscriptions.add(editor.onDidStopChanging(() => {
-          this.updateView(editor);
+          // TODO add throttle here
+          this.update(editor);
         }));
-        this.updateView(editor);
+        this.update(editor);
       } else {
         // this is an editor, but not a supported language
         this.docModel = null;
         if (this.view) {
           this.view.clear();
           this.editorSubscriptions.dispose();
+          // if (!atom.config.get("document-outline.showByDefault")) {
+          //   atom.workspace.hide(this.view);
+          // }
         }
       }
     }
   },
 
-  updateView(editor) {
+  update(editor) {
     if (this.view) {
       if (this.docModel) {
-        let headingUpdates = this.docModel.getOutline();
-        if (headingUpdates) {
-          this.view.setModel(headingUpdates, editor);
+        let outline = this.docModel.getOutline();
+        if (outline) {
+          this.view.update({outline, editor});
         }
       } else {
         this.view.clear();
@@ -175,5 +192,18 @@ export default {
     }
 
     return docModel;
+  },
+
+  provideOutlines() {
+    // type outlineprovider
+    return {
+      name: 'Document outline',
+      // priority: number,
+      grammarScopes: SUPPORTED_SCOPES,
+      getOutline: editor => {
+        let docModel = this.getDocumentModel(editor);
+        return {outlineTrees: docModel.getOutline()};
+      }
+    };
   }
 };

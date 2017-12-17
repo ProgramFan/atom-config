@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
+        "raw": "/tmp/d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
-        "spec": "/tmp/d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
+        "rawSpec": "/tmp/d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
+        "spec": "/tmp/d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171021-8397-16fpusn.7go3x72e29"
+      "/tmp/apm-install-dir-1171117-7704-9o16pr.3yerd4pldi"
     ]
   ],
-  "_from": "../d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
-  "_id": "docblockr@0.13.2",
+  "_from": "../d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
+  "_id": "docblockr@0.13.4",
   "_inCache": true,
   "_location": "/docblockr",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
+    "raw": "/tmp/d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
-    "spec": "/tmp/d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
+    "rawSpec": "/tmp/d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
+    "spec": "/tmp/d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
-  "_shasum": "8d6b338cff5d4358c221a2c1db27465a2d601eec",
+  "_resolved": "file:../d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
+  "_shasum": "2ea107454e1a0ddc4fb2b881cac59e8a0f37d9f2",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171021-8397-1np66v6.r0mvbtvs4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171021-8397-16fpusn.7go3x72e29",
+  "_spec": "/tmp/d-1171117-7704-1pulkm.fomhbsm7vi/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171117-7704-9o16pr.3yerd4pldi",
   "atomTestRunner": "./spec/runner",
   "bugs": {
     "url": "https://github.com/nikhilkalige/docblockr/issues"
@@ -74,5 +74,5 @@
     "lint": "eslint ./",
     "test": "cd ~/.atom/packages; atom --test docblockr/spec"
   },
-  "version": "0.13.2"
+  "version": "0.13.4"
 }

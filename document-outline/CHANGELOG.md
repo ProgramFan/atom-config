@@ -1,3 +1,12 @@
+## 2.0.0
+* Changed outline view to use virtual dom for more consistent performance
+* Support the outline view in Atom IDE
+* Misc bug fixes
+
+## 1.7.0
+* Misc bug fixes
+* Only support latest versions of Atom
+
 ## 1.6.2
 
 * Speed up Latex parsing by using (experimental) native buffer search, also improve performance in fallback mode.

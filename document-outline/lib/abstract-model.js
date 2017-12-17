@@ -1,9 +1,8 @@
-'use babel';
-import {Point, Range} from 'atom';
+const {Point, Range} = require('atom');
 
 const MAX_HEADING_DEPTH = 4;
 
-export default class AbstractModel {
+class AbstractModel {
   // NOTE: if it was possible to simply scan through applied scopes, wouldn't need most of this...
   constructor(editorOrBuffer, headingRegexes) {
     this.HEADING_REGEX = headingRegexes;
@@ -25,9 +24,6 @@ export default class AbstractModel {
     }
 
     this.oldHeadingStr = '';
-  }
-
-  destroy() {
   }
 
   getOutline() {
@@ -53,7 +49,7 @@ export default class AbstractModel {
   _stackHeadings(rawHeadings) {
     let stack = [{
       level: 0,
-      label: '_hidden_root',
+      plainText: '_hidden_root',
       headingRange: new Range(Point.ZERO, Point.INFINITY),
       children: [],
       range: new Range(Point.ZERO, Point.INFINITY)
@@ -72,6 +68,7 @@ export default class AbstractModel {
         // At equal level, we close the previous heading
         // Create a new point to avoid re-use of mutable value
         top.range.end = new Point(heading.headingRange.start.row - 1, heading.headingRange.start.column);
+        top.endPosition = top.range.end;
         // Then get the parent
         top = stack.pop();
         top.children.push(heading);
@@ -82,11 +79,13 @@ export default class AbstractModel {
         // roll up the stack
         // Create a new point to avoid re-use of mutable value
         top.range.end = new Point(heading.headingRange.start.row - 1, heading.headingRange.start.column);
+        top.endPosition = top.range.end;
         while (top) {
           top = stack.pop();
           // Close each range until we get to the suitable parent
           // Create a new point to avoid re-use of mutable value
           top.range.end = new Point(heading.headingRange.start.row - 1, heading.headingRange.start.column);
+          top.endPosition = top.range.end;
           if (top.level < heading.level) {
             break;
           }
@@ -119,9 +118,11 @@ export default class AbstractModel {
           let heading = {
             level: parsedResult.level,
             headingRange: headingRange,
-            label: parsedResult.label,
+            plainText: parsedResult.label,
             children: [],
-            range: new Range(headingRange.start, Point.INFINITY)
+            range: new Range(headingRange.start, Point.INFINITY),
+            startPosition: headingRange.start,
+            endPosition: Point.INFINITY
           };
           rawHeadings.push(heading);
         }
@@ -173,9 +174,12 @@ export default class AbstractModel {
         let heading = {
           level: currentResult.level,
           headingRange: headingRange,
-          label: currentResult.label,
+          plainText: currentResult.label,
           children: [],
-          range: new Range(headingRange.start, Point.INFINITY)
+          icon: 'icon-one-dot',
+          range: new Range(headingRange.start, Point.INFINITY),
+          startPosition: headingRange.start,
+          endPosition: Point.INFINITY
         };
 
         rawHeadings.push(heading);
@@ -190,41 +194,9 @@ export default class AbstractModel {
       line += 1;
     }
 
-    //
-    // for (let parsedResult of results) {
-    //   // Gives us the option of returning null if we decide
-    //   // in getRegexData that the heading is invalid
-    //   // FIXME would be much faster to get all line numbers in one, otherwise we loop for every heading.
-    //   // can use assumption that indexes will be added in ascending order in line number test, don't have to test N indexes x m lines
-    //   let startLine = lineNumberByIndex(result.index, text);
-    //   let headingRange = new Range([startLine, 0],
-    //                                    [startLine, parsedResult.label.length]);
-    //   let heading = {
-    //     level: parsedResult.level,
-    //     headingRange: headingRange,
-    //     label: parsedResult.label,
-    //     children: [],
-    //     range: new Range(headingRange.start, Point.INFINITY)
-    //   };
-    //   rawHeadings.push(heading);
-    // }
-
     return this._stackHeadings(rawHeadings);
-
-    // Using Atom's built-in text scanner. Think raw regex will be faster,
-    // seems to be used under the hood anyeay
-    // this.buffer.scanInRange(regex, new Range(start, end), scanResult => {
-    //   // allow subclasses to customise how they get level, label from regex
-    //   let res = this.getRegexData(scanResult);
-    //   let heading = {
-    //     level: res.level,
-    //     headingRange: scanResult.range,
-    //     label: res.label,
-    //     children: [],
-    //     range: new Range(scanResult.range.start, Point.INFINITY)
-    //   };
-    //   rawHeadings.push(heading);
-    // });
   }
 
 }
+
+module.exports = {AbstractModel};

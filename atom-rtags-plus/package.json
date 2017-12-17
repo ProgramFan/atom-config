@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
+        "raw": "/tmp/d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
-        "spec": "/tmp/d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
+        "rawSpec": "/tmp/d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
+        "spec": "/tmp/d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171021-8556-10565w6.e0mg0t3xr"
+      "/tmp/apm-install-dir-1171117-7863-19e4v5b.mp67a7zaor"
     ]
   ],
-  "_from": "../d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
+  "_from": "../d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
   "_id": "atom-rtags-plus@1.4.2",
   "_inCache": true,
   "_location": "/atom-rtags-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
+    "raw": "/tmp/d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
-    "spec": "/tmp/d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
+    "rawSpec": "/tmp/d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
+    "spec": "/tmp/d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
+  "_resolved": "file:../d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
   "_shasum": "3f60d0003f8cf9e8ba560bda3e466bb794f32126",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171021-8556-mv377x.h001s2lnmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171021-8556-10565w6.e0mg0t3xr",
+  "_spec": "/tmp/d-1171117-7863-16l4p9s.de0eyx2yb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171117-7863-19e4v5b.mp67a7zaor",
   "bugs": {
     "url": "https://github.com/sphaerophoria/atom-rtags-plus/issues"
   },

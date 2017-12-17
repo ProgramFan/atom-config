@@ -1,8 +1,7 @@
-'use babel';
-import {Point, Range} from 'atom';
-import {Parser} from 'commonmark';
+const {Point, Range} = require('atom');
+const {Parser} = require('commonmark');
 
-import AbstractModel from './abstract-model';
+const {AbstractModel} =require('./abstract-model');
 
 const HEADING_REGEX = /(^#+)[^#](.*)#*\n|(^[^\n]+)\n(=+|-+)\n/g;
 
@@ -11,8 +10,7 @@ const HEADING_REGEX = /(^#+)[^#](.*)#*\n|(^[^\n]+)\n(=+|-+)\n/g;
  * @param  {Object} delim Change delimiters with delim.start|delim.end
  * @return {String}       Content of the file, sans YFM
  */
-
-export default class MarkdownModel extends AbstractModel {
+class MarkdownModel extends AbstractModel {
   constructor(editorOrBuffer) {
     super(editorOrBuffer, HEADING_REGEX);
   }
@@ -78,15 +76,17 @@ export default class MarkdownModel extends AbstractModel {
           heading = {
             level: node.level,
             headingRange: new Range(start, headingEnd),
-            label: '',
+            plainText: '',
             children: [],
-            range: new Range(start, Point.INFINITY)
+            range: new Range(start, Point.INFINITY),
+            startPosition: start,
+            endPosition: Point.INFINITY
           };
 
           rawHeadings.push(heading);
         } else {
           inHeading = false;
-          heading.label = headingText;
+          heading.plainText = headingText;
         }
       } else if (inHeading) {
         // Make sure we only add the literal if it's not null #29
@@ -98,3 +98,4 @@ export default class MarkdownModel extends AbstractModel {
     return rawHeadings;
   }
 }
+module.exports = {MarkdownModel};

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
+        "raw": "/tmp/d-1171117-6960-mit5j6.35z908jjor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
-        "spec": "/tmp/d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
+        "rawSpec": "/tmp/d-1171117-6960-mit5j6.35z908jjor/package.tgz",
+        "spec": "/tmp/d-1171117-6960-mit5j6.35z908jjor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171021-7653-1sfks0z.112nsif6r"
+      "/tmp/apm-install-dir-1171117-6960-ggt7wv.chles9vn29"
     ]
   ],
-  "_from": "../d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
+  "_from": "../d-1171117-6960-mit5j6.35z908jjor/package.tgz",
   "_id": "autocomplete-en-en@0.2.0",
   "_inCache": true,
   "_location": "/autocomplete-en-en",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
+    "raw": "/tmp/d-1171117-6960-mit5j6.35z908jjor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
-    "spec": "/tmp/d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
+    "rawSpec": "/tmp/d-1171117-6960-mit5j6.35z908jjor/package.tgz",
+    "spec": "/tmp/d-1171117-6960-mit5j6.35z908jjor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
+  "_resolved": "file:../d-1171117-6960-mit5j6.35z908jjor/package.tgz",
   "_shasum": "d72a0a605b97e906dd6247710c2c73766ec0e36b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171021-7653-lfxp7n.u2dgjbgldi/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171021-7653-1sfks0z.112nsif6r",
+  "_spec": "/tmp/d-1171117-6960-mit5j6.35z908jjor/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171117-6960-ggt7wv.chles9vn29",
   "author": {
     "name": "Shuai Wu",
     "email": "ws.horton@gmail.com"

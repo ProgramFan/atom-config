@@ -1,18 +1,19 @@
 'use babel';
+/** @jsx etch.dom */
 
-import {Point} from 'atom';
-import {DocumentTree} from './tree-view';
-import {createElement} from './util';
+const etch = require('etch');
+const {OutlineTreeView} = require('./outline-tree');
 
-export default class DocumentOutlineView {
+class DocumentOutlineView {
 
   constructor() {
-    this.highlightSubscription = null;
     this.cursorPositionSubscription = null;
-    this.element = createElement('div', {class: 'document-outline'});
+    this.outline = [];
+    this._depthFirstItems = [];
 
-    this.docTree = new DocumentTree();
-    this.element.appendChild(this.docTree);
+    this.autoScroll = atom.config.get("document-outline.autoScrollOutline");
+    this.doHighlight = atom.config.get("document-outline.highlightCurrentSection");
+    etch.initialize(this);
   }
 
   getDefaultLocation() {
@@ -36,111 +37,100 @@ export default class DocumentOutlineView {
   }
 
   clear() {
-    while (this.docTree.firstChild) {
-      this.docTree.removeChild(this.docTree.firstChild);
-    }
+    this.update({outline: []});
   }
 
-  // Tear down any state and detach
   destroy() {
-    if (this.highlightSubscription) {
-      this.highlightSubscription.dispose();
-    }
+    etch.destroy(this);
     if (this.cursorPositionSubscription) {
       this.cursorPositionSubscription.dispose();
     }
-    this.element.remove();
   }
 
   getElement() {
     return this.element;
   }
 
-  setModel(headings, editor) {
-    // Set the headings, which should rebuild the DOM tree
-    this.docTree.setModel(headings);
-
-    // Set up interactive behaviours that need the current editor
-    for (let label of this.docTree.querySelectorAll('span.tree-item-text')) {
-      label.addEventListener('click', event => {
-        let treeNode = event.target.parentNode;
-        const pt = new Point(treeNode.range.start.row - 1, 0);
-        editor.scrollToBufferPosition(pt, {center: true});
-        event.stopPropagation();
-      });
-    }
-
+  update(props) {
+    let {outline, editor} = props;
+    this.outline = outline;
+    // Set the outline, which should rebuild the DOM tree
     // Clear existing events and re-subscribe to make sure we don't accumulate subscriptions
-    if (this.highlightSubscription) {
-      this.highlightSubscription.dispose();
-    }
     if (this.cursorPositionSubscription) {
       this.cursorPositionSubscription.dispose();
     }
 
-    // NOTE: highlightSection is wierdly resource intensive.
-    if (atom.config.get("document-outline.highlightCurrentSection")) {
-      this.highlightSectionAtCursor(editor.getCursorBufferPosition());
-      this.highlightSubscription = (editor.onDidChangeCursorPosition(event => {
-        // Highligh section in outline only if buffer position change
+    if (editor) {
+      this.cursorPos = editor.getCursorBufferPosition();
+
+      this.cursorPositionSubscription = editor.onDidChangeCursorPosition(event => {
         if (event.oldBufferPosition.row !== event.newBufferPosition.row) {
-          this.highlightSectionAtCursor(event.cursor.getBufferPosition());
+          this.cursorPos = editor.getCursorBufferPosition();
+          return etch.update(this);
         }
-      }));
+      });
     }
 
-    if (atom.config.get("document-outline.autoScrollOutline")) {
-      this.scrollToSectionAtCursor(editor.getCursorBufferPosition());
-      this.cursorPositionSubscription = (editor.onDidChangeCursorPosition(event => {
-        if (event.oldBufferPosition.row !== event.newBufferPosition.row) {
-          this.scrollToSectionAtCursor(event.cursor.getBufferPosition());
+    this._depthFirstItems = [];
+    return etch.update(this);
+  }
+
+  render() {
+    this.outlineElements = this.outline.map(tree => {
+      tree.cursorPos = this.cursorPos;
+      tree.doHighlight = this.doHighlight;
+      return <OutlineTreeView {...tree}/>;
+    });
+
+    return <div class="document-outline" id="document-outline">
+        <ol class="list-tree">{this.outlineElements}</ol>
+      </div>;
+  }
+
+  readAfterUpdate() {
+    if (this.autoScroll && this.cursorPos) {
+      let cursorPos = this.cursorPos;
+      let range;
+      let item;
+      let allItems = this.getDepthFirstItems(this.outline);
+
+      for (item of allItems) {
+        range = item.range;
+        if (range) {
+          if (range.containsPoint(cursorPos)) {
+            let id = `document-outline-${item.range.start.row}-${item.range.end.row}`;
+            let foundElement = document.getElementById(id);
+            if (foundElement) {
+              foundElement.scrollIntoView();
+            }
+          }
         }
-      }));
+      }
     }
   }
 
-  highlightSectionAtCursor(cursorPos) {
-    // TODO this gets deoptimised for 'TryCatch', no idea why.
-    // TODO one day could prefer using the iterator, right now seems much slower
-    // let doScroll = atom.config.get("document-outline.autoScrollOutline");
-    let allItems = this.docTree.getDepthFirstItems();
-
-    let range;
-    let item;
-    for (item of allItems) {
-      range = item.range;
-      if (range) {
-        if (range.start.row <= cursorPos.row && range.end.row > cursorPos.row) {
-          item.classList.add('highlight');
-        } else {
-          item.classList.remove('highlight');
+  getDepthFirstItems(root) {
+    // Lazily construct a flat list of items for (in theory) fast iteration
+    function collectDepthFirst(item, out) {
+      let child;
+      if (Array.isArray(item)) {
+        for (child of item) {
+          collectDepthFirst(child, out);
         }
       } else {
-        item.classList.remove('highlight');
-      }
-    }
-  }
-
-  scrollToSectionAtCursor(cursorPos) {
-    let range;
-    let item;
-    let allItems = this.docTree.getDepthFirstItems();
-    // if (doScroll) {
-    for (item of allItems) {
-      range = item.range;
-      if (range) {
-        if (range.containsPoint(cursorPos)) {
-          this.element.scrollTop = item.offsetTop - 20;
-          break;
+        for (child of item.children) {
+          collectDepthFirst(child, out);
         }
+        out.push(item);
       }
     }
+      // Lazily get the items depth first. On first run build a flat list of items
+    if (!this._depthFirstItems || this._depthFirstItems.length === 0) {
+      this._depthFirstItems = [];
+      collectDepthFirst(root, this._depthFirstItems);
+    }
+    return this._depthFirstItems;
   }
 }
-//
-// function offset(el) {
-//   let rect = el.getBoundingClientRect();
-//   let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-//   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//   return {top: rect.top + scrollTop, left: rect.left + scrollLeft};
-// }
+
+module.exports = {DocumentOutlineView};

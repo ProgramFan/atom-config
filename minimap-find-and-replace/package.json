@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
+        "raw": "/tmp/d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
-        "spec": "/tmp/d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
+        "rawSpec": "/tmp/d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
+        "spec": "/tmp/d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171021-5285-cozaig.7d91bp4x6r"
+      "/tmp/apm-install-dir-1171117-4648-bp635c.a3m8b5u3di"
     ]
   ],
-  "_from": "../d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
+  "_from": "../d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
   "_id": "minimap-find-and-replace@4.5.2",
   "_inCache": true,
   "_location": "/minimap-find-and-replace",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
+    "raw": "/tmp/d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
-    "spec": "/tmp/d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
+    "rawSpec": "/tmp/d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
+    "spec": "/tmp/d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
+  "_resolved": "file:../d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
   "_shasum": "b7f2d462efcfc9bc3ea9e29720a779fbd7805d58",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171021-5285-1jgwcob.8xxql1sjor/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171021-5285-cozaig.7d91bp4x6r",
+  "_spec": "/tmp/d-1171117-4648-13nmh3b.4tbnr35wmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171117-4648-bp635c.a3m8b5u3di",
   "author": {
     "name": "Cédric Néhémie",
     "email": "cedric.nehemie@gmail.com"

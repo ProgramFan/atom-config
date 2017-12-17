@@ -2,44 +2,45 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
+        "raw": "/tmp/d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
-        "spec": "/tmp/d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
+        "rawSpec": "/tmp/d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
+        "spec": "/tmp/d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171021-7812-tt41j6.ajhpwx9a4i"
+      "/tmp/apm-install-dir-1171117-7119-1j2tenz.6i5zvyrpb9"
     ]
   ],
-  "_from": "../d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
-  "_id": "document-outline@1.6.18",
+  "_from": "../d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
+  "_id": "document-outline@2.0.1",
   "_inCache": true,
   "_location": "/document-outline",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
+    "raw": "/tmp/d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
-    "spec": "/tmp/d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
+    "rawSpec": "/tmp/d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
+    "spec": "/tmp/d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
-  "_shasum": "15edff1b6cd69319fae9b99738e5dc1162f50aa4",
+  "_resolved": "file:../d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
+  "_shasum": "f1cc9a521c40cc0ed137025fc76db291561d4c12",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171021-7812-eh71dg.l9dnkrcnmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171021-7812-tt41j6.ajhpwx9a4i",
+  "_spec": "/tmp/d-1171117-7119-1gsgh5l.00e3rtfbt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171117-7119-1j2tenz.6i5zvyrpb9",
   "bugs": {
     "url": "https://github.com/mangecoeur/document-outline/issues"
   },
   "dependencies": {
     "commonmark": "^0.28.0",
+    "etch": "^0.12.7",
     "jquery": "^3.1.1"
   },
   "description": "Show a hierarchical outline of a text document",
@@ -48,7 +49,7 @@
     "eslint-config-google": "^0.6.0"
   },
   "engines": {
-    "atom": ">=1.17.0 <2.0.0"
+    "atom": ">=1.22.0 <2.0.0"
   },
   "homepage": "https://github.com/mangecoeur/document-outline#readme",
   "keywords": [
@@ -59,17 +60,25 @@
     "knitr",
     "academic",
     "text",
-    "asciidoc"
+    "asciidoc",
+    "atom-ide"
   ],
   "license": "GPL-3.0",
   "main": "./lib/document-outline",
   "name": "document-outline",
   "optionalDependencies": {},
-  "readme": "# Document Outline\n\nDisplays a hierarchical, interactive outline tree view of your document. This is particularly useful for working on long form documents such as academic papers and theses.\n\n![screenshot of document-outline](https://raw.githubusercontent.com/mangecoeur/document-outline/master/document-outline-screenshot.png)\n\n## Support types\n\nCurrently supports:\n\n- Markdown (Commonmark)\n- Latex\n- ReStructuredText\n- AsciiDoc\n- Knitr\n\n## Usage\n\nTrigger using `document-outline:toggle` or enable `show by default` setting. Single click to jump to heading in document, double click to collapse sub-headings.\n\nNote: for simplicity, only 'modern' UI themes are supported (i.e. not the atom-light or atom-dark themes). Should work for popular UI themes including One-light/dark and Atom-material.\n\n\n## Why?\n\nIt's easy to get lost working on long documents - an outline view is a huge help. With document-outline, jump to headings in your document, and see the currently edited section highlighted in the outline.\n\n## See also\n\nSome handy packages for working on long form markdown documents:\n\n- [preview-inline](https://atom.io/packages/preview-inline) (shameless plug) allows quick inline previews of LaTeX math equations and images in documents without having to generate a preview\n- [language-pfm](https://atom.io/packages/language-pfm) syntax highlighting for the pandoc variety of markdown\n- [markdown preview plus](https://atom.io/packages/markdown-preview-plus) enhanced HTML preview of markdown documents\n- [build](https://atom.io/packages/build) plus `build-makefile`. If you use Pandoc to build serious documents, your pandoc command starts to get pretty fancy. Do yourself a favour and write a makefile for that, then use atom-build to easily trigger building your document from the editor.\n\n\n## TODO\n\n- drag-and-drop reordering of headings\n\nContributions welcome!\n",
+  "providedServices": {
+    "outline-view": {
+      "versions": {
+        "0.1.0": "provideOutlines"
+      }
+    }
+  },
+  "readme": "# Document Outline\n\nDisplays a hierarchical, interactive outline tree view for document markup.\n\n![screenshot of document-outline](https://raw.githubusercontent.com/mangecoeur/document-outline/master/document-outline-screenshot.png)\n\nAlso registers as an outline provider for Atom-IDE for the supported document types.\n\n![screenshot of document-outline using atom-ide UI](https://raw.githubusercontent.com/mangecoeur/document-outline/master/atom-ide-outline-screenshot.png)\n\n\n## Support types\n\nCurrently supports:\n\n- Markdown (Commonmark)\n- Latex\n- ReStructuredText\n- AsciiDoc\n- Knitr\n\n## Usage\n\nTrigger using `document-outline:toggle` or enable `show by default` setting. Single click to jump to heading in document, double click to collapse sub-headings.\n\nAlternatively, enable the outline view of Atom-IDE (and disable the `show by default` setting).\n\nNote: for simplicity, only 'modern' UI themes are supported (i.e. not the atom-light or atom-dark themes). Should work for popular UI themes including One-light/dark and Atom-material.\n\n\n## Why?\n\nIt's easy to get lost working on long documents - an outline view is a huge help. With document-outline, jump to headings in your document, and see the currently edited section highlighted in the outline.\n\n## See also\n\nSome handy packages for working on long form markdown documents:\n\n- [preview-inline](https://atom.io/packages/preview-inline) (shameless plug) allows quick inline previews of LaTeX math equations and images in documents without having to generate a preview\n- [language-pfm](https://atom.io/packages/language-pfm) syntax highlighting for the pandoc variety of markdown\n- [markdown preview plus](https://atom.io/packages/markdown-preview-plus) enhanced HTML preview of markdown documents\n- [build](https://atom.io/packages/build) plus `build-makefile`. If you use Pandoc to build serious documents, your pandoc command starts to get pretty fancy. Do yourself a favour and write a makefile for that, then use atom-build to easily trigger building your document from the editor.\n\n\n## TODO\n\n- drag-and-drop reordering of headings\n\nContributions welcome!\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mangecoeur/document-outline.git"
   },
-  "version": "1.6.18"
+  "version": "2.0.1"
 }
