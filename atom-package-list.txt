@@ -100,7 +100,7 @@ symbols-tree-view # like tagbar for vim
 # 8. Python IDE
 python-tools
 autocomplete-python
-Hydrogen # run jupyter kernel along with code
+#Hydrogen # run jupyter kernel along with code
 
 # 8. Other tools
 graphviz-preview # preview dot files
