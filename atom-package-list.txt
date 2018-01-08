@@ -97,6 +97,10 @@ atom-rtags-plus # rtags based source navigation and more
 hyperclick # jump to definition made easy, atom-rtags-plus dependency
 symbols-tree-view # like tagbar for vim
 
+# 7. Atom IDE
+atom-ide-ui # basic ui
+ide-python # python ide features
+
 # 8. Python IDE
 python-tools
 autocomplete-python
