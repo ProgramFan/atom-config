@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
+        "raw": "/tmp/d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
-        "spec": "/tmp/d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
+        "rawSpec": "/tmp/d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
+        "spec": "/tmp/d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171117-6348-1qlljf4.8e3ll680k9"
+      "/tmp/apm-install-dir-11808-6354-13c2pf5.i41l40a4i"
     ]
   ],
-  "_from": "../d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
+  "_from": "../d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
   "_id": "atom-beautify@0.30.9",
   "_inCache": true,
   "_location": "/atom-beautify",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
+    "raw": "/tmp/d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
-    "spec": "/tmp/d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
+    "rawSpec": "/tmp/d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
+    "spec": "/tmp/d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
+  "_resolved": "file:../d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
   "_shasum": "676ff6cf34569aca3b3c794373802277c1d359e6",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171117-6348-1xw3bh2.ryvq6qd7vi/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171117-6348-1qlljf4.8e3ll680k9",
+  "_spec": "/tmp/d-11808-6354-qayhit.fy6wwv1jor/package.tgz",
+  "_where": "/tmp/apm-install-dir-11808-6354-13c2pf5.i41l40a4i",
   "activationCommands": {
     "atom-workspace": [
       "atom-beautify:help-debug-editor",

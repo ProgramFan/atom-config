@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
+        "raw": "/tmp/d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
-        "spec": "/tmp/d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
+        "rawSpec": "/tmp/d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
+        "spec": "/tmp/d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171117-7332-7hld8q.yp286t7qfr"
+      "/tmp/apm-install-dir-11808-7340-1fuixs0.ny3zddkj4i"
     ]
   ],
-  "_from": "../d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
+  "_from": "../d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
   "_id": "language-asciidoc@1.11.0",
   "_inCache": true,
   "_location": "/language-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
+    "raw": "/tmp/d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
-    "spec": "/tmp/d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
+    "rawSpec": "/tmp/d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
+    "spec": "/tmp/d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
+  "_resolved": "file:../d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
   "_shasum": "bf0bdf9934f678040405c6a68344b5f5650e7213",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171117-7332-a3dmgh.nfvbwqaor/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171117-7332-7hld8q.yp286t7qfr",
+  "_spec": "/tmp/d-11808-7340-1pyyqy3.vttjoflxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11808-7340-1fuixs0.ny3zddkj4i",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-language-asciidoc/issues"
   },

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
+        "raw": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
-        "spec": "/tmp/d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
+        "rawSpec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+        "spec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171117-4913-1v5m19b.0jx143rf6r"
+      "/tmp/apm-install-dir-11808-4921-1qtxin9.wcoo1xajor"
     ]
   ],
-  "_from": "../d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
+  "_from": "../d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
   "_id": "file-icons@2.1.15",
   "_inCache": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
+    "raw": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
-    "spec": "/tmp/d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
+    "rawSpec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+    "spec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
+  "_resolved": "file:../d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
   "_shasum": "ad81ae0524b3653fab7a0d835ed5c02e0e9e84b7",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171117-4913-1d92cub.92yaps0pb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171117-4913-1v5m19b.0jx143rf6r",
+  "_spec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-11808-4921-1qtxin9.wcoo1xajor",
   "atomTestRunner": "atom-mocha",
   "bugs": {
     "url": "https://github.com/file-icons/atom/issues"

@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
+        "raw": "/tmp/d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
-        "spec": "/tmp/d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
+        "rawSpec": "/tmp/d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
+        "spec": "/tmp/d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171117-7651-qzctoy.i6f5dvlsor"
+      "/tmp/apm-install-dir-11808-7659-1hg5dx6.0r24cp7gb9"
     ]
   ],
-  "_from": "../d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
+  "_from": "../d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
   "_id": "language-latex@1.1.1",
   "_inCache": true,
   "_location": "/language-latex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
+    "raw": "/tmp/d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
-    "spec": "/tmp/d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
+    "rawSpec": "/tmp/d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
+    "spec": "/tmp/d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
+  "_resolved": "file:../d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
   "_shasum": "c85acd386a8b85d32a765bac137f524dc700c327",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171117-7651-1hkyq0v.4ngue4s4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171117-7651-qzctoy.i6f5dvlsor",
+  "_spec": "/tmp/d-11808-7659-1my8v2l.yccwtjfw29/package.tgz",
+  "_where": "/tmp/apm-install-dir-11808-7659-1hg5dx6.0r24cp7gb9",
   "bugs": {
     "url": "https://github.com/area/language-latex/issues"
   },

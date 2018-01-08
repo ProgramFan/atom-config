@@ -4,6 +4,7 @@ import FS from 'fs-plus';
 import Path from 'path';
 import SSH2 from 'ssh2';
 import Connector from '../connector';
+import { isGenericUploadError } from '../notifications';
 import { traverseTree, statsToPermissions } from '../helpers';
 
 class ConnectorSFTP extends Connector {
@@ -410,9 +411,7 @@ class ConnectorSFTP extends Connector {
             if (dirErr) {
               const error = writeErr.message || dirErr;
 
-              atom.notifications.addError(`Remote FTP: Upload Error ${error}`, {
-                dismissable: false,
-              });
+              isGenericUploadError(error);
 
               return dirErr;
             }
@@ -421,12 +420,11 @@ class ConnectorSFTP extends Connector {
 
             return true;
           });
+        } else if (err && Object.prototype.hasOwnProperty.call(err, 'message')) {
+          isGenericUploadError(err.message);
         } else {
-          const error = err.message || writeErr;
-
-          atom.notifications.addError(`Remote FTP: Upload Error ${error}`, {
-            dismissable: false,
-          });
+          console.error(writeErr); // Useful for debugging
+          isGenericUploadError(writeErr);
         }
       });
 

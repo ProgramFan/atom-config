@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
+        "raw": "/tmp/d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
-        "spec": "/tmp/d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
+        "rawSpec": "/tmp/d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
+        "spec": "/tmp/d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171117-7598-1lg7cqv.rpv87low29"
+      "/tmp/apm-install-dir-11808-7606-1i82zp6.1zk273nmi"
     ]
   ],
-  "_from": "../d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
+  "_from": "../d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
   "_id": "atom-latex@0.8.2",
   "_inCache": true,
   "_location": "/atom-latex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
+    "raw": "/tmp/d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
-    "spec": "/tmp/d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
+    "rawSpec": "/tmp/d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
+    "spec": "/tmp/d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
+  "_resolved": "file:../d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
   "_shasum": "e03c0c8260b46b30469e9a3c2c843c6e896b0d99",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171117-7598-58jtw2.gvxftro1or/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171117-7598-1lg7cqv.rpv87low29",
+  "_spec": "/tmp/d-11808-7606-i2yhpa.nb98d50zfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11808-7606-1i82zp6.1zk273nmi",
   "bugs": {
     "url": "https://github.com/James-Yu/Atom-LaTeX/issues"
   },

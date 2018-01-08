@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
+        "raw": "/tmp/d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
-        "spec": "/tmp/d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
+        "rawSpec": "/tmp/d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
+        "spec": "/tmp/d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171117-6135-ntfl8c.zsgw6x0f6r"
+      "/tmp/apm-install-dir-11808-6141-2suvxz.84xszwipb9"
     ]
   ],
-  "_from": "../d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
+  "_from": "../d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
   "_id": "linter-spell-html@0.7.0",
   "_inCache": true,
   "_location": "/linter-spell-html",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
+    "raw": "/tmp/d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
-    "spec": "/tmp/d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
+    "rawSpec": "/tmp/d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
+    "spec": "/tmp/d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
+  "_resolved": "file:../d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
   "_shasum": "8ce5287e9bd460c65c74b23305679ac38aeed797",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171117-6135-1o10shc.efh9qkt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171117-6135-ntfl8c.zsgw6x0f6r",
+  "_spec": "/tmp/d-11808-6141-atqy0d.i0rhwzsemi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11808-6141-2suvxz.84xszwipb9",
   "activationHooks": [
     "language-html:grammar-used"
   ],

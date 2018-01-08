@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
+        "raw": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
-        "spec": "/tmp/d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
+        "rawSpec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
+        "spec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171117-6907-1i8tjh1.r1e3mu0udi"
+      "/tmp/apm-install-dir-11808-6915-1lwcocg.bnnu8cwhfr"
     ]
   ],
-  "_from": "../d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
+  "_from": "../d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
   "_id": "autocomplete-paths@2.12.1",
   "_inCache": true,
   "_location": "/autocomplete-paths",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
+    "raw": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
-    "spec": "/tmp/d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
+    "rawSpec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
+    "spec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
+  "_resolved": "file:../d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
   "_shasum": "e0588d5e0fef90591d8a26f747c467119c12ec77",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171117-6907-1a8mtl3.nvz6nipb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171117-6907-1i8tjh1.r1e3mu0udi",
+  "_spec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
+  "_where": "/tmp/apm-install-dir-11808-6915-1lwcocg.bnnu8cwhfr",
   "bugs": {
     "url": "https://github.com/atom-community/autocomplete-paths/issues"
   },

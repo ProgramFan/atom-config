@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
+        "raw": "/tmp/d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
-        "spec": "/tmp/d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
+        "rawSpec": "/tmp/d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
+        "spec": "/tmp/d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-1171117-7385-mcka9m.65xt7qfr"
+      "/tmp/apm-install-dir-11808-7393-872n9r.sm2sw6ogvi"
     ]
   ],
-  "_from": "../d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
+  "_from": "../d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
   "_id": "autocomplete-asciidoc@0.1.2",
   "_inCache": true,
   "_location": "/autocomplete-asciidoc",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
+    "raw": "/tmp/d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
-    "spec": "/tmp/d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
+    "rawSpec": "/tmp/d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
+    "spec": "/tmp/d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
+  "_resolved": "file:../d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
   "_shasum": "bd850af2336aa841202c403968c6c293a3e52186",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-1171117-7385-afzx8v.p81rbjra4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-1171117-7385-mcka9m.65xt7qfr",
+  "_spec": "/tmp/d-11808-7393-tu3lxx.8azqn9izfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11808-7393-872n9r.sm2sw6ogvi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-autocomplete-asciidoc/issues"
   },
