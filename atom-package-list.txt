@@ -94,7 +94,6 @@ docblockr # doxygen style document block
 dash # quick reference to dev. docs
 you-complete-me # dark-powered completer provider
 atom-rtags-plus # rtags based source navigation and more
-hyperclick # jump to definition made easy, atom-rtags-plus dependency
 symbols-tree-view # like tagbar for vim
 
 # 7. Atom IDE
