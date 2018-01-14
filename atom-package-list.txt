@@ -48,6 +48,8 @@ linter-scspell
 linter-spell
 linter-spell-latex
 linter-spell-html
+linter-spell-shellscript
+linter-spell-cjk
 atomic-vale # A better language linter
 vim-mode-plus
 ex-mode
@@ -62,6 +64,7 @@ language-dot
 language-x86asm
 language-plantuml
 language-fortran
+language-shellscript
 
 #
 # 4. Extra completers
