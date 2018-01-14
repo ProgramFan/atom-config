@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
+        "raw": "/tmp/d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
-        "spec": "/tmp/d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
+        "rawSpec": "/tmp/d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
+        "spec": "/tmp/d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-5407-1fo8zmh.je1zkf0f6r"
+      "/tmp/apm-install-dir-118014-5410-kr4h7h.lzlvijxlxr"
     ]
   ],
-  "_from": "../d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
+  "_from": "../d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
   "_id": "atom-busy-unifier-sb@1.0.3",
   "_inCache": true,
   "_location": "/atom-busy-unifier-sb",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
+    "raw": "/tmp/d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
-    "spec": "/tmp/d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
+    "rawSpec": "/tmp/d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
+    "spec": "/tmp/d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
+  "_resolved": "file:../d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
   "_shasum": "d2d8f0c54b1cf7f708f44b5be15b18e6111a4ce2",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-5407-3qmfel.5cxqtlc8fr/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-5407-1fo8zmh.je1zkf0f6r",
+  "_spec": "/tmp/d-118014-5410-1ap9k7d.lsvloez5mi/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-5410-kr4h7h.lzlvijxlxr",
   "bugs": {
     "url": "https://github.com/rapgenic/atom-busy-unifier-sb/issues"
   },

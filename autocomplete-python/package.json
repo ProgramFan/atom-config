@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
+        "raw": "/tmp/d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
-        "spec": "/tmp/d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
+        "rawSpec": "/tmp/d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
+        "spec": "/tmp/d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-8303-kjuarj.9ktou8r529"
+      "/tmp/apm-install-dir-118014-8092-19estji.3bc6fuhaor"
     ]
   ],
-  "_from": "../d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
+  "_from": "../d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
   "_id": "autocomplete-python@1.10.5",
   "_inCache": true,
   "_location": "/autocomplete-python",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
+    "raw": "/tmp/d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
-    "spec": "/tmp/d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
+    "rawSpec": "/tmp/d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
+    "spec": "/tmp/d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
+  "_resolved": "file:../d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
   "_shasum": "f9afe0c952324a933e289fb576d6f441f072e06f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-8303-1gmnsrt.4qf8b8olxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-8303-kjuarj.9ktou8r529",
+  "_spec": "/tmp/d-118014-8092-1swy2gd.oc4lgl23xr/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-8092-19estji.3bc6fuhaor",
   "bugs": {
     "url": "https://github.com/autocomplete-python/autocomplete-python/issues"
   },

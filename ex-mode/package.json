@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-6257-st7lth.0d884wvcxr/package.tgz",
+        "raw": "/tmp/d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-6257-st7lth.0d884wvcxr/package.tgz",
-        "spec": "/tmp/d-118014-6257-st7lth.0d884wvcxr/package.tgz",
+        "rawSpec": "/tmp/d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
+        "spec": "/tmp/d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-6257-jtdjxe.x6u2ivygb9"
+      "/tmp/apm-install-dir-118014-6259-1h7it23.ytoojq0k9"
     ]
   ],
-  "_from": "../d-118014-6257-st7lth.0d884wvcxr/package.tgz",
+  "_from": "../d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
   "_id": "ex-mode@0.18.0",
   "_inCache": true,
   "_location": "/ex-mode",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-6257-st7lth.0d884wvcxr/package.tgz",
+    "raw": "/tmp/d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-6257-st7lth.0d884wvcxr/package.tgz",
-    "spec": "/tmp/d-118014-6257-st7lth.0d884wvcxr/package.tgz",
+    "rawSpec": "/tmp/d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
+    "spec": "/tmp/d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-6257-st7lth.0d884wvcxr/package.tgz",
+  "_resolved": "file:../d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
   "_shasum": "4ba7dc050b13e8fb073d5feb10d3a2bdd1f87541",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-6257-st7lth.0d884wvcxr/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-6257-jtdjxe.x6u2ivygb9",
+  "_spec": "/tmp/d-118014-6259-4xhfxj.hcl1ru23xr/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-6259-1h7it23.ytoojq0k9",
   "activationCommands": {
     "atom-workspace": "ex-mode:open"
   },

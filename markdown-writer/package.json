@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
+        "raw": "/tmp/d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
-        "spec": "/tmp/d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
+        "rawSpec": "/tmp/d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
+        "spec": "/tmp/d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-7454-pst7u.jx74cjif6r"
+      "/tmp/apm-install-dir-118014-7242-uuqtd6.ix7qy9cnmi"
     ]
   ],
-  "_from": "../d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
+  "_from": "../d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
   "_id": "markdown-writer@2.7.3",
   "_inCache": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
+    "raw": "/tmp/d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
-    "spec": "/tmp/d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
+    "rawSpec": "/tmp/d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
+    "spec": "/tmp/d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
+  "_resolved": "file:../d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
   "_shasum": "1a319cbdfa3106a4f49bc6a7df7e17113e9a3127",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-7454-48ilsa.yco4h4obt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-7454-pst7u.jx74cjif6r",
+  "_spec": "/tmp/d-118014-7242-taho6u.9te7rmgqfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-7242-uuqtd6.ix7qy9cnmi",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",

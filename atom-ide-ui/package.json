@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
+        "raw": "/tmp/d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
-        "spec": "/tmp/d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
+        "rawSpec": "/tmp/d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
+        "spec": "/tmp/d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-8144-q69all.ue7l1eb3xr"
+      "/tmp/apm-install-dir-118014-7933-1cwvpfq.kiyrd7k3xr"
     ]
   ],
-  "_from": "../d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
+  "_from": "../d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
   "_id": "atom-ide-ui@0.7.1",
   "_inCache": true,
   "_location": "/atom-ide-ui",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
+    "raw": "/tmp/d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
-    "spec": "/tmp/d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
+    "rawSpec": "/tmp/d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
+    "spec": "/tmp/d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
+  "_resolved": "file:../d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
   "_shasum": "c1430cfb33e0b37b1b0ab92f3ff5c6c2544d1315",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-8144-qpnp4i.7c7e72pgb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-8144-q69all.ue7l1eb3xr",
+  "_spec": "/tmp/d-118014-7933-1mqka88.mgkh3vunmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-7933-1cwvpfq.kiyrd7k3xr",
   "bugs": {
     "url": "https://github.com/facebook-atom/atom-ide-ui/issues"
   },

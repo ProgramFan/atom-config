@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
+        "raw": "/tmp/d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
-        "spec": "/tmp/d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
+        "rawSpec": "/tmp/d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
+        "spec": "/tmp/d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-4452-v5tm5k.cc9ezmpldi"
+      "/tmp/apm-install-dir-118014-4454-10xrirz.pgs5opqfr"
     ]
   ],
-  "_from": "../d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
+  "_from": "../d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
   "_id": "minimap@4.29.7",
   "_inCache": true,
   "_location": "/minimap",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
+    "raw": "/tmp/d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
-    "spec": "/tmp/d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
+    "rawSpec": "/tmp/d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
+    "spec": "/tmp/d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
+  "_resolved": "file:../d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
   "_shasum": "55a8dfc8003d29c8fc895a8583ddf4a80e85191e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-4452-1vg6v7e.flx2z0vn29/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-4452-v5tm5k.cc9ezmpldi",
+  "_spec": "/tmp/d-118014-4454-1bk9fh2.j27a8oxbt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-4454-10xrirz.pgs5opqfr",
   "author": {
     "name": "Fangdun Cai",
     "email": "cfddream@gmail.com"

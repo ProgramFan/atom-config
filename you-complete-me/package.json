@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
+        "raw": "/tmp/d-118014-7773-tcunra.x323ej0pb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
-        "spec": "/tmp/d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
+        "rawSpec": "/tmp/d-118014-7773-tcunra.x323ej0pb9/package.tgz",
+        "spec": "/tmp/d-118014-7773-tcunra.x323ej0pb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-7985-1pnyjc1.p46o2mx6r"
+      "/tmp/apm-install-dir-118014-7773-1qrdeze.id2b3gnwmi"
     ]
   ],
-  "_from": "../d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
+  "_from": "../d-118014-7773-tcunra.x323ej0pb9/package.tgz",
   "_id": "you-complete-me@0.8.0",
   "_inCache": true,
   "_location": "/you-complete-me",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
+    "raw": "/tmp/d-118014-7773-tcunra.x323ej0pb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
-    "spec": "/tmp/d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
+    "rawSpec": "/tmp/d-118014-7773-tcunra.x323ej0pb9/package.tgz",
+    "spec": "/tmp/d-118014-7773-tcunra.x323ej0pb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
+  "_resolved": "file:../d-118014-7773-tcunra.x323ej0pb9/package.tgz",
   "_shasum": "4256493ad74eab447fccf2b1410b6bec918e8d6a",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-7985-1bsphpj.ksljuivn29/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-7985-1pnyjc1.p46o2mx6r",
+  "_spec": "/tmp/d-118014-7773-tcunra.x323ej0pb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-7773-1qrdeze.id2b3gnwmi",
   "bugs": {
     "url": "https://github.com/Qusic/atom-youcompleteme/issues"
   },

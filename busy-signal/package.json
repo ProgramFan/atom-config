@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
+        "raw": "/tmp/d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
-        "spec": "/tmp/d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
+        "rawSpec": "/tmp/d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
+        "spec": "/tmp/d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-5567-19tc681.ywoeis5rk9"
+      "/tmp/apm-install-dir-118014-5569-1pw0yil.kdtm8zd7vi"
     ]
   ],
-  "_from": "../d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
+  "_from": "../d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
   "_id": "busy-signal@1.4.3",
   "_inCache": true,
   "_location": "/busy-signal",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
+    "raw": "/tmp/d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
-    "spec": "/tmp/d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
+    "rawSpec": "/tmp/d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
+    "spec": "/tmp/d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
+  "_resolved": "file:../d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
   "_shasum": "6baf37a38bf9468d9bfd491817102a70b50e05f3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-5567-1aol85o.crf0cc8fr/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-5567-19tc681.ywoeis5rk9",
+  "_spec": "/tmp/d-118014-5569-1t4go5f.flsgduz0k9/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-5569-1pw0yil.kdtm8zd7vi",
   "bugs": {
     "url": "https://github.com/steelbrain/busy-signal/issues"
   },

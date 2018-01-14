@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
+        "raw": "/tmp/d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
-        "spec": "/tmp/d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
+        "rawSpec": "/tmp/d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
+        "spec": "/tmp/d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-7029-79juzo.7lmsrzr529"
+      "/tmp/apm-install-dir-118014-6817-1mkkmon.1omi7tx1or"
     ]
   ],
-  "_from": "../d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
+  "_from": "../d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
   "_id": "autocomplete-bibtex@1.1.0",
   "_inCache": true,
   "_location": "/autocomplete-bibtex",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
+    "raw": "/tmp/d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
-    "spec": "/tmp/d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
+    "rawSpec": "/tmp/d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
+    "spec": "/tmp/d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
+  "_resolved": "file:../d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
   "_shasum": "ba647f1f2c994d6f3008d3d5c2bcf8eadb2ef2e3",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-7029-f9wqr1.ogzzs62yb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-7029-79juzo.7lmsrzr529",
+  "_spec": "/tmp/d-118014-6817-17a53c0.ihr7jy8pvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-6817-1mkkmon.1omi7tx1or",
   "author": {
     "name": "apcshields"
   },

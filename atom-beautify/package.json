@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
+        "raw": "/tmp/d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
-        "spec": "/tmp/d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
+        "rawSpec": "/tmp/d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
+        "spec": "/tmp/d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-6310-1kbn4qk.fz51hy3nmi"
+      "/tmp/apm-install-dir-118014-6312-1om8f5m.51y0cqh0k9"
     ]
   ],
-  "_from": "../d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
+  "_from": "../d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
   "_id": "atom-beautify@0.30.9",
   "_inCache": true,
   "_location": "/atom-beautify",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
+    "raw": "/tmp/d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
-    "spec": "/tmp/d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
+    "rawSpec": "/tmp/d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
+    "spec": "/tmp/d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
+  "_resolved": "file:../d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
   "_shasum": "676ff6cf34569aca3b3c794373802277c1d359e6",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-6310-1wkk4wb.1rxj1t6gvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-6310-1kbn4qk.fz51hy3nmi",
+  "_spec": "/tmp/d-118014-6312-25x4q4.yzb1kbj4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-6312-1om8f5m.51y0cqh0k9",
   "activationCommands": {
     "atom-workspace": [
       "atom-beautify:help-debug-editor",
