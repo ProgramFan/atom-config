@@ -64,7 +64,6 @@ language-dot
 language-x86asm
 language-plantuml
 language-fortran
-language-shellscript
 
 #
 # 4. Extra completers
@@ -106,7 +105,7 @@ ide-python # python ide features
 # 8. Python IDE
 python-tools
 autocomplete-python
-#Hydrogen # run jupyter kernel along with code
+Hydrogen # run jupyter kernel along with code
 
 # 8. Other tools
 graphviz-preview # preview dot files
