@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
+        "raw": "/tmp/d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
-        "spec": "/tmp/d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
+        "rawSpec": "/tmp/d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
+        "spec": "/tmp/d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11808-7446-p8d51y.ah0f36usor"
+      "/tmp/apm-install-dir-118014-7299-lu72iq.u6z5nx9a4i"
     ]
   ],
-  "_from": "../d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
+  "_from": "../d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
   "_id": "asciidoc-preview@2.10.3",
   "_inCache": true,
   "_location": "/asciidoc-preview",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
+    "raw": "/tmp/d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
-    "spec": "/tmp/d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
+    "rawSpec": "/tmp/d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
+    "spec": "/tmp/d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
+  "_resolved": "file:../d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
   "_shasum": "43416267f0d839bb1573ea805f5b8c558b7ad10e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11808-7446-10x8tj0.1qy40ftj4i/package.tgz",
-  "_where": "/tmp/apm-install-dir-11808-7446-p8d51y.ah0f36usor",
+  "_spec": "/tmp/d-118014-7299-13bgvz7.7uo0drhpvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-7299-lu72iq.u6z5nx9a4i",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-preview/issues"
   },

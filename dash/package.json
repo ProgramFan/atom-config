@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11808-7765-jts22p.rjx2prpb9/package.tgz",
+        "raw": "/tmp/d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11808-7765-jts22p.rjx2prpb9/package.tgz",
-        "spec": "/tmp/d-11808-7765-jts22p.rjx2prpb9/package.tgz",
+        "rawSpec": "/tmp/d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
+        "spec": "/tmp/d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11808-7765-cru0xf.ncbbievcxr"
+      "/tmp/apm-install-dir-118014-7617-1thx501.rnxa65stt9"
     ]
   ],
-  "_from": "../d-11808-7765-jts22p.rjx2prpb9/package.tgz",
+  "_from": "../d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
   "_id": "dash@1.7.1",
   "_inCache": true,
   "_location": "/dash",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11808-7765-jts22p.rjx2prpb9/package.tgz",
+    "raw": "/tmp/d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11808-7765-jts22p.rjx2prpb9/package.tgz",
-    "spec": "/tmp/d-11808-7765-jts22p.rjx2prpb9/package.tgz",
+    "rawSpec": "/tmp/d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
+    "spec": "/tmp/d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11808-7765-jts22p.rjx2prpb9/package.tgz",
+  "_resolved": "file:../d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
   "_shasum": "7fad1f6dccbc4424d70c4ed9573641b34802ab2b",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11808-7765-jts22p.rjx2prpb9/package.tgz",
-  "_where": "/tmp/apm-install-dir-11808-7765-cru0xf.ncbbievcxr",
+  "_spec": "/tmp/d-118014-7617-15q0p8c.24qbcyds4i/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-7617-1thx501.rnxa65stt9",
   "activationCommands": {
     "atom-text-editor": [
       "dash:shortcut",

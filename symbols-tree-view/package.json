@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11808-7977-qen52i.oshxe0zfr/package.tgz",
+        "raw": "/tmp/d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11808-7977-qen52i.oshxe0zfr/package.tgz",
-        "spec": "/tmp/d-11808-7977-qen52i.oshxe0zfr/package.tgz",
+        "rawSpec": "/tmp/d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
+        "spec": "/tmp/d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11808-7977-lkw2i0.59zrbgwrk9"
+      "/tmp/apm-install-dir-118014-7777-1yys6dc.mt6ur9hpvi"
     ]
   ],
-  "_from": "../d-11808-7977-qen52i.oshxe0zfr/package.tgz",
+  "_from": "../d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
   "_id": "symbols-tree-view@0.14.0",
   "_inCache": true,
   "_location": "/symbols-tree-view",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11808-7977-qen52i.oshxe0zfr/package.tgz",
+    "raw": "/tmp/d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11808-7977-qen52i.oshxe0zfr/package.tgz",
-    "spec": "/tmp/d-11808-7977-qen52i.oshxe0zfr/package.tgz",
+    "rawSpec": "/tmp/d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
+    "spec": "/tmp/d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11808-7977-qen52i.oshxe0zfr/package.tgz",
+  "_resolved": "file:../d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
   "_shasum": "43df0647b4f2107134a2e93de1164da6db9f42dd",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11808-7977-qen52i.oshxe0zfr/package.tgz",
-  "_where": "/tmp/apm-install-dir-11808-7977-lkw2i0.59zrbgwrk9",
+  "_spec": "/tmp/d-118014-7777-1ykitat.3bl97iizfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-7777-1yys6dc.mt6ur9hpvi",
   "bugs": {
     "url": "https://github.com/xndcn/symbols-tree-view/issues"
   },

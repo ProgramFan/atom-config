@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+        "raw": "/tmp/d-118014-4777-8ctr75.09ple7mn29/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
-        "spec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+        "rawSpec": "/tmp/d-118014-4777-8ctr75.09ple7mn29/package.tgz",
+        "spec": "/tmp/d-118014-4777-8ctr75.09ple7mn29/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11808-4921-1qtxin9.wcoo1xajor"
+      "/tmp/apm-install-dir-118014-4777-xwpk3i.atzu2fbt9"
     ]
   ],
-  "_from": "../d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+  "_from": "../d-118014-4777-8ctr75.09ple7mn29/package.tgz",
   "_id": "file-icons@2.1.15",
   "_inCache": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+    "raw": "/tmp/d-118014-4777-8ctr75.09ple7mn29/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
-    "spec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+    "rawSpec": "/tmp/d-118014-4777-8ctr75.09ple7mn29/package.tgz",
+    "spec": "/tmp/d-118014-4777-8ctr75.09ple7mn29/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
+  "_resolved": "file:../d-118014-4777-8ctr75.09ple7mn29/package.tgz",
   "_shasum": "ad81ae0524b3653fab7a0d835ed5c02e0e9e84b7",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11808-4921-1jn1tv2.wi5ig22o6r/package.tgz",
-  "_where": "/tmp/apm-install-dir-11808-4921-1qtxin9.wcoo1xajor",
+  "_spec": "/tmp/d-118014-4777-8ctr75.09ple7mn29/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-4777-xwpk3i.atzu2fbt9",
   "atomTestRunner": "atom-mocha",
   "bugs": {
     "url": "https://github.com/file-icons/atom/issues"

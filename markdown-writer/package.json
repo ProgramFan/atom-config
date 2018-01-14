@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11808-7287-1beb484.s8sr307ldi/package.tgz",
+        "raw": "/tmp/d-118014-7139-1on3ae2.nd8to6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11808-7287-1beb484.s8sr307ldi/package.tgz",
-        "spec": "/tmp/d-11808-7287-1beb484.s8sr307ldi/package.tgz",
+        "rawSpec": "/tmp/d-118014-7139-1on3ae2.nd8to6r/package.tgz",
+        "spec": "/tmp/d-118014-7139-1on3ae2.nd8to6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11808-7287-f6y1vm.qbczzg2e29"
+      "/tmp/apm-install-dir-118014-7139-qt01m2.ifaj5j0pb9"
     ]
   ],
-  "_from": "../d-11808-7287-1beb484.s8sr307ldi/package.tgz",
+  "_from": "../d-118014-7139-1on3ae2.nd8to6r/package.tgz",
   "_id": "markdown-writer@2.7.3",
   "_inCache": true,
   "_location": "/markdown-writer",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11808-7287-1beb484.s8sr307ldi/package.tgz",
+    "raw": "/tmp/d-118014-7139-1on3ae2.nd8to6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11808-7287-1beb484.s8sr307ldi/package.tgz",
-    "spec": "/tmp/d-11808-7287-1beb484.s8sr307ldi/package.tgz",
+    "rawSpec": "/tmp/d-118014-7139-1on3ae2.nd8to6r/package.tgz",
+    "spec": "/tmp/d-118014-7139-1on3ae2.nd8to6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11808-7287-1beb484.s8sr307ldi/package.tgz",
+  "_resolved": "file:../d-118014-7139-1on3ae2.nd8to6r/package.tgz",
   "_shasum": "1a319cbdfa3106a4f49bc6a7df7e17113e9a3127",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11808-7287-1beb484.s8sr307ldi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11808-7287-f6y1vm.qbczzg2e29",
+  "_spec": "/tmp/d-118014-7139-1on3ae2.nd8to6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-7139-qt01m2.ifaj5j0pb9",
   "activationCommands": {
     "atom-workspace": [
       "markdown-writer:new-post",

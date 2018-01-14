@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
+        "raw": "/tmp/d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
-        "spec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
+        "rawSpec": "/tmp/d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
+        "spec": "/tmp/d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11808-6915-1lwcocg.bnnu8cwhfr"
+      "/tmp/apm-install-dir-118014-6768-gslc7t.wq54ivbo6r"
     ]
   ],
-  "_from": "../d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
-  "_id": "autocomplete-paths@2.12.1",
+  "_from": "../d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
+  "_id": "autocomplete-paths@2.12.2",
   "_inCache": true,
   "_location": "/autocomplete-paths",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
+    "raw": "/tmp/d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
-    "spec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
+    "rawSpec": "/tmp/d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
+    "spec": "/tmp/d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
-  "_shasum": "e0588d5e0fef90591d8a26f747c467119c12ec77",
+  "_resolved": "file:../d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
+  "_shasum": "fd934aa91d3cffa9a467d3760152c08917fa392f",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11808-6915-6ohwf8.5b894ibe29/package.tgz",
-  "_where": "/tmp/apm-install-dir-11808-6915-1lwcocg.bnnu8cwhfr",
+  "_spec": "/tmp/d-118014-6768-1522dnc.uswuj1c3di/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-6768-gslc7t.wq54ivbo6r",
   "bugs": {
     "url": "https://github.com/atom-community/autocomplete-paths/issues"
   },
@@ -75,5 +75,5 @@
     "type": "git",
     "url": "git+https://github.com/atom-community/autocomplete-paths.git"
   },
-  "version": "2.12.1"
+  "version": "2.12.2"
 }

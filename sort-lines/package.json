@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
+        "raw": "/tmp/d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
-        "spec": "/tmp/d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
+        "rawSpec": "/tmp/d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
+        "spec": "/tmp/d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11808-5080-ek2dv4.5z1kqhbyb9"
+      "/tmp/apm-install-dir-118014-4936-7onikk.7mdjgojemi"
     ]
   ],
-  "_from": "../d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
+  "_from": "../d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
   "_id": "sort-lines@0.18.0",
   "_inCache": true,
   "_location": "/sort-lines",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
+    "raw": "/tmp/d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
-    "spec": "/tmp/d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
+    "rawSpec": "/tmp/d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
+    "spec": "/tmp/d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
+  "_resolved": "file:../d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
   "_shasum": "e7a421bc0e8655fa90b46cdc881c60983ade0816",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11808-5080-rvs8tn.c1lh00be29/package.tgz",
-  "_where": "/tmp/apm-install-dir-11808-5080-ek2dv4.5z1kqhbyb9",
+  "_spec": "/tmp/d-118014-4936-1vwxeow.i9fszwipb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-4936-7onikk.7mdjgojemi",
   "activationCommands": {
     "atom-text-editor": [
       "sort-lines:sort",
