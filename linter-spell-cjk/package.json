@@ -1,0 +1,75 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+        "spec": "/tmp/d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-118014-6098-1pccaeq.tchip2pgb9"
+    ]
+  ],
+  "_from": "../d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+  "_id": "linter-spell-cjk@0.1.1",
+  "_inCache": true,
+  "_location": "/linter-spell-cjk",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+    "spec": "/tmp/d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+  "_shasum": "5a9f2251fd04f3b8ede1786e559cbc25e652789a",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-118014-6098-196vdxf.42bg9zfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-6098-1pccaeq.tchip2pgb9",
+  "bugs": {
+    "url": "https://github.com/naota/linter-spell-cjk/issues"
+  },
+  "dependencies": {
+    "babel-plugin-transform-unicode-property-regex": "^1.0.0"
+  },
+  "description": "Fake dictionary to ignore mis-detected cjk words",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/naota/linter-spell-cjk#readme",
+  "keywords": [
+    "linter-spell",
+    "spell-check"
+  ],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "linter-spell-cjk",
+  "optionalDependencies": {},
+  "package-deps": [
+    "linter-spell"
+  ],
+  "providedServices": {
+    "linter-spell-dictionary": {
+      "versions": {
+        "1.0.0": "provideDictionary"
+      }
+    }
+  },
+  "readme": "# linter-spell-cjk\n\nHunspell misdetects a cjk word as English word, and try to correct it. Of course,\nthere's no matching word in the dictionary, resulting linter shows noisy\nmisspelling warnings on cjk words.\n\nThis package acts as a fake dictionary to ignore such cjk words.\n\nIn short,\n\nWithout linter-spell-cjk:\n\n![without linter-spell-cjk](https://raw.githubusercontent.com/naota/linter-spell-cjk/master/before.png)\n\nWith linter-spell-cjk:\n\n![with linter-spell-cjk](https://raw.githubusercontent.com/naota/linter-spell-cjk/master/after.png)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naota/linter-spell-cjk.git"
+  },
+  "version": "0.1.1"
+}

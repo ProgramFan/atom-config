@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-7352-106okun.aaok8iwwmi/package.tgz",
+        "raw": "/tmp/d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-7352-106okun.aaok8iwwmi/package.tgz",
-        "spec": "/tmp/d-118014-7352-106okun.aaok8iwwmi/package.tgz",
+        "rawSpec": "/tmp/d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
+        "spec": "/tmp/d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-7352-pqj6bz.ry1fcu9pb9"
+      "/tmp/apm-install-dir-118014-7666-8ytvsl.fn7kuzncdi"
     ]
   ],
-  "_from": "../d-118014-7352-106okun.aaok8iwwmi/package.tgz",
+  "_from": "../d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
   "_id": "asciidoc-image-helper@1.0.0",
   "_inCache": true,
   "_location": "/asciidoc-image-helper",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-7352-106okun.aaok8iwwmi/package.tgz",
+    "raw": "/tmp/d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-7352-106okun.aaok8iwwmi/package.tgz",
-    "spec": "/tmp/d-118014-7352-106okun.aaok8iwwmi/package.tgz",
+    "rawSpec": "/tmp/d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
+    "spec": "/tmp/d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-7352-106okun.aaok8iwwmi/package.tgz",
+  "_resolved": "file:../d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
   "_shasum": "d1117c4fb38405491709eb0dbe1c0045441e3458",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-7352-106okun.aaok8iwwmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-7352-pqj6bz.ry1fcu9pb9",
+  "_spec": "/tmp/d-118014-7666-nhyvn2.3ctclkgldi/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-7666-8ytvsl.fn7kuzncdi",
   "bugs": {
     "url": "https://github.com/asciidoctor/atom-asciidoc-image-helper/issues"
   },

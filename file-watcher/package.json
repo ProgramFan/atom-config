@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
+        "raw": "/tmp/d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
-        "spec": "/tmp/d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
+        "rawSpec": "/tmp/d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
+        "spec": "/tmp/d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-5148-9mbhly.vljfko6r"
+      "/tmp/apm-install-dir-118014-5142-1ia2v2h.59dtmlsor"
     ]
   ],
-  "_from": "../d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
+  "_from": "../d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
   "_id": "file-watcher@1.2.6",
   "_inCache": true,
   "_location": "/file-watcher",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
+    "raw": "/tmp/d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
-    "spec": "/tmp/d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
+    "rawSpec": "/tmp/d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
+    "spec": "/tmp/d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
+  "_resolved": "file:../d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
   "_shasum": "7e25d1cafd0e2084b632b35b1a6299359ba62e7e",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-5148-wk9qnu.7dbntxogvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-5148-9mbhly.vljfko6r",
+  "_spec": "/tmp/d-118014-5142-1yi4cnq.02sqhncdi/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-5142-1ia2v2h.59dtmlsor",
   "bugs": {
     "url": "https://github.com/lwblackledge/file-watcher/issues"
   },

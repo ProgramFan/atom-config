@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
+        "raw": "/tmp/d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
-        "spec": "/tmp/d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
+        "rawSpec": "/tmp/d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
+        "spec": "/tmp/d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-4830-c0uw6i.mt5ipb9"
+      "/tmp/apm-install-dir-118014-4824-8uoj9y.3kvpzm2t9"
     ]
   ],
-  "_from": "../d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
+  "_from": "../d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
   "_id": "golden-ratio@0.3.0",
   "_inCache": true,
   "_location": "/golden-ratio",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
+    "raw": "/tmp/d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
-    "spec": "/tmp/d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
+    "rawSpec": "/tmp/d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
+    "spec": "/tmp/d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
+  "_resolved": "file:../d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
   "_shasum": "3b2ce4156308afe98454d19d501ba28ce5218689",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-4830-vgl6fe.1lf4qdunmi/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-4830-c0uw6i.mt5ipb9",
+  "_spec": "/tmp/d-118014-4824-1loqsw4.ueem4h1tt9/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-4824-8uoj9y.3kvpzm2t9",
   "activationCommands": {
     "atom-workspace": "golden-ratio:toggle"
   },

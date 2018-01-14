@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
+        "raw": "/tmp/d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
-        "spec": "/tmp/d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
+        "rawSpec": "/tmp/d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
+        "spec": "/tmp/d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-118014-6503-ooj3n9.kd7zrrudi"
+      "/tmp/apm-install-dir-118014-6603-11gldz7.7hwaikvs4i"
     ]
   ],
-  "_from": "../d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
+  "_from": "../d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
   "_id": "language-dot@1.7.0",
   "_inCache": true,
   "_location": "/language-dot",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
+    "raw": "/tmp/d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
-    "spec": "/tmp/d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
+    "rawSpec": "/tmp/d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
+    "spec": "/tmp/d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
+  "_resolved": "file:../d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
   "_shasum": "3d4e6816dcf75a0ddc5011e7e512a0ef176fcf00",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-118014-6503-qmp39b.r5n2n8kt9/package.tgz",
-  "_where": "/tmp/apm-install-dir-118014-6503-ooj3n9.kd7zrrudi",
+  "_spec": "/tmp/d-118014-6603-1ku4fml.gei75pnwmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-118014-6603-11gldz7.7hwaikvs4i",
   "bugs": {
     "url": "https://github.com/AdoPi/language-dot/issues"
   },
